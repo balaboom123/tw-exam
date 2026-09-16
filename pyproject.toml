@@ -1,7 +1,7 @@
 [project]
-name = "taiwan-examination-web"
+name = "tw-exam"
 version = "0.1.0"
-description = "Mirror and normalize exam papers from MOEX."
+description = "Mirror, normalize, and publish Taiwan examination papers from official sources."
 requires-python = ">=3.11"
 
 [dependency-groups]

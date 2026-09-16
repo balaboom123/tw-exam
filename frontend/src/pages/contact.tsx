@@ -2,7 +2,7 @@ import { InfoLayout } from "./info-layout"
 import { SOCIAL_CHANNELS } from "@/lib/social-gate"
 
 const REPO_ISSUES_URL =
-  "https://github.com/balaboom123/taiwan-examination-web/issues"
+  "https://github.com/balaboom123/tw-exam/issues"
 const CONTACT_EMAIL = "onlineedu666@gmail.com"
 
 export function ContactPage() {
@@ -20,7 +20,7 @@ export function ContactPage() {
       </p>
       <p>
         <a href={REPO_ISSUES_URL} target="_blank" rel="noopener noreferrer">
-          github.com/balaboom123/taiwan-examination-web/issues
+          github.com/balaboom123/tw-exam/issues
         </a>
       </p>
 

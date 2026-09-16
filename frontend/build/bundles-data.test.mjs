@@ -13,8 +13,8 @@ import {
 
 test("resolvePagesBase uses the renamed GitHub repository path", () => {
   assert.equal(
-    resolvePagesBase({ githubRepository: "balaboom123/taiwan-examination-web" }),
-    "/taiwan-examination-web/",
+    resolvePagesBase({ githubRepository: "balaboom123/tw-exam" }),
+    "/tw-exam/",
   )
 })
 
@@ -24,7 +24,7 @@ test("resolvePagesBase falls back to the site root outside GitHub Pages builds",
 
 test("resolveAdsenseEnabled disables AdSense for GitHub Pages project-site builds", () => {
   assert.equal(
-    resolveAdsenseEnabled({ githubRepository: "balaboom123/taiwan-examination-web" }),
+    resolveAdsenseEnabled({ githubRepository: "balaboom123/tw-exam" }),
     false,
   )
 })

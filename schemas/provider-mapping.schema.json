@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/provider-mapping.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/provider-mapping.schema.json",
   "title": "Provider identity mapping source",
   "type": "object",
   "required": ["schema_version", "catalog_version", "provider_id", "rules", "review_policy"],

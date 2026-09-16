@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/taxonomy.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/taxonomy.schema.json",
   "title": "Exam identity taxonomy source",
   "type": "object",
   "required": ["schema_version", "catalog_version", "dimensions", "bundle_purity"],

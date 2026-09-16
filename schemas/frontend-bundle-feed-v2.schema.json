@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/frontend-bundle-feed-v2.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/frontend-bundle-feed-v2.schema.json",
   "title": "Frontend bundle feed v2",
   "type": "object",
   "required": ["schema_version", "site_id", "catalog_version", "bundles"],

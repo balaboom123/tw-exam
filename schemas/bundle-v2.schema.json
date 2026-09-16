@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/bundle-v2.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/bundle-v2.schema.json",
   "title": "Site bundle v2",
   "type": "object",
   "required": ["schema_version", "bundle_id", "canonical_id", "canonical_name", "years", "file_count", "storage_key", "asset_name", "release_tag", "domain_id", "exam_family_id", "exam_series_id", "level_id", "track_id", "variant_ids", "stage_id"],

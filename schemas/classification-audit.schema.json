@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/classification-audit.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/classification-audit.schema.json",
   "title": "Classification audit v1",
   "type": "object",
   "required": ["schema_version", "catalog_version", "site_id", "provider_count", "paper_records_scanned", "records_with_identity", "records_needing_review", "approved_review_isolated_records", "unapproved_review_records", "all_records_covered", "mixed_legacy_groups", "current_bundle_dispositions", "planned_bundle_count", "planned_release_shards"],

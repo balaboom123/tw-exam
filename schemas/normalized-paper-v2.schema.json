@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/normalized-paper-v2.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/normalized-paper-v2.schema.json",
   "title": "Normalized paper v2",
   "type": "object",
   "required": ["schema_version", "catalog_version", "provider_id", "canonical_id", "canonical_name", "year_roc", "exam_name_raw", "category_raw", "paper_code", "file_type", "bundle_id", "domain_id", "exam_family_id", "exam_series_id", "level_id", "track_id", "variant_ids", "stage_id", "exam_event_id", "classification_confidence", "classification_reason"],

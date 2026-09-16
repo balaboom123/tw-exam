@@ -203,7 +203,7 @@ function App() {
   async function handleShareLink() {
     try {
       if (navigator.share) {
-        await navigator.share({ title: "考選部歷屆試題", url: window.location.href })
+        await navigator.share({ title: "tw-exam", url: window.location.href })
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(window.location.href)
       }

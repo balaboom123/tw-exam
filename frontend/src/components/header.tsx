@@ -33,10 +33,10 @@ export function Header({
           </span>
           <div className="min-w-0">
             <h1 className="font-serif text-[17px] font-bold leading-tight tracking-wide text-ink-950">
-              考選部歷屆試題
+              tw-exam
             </h1>
             <p className="text-[10px] leading-tight tracking-[0.22em] text-ink-500">
-              國家考試試題檔案庫
+              台灣歷屆試題庫
             </p>
           </div>
         </a>

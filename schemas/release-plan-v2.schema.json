@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://taiwan-examination-web.invalid/schemas/release-plan-v2.schema.json",
+  "$id": "https://tw-exam.invalid/schemas/release-plan-v2.schema.json",
   "title": "Release plan v2",
   "type": "object",
   "required": ["schema_version", "site_id", "release_asset_limit", "safety_target", "shards", "bundles"],

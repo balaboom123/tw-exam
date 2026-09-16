@@ -25,7 +25,7 @@ export function Footer() {
             </a>
           ))}
           <a
-            href="https://github.com/balaboom123/taiwan-examination-web"
+            href="https://github.com/balaboom123/tw-exam"
             target="_blank"
             rel="noopener noreferrer"
             className="flex min-h-11 items-center font-mono text-xs text-ink-600 transition-colors hover:text-ink-950"
