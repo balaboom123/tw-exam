@@ -9,7 +9,7 @@ from pathlib import Path
 
 from app.audit import audit_exit_code, build_catalog_audit, build_publication_backlog, build_release_plan, write_catalog_audit, write_release_plan
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code, write_history_coverage_audit
-from app.bundler import build_bundles
+from app.bundler import build_bundles, public_bundle_ids
 from app.crawler import make_result_url, make_year_search_url, year_ad_from_code
 from app.manifest import load_source_manifest, source_manifest_from_data, write_source_manifest
 from app.migration import migrate_legacy_state
@@ -22,7 +22,7 @@ from app.providers.base import SourceProvider
 from app.providers.registry import get_provider
 from app.state import load_existing_state, load_provider_state, load_site_bundles, merge_incremental_state, merge_targeted_state
 from app.site_registry import get_site_config
-from app.sync import sync_exam_pages
+from app.sync import restore_catalog_files, sync_exam_pages
 from app.storage import MirrorStore
 
 
@@ -399,6 +399,31 @@ def _download_affected_bundles(
                 raise last_error
 
 
+def _restore_new_public_bundle_files(
+    args: argparse.Namespace,
+    client: SourceProvider,
+    catalog: NormalizedCatalog,
+    existing_bundles: list[BundleAsset],
+    affected_ids: set[str],
+) -> list[SyncFailure]:
+    # A bundle crossing the site's year threshold has no previous release ZIP.
+    # Its retained years still need bytes on a runner with an empty mirror.
+    config = get_site_config(args.site_id)
+    eligible_ids = public_bundle_ids(
+        catalog, min_years=config.public_min_years,
+        min_years_by_canonical_prefix=config.public_min_years_by_canonical_prefix,
+    )
+    published_ids = {bundle.bundle_id or bundle.canonical_id for bundle in existing_bundles}
+    new_public_ids = (eligible_ids - published_ids) & affected_ids
+    papers = [
+        paper for paper in catalog.papers
+        if (paper.bundle_id or paper.canonical_id) in new_public_ids
+    ]
+    return restore_catalog_files(
+        client, MirrorStore(args.mirror_dir), NormalizedCatalog(papers=papers, review_queue=[]),
+    )
+
+
 def _write_probe_manifest_if_present(probe: dict[str, object], manifest_path: Path) -> None:
     updated_manifest = probe.get("updated_manifest")
     if isinstance(updated_manifest, dict):
@@ -508,12 +533,19 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
     )
     if getattr(args, "download_affected_bundles", False) and affected_canonical_ids:
         site = site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id)
+        existing_bundles = load_site_bundles(site)
         _download_affected_bundles(
             _resolve_sync_bundle_dir(args),
-            load_site_bundles(site),
+            existing_bundles,
             affected_canonical_ids,
             args.release_tag,
         )
+        restoration_failures = _restore_new_public_bundle_files(
+            args, sync_client, provider_normalized, existing_bundles, affected_canonical_ids,
+        )
+        if restoration_failures:
+            _print_failures(restoration_failures)
+            return 1
     if args.publish_plan_output is not None:
         _write_publish_plan(
             args.publish_plan_output,
@@ -710,12 +742,19 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         )
         if getattr(args, "download_affected_bundles", False) and affected_canonical_ids:
             site = site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id)
+            existing_bundles = load_site_bundles(site)
             _download_affected_bundles(
                 _resolve_sync_bundle_dir(args),
-                load_site_bundles(site),
+                existing_bundles,
                 affected_canonical_ids,
                 args.release_tag,
             )
+            restoration_failures = _restore_new_public_bundle_files(
+                args, provider, provider_normalized, existing_bundles, affected_canonical_ids,
+            )
+            if restoration_failures:
+                _print_failures(restoration_failures)
+                return 1
         refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
         provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
         provider_failures.extend(sync_failures)

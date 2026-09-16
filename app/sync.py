@@ -171,6 +171,35 @@ def _ensure_mirrored(client: SourceProvider, mirror_store: MirrorStore, prefix: 
     return stored
 
 
+def restore_catalog_files(
+    client: SourceProvider, mirror_store: MirrorStore, catalog: NormalizedCatalog,
+) -> list[SyncFailure]:
+    """Restore retained files without changing their recorded identity or bytes."""
+    failures: list[SyncFailure] = []
+    for paper in catalog.papers:
+        try:
+            path = mirror_store.root / paper.storage_key
+            if path.is_file() and _is_valid_stored_file(path, paper.file_type):
+                if not paper.checksum or hashlib.sha256(path.read_bytes()).hexdigest() == paper.checksum:
+                    continue
+            downloaded = _retry_network(lambda: client.download_file(paper.download_url_source))
+            extension = _validated_extension(
+                paper.file_type, downloaded.data, downloaded.content_type, downloaded.file_name,
+            )
+            if extension != path.suffix.lower():
+                raise RuntimeError("Retained file format changed; refresh its source exam before publication")
+            if paper.checksum and hashlib.sha256(downloaded.data).hexdigest() != paper.checksum:
+                raise RuntimeError("Retained file checksum changed; refresh its source exam before publication")
+            mirror_store.write_bytes(paper.storage_key, downloaded.data, overwrite=True)
+        except Exception as exc:
+            failures.append(SyncFailure(
+                stage="download", source_exam_id=paper.source_exam_id, year_roc=paper.year_roc,
+                paper_code=paper.paper_code, file_type=paper.file_type,
+                url=paper.download_url_source, message=f"Failed to restore retained file: {exc}",
+            ))
+    return failures
+
+
 def sync_exam_pages(
     client: SourceProvider,
     exam_codes: list[tuple[str, int]],
