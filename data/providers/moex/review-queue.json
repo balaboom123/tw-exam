@@ -8360,72 +8360,6 @@
     "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試少將轉任_一般行政"
   },
   {
-    "raw_category": "三等考試_司法官及律師",
-    "normalized_candidate": "司法官及律師",
-    "source_exam_id": "115110",
-    "year_roc": 115,
-    "provider_id": "moex",
-    "raw_exam_name": "115年公務人員特種考試司法官考試（第一試）、115年專門職業及技術人員高等考試律師考試（第一試）",
-    "classification_signature": "moex|civil-service|civil-service-exam|special-judicial|grade-3|track-a8efdc0e1bb3|not-applicable|stage-1",
-    "bundle_id": "moex-special-judicial-grade-3-track-a8efdc0e1bb3-stage-1",
-    "reason": "legacy canonicalization requires review; explicit category marker: 三等考試_司法官及律師"
-  },
-  {
-    "raw_category": "軍官轉任公務人員考試上校轉任_一般行政",
-    "normalized_candidate": "一般行政",
-    "source_exam_id": "115040",
-    "year_roc": 115,
-    "provider_id": "moex",
-    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
-    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|general-administration|not-applicable|not-applicable",
-    "bundle_id": "moex-special-military-transfer-unknown-general-administration-event-115040",
-    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_一般行政"
-  },
-  {
-    "raw_category": "軍官轉任公務人員考試上校轉任_廉政",
-    "normalized_candidate": "廉政",
-    "source_exam_id": "115040",
-    "year_roc": 115,
-    "provider_id": "moex",
-    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
-    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|track-2e42e0f9a4aa|not-applicable|not-applicable",
-    "bundle_id": "moex-special-military-transfer-unknown-track-2e42e0f9a4aa-event-115040",
-    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_廉政"
-  },
-  {
-    "raw_category": "軍官轉任公務人員考試上校轉任_會計",
-    "normalized_candidate": "會計",
-    "source_exam_id": "115040",
-    "year_roc": 115,
-    "provider_id": "moex",
-    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
-    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|accounting|not-applicable|not-applicable",
-    "bundle_id": "moex-special-military-transfer-unknown-accounting-event-115040",
-    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_會計"
-  },
-  {
-    "raw_category": "軍官轉任公務人員考試上校轉任_社會行政",
-    "normalized_candidate": "社會行政",
-    "source_exam_id": "115040",
-    "year_roc": 115,
-    "provider_id": "moex",
-    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
-    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|track-93d79eca1516|not-applicable|not-applicable",
-    "bundle_id": "moex-special-military-transfer-unknown-track-93d79eca1516-event-115040",
-    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_社會行政"
-  },
-  {
-    "raw_category": "軍官轉任公務人員考試少將轉任_一般行政",
-    "normalized_candidate": "一般行政",
-    "source_exam_id": "115040",
-    "year_roc": 115,
-    "provider_id": "moex",
-    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
-    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|general-administration|not-applicable|not-applicable",
-    "bundle_id": "moex-special-military-transfer-unknown-general-administration-event-115040",
-    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試少將轉任_一般行政"
-  },
-  {
     "raw_category": "公務人員升官等公務薦任_消防與災害防救",
     "normalized_candidate": "消防與災害防救",
     "source_exam_id": "114160",
@@ -8578,5 +8512,71 @@
     "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|general-administration|destination-destination-901903fb6ff5|not-applicable",
     "bundle_id": "moex-special-military-transfer-unknown-general-administration-destination-destination-901903fb6ff5-event-114040",
     "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試少將轉任_一般行政(轉任退輔會)類科"
+  },
+  {
+    "raw_category": "三等考試_司法官及律師",
+    "normalized_candidate": "司法官及律師",
+    "source_exam_id": "115110",
+    "year_roc": 115,
+    "provider_id": "moex",
+    "raw_exam_name": "115年公務人員特種考試司法官考試（第一試）、115年專門職業及技術人員高等考試律師考試（第一試）",
+    "classification_signature": "moex|civil-service|civil-service-exam|special-judicial|grade-3|track-a8efdc0e1bb3|not-applicable|stage-1",
+    "bundle_id": "moex-special-judicial-grade-3-track-a8efdc0e1bb3-stage-1",
+    "reason": "legacy canonicalization requires review; explicit category marker: 三等考試_司法官及律師"
+  },
+  {
+    "raw_category": "軍官轉任公務人員考試上校轉任_一般行政",
+    "normalized_candidate": "一般行政",
+    "source_exam_id": "115040",
+    "year_roc": 115,
+    "provider_id": "moex",
+    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
+    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|general-administration|not-applicable|not-applicable",
+    "bundle_id": "moex-special-military-transfer-unknown-general-administration-event-115040",
+    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_一般行政"
+  },
+  {
+    "raw_category": "軍官轉任公務人員考試上校轉任_廉政",
+    "normalized_candidate": "廉政",
+    "source_exam_id": "115040",
+    "year_roc": 115,
+    "provider_id": "moex",
+    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
+    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|track-2e42e0f9a4aa|not-applicable|not-applicable",
+    "bundle_id": "moex-special-military-transfer-unknown-track-2e42e0f9a4aa-event-115040",
+    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_廉政"
+  },
+  {
+    "raw_category": "軍官轉任公務人員考試上校轉任_會計",
+    "normalized_candidate": "會計",
+    "source_exam_id": "115040",
+    "year_roc": 115,
+    "provider_id": "moex",
+    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
+    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|accounting|not-applicable|not-applicable",
+    "bundle_id": "moex-special-military-transfer-unknown-accounting-event-115040",
+    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_會計"
+  },
+  {
+    "raw_category": "軍官轉任公務人員考試上校轉任_社會行政",
+    "normalized_candidate": "社會行政",
+    "source_exam_id": "115040",
+    "year_roc": 115,
+    "provider_id": "moex",
+    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
+    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|track-93d79eca1516|not-applicable|not-applicable",
+    "bundle_id": "moex-special-military-transfer-unknown-track-93d79eca1516-event-115040",
+    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試上校轉任_社會行政"
+  },
+  {
+    "raw_category": "軍官轉任公務人員考試少將轉任_一般行政",
+    "normalized_candidate": "一般行政",
+    "source_exam_id": "115040",
+    "year_roc": 115,
+    "provider_id": "moex",
+    "raw_exam_name": "115年公務人員特種考試關務人員考試、115年公務人員特種考試身心障礙人員考試、115年國軍上校以上軍官轉任公務人員考試",
+    "classification_signature": "moex|civil-service|civil-service-exam|special-military-transfer|unknown|general-administration|not-applicable|not-applicable",
+    "bundle_id": "moex-special-military-transfer-unknown-general-administration-event-115040",
+    "reason": "no authoritative level marker in category/event: 軍官轉任公務人員考試少將轉任_一般行政"
   }
 ]
