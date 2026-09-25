@@ -12,7 +12,7 @@ Workflow filenames are implementation details; ownership determines what they ma
 
 Provider workflows may pass a scoped publish plan to the site publisher, which owns site state and release assets. They must not invent release assignments. Site workflows must not parse official sources or mutate provider identity. Deploy workflows consume site feeds rather than raw provider crawl state.
 
-The MOEX workflows and CEEC AST publication pilot restore the latest provider mirror cache by prefix and save a new run-specific cache after a sync attempt, including a failed attempt. This preserves downloaded files when a run fails after fetching them. Actions cache remains subject to eviction, so this is an interim recovery measure rather than durable mirror storage.
+The MOEX workflows and CEEC AST publication pilot restore the latest provider mirror cache by prefix and save a new run-specific cache after a sync attempt, including a failed attempt. This preserves downloaded files when a run fails after fetching them. CEEC AST calls `_sync-provider.yml`, which publishes affected bundles and commits provider and site state together only after release upload succeeds. Actions cache remains subject to eviction, so this is an interim recovery measure rather than durable mirror storage. Later provider callers must sequence writes to the shared site metadata.
 
 ## Generated-state commit guard
 

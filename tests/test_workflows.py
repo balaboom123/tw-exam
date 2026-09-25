@@ -21,6 +21,14 @@ def _load_release_script():
     return module
 
 
+def _workflow_implementation(path: Path) -> str:
+    """Include same-repository reusable jobs when checking a caller's gates."""
+    text = path.read_text(encoding="utf-8")
+    for name in re.findall(r"uses: \./\.github/workflows/([\w-]+\.yml)", text):
+        text += "\n" + (path.parent / name).read_text(encoding="utf-8")
+    return text
+
+
 def _workflow_run_workflows(workflow: str) -> list[str]:
     names: list[str] = []
     inside_trigger = False
@@ -59,10 +67,12 @@ def _workflow_run_workflows(workflow: str) -> list[str]:
 def _data_writing_workflow_names() -> list[str]:
     names: list[str] = []
     for path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.yml")):
-        text = path.read_text(encoding="utf-8")
+        if path.name.startswith("_"):
+            continue
+        text = _workflow_implementation(path)
         if "commit-and-push.sh" not in text:
             continue
-        for line in text.splitlines():
+        for line in path.read_text(encoding="utf-8").splitlines():
             if line.startswith("name:"):
                 names.append(line.removeprefix("name:").strip())
                 break
@@ -177,7 +187,13 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn("release_assets.py prune", workflow)
 
     def test_ceec_ast_sync_publishes_its_affected_bundles(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-ceec-ast.yml").read_text(encoding="utf-8")
+        caller = (REPO_ROOT / ".github" / "workflows" / "sync-ceec-ast.yml").read_text(encoding="utf-8")
+        workflow = (REPO_ROOT / ".github" / "workflows" / "_sync-provider.yml").read_text(encoding="utf-8")
+
+        self.assertIn("uses: ./.github/workflows/_sync-provider.yml", caller)
+        self.assertIn("provider_id: ceec_ast", caller)
+        self.assertIn("cache_prefix: ceec-ast", caller)
+        self.assertIn("publish: true", caller)
 
         steps = (
             "--publish-plan-output .tmp/site-publish-plan.json",
@@ -188,15 +204,15 @@ class WorkflowTests(unittest.TestCase):
         )
         self.assertEqual(list(map(workflow.index, steps)), sorted(map(workflow.index, steps)))
         self.assertIn("--publish-plan .tmp/site-publish-plan.json", workflow)
-        self.assertIn("data/providers/ceec_ast data/sites/default", workflow)
+        self.assertIn('"data/providers/$PROVIDER_ID" data/sites/default', workflow)
         self.assertNotIn("release_assets.py prune", workflow)
-        self.assertLess(workflow.index("actions/cache/restore@"), workflow.index("Run CEEC AST sync"))
+        self.assertLess(workflow.index("actions/cache/restore@"), workflow.index("Run provider sync"))
         self.assertLess(workflow.index("actions/cache/save@"), workflow.index("Publish affected default-site bundles"))
         self.assertIn("steps.sync.outcome != 'skipped'", workflow)
         self.assertIn("continue-on-error: true", workflow)
-        self.assertIn("if: steps.sync.outcome == 'success' && steps.upload.outcome == 'success'", workflow)
-        self.assertIn("Surface CEEC AST sync failure", workflow)
-        commit_step = workflow[workflow.index("- name: Commit regenerated CEEC AST provider data"):]
+        self.assertIn("inputs.publish && steps.sync.outcome == 'success' && steps.upload.outcome == 'success'", workflow)
+        self.assertIn("Surface sync failure", workflow)
+        commit_step = workflow[workflow.index("- name: Commit provider and site state"):]
         self.assertNotIn("if: '!cancelled()'", commit_step)
 
     def test_sync_workflows_do_not_stage_legacy_site_output(self) -> None:
@@ -684,7 +700,7 @@ class WorkflowTests(unittest.TestCase):
         workflow_paths = sorted(workflows_dir.glob("sync-*.yml")) + [workflows_dir / "audit-recent.yml"]
 
         for workflow_path in workflow_paths:
-            workflow = workflow_path.read_text(encoding="utf-8")
+            workflow = _workflow_implementation(workflow_path)
             if "contents: write" not in workflow:
                 continue
             self.assertIn(".github/scripts/commit-and-push.sh", workflow, workflow_path.name)
@@ -753,7 +769,7 @@ class WorkflowTests(unittest.TestCase):
 
         self.assertTrue(writers)
         for workflow_path in writers:
-            workflow = workflow_path.read_text(encoding="utf-8")
+            workflow = _workflow_implementation(workflow_path)
             with self.subTest(workflow=workflow_path.name):
                 self.assertIn(".github/scripts/commit-and-push.sh", workflow)
                 for forbidden in ("git commit -m", "git push origin"):
@@ -977,7 +993,7 @@ class FailedSyncCommitGuardTest(unittest.TestCase):
         self.assertIn("normalized catalog and public site eligibility differ", validator)
 
         for name in ("sync-incremental.yml", "audit-recent.yml", "sync-full.yml", "sync-ceec-ast.yml"):
-            lines = (workflows_dir / name).read_text(encoding="utf-8").splitlines()
+            lines = _workflow_implementation(workflows_dir / name).splitlines()
             commit_indexes = [i for i, line in enumerate(lines) if "commit-and-push.sh" in line]
             with self.subTest(workflow=name):
                 self.assertTrue(commit_indexes)

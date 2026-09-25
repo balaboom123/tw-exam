@@ -1,0 +1,121 @@
+name: _sync-provider
+
+on:
+  workflow_call:
+    inputs:
+      provider_id:
+        required: true
+        type: string
+      cache_prefix:
+        required: true
+        type: string
+      timeout_minutes:
+        required: true
+        type: number
+      publish:
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: ${{ inputs.provider_id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout_minutes }}
+    concurrency:
+      group: sync-${{ inputs.provider_id }}
+      cancel-in-progress: false
+    env:
+      PROVIDER_ID: ${{ inputs.provider_id }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Start timer
+        id: timer
+        run: echo "started=$(date +%s)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
+        with:
+          path: mirror
+          key: ${{ inputs.cache_prefix }}-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ inputs.cache_prefix }}-mirror-
+
+      - name: Run provider sync
+        id: sync
+        continue-on-error: true
+        run: python -m app sync-full --provider "$PROVIDER_ID" --site-id default --publish-plan-output .tmp/site-publish-plan.json
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: ${{ inputs.cache_prefix }}-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Publish affected default-site bundles
+        if: ${{ inputs.publish && steps.sync.outcome == 'success' }}
+        run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json
+
+      - name: Ensure release exists
+        if: ${{ inputs.publish && steps.sync.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release_assets.py ensure
+
+      - name: Upload downloadable bundles
+        id: upload
+        if: ${{ inputs.publish && steps.sync.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release_assets.py upload
+
+      - name: Commit provider and site state
+        if: ${{ inputs.publish && steps.sync.outcome == 'success' && steps.upload.outcome == 'success' }}
+        run: >-
+          bash .github/scripts/commit-and-push.sh "chore: refresh $PROVIDER_ID provider data" "data/providers/$PROVIDER_ID" data/sites/default
+
+      - name: Commit provider state
+        if: ${{ !inputs.publish && steps.sync.outcome == 'success' }}
+        run: >-
+          bash .github/scripts/commit-and-push.sh "chore: refresh $PROVIDER_ID provider data" "data/providers/$PROVIDER_ID"
+
+      - name: Summarize provider sync
+        if: always()
+        env:
+          SYNC_OUTCOME: ${{ steps.sync.outcome }}
+          PUBLISH: ${{ inputs.publish }}
+          STARTED: ${{ steps.timer.outputs.started }}
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          import os
+          from pathlib import Path
+          import time
+
+          provider = os.environ["PROVIDER_ID"]
+          path = Path("data/providers") / provider / "sync-failures.json"
+          failures = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else []
+          mirror = Path("mirror/providers") / provider
+          mirror_bytes = sum(file.stat().st_size for file in mirror.rglob("*") if file.is_file()) if mirror.exists() else 0
+          started = int(os.environ.get("STARTED") or time.time())
+          print(f"### {provider}")
+          print(f"- Sync: {os.environ.get('SYNC_OUTCOME') or 'not started'}")
+          print(f"- Site publication requested: {os.environ['PUBLISH']}")
+          print(f"- Current unresolved failures: {len(failures)}")
+          print(f"- Mirrored bytes: {mirror_bytes}")
+          print(f"- Wall time: {int(time.time()) - started} seconds")
+          PY
+
+      - name: Surface sync failure
+        if: ${{ steps.sync.outcome == 'failure' }}
+        run: exit 1

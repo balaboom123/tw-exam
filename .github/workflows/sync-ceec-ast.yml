@@ -10,64 +10,9 @@ permissions:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
-    timeout-minutes: 120
-    concurrency:
-      group: ceec-ast
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-
-      - name: Restore mirror directory
-        uses: actions/cache/restore@v6
-        with:
-          path: mirror
-          key: ceec-ast-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            ceec-ast-mirror-
-
-      - name: Run CEEC AST sync
-        id: sync
-        continue-on-error: true
-        run: python -m app sync-full --provider ceec_ast --site-id default --publish-plan-output .tmp/site-publish-plan.json
-
-      - name: Save mirror directory
-        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
-        uses: actions/cache/save@v6
-        with:
-          path: mirror
-          key: ceec-ast-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Publish affected default-site bundles
-        if: steps.sync.outcome == 'success'
-        run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json
-
-      - name: Ensure release exists
-        if: steps.sync.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/release_assets.py ensure
-
-      - name: Upload downloadable bundles
-        id: upload
-        if: steps.sync.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/release_assets.py upload
-
-      - name: Commit regenerated CEEC AST provider data
-        if: steps.sync.outcome == 'success' && steps.upload.outcome == 'success'
-        # Keep provider and site state in the same commit only after the
-        # affected ZIP assets are published successfully.
-        run: >-
-          bash .github/scripts/commit-and-push.sh "chore: refresh CEEC AST provider data" data/providers/ceec_ast data/sites/default
-
-      - name: Surface CEEC AST sync failure
-        if: steps.sync.outcome == 'failure'
-        run: exit 1
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: ceec_ast
+      cache_prefix: ceec-ast
+      timeout_minutes: 120
+      publish: true
