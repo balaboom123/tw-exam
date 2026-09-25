@@ -1,14 +1,11 @@
 from __future__ import annotations
 
 import hashlib
-import math
 import random
 import re
 import time
 from concurrent.futures import Future, ThreadPoolExecutor
 from dataclasses import dataclass
-from datetime import datetime, timezone
-from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import unquote
@@ -16,6 +13,7 @@ from urllib.parse import unquote
 from app.models import AliasRule, ExamAttachment, NormalizedCatalog, ParsedPaper, SourceExamPage, StoredFile, SyncFailure
 from app.normalizer import normalize_papers
 from app.providers.base import SourceProvider
+from app.providers.http import retry_after_seconds
 from app.storage import MirrorStore
 
 EXTENSION_OVERRIDES = {
@@ -133,23 +131,6 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     return _matches_expected_binary(path.read_bytes()[:8], actual_extension)
 
 
-def _retry_after_seconds(error: HTTPError) -> float | None:
-    value = error.headers.get("Retry-After") if error.headers is not None else None
-    if not value:
-        return None
-    try:
-        seconds = float(value)
-        return max(0.0, seconds) if math.isfinite(seconds) else None
-    except ValueError:
-        try:
-            target = parsedate_to_datetime(value)
-        except (TypeError, ValueError):
-            return None
-        if target.tzinfo is None:
-            target = target.replace(tzinfo=timezone.utc)
-        return max(0.0, (target - datetime.now(timezone.utc)).total_seconds())
-
-
 def retry_network(operation, attempts: int = 3):
     """Retry transient source requests, respecting a server's Retry-After."""
     for attempt in range(attempts):
@@ -162,7 +143,7 @@ def retry_network(operation, attempts: int = 3):
                 raise
             delay = 2**attempt + random.uniform(0.0, 0.25)
             if isinstance(exc, HTTPError):
-                retry_after = _retry_after_seconds(exc)
+                retry_after = retry_after_seconds(exc.headers.get("Retry-After") if exc.headers else None)
                 if retry_after is not None:
                     delay = max(delay, retry_after)
             if delay > 120:
