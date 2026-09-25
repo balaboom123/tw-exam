@@ -14,6 +14,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Select catalog gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      catalog: ${{ steps.scope.outputs.catalog }}
+    steps:
+      - name: Checkout history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check changed paths
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || '' }}
+        run: python3 .github/scripts/ci_scope.py --event "$EVENT_NAME" --base "$BASE_SHA"
+
   fast-python:
     name: Fast Python tests
     runs-on: ubuntu-latest
@@ -36,8 +55,20 @@ jobs:
       - name: Run fast Python tests
         run: uv run --frozen python -m pytest -q -m "not repo_data"
 
+      - name: Validate documentation projections
+        run: |
+          uv run --frozen python scripts/render_docs.py --check
+          uv run --frozen python scripts/validate_docs.py --check
+
+      - name: Validate shell scripts and whitespace
+        run: |
+          bash -n .github/scripts/*.sh
+          git diff --check
+
   python:
     name: Python and catalog
+    needs: changes
+    if: needs.changes.outputs.catalog == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -73,11 +104,6 @@ jobs:
       - name: Verify generated provider indexes against source files
         run: uv run --frozen python scripts/build_provider_indexes.py --check
 
-      - name: Validate documentation projections
-        run: |
-          uv run --frozen python scripts/render_docs.py --check
-          uv run --frozen python scripts/validate_docs.py --check
-
       - name: Audit event-level coverage
         # CI checks out without the gitignored mirror tree, so the download
         # dimension is unverifiable here and is audited by operators instead.
@@ -87,11 +113,6 @@ jobs:
 
       - name: Plan release shards
         run: uv run --frozen python -m app plan-release --repo-root . --site-id default --output .tmp/release-plan.json
-
-      - name: Validate shell scripts and whitespace
-        run: |
-          bash -n .github/scripts/*.sh
-          git diff --check
 
   frontend:
     name: Frontend test, lint, and build

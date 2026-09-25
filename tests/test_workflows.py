@@ -975,6 +975,18 @@ class LaunchCITest(unittest.TestCase):
         self.assertTrue((REPO_ROOT / "uv.lock").is_file())
         self.assertIn('node-version: "22"', workflow)
 
+    def test_ci_catalog_gate_is_conditional_but_docs_run_on_every_change(self) -> None:
+        workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        fast_job = workflow.split("  fast-python:\n", 1)[1].split("  python:\n", 1)[0]
+        catalog_job = workflow.split("  python:\n", 1)[1].split("  frontend:\n", 1)[0]
+
+        self.assertIn("fetch-depth: 0", workflow)
+        self.assertIn("ci_scope.py", workflow)
+        self.assertIn("needs: changes", catalog_job)
+        self.assertIn("if: needs.changes.outputs.catalog == 'true'", catalog_job)
+        self.assertIn("scripts/validate_docs.py --check", fast_job)
+        self.assertIn("scripts/validate_publication.py", catalog_job)
+
 
 class FailedSyncCommitGuardTest(unittest.TestCase):
     # Provider sync commands can write partial output before exiting nonzero.
