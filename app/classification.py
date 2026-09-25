@@ -114,7 +114,6 @@ _SERIES_LABELS = {
     "professional-high": "專技高考",
     "professional-ordinary": "專技普考",
     "professional-special": "專技特考",
-    "professional-screening": "專技檢覈",
     "professional-combined": "專技綜合／歷史制度",
     "professional-screening": "專技檢覈／檢覈筆試",
     "teacher-qualification": "教師資格考試",
