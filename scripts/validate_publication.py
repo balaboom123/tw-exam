@@ -18,7 +18,7 @@ from app.paths import provider_paths
 from app.publisher import load_site_catalog
 from app.site_registry import get_site_config
 from app.source_inventory import validate_source_inventory
-from app.state import load_provider_state
+from app.state import load_provider_failures
 
 GENERIC_SUBJECT_PREFIXES = ("wdasec-skill-", "ceec-gsat-", "ceec-ast-", "tcte-tve-")
 
@@ -42,7 +42,7 @@ def validate_provider_site_coverage(site_bundle_ids: set[str], *, repo_root: Pat
         provider = provider_paths(repo_root, provider_id)
         if not provider.data_dir.exists():
             continue
-        _raw_pages, _provider_catalog, provider_failures = load_provider_state(provider)
+        provider_failures = load_provider_failures(provider)
         exceptions = load_coverage_exceptions(repo_root, provider_id)
         unresolved_failures.extend(
             (provider_id, failure)
