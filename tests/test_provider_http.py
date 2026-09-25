@@ -12,6 +12,7 @@ from app.providers.special_admission.client import SpecialAdmissionClient
 from app.providers.tabf_cert.client import TabfCertClient
 from app.providers.tcte_tve.client import TcteTveClient
 from app.providers.tocfl_cert.client import TocflCertClient
+from app.providers.twc_recruit.client import TwcRecruitClient
 
 
 class Response:
@@ -62,6 +63,24 @@ class ProviderHttpTests(unittest.TestCase):
                     self.assertEqual(downloaded.file_name, "question paper.pdf")
                     self.assertEqual(downloaded.data, b"pdf")
                     self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
+
+    def test_twc_transport_keeps_download_url_guard(self) -> None:
+        client = TwcRecruitClient()
+        url = "https://www.water.gov.tw/ch/ServerFile/Get/12345678-1234-1234-1234-123456789abc?nodeId=715"
+        with patch("app.providers.http.urlopen", return_value=Response(b"page")) as open_url:
+            self.assertEqual(client._fetch_text("https://www.water.gov.tw/ch/Subject/Detail/59619"), "page")
+            self.assertEqual(open_url.call_args.args[0].get_method(), "GET")
+
+        with patch("app.providers.http.urlopen", return_value=Response(b"", headers={"Content-Length": "4"})) as open_url:
+            self.assertEqual(client.head(url).content_length, 4)
+            self.assertEqual(open_url.call_args.args[0].get_method(), "HEAD")
+
+        with patch("app.providers.http.urlopen", return_value=Response(b"data")) as open_url:
+            self.assertEqual(client.download_file(url).file_name, "12345678-1234-1234-1234-123456789abc")
+            self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
+
+        with self.assertRaises(ValueError):
+            client.download_file("https://example.test/paper.zip")
 
     def test_retry_after_and_transient_errors(self) -> None:
         headers = Message()
