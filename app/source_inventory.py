@@ -17,7 +17,7 @@ from typing import Any
 from app.manifest import load_source_manifest
 from app.paths import provider_paths
 from app.site_registry import get_site_config
-from app.state import load_provider_failures, load_provider_state
+from app.state import load_provider_failures
 
 INVENTORY_SCHEMA_VERSION = 1
 INVENTORY_PATH = Path("catalog/source-inventory.json")
@@ -181,25 +181,10 @@ def _validate_evidence_paths(repo_root: Path, inventory: dict[str, Any]) -> None
 
 
 def _local_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
-    raw_pages, catalog, failures = load_provider_state(provider_paths(repo_root, provider_id))
-    years = sorted(
-        {page.year_ad for page in raw_pages}
-        | {paper.year_roc + 1911 for paper in catalog.papers}
-    )
-    return {
-        "years": years,
-        "raw_event_pages": len(raw_pages),
-        "normalized_paper_records": len(catalog.papers),
-        "sync_failures": len(failures),
-        "event_ids": {(page.source_exam_id, page.year_ad) for page in raw_pages}
-        | {(paper.source_exam_id, paper.year_roc + 1911) for paper in catalog.papers},
-    }
-
-
-def _local_floor_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
-    """Count retained records one year at a time for the commit floor guard."""
+    """Observe retained state one year at a time without materializing catalogs."""
     provider = provider_paths(repo_root, provider_id)
     years: set[int] = set()
+    event_ids: set[tuple[str, int]] = set()
     counts: dict[str, int] = {}
     for label, directory, year_field, offset in (
         ("raw_event_pages", provider.exams_dir, "year_ad", 0),
@@ -211,12 +196,16 @@ def _local_floor_observation(repo_root: Path, provider_id: str) -> dict[str, Any
             if not isinstance(records, list):
                 raise ValueError(f"provider state is not an array: {path}")
             count += len(records)
-            years.update(record[year_field] + offset for record in records)
+            for record in records:
+                year = record[year_field] + offset
+                years.add(year)
+                event_ids.add((record.get("source_exam_id", ""), year))
         counts[label] = count
     return {
         "years": sorted(years),
         **counts,
         "sync_failures": len(load_provider_failures(provider)),
+        "event_ids": event_ids,
     }
 
 
@@ -253,7 +242,7 @@ def check_sync_floor(repo_root: Path, provider_ids: Sequence[str]) -> dict[str, 
         entry = entries.get(provider_id)
         if entry is None:
             raise ValueError(f"source inventory has no entry for provider: {provider_id}")
-        observation = _local_floor_observation(repo_root, provider_id)
+        observation = _local_observation(repo_root, provider_id)
         losses: list[str] = []
         for field in ("raw_event_pages", "normalized_paper_records"):
             recorded = entry["local_state"][field]
