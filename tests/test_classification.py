@@ -1,7 +1,7 @@
 import unittest
 from types import SimpleNamespace
 
-from app.classification import classify_normalized_paper, classify_paper
+from app.classification import _classify_paper_uncached, classify_normalized_paper, classify_paper
 
 
 def classify(category: str, event: str, *, source: str = "event-115", canonical: str = "一般行政", provider: str = "moex", subject: str = ""):
@@ -32,7 +32,7 @@ class ExamIdentityClassificationTests(unittest.TestCase):
         first = SimpleNamespace(**base, subject_name_raw="國文", subject_code="0101")
         second = SimpleNamespace(**base, subject_name_raw="法學知識", subject_code="0102")
 
-        expected = classify_paper(
+        expected = _classify_paper_uncached(
             provider_id="moex",
             source_exam_id=base["source_exam_id"],
             year_ad=2026,

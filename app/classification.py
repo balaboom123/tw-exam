@@ -574,7 +574,7 @@ def _provider_series(provider_id: str, canonical_id: str) -> tuple[str, str, str
     return "other", "provider-exam", _slug(canonical_id, prefix="series"), _display(canonical_id, "待審核考試")
 
 
-def classify_paper(
+def _classify_paper_uncached(
     *,
     provider_id: str,
     source_exam_id: str,
@@ -689,7 +689,7 @@ def _classify_moex_record(
 ) -> ExamIdentity:
     # MOEX classification depends on the event and category, not the paper's
     # subject. Hundreds of papers can therefore share one immutable identity.
-    return classify_paper(
+    return _classify_paper_uncached(
         provider_id="moex",
         source_exam_id=source_exam_id,
         year_ad=year_ad,
@@ -700,16 +700,41 @@ def _classify_moex_record(
     )
 
 
-def classify_normalized_paper(paper: Any) -> ExamIdentity:
-    if getattr(paper, "provider_id", "") == "moex":
+def classify_paper(
+    *,
+    provider_id: str,
+    source_exam_id: str,
+    year_ad: int,
+    category_raw: str,
+    exam_name_raw: str,
+    canonical_id: str,
+    canonical_name: str,
+    subject_name_raw: str = "",
+    subject_code: str = "",
+) -> ExamIdentity:
+    if provider_id == "moex":
         return _classify_moex_record(
-            getattr(paper, "source_exam_id", ""),
-            int(getattr(paper, "year_roc", 0) or 0) + 1911,
-            getattr(paper, "category_raw", ""),
-            getattr(paper, "exam_name_raw", ""),
-            getattr(paper, "canonical_id", ""),
-            getattr(paper, "canonical_name", ""),
+            source_exam_id,
+            year_ad,
+            category_raw,
+            exam_name_raw,
+            canonical_id,
+            canonical_name,
         )
+    return _classify_paper_uncached(
+        provider_id=provider_id,
+        source_exam_id=source_exam_id,
+        year_ad=year_ad,
+        category_raw=category_raw,
+        exam_name_raw=exam_name_raw,
+        canonical_id=canonical_id,
+        canonical_name=canonical_name,
+        subject_name_raw=subject_name_raw,
+        subject_code=subject_code,
+    )
+
+
+def classify_normalized_paper(paper: Any) -> ExamIdentity:
     return classify_paper(
         provider_id=getattr(paper, "provider_id", ""),
         source_exam_id=getattr(paper, "source_exam_id", ""),
