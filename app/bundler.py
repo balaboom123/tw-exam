@@ -663,7 +663,8 @@ def build_bundles(
         split_bundle = len(part_specs) > 1
         part_count = len(part_specs)
         for part_index, (part_path, part_name, part_papers) in enumerate(part_specs, 1):
-            part_digest = hashlib.sha256(part_path.read_bytes()).hexdigest()
+            with part_path.open("rb") as part_file:
+                part_digest = hashlib.file_digest(part_file, "sha256").hexdigest()
             part_years = sorted({paper.year_roc for paper in part_papers}, reverse=True)
             bundle_assets.append(
                 BundleAsset(
