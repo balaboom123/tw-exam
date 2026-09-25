@@ -26,11 +26,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: moex-mirror-${{ hashFiles('data/providers/moex/source-manifest.json') }}
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             moex-mirror-
 
@@ -59,6 +59,7 @@ jobs:
           bash .github/scripts/commit-and-push.sh "chore: refresh source manifest" data/providers/moex/source-manifest.json
 
       - name: Run targeted sync
+        id: targeted_sync
         if: steps.probe.outputs.should_sync == 'true'
         # _download_affected_bundles shells out to `gh release download` to
         # fetch each affected bundle's previous ZIP, so this python step needs
@@ -68,6 +69,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python -m app sync-targeted --provider moex --probe .tmp/source-probe.json --manifest data/providers/moex/source-manifest.json --download-affected-bundles --publish-plan-output .tmp/site-publish-plan.json --bundle-dir bundles/sites/default
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.targeted_sync.outcome != 'skipped' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Publish default site
         if: steps.probe.outputs.should_sync == 'true'

@@ -297,7 +297,8 @@ Rules:
 - The frontend feed MUST be site-owned.
 - The frontend feed MUST NOT expose raw provider-specific crawl fields.
 - The frontend feed MUST be derivable entirely from site publication outputs.
-- Frontend consumers MUST NOT need to know which release tag stores a given asset.
+- The public build projection MAY replace a direct URL with its GitHub repository, release tag, and asset name. It MUST reconstruct the same URL without consulting provider state.
+- Search aliases MAY be split into a lazy index. Index positions MUST align with the public bundle order, and both content-hashed files MUST be emitted by the same build.
 - V2 frontend entries MUST consume structured series/level/track facets; they MUST NOT reconstruct official identity from display-name regexes.
 - Multipart entries MUST render one logical row with one download control per part; the row's file count is the sum of its parts.
 

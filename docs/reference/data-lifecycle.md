@@ -171,7 +171,9 @@ Integrity properties:
 Behavior:
 
 - `app.publisher.publish_site` writes site-scoped publication metadata under `data/sites/<site_id>/`
-- the frontend build emits a frontend-specific `data/bundles.json` feed from publication data
+- the frontend build projects `frontend-bundles.json` into a content-hashed `data/bundles-<hash>.json` feed and a separate `data/search-index-<hash>.json`
+- the search index is fetched only when a visitor searches; its rows align with the public feed's bundle order
+- the same projection generates one static `b/<bundle-id>.html` landing page per public bundle and `sitemap.xml`; page URLs and release links come from site publication metadata
 
 Invariant:
 
@@ -182,7 +184,7 @@ Invariant:
 
 Behavior:
 
-- generated bundle feeds keep direct ZIP URLs
+- the site-owned source feed keeps direct ZIP URLs; the public build feed carries their repository, release tag, and asset name so the browser can reconstruct them
 - the frontend download row opens a category-specific LINE channel before unlocking ZIP downloads locally
 
 Invariant:

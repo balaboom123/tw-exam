@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from app.audit import audit_exit_code, build_catalog_audit, build_publication_backlog, build_release_plan, write_catalog_audit, write_release_plan
+from app.audit import audit_exit_code, build_catalog_audit, build_release_plan, write_catalog_audit, write_release_plan
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code, write_history_coverage_audit
 from app.bundler import build_bundles, public_bundle_ids
 from app.crawler import make_result_url, make_year_search_url, year_ad_from_code
@@ -713,6 +713,17 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             )
         except Exception as exc:
             print(f"Year {year}: failed with unexpected error: {exc}")
+            all_sync_failures.append(
+                SyncFailure(
+                    stage="sync",
+                    source_exam_id=f"{provider_id}-{year}",
+                    year_roc=year - 1911,
+                    paper_code="",
+                    file_type="",
+                    url="",
+                    message=f"Failed to sync year: {exc}",
+                )
+            )
             continue
         all_raw_pages.extend(raw_pages_year)
         all_papers.extend(catalog_year.papers)
@@ -776,7 +787,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         # is what an archive of past papers has to do. It also keeps the
         # retained papers referenced, so --prune-orphaned-mirror leaves their
         # mirrored files alone.
-        existing_provider_raw_pages, existing_provider_catalog, _ = load_provider_state(provider_state)
+        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = load_provider_state(provider_state)
         provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = merge_incremental_state(
             existing_raw_pages=existing_provider_raw_pages,
             existing_catalog=existing_provider_catalog,
@@ -784,10 +795,12 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             refreshed_raw_pages=refreshed_raw_pages,
             refreshed_catalog=refreshed_catalog,
         )
-        # Failures still describe this run alone: a retained event is one the
-        # source no longer reaches, so an old failure against it cannot be
-        # re-checked and must not be resurrected.
-        provider_failures = sync_failures
+        # Keep the failure evidence for events this run never fetched, just
+        # as the incremental branch does. Successful refreshes replace old
+        # failures, while the run's exit status still reflects only new ones.
+        refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
+        provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
+        provider_failures.extend(sync_failures)
         failures = sync_failures
     if args.publish_plan_output is not None:
         _write_publish_plan(
@@ -918,7 +931,7 @@ def command_audit_history(args: argparse.Namespace) -> int:
 
 
 def command_audit_catalog(args: argparse.Namespace) -> int:
-    report = build_catalog_audit(args.repo_root, site_id=args.site_id)
+    report = build_catalog_audit(args.repo_root, site_id=args.site_id, include_publication_backlog=True)
     write_catalog_audit(report, args.output)
     print(
         f"Scanned {report['paper_records_scanned']} records across {report['provider_count']} providers; "
@@ -931,7 +944,7 @@ def command_audit_catalog(args: argparse.Namespace) -> int:
     # Quarantined providers are withheld from that projection deliberately, so
     # the two differ by design and subtracting them measures nothing. Use the
     # backlog check, which reads the same population publish-site does.
-    backlog = build_publication_backlog(args.repo_root, site_id=args.site_id)
+    backlog = report["publication_backlog"]
     if backlog["unpublished_bundle_count"]:
         print(
             f"WARNING: {backlog['unpublished_bundle_count']} publishable bundle(s) covering "

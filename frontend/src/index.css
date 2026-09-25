@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Exam Sans TC";
+  src: url("./assets/fonts/exam-sans-tc-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exam Sans TC";
+  src: url("./assets/fonts/exam-sans-tc-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exam Serif TC";
+  src: url("./assets/fonts/exam-serif-tc-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600 900;
+  font-display: swap;
+}
+
 @theme {
   --color-paper: oklch(0.967 0.007 90);
   --color-cream: oklch(0.985 0.005 95);
@@ -18,9 +42,16 @@
   --color-seal-600: oklch(0.5 0.165 29);
   --color-seal-100: oklch(0.93 0.035 30);
 
-  --font-sans: "Noto Sans TC", system-ui, "Segoe UI", sans-serif;
-  --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
-  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --font-sans: "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-serif: "Songti TC", "PMingLiU", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --font-sans: "Exam Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    --font-serif: "Exam Serif TC", "Songti TC", "PMingLiU", serif;
+  }
 }
 
 html {

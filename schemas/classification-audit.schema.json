@@ -26,7 +26,21 @@
     },
     "release_asset_limit": {"const": 1000},
     "release_safety_target": {"type": "integer", "maximum": 900},
-    "current_release_capacity_ok": {"type": "boolean"}
+    "current_release_capacity_ok": {"type": "boolean"},
+    "publication_backlog": {
+      "type": "object",
+      "required": ["site_id", "published_bundle_count", "unpublished_bundle_count", "unpublished_record_count", "provider_ids", "unpublished_by_provider", "affected_canonical_ids", "canonical_aliases"],
+      "properties": {
+        "site_id": {"type": "string"},
+        "published_bundle_count": {"type": "integer", "minimum": 0},
+        "unpublished_bundle_count": {"type": "integer", "minimum": 0},
+        "unpublished_record_count": {"type": "integer", "minimum": 0},
+        "provider_ids": {"type": "array", "items": {"type": "string"}},
+        "unpublished_by_provider": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "affected_canonical_ids": {"type": "array", "items": {"type": "string"}},
+        "canonical_aliases": {"type": "object"}
+      }
+    }
   },
   "additionalProperties": true
 }

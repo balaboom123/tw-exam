@@ -22,34 +22,7 @@ export function PrivacyPage() {
       </p>
 
       <h2>廣告與 Cookie</h2>
-      <p>
-        本站使用 Google AdSense 展示廣告。Google
-        及其合作夥伴可能使用 Cookie，根據你先前造訪本站或其他網站的紀錄提供個人化廣告。你可以：
-      </p>
-      <ul>
-        <li>
-          前往
-          <a
-            href="https://adssettings.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google 廣告設定
-          </a>
-          停用個人化廣告；
-        </li>
-        <li>
-          參閱
-          <a
-            href="https://policies.google.com/technologies/ads?hl=zh-TW"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google 廣告技術說明
-          </a>
-          了解 Cookie 的使用方式。
-        </li>
-      </ul>
+      <p>本站目前沒有載入廣告程式，也不使用廣告 Cookie。</p>
 
       <h2>外部連結</h2>
       <p>
@@ -63,7 +36,7 @@ export function PrivacyPage() {
           本站為<strong>非官方</strong>
           彙整，與考選部及各命題機關無任何隸屬或合作關係。
         </li>
-        <li>試題著作權屬原命題機關所有，本站僅鏡像各機關公開之資料。</li>
+        <li>試題及其他來源檔案的權利依各原權利人與來源條款而定；本站提供公開來源的彙整與鏡像。</li>
         <li>
           本站力求資料完整與正確，但不保證其即時性或完整性；應考資訊請以官方公告為準。
         </li>

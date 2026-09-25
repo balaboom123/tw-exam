@@ -13,7 +13,7 @@
   "$defs": {
     "bundle": {
       "type": "object",
-      "required": ["id", "name", "years", "fileCount", "url", "domainId", "examFamilyId", "seriesId", "levelId", "trackId", "variantIds", "stageId"],
+      "required": ["id", "name", "years", "fileCount", "url", "domainId", "examFamilyId", "seriesId", "levelId", "trackId", "variantIds", "stageId", "examClass", "examSubclass", "searchAliases"],
       "properties": {
         "id": {"type": "string", "minLength": 1},
         "name": {"type": "string"},

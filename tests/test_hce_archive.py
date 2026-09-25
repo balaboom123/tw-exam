@@ -1,3 +1,4 @@
+import ssl
 import unittest
 from unittest.mock import patch
 
@@ -197,7 +198,10 @@ class HceArchiveParserTests(unittest.TestCase):
         self.assertEqual([page.year_roc for page in pages], [115])
 
     def test_unverified_tls_context_is_limited_to_failing_cmu_archive_host(self) -> None:
-        self.assertIsNotNone(_ssl_context_for("https://adm21.cmu.edu.tw/?q=zh-hant/news_spbcm"))
+        context = _ssl_context_for("https://adm21.cmu.edu.tw/?q=zh-hant/news_spbcm")
+        self.assertIsNotNone(context)
+        self.assertTrue(context.check_hostname)
+        self.assertEqual(context.verify_mode, ssl.CERT_REQUIRED)
         self.assertIsNone(_ssl_context_for("https://spbcm.cmu.edu.tw/page/384"))
         self.assertIsNone(_ssl_context_for("https://example.cmu.edu.tw/"))
 

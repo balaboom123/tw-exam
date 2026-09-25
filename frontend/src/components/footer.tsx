@@ -38,7 +38,15 @@ export function Footer() {
             資料來源：考選部、大考中心、國中教育會考、國營事業甄試、技能檢定及各教師甄選單位之公開資料。
           </p>
           <p className="mt-1.5">
-            本站為非官方彙整，試題著作權屬原命題機關所有。
+            本站為非官方彙整；試題權利及使用條款依各來源公告。詳見{" "}
+            <a
+              href="https://github.com/balaboom123/tw-exam/blob/main/DATA-LICENSE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-ink-800"
+            >
+              資料使用說明
+            </a>。
           </p>
         </div>
       </div>

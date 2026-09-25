@@ -9,6 +9,7 @@ export function EmptyState({ onReset }: { onReset: () => void }) {
         請更換關鍵字，或取消年度篩選
       </p>
       <button
+        type="button"
         onClick={onReset}
         className="mt-5 h-10 rounded-sm border border-line-strong px-4 text-sm font-medium text-ink-800 transition-colors hover:bg-cream"
       >

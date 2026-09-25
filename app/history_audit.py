@@ -116,7 +116,8 @@ def build_history_coverage_audit(
 
     ``source_only_events`` are authoritative discovery gaps only when the
     optional source probe succeeds.  An upstream outage is reported as a
-    probe error, never misclassified as missing historical material.
+    probe error, never misclassified as missing historical material. Source-only
+    events and probe errors both count toward ``parser_gap`` in strict reports.
 
     ``check_mirror`` distinguishes two conditions that must not be conflated: a
     mirror that is missing a file it should hold is a ``download_gap``, whereas
@@ -131,7 +132,7 @@ def build_history_coverage_audit(
     published_index = _published_bundle_index(load_site_bundles(site_paths(repo_root, site_id)))
     provider_reports: list[dict[str, Any]] = []
     status_counts: Counter[str] = Counter()
-    total_source_only = 0
+    total_parser_gaps = 0
     all_normalized_papers = []
 
     for provider_id in selected_provider_ids:
@@ -259,7 +260,10 @@ def build_history_coverage_audit(
                 event_keys,
                 client=(clients or {}).get(provider_id),
             )
-            total_source_only += len(source_probe["source_only_events"])
+            total_parser_gaps += len(source_probe["source_only_events"])
+            total_parser_gaps += len(source_probe["year_errors"])
+            if source_probe["status"] == "error":
+                total_parser_gaps += 1
         provider_reports.append(
             {
                 "provider_id": provider_id,
@@ -303,7 +307,7 @@ def build_history_coverage_audit(
                 status_counts["excluded_by_publication_policy"] += 1
 
     summary = dict(sorted(status_counts.items()))
-    summary["parser_gap"] = total_source_only
+    summary["parser_gap"] = total_parser_gaps
     return {
         "schema_version": 1,
         "site_id": site_id,

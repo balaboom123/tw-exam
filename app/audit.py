@@ -10,13 +10,14 @@ evidence, and compares it with the currently published site inventory.
 from collections import Counter, defaultdict
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 from app.bundler import _bundle_asset_name, _legacy_asset_names
-from app.classification import classify_normalized_paper, identity_fields
+from app.classification import ExamIdentity, classify_normalized_paper, identity_fields
 from app.models import BundleAsset, NormalizedCatalog
-from app.normalizer import _derive_canonical, load_alias_rules, renormalize_catalog
+from app.normalizer import _derive_canonical, _is_legacy_ascii_fixture, load_alias_rules, renormalize_catalog
 from app.paths import provider_paths, site_paths
+from app.publication_quarantine import quarantined_provider_ids
 from app.publisher import load_site_catalog
 from app.release_tags import GITHUB_RELEASE_ASSET_LIMIT, RELEASE_SAFETY_TARGET, assign_release_tags, physical_asset_names, strip_ambiguous_legacy_assets, validate_release_capacity
 from app.site_registry import get_site_config
@@ -35,10 +36,13 @@ def _review_key(item: Any) -> tuple[str, str, str]:
     return (item.provider_id, item.source_exam_id, item.raw_category)
 
 
-def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[str, Any]:
+def build_catalog_audit(
+    repo_root: Path, *, site_id: str = "default", include_publication_backlog: bool = False,
+) -> dict[str, Any]:
     site_config = get_site_config(site_id)
     provider_reports: list[dict[str, Any]] = []
     all_papers: list[Any] = []
+    identities_by_paper: dict[int, ExamIdentity] = {}
     all_review_items: list[Any] = []
     for provider_id in site_config.provider_ids:
         provider = provider_paths(repo_root, provider_id)
@@ -49,6 +53,7 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
             if not paper.provider_id:
                 paper.provider_id = provider_id
             identity = classify_normalized_paper(paper)
+            identities_by_paper[id(paper)] = identity
             fields = identity_fields(identity)
             all_papers.append(paper)
             confidence_counts[identity.confidence] += 1
@@ -73,13 +78,27 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
             entry["raw_categories"].add(paper.category_raw)
             if any(getattr(paper, field, None) != value for field, value in fields.items()):
                 entry["records_needing_v2_rewrite"] += 1
-        rebuilt_queue = renormalize_catalog(
-            NormalizedCatalog(papers=catalog.papers, review_queue=[]),
-            load_alias_rules(provider.aliases_path),
-            collect_reviews=True,
-        ).review_queue
+        alias_rules = load_alias_rules(provider.aliases_path)
         current_review_keys = {_review_key(item) for item in catalog.review_queue}
-        rebuilt_review_keys = {_review_key(item) for item in rebuilt_queue}
+        if all(paper.category_raw and paper.canonical_id and paper.canonical_name for paper in catalog.papers):
+            # Persisted records already have canonical names. Their review
+            # status is exactly the identity computed in the first scan, so
+            # rebuilding the entire catalog would classify every paper again.
+            rebuilt_review_keys = {
+                (paper.provider_id, paper.source_exam_id, paper.category_raw)
+                for paper in catalog.papers
+                if not _is_legacy_ascii_fixture(paper)
+                and identities_by_paper[id(paper)].confidence == "review"
+            }
+        else:
+            # Incomplete historical records can acquire a canonical name (and
+            # a different identity) during renormalization. Keep that path.
+            rebuilt_queue = renormalize_catalog(
+                NormalizedCatalog(papers=catalog.papers, review_queue=[]),
+                alias_rules,
+                collect_reviews=True,
+            ).review_queue
+            rebuilt_review_keys = {_review_key(item) for item in rebuilt_queue}
         # renormalize_catalog only derives a canonical - and so only raises
         # needs_review - for a paper that has none yet. Every paper here has
         # one, so the rebuild above can only ever reproduce the
@@ -90,7 +109,6 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
         # deploy, on 2026-08-06. Deriving the review need separately keeps a
         # legitimately queued row from counting as stale without demanding new
         # rows for the 117 keys this would otherwise raise across MOEX alone.
-        alias_rules = load_alias_rules(provider.aliases_path)
         derivable_review_keys = set()
         for paper in catalog.papers:
             raw_category = paper.category_raw or paper.exam_name_raw
@@ -143,7 +161,7 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
                 "bundle_ids": set(),
             },
         )
-        identity = classify_normalized_paper(paper)
+        identity = identities_by_paper[id(paper)]
         entry["record_count"] += 1
         entry["source_exam_ids"].add(paper.source_exam_id)
         entry["identity_signatures"].add(identity.signature)
@@ -167,24 +185,23 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
         )
 
     current_bundles = load_site_bundles(site_paths(repo_root, site_id))
-    papers_by_legacy_id: dict[tuple[str, str], list[Any]] = defaultdict(list)
+    papers_by_legacy_id: dict[str, list[Any]] = defaultdict(list)
     for paper in all_papers:
-        papers_by_legacy_id[(paper.provider_id, paper.canonical_id)].append(paper)
+        papers_by_legacy_id[paper.canonical_id].append(paper)
     bundle_dispositions = []
     for bundle in current_bundles:
         bundle_id = bundle.bundle_id or bundle.canonical_id
         matching = [
             paper
-            for (_provider_id, legacy_id), papers in papers_by_legacy_id.items()
-            if legacy_id in {bundle.canonical_id, *bundle.legacy_canonical_ids}
-            for paper in papers
+            for legacy_id in {bundle.canonical_id, *bundle.legacy_canonical_ids}
+            for paper in papers_by_legacy_id.get(legacy_id, [])
         ]
-        identities = {classify_normalized_paper(paper).signature for paper in matching}
+        identities = {identities_by_paper[id(paper)].signature for paper in matching}
         if not matching:
             disposition = "unmapped"
         elif len(identities) > 1:
             disposition = "split"
-        elif bundle_id and any(classify_normalized_paper(paper).bundle_id == bundle_id for paper in matching):
+        elif bundle_id and any(identities_by_paper[id(paper)].bundle_id == bundle_id for paper in matching):
             disposition = "keep"
         else:
             disposition = "rename"
@@ -200,7 +217,7 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
 
     planned_groups: dict[str, dict[str, Any]] = {}
     for paper in all_papers:
-        identity = classify_normalized_paper(paper)
+        identity = identities_by_paper[id(paper)]
         group = planned_groups.setdefault(
             identity.bundle_id,
             {"years": set(), "canonical_ids": set(), "provider_ids": set(), "identity": identity},
@@ -259,7 +276,7 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
     current_release_capacity_ok = all(
         count <= GITHUB_RELEASE_ASSET_LIMIT for count in current_release_counts.values()
     )
-    records_with_identity = sum(1 for paper in all_papers if classify_normalized_paper(paper).bundle_id)
+    records_with_identity = sum(1 for identity in identities_by_paper.values() if identity.bundle_id)
     review_queue_signatures = {
         item.classification_signature
         for item in all_review_items
@@ -269,7 +286,7 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
     approved_review_isolated_records = 0
     unapproved_review_records = 0
     for paper in all_papers:
-        identity = classify_normalized_paper(paper)
+        identity = identities_by_paper[id(paper)]
         if identity.confidence != "review":
             continue
         review_records += 1
@@ -285,7 +302,7 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
             approved_review_isolated_records += 1
         else:
             unapproved_review_records += 1
-    return {
+    report = {
         "schema_version": 1,
         "catalog_version": "exam-identity-v2",
         "site_id": site_id,
@@ -316,6 +333,32 @@ def build_catalog_audit(repo_root: Path, *, site_id: str = "default") -> dict[st
         "all_records_covered": records_with_identity == len(all_papers),
         "providers": provider_reports,
     }
+    if include_publication_backlog:
+        quarantined = quarantined_provider_ids(repo_root, site_id=site_id)
+        quarantined_required = sorted(quarantined.intersection(site_config.required_provider_ids))
+        if quarantined_required:
+            raise ValueError(
+                f"Required providers cannot be quarantined for site {site_id}: {', '.join(quarantined_required)}"
+            )
+        for provider_id in site_config.required_provider_ids:
+            provider = provider_paths(repo_root, provider_id)
+            if not provider.data_dir.exists():
+                raise ValueError(f"Missing provider state for {provider_id}: expected {provider.data_dir}")
+        if all(paper.category_raw and paper.canonical_id and paper.canonical_name for paper in all_papers):
+            report["publication_backlog"] = _publication_backlog_from_classified(
+                site_id=site_id,
+                classified_papers=(
+                    (paper, identities_by_paper[id(paper)])
+                    for paper in all_papers
+                    if paper.provider_id not in quarantined
+                ),
+                current_bundles=current_bundles,
+            )
+        else:
+            # Renormalization may derive a missing canonical name and change
+            # its identity. Fall back to the authoritative site load path.
+            report["publication_backlog"] = build_publication_backlog(repo_root, site_id=site_id)
+    return report
 
 
 def write_catalog_audit(report: dict[str, Any], output: Path) -> None:
@@ -348,10 +391,22 @@ def build_publication_backlog(repo_root: Path, *, site_id: str = "default") -> d
     # load_site_catalog applies both, and raises if a required provider is
     # quarantined, so this cannot silently under-report either.
     normalized, _failures = load_site_catalog(repo_root, site_id=site_id)
+    return _publication_backlog_from_classified(
+        site_id=site_id,
+        classified_papers=((paper, classify_normalized_paper(paper)) for paper in normalized.papers),
+        current_bundles=load_site_bundles(site_paths(repo_root, site_id)),
+    )
+
+
+def _publication_backlog_from_classified(
+    *,
+    site_id: str,
+    classified_papers: Iterable[tuple[Any, ExamIdentity]],
+    current_bundles: list[BundleAsset],
+) -> dict[str, Any]:
     site_config = get_site_config(site_id)
     groups: dict[str, dict[str, Any]] = {}
-    for paper in normalized.papers:
-        identity = classify_normalized_paper(paper)
+    for paper, identity in classified_papers:
         group = groups.setdefault(
             identity.bundle_id,
             {"years": set(), "canonical_ids": set(), "provider_ids": set(), "record_count": 0},
@@ -369,10 +424,7 @@ def build_publication_backlog(repo_root: Path, *, site_id: str = "default") -> d
                     minimum = min(minimum, prefix_minimum)
         return minimum
 
-    published = {
-        bundle.bundle_id or bundle.canonical_id
-        for bundle in load_site_bundles(site_paths(repo_root, site_id))
-    }
+    published = {bundle.bundle_id or bundle.canonical_id for bundle in current_bundles}
     outstanding = {
         bundle_id: group
         for bundle_id, group in groups.items()

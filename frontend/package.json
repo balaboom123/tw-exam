@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "test": "node --test ./build/bundles-data.test.mjs ./build/exam-classification.test.mjs ./build/search-state.test.mjs ./build/publication-metadata.test.mjs",
+    "test": "node --test ./build/site-config.test.mjs ./build/bundle-pages.test.mjs ./build/exam-categories.test.mjs ./build/search-state.test.mjs ./build/public-data.test.mjs ./build/social-gate.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -25,6 +25,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.3.0",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",

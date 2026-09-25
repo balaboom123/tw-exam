@@ -1,52 +1,8 @@
 name: workflow-health
 
-# Nothing reacted to a failed scheduled run before this workflow existed, so
-# sync-incremental failed every week from 2026-07-13 to 2026-08-03 unnoticed
-# while 86% of the published catalog went stale. One open issue is kept per
-# unhealthy workflow and closed again as soon as that workflow succeeds. A
-# repeated failure leaves that issue open without adding notification comments.
-
+# One daily pass catches failed runs, cancellations that reached their timeout,
+# and scheduled workflows that stopped producing a recent success.
 on:
-  workflow_run:
-    types: [completed]
-    workflows:
-      - Deploy to GitHub Pages
-      - audit-recent
-      - sync-ceec-ast
-      - sync-ceec-gsat
-      - sync-cpc-recruit
-      - sync-gept-cert
-      - sync-hakka-cert
-      - sync-hce-cmu
-      - sync-hce-nsysu
-      - sync-hce-nthu
-      - sync-hce-tcu
-      - sync-incremental
-      - sync-ipas-cert
-      - sync-jlpt-cert
-      - sync-moea-recruit
-      - sync-post-recruit
-      - sync-rcpet-cap
-      - sync-sfi-cert
-      - sync-special-admission
-      - sync-tabf-cert
-      - sync-taigi-cert
-      - sync-taipower-recruit
-      - sync-tcte-tve
-      - sync-teacher-qual
-      - sync-teacher-recruit-kaohsiung
-      - sync-teacher-recruit-newtaipei
-      - sync-teacher-recruit-tainan
-      - sync-teacher-recruit-taipei-elementary
-      - sync-teacher-recruit-taipei-junior
-      - sync-teacher-recruit-taoyuan-elementary
-      - sync-tii-cert
-      - sync-tocfl-cert
-      - sync-tqc-cert
-      - sync-twc-recruit
-      - sync-wdasec-skill
-  # The reactive path above cannot see a workflow that stops running at all,
-  # so a schedule that silently stops firing still has to surface somewhere.
   schedule:
     - cron: "0 6 * * *"
   workflow_dispatch:
@@ -56,36 +12,16 @@ permissions:
   issues: write
 
 jobs:
-  report:
-    if: github.event_name == 'workflow_run'
+  audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Report run outcome
+      - name: Audit latest outcomes and stale schedules
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: >-
-          python .github/scripts/workflow_health.py report
-          --workflow "${{ github.event.workflow_run.name }}"
-          --conclusion "${{ github.event.workflow_run.conclusion }}"
-          --run-url "${{ github.event.workflow_run.html_url }}"
-
-  stale:
-    if: github.event_name != 'workflow_run'
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-      - name: Report scheduled workflows without a recent successful run
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python .github/scripts/workflow_health.py stale --max-age-days 14
+        run: python .github/scripts/workflow_health.py daily --max-age-days 14

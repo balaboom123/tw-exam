@@ -569,7 +569,6 @@
       "provider_id": "hce_cmu",
       "restrictions": [
         "The official archive robots.txt specifies Crawl-delay: 10; the adapter now honors it and deduplicates fragment-only pagination links.",
-        "Default CA verification fails for adm21.cmu.edu.tw in this environment; the existing shared adapter uses an unverified TLS context only for adm21.cmu.edu.tw, so transport authenticity requires an explicit remediation or risk decision.",
         "All six retained events publish all 30 mirrored papers, but no explicit redistribution license or copyright terms were linked from the archive pages."
       ],
       "status": "covered",

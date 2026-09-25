@@ -26,11 +26,12 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
       >
         {options.map((opt) => (
           <button
+            type="button"
             key={opt.value}
             onClick={() => onChange(opt.value)}
             aria-pressed={value === opt.value}
             className={cn(
-              "h-8 rounded-[3px] px-3 text-sm transition-colors",
+              "h-11 rounded-[3px] px-3 text-sm transition-colors sm:h-8",
               value === opt.value
                 ? "bg-cream text-ink-950 shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
                 : "text-ink-500 hover:text-ink-950"

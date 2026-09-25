@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/release-assets-v2.schema.json",
+  "title": "Release asset inventory v2",
+  "type": "object",
+  "required": ["schema_version", "site_id", "catalog_version", "assets"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "site_id": {"type": "string", "minLength": 1},
+    "catalog_version": {"const": "exam-identity-v2"},
+    "assets": {"type": "array", "items": {"$ref": "#/$defs/asset"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["release_tag", "storage_key", "asset_name", "checksum", "bundle_id", "domain_id", "exam_family_id", "exam_series_id", "level_id", "track_id", "variant_ids", "stage_id"],
+      "properties": {
+        "release_tag": {"type": "string", "minLength": 1},
+        "storage_key": {"type": "string", "minLength": 1},
+        "asset_name": {"type": "string", "pattern": "\\.zip$"},
+        "checksum": {"type": "string", "minLength": 1},
+        "legacy_asset_names": {"type": "array", "items": {"type": "string"}},
+        "bundle_id": {"type": "string", "minLength": 1},
+        "domain_id": {"type": "string", "minLength": 1},
+        "exam_family_id": {"type": "string", "minLength": 1},
+        "exam_series_id": {"type": "string", "minLength": 1},
+        "level_id": {"type": "string", "minLength": 1},
+        "track_id": {"type": "string", "minLength": 1},
+        "variant_ids": {"type": "array", "items": {"type": "string"}},
+        "stage_id": {"type": "string", "minLength": 1},
+        "bundle_policy_id": {"type": "string"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

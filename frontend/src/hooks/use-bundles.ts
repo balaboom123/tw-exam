@@ -1,11 +1,18 @@
-import { useState, useEffect } from "react"
-import type { Bundle, BundlePart } from "@/types"
-import { classifyBundle } from "@/lib/exam-classification"
+import { useEffect, useRef, useState } from "react"
+import type { Bundle } from "@/types"
 
 interface UseBundlesResult {
   bundles: Bundle[]
+  searchIndex: string[] | null
   loading: boolean
   error: string | null
+}
+
+interface RawPart {
+  label: string
+  fileCount: number
+  tag: string
+  asset: string
 }
 
 interface RawBundle {
@@ -13,93 +20,136 @@ interface RawBundle {
   name: string
   years: number[]
   fileCount: number
-  url: string
-  parts?: BundlePart[]
-  examClass?: string
-  examSubclass?: string
-  domainId?: string
-  examFamilyId?: string
-  seriesId?: string
-  levelId?: string
-  trackId?: string
-  variantIds?: string[]
-  stageId?: string
-  searchAliases?: string[]
+  tag: string
+  asset: string
+  parts?: RawPart[]
+  examClass: string
+  examSubclass: string
   subjectLabels?: string[]
 }
 
-function isValidRawBundle(item: unknown): item is RawBundle {
-  if (typeof item !== "object" || item === null) return false
-  const obj = item as Record<string, unknown>
-  return (
-    typeof obj.id === "string" &&
-    typeof obj.name === "string" &&
-    Array.isArray(obj.years) &&
-    typeof obj.fileCount === "number" &&
-    typeof obj.url === "string" &&
-    (obj.searchAliases === undefined || (Array.isArray(obj.searchAliases) && obj.searchAliases.every((item) => typeof item === "string"))) &&
-    (obj.subjectLabels === undefined || (Array.isArray(obj.subjectLabels) && obj.subjectLabels.every((item) => typeof item === "string"))) &&
-    (obj.parts === undefined || (Array.isArray(obj.parts) && obj.parts.every((part) =>
-      typeof part === "object" && part !== null &&
-      typeof (part as { label?: unknown }).label === "string" &&
-      typeof (part as { url?: unknown }).url === "string" &&
-      typeof (part as { fileCount?: unknown }).fileCount === "number"
-    )))
-  )
+interface RawFeed {
+  v: 2
+  repo: string
+  bundles: RawBundle[]
 }
 
-function enrichBundle(raw: RawBundle): Bundle {
-  const fallback = classifyBundle(raw.id, raw.name)
-  const examClass = raw.examClass ?? fallback.examClass
-  const examSubclass = raw.examSubclass ?? fallback.examSubclass
-  return { ...raw, examClass, examSubclass }
+const segmentPattern = /^[A-Za-z0-9._-]+$/
+const repositoryPattern = /^[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+$/
+
+function isValidPart(value: unknown): value is RawPart {
+  if (typeof value !== "object" || value === null) return false
+  const part = value as Record<string, unknown>
+  return typeof part.label === "string" && part.label.length > 0 &&
+    Number.isInteger(part.fileCount) && Number(part.fileCount) > 0 &&
+    typeof part.tag === "string" && segmentPattern.test(part.tag) &&
+    typeof part.asset === "string" && segmentPattern.test(part.asset) && part.asset.endsWith(".zip")
 }
 
-function normalizeBundlesPayload(data: unknown): unknown[] {
-  if (Array.isArray(data)) return data
-  if (typeof data !== "object" || data === null) {
-    throw new Error("Invalid data format")
+function isValidRawBundle(value: unknown): value is RawBundle {
+  if (typeof value !== "object" || value === null) return false
+  const item = value as Record<string, unknown>
+  return typeof item.id === "string" && item.id.length > 0 &&
+    typeof item.name === "string" && item.name.length > 0 &&
+    Array.isArray(item.years) && item.years.every(Number.isInteger) &&
+    Number.isInteger(item.fileCount) && Number(item.fileCount) > 0 &&
+    typeof item.tag === "string" && segmentPattern.test(item.tag) &&
+    typeof item.asset === "string" && segmentPattern.test(item.asset) && item.asset.endsWith(".zip") &&
+    typeof item.examClass === "string" && item.examClass.length > 0 &&
+    typeof item.examSubclass === "string" && item.examSubclass.length > 0 &&
+    (item.subjectLabels === undefined || (Array.isArray(item.subjectLabels) && item.subjectLabels.every((label) => typeof label === "string"))) &&
+    (item.parts === undefined || (Array.isArray(item.parts) && item.parts.every(isValidPart)))
+}
+
+function parseFeed(data: unknown): RawFeed {
+  if (typeof data !== "object" || data === null) throw new Error("Invalid data format")
+  const feed = data as Record<string, unknown>
+  if (feed.v !== 2 || typeof feed.repo !== "string" || !repositoryPattern.test(feed.repo) ||
+    !Array.isArray(feed.bundles) || !feed.bundles.every(isValidRawBundle)) {
+    throw new Error("Data schema mismatch")
   }
-
-  const bundles = (data as { bundles?: unknown }).bundles
-  if (!Array.isArray(bundles)) {
-    throw new Error("Invalid data format")
-  }
-  return bundles
+  return feed as unknown as RawFeed
 }
 
-export function useBundles(): UseBundlesResult {
+function releaseUrl(repo: string, tag: string, asset: string): string {
+  return `https://github.com/${repo}/releases/download/${encodeURIComponent(tag)}/${encodeURIComponent(asset)}`
+}
+
+function toBundle(raw: RawBundle, repo: string): Bundle {
+  return {
+    id: raw.id,
+    name: raw.name,
+    years: raw.years,
+    fileCount: raw.fileCount,
+    url: releaseUrl(repo, raw.tag, raw.asset),
+    examClass: raw.examClass,
+    examSubclass: raw.examSubclass,
+    ...(raw.subjectLabels ? { subjectLabels: raw.subjectLabels } : {}),
+    ...(raw.parts ? {
+      parts: raw.parts.map((part) => ({
+        label: part.label,
+        fileCount: part.fileCount,
+        url: releaseUrl(repo, part.tag, part.asset),
+      })),
+    } : {}),
+  }
+}
+
+export function useBundles(query: string): UseBundlesResult {
   const [bundles, setBundles] = useState<Bundle[]>([])
-  const [loading, setLoading] = useState(true)
+  const [feedLoading, setFeedLoading] = useState(true)
+  const [searchIndex, setSearchIndex] = useState<string[] | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const searchPromise = useRef<Promise<string[]> | null>(null)
 
   useEffect(() => {
     const controller = new AbortController()
-    const url = `${import.meta.env.BASE_URL}data/bundles.json`
-
-    fetch(url, { signal: controller.signal })
+    fetch(`${import.meta.env.BASE_URL}${import.meta.env.VITE_PUBLIC_BUNDLES_FILE}`, { signal: controller.signal })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         return res.json() as Promise<unknown>
       })
       .then((data) => {
-        const bundlesData = normalizeBundlesPayload(data)
-        const valid = bundlesData.filter(isValidRawBundle).map(enrichBundle)
-        if (valid.length === 0 && bundlesData.length > 0) {
-          throw new Error("Data schema mismatch")
-        }
-        setBundles(valid)
-        setLoading(false)
+        const feed = parseFeed(data)
+        setBundles(feed.bundles.map((bundle) => toBundle(bundle, feed.repo)))
+        setFeedLoading(false)
       })
-      .catch((err) => {
-        if (err.name !== "AbortError") {
-          setError(err.message)
-          setLoading(false)
-        }
+      .catch((err: unknown) => {
+        if (err instanceof Error && err.name === "AbortError") return
+        setError(err instanceof Error ? err.message : "Failed to load bundle data")
+        setFeedLoading(false)
       })
-
     return () => controller.abort()
   }, [])
 
-  return { bundles, loading, error }
+  useEffect(() => {
+    if (!query.trim() || feedLoading || searchIndex || error) return
+    searchPromise.current ??= fetch(`${import.meta.env.BASE_URL}${import.meta.env.VITE_PUBLIC_SEARCH_FILE}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`)
+        return res.json() as Promise<unknown>
+      })
+      .then((data) => {
+        if (!Array.isArray(data) || data.length !== bundles.length ||
+          !data.every((item) => typeof item === "string")) {
+          throw new Error("Search index schema mismatch")
+        }
+        return data as string[]
+      })
+    let active = true
+    searchPromise.current.then(
+      (data) => { if (active) setSearchIndex(data) },
+      (err: unknown) => {
+        if (active) setError(err instanceof Error ? err.message : "Failed to load search index")
+      },
+    )
+    return () => { active = false }
+  }, [query, feedLoading, bundles.length, searchIndex, error])
+
+  return {
+    bundles,
+    searchIndex,
+    loading: feedLoading || (Boolean(query.trim()) && searchIndex === null && error === null),
+    error,
+  }
 }

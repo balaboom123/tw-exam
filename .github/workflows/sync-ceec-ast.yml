@@ -24,22 +24,50 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: ceec-ast-mirror-${{ hashFiles('data/providers/ceec_ast/source-manifest.json') }}
+          key: ceec-ast-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             ceec-ast-mirror-
 
       - name: Run CEEC AST sync
-        run: python -m app sync-full --provider ceec_ast --site-id default
+        id: sync
+        continue-on-error: true
+        run: python -m app sync-full --provider ceec_ast --site-id default --publish-plan-output .tmp/site-publish-plan.json
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: ceec-ast-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Publish affected default-site bundles
+        if: steps.sync.outcome == 'success'
+        run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json
+
+      - name: Ensure release exists
+        if: steps.sync.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release_assets.py ensure
+
+      - name: Upload downloadable bundles
+        id: upload
+        if: steps.sync.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release_assets.py upload
 
       - name: Commit regenerated CEEC AST provider data
-        # sync-full writes the papers it did fetch and records the ones it could
-        # not, then exits non-zero. Gating this step on success discarded the
-        # whole refresh whenever one upstream file was unavailable, and kept the
-        # failure record out of the repository where it could be acted on.
-        if: '!cancelled()'
+        if: steps.sync.outcome == 'success' && steps.upload.outcome == 'success'
+        # Keep provider and site state in the same commit only after the
+        # affected ZIP assets are published successfully.
         run: >-
-          bash .github/scripts/commit-and-push.sh "chore: refresh CEEC AST provider data" data/providers/ceec_ast
+          bash .github/scripts/commit-and-push.sh "chore: refresh CEEC AST provider data" data/providers/ceec_ast data/sites/default
+
+      - name: Surface CEEC AST sync failure
+        if: steps.sync.outcome == 'failure'
+        run: exit 1

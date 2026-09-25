@@ -4,13 +4,15 @@ Workflow filenames are implementation details; ownership determines what they ma
 
 | Workflow class | Scope | May write |
 | --- | --- | --- |
-| provider discovery/sync | one named provider | provider state, provider mirror, scoped publication inputs |
+| provider discovery/sync | one named provider | provider state, provider mirror, scoped publication inputs; may invoke the site publisher for affected bundles |
 | audit | repository or selected providers/sites | reports and explicitly reviewed generated corrections |
 | site publication/release | one named site | site bundles, feeds, release plans, and assigned assets |
 | deploy | one named site | frontend build and deployment output |
 | CI | checked-in repository | no persistent runtime state |
 
-Provider workflows must not invent site release ownership. Site workflows must not parse official sources or mutate provider identity. Deploy workflows consume site feeds rather than raw provider crawl state.
+Provider workflows may pass a scoped publish plan to the site publisher, which owns site state and release assets. They must not invent release assignments. Site workflows must not parse official sources or mutate provider identity. Deploy workflows consume site feeds rather than raw provider crawl state.
+
+The MOEX workflows and CEEC AST publication pilot restore the latest provider mirror cache by prefix and save a new run-specific cache after a sync attempt, including a failed attempt. This preserves downloaded files when a run fails after fetching them. Actions cache remains subject to eviction, so this is an interim recovery measure rather than durable mirror storage.
 
 ## Generated-state commit guard
 
@@ -26,25 +28,25 @@ tree remains deployable. A genuine reviewed removal requires updating the
 inventory floor; a transiently incomplete sync must be rerun.
 
 A failed sync may write partial state inside its runner so the shared guard can
-diagnose it, but that state is not committed to `main`. The failed Actions run
-and, for scheduled workflows, its single workflow-health issue retain the
-operational evidence while the last deployable provider state stays checked in. Pages ignores failed upstream
+diagnose it, but that state is not committed to `main`. A provider workflow
+that publishes site bundles commits provider and site state together only after
+its release upload succeeds. The failed Actions run and, for scheduled
+workflows, its single workflow-health issue retain the operational evidence
+while the last deployable provider state stays checked in. Pages ignores failed upstream
 workflow runs; a successful sync or the daily Pages backstop still exercises
 the full deployment gates.
 
 ## Health reporting
 
-`workflow-health` reacts to every scheduled workflow and the Pages deployment.
-The first failure or timeout opens one labelled issue; repeated failures keep
-that issue open without adding notification comments, and a later success
-closes it. Cancelled runs are ignored because deployment concurrency cancels
-superseded work intentionally.
+`workflow-health` runs once daily. It inspects each scheduled workflow's
+latest run and keeps one labelled issue for a failure, timeout, or cancellation
+that lasted at least the workflow's timeout. Short cancellations from
+superseded Pages deployments are ignored. A later success closes a failure
+issue; repeated failures do not add notification comments.
 
-The daily staleness pass uses each workflow's schedule to choose its window and
-accepts a successful manual rerun as recovery. Health reactions are not placed
-in one global concurrency group: GitHub retains only one pending run per group,
-which can discard completion events when several provider workflows finish
-together.
+The same pass uses each workflow's schedule to set a staleness window and
+accepts a successful manual rerun as recovery. This also detects schedules
+that stop firing entirely.
 
 Manual diagnosis uses:
 

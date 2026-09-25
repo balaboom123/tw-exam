@@ -32,9 +32,9 @@ export function Header({
             試
           </span>
           <div className="min-w-0">
-            <h1 className="font-serif text-[17px] font-bold leading-tight tracking-wide text-ink-950">
+            <span className="font-serif text-[17px] font-bold leading-tight tracking-wide text-ink-950">
               tw-exam
-            </h1>
+            </span>
             <p className="text-[10px] leading-tight tracking-[0.22em] text-ink-500">
               台灣歷屆試題庫
             </p>

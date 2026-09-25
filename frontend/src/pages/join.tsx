@@ -9,6 +9,21 @@ function channelNote(label: string) {
   return label.replace(/^[^—-]+[—-]\s*/, "")
 }
 
+function returnHref(): string {
+  const siteRoot = siteHref("")
+  const requested = new URLSearchParams(window.location.search).get("return")
+  if (!requested) return siteRoot
+  try {
+    const url = new URL(requested, window.location.origin)
+    if (url.origin === window.location.origin && url.pathname.startsWith(siteRoot)) {
+      return `${url.pathname}${url.search}${url.hash}`
+    }
+  } catch {
+    // Ignore malformed return URLs.
+  }
+  return siteRoot
+}
+
 /** Linktree-style gate page: landing here unlocks downloads site-wide. */
 export function JoinPage() {
   useEffect(() => {
@@ -54,14 +69,20 @@ export function JoinPage() {
           ))}
         </ul>
         <p className="mt-8 border-t border-line pt-5 text-xs leading-relaxed text-ink-500">
-          已加入？回到原本的頁面即可直接下載。
+          已加入？返回試題列表即可直接下載。
         </p>
         <a
-          href={siteHref("")}
+          href={returnHref()}
           className="mt-2 inline-block text-xs font-medium text-ink-800 underline decoration-line-strong underline-offset-4 transition-colors hover:text-ink-950"
         >
-          前往試題列表
+          返回試題列表
         </a>
+        <details className="mt-5 text-xs text-ink-500">
+          <summary className="cursor-pointer">返回後仍顯示鎖定？</summary>
+          <p className="mt-2 leading-relaxed">
+            瀏覽器可能阻止儲存網站資料，請改用一般瀏覽器後重試。
+          </p>
+        </details>
       </main>
     </div>
   )

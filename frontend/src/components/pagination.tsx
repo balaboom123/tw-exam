@@ -33,9 +33,10 @@ export function Pagination({ current, total, onChange }: PaginationProps) {
       aria-label="分頁"
     >
       <button
+        type="button"
         onClick={() => onChange(current - 1)}
         disabled={current === 1}
-        className="flex size-10 items-center justify-center rounded-[3px] border border-line text-ink-600 transition-colors hover:bg-cream hover:text-ink-950 disabled:pointer-events-none disabled:opacity-30"
+        className="flex size-11 items-center justify-center rounded-[3px] border border-line text-ink-600 transition-colors hover:bg-cream hover:text-ink-950 disabled:pointer-events-none disabled:opacity-30"
         aria-label="上一頁"
       >
         <ChevronLeft className="size-4" strokeWidth={2} />
@@ -44,17 +45,18 @@ export function Pagination({ current, total, onChange }: PaginationProps) {
         p === "..." ? (
           <span
             key={`dots-${i}`}
-            className="flex size-10 items-center justify-center font-mono text-sm text-ink-400"
+            className="flex size-11 items-center justify-center font-mono text-sm text-ink-400"
           >
             …
           </span>
         ) : (
           <button
+            type="button"
             key={p}
             onClick={() => onChange(p)}
             aria-current={p === current ? "page" : undefined}
             className={cn(
-              "size-10 rounded-[3px] font-mono text-sm transition-colors",
+              "size-11 rounded-[3px] font-mono text-sm transition-colors",
               p === current
                 ? "bg-ink-950 text-cream"
                 : "text-ink-600 hover:bg-paper-deep hover:text-ink-950"
@@ -65,9 +67,10 @@ export function Pagination({ current, total, onChange }: PaginationProps) {
         )
       )}
       <button
+        type="button"
         onClick={() => onChange(current + 1)}
         disabled={current === total}
-        className="flex size-10 items-center justify-center rounded-[3px] border border-line text-ink-600 transition-colors hover:bg-cream hover:text-ink-950 disabled:pointer-events-none disabled:opacity-30"
+        className="flex size-11 items-center justify-center rounded-[3px] border border-line text-ink-600 transition-colors hover:bg-cream hover:text-ink-950 disabled:pointer-events-none disabled:opacity-30"
         aria-label="下一頁"
       >
         <ChevronRight className="size-4" strokeWidth={2} />

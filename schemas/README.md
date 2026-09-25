@@ -7,6 +7,7 @@ Schemas here validate persisted v2 boundaries. They are separate from taxonomy d
 - normalized-paper-v2.schema.json: provider paper records with identity facets and provenance.
 - bundle-v2.schema.json: site bundle inventory entries and ZIP manifest metadata.
 - frontend-bundle-feed-v2.schema.json: public structured feed consumed by the frontend.
+- release-assets-v2.schema.json: site release asset inventory and shard assignments.
 - release-plan-v2.schema.json: dry-run shard assignments and physical asset counts.
 - classification-audit.schema.json: whole-catalog audit output.
 - source-coverage-exceptions.schema.json: reviewed event/file exceptions for official sources that are blocked or intentionally out of scope.
@@ -14,13 +15,8 @@ Schemas here validate persisted v2 boundaries. They are separate from taxonomy d
 
 A v2 payload must declare schema_version 2 and catalog_version exam-identity-v2 where required. Consumers should reject unsupported versions instead of guessing.
 
-At minimum, validate syntax:
+Validate the checked-in site artifacts, reviewed source inventory, and a current paper file from each provider with:
 
 ~~~bash
-for file in schemas/*.json catalog/taxonomy/*.json catalog/mappings/**/*.json; do
-  python3 -m json.tool "$file" >/dev/null
-done
+uv run python scripts/validate_schemas.py
 ~~~
-
-JSON Schema validation should be added to CI with the repository chosen validator. Stdlib parsing checks syntax only.
-

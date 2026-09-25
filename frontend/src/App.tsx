@@ -1,7 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from "react"
 import { useBundles } from "@/hooks/use-bundles"
 import { useDebouncedValue } from "@/hooks/use-debounce"
-import { formatYearRange } from "@/lib/utils"
+import { formatYearRange, siteHref } from "@/lib/utils"
 import { Header } from "@/components/header"
 import { SearchBar } from "@/components/search-bar"
 import { YearFilter } from "@/components/year-filter"
@@ -16,39 +16,39 @@ import { CategoryFilter } from "@/components/category-filter"
 import { Footer } from "@/components/footer"
 import { PaperGrain } from "@/components/paper-grain"
 import { hasSocialAccess } from "@/lib/social-gate"
-import { EXAM_CLASSES, type ExamClass } from "@/lib/exam-classification"
+import { orderExamClasses, orderExamSubclasses } from "@/lib/exam-categories"
 import { buildSearchQuery, readSearchState } from "@/lib/search-state"
 import type { Bundle } from "@/types"
 
 const PAGE_SIZE = 30
+const nameCollator = new Intl.Collator("zh-TW")
 const initialSearchState = readSearchState(window.location.search)
 
-function validExamClass(value: string | null): ExamClass | null {
-  return value && EXAM_CLASSES.includes(value as ExamClass) ? (value as ExamClass) : null
-}
-
 function App() {
-  const { bundles, loading, error } = useBundles()
   const [query, setQuery] = useState(initialSearchState.query)
   const debouncedQuery = useDebouncedValue(query, 200)
+  const { bundles, searchIndex, loading, error } = useBundles(debouncedQuery)
   const [selectedYear, setSelectedYear] = useState<number | null>(initialSearchState.year)
-  const [selectedClass, setSelectedClass] = useState<ExamClass | null>(validExamClass(initialSearchState.examClass))
+  const [selectedClass, setSelectedClass] = useState<string | null>(initialSearchState.examClass)
   const [selectedSubclass, setSelectedSubclass] = useState<string | null>(initialSearchState.subclass)
   const [sortKey, setSortKey] = useState<SortKey>(initialSearchState.sort)
   const [page, setPage] = useState(initialSearchState.page)
   const [unlocked, setUnlocked] = useState(hasSocialAccess)
-  const [shareFeedback, setShareFeedback] = useState(false)
+  const [shareFeedback, setShareFeedback] = useState<string | null>(null)
   const listTopRef = useRef<HTMLParagraphElement>(null)
 
-  // The join page (opened in a new tab) grants access; pick it up here via
-  // the cross-tab storage event, with focus as a fallback.
+  // Pick up access granted in another tab or after a same-tab mobile return.
   useEffect(() => {
     const sync = () => setUnlocked((u) => u || hasSocialAccess())
     window.addEventListener("storage", sync)
     window.addEventListener("focus", sync)
+    window.addEventListener("pageshow", sync)
+    document.addEventListener("visibilitychange", sync)
     return () => {
       window.removeEventListener("storage", sync)
       window.removeEventListener("focus", sync)
+      window.removeEventListener("pageshow", sync)
+      document.removeEventListener("visibilitychange", sync)
     }
   }, [])
 
@@ -57,7 +57,7 @@ function App() {
       const next = readSearchState(window.location.search)
       setQuery(next.query)
       setSelectedYear(next.year)
-      setSelectedClass(validExamClass(next.examClass))
+      setSelectedClass(next.examClass)
       setSelectedSubclass(next.subclass)
       setSortKey(next.sort)
       setPage(next.page)
@@ -92,19 +92,13 @@ function App() {
     let result = bundles
     if (debouncedQuery.trim()) {
       const q = debouncedQuery.trim().toLowerCase()
-      result = result.filter((b) =>
-        [b.name, ...(b.searchAliases ?? []), ...(b.subjectLabels ?? []), b.examClass, b.examSubclass]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase()
-          .includes(q)
-      )
+      result = result.filter((_, index) => searchIndex?.[index]?.includes(q))
     }
     if (selectedYear !== null) {
       result = result.filter((b) => b.years.includes(selectedYear))
     }
     return result
-  }, [bundles, debouncedQuery, selectedYear])
+  }, [bundles, searchIndex, debouncedQuery, selectedYear])
 
   const classCounts = useMemo(() => {
     const counts: Record<string, number> = {}
@@ -115,7 +109,7 @@ function App() {
   }, [baseFiltered])
 
   const availableClasses = useMemo(
-    () => EXAM_CLASSES.filter((c) => (classCounts[c] ?? 0) > 0),
+    () => orderExamClasses(Object.keys(classCounts)),
     [classCounts]
   )
 
@@ -129,7 +123,7 @@ function App() {
   }, [baseFiltered, selectedClass])
 
   const availableSubclasses = useMemo(
-    () => Object.keys(subclassCounts).filter((s) => subclassCounts[s] > 0),
+    () => orderExamSubclasses(Object.keys(subclassCounts)),
     [subclassCounts]
   )
 
@@ -147,7 +141,7 @@ function App() {
     const sorted = [...result]
     switch (sortKey) {
       case "name":
-        sorted.sort((a, b) => a.name.localeCompare(b.name, "zh-TW"))
+        sorted.sort((a, b) => nameCollator.compare(a.name, b.name))
         break
       case "files-desc":
         sorted.sort((a, b) => b.fileCount - a.fileCount)
@@ -173,6 +167,15 @@ function App() {
   )
 
   const yearRange = useMemo(() => formatYearRange(allYears), [allYears])
+  const returnSearch = buildSearchQuery({
+    query, year: selectedYear, examClass: selectedClass,
+    subclass: selectedSubclass, sort: sortKey, page,
+  })
+  const returnUrl = new URL(
+    `${siteHref("")}${returnSearch ? `?${returnSearch}` : ""}${window.location.hash}`,
+    window.location.origin,
+  )
+  const joinHref = `${siteHref("join.html")}?return=${encodeURIComponent(returnUrl.href)}`
 
   function handleQueryChange(value: string) {
     setQuery(value)
@@ -184,7 +187,7 @@ function App() {
     setPage(1)
   }
 
-  function handleClassChange(cls: ExamClass | null) {
+  function handleClassChange(cls: string | null) {
     setSelectedClass(cls)
     setSelectedSubclass(null)
     setPage(1)
@@ -204,11 +207,12 @@ function App() {
     try {
       if (navigator.share) {
         await navigator.share({ title: "tw-exam", url: window.location.href })
+        setShareFeedback("分享完成")
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(window.location.href)
+        setShareFeedback("連結已複製")
       }
-      setShareFeedback(true)
-      window.setTimeout(() => setShareFeedback(false), 1800)
+      window.setTimeout(() => setShareFeedback(null), 1800)
     } catch {
       // Closing the native share sheet is an expected user action.
     }
@@ -235,9 +239,10 @@ function App() {
         <div className="flex flex-1 items-center justify-center px-6">
           <div className="flex flex-col items-center text-center">
             <Stamp>載入失敗</Stamp>
-            <p className="mt-7 font-medium text-ink-950">資料載入失敗</p>
-            <p className="mt-1.5 text-sm text-ink-500">{error}</p>
+            <h1 className="mt-7 font-medium text-ink-950">資料載入失敗</h1>
+            <p className="mt-1.5 text-sm text-ink-500">暫時無法取得試題目錄，請稍後重試。</p>
             <button
+              type="button"
               onClick={() => window.location.reload()}
               className="mt-5 h-10 rounded-sm border border-line-strong px-4 text-sm font-medium text-ink-800 transition-colors hover:bg-cream"
             >
@@ -255,12 +260,12 @@ function App() {
       <PaperGrain />
       <Header totalBundles={bundles.length} />
 
-      <main id="main" className="mx-auto w-full max-w-4xl flex-1 px-6 pb-10 pt-10">
+      <main id="main" aria-busy={loading} className="mx-auto w-full max-w-4xl flex-1 px-6 pb-10 pt-10">
         <section className="flex items-start justify-between gap-8">
           <div>
-            <h2 className="font-serif text-3xl font-black tracking-tight text-ink-950 md:text-[2.5rem] md:leading-[1.15]">
+            <h1 className="font-serif text-3xl font-black tracking-tight text-ink-950 md:text-[2.5rem] md:leading-[1.15]">
               歷屆試題下載
-            </h2>
+            </h1>
             <p className="mt-3 max-w-[58ch] text-[15px] leading-relaxed text-ink-600">
               收錄國家考試、國營事業甄試、國中會考及技能檢定歷年試題，依類科彙整為多年度
               ZIP 檔，可直接下載。
@@ -274,18 +279,29 @@ function App() {
           </span>
         </section>
 
-        {!loading && (
-          <div className="mt-8">
-            <StatsBar
-              total={bundles.length}
-              totalFiles={totalFiles}
-              yearRange={yearRange}
-            />
-          </div>
-        )}
+        <div className="mt-8 min-h-[70px] sm:min-h-[44px]">
+          {loading ? (
+            <div aria-hidden="true" className="flex flex-wrap items-center gap-8 border-y border-line py-3">
+              <span className="h-3 w-20 animate-pulse rounded-sm bg-paper-deep" />
+              <span className="h-3 w-20 animate-pulse rounded-sm bg-paper-deep" />
+              <span className="h-3 w-28 animate-pulse rounded-sm bg-paper-deep" />
+            </div>
+          ) : (
+            <StatsBar total={bundles.length} totalFiles={totalFiles} yearRange={yearRange} />
+          )}
+        </div>
 
-        {!loading && (
-          <div className="mt-6">
+        <div className={selectedClass ? "mt-6 min-h-[108px] sm:min-h-[88px]" : "mt-6 min-h-[48px] sm:min-h-[40px]"}>
+          {loading ? (
+            <div aria-hidden="true" className="space-y-3">
+              <div className="flex h-11 items-center gap-2 sm:h-9">
+                <span className="h-8 w-20 animate-pulse rounded-sm bg-paper-deep" />
+                <span className="h-8 w-24 animate-pulse rounded-sm bg-paper-deep" />
+                <span className="h-8 w-24 animate-pulse rounded-sm bg-paper-deep" />
+              </div>
+              {selectedClass && <div className="h-11 w-64 animate-pulse rounded-sm bg-paper-deep sm:h-8" />}
+            </div>
+          ) : (
             <CategoryFilter
               availableClasses={availableClasses}
               availableSubclasses={availableSubclasses}
@@ -296,8 +312,8 @@ function App() {
               classCounts={classCounts}
               subclassCounts={subclassCounts}
             />
-          </div>
-        )}
+          )}
+        </div>
 
         <div className="mt-6 flex flex-col gap-4">
           <div className="flex flex-col gap-2 sm:flex-row">
@@ -309,7 +325,7 @@ function App() {
               onClick={handleShareLink}
               className="h-12 shrink-0 rounded-sm border border-line-strong bg-cream px-4 text-sm font-medium text-ink-700 transition-colors hover:bg-paper-deep hover:text-ink-950"
             >
-              {shareFeedback ? "連結已複製" : "分享搜尋連結"}
+              {shareFeedback ?? "分享搜尋連結"}
             </button>
           </div>
 
@@ -324,6 +340,11 @@ function App() {
         </div>
 
         <div className="mt-8">
+          {!loading && !unlocked && (
+            <p className="mb-3 text-xs leading-relaxed text-ink-600">
+              首次下載前，請先在加入頁選擇一個 LINE 社群；返回後即可下載試題。
+            </p>
+          )}
           {loading ? (
             <LoadingSkeleton />
           ) : filtered.length === 0 ? (
@@ -339,6 +360,8 @@ function App() {
                 {Math.min(safePage * PAGE_SIZE, filtered.length)} 筆 · 共{" "}
                 {filtered.length.toLocaleString()} 筆
               </p>
+              {/* Safari needs an explicit list role when markers are removed. */}
+              {/* eslint-disable-next-line jsx-a11y-x/no-redundant-roles */}
               <ul
                 role="list"
                 className="-mx-4 divide-y divide-line border-y border-line"
@@ -348,6 +371,7 @@ function App() {
                     key={bundle.id}
                     bundle={bundle}
                     unlocked={unlocked}
+                    joinHref={joinHref}
                   />
                 ))}
               </ul>
