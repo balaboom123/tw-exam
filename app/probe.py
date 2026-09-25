@@ -10,6 +10,7 @@ from app.crawler import make_result_url, make_year_search_url
 from app.manifest import SourceManifest
 from app.models import SourceExamPage
 from app.providers.base import SourceProvider
+from app.sync import retry_network
 
 
 def _stable_hash(value: object) -> str:
@@ -128,7 +129,7 @@ def probe_latest(client: SourceProvider, manifest: SourceManifest, year_window: 
         )
 
         if year_changed:
-            exams = client.discover_exams(year_ad)
+            exams = retry_network(lambda: client.discover_exams(year_ad))
             counts["year_get_count"] += 1
             current_codes = [exam.code for exam in exams]
             current_hash = hash_exam_codes(current_codes)

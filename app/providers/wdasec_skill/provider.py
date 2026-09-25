@@ -7,6 +7,7 @@ from app.providers.wdasec_skill.client import WdasecSkillClient
 
 class WdasecSkillProvider(SourceProvider):
     provider_id = "wdasec_skill"
+    max_concurrency = 1
 
     def __init__(self, client: WdasecSkillClient | None = None) -> None:
         self.client = client or WdasecSkillClient()

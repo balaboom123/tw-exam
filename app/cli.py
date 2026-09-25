@@ -22,7 +22,7 @@ from app.providers.base import SourceProvider
 from app.providers.registry import get_provider
 from app.state import load_existing_state, load_provider_state, load_site_bundles, merge_incremental_state, merge_targeted_state
 from app.site_registry import get_site_config
-from app.sync import restore_catalog_files, sync_exam_pages
+from app.sync import restore_catalog_files, retry_network, sync_exam_pages
 from app.storage import MirrorStore
 
 
@@ -288,7 +288,7 @@ def command_discover(args: argparse.Namespace, client: SourceProvider | None = N
     for index, year in enumerate(years):
         if index and delay_seconds:
             time.sleep(delay_seconds)
-        exams = client.discover_exams(year)
+        exams = retry_network(lambda: client.discover_exams(year))
         discoveries.append((year, exams))
         payload.append(
             {
@@ -681,7 +681,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
 
     for year in years:
         try:
-            discovered_exams = provider.discover_exams(year)
+            discovered_exams = retry_network(lambda: provider.discover_exams(year))
             discoveries.append((year, discovered_exams))
             exam_codes = [(exam.code, exam.year_ad) for exam in discovered_exams]
         except Exception as exc:

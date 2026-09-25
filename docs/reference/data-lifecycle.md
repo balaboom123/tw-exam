@@ -58,6 +58,9 @@ Behavior:
 - `sync-*` commands download source files into `mirror/providers/<provider_id>/`
 - mirror paths are built from year, exam ID, category, subject, and file type
 - existing mirrored files are reused when valid
+- source pages are fetched serially; independent files within a page may download with up to four workers, while mirror writes remain serial
+- providers with session state or source rate limits set `max_concurrency = 1`
+- transient fetch and discovery requests use bounded retries and honor `Retry-After` when provided
 
 Integrity properties:
 

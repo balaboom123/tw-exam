@@ -6,6 +6,7 @@ from app.providers.teacher_qual.client import TeacherQualClient
 
 class TeacherQualProvider(SourceProvider):
     provider_id = "teacher_qual"
+    max_concurrency = 1
 
     def __init__(self, client: TeacherQualClient | None = None) -> None:
         self.client = client or TeacherQualClient()
