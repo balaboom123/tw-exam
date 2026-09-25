@@ -149,6 +149,7 @@ Why this matters:
 Behavior:
 
 - bundle generation reads normalized papers and mirrored files
+- an unchanged single-part ZIP is reused when its full embedded manifest and entry names match current papers; entries whose mirror files are absent are streamed once to verify ZIP CRC before reuse
 - generated site bundle metadata is written to `data/sites/<site_id>/bundles.json`
 - release asset inventory is written to `data/sites/<site_id>/release-assets.json`
 - legacy alias asset names may be preserved for compatibility

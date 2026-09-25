@@ -632,6 +632,87 @@ class BundlerTests(unittest.TestCase):
                 self.assertEqual(first_bytes, second_bytes)
                 self.assertEqual(hashlib.sha256(second_bytes).hexdigest(), checksum)
 
+    def test_unchanged_single_part_bundle_is_reused_until_manifest_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            mirror_dir = root / "mirror"
+            source = mirror_dir / "115/exam-115/101/0101/question.pdf"
+            source.parent.mkdir(parents=True)
+            source.write_bytes(b"%PDF-1.7 question")
+            paper = make_paper(
+                canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                source_exam_id="exam-115", subject_code="0101",
+                storage_key="115/exam-115/101/0101/question.pdf",
+            )
+            catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+            bundle_dir = root / "bundles"
+
+            first = build_bundles(bundle_dir, mirror_dir, catalog, "")
+            self.assertEqual(first.failures, [])
+            archive_path = bundle_dir / first.bundles[0].asset_name
+            original_bytes = archive_path.read_bytes()
+            marker = 946_684_800_000_000_000
+            os.utime(archive_path, ns=(marker, marker))
+
+            second = build_bundles(bundle_dir, mirror_dir, catalog, "")
+            self.assertEqual(second.failures, [])
+            self.assertEqual(second.bundles[0].checksum, first.bundles[0].checksum)
+            self.assertEqual(archive_path.read_bytes(), original_bytes)
+            self.assertEqual(archive_path.stat().st_mtime_ns, marker)
+
+            paper.classification_reason = "reclassified"
+            third = build_bundles(bundle_dir, mirror_dir, catalog, "")
+            self.assertEqual(third.failures, [])
+            self.assertNotEqual(archive_path.stat().st_mtime_ns, marker)
+            self.assertNotEqual(third.bundles[0].checksum, first.bundles[0].checksum)
+
+    def test_missing_mirror_entry_is_checked_before_reusing_a_bundle(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            mirror_dir = root / "mirror"
+            source = mirror_dir / "115/exam-115/101/0101/question.pdf"
+            source.parent.mkdir(parents=True)
+            source.write_bytes(b"%PDF-1.7 question")
+            paper = make_paper(
+                canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                source_exam_id="exam-115", subject_code="0101",
+                storage_key="115/exam-115/101/0101/question.pdf",
+            )
+            catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+            bundle_dir = root / "bundles"
+            first = build_bundles(bundle_dir, mirror_dir, catalog, "")
+            archive_path = bundle_dir / first.bundles[0].asset_name
+            source.unlink()
+            marker = 946_684_800_000_000_000
+            os.utime(archive_path, ns=(marker, marker))
+
+            reused = build_bundles(bundle_dir, mirror_dir, catalog, "")
+            self.assertEqual(reused.failures, [])
+            self.assertEqual(archive_path.stat().st_mtime_ns, marker)
+
+            with zipfile.ZipFile(archive_path) as archive:
+                entry_name = next(name for name in archive.namelist() if name != "bundle.json")
+                entry_bytes = archive.read(entry_name)
+                manifest_bytes = archive.read("bundle.json")
+            with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_STORED) as archive:
+                archive.writestr(entry_name, entry_bytes)
+                archive.writestr("bundle.json", manifest_bytes)
+            with zipfile.ZipFile(archive_path) as archive:
+                entry_offset = archive.getinfo(entry_name).header_offset
+            with archive_path.open("r+b") as archive_file:
+                archive_file.seek(entry_offset + 26)
+                name_length = int.from_bytes(archive_file.read(2), "little")
+                extra_length = int.from_bytes(archive_file.read(2), "little")
+                archive_file.seek(entry_offset + 30 + name_length + extra_length)
+                first_byte = archive_file.read(1)
+                archive_file.seek(-1, os.SEEK_CUR)
+                archive_file.write(bytes([first_byte[0] ^ 1]))
+
+            rebuilt = build_bundles(bundle_dir, mirror_dir, catalog, "")
+            self.assertEqual(len(rebuilt.failures), 1)
+            self.assertEqual(rebuilt.failures[0].stage, "bundle")
+            self.assertFalse(archive_path.exists())
+
 
 if __name__ == "__main__":
     unittest.main()
