@@ -11,6 +11,7 @@ exam-event-specific review bundle instead of being silently merged.
 """
 
 from dataclasses import asdict, dataclass
+from functools import lru_cache
 import hashlib
 import re
 import unicodedata
@@ -258,6 +259,7 @@ def _stage_id(category: str, exam_name: str) -> str:
     return NOT_APPLICABLE
 
 
+@lru_cache(maxsize=8192)
 def _clean_moex_track(category: str, canonical_name: str) -> str:
     value = normalize_text(category or canonical_name)
     if "_" in value:
@@ -340,6 +342,7 @@ def _track_details(
     return _slug(value or source_exam_id, prefix="track"), value or source_exam_id
 
 
+@lru_cache(maxsize=8192)
 def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
@@ -675,7 +678,38 @@ def identity_fields(identity: ExamIdentity) -> dict[str, Any]:
     }
 
 
+@lru_cache(maxsize=8192)
+def _classify_moex_record(
+    source_exam_id: str,
+    year_ad: int,
+    category_raw: str,
+    exam_name_raw: str,
+    canonical_id: str,
+    canonical_name: str,
+) -> ExamIdentity:
+    # MOEX classification depends on the event and category, not the paper's
+    # subject. Hundreds of papers can therefore share one immutable identity.
+    return classify_paper(
+        provider_id="moex",
+        source_exam_id=source_exam_id,
+        year_ad=year_ad,
+        category_raw=category_raw,
+        exam_name_raw=exam_name_raw,
+        canonical_id=canonical_id,
+        canonical_name=canonical_name,
+    )
+
+
 def classify_normalized_paper(paper: Any) -> ExamIdentity:
+    if getattr(paper, "provider_id", "") == "moex":
+        return _classify_moex_record(
+            getattr(paper, "source_exam_id", ""),
+            int(getattr(paper, "year_roc", 0) or 0) + 1911,
+            getattr(paper, "category_raw", ""),
+            getattr(paper, "exam_name_raw", ""),
+            getattr(paper, "canonical_id", ""),
+            getattr(paper, "canonical_name", ""),
+        )
     return classify_paper(
         provider_id=getattr(paper, "provider_id", ""),
         source_exam_id=getattr(paper, "source_exam_id", ""),
