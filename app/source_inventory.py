@@ -17,7 +17,7 @@ from typing import Any
 from app.manifest import load_source_manifest
 from app.paths import provider_paths
 from app.site_registry import get_site_config
-from app.state import load_provider_state
+from app.state import load_provider_failures, load_provider_state
 
 INVENTORY_SCHEMA_VERSION = 1
 INVENTORY_PATH = Path("catalog/source-inventory.json")
@@ -196,6 +196,30 @@ def _local_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
     }
 
 
+def _local_floor_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
+    """Count retained records one year at a time for the commit floor guard."""
+    provider = provider_paths(repo_root, provider_id)
+    years: set[int] = set()
+    counts: dict[str, int] = {}
+    for label, directory, year_field, offset in (
+        ("raw_event_pages", provider.exams_dir, "year_ad", 0),
+        ("normalized_paper_records", provider.papers_dir, "year_roc", 1911),
+    ):
+        count = 0
+        for path in sorted(directory.glob("*.json")):
+            records = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(records, list):
+                raise ValueError(f"provider state is not an array: {path}")
+            count += len(records)
+            years.update(record[year_field] + offset for record in records)
+        counts[label] = count
+    return {
+        "years": sorted(years),
+        **counts,
+        "sync_failures": len(load_provider_failures(provider)),
+    }
+
+
 def provider_ids_from_paths(paths: Iterable[str]) -> list[str]:
     """Return the provider IDs owning the given repository paths, in order."""
     provider_ids: list[str] = []
@@ -229,7 +253,7 @@ def check_sync_floor(repo_root: Path, provider_ids: Sequence[str]) -> dict[str, 
         entry = entries.get(provider_id)
         if entry is None:
             raise ValueError(f"source inventory has no entry for provider: {provider_id}")
-        observation = _local_observation(repo_root, provider_id)
+        observation = _local_floor_observation(repo_root, provider_id)
         losses: list[str] = []
         for field in ("raw_event_pages", "normalized_paper_records"):
             recorded = entry["local_state"][field]
