@@ -4,12 +4,11 @@ import re
 from dataclasses import dataclass, field
 from html import unescape
 from html.parser import HTMLParser
-from pathlib import Path
-from urllib.parse import unquote, urlencode, urljoin, urlparse
-from urllib.request import Request, urlopen
+from urllib.parse import urlencode, urljoin
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 QUESTION_URL = "https://cis.ncu.edu.tw/EnableSys/admissionInfo/examInfo/question"
 USER_AGENT = "Mozilla/5.0 (compatible; special-admission-mirror/1.0)"
@@ -149,33 +148,16 @@ class SpecialAdmissionClient:
 
     def __init__(self) -> None:
         self._available_years_cache: tuple[int, ...] | None = None
+        self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+        return self.http.get_text(url, encoding="utf-8")
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(url)
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=120) as response:
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=Path(unquote(urlparse(url).path)).name,
-            )
+        return self.http.download(url, content_disposition_name=False)
 
     def _available_years(self) -> list[int]:
         if self._available_years_cache is None:

@@ -6,7 +6,10 @@ from unittest.mock import Mock, patch
 
 from app.providers.ceec_gsat.client import CeecGsatClient
 from app.providers.http import Http, ad, links, roc
+from app.providers.post_recruit.client import PostRecruitClient
 from app.providers.sfi_cert.client import SfiCertClient
+from app.providers.special_admission.client import SpecialAdmissionClient
+from app.providers.tabf_cert.client import TabfCertClient
 from app.providers.tcte_tve.client import TcteTveClient
 from app.providers.tocfl_cert.client import TocflCertClient
 
@@ -32,7 +35,10 @@ class Response:
 class ProviderHttpTests(unittest.TestCase):
     def test_migrated_clients_preserve_request_methods_headers_and_filenames(self) -> None:
         url = "https://example.test/files/question%20paper.pdf"
-        for client_type in (SfiCertClient, CeecGsatClient, TcteTveClient, TocflCertClient):
+        for client_type in (
+            SfiCertClient, CeecGsatClient, TcteTveClient, TocflCertClient,
+            PostRecruitClient, TabfCertClient, SpecialAdmissionClient,
+        ):
             with self.subTest(client=client_type.__name__):
                 client = client_type()
                 with patch("app.providers.http.urlopen", return_value=Response(b"hello")) as open_url:
