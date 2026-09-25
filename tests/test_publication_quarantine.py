@@ -13,7 +13,7 @@ from app.publication_quarantine import (
     quarantine_path,
     quarantined_provider_ids,
 )
-from app.publisher import load_site_catalog, write_provider_state, write_site_state
+from app.publisher import load_site_catalog, load_site_provider_indexes, write_provider_state, write_site_state
 from app.site_registry import get_site_config
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -145,6 +145,10 @@ class SiteProjectionTests(unittest.TestCase):
             normalized, _failures = load_site_catalog(root, site_id="default")
 
             self.assertEqual({paper.provider_id for paper in normalized.papers}, required)
+            self.assertEqual(
+                {index["provider_id"] for index in load_site_provider_indexes(root, site_id="default")},
+                required,
+            )
 
     def test_quarantine_excludes_an_otherwise_publishable_backlog(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -176,6 +180,10 @@ class SiteProjectionTests(unittest.TestCase):
             normalized, _failures = load_site_catalog(root, site_id="default")
 
             self.assertEqual({paper.provider_id for paper in normalized.papers}, required | {"sfi_cert"})
+            self.assertEqual(
+                {index["provider_id"] for index in load_site_provider_indexes(root, site_id="default")},
+                required | {"sfi_cert"},
+            )
 
     def test_quarantining_a_required_provider_fails_closed(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/balaboom123/tw-exam/schemas/provider-index-v1.schema.json",
+  "title": "Generated provider state index",
+  "type": "object",
+  "required": ["schema_version", "provider_id", "source_files", "bundle_ids", "canonical_ids", "raw_events", "papers"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider_id": {"type": "string", "minLength": 1},
+    "bundle_ids": {"type": "array", "items": {"type": "string"}},
+    "canonical_ids": {"type": "array", "items": {"type": "string"}},
+    "source_files": {
+      "type": "object",
+      "required": ["exams", "papers"],
+      "additionalProperties": false,
+      "properties": {
+        "exams": {"$ref": "#/$defs/fileSizes"},
+        "papers": {"$ref": "#/$defs/fileSizes"}
+      }
+    },
+    "raw_events": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {"type": "string"},
+          {"type": "integer"},
+          {"type": "boolean"}
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {"type": "string"},
+          {"type": "string"},
+          {"type": "string"},
+          {"type": "string"},
+          {"type": "integer"},
+          {"type": "integer", "minimum": 0},
+          {"type": "integer", "minimum": 0},
+          {"type": "string"},
+          {"type": "string"},
+          {"type": "string"},
+          {"type": "boolean"}
+        ],
+        "minItems": 11,
+        "maxItems": 11
+      }
+    }
+  },
+  "$defs": {
+    "fileSizes": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[^/]+\\.json$"},
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    }
+  }
+}

@@ -81,6 +81,7 @@ def _provider_state_paths(data_dir: Path, mirror_dir: Path, provider_id: str) ->
         data_dir=provider_data_dir,
         exams_dir=provider_data_dir / "exams",
         papers_dir=provider_data_dir / "papers",
+        index_path=provider_data_dir / "index.json",
         review_queue_path=provider_data_dir / "review-queue.json",
         sync_failures_path=provider_data_dir / "sync-failures.json",
         aliases_path=provider_data_dir / "aliases.json",

@@ -16,6 +16,7 @@ from typing import Any
 
 from app.manifest import load_source_manifest
 from app.paths import provider_paths
+from app.provider_index import PAPER_SOURCE_EXAM_ID, PAPER_YEAR_ROC, load_provider_index
 from app.site_registry import get_site_config
 from app.state import load_provider_failures
 
@@ -181,8 +182,23 @@ def _validate_evidence_paths(repo_root: Path, inventory: dict[str, Any]) -> None
 
 
 def _local_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
-    """Observe retained state one year at a time without materializing catalogs."""
+    """Use the current index or scan yearly files without loading catalogs."""
     provider = provider_paths(repo_root, provider_id)
+    index = load_provider_index(provider)
+    if index is not None:
+        raw_events = index["raw_events"]
+        papers = index["papers"]
+        event_ids = {(row[0], row[1]) for row in raw_events}
+        event_ids.update(
+            (row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911) for row in papers
+        )
+        return {
+            "years": sorted({year for _source_id, year in event_ids}),
+            "raw_event_pages": len(raw_events),
+            "normalized_paper_records": len(papers),
+            "sync_failures": len(load_provider_failures(provider)),
+            "event_ids": event_ids,
+        }
     years: set[int] = set()
     event_ids: set[tuple[str, int]] = set()
     counts: dict[str, int] = {}

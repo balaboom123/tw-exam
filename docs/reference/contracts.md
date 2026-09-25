@@ -21,6 +21,7 @@ The goal is to prevent the multi-source expansion from drifting into ad hoc JSON
 | source manifest | provider | `data/providers/<provider_id>/source-manifest.json` |
 | raw exam pages | provider | `data/providers/<provider_id>/exams/*.json` |
 | normalized papers | provider | `data/providers/<provider_id>/papers/*.json` |
+| derived event and paper index | provider | `data/providers/<provider_id>/index.json` |
 | review queue | provider | `data/providers/<provider_id>/review-queue.json` |
 | sync failures | provider | `data/providers/<provider_id>/sync-failures.json` |
 | alias rules | provider | `data/providers/<provider_id>/aliases.json` |

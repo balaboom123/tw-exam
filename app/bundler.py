@@ -5,12 +5,19 @@ import json
 import re
 import shutil
 import zipfile
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from app.normalizer import hashed_fallback_canonical_id, legacy_fallback_canonical_id
 from app.models import BundleAsset, BundleBuildResult, NormalizedCatalog, NormalizedPaper, SyncFailure, file_type_label, to_plain_data
 from app.publication_metadata import derive_public_metadata
+from app.provider_index import (
+    PAPER_LEGACY_CANDIDATE,
+    PAPER_YEAR_ROC,
+    paper_index_bundle_id,
+    paper_index_canonical_id,
+)
 
 WINDOWS_RESERVED_NAMES = {
     "CON",
@@ -296,16 +303,23 @@ def _resolve_entry_ref(ref: _EntryRef) -> bytes | None:
 
 
 def _resolve_mirror_source_path(mirror_dir: Path, paper: NormalizedPaper) -> Path | None:
-    if not paper.storage_key:
+    return resolve_mirror_storage_path(mirror_dir, paper.storage_key, paper.provider_id)
+
+
+def resolve_mirror_storage_path(
+    mirror_dir: Path, storage_key: str, provider_id: str
+) -> Path | None:
+    """Resolve a provider mirror entry from its stored locator fields."""
+    if not storage_key:
         return None
 
-    storage_path = Path(paper.storage_key)
+    storage_path = Path(storage_key)
     direct_path = mirror_dir / storage_path
     if direct_path.exists():
         return direct_path
 
-    if paper.provider_id:
-        provider_scoped_path = mirror_dir / "providers" / paper.provider_id / storage_path
+    if provider_id:
+        provider_scoped_path = mirror_dir / "providers" / provider_id / storage_path
         if provider_scoped_path.exists():
             return provider_scoped_path
 
@@ -415,9 +429,24 @@ def _required_years_for_group(
     min_years: int,
     min_years_by_canonical_prefix: dict[str, int] | None,
 ) -> int:
+    return _required_years_for_hints(
+        canonical_id,
+        papers[0].provider_id,
+        papers[0].canonical_id,
+        min_years=min_years,
+        min_years_by_canonical_prefix=min_years_by_canonical_prefix,
+    )
+
+
+def _required_years_for_hints(
+    canonical_id: str,
+    provider_hint: str,
+    legacy_hint: str,
+    *,
+    min_years: int,
+    min_years_by_canonical_prefix: dict[str, int] | None,
+) -> int:
     required_years = min_years
-    provider_hint = papers[0].provider_id
-    legacy_hint = papers[0].canonical_id
     for prefix, prefix_min_years in (min_years_by_canonical_prefix or {}).items():
         if canonical_id.startswith(prefix) or provider_hint.startswith(prefix) or legacy_hint.startswith(prefix):
             required_years = prefix_min_years
@@ -452,6 +481,56 @@ def public_bundle_ids(
         if len({paper.year_roc for paper in papers}) < required_years:
             continue
         public_ids.add(papers[0].canonical_id if _is_legacy_projection(papers) else canonical_id)
+    return public_ids
+
+
+@dataclass(slots=True)
+class _IndexedBundleGroup:
+    provider_hint: str
+    legacy_hint: str
+    legacy_candidate: bool
+    years: set[int] = field(default_factory=set)
+    canonical_ids: set[str] = field(default_factory=set)
+
+
+def public_bundle_ids_from_indexes(
+    indexes: Iterable[dict],
+    *,
+    min_years: int = 1,
+    min_years_by_canonical_prefix: dict[str, int] | None = None,
+) -> set[str]:
+    """Apply the same public year and legacy rules to provider index rows."""
+    grouped: dict[str, _IndexedBundleGroup] = {}
+    for index in indexes:
+        for row in index["papers"]:
+            canonical_id = paper_index_canonical_id(index, row)
+            bundle_id = paper_index_bundle_id(index, row) or canonical_id
+            group = grouped.get(bundle_id)
+            if group is None:
+                group = grouped[bundle_id] = _IndexedBundleGroup(
+                    provider_hint=index["provider_id"],
+                    legacy_hint=canonical_id,
+                    legacy_candidate=row[PAPER_LEGACY_CANDIDATE],
+                )
+            group.years.add(row[PAPER_YEAR_ROC])
+            group.canonical_ids.add(canonical_id)
+
+    public_ids: set[str] = set()
+    for bundle_id, group in grouped.items():
+        required_years = _required_years_for_hints(
+            bundle_id,
+            group.provider_hint,
+            group.legacy_hint,
+            min_years=min_years,
+            min_years_by_canonical_prefix=min_years_by_canonical_prefix,
+        )
+        if len(group.years) < required_years:
+            continue
+        public_ids.add(
+            group.legacy_hint
+            if group.legacy_candidate and len(group.canonical_ids) == 1
+            else bundle_id
+        )
     return public_ids
 
 

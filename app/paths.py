@@ -10,6 +10,7 @@ class ProviderPaths:
     data_dir: Path
     exams_dir: Path
     papers_dir: Path
+    index_path: Path
     review_queue_path: Path
     sync_failures_path: Path
     aliases_path: Path
@@ -42,6 +43,7 @@ def provider_paths(repo_root: Path, provider_id: str) -> ProviderPaths:
         data_dir=data_dir,
         exams_dir=data_dir / "exams",
         papers_dir=data_dir / "papers",
+        index_path=data_dir / "index.json",
         review_queue_path=data_dir / "review-queue.json",
         sync_failures_path=data_dir / "sync-failures.json",
         aliases_path=data_dir / "aliases.json",

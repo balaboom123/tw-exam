@@ -70,6 +70,9 @@ jobs:
       - name: Validate source scope inventory
         run: uv run --frozen python scripts/validate_source_inventory.py
 
+      - name: Verify generated provider indexes against source files
+        run: uv run --frozen python scripts/build_provider_indexes.py --check
+
       - name: Validate documentation projections
         run: |
           uv run --frozen python scripts/render_docs.py --check

@@ -118,11 +118,14 @@ Behavior:
 - provider raw pages become `NormalizedPaper` records
 - provider-scoped alias rules under `data/providers/<provider_id>/aliases.json` are applied during normalization
 - unresolved naming cases are emitted to `data/providers/<provider_id>/review-queue.json`
+- provider writes also regenerate `data/providers/<provider_id>/index.json`, a compact projection for inventory gates; readers scan source files when the index is missing or its file-size snapshot differs
+- source inventory, publication eligibility, and event-level history checks read a current index; the catalog audit still reclassifies full paper records
 
 Invariant:
 
 - alias rules SHOULD be provider-scoped unless a site explicitly owns cross-provider canonicalization
 - normalized schema MUST remain source-agnostic
+- the derived index MUST be rebuildable from provider source files; `uv run python scripts/build_provider_indexes.py --check` compares its full contents with those files
 
 ### 6. Merge refreshed state
 

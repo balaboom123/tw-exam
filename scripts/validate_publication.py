@@ -12,10 +12,10 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from app.bundler import public_bundle_ids
+from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
 from app.coverage_exceptions import failure_exception_for, load_coverage_exceptions
 from app.paths import provider_paths
-from app.publisher import load_site_catalog
+from app.publisher import load_site_catalog, load_site_provider_indexes
 from app.site_registry import get_site_config
 from app.source_inventory import validate_source_inventory
 from app.state import load_provider_failures
@@ -36,7 +36,6 @@ def load_json(path: Path, *, repo_root: Path = ROOT):
 
 def validate_provider_site_coverage(site_bundle_ids: set[str], *, repo_root: Path = ROOT) -> None:
     site_config = get_site_config("default")
-    normalized, _all_failures = load_site_catalog(repo_root, site_id=site_config.site_id)
     unresolved_failures = []
     for provider_id in site_config.provider_ids:
         provider = provider_paths(repo_root, provider_id)
@@ -60,11 +59,20 @@ def validate_provider_site_coverage(site_bundle_ids: set[str], *, repo_root: Pat
             f"({details}{suffix})"
         )
 
-    expected_ids = public_bundle_ids(
-        normalized,
-        min_years=site_config.public_min_years,
-        min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
-    )
+    indexes = load_site_provider_indexes(repo_root, site_id=site_config.site_id)
+    if indexes is None:
+        normalized, _all_failures = load_site_catalog(repo_root, site_id=site_config.site_id)
+        expected_ids = public_bundle_ids(
+            normalized,
+            min_years=site_config.public_min_years,
+            min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
+        )
+    else:
+        expected_ids = public_bundle_ids_from_indexes(
+            indexes,
+            min_years=site_config.public_min_years,
+            min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
+        )
     missing = sorted(expected_ids - site_bundle_ids)
     extra = sorted(site_bundle_ids - expected_ids)
     if missing or extra:

@@ -9,22 +9,33 @@ events.  It never downloads source files or writes provider state.
 """
 
 from collections import Counter, defaultdict
+from dataclasses import dataclass, field
 import json
 from pathlib import Path
 from typing import Any, Iterable
 
-from app.bundler import _resolve_mirror_source_path, public_bundle_ids
+from app.bundler import public_bundle_ids_from_indexes, resolve_mirror_storage_path
 from app.coverage_exceptions import (
     event_exception_for,
     failure_exception_for,
     load_coverage_exceptions,
 )
-from app.models import NormalizedCatalog
 from app.paths import provider_paths, site_paths
+from app.provider_index import (
+    PAPER_CODE,
+    PAPER_FILE_TYPE,
+    PAPER_SOURCE_EXAM_ID,
+    PAPER_STORAGE_KEY,
+    PAPER_YEAR_ROC,
+    build_provider_index,
+    load_provider_index,
+    paper_index_bundle_id,
+    paper_index_canonical_id,
+)
 from app.providers.registry import get_provider
 from app.publication_quarantine import quarantined_provider_ids
 from app.site_registry import get_site_config
-from app.state import load_provider_state, load_site_bundles
+from app.state import load_provider_failures, load_provider_state, load_site_bundles
 
 
 def _event_key(source_exam_id: str, year_ad: int) -> tuple[str, int]:
@@ -48,6 +59,13 @@ def _failure_status(failures: list[Any]) -> str | None:
     if stages:
         return "sync_failure_recorded"
     return None
+
+
+@dataclass(slots=True)
+class _EventPapers:
+    count: int = 0
+    bundle_ids: set[str] = field(default_factory=set)
+    missing_mirror_files: set[str] = field(default_factory=set)
 
 
 def _probe_provider(
@@ -133,20 +151,33 @@ def build_history_coverage_audit(
     provider_reports: list[dict[str, Any]] = []
     status_counts: Counter[str] = Counter()
     total_parser_gaps = 0
-    all_normalized_papers = []
+    all_indexes: list[dict[str, Any]] = []
 
     for provider_id in selected_provider_ids:
         provider = provider_paths(repo_root, provider_id)
-        raw_pages, catalog, failures = load_provider_state(provider)
+        index = load_provider_index(provider)
+        if index is None:
+            raw_pages, catalog, failures = load_provider_state(provider)
+            index = build_provider_index(provider, raw_pages, catalog.papers)
+        else:
+            failures = load_provider_failures(provider)
         coverage_exceptions = load_coverage_exceptions(repo_root, provider_id)
-        all_normalized_papers.extend(catalog.papers)
+        all_indexes.append(index)
         raw_by_event = {
-            _event_key(page.source_exam_id, page.year_ad): page
-            for page in raw_pages
+            _event_key(row[0], row[1]): row[2]
+            for row in index["raw_events"]
         }
-        papers_by_event: dict[tuple[str, int], list[Any]] = defaultdict(list)
-        for paper in catalog.papers:
-            papers_by_event[_event_key(paper.source_exam_id, paper.year_roc + 1911)].append(paper)
+        papers_by_event: dict[tuple[str, int], _EventPapers] = defaultdict(_EventPapers)
+        for row in index["papers"]:
+            event = papers_by_event[_event_key(row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911)]
+            event.count += 1
+            event.bundle_ids.add(
+                paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
+            )
+            if check_mirror and resolve_mirror_storage_path(repo_root / "mirror", row[PAPER_STORAGE_KEY], provider_id) is None:
+                event.missing_mirror_files.add(
+                    row[PAPER_STORAGE_KEY] or f"{row[PAPER_CODE]}:{row[PAPER_FILE_TYPE]}"
+                )
         failures_by_event: dict[tuple[str, int], list[Any]] = defaultdict(list)
         for failure in failures:
             failures_by_event[_event_key(failure.source_exam_id, failure.year_roc + 1911)].append(failure)
@@ -156,7 +187,7 @@ def build_history_coverage_audit(
         matched_exception_keys: set[tuple[str, str, int, str, str]] = set()
         for source_exam_id, year_ad in sorted(event_keys, key=lambda item: (-item[1], item[0])):
             event_key = _event_key(source_exam_id, year_ad)
-            raw_page = raw_by_event.get(event_key)
+            raw_has_material = raw_by_event.get(event_key, False)
             papers = papers_by_event[event_key]
             event_failures = failures_by_event[event_key]
             event_exception = event_exception_for(coverage_exceptions, source_exam_id, year_ad)
@@ -168,14 +199,8 @@ def build_history_coverage_audit(
                 if exception is not None:
                     matched_file_exceptions.append(exception)
                     matched_exception_keys.add(exception.key)
-            missing_mirror_files = sorted(
-                {
-                    paper.storage_key or f"{paper.paper_code}:{paper.file_type}"
-                    for paper in papers
-                    if _resolve_mirror_source_path(repo_root / "mirror", paper) is None
-                }
-            ) if check_mirror else []
-            required_bundle_ids = {paper.bundle_id or paper.canonical_id for paper in papers}
+            missing_mirror_files = sorted(papers.missing_mirror_files)
+            required_bundle_ids = papers.bundle_ids
             published_bundle_ids = sorted(
                 {
                     published_bundle_id
@@ -193,9 +218,7 @@ def build_history_coverage_audit(
                 )
             )
             failure_status = _failure_status(event_failures)
-            has_current_material = bool(papers or event_failures)
-            if raw_page is not None:
-                has_current_material = has_current_material or bool(raw_page.papers or raw_page.attachments)
+            has_current_material = bool(papers.count or event_failures or raw_has_material)
             if event_exception is not None:
                 # An event exception is valid only for a retained event with no
                 # currently materialized records.  It must not hide new data or
@@ -207,7 +230,7 @@ def build_history_coverage_audit(
                 status = "partially_blocked" if has_current_material else "blocked"
             elif failure_status is not None:
                 status = failure_status
-            elif not papers and event_key in raw_by_event:
+            elif not papers.count and event_key in raw_by_event:
                 # A source page that lists no papers has nothing to normalize, so
                 # calling that a normalization gap is a false positive. It failed
                 # the strict audit and blocked every deploy on 2026-08-09, when
@@ -220,9 +243,9 @@ def build_history_coverage_audit(
                 # that did list papers and still normalized none is a real gap
                 # and stays one.
                 status = "normalization_gap" if has_current_material else "awaiting_papers"
-            elif papers and unpublished_bundle_ids:
+            elif papers.count and unpublished_bundle_ids:
                 status = "normalized_not_published"
-            elif papers:
+            elif papers.count:
                 status = "published_complete"
             else:
                 status = "failure_only"
@@ -233,7 +256,7 @@ def build_history_coverage_audit(
                     "year_ad": year_ad,
                     "year_roc": year_ad - 1911,
                     "raw_page_present": event_key in raw_by_event,
-                    "normalized_paper_records": len(papers),
+                    "normalized_paper_records": papers.count,
                     "missing_mirror_files": missing_mirror_files,
                     "published_bundle_ids": published_bundle_ids,
                     "unpublished_bundle_ids": unpublished_bundle_ids,
@@ -267,8 +290,8 @@ def build_history_coverage_audit(
         provider_reports.append(
             {
                 "provider_id": provider_id,
-                "raw_exam_pages": len(raw_pages),
-                "normalized_paper_records": len(catalog.papers),
+                "raw_exam_pages": len(index["raw_events"]),
+                "normalized_paper_records": len(index["papers"]),
                 "sync_failure_count": len(failures),
                 "coverage_exception_count": len(coverage_exceptions),
                 "orphan_coverage_exceptions": orphan_coverage_exceptions,
@@ -277,8 +300,8 @@ def build_history_coverage_audit(
             }
         )
 
-    public_ids = public_bundle_ids(
-        NormalizedCatalog(papers=all_normalized_papers, review_queue=[]),
+    public_ids = public_bundle_ids_from_indexes(
+        all_indexes,
         min_years=site_config.public_min_years,
         min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
     )
