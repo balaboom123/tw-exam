@@ -648,6 +648,22 @@ class WorkflowTests(unittest.TestCase):
             self.assertNotIn("PDF_CACHE_VERSION", workflow)
             self.assertNotIn("PDF_QUALITY_PROFILE", workflow)
 
+    def test_provider_workflows_save_fresh_mirror_cache_after_sync_attempts(self) -> None:
+        workflows_dir = REPO_ROOT / ".github" / "workflows"
+        for workflow_path in sorted(workflows_dir.glob("sync-*.yml")):
+            workflow = workflow_path.read_text(encoding="utf-8")
+            if re.search(r"(?m)^      - name: Commit regenerated .* provider data$", workflow) is None:
+                continue
+            with self.subTest(workflow=workflow_path.name):
+                self.assertEqual(workflow.count("actions/cache/restore@v6"), 1)
+                self.assertEqual(workflow.count("actions/cache/save@v6"), 1)
+                self.assertEqual(workflow.count("github.run_id"), 2)
+                self.assertEqual(workflow.count("github.run_attempt"), 2)
+                self.assertIn("if: '!cancelled()'\n        uses: actions/cache/save@v6", workflow)
+                self.assertLess(workflow.index("Restore mirror directory"), workflow.index("Run "))
+                self.assertLess(workflow.index("Run "), workflow.index("Save mirror directory"))
+                self.assertLess(workflow.index("Save mirror directory"), workflow.index("Commit regenerated"))
+
     def test_workflows_define_timeout_and_concurrency_controls(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
         for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml"):

@@ -22,16 +22,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: teacher-recruit-central-alliance-mirror-${{ hashFiles('data/providers/teacher_recruit_central_alliance/source-manifest.json') }}
+          key: teacher-recruit-central-alliance-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             teacher-recruit-central-alliance-mirror-
 
       - name: Run Central Alliance teacher recruitment sync
         run: python -m app sync-full --provider teacher_recruit_central_alliance --site-id default
+
+      - name: Save mirror directory
+        if: '!cancelled()'
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: teacher-recruit-central-alliance-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit regenerated Central Alliance teacher recruitment provider data
         # Run the shared guard even after a sync failure so it can diagnose the

@@ -24,16 +24,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: ceec-gsat-mirror-${{ hashFiles('data/providers/ceec_gsat/source-manifest.json') }}
+          key: ceec-gsat-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             ceec-gsat-mirror-
 
       - name: Run CEEC GSAT sync
         run: python -m app sync-full --provider ceec_gsat --site-id default
+
+      - name: Save mirror directory
+        if: '!cancelled()'
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: ceec-gsat-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit regenerated CEEC GSAT provider data
         # sync-full writes the papers it did fetch and records the ones it could

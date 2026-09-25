@@ -24,16 +24,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: special-admission-mirror-${{ hashFiles('data/providers/special_admission/source-manifest.json') }}
+          key: special-admission-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             special-admission-mirror-
 
       - name: Run special admission sync
         run: python -m app sync-full --provider special_admission --site-id default
+
+      - name: Save mirror directory
+        if: '!cancelled()'
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: special-admission-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit regenerated special admission provider data
         # sync-full writes the papers it did fetch and records the ones it could
