@@ -6,7 +6,7 @@ from pathlib import Path
 from urllib.error import HTTPError
 from unittest.mock import patch
 
-from app.crawler import DownloadedFile
+from app.providers.base import DownloadedFile
 from app.models import AliasRule, ExamAttachment, ParsedPaper, SourceExamPage
 from app.providers.base import SourceProvider
 from app.providers.moex.provider import MoexProvider

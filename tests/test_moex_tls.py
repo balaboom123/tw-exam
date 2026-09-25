@@ -2,7 +2,7 @@ import ssl
 import unittest
 from unittest.mock import MagicMock, patch
 
-import app.crawler as crawler
+import app.providers.moex.client as moex_client
 
 
 class FakeTextResponse:
@@ -24,12 +24,12 @@ class CrawlerTlsTests(unittest.TestCase):
     def test_build_ssl_context_loads_bundled_twca_chain(self) -> None:
         fake_context = MagicMock()
 
-        with patch.object(crawler.ssl, "create_default_context", return_value=fake_context) as create_default_context:
-            context = crawler._build_ssl_context()
+        with patch.object(moex_client.ssl, "create_default_context", return_value=fake_context) as create_default_context:
+            context = moex_client._build_ssl_context()
 
         self.assertIs(context, fake_context)
         create_default_context.assert_called_once_with()
-        fake_context.load_verify_locations.assert_called_once_with(cafile=str(crawler.TWCA_CA_BUNDLE_PATH))
+        fake_context.load_verify_locations.assert_called_once_with(cafile=str(moex_client.TWCA_CA_BUNDLE_PATH))
 
     def test_fetch_text_uses_client_ssl_context(self) -> None:
         response = MagicMock()
@@ -38,8 +38,8 @@ class CrawlerTlsTests(unittest.TestCase):
         response.__exit__.return_value = False
         ssl_context = ssl.create_default_context()
 
-        with patch.object(crawler, "urlopen", return_value=response) as urlopen_mock:
-            client = crawler.MoexClient(ssl_context=ssl_context)
+        with patch.object(moex_client, "urlopen", return_value=response) as urlopen_mock:
+            client = moex_client.MoexClient(ssl_context=ssl_context)
             text = client._fetch_text("https://example.test")
 
         self.assertEqual(text, "demo")
@@ -52,8 +52,8 @@ class CrawlerTlsTests(unittest.TestCase):
             content_type="text/html; charset=big5",
         )
 
-        with patch.object(crawler, "urlopen", return_value=response):
-            client = crawler.MoexClient(ssl_context=object())
+        with patch.object(moex_client, "urlopen", return_value=response):
+            client = moex_client.MoexClient(ssl_context=object())
             text = client._fetch_text("https://example.test")
 
         self.assertEqual(text, "護理行政")

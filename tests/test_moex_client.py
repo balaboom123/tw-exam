@@ -1,8 +1,10 @@
 import unittest
 from unittest.mock import patch
 
-from app.crawler import MoexClient, make_download_url, make_result_url, parse_result_page, parse_search_page
-from app.providers.moex.client import MoexClient as PackageMoexClient, MoexSourceQualityError
+from app.providers.moex.client import (
+    MoexClient, MoexSourceQualityError, make_download_url, make_result_url,
+    parse_result_page, parse_search_page,
+)
 
 
 SEARCH_HTML = """
@@ -145,11 +147,6 @@ class FetchTextDecodingTests(unittest.TestCase):
             text = client._fetch_text("https://example.test")
 
         self.assertEqual(text, "藥師")
-
-
-class CrawlerCompatibilityTests(unittest.TestCase):
-    def test_crawler_module_reexports_moex_client(self) -> None:
-        self.assertIs(MoexClient, PackageMoexClient)
 
 
 if __name__ == "__main__":

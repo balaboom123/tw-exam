@@ -6,10 +6,10 @@ import json
 from dataclasses import asdict, dataclass, field
 from typing import Callable
 
-from app.crawler import make_result_url, make_year_search_url
 from app.manifest import SourceManifest
 from app.models import SourceExamPage
 from app.providers.base import SourceProvider
+from app.providers.moex.client import make_result_url, make_year_search_url
 from app.sync import retry_network
 
 
