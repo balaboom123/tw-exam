@@ -1204,6 +1204,72 @@ class WorkflowHealthTest(unittest.TestCase):
 
         close_mock.assert_called_once()
 
+    def test_slow_run_uses_three_or_more_prior_successful_durations(self) -> None:
+        module = _load_health_script()
+
+        def run(run_id: int, minutes: int) -> dict:
+            start = datetime(2026, 9, 25, tzinfo=timezone.utc)
+            return {
+                "id": run_id,
+                "run_started_at": start.isoformat(),
+                "updated_at": (start + timedelta(minutes=minutes)).isoformat(),
+            }
+
+        current = run(5, 31)
+        history = {"workflow_runs": [current, run(4, 10), run(3, 11), run(2, 9), run(1, 10)]}
+        with mock.patch.object(module, "_gh_api", return_value=history) as api:
+            self.assertEqual(module._slow_run("o/r", 1, current), (31, 10.0))
+            api.assert_called_once_with(
+                "repos/o/r/actions/workflows/1/runs",
+                "-X", "GET", "-f", "status=success", "-f", "per_page=11",
+            )
+            self.assertIsNone(module._slow_run("o/r", 1, run(5, 30)))
+            history["workflow_runs"] = [current, run(4, 10), run(3, 11)]
+            self.assertIsNone(module._slow_run("o/r", 1, current))
+
+    def test_daily_audit_opens_and_resolves_slow_run_issue(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "sync-incremental", "timeout_minutes": 360}
+        run = {"status": "completed", "conclusion": "success", "html_url": "https://example/run/7"}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_slow_run", return_value=(40.0, 10.0)) as slow_run, \
+                mock.patch.object(module, "_open_health_issue", return_value=None), \
+                mock.patch.object(module, "_create_issue") as create_mock:
+            module.audit_latest()
+
+        slow_run.assert_called_once_with("o/r", 1, run)
+        create_mock.assert_called_once()
+        self.assertIn("exceeded 3 times its recent median", create_mock.call_args.args[2])
+        self.assertIn("https://example/run/7", create_mock.call_args.args[2])
+
+        existing = {"number": 42, "body": create_mock.call_args.args[2]}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_slow_run", return_value=(40.0, 10.0)), \
+                mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                mock.patch.object(module, "_replace_issue_body") as replace_mock:
+            module.audit_latest()
+            replace_mock.assert_not_called()
+            run["html_url"] = "https://example/run/8"
+            module.audit_latest()
+
+        replace_mock.assert_called_once()
+        self.assertIn("https://example/run/8", replace_mock.call_args.args[2])
+
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_slow_run", return_value=None), \
+                mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                mock.patch.object(module, "_close") as close_mock:
+            module.audit_latest()
+
+        close_mock.assert_called_once()
+        self.assertEqual(close_mock.call_args.args[:2], ("o/r", 42))
+
     def test_read_requests_force_the_get_method(self) -> None:
         # gh turns a bare -f into a request body and posts it, so a read that
         # carries query parameters without -X GET reaches the API as a POST and

@@ -6,7 +6,7 @@ from unittest.mock import Mock
 
 from app.bundler import build_bundles
 from app.cli import _restore_new_public_bundle_files
-from app.crawler import DownloadedFile
+from app.providers.base import DownloadedFile
 from app.models import BundleAsset, NormalizedCatalog, NormalizedPaper
 from app.storage import MirrorStore
 from app.sync import restore_catalog_files

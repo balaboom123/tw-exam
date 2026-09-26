@@ -45,6 +45,11 @@ that lasted at least the workflow's timeout. Short cancellations from
 superseded Pages deployments are ignored. A later success closes a failure
 issue; repeated failures do not add notification comments.
 
+A successful run also raises an issue when its duration exceeds three times
+the median of at least three prior successful runs (up to ten are checked).
+The issue points to the latest slow run; the next normal-duration success
+closes it.
+
 The same pass uses each workflow's schedule to set a staleness window and
 accepts a successful manual rerun as recovery. This also detects schedules
 that stop firing entirely.

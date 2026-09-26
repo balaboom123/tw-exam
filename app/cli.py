@@ -10,7 +10,6 @@ from pathlib import Path
 from app.audit import audit_exit_code, build_catalog_audit, build_release_plan, write_catalog_audit, write_release_plan
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code, write_history_coverage_audit
 from app.bundler import build_bundles, public_bundle_ids
-from app.crawler import make_result_url, make_year_search_url, year_ad_from_code
 from app.manifest import load_source_manifest, source_manifest_from_data, write_source_manifest
 from app.migration import migrate_legacy_state
 from app.models import BundleAsset, NormalizedCatalog, SyncFailure
@@ -19,6 +18,7 @@ from app.paths import ProviderPaths, provider_paths, site_paths
 from app.publisher import publish_site, write_data_files, write_provider_state
 from app.probe import hash_exam_codes, probe_latest
 from app.providers.base import SourceProvider
+from app.providers.moex.client import make_result_url, make_year_search_url, year_ad_from_code
 from app.providers.registry import get_provider
 from app.state import load_existing_state, load_provider_state, load_site_bundles, merge_incremental_state, merge_targeted_state
 from app.site_registry import get_site_config

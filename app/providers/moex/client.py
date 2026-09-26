@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 import ssl
-import sys
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
@@ -33,7 +32,6 @@ SUBJECT_LABEL_TO_TYPE = {
 
 _HEADER_CHARSET_RE = re.compile(r"charset=['\"]?\s*([a-zA-Z0-9_-]+)", re.IGNORECASE)
 _HTML_CHARSET_RE = re.compile(br"<meta[^>]+charset=['\"]?\s*([a-zA-Z0-9_-]+)", re.IGNORECASE)
-_DEFAULT_URLOPEN = urlopen
 
 
 class MoexSourceQualityError(RuntimeError):
@@ -61,17 +59,6 @@ def _build_ssl_context() -> ssl.SSLContext:
     context = ssl.create_default_context()
     context.load_verify_locations(cafile=str(TWCA_CA_BUNDLE_PATH))
     return context
-
-
-def _active_urlopen():
-    if urlopen is not _DEFAULT_URLOPEN:
-        return urlopen
-    crawler_module = sys.modules.get("app.crawler")
-    if crawler_module is not None:
-        crawler_urlopen = getattr(crawler_module, "urlopen", _DEFAULT_URLOPEN)
-        if crawler_urlopen is not _DEFAULT_URLOPEN:
-            return crawler_urlopen
-    return _DEFAULT_URLOPEN
 
 
 class _SearchPageParser(HTMLParser):
@@ -354,13 +341,13 @@ class MoexClient:
 
     def _fetch_text(self, url: str) -> str:
         request = Request(url, headers={"User-Agent": self.user_agent})
-        with _active_urlopen()(request, timeout=60, context=self.ssl_context) as response:
+        with urlopen(request, timeout=60, context=self.ssl_context) as response:
             body = response.read()
             return _decode_html_bytes(body, response.headers.get("Content-Type", ""))
 
     def head(self, url: str) -> ResponseMetadata:
         request = Request(url, headers={"User-Agent": self.user_agent}, method="HEAD")
-        with _active_urlopen()(request, timeout=60, context=self.ssl_context) as response:
+        with urlopen(request, timeout=60, context=self.ssl_context) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(
                 url=url,
@@ -403,7 +390,7 @@ class MoexClient:
 
     def download_file(self, url: str) -> DownloadedFile:
         request = Request(url, headers={"User-Agent": self.user_agent})
-        with _active_urlopen()(request, timeout=120, context=self.ssl_context) as response:
+        with urlopen(request, timeout=120, context=self.ssl_context) as response:
             content_disposition = response.headers.get("Content-Disposition", "")
             file_name_match = re.search(r'filename="?([^"]+)"?', content_disposition)
             file_name = unescape(file_name_match.group(1)) if file_name_match else Path(urlparse(url).path).name

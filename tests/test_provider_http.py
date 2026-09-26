@@ -6,9 +6,13 @@ from unittest.mock import Mock, patch
 
 from app.providers.ceec_gsat.client import CeecGsatClient
 from app.providers.http import Http, ad, links, roc
+from app.providers.post_recruit.client import PostRecruitClient
 from app.providers.sfi_cert.client import SfiCertClient
+from app.providers.special_admission.client import SpecialAdmissionClient
+from app.providers.tabf_cert.client import TabfCertClient
 from app.providers.tcte_tve.client import TcteTveClient
 from app.providers.tocfl_cert.client import TocflCertClient
+from app.providers.twc_recruit.client import TwcRecruitClient
 
 
 class Response:
@@ -32,7 +36,10 @@ class Response:
 class ProviderHttpTests(unittest.TestCase):
     def test_migrated_clients_preserve_request_methods_headers_and_filenames(self) -> None:
         url = "https://example.test/files/question%20paper.pdf"
-        for client_type in (SfiCertClient, CeecGsatClient, TcteTveClient, TocflCertClient):
+        for client_type in (
+            SfiCertClient, CeecGsatClient, TcteTveClient, TocflCertClient,
+            PostRecruitClient, TabfCertClient, SpecialAdmissionClient,
+        ):
             with self.subTest(client=client_type.__name__):
                 client = client_type()
                 with patch("app.providers.http.urlopen", return_value=Response(b"hello")) as open_url:
@@ -56,6 +63,24 @@ class ProviderHttpTests(unittest.TestCase):
                     self.assertEqual(downloaded.file_name, "question paper.pdf")
                     self.assertEqual(downloaded.data, b"pdf")
                     self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
+
+    def test_twc_transport_keeps_download_url_guard(self) -> None:
+        client = TwcRecruitClient()
+        url = "https://www.water.gov.tw/ch/ServerFile/Get/12345678-1234-1234-1234-123456789abc?nodeId=715"
+        with patch("app.providers.http.urlopen", return_value=Response(b"page")) as open_url:
+            self.assertEqual(client._fetch_text("https://www.water.gov.tw/ch/Subject/Detail/59619"), "page")
+            self.assertEqual(open_url.call_args.args[0].get_method(), "GET")
+
+        with patch("app.providers.http.urlopen", return_value=Response(b"", headers={"Content-Length": "4"})) as open_url:
+            self.assertEqual(client.head(url).content_length, 4)
+            self.assertEqual(open_url.call_args.args[0].get_method(), "HEAD")
+
+        with patch("app.providers.http.urlopen", return_value=Response(b"data")) as open_url:
+            self.assertEqual(client.download_file(url).file_name, "12345678-1234-1234-1234-123456789abc")
+            self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
+
+        with self.assertRaises(ValueError):
+            client.download_file("https://example.test/paper.zip")
 
     def test_retry_after_and_transient_errors(self) -> None:
         headers = Message()

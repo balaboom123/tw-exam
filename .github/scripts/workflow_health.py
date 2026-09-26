@@ -18,6 +18,7 @@ import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from statistics import median
 
 WORKFLOWS_DIR = Path(__file__).resolve().parents[1] / "workflows"
 SELF_WORKFLOW = "workflow-health.yml"
@@ -106,6 +107,15 @@ def _comment(repository: str, number: int, body: str) -> None:
     )
 
 
+def _replace_issue_body(repository: str, number: int, body: str) -> None:
+    subprocess.run(
+        ["gh", "api", f"repos/{repository}/issues/{number}", "-X", "PATCH", "-f", f"body={body}"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+
 def _close(repository: str, number: int, body: str) -> None:
     _comment(repository, number, body)
     subprocess.run(
@@ -118,6 +128,10 @@ def _close(repository: str, number: int, body: str) -> None:
 
 def _is_staleness_issue(issue: dict) -> bool:
     return "has no successful" in str(issue.get("body", ""))
+
+
+def _is_slow_issue(issue: dict) -> bool:
+    return "exceeded 3 times its recent median" in str(issue.get("body", ""))
 
 
 def report(workflow: str, conclusion: str, run_url: str) -> int:
@@ -228,6 +242,39 @@ def _cancelled_past_timeout(run: dict, timeout_minutes: int) -> bool:
     return finish_time - start_time >= timedelta(minutes=timeout_minutes)
 
 
+def _duration_minutes(run: dict) -> float | None:
+    started = run.get("run_started_at") or run.get("created_at")
+    finished = run.get("updated_at")
+    if not started or not finished:
+        return None
+    try:
+        start_time = datetime.fromisoformat(started.replace("Z", "+00:00"))
+        finish_time = datetime.fromisoformat(finished.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    duration = (finish_time - start_time).total_seconds() / 60
+    return duration if duration > 0 else None
+
+
+def _slow_run(repository: str, workflow_id: int, run: dict) -> tuple[float, float] | None:
+    duration = _duration_minutes(run)
+    if duration is None:
+        return None
+    payload = _gh_api(
+        f"repos/{repository}/actions/workflows/{workflow_id}/runs",
+        "-X", "GET", "-f", "status=success", "-f", "per_page=11",
+    )
+    previous = [
+        minutes for previous_run in (payload or {}).get("workflow_runs", [])
+        if previous_run.get("id") != run.get("id")
+        and (minutes := _duration_minutes(previous_run)) is not None
+    ][:10]
+    if len(previous) < 3:
+        return None
+    baseline = median(previous)
+    return (duration, baseline) if duration > 3 * baseline else None
+
+
 def audit_latest() -> int:
     """Inspect each scheduled workflow's latest completed run once per day."""
     repository = _repository()
@@ -240,7 +287,28 @@ def audit_latest() -> int:
         conclusion = run.get("conclusion")
         existing = _open_health_issue(repository, name)
         if conclusion == "success":
-            if existing is not None and not _is_staleness_issue(existing):
+            slow = _slow_run(repository, workflow["id"], run)
+            if slow is not None:
+                duration, baseline = slow
+                body = (
+                    f"`{name}` exceeded 3 times its recent median: "
+                    f"{duration:.1f} minutes versus {baseline:.1f} minutes.\n\n"
+                    f"Run: {run.get('html_url', '')}"
+                )
+                if existing is not None and not _is_slow_issue(existing):
+                    _close(repository, existing["number"],
+                           f"`{name}` succeeded again.\n\nRun: {run.get('html_url', '')}")
+                    existing = None
+                if existing is None:
+                    _create_issue(repository, name, body)
+                    print(f"opened slow-run issue for {name}")
+                elif existing.get("body") != body:
+                    _replace_issue_body(repository, existing["number"], body)
+                    print(f"updated slow-run issue #{existing['number']} for {name}")
+                else:
+                    print(f"health issue #{existing['number']} already tracks slow {name}")
+                unhealthy += 1
+            elif existing is not None and not _is_staleness_issue(existing):
                 _close(repository, existing["number"],
                        f"`{name}` succeeded again.\n\nRun: {run.get('html_url', '')}")
             continue

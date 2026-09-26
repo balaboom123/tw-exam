@@ -1,6 +1,7 @@
 import unittest
 
-from app.crawler import ResponseMetadata, make_result_url
+from app.providers.base import ResponseMetadata
+from app.providers.moex.client import make_result_url
 from app.manifest import SourceManifest
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.probe import hash_exam_codes, hash_paper_urls, probe_latest

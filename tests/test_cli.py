@@ -11,7 +11,8 @@ from unittest.mock import patch
 from app import cli
 from app.manifest import SourceManifest, write_source_manifest
 from app.cli import _download_affected_bundles, build_parser, command_discover, command_repair_failures, command_sync, main, run_probe_latest, run_sync_targeted
-from app.crawler import DownloadedFile, ResponseMetadata, make_result_url
+from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.moex.client import make_result_url
 from app.models import AliasRule, BundleAsset, ExamOption, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage, SyncFailure
 from app.paths import provider_paths, site_paths
 from app.publisher import write_data_files, write_provider_state
