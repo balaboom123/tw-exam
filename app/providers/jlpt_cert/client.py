@@ -70,7 +70,9 @@ def _quote_url_for_request(url: str) -> str:
 
 
 def _workbook_sections(html: str) -> list[tuple[int, str]]:
-    markers = [(match.start(), int(match.group(1))) for match in re.finditer(r"book(20\d{2})\.gif", html)]
+    markers = [
+        (match.start(), int(match.group(1))) for match in re.finditer(r"book(20\d{2})\.gif", html)
+    ]
     if not markers:
         return [(0, html)]
     sections: list[tuple[int, str]] = []
@@ -154,7 +156,8 @@ class JlptCertClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+            body: bytes = response.read()
+            return body.decode("utf-8", "replace")
 
     def _downloads(self) -> list[JlptDownload]:
         return parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
@@ -197,7 +200,9 @@ class JlptCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD")
+        request = Request(
+            _quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        )
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(

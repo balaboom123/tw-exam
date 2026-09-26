@@ -52,6 +52,12 @@ jobs:
       - name: Install locked dependencies
         run: uv sync --frozen
 
+      - name: Lint and type-check application
+        run: |
+          uv run --frozen ruff check app
+          uv run --frozen ruff format app --check
+          uv run --frozen mypy app
+
       - name: Run fast Python tests
         run: uv run --frozen python -m pytest -q -m "not repo_data"
 

@@ -26,7 +26,10 @@ DOWNLOAD_URL = "https://www.taipower.com.tw/2289/2544/2554/2557/"
 LISTING_PATH = "/2289/2544/2554/2557/"
 DISCOVERY_PAGE_SIZE = 60
 MAX_DISCOVERY_EVENTS = 100
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+)
 REQUEST_HEADERS = {
     "User-Agent": USER_AGENT,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -98,7 +101,7 @@ class _HiringPageParser(HTMLParser):
             return
         year_roc = int(year_match.group(1))
         month: int | None = None
-        month_match = _MONTH_RE.search(title[year_match.end():])
+        month_match = _MONTH_RE.search(title[year_match.end() :])
         if month_match is not None:
             month = int(month_match.group(1))
         self.entries.append(
@@ -130,7 +133,9 @@ class _HiringPageParser(HTMLParser):
         if tag == "a" and "download" in attrs_dict:
             href = attrs_dict.get("href") or ""
             if href:
-                label = self._current_name or _normalize_text(unquote(Path(urlparse(href).path).stem))
+                label = self._current_name or _normalize_text(
+                    unquote(Path(urlparse(href).path).stem)
+                )
                 url = urljoin(BASE_URL, href)
                 self._current_downloads.append(TaipowerRecruitDownload(label=label, url=url))
 
@@ -191,9 +196,7 @@ def _full_event_listing_url(relative_url: str) -> str:
         if key not in {"Page", "PageSize"}
     ]
     query[:0] = [("Page", "1"), ("PageSize", str(DISCOVERY_PAGE_SIZE))]
-    return urlunsplit(
-        (parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment)
-    )
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
 
 
 def parse_listing_page_numbers(html: str, listing_url: str) -> set[int]:
@@ -248,7 +251,7 @@ class TaipowerRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers=REQUEST_HEADERS)
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
             for encoding in ("utf-8", "big5", "cp950"):
                 try:
                     return raw.decode(encoding)
@@ -286,9 +289,7 @@ class TaipowerRecruitClient:
         if not event_tabs:
             raise ValueError("Taipower archive exposes no official event tabs")
         if len(event_tabs) > MAX_DISCOVERY_EVENTS:
-            raise ValueError(
-                f"Taipower archive exceeds {MAX_DISCOVERY_EVENTS} discovery events"
-            )
+            raise ValueError(f"Taipower archive exceeds {MAX_DISCOVERY_EVENTS} discovery events")
         event_keys = [(year_roc, month) for year_roc, month, _ in event_tabs]
         if len(set(event_keys)) != len(event_keys):
             raise ValueError("Taipower archive exposes duplicate event tabs")
@@ -310,17 +311,14 @@ class TaipowerRecruitClient:
             }
             if wrong_events:
                 labels = sorted(
-                    f"{year}/{event_month or '-'}"
-                    for year, event_month in wrong_events
+                    f"{year}/{event_month or '-'}" for year, event_month in wrong_events
                 )
                 raise ValueError(
                     f"Taipower archive event {year_roc}/{month} contains "
                     f"cross-event entries: {labels}"
                 )
             remaining_pages = {
-                page
-                for page in parse_listing_page_numbers(page_html, page_url)
-                if page > 1
+                page for page in parse_listing_page_numbers(page_html, page_url) if page > 1
             }
             if remaining_pages:
                 raise ValueError(
@@ -330,9 +328,7 @@ class TaipowerRecruitClient:
             for entry in page_entries:
                 for download in entry.downloads:
                     if download.url in seen_download_urls:
-                        raise ValueError(
-                            f"Taipower archive repeats download URL: {download.url}"
-                        )
+                        raise ValueError(f"Taipower archive repeats download URL: {download.url}")
                     seen_download_urls.add(download.url)
             entries.extend(page_entries)
             code = _exam_code(page_entries[0])
@@ -343,9 +339,7 @@ class TaipowerRecruitClient:
     def build_discovery_year_url(self, year_ad: int) -> str:
         self._iter_entries()
         if not any(event_year == year_ad for _, event_year in self._event_urls):
-            raise ValueError(
-                f"Unknown Taipower recruitment discovery year: {year_ad}"
-            )
+            raise ValueError(f"Unknown Taipower recruitment discovery year: {year_ad}")
         return DOWNLOAD_URL
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
@@ -354,8 +348,7 @@ class TaipowerRecruitClient:
             return self._event_urls[(exam_code, year_ad)]
         except KeyError as exc:
             raise ValueError(
-                f"Unknown Taipower recruitment discovery exam: "
-                f"{exam_code} ({year_ad})"
+                f"Unknown Taipower recruitment discovery exam: {exam_code} ({year_ad})"
             ) from exc
 
     def discover_available_years(self) -> list[int]:
@@ -383,7 +376,8 @@ class TaipowerRecruitClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         matching = [
-            item for item in self._iter_entries()
+            item
+            for item in self._iter_entries()
             if _exam_code(item) == exam_code and item.year_ad == year_ad
         ]
         if not matching:

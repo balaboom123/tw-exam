@@ -4,9 +4,9 @@ import hashlib
 import json
 import re
 import unicodedata
+from collections.abc import Iterable
 from dataclasses import replace
 from pathlib import Path
-from typing import Iterable
 
 from app.classification import classify_paper, identity_fields
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
@@ -74,7 +74,10 @@ _FINANCIAL_CERT_CANONICAL_MAP = {
     "sfi-cert-futures-dealer-": ("sfi-futures-dealer", "期貨商業務員"),
     "sfi-cert-securities-analyst-": ("sfi-securities-analyst", "證券投資分析人員"),
     "sfi-cert-sitca-": ("sfi-sitca", "投信投顧業務員"),
-    "sfi-cert-corporate-internal-control-": ("sfi-corporate-internal-control", "企業內部控制基本能力測驗"),
+    "sfi-cert-corporate-internal-control-": (
+        "sfi-corporate-internal-control",
+        "企業內部控制基本能力測驗",
+    ),
     "sfi-cert-bills-dealer-": ("sfi-bills-dealer", "票券商業務人員"),
     "sfi-cert-stock-affairs-": ("sfi-stock-affairs", "股務人員"),
     "sfi-cert-asset-securitization-": ("sfi-asset-securitization", "資產證券化基本能力測驗"),
@@ -107,11 +110,20 @@ _FINANCIAL_CERT_CANONICAL_MAP = {
 _REQUESTED_TOPIC_CANONICAL_MAP = {
     "teacher-qual-": ("teacher-qual", "教師資格考試"),
     "teacher-recruit-newtaipei-": ("teacher-recruit-newtaipei", "新北市教師甄試"),
-    "teacher-recruit-taoyuan-elementary-": ("teacher-recruit-taoyuan-elementary", "桃園市國小教師甄試"),
+    "teacher-recruit-taoyuan-elementary-": (
+        "teacher-recruit-taoyuan-elementary",
+        "桃園市國小教師甄試",
+    ),
     "teacher-recruit-kaohsiung-": ("teacher-recruit-kaohsiung", "高雄市教師甄試"),
-    "teacher-recruit-central-alliance-": ("teacher-recruit-central-alliance", "中區策略聯盟教師甄試"),
+    "teacher-recruit-central-alliance-": (
+        "teacher-recruit-central-alliance",
+        "中區策略聯盟教師甄試",
+    ),
     "teacher-recruit-taipei-junior-": ("teacher-recruit-taipei-junior", "臺北市國中教師甄試"),
-    "teacher-recruit-taipei-elementary-": ("teacher-recruit-taipei-elementary", "臺北市國小教師甄試"),
+    "teacher-recruit-taipei-elementary-": (
+        "teacher-recruit-taipei-elementary",
+        "臺北市國小教師甄試",
+    ),
     "teacher-recruit-tainan-": ("teacher-recruit-tainan", "臺南市國小教師甄試"),
     "gept-cert-elementary-": ("gept-cert-elementary", "GEPT全民英檢 初級"),
     "gept-cert-intermediate-": ("gept-cert-intermediate", "GEPT全民英檢 中級"),
@@ -122,7 +134,10 @@ _REQUESTED_TOPIC_CANONICAL_MAP = {
     "jlpt-cert-": ("jlpt-cert", "JLPT Japanese-Language Proficiency Test"),
     "tocfl-cert-": ("tocfl-cert", "TOCFL華語文能力測驗"),
     "hakka-cert-basic-elementary-": ("hakka-cert-basic-elementary", "客語能力認證 基礎級暨初級"),
-    "hakka-cert-intermediate-high-intermediate-": ("hakka-cert-intermediate-high-intermediate", "客語能力認證 中級暨中高級"),
+    "hakka-cert-intermediate-high-intermediate-": (
+        "hakka-cert-intermediate-high-intermediate",
+        "客語能力認證 中級暨中高級",
+    ),
     "hakka-cert-advanced-": ("hakka-cert-advanced", "客語能力認證 高級"),
     "hakka-cert-": ("hakka-cert", "客語能力認證"),
     "taigi-cert-a-": ("taigi-cert-a", "臺灣台語語言能力認證 A卷"),
@@ -183,15 +198,9 @@ _VARIANT_MILITARY_SUFFIX = re.compile(
 _VARIANT_DESTINATION_SUFFIX = re.compile(
     r"[（(](?:退輔會|轉任退輔會|國防部|轉任國防部|轉任海委會|一般錄取分發區|蘭嶼錄取分發區)[）)]"
 )
-_VARIANT_MILITARY_PREFIX = re.compile(
-    r"^[（(](?:中將轉任|少將轉任|上校轉任)[）)]"
-)
-_VARIANT_EXAM_TYPE_PREFIX = re.compile(
-    r"^[（(](?:關務類|技術類)[）)]"
-)
-_VARIANT_LANGUAGE_SUFFIX = re.compile(
-    r"[（(]選試[^）)]+[）)]"
-)
+_VARIANT_MILITARY_PREFIX = re.compile(r"^[（(](?:中將轉任|少將轉任|上校轉任)[）)]")
+_VARIANT_EXAM_TYPE_PREFIX = re.compile(r"^[（(](?:關務類|技術類)[）)]")
+_VARIANT_LANGUAGE_SUFFIX = re.compile(r"[（(]選試[^）)]+[）)]")
 _VARIANT_TRAILING = re.compile(r"(?:類科|科別)$")
 
 
@@ -241,7 +250,9 @@ def _derive_canonical(
     for prefix, (canonical_id, canonical_name) in _REQUESTED_TOPIC_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):
             return canonical_id, canonical_name, canonical_name, False
-    if source_exam_id.startswith("gsat-") and _CEEC_GSAT_CANONICAL_NAME in normalize_text(raw_category or exam_name_raw):
+    if source_exam_id.startswith("gsat-") and _CEEC_GSAT_CANONICAL_NAME in normalize_text(
+        raw_category or exam_name_raw
+    ):
         return _CEEC_GSAT_CANONICAL_ID, _CEEC_GSAT_CANONICAL_NAME, _CEEC_GSAT_CANONICAL_NAME, False
     if source_exam_id.startswith("ceec-ast-"):
         return _CEEC_AST_CANONICAL_ID, _CEEC_AST_CANONICAL_NAME, _CEEC_AST_CANONICAL_NAME, False
@@ -255,14 +266,26 @@ def _derive_canonical(
             False,
         )
     if source_exam_id.startswith("post-recruit-"):
-        return _POST_RECRUIT_CANONICAL_ID, _POST_RECRUIT_CANONICAL_NAME, _POST_RECRUIT_CANONICAL_NAME, False
+        return (
+            _POST_RECRUIT_CANONICAL_ID,
+            _POST_RECRUIT_CANONICAL_NAME,
+            _POST_RECRUIT_CANONICAL_NAME,
+            False,
+        )
     for prefix, (canonical_id, canonical_name) in _HCE_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):
             return canonical_id, canonical_name, canonical_name, False
-    if source_exam_id.startswith("cap-") and _RCPET_CAP_CANONICAL_NAME in normalize_text(raw_category or exam_name_raw):
+    if source_exam_id.startswith("cap-") and _RCPET_CAP_CANONICAL_NAME in normalize_text(
+        raw_category or exam_name_raw
+    ):
         return _RCPET_CAP_CANONICAL_ID, _RCPET_CAP_CANONICAL_NAME, _RCPET_CAP_CANONICAL_NAME, False
     if _WDASEC_SKILL_CANONICAL_NAME in normalize_text(raw_category or exam_name_raw):
-        return _WDASEC_SKILL_CANONICAL_ID, _WDASEC_SKILL_CANONICAL_NAME, _WDASEC_SKILL_CANONICAL_NAME, False
+        return (
+            _WDASEC_SKILL_CANONICAL_ID,
+            _WDASEC_SKILL_CANONICAL_NAME,
+            _WDASEC_SKILL_CANONICAL_NAME,
+            False,
+        )
     alias = next((rule for rule in alias_rules if _match_alias(rule, raw_category, year_ad)), None)
     candidate = _strip_exam_family(raw_category or exam_name_raw)
     if alias:
@@ -281,6 +304,7 @@ def _deduplicate_review_queue(items: list[ReviewItem]) -> list[ReviewItem]:
     Prefer the richest v2 item when duplicate legacy rows are encountered so
     migration remains lossless without inflating the human review workload.
     """
+
     def key(item: ReviewItem) -> tuple[str, str, str]:
         return (item.provider_id, item.source_exam_id, item.raw_category)
 
@@ -315,10 +339,14 @@ def normalize_papers(
     review_queue: list[ReviewItem] = []
     for paper in papers:
         raw_category = paper.category_raw or exam_name_raw
-        canonical_id, canonical_name, candidate, needs_review = _derive_canonical(source_exam_id, raw_category, exam_name_raw, year_ad, alias_rules)
+        canonical_id, canonical_name, candidate, needs_review = _derive_canonical(
+            source_exam_id, raw_category, exam_name_raw, year_ad, alias_rules
+        )
         identity = None
         fields = {}
-        if provider_id and not _is_legacy_ascii_fixture(paper, canonical_name=canonical_name, exam_name_raw=exam_name_raw):
+        if provider_id and not _is_legacy_ascii_fixture(
+            paper, canonical_name=canonical_name, exam_name_raw=exam_name_raw
+        ):
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -351,7 +379,11 @@ def normalize_papers(
             metadata = mirror_metadata.get((paper.category_code, paper.subject_code, file_type), {})
             storage_key = metadata.get("storage_key", "")
             asset_name = metadata.get("asset_name") or storage_key
-            download_url_mirror = f"{mirror_base_url.rstrip('/')}/{asset_name}" if mirror_base_url and asset_name else ""
+            download_url_mirror = (
+                f"{mirror_base_url.rstrip('/')}/{asset_name}"
+                if mirror_base_url and asset_name
+                else ""
+            )
             normalized_papers.append(
                 NormalizedPaper(
                     canonical_id=canonical_id,
@@ -373,7 +405,9 @@ def normalize_papers(
                     **fields,
                 )
             )
-    return NormalizedCatalog(papers=normalized_papers, review_queue=_deduplicate_review_queue(review_queue))
+    return NormalizedCatalog(
+        papers=normalized_papers, review_queue=_deduplicate_review_queue(review_queue)
+    )
 
 
 def _is_legacy_ascii_fixture(
@@ -416,11 +450,15 @@ def renormalize_catalog(
     review_queue: list[ReviewItem] = (
         [] if collect_reviews else _deduplicate_review_queue(list(catalog.review_queue))
     )
-    canonical_review_keys = {
-        (item.provider_id, item.source_exam_id, item.raw_category)
-        for item in catalog.review_queue
-        if item.reason.startswith("legacy canonicalization requires review")
-    } if collect_reviews else set()
+    canonical_review_keys = (
+        {
+            (item.provider_id, item.source_exam_id, item.raw_category)
+            for item in catalog.review_queue
+            if item.reason.startswith("legacy canonicalization requires review")
+        }
+        if collect_reviews
+        else set()
+    )
     for paper in catalog.papers:
         raw_category = paper.category_raw or paper.exam_name_raw
         provider_id = paper.provider_id
@@ -432,7 +470,11 @@ def renormalize_catalog(
         # Preserve unresolved canonicalization reviews after canonical fields
         # are filled. Re-evaluate aliases so resolved reviews can disappear;
         # previously unqueued historical records keep their reviewed scope.
-        has_canonical_review = (provider_id, paper.source_exam_id, raw_category) in canonical_review_keys
+        has_canonical_review = (
+            provider_id,
+            paper.source_exam_id,
+            raw_category,
+        ) in canonical_review_keys
         if not canonical_id or not canonical_name or has_canonical_review:
             derived_id, derived_name, candidate, needs_review = _derive_canonical(
                 paper.source_exam_id, raw_category, paper.exam_name_raw, year_ad, alias_rules
@@ -455,7 +497,9 @@ def renormalize_catalog(
             )
             fields = identity_fields(identity)
         paper = replace(paper, canonical_id=canonical_id, canonical_name=canonical_name, **fields)
-        if collect_reviews and (needs_review or (identity is not None and identity.confidence == "review")):
+        if collect_reviews and (
+            needs_review or (identity is not None and identity.confidence == "review")
+        ):
             # Append the generated evidence even when a legacy queue row has
             # the same key; deduplication below prefers this richer v2 item.
             review_queue.append(

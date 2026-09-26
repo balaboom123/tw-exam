@@ -177,7 +177,7 @@ class TeacherQualClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         for encoding in ("utf-8-sig", "utf-16", "utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -193,7 +193,8 @@ class TeacherQualClient:
             body = urlencode(data).encode("utf-8") if data is not None else None
             request = Request(LISTING_URL, data=body, headers=headers)
             with opener.open(request, timeout=60) as response:
-                return response.read().decode("utf-8", "replace")
+                response_body: bytes = response.read()
+                return response_body.decode("utf-8", "replace")
 
         initial_html = fetch()
         return fetch(
@@ -214,7 +215,8 @@ class TeacherQualClient:
             body = urlencode(data).encode("utf-8") if data is not None else None
             request = Request(LISTING_URL, data=body, headers=headers)
             with opener.open(request, timeout=60) as response:
-                return response.read().decode("utf-8", "replace")
+                response_body: bytes = response.read()
+                return response_body.decode("utf-8", "replace")
 
         initial_html = fetch()
         year_html = fetch(
@@ -239,7 +241,11 @@ class TeacherQualClient:
                 }
             )
         subjects = parse_subject_options(subject_html)
-        selected_subject = "99" if any(value == "99" for value, _label in subjects) else (subjects[0][0] if subjects else "")
+        selected_subject = (
+            "99"
+            if any(value == "99" for value, _label in subjects)
+            else (subjects[0][0] if subjects else "")
+        )
         if not selected_subject:
             return subject_html
         form_data = {
@@ -251,9 +257,7 @@ class TeacherQualClient:
         }
         if order_code:
             form_data[ORDER_FIELD] = order_code
-        return fetch(
-            form_data
-        )
+        return fetch(form_data)
 
     def discover_available_years(self) -> list[int]:
         return parse_available_years(self._fetch_text(LISTING_URL))
@@ -289,10 +293,16 @@ class TeacherQualClient:
         year_roc = year_ad - 1911
         match = re.fullmatch(r"teacher-qual-(\d+)(?:-(1|2))?", exam_code)
         if match is None or int(match.group(1)) != year_roc:
-            raise ValueError(f"Unexpected teacher qualification discovery exam for {year_ad}: {exam_code}")
+            raise ValueError(
+                f"Unexpected teacher qualification discovery exam for {year_ad}: {exam_code}"
+            )
         order_code = match.group(2)
-        if (year_ad == 2019 and order_code not in ORDER_LABELS) or (year_ad != 2019 and order_code is not None):
-            raise ValueError(f"Unexpected teacher qualification discovery order for {year_ad}: {exam_code}")
+        if (year_ad == 2019 and order_code not in ORDER_LABELS) or (
+            year_ad != 2019 and order_code is not None
+        ):
+            raise ValueError(
+                f"Unexpected teacher qualification discovery order for {year_ad}: {exam_code}"
+            )
         return LISTING_URL
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:

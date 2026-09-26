@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Callable
+
 from app.providers.base import SourceProvider
 from app.providers.ceec_ast.provider import CeecAstProvider
 from app.providers.ceec_gsat.provider import CeecGsatProvider
@@ -19,25 +21,27 @@ from app.providers.rcpet_cap.provider import RcpetCapProvider
 from app.providers.sfi_cert.provider import SfiCertProvider
 from app.providers.special_admission.provider import SpecialAdmissionProvider
 from app.providers.tabf_cert.provider import TabfCertProvider
-from app.providers.taisugar_recruit.provider import TaisugarRecruitProvider
-from app.providers.taipower_recruit.provider import TaipowerRecruitProvider
 from app.providers.taigi_cert.provider import TaigiCertProvider
+from app.providers.taipower_recruit.provider import TaipowerRecruitProvider
+from app.providers.taisugar_recruit.provider import TaisugarRecruitProvider
+from app.providers.tcte_tve.provider import TcteTveProvider
 from app.providers.teacher_qual.provider import TeacherQualProvider
 from app.providers.teacher_recruit_central_alliance.provider import CentralAllianceRecruitProvider
 from app.providers.teacher_recruit_kaohsiung.provider import KaohsiungTeacherRecruitProvider
 from app.providers.teacher_recruit_newtaipei.provider import NewTaipeiTeacherRecruitProvider
+from app.providers.teacher_recruit_tainan.provider import TainanTeacherRecruitProvider
 from app.providers.teacher_recruit_taipei_elementary.provider import TaipeiElementaryRecruitProvider
 from app.providers.teacher_recruit_taipei_junior.provider import TaipeiJuniorRecruitProvider
-from app.providers.teacher_recruit_tainan.provider import TainanTeacherRecruitProvider
-from app.providers.teacher_recruit_taoyuan_elementary.provider import TaoyuanElementaryRecruitProvider
-from app.providers.tcte_tve.provider import TcteTveProvider
+from app.providers.teacher_recruit_taoyuan_elementary.provider import (
+    TaoyuanElementaryRecruitProvider,
+)
 from app.providers.tii_cert.provider import TiiCertProvider
 from app.providers.tocfl_cert.provider import TocflCertProvider
 from app.providers.tqc_cert.provider import TqcCertProvider
 from app.providers.twc_recruit.provider import TwcRecruitProvider
 from app.providers.wdasec_skill.provider import WdasecSkillProvider
 
-_PROVIDER_FACTORIES = {
+_PROVIDER_FACTORIES: dict[str, Callable[[], SourceProvider]] = {
     "ceec_ast": CeecAstProvider,
     "ceec_gsat": CeecGsatProvider,
     "cpc_recruit": CpcRecruitProvider,

@@ -7,22 +7,31 @@ import random
 import re
 import ssl
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from email.message import Message
 from email.utils import parsedate_to_datetime
 from html import unescape
 from html.parser import HTMLParser
+from http.client import HTTPResponse
 from http.cookiejar import CookieJar
 from pathlib import Path
 from threading import Lock
+from typing import cast
 from urllib.error import HTTPError, URLError
 from urllib.parse import unquote, urlencode, urljoin, urlparse
-from urllib.request import HTTPCookieProcessor, HTTPSHandler, Request, build_opener, urlopen
+from urllib.request import (
+    BaseHandler,
+    HTTPCookieProcessor,
+    HTTPSHandler,
+    Request,
+    build_opener,
+    urlopen,
+)
 
 from app.providers.base import DownloadedFile, ResponseMetadata
 
 _HEADER_CHARSET = re.compile(r"charset=['\"]?\s*([a-zA-Z0-9_-]+)", re.IGNORECASE)
-_HTML_CHARSET = re.compile(br"<meta[^>]+charset=['\"]?\s*([a-zA-Z0-9_-]+)", re.IGNORECASE)
+_HTML_CHARSET = re.compile(rb"<meta[^>]+charset=['\"]?\s*([a-zA-Z0-9_-]+)", re.IGNORECASE)
 _RETRY_STATUSES = {408, 425, 429}
 
 
@@ -45,7 +54,9 @@ class _Links(HTMLParser):
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "a" and self.href:
-            self.items.append((" ".join(unescape("".join(self.parts)).split()), urljoin(self.base_url, self.href)))
+            self.items.append(
+                (" ".join(unescape("".join(self.parts)).split()), urljoin(self.base_url, self.href))
+            )
             self.href = ""
             self.parts = []
 
@@ -76,8 +87,8 @@ def retry_after_seconds(value: str | None) -> float | None:
         except (TypeError, ValueError):
             return None
         if date.tzinfo is None:
-            date = date.replace(tzinfo=timezone.utc)
-        return max(0.0, (date - datetime.now(timezone.utc)).total_seconds())
+            date = date.replace(tzinfo=UTC)
+        return max(0.0, (date - datetime.now(UTC)).total_seconds())
 
 
 class Http:
@@ -93,13 +104,15 @@ class Http:
     ) -> None:
         if min_interval < 0 or max_attempts < 1:
             raise ValueError("min_interval must be nonnegative and max_attempts must be positive")
-        self.user_agent = user_agent or f"Mozilla/5.0 (compatible; {provider_id.replace('_', '-')}-mirror/1.0)"
+        self.user_agent = (
+            user_agent or f"Mozilla/5.0 (compatible; {provider_id.replace('_', '-')}-mirror/1.0)"
+        )
         self.ssl_context = ssl_context
         self.min_interval = min_interval
         self.max_attempts = max_attempts
         self._lock = Lock()
         self._next_request = 0.0
-        handlers = [HTTPCookieProcessor(CookieJar())] if cookies else []
+        handlers: list[BaseHandler] = [HTTPCookieProcessor(CookieJar())] if cookies else []
         if cookies and ssl_context is not None:
             handlers.append(HTTPSHandler(context=ssl_context))
         self._opener = build_opener(*handlers) if cookies else None
@@ -112,15 +125,20 @@ class Http:
         if delay:
             time.sleep(delay)
 
-    def _open(self, request: Request, timeout: int):
+    def _open(self, request: Request, timeout: int) -> HTTPResponse:
         if self._opener is not None:
-            return self._opener.open(request, timeout=timeout)
+            return cast(HTTPResponse, self._opener.open(request, timeout=timeout))
         if self.ssl_context is not None:
-            return urlopen(request, timeout=timeout, context=self.ssl_context)
-        return urlopen(request, timeout=timeout)
+            return cast(HTTPResponse, urlopen(request, timeout=timeout, context=self.ssl_context))
+        return cast(HTTPResponse, urlopen(request, timeout=timeout))
 
     def _request(
-        self, url: str, *, method: str = "GET", data: bytes | None = None, timeout: int = 60,
+        self,
+        url: str,
+        *,
+        method: str = "GET",
+        data: bytes | None = None,
+        timeout: int = 60,
     ) -> tuple[bytes, Message, int]:
         headers = {"User-Agent": self.user_agent}
         if data is not None:
@@ -130,11 +148,19 @@ class Http:
             request = Request(url, data=data, headers=headers, method=method)
             try:
                 with self._open(request, timeout) as response:
-                    return response.read() if method != "HEAD" else b"", response.headers, response.status
+                    return (
+                        response.read() if method != "HEAD" else b"",
+                        response.headers,
+                        response.status,
+                    )
             except HTTPError as error:
-                if (error.code not in _RETRY_STATUSES and error.code < 500) or attempt + 1 == self.max_attempts:
+                if (
+                    error.code not in _RETRY_STATUSES and error.code < 500
+                ) or attempt + 1 == self.max_attempts:
                     raise
-                delay = retry_after_seconds(error.headers.get("Retry-After") if error.headers else None)
+                delay = retry_after_seconds(
+                    error.headers.get("Retry-After") if error.headers else None
+                )
                 if delay is not None and delay > 120:
                     raise
                 error.close()
@@ -142,7 +168,9 @@ class Http:
                 if attempt + 1 == self.max_attempts:
                     raise
                 delay = None
-            time.sleep(delay if delay is not None else min(30.0, 2 ** attempt + random.uniform(0, 0.5)))
+            time.sleep(
+                delay if delay is not None else min(30.0, 2**attempt + random.uniform(0, 0.5))
+            )
         raise AssertionError("unreachable retry state")
 
     def get_text(self, url: str, *, encoding: str | None = None) -> str:
@@ -189,7 +217,11 @@ class Http:
         )
 
     def download(
-        self, url: str, *, filename_fallback: str = "", content_disposition_name: bool = True,
+        self,
+        url: str,
+        *,
+        filename_fallback: str = "",
+        content_disposition_name: bool = True,
     ) -> DownloadedFile:
         raw, headers, _status = self._request(url, timeout=120)
         name = ""

@@ -268,7 +268,9 @@ def _cell_link_label(cell: _Cell, index: int) -> str:
     return cell.link_labels[index] if index < len(cell.link_labels) else ""
 
 
-def _paper_links(question_cell: _Cell, answer_cell: _Cell, base_subject: str) -> list[tuple[str, str, str | None]]:
+def _paper_links(
+    question_cell: _Cell, answer_cell: _Cell, base_subject: str
+) -> list[tuple[str, str, str | None]]:
     """Pair old anchor-based paper links with answer links.
 
     The 2002–2005 pages use anchors instead of the newer JavaScript inputs.
@@ -423,7 +425,9 @@ def parse_year_page(html: str, base_url: str) -> list[ParsedPaper]:
             continue
         base_subject = subject.text
         code = _category_code(current_group)
-        for subject_name, question_url, answer_url in _paper_links(question_cell, answer_cell, base_subject):
+        for subject_name, question_url, answer_url in _paper_links(
+            question_cell, answer_cell, base_subject
+        ):
             files = {"question": question_url}
             if answer_url:
                 files["answer"] = answer_url
@@ -467,7 +471,11 @@ class TcteTveClient:
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         try:
-            page = next(page for page in self._year_pages() if page.code == exam_code and page.year_ad == year_ad)
+            page = next(
+                page
+                for page in self._year_pages()
+                if page.code == exam_code and page.year_ad == year_ad
+            )
         except StopIteration as exc:
             raise ValueError(f"Unknown TCTE TVE exam: {exam_code} ({year_ad})") from exc
         return page.url + "/"
@@ -488,7 +496,11 @@ class TcteTveClient:
         ]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
-        year_page = next(page for page in self._year_pages() if page.code == exam_code and page.year_ad == year_ad)
+        year_page = next(
+            page
+            for page in self._year_pages()
+            if page.code == exam_code and page.year_ad == year_ad
+        )
         exam_name = f"{year_page.year_roc}學年度四技二專統一入學測驗"
         return SourceExamPage(
             source_exam_id=year_page.code,

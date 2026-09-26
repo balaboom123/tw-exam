@@ -129,7 +129,8 @@ class TiiCertClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+            body: bytes = response.read()
+            return body.decode("utf-8", "replace")
 
     def head(self, url: str) -> ResponseMetadata:
         request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
@@ -148,7 +149,11 @@ class TiiCertClient:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=120) as response:
             disposition = response.headers.get("Content-Disposition", "")
-            file_name = _filename_from_disposition(disposition) or Path(unquote(urlparse(url).path)).name or "download.pdf"
+            file_name = (
+                _filename_from_disposition(disposition)
+                or Path(unquote(urlparse(url).path)).name
+                or "download.pdf"
+            )
             return DownloadedFile(
                 data=response.read(),
                 content_type=response.headers.get("Content-Type", "application/octet-stream"),

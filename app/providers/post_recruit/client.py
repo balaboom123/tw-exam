@@ -71,7 +71,8 @@ def _normalize_text(text: str) -> str:
 
 
 def _clean_title(text: str) -> str:
-    title = _TITLE_RE.match(text).group("title") if _TITLE_RE.match(text) else text
+    match = _TITLE_RE.match(text)
+    title = match.group("title") if match else text
     return re.sub(r"\([A-Z]\d+\)", "", title).strip(" -；")
 
 
@@ -145,20 +146,29 @@ class PostRecruitClient:
         return next(year.listing_url for year in self._years() if year.year_ad == year_ad)
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
-        return next(year.url for year in self._years() if year.code == exam_code and year.year_ad == year_ad)
+        return next(
+            year.url for year in self._years() if year.code == exam_code and year.year_ad == year_ad
+        )
 
     def discover_available_years(self) -> list[int]:
         return [year.year_ad for year in self._years()]
 
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
         return [
-            ExamOption(code=year.code, year_ad=year.year_ad, year_roc=year.year_roc, label=f"{year.year_roc}年{_CATEGORY_NAME}")
+            ExamOption(
+                code=year.code,
+                year_ad=year.year_ad,
+                year_roc=year.year_roc,
+                label=f"{year.year_roc}年{_CATEGORY_NAME}",
+            )
             for year in self._years()
             if year.year_ad == year_ad
         ]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
-        year = next(item for item in self._years() if item.code == exam_code and item.year_ad == year_ad)
+        year = next(
+            item for item in self._years() if item.code == exam_code and item.year_ad == year_ad
+        )
         return SourceExamPage(
             source_exam_id=year.code,
             year_ad=year.year_ad,

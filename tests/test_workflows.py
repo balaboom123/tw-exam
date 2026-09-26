@@ -4,6 +4,7 @@ import json
 import re
 import shlex
 import tempfile
+import tomllib
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -718,6 +719,22 @@ class WorkflowTests(unittest.TestCase):
 
 
 class LaunchCITest(unittest.TestCase):
+    def test_ci_enforces_locked_application_lint_and_strict_types(self) -> None:
+        workflow = _workflow((REPO_ROOT / ".github/workflows/ci.yml").read_text())
+        steps = workflow["jobs"]["fast-python"]["steps"]
+        install = next(step for step in steps if step.get("run") == "uv sync --frozen")
+        checks = next(step for step in steps if step.get("name") == "Lint and type-check application")
+        self.assertLess(steps.index(install), steps.index(checks))
+        self.assertEqual(checks["run"].splitlines(), [
+            "uv run --frozen ruff check app",
+            "uv run --frozen ruff format app --check",
+            "uv run --frozen mypy app",
+        ])
+        config = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text())
+        self.assertTrue(config["tool"]["mypy"]["strict"])
+        self.assertEqual(config["tool"]["mypy"]["files"], ["app"])
+        self.assertEqual(set(config["tool"]["ruff"]["lint"]["select"]), {"E", "F", "I", "UP", "B"})
+
     def test_ci_workflow_covers_release_and_frontend_gates(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
 

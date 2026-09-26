@@ -9,7 +9,6 @@ from pathlib import Path, PurePosixPath
 
 from app.models import NormalizedCatalog, SourceExamPage, StoredFile
 
-
 DEDUPE_INDEX_FILE = ".mirror-dedupe-index.json"
 
 
@@ -50,7 +49,9 @@ class MirrorStore:
         return [
             path
             for path in sorted(self.root.rglob("*"))
-            if path.is_file() and path != self.dedupe_index_path and not path.name.startswith(f".{DEDUPE_INDEX_FILE}.")
+            if path.is_file()
+            and path != self.dedupe_index_path
+            and not path.name.startswith(f".{DEDUPE_INDEX_FILE}.")
         ]
 
     @staticmethod
@@ -97,10 +98,17 @@ class MirrorStore:
             return
         entries = self._load_dedupe_index()
         self.root.mkdir(parents=True, exist_ok=True)
-        temporary_path = self.dedupe_index_path.with_name(f".{DEDUPE_INDEX_FILE}.{uuid.uuid4().hex}.tmp")
+        temporary_path = self.dedupe_index_path.with_name(
+            f".{DEDUPE_INDEX_FILE}.{uuid.uuid4().hex}.tmp"
+        )
         try:
             temporary_path.write_text(
-                json.dumps({"schema_version": 1, "entries": entries}, ensure_ascii=False, sort_keys=True, separators=(",", ":")),
+                json.dumps(
+                    {"schema_version": 1, "entries": entries},
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                ),
                 encoding="utf-8",
             )
             os.replace(temporary_path, self.dedupe_index_path)
@@ -137,7 +145,11 @@ class MirrorStore:
         if path_prefix.is_file():
             candidates.append(path_prefix)
         if path_prefix.parent.exists():
-            candidates.extend(candidate for candidate in sorted(path_prefix.parent.glob(f"{path_prefix.name}.*")) if candidate.is_file())
+            candidates.extend(
+                candidate
+                for candidate in sorted(path_prefix.parent.glob(f"{path_prefix.name}.*"))
+                if candidate.is_file()
+            )
         return candidates
 
     def _register_checksum(self, checksum: str, size: int, storage_key: str) -> None:
@@ -151,7 +163,11 @@ class MirrorStore:
         if not storage_keys:
             return
         index = self._load_dedupe_index()
-        removed = [checksum for checksum, entry in index.items() if entry.get("storage_key") in storage_keys]
+        removed = [
+            checksum
+            for checksum, entry in index.items()
+            if entry.get("storage_key") in storage_keys
+        ]
         for checksum in removed:
             del index[checksum]
         if removed:
@@ -193,7 +209,11 @@ class MirrorStore:
         self._ensure_dedupe_index()
         unique_matches = list(dict.fromkeys(self._candidate_paths(storage_key_prefix)))
         if len(unique_matches) > 1:
-            preferred_matches = [candidate for candidate in unique_matches if candidate.suffix.lower() in {".pdf", ".zip"}]
+            preferred_matches = [
+                candidate
+                for candidate in unique_matches
+                if candidate.suffix.lower() in {".pdf", ".zip"}
+            ]
             if len(preferred_matches) == 1:
                 return self._stored_file_for_path(preferred_matches[0], created=False)
         if len(unique_matches) != 1:
@@ -232,7 +252,9 @@ class MirrorStore:
         elif canonical_path != path:
             self._replace_with_hard_link(canonical_path, path)
 
-        return StoredFile(storage_key=storage_key, path=path, checksum=checksum, created=created, size=size)
+        return StoredFile(
+            storage_key=storage_key, path=path, checksum=checksum, created=created, size=size
+        )
 
     def deduplicate_existing(self, *, apply: bool = False) -> MirrorDedupeResult:
         paths = self._payload_paths()
@@ -250,7 +272,10 @@ class MirrorStore:
         for (size, checksum), group_paths in payloads.items():
             ordered_paths = sorted(group_paths)
             canonical_path = ordered_paths[0]
-            rebuilt_index[checksum] = {"storage_key": self._storage_key_for_path(canonical_path), "size": size}
+            rebuilt_index[checksum] = {
+                "storage_key": self._storage_key_for_path(canonical_path),
+                "size": size,
+            }
             if len(ordered_paths) < 2:
                 continue
             duplicate_groups += 1
@@ -312,9 +337,9 @@ class MirrorStore:
                     storage_key = metadata.get("storage_key")
                     if isinstance(storage_key, str) and storage_key:
                         add(storage_key)
-        for paper in catalog.papers:
-            if paper.storage_key:
-                add(paper.storage_key)
+        for normalized_paper in catalog.papers:
+            if normalized_paper.storage_key:
+                add(normalized_paper.storage_key)
         return storage_keys
 
     def prune_unreferenced_provider(
@@ -327,14 +352,18 @@ class MirrorStore:
     ) -> MirrorPruneResult:
         references = self.referenced_storage_keys(provider_id, raw_pages, catalog)
         if not references:
-            raise ValueError(f"Refusing to prune mirror provider {provider_id}: no referenced storage keys were found.")
+            raise ValueError(
+                f"Refusing to prune mirror provider {provider_id}: "
+                f"no referenced storage keys were found."
+            )
         provider_root = self.root / "providers" / provider_id
         paths = [path for path in self._payload_paths() if path.is_relative_to(provider_root)]
         files_by_key = {self._storage_key_for_path(path): path for path in paths}
         missing_references = references - files_by_key.keys()
         if missing_references:
             raise ValueError(
-                f"Refusing to prune mirror provider {provider_id}: {len(missing_references)} referenced file(s) are missing."
+                f"Refusing to prune mirror provider {provider_id}: "
+                f"{len(missing_references)} referenced file(s) are missing."
             )
         stale_paths = [path for key, path in files_by_key.items() if key not in references]
         reclaimable_bytes = sum(path.stat().st_size for path in stale_paths)
@@ -351,7 +380,9 @@ class MirrorStore:
                 if not isinstance(storage_key, str) or storage_key not in stale_keys:
                     continue
                 stale_path = files_by_key[storage_key]
-                replacement = active_inode_keys.get((stale_path.stat().st_dev, stale_path.stat().st_ino))
+                replacement = active_inode_keys.get(
+                    (stale_path.stat().st_dev, stale_path.stat().st_ino)
+                )
                 if replacement is None:
                     continue
                 index[checksum] = {"storage_key": replacement, "size": stale_path.stat().st_size}
@@ -359,7 +390,11 @@ class MirrorStore:
             for path in stale_paths:
                 path.unlink()
             self._discard_index_paths(stale_keys)
-            for directory in sorted((path for path in provider_root.rglob("*") if path.is_dir()), key=lambda path: len(path.parts), reverse=True):
+            for directory in sorted(
+                (path for path in provider_root.rglob("*") if path.is_dir()),
+                key=lambda path: len(path.parts),
+                reverse=True,
+            ):
                 try:
                     directory.rmdir()
                 except OSError:

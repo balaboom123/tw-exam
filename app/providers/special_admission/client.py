@@ -121,7 +121,12 @@ def parse_question_page(html: str, base_url: str) -> list[ParsedPaper]:
             continue
         year_roc, school_track, group, subject = (cells[index].text for index in range(4))
         subject = _normalized_subject(subject)
-        if not year_roc.isdigit() or school_track != "大學組" or group != "共同" or subject not in _SUBJECT_SLUGS:
+        if (
+            not year_roc.isdigit()
+            or school_track != "大學組"
+            or group != "共同"
+            or subject not in _SUBJECT_SLUGS
+        ):
             continue
         files: dict[str, str] = {}
         for label, url in cells[4].links:
@@ -161,7 +166,9 @@ class SpecialAdmissionClient:
 
     def _available_years(self) -> list[int]:
         if self._available_years_cache is None:
-            self._available_years_cache = tuple(parse_available_years(self._fetch_text(QUESTION_URL)))
+            self._available_years_cache = tuple(
+                parse_available_years(self._fetch_text(QUESTION_URL))
+            )
         return list(self._available_years_cache)
 
     def build_discovery_year_url(self, year_ad: int) -> str:

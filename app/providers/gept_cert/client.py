@@ -84,7 +84,9 @@ def _exam_code(level_code: str, year_ad: int) -> str:
     return f"gept-cert-{level_code}-{year_ad}"
 
 
-def parse_intro_downloads(html: str, *, base_url: str, level_code: str) -> tuple[list[GeptDownload], list[str]]:
+def parse_intro_downloads(
+    html: str, *, base_url: str, level_code: str
+) -> tuple[list[GeptDownload], list[str]]:
     parser = _AnchorParser()
     parser.feed(html)
     downloads: list[GeptDownload] = []
@@ -143,7 +145,7 @@ class GeptCertClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         for encoding in ("utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -155,10 +157,18 @@ class GeptCertClient:
         all_downloads: list[GeptDownload] = []
         for level_code, _level_name, intro_url in self.LEVELS:
             intro_html = self._fetch_text(intro_url)
-            downloads, practice_pages = parse_intro_downloads(intro_html, base_url=intro_url, level_code=level_code)
+            downloads, practice_pages = parse_intro_downloads(
+                intro_html, base_url=intro_url, level_code=level_code
+            )
             all_downloads.extend(downloads)
             for practice_page in practice_pages:
-                all_downloads.extend(parse_practice_audio(self._fetch_text(practice_page), base_url=practice_page, level_code=level_code))
+                all_downloads.extend(
+                    parse_practice_audio(
+                        self._fetch_text(practice_page),
+                        base_url=practice_page,
+                        level_code=level_code,
+                    )
+                )
         return all_downloads
 
     def discover_available_years(self) -> list[int]:
@@ -182,15 +192,22 @@ class GeptCertClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         level_names = {code: name for code, name, _url in self.LEVELS}
-        requested_level = next((code for code, _name, _url in self.LEVELS if exam_code == _exam_code(code, year_ad)), None)
+        requested_level = next(
+            (code for code, _name, _url in self.LEVELS if exam_code == _exam_code(code, year_ad)),
+            None,
+        )
         downloads = [
             download
             for download in self._downloads()
-            if download.year_ad == year_ad and (requested_level is None or download.level_code == requested_level)
+            if download.year_ad == year_ad
+            and (requested_level is None or download.level_code == requested_level)
         ]
         papers = [
             ParsedPaper(
-                category_raw=f"{CANONICAL_CATEGORY}_{level_names.get(download.level_code, download.level_code)}",
+                category_raw=(
+                    f"{CANONICAL_CATEGORY}_"
+                    f"{level_names.get(download.level_code, download.level_code)}"
+                ),
                 category_code=download.level_code,
                 subject_code=_slug(download.label, f"download-{index}"),
                 subject_name_raw=download.label,
@@ -198,7 +215,11 @@ class GeptCertClient:
             )
             for index, download in enumerate(downloads, start=1)
         ]
-        exam_name = f"GEPT全民英檢 {level_names[requested_level]}" if requested_level else "GEPT全民英檢官方練習資料"
+        exam_name = (
+            f"GEPT全民英檢 {level_names[requested_level]}"
+            if requested_level
+            else "GEPT全民英檢官方練習資料"
+        )
         return SourceExamPage(
             source_exam_id=exam_code,
             year_ad=year_ad,
@@ -210,7 +231,9 @@ class GeptCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD")
+        request = Request(
+            _quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        )
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(

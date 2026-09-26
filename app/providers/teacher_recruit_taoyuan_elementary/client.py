@@ -50,7 +50,15 @@ class _AnchorParser(HTMLParser):
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path, safe="/%"),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 def _subject_code(subject_name: str) -> str:
@@ -88,7 +96,9 @@ def parse_answer_page(page_url: str, html: str) -> list[TaoyuanPaper]:
         subject_name = _subject_name(label)
         by_subject.setdefault(subject_name, {}).setdefault(file_type, urljoin(page_url, href))
     return [
-        TaoyuanPaper(subject_name=subject_name, subject_code=_subject_code(subject_name), downloads=downloads)
+        TaoyuanPaper(
+            subject_name=subject_name, subject_code=_subject_code(subject_name), downloads=downloads
+        )
         for subject_name, downloads in sorted(by_subject.items())
     ]
 
@@ -107,7 +117,7 @@ class TaoyuanElementaryRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         for encoding in ("utf-8-sig", "utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -188,5 +198,6 @@ class TaoyuanElementaryRecruitClient:
             return DownloadedFile(
                 data=response.read(),
                 content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=_filename_from_content_disposition(content_disposition) or Path(unquote(urlparse(url).path)).name,
+                file_name=_filename_from_content_disposition(content_disposition)
+                or Path(unquote(urlparse(url).path)).name,
             )

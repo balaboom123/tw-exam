@@ -1,11 +1,10 @@
-from __future__ import annotations
-
 """Small, deterministic metadata projections for public bundle discovery."""
 
-from collections.abc import Iterable, Mapping
-import re
-from typing import Any
+from __future__ import annotations
 
+import re
+from collections.abc import Iterable, Mapping
+from typing import Any
 
 MAX_SEARCH_ALIASES = 24
 MAX_SUBJECT_LABELS = 6

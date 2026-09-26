@@ -98,7 +98,8 @@ class IpasCertClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+            body: bytes = response.read()
+            return body.decode("utf-8", "replace")
 
     def _downloads(self, cert_code: str) -> list[IpasDownload]:
         downloads: list[IpasDownload] = []
@@ -119,7 +120,12 @@ class IpasCertClient:
         if year_ad != MATERIALS_YEAR:
             return []
         return [
-            ExamOption(code=f"ipas-cert-{code.lower()}-{year_ad}", year_ad=year_ad, year_roc=year_ad - 1911, label=f"iPAS {name}")
+            ExamOption(
+                code=f"ipas-cert-{code.lower()}-{year_ad}",
+                year_ad=year_ad,
+                year_roc=year_ad - 1911,
+                label=f"iPAS {name}",
+            )
             for code, name in IPAS_IT_CERTS.items()
         ]
 
@@ -153,7 +159,9 @@ class IpasCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD")
+        request = Request(
+            _quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        )
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(

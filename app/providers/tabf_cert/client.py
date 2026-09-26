@@ -157,7 +157,9 @@ class TabfCertClient:
         return self.http.head(url)
 
     def download_file(self, url: str) -> DownloadedFile:
-        return self.http.download(url, filename_fallback="download.pdf", content_disposition_name=False)
+        return self.http.download(
+            url, filename_fallback="download.pdf", content_disposition_name=False
+        )
 
     def _history_links(self, default_year_ad: int) -> list[TabfHistoryLink]:
         return parse_tabf_history_links(self._fetch_text(HISTORY_INDEX_URL), default_year_ad)
@@ -192,7 +194,10 @@ class TabfCertClient:
         if not pdfs:
             raise ValueError(f"TABF history page has no PDF links: PHID {phid}")
 
-        label = next((link.label for link in parse_tabf_history_links(html, year_ad) if link.phid == phid), "")
+        label = next(
+            (link.label for link in parse_tabf_history_links(html, year_ad) if link.phid == phid),
+            "",
+        )
         resolved_year_ad, year_roc = _year_from_label(label, year_ad)
         slug, certificate_name = classify_tabf_certificate([pdf.subject for pdf in pdfs])
         source_exam_id = f"tabf-cert-{slug}-{resolved_year_ad}-phid-{phid}"

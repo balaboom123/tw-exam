@@ -11,10 +11,16 @@ RELEASE_SAFETY_TARGET = 900
 
 def physical_asset_names(bundle: BundleAsset) -> set[str]:
     """Return every ZIP name that may occupy a release asset slot."""
-    return {name for name in (bundle.asset_name, *bundle.legacy_asset_names) if name and name.endswith(".zip")}
+    return {
+        name
+        for name in (bundle.asset_name, *bundle.legacy_asset_names)
+        if name and name.endswith(".zip")
+    }
 
 
-def validate_release_capacity(bundles: list[BundleAsset], *, limit: int = GITHUB_RELEASE_ASSET_LIMIT) -> None:
+def validate_release_capacity(
+    bundles: list[BundleAsset], *, limit: int = GITHUB_RELEASE_ASSET_LIMIT
+) -> None:
     if limit < 1 or limit > GITHUB_RELEASE_ASSET_LIMIT:
         raise ValueError(f"release asset limit must be between 1 and {GITHUB_RELEASE_ASSET_LIMIT}")
     by_tag: dict[str, set[str]] = {}
@@ -40,7 +46,9 @@ def assign_release_tags(
     max_assets_per_release: int = 900,
 ) -> list[BundleAsset]:
     if max_assets_per_release < 1 or max_assets_per_release > GITHUB_RELEASE_ASSET_LIMIT:
-        raise ValueError(f"max_assets_per_release must be between 1 and {GITHUB_RELEASE_ASSET_LIMIT}")
+        raise ValueError(
+            f"max_assets_per_release must be between 1 and {GITHUB_RELEASE_ASSET_LIMIT}"
+        )
 
     preserved = {
         bundle.asset_name: bundle.release_tag
@@ -65,7 +73,10 @@ def assign_release_tags(
         if not release_tag:
             asset_count = len(physical_asset_names(bundle))
             if asset_count > max_assets_per_release:
-                raise ValueError(f"bundle {bundle.asset_name} has {asset_count} physical assets, exceeding shard target {max_assets_per_release}")
+                raise ValueError(
+                    f"bundle {bundle.asset_name} has {asset_count} physical "
+                    f"assets, exceeding shard target {max_assets_per_release}"
+                )
             while counts[shard_name(next_shard)] + asset_count > max_assets_per_release:
                 next_shard += 1
             release_tag = shard_name(next_shard)
@@ -100,6 +111,9 @@ def strip_ambiguous_legacy_assets(
     if not names:
         return list(bundles), conflicts
     return [
-        replace(bundle, legacy_asset_names=[name for name in bundle.legacy_asset_names if name not in names])
+        replace(
+            bundle,
+            legacy_asset_names=[name for name in bundle.legacy_asset_names if name not in names],
+        )
         for bundle in bundles
     ], conflicts

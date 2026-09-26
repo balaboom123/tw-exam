@@ -4,7 +4,7 @@ import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
@@ -15,17 +15,29 @@ LISTING_URL = "https://www.ceec.edu.tw/xmfile?xsmsid=0J052424829869345634"
 USER_AGENT = "Mozilla/5.0 (compatible; ceec-gsat-mirror/1.0)"
 _TOTAL_PAGES_RE = re.compile("\u5171\\s*(\\d+)\\s*\u9801")
 _ENTRY_HEADER_RE = re.compile(
-    "(?P<roc_year>\\d{2,3})-\\d{2}-\\d{2}\\s+(?P<title>\\d{2,3}\\s*\u5b78\u5e74\u5ea6\u5b78\u79d1\u80fd\u529b\u6e2c\u9a57[\uFF0D-].+)"
+    "(?P<roc_year>\\d{2,3})-\\d{2}-\\d{2}\\s+(?P<title>\\d{2,3}\\s*"
+    "\u5b78\u5e74\u5ea6\u5b78\u79d1\u80fd\u529b\u6e2c\u9a57[\uff0d-].+)"
 )
 _ENTRY_DATE_RE = re.compile(r"(?P<roc_year>\d{2,3})-\d{2}-\d{2}$")
-_ENTRY_TITLE_RE = re.compile(r"(?P<title>(?P<roc_year>\d{2,3})\s*\u5b78\u5e74\u5ea6\u5b78\u79d1\u80fd\u529b\u6e2c\u9a57[\uFF0D-].+)$")
+_ENTRY_TITLE_RE = re.compile(
+    r"(?P<title>(?P<roc_year>\d{2,3})\s*\u5b78\u5e74\u5e"
+    r"a6\u5b78\u79d1\u80fd\u529b\u6e2c\u9a57[\uFF0D-].+)$"
+)
 _YEAR_BLOCK_RE = re.compile(
-    "\u9078\u64c7\u5e74\u5ea6(?P<body>.*?)(?:\u203b\u672c\u8a66\u984c\u70baPDF|\u767c\u4f48\u65e5\u671f)",
+    (
+        "\u9078\u64c7\u5e74\u5ea6(?P<body>.*?)(?:\u203b"
+        "\u672c\u8a66\u984c\u70baPDF|\u767c\u4f48\u65e5\u671f)"
+    ),
     re.S,
 )
 _YEAR_RE = re.compile(r"\b(\d{2,3})\b")
 _CEEC_CATEGORY_NAME = "\u5b78\u79d1\u80fd\u529b\u6e2c\u9a57"
-_PAGINATION_LABELS = {"\u7b2c\u4e00\u9801", "\u4e0a\u4e00\u9801", "\u4e0b\u4e00\u9801", "\u6700\u5f8c\u9801"}
+_PAGINATION_LABELS = {
+    "\u7b2c\u4e00\u9801",
+    "\u4e0a\u4e00\u9801",
+    "\u4e0b\u4e00\u9801",
+    "\u6700\u5f8c\u9801",
+}
 _SUBJECT_SLUGS = {
     "\u570b\u7d9c": "guozong",
     "\u570b\u5beb": "guoxie",
@@ -101,7 +113,7 @@ def _plain_text_from_html(html: str) -> str:
 
 
 def _subject_tail(title: str) -> str:
-    parts = re.split("[\uFF0D-]", _normalize_text(title), maxsplit=1)
+    parts = re.split("[\uff0d-]", _normalize_text(title), maxsplit=1)
     return parts[1] if len(parts) == 2 else parts[0]
 
 
@@ -155,7 +167,9 @@ def parse_listing_page(html: str) -> CeecListingPage:
                 if current_entry is not None and current_entry.downloads:
                     entries.append(current_entry)
                 pending_roc_year = None
-                current_entry = _entry_from_title(int(match.group("roc_year")), match.group("title"))
+                current_entry = _entry_from_title(
+                    int(match.group("roc_year")), match.group("title")
+                )
                 continue
             date_match = _ENTRY_DATE_RE.match(token_text)
             if date_match is not None:
@@ -179,7 +193,9 @@ def parse_listing_page(html: str) -> CeecListingPage:
                 entries.append(current_entry)
                 current_entry = None
             continue
-        current_entry.downloads.append(CeecDownload(label=token_text, url=urljoin(BASE_URL, token_href)))
+        current_entry.downloads.append(
+            CeecDownload(label=token_text, url=urljoin(BASE_URL, token_href))
+        )
     if current_entry is not None and current_entry.downloads:
         entries.append(current_entry)
     return CeecListingPage(total_pages=total_pages, entries=entries)
@@ -227,11 +243,18 @@ class CeecGsatClient:
         years = _available_years_from_text(_plain_text_from_html(first_page_html))
         if years:
             return years
-        return sorted({entry.year_ad for entry in parse_listing_page(first_page_html).entries}, reverse=True)
+        return sorted(
+            {entry.year_ad for entry in parse_listing_page(first_page_html).entries}, reverse=True
+        )
 
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
         return [
-            ExamOption(code=entry.source_exam_id, year_ad=entry.year_ad, year_roc=entry.year_ad - 1911, label=entry.title)
+            ExamOption(
+                code=entry.source_exam_id,
+                year_ad=entry.year_ad,
+                year_roc=entry.year_ad - 1911,
+                label=entry.title,
+            )
             for entry in self._iter_entries()
             if entry.year_ad == year_ad
         ]
@@ -242,12 +265,19 @@ class CeecGsatClient:
         raise ValueError(f"Unknown CEEC GSAT discovery year: {year_ad}")
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
-        if any(entry.source_exam_id == exam_code and entry.year_ad == year_ad for entry in self._iter_entries()):
+        if any(
+            entry.source_exam_id == exam_code and entry.year_ad == year_ad
+            for entry in self._iter_entries()
+        ):
             return LISTING_URL
         raise ValueError(f"Unknown CEEC GSAT discovery exam: {exam_code} ({year_ad})")
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
-        entry = next(item for item in self._iter_entries() if item.source_exam_id == exam_code and item.year_ad == year_ad)
+        entry = next(
+            item
+            for item in self._iter_entries()
+            if item.source_exam_id == exam_code and item.year_ad == year_ad
+        )
         subject_tail = _subject_tail(entry.title)
         subject_slug = _slug_from_title(entry.title)
         papers: list[ParsedPaper] = []
@@ -258,7 +288,10 @@ class CeecGsatClient:
                 file_type = "question" if question_seen == 1 else "question_alt"
             elif download.label == "\u7b54\u984c\u5377":
                 file_type = "answer_sheet"
-            elif "\u8a55\u5206\u539f\u5247" in download.label or "\u53c3\u8003\u7b54\u6848" in download.label:
+            elif (
+                "\u8a55\u5206\u539f\u5247" in download.label
+                or "\u53c3\u8003\u7b54\u6848" in download.label
+            ):
                 file_type = "corrected_answer"
             elif "\u7b54\u6848" in download.label:
                 file_type = "answer"

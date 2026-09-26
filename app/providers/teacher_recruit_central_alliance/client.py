@@ -6,7 +6,16 @@ from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import parse_qs, quote, unquote, unquote_plus, urljoin, urlparse, urlsplit, urlunsplit
+from urllib.parse import (
+    parse_qs,
+    quote,
+    unquote,
+    unquote_plus,
+    urljoin,
+    urlparse,
+    urlsplit,
+    urlunsplit,
+)
 from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
@@ -56,7 +65,15 @@ class _AnchorParser(HTMLParser):
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path, safe="/%"),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 def _links(html: str) -> list[tuple[str, str]]:
@@ -82,10 +99,16 @@ def _subject_from_filename(file_name: str) -> str:
 
 def _file_type_from_url(url: str) -> str | None:
     value = parse_qs(urlparse(url).query).get("type", [""])[0]
-    return {"question": "question", "referenceanswer": "answer", "finalanswer": "corrected_answer"}.get(value)
+    return {
+        "question": "question",
+        "referenceanswer": "answer",
+        "finalanswer": "corrected_answer",
+    }.get(value)
 
 
-def parse_subject_page(page_url: str, level_code: str, level_name: str, html: str) -> list[CentralAlliancePaper]:
+def parse_subject_page(
+    page_url: str, level_code: str, level_name: str, html: str
+) -> list[CentralAlliancePaper]:
     by_subject: dict[str, dict[str, str]] = {}
     for href, label in _links(html):
         url = urljoin(page_url, href)
@@ -124,7 +147,11 @@ def _filename_from_content_disposition(value: str) -> str:
 class CentralAllianceRecruitClient:
     provider_id = "teacher_recruit_central_alliance"
 
-    def __init__(self, subject_html_by_level: dict[str, str] | None = None, final_html_by_level: dict[str, str] | None = None) -> None:
+    def __init__(
+        self,
+        subject_html_by_level: dict[str, str] | None = None,
+        final_html_by_level: dict[str, str] | None = None,
+    ) -> None:
         self.subject_html_by_level = subject_html_by_level or {}
         self.final_html_by_level = final_html_by_level or {}
 
@@ -137,7 +164,7 @@ class CentralAllianceRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         return raw.decode("utf-8-sig", "replace")
 
     def _subject_html(self, level_code: str) -> str:
@@ -174,7 +201,9 @@ class CentralAllianceRecruitClient:
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         expected_prefix = f"teacher-recruit-central-alliance-{year_ad - 1911}-"
         if year_ad != 2026 or not exam_code.startswith(expected_prefix):
-            raise ValueError(f"Unexpected Central Alliance discovery exam for {year_ad}: {exam_code}")
+            raise ValueError(
+                f"Unexpected Central Alliance discovery exam for {year_ad}: {exam_code}"
+            )
         level_code = exam_code.removeprefix(expected_prefix)
         if level_code not in LEVELS:
             raise ValueError(f"Unexpected Central Alliance discovery level: {level_code}")
@@ -184,8 +213,12 @@ class CentralAllianceRecruitClient:
         year_roc = year_ad - 1911
         level_code = exam_code.rsplit("-", 1)[-1]
         level_name = LEVELS[level_code][0]
-        papers = parse_subject_page(self._subject_url(level_code), level_code, level_name, self._subject_html(level_code))
-        final_answers = parse_final_answer_page(self._final_url(level_code), self._final_html(level_code))
+        papers = parse_subject_page(
+            self._subject_url(level_code), level_code, level_name, self._subject_html(level_code)
+        )
+        final_answers = parse_final_answer_page(
+            self._final_url(level_code), self._final_html(level_code)
+        )
         parsed = []
         for paper in papers:
             files = dict(paper.downloads)
@@ -230,5 +263,6 @@ class CentralAllianceRecruitClient:
             return DownloadedFile(
                 data=response.read(),
                 content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=_filename_from_content_disposition(content_disposition) or Path(unquote(urlparse(url).path)).name,
+                file_name=_filename_from_content_disposition(content_disposition)
+                or Path(unquote(urlparse(url).path)).name,
             )

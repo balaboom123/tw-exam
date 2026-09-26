@@ -20,7 +20,17 @@ LEVEL_CATEGORIES = (
     ("intermediate-high-intermediate", "中級暨中高級", f"{DOWNLOAD_URL}?c=3"),
     ("advanced", "高級", f"{DOWNLOAD_URL}?c=5"),
 )
-SUPPORTED_DOWNLOAD_SUFFIXES = (".pdf", ".zip", ".rar", ".mp3", ".doc", ".docx", ".xls", ".xlsx", ".ods")
+SUPPORTED_DOWNLOAD_SUFFIXES = (
+    ".pdf",
+    ".zip",
+    ".rar",
+    ".mp3",
+    ".doc",
+    ".docx",
+    ".xls",
+    ".xlsx",
+    ".ods",
+)
 EXAM_ASSET_LABEL_TOKENS = ("題庫", "試題", "答案")
 AUDIO_SUFFIXES = (".zip", ".rar", ".mp3")
 
@@ -112,11 +122,11 @@ def _year_from_label(label: str) -> int:
 def _file_type_for_download(path_lower: str, label: str) -> str:
     if "答案" in label:
         return "answer"
-    if path_lower.endswith(AUDIO_SUFFIXES) or any(token in label for token in ("音檔", "聽力", "聽測")):
+    if path_lower.endswith(AUDIO_SUFFIXES) or any(
+        token in label for token in ("音檔", "聽力", "聽測")
+    ):
         return "listening_audio"
     return "question"
-
-
 
 
 def _is_exam_asset(label: str) -> bool:
@@ -138,7 +148,9 @@ def parse_page_urls(html: str, *, base_url: str = DOWNLOAD_URL) -> list[str]:
     return urls
 
 
-def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL, level_code: str = "materials") -> list[HakkaDownload]:
+def parse_downloads(
+    html: str, *, base_url: str = DOWNLOAD_URL, level_code: str = "materials"
+) -> list[HakkaDownload]:
     parser = _AnchorParser()
     parser.feed(html)
     downloads: list[HakkaDownload] = []
@@ -146,7 +158,9 @@ def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL, level_code: str 
     for label, href in parser.links:
         url = _quote_url_for_request(urljoin(base_url, href))
         parsed = urlparse(url)
-        if parsed.netloc != "elearning.hakka.gov.tw" or not parsed.path.startswith("/hakka/files/downloads/"):
+        if parsed.netloc != "elearning.hakka.gov.tw" or not parsed.path.startswith(
+            "/hakka/files/downloads/"
+        ):
             continue
         path_lower = parsed.path.lower()
         if not path_lower.endswith(SUPPORTED_DOWNLOAD_SUFFIXES) or url in seen:
@@ -178,7 +192,8 @@ class HakkaCertClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+            body: bytes = response.read()
+            return body.decode("utf-8", "replace")
 
     def _downloads(self) -> list[HakkaDownload]:
         if self._downloads_cache is not None:
@@ -200,7 +215,11 @@ class HakkaCertClient:
                         continue
                     seen_download_urls.add(download.url)
                     downloads.append(download)
-                pending.extend(url for url in parse_page_urls(html, base_url=page_url) if url not in seen_pages and url not in pending)
+                pending.extend(
+                    url
+                    for url in parse_page_urls(html, base_url=page_url)
+                    if url not in seen_pages and url not in pending
+                )
         self._downloads_cache = tuple(downloads)
         return list(self._downloads_cache)
 
@@ -225,15 +244,27 @@ class HakkaCertClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         level_names = {code: name for code, name, _url in LEVEL_CATEGORIES}
-        requested_level = next((code for code, _name, _url in LEVEL_CATEGORIES if exam_code == _exam_code(code, year_ad)), None)
+        requested_level = next(
+            (
+                code
+                for code, _name, _url in LEVEL_CATEGORIES
+                if exam_code == _exam_code(code, year_ad)
+            ),
+            None,
+        )
         downloads = [
             download
             for download in self._downloads()
-            if download.year_ad == year_ad and (requested_level is None or download.level_code == requested_level)
+            if download.year_ad == year_ad
+            and (requested_level is None or download.level_code == requested_level)
         ]
         papers = [
             ParsedPaper(
-                category_raw=f"{CANONICAL_CATEGORY}_{level_names.get(download.level_code, download.level_code)}_{download.category_code}",
+                category_raw=(
+                    f"{CANONICAL_CATEGORY}_"
+                    f"{level_names.get(download.level_code, download.level_code)}"
+                    f"_{download.category_code}"
+                ),
                 category_code=download.category_code,
                 subject_code=_subject_code(download.url, download.label, f"download-{index}"),
                 subject_name_raw=download.label,
@@ -245,14 +276,18 @@ class HakkaCertClient:
             source_exam_id=exam_code,
             year_ad=year_ad,
             year_roc=year_ad - 1911,
-            exam_name_raw=f"{CANONICAL_CATEGORY} {level_names[requested_level]}" if requested_level else CANONICAL_CATEGORY,
+            exam_name_raw=f"{CANONICAL_CATEGORY} {level_names[requested_level]}"
+            if requested_level
+            else CANONICAL_CATEGORY,
             attachments=[],
             papers=papers,
             provider_id=self.provider_id,
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD")
+        request = Request(
+            _quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        )
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(

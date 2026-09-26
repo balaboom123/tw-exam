@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 from app.paths import legacy_paths, provider_paths, site_paths
 
@@ -142,7 +143,7 @@ def _plan_directory_moves(
     source_dir: Path,
     target_dir: Path,
     prune_boundary: Path,
-    top_level_filter=None,
+    top_level_filter: Callable[[Path], bool] | None = None,
 ) -> list[PlannedAction]:
     if not source_dir.exists():
         return []
@@ -177,7 +178,9 @@ def _plan_directory_moves(
     return actions
 
 
-def _plan_bundle_moves(*, source_dir: Path, target_dir: Path, prune_boundary: Path) -> list[PlannedAction]:
+def _plan_bundle_moves(
+    *, source_dir: Path, target_dir: Path, prune_boundary: Path
+) -> list[PlannedAction]:
     if not source_dir.exists():
         return []
     actions: list[PlannedAction] = []
@@ -223,7 +226,10 @@ def _run_dry_run(repo_root: Path, actions: list[PlannedAction]) -> MigrationRepo
         lines.append("No legacy state found to promote.")
     for action in actions:
         operation = "COPY" if action.retention == "copy" else "MOVE"
-        lines.append(f"{operation} {_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)}")
+        lines.append(
+            f"{operation} {_display_path(repo_root, action.source)} "
+            f"-> {_display_path(repo_root, action.target)}"
+        )
     return MigrationReport(exit_code=0, output="\n".join(lines), conflicts=[])
 
 
@@ -235,7 +241,11 @@ def _run_move(repo_root: Path, actions: list[PlannedAction]) -> MigrationReport:
             continue
         if action.target.exists():
             if not _targets_match(action, site_id=_site_id_from_target(action.target)):
-                conflicts.append(_conflict_message(repo_root, action, "target already exists with different content"))
+                conflicts.append(
+                    _conflict_message(
+                        repo_root, action, "target already exists with different content"
+                    )
+                )
                 continue
             if action.retention == "move":
                 action.source.unlink()
@@ -249,19 +259,31 @@ def _run_move(repo_root: Path, actions: list[PlannedAction]) -> MigrationReport:
         if action.payload_kind == "raw" and action.retention == "move":
             action.source.replace(action.target)
             _prune_empty_parents(action.source.parent, action.prune_boundary)
-            lines.append(f"Moved {_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)}")
+            lines.append(
+                f"Moved {_display_path(repo_root, action.source)} "
+                f"-> {_display_path(repo_root, action.target)}"
+            )
             continue
 
         if action.payload_kind == "raw":
             action.target.write_bytes(action.source.read_bytes())
         else:
-            _write_json(action.target, _expected_json_payload(action, site_id=_site_id_from_target(action.target)))
+            _write_json(
+                action.target,
+                _expected_json_payload(action, site_id=_site_id_from_target(action.target)),
+            )
         if action.retention == "move":
             action.source.unlink()
             _prune_empty_parents(action.source.parent, action.prune_boundary)
-            lines.append(f"Moved {_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)}")
+            lines.append(
+                f"Moved {_display_path(repo_root, action.source)} "
+                f"-> {_display_path(repo_root, action.target)}"
+            )
         else:
-            lines.append(f"Copied {_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)}")
+            lines.append(
+                f"Copied {_display_path(repo_root, action.source)} "
+                f"-> {_display_path(repo_root, action.target)}"
+            )
 
     if conflicts:
         lines.extend(f"Conflict: {message}" for message in conflicts)
@@ -283,7 +305,8 @@ def _run_verify(repo_root: Path, actions: list[PlannedAction]) -> MigrationRepor
             continue
         if source_exists and not target_exists:
             pending.append(
-                f"Pending promotion: {_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)}"
+                f"Pending promotion: {_display_path(repo_root, action.source)} "
+                f"-> {_display_path(repo_root, action.target)}"
             )
             continue
         if not target_exists:
@@ -291,11 +314,14 @@ def _run_verify(repo_root: Path, actions: list[PlannedAction]) -> MigrationRepor
         if not source_exists:
             continue
         if not _targets_match(action, site_id=_site_id_from_target(action.target)):
-            conflicts.append(_conflict_message(repo_root, action, "target differs from legacy source"))
+            conflicts.append(
+                _conflict_message(repo_root, action, "target differs from legacy source")
+            )
             continue
         if action.retention == "move":
             pending.append(
-                f"Pending legacy cleanup: {_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)}"
+                f"Pending legacy cleanup: {_display_path(repo_root, action.source)} "
+                f"-> {_display_path(repo_root, action.target)}"
             )
 
     if conflicts:
@@ -304,7 +330,8 @@ def _run_verify(repo_root: Path, actions: list[PlannedAction]) -> MigrationRepor
         lines.extend(pending)
     if conflicts or pending:
         lines.append(
-            f"Verification failed with {len(conflicts)} conflict(s) and {len(pending)} pending promotion(s)."
+            f"Verification failed with {len(conflicts)} "
+            f"conflict(s) and {len(pending)} pending promotion(s)."
         )
         return MigrationReport(exit_code=1, output="\n".join(lines), conflicts=conflicts)
 
@@ -317,23 +344,31 @@ def _targets_match(action: PlannedAction, *, site_id: str) -> bool:
         return _files_match(action.source, action.target)
     try:
         expected = _expected_json_payload(action, site_id=site_id)
-        actual = json.loads(action.target.read_text(encoding="utf-8"))
+        actual: object = json.loads(action.target.read_text(encoding="utf-8"))
     except (OSError, UnicodeDecodeError, json.JSONDecodeError):
         return False
     return actual == expected
 
 
-def _expected_json_payload(action: PlannedAction, *, site_id: str) -> dict:
+def _expected_json_payload(action: PlannedAction, *, site_id: str) -> dict[str, Any]:
     source_payload = json.loads(action.source.read_text(encoding="utf-8"))
     if action.payload_kind == "site_bundles":
-        bundles = source_payload.get("bundles", source_payload) if isinstance(source_payload, dict) else source_payload
+        bundles = (
+            source_payload.get("bundles", source_payload)
+            if isinstance(source_payload, dict)
+            else source_payload
+        )
         return {
             "schema_version": 1,
             "site_id": site_id,
             "bundles": [_rewrite_storage_key_entry(bundle, site_id=site_id) for bundle in bundles],
         }
     if action.payload_kind == "site_release_assets":
-        assets = source_payload.get("assets", source_payload) if isinstance(source_payload, dict) else source_payload
+        assets = (
+            source_payload.get("assets", source_payload)
+            if isinstance(source_payload, dict)
+            else source_payload
+        )
         return {
             "schema_version": 1,
             "site_id": site_id,
@@ -342,7 +377,7 @@ def _expected_json_payload(action: PlannedAction, *, site_id: str) -> dict:
     raise ValueError(f"Unsupported payload kind for JSON rewrite: {action.payload_kind}")
 
 
-def _rewrite_storage_key_entry(entry: dict, *, site_id: str) -> dict:
+def _rewrite_storage_key_entry(entry: dict[str, Any], *, site_id: str) -> dict[str, Any]:
     rewritten = dict(entry)
     storage_key = rewritten.get("storage_key")
     if isinstance(storage_key, str):
@@ -368,7 +403,9 @@ def _write_json(path: Path, payload: object) -> None:
 def _files_match(source: Path, target: Path) -> bool:
     if source.suffix == ".json" and target.suffix == ".json":
         try:
-            return json.loads(source.read_text(encoding="utf-8")) == json.loads(target.read_text(encoding="utf-8"))
+            source_payload: object = json.loads(source.read_text(encoding="utf-8"))
+            target_payload: object = json.loads(target.read_text(encoding="utf-8"))
+            return source_payload == target_payload
         except (OSError, UnicodeDecodeError, json.JSONDecodeError):
             return False
     if source.stat().st_size != target.stat().st_size:
@@ -399,7 +436,10 @@ def _display_path(repo_root: Path, path: Path) -> str:
 
 
 def _conflict_message(repo_root: Path, action: PlannedAction, reason: str) -> str:
-    return f"{_display_path(repo_root, action.source)} -> {_display_path(repo_root, action.target)} ({reason})"
+    return (
+        f"{_display_path(repo_root, action.source)} -> "
+        f"{_display_path(repo_root, action.target)} ({reason})"
+    )
 
 
 def _site_id_from_target(target: Path) -> str:

@@ -4,26 +4,58 @@ import argparse
 import json
 import subprocess
 import time
+from collections.abc import Callable
 from datetime import datetime
+from functools import partial
 from pathlib import Path
+from typing import Any, cast
 
-from app.audit import audit_exit_code, build_catalog_audit, build_release_plan, write_catalog_audit, write_release_plan
-from app.history_audit import build_history_coverage_audit, history_audit_exit_code, write_history_coverage_audit
+from app.audit import (
+    audit_exit_code,
+    build_catalog_audit,
+    build_release_plan,
+    write_catalog_audit,
+    write_release_plan,
+)
 from app.bundler import build_bundles, public_bundle_ids
-from app.manifest import load_source_manifest, source_manifest_from_data, write_source_manifest
+from app.history_audit import (
+    build_history_coverage_audit,
+    history_audit_exit_code,
+    write_history_coverage_audit,
+)
+from app.manifest import (
+    SourceManifest,
+    load_source_manifest,
+    source_manifest_from_data,
+    write_source_manifest,
+)
 from app.migration import migrate_legacy_state
-from app.models import BundleAsset, NormalizedCatalog, SyncFailure
+from app.models import (
+    BundleAsset,
+    ExamOption,
+    NormalizedCatalog,
+    NormalizedPaper,
+    ReviewItem,
+    SourceExamPage,
+    SyncFailure,
+)
 from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, provider_paths, site_paths
-from app.publisher import publish_site, write_data_files, write_provider_state
 from app.probe import hash_exam_codes, probe_latest
 from app.providers.base import SourceProvider
 from app.providers.moex.client import make_result_url, make_year_search_url, year_ad_from_code
 from app.providers.registry import get_provider
-from app.state import load_existing_state, load_provider_state, load_site_bundles, merge_incremental_state, merge_targeted_state
+from app.publisher import publish_site, write_data_files, write_provider_state
 from app.site_registry import get_site_config
-from app.sync import restore_catalog_files, retry_network, sync_exam_pages
+from app.state import (
+    load_existing_state,
+    load_provider_state,
+    load_site_bundles,
+    merge_incremental_state,
+    merge_targeted_state,
+)
 from app.storage import MirrorStore
+from app.sync import restore_catalog_files, retry_network, sync_exam_pages
 
 
 def _default_repo_root() -> Path:
@@ -40,7 +72,9 @@ def _latest_years(client: SourceProvider, count: int) -> list[int]:
     return sorted(client.discover_available_years(), reverse=True)[:count]
 
 
-def _provider_for_args(args: argparse.Namespace, client: SourceProvider | None = None) -> SourceProvider:
+def _provider_for_args(
+    args: argparse.Namespace, client: SourceProvider | None = None
+) -> SourceProvider:
     return client or get_provider(getattr(args, "provider", None) or "moex")
 
 
@@ -50,7 +84,7 @@ def _provider_id_for_args(args: argparse.Namespace, client: SourceProvider) -> s
 
 def _provider_for_targeted_probe(
     args: argparse.Namespace,
-    probe: dict[str, object],
+    probe: dict[str, Any],
     client: SourceProvider | None = None,
 ) -> tuple[SourceProvider, str]:
     probe_provider_id = str(probe.get("provider_id") or "")
@@ -58,7 +92,8 @@ def _provider_for_targeted_probe(
         client_provider_id = _provider_id_for_args(args, client)
         if probe_provider_id and client_provider_id != probe_provider_id:
             raise ValueError(
-                f"Probe provider mismatch: probe declares {probe_provider_id}, but targeted sync client is {client_provider_id}"
+                f"Probe provider mismatch: probe declares {probe_provider_id}, "
+                f"but targeted sync client is {client_provider_id}"
             )
         return client, probe_provider_id or client_provider_id
 
@@ -66,7 +101,8 @@ def _provider_for_targeted_probe(
         arg_provider_id = getattr(args, "provider", None)
         if arg_provider_id is not None and arg_provider_id != probe_provider_id:
             raise ValueError(
-                f"Probe provider mismatch: probe declares {probe_provider_id}, but --provider is {arg_provider_id}"
+                f"Probe provider mismatch: probe declares "
+                f"{probe_provider_id}, but --provider is {arg_provider_id}"
             )
         return get_provider(probe_provider_id), probe_provider_id
 
@@ -90,7 +126,7 @@ def _provider_state_paths(data_dir: Path, mirror_dir: Path, provider_id: str) ->
     )
 
 
-def _provider_manifest_from_probe(probe: dict[str, object]):
+def _provider_manifest_from_probe(probe: dict[str, Any]) -> SourceManifest | None:
     updated_manifest = probe.get("updated_manifest")
     if isinstance(updated_manifest, dict):
         return source_manifest_from_data(updated_manifest)
@@ -99,13 +135,19 @@ def _provider_manifest_from_probe(probe: dict[str, object]):
 
 def _resolve_probe_manifest_path(args: argparse.Namespace, provider_id: str) -> Path:
     if args.manifest is not None:
-        return args.manifest
-    return args.output.parent.parent / "data" / "providers" / provider_id / "source-manifest.json"
+        return cast(Path, args.manifest)
+    return (
+        cast(Path, args.output).parent.parent
+        / "data"
+        / "providers"
+        / provider_id
+        / "source-manifest.json"
+    )
 
 
 def _resolve_sync_manifest_path(args: argparse.Namespace, provider_id: str) -> Path:
     if args.manifest is not None:
-        return args.manifest
+        return cast(Path, args.manifest)
     return _provider_state_paths(args.data_dir, args.mirror_dir, provider_id).source_manifest_path
 
 
@@ -116,7 +158,9 @@ def _supports_probe_manifest(provider_id: str, client: SourceProvider) -> bool:
     )
 
 
-def _targeted_exam_codes_from_probe(probe: dict[str, object], provider_id: str) -> list[tuple[str, int]]:
+def _targeted_exam_codes_from_probe(
+    probe: dict[str, Any], provider_id: str
+) -> list[tuple[str, int]]:
     changed_exam_codes = list(probe.get("changed_exam_codes", []))
     exam_years = {code: int(year) for code, year in probe.get("exam_years", {}).items()}
     resolved_exam_codes: list[tuple[str, int]] = []
@@ -138,33 +182,39 @@ def _targeted_exam_codes_from_probe(probe: dict[str, object], provider_id: str) 
 
 def _resolve_discovery_manifest_path(args: argparse.Namespace, provider_id: str) -> Path:
     if args.manifest is not None:
-        return args.manifest
+        return cast(Path, args.manifest)
     return _default_repo_root() / "data" / "providers" / provider_id / "source-manifest.json"
 
 
-def _discovery_url_builders(client: SourceProvider, provider_id: str):
+def _discovery_url_builders(
+    client: SourceProvider, provider_id: str
+) -> tuple[Callable[[int], str] | None, Callable[[str, int], str] | None]:
     year_builder = getattr(client, "build_discovery_year_url", None)
     exam_builder = getattr(client, "build_discovery_exam_url", None)
     if callable(year_builder) and callable(exam_builder):
-        return year_builder, exam_builder
+        return cast(Callable[[int], str], year_builder), cast(
+            Callable[[str, int], str], exam_builder
+        )
     year_builder = getattr(client, "build_probe_year_url", None)
     exam_builder = getattr(client, "build_probe_exam_url", None)
     if callable(year_builder) and callable(exam_builder):
-        return year_builder, exam_builder
+        return cast(Callable[[int], str], year_builder), cast(
+            Callable[[str, int], str], exam_builder
+        )
     if provider_id == "moex":
         return make_year_search_url, make_result_url
     return None, None
 
 
 def _merge_discovery_manifest(
-    manifest,
-    discoveries: list[tuple[int, list]],
+    manifest: SourceManifest,
+    discoveries: list[tuple[int, list[ExamOption]]],
     *,
     captured_at: str,
-    year_url_builder,
-    exam_url_builder,
+    year_url_builder: Callable[[int], str],
+    exam_url_builder: Callable[[str, int], str],
     retain_removed_exams: bool = False,
-):
+) -> SourceManifest:
     manifest.probe_policy["discovery_mode"] = "official-year-exam-listing"
     manifest.probe_policy["last_discovery_at"] = captured_at
     for year_ad, exams in discoveries:
@@ -219,11 +269,16 @@ def _merge_discovery_manifest(
     return manifest
 
 
-def _discovery_coverage(manifest) -> dict[str, list[str]]:
+def _discovery_coverage(manifest: SourceManifest) -> dict[str, list[str]]:
     return {year: sorted(entry.get("exam_codes", [])) for year, entry in manifest.years.items()}
 
 
-def _refresh_manifest_from_sync(args: argparse.Namespace, provider, provider_id: str, discoveries: list[tuple[int, list]]):
+def _refresh_manifest_from_sync(
+    args: argparse.Namespace,
+    provider: SourceProvider,
+    provider_id: str,
+    discoveries: list[tuple[int, list[ExamOption]]],
+) -> SourceManifest | None:
     """Record the events this sync discovered in the provider's own manifest.
 
     The deploy gate requires source-manifest.json to cover every local event, but
@@ -249,7 +304,9 @@ def _refresh_manifest_from_sync(args: argparse.Namespace, provider, provider_id:
     year_url_builder, exam_url_builder = _discovery_url_builders(provider, provider_id)
     if year_url_builder is None or exam_url_builder is None:
         return None
-    manifest = load_source_manifest(_resolve_sync_manifest_path(args, provider_id), provider_id=provider_id)
+    manifest = load_source_manifest(
+        _resolve_sync_manifest_path(args, provider_id), provider_id=provider_id
+    )
     before = _discovery_coverage(manifest)
     _merge_discovery_manifest(
         manifest,
@@ -272,7 +329,13 @@ def command_discover(args: argparse.Namespace, client: SourceProvider | None = N
     if write_manifest:
         year_url_builder, exam_url_builder = _discovery_url_builders(client, provider_id)
         if year_url_builder is None or exam_url_builder is None:
-            print(f"--write-manifest is not supported for provider {provider_id}: missing source URL model", flush=True)
+            print(
+                (
+                    f"--write-manifest is not supported for provider "
+                    f"{provider_id}: missing source URL model"
+                ),
+                flush=True,
+            )
             return 1
         manifest_path = _resolve_discovery_manifest_path(args, provider_id)
         manifest = load_source_manifest(manifest_path, provider_id=provider_id)
@@ -289,7 +352,7 @@ def command_discover(args: argparse.Namespace, client: SourceProvider | None = N
     for index, year in enumerate(years):
         if index and delay_seconds:
             time.sleep(delay_seconds)
-        exams = retry_network(lambda: client.discover_exams(year))
+        exams = retry_network(partial(client.discover_exams, year))
         discoveries.append((year, exams))
         payload.append(
             {
@@ -299,6 +362,7 @@ def command_discover(args: argparse.Namespace, client: SourceProvider | None = N
             }
         )
     if manifest is not None:
+        assert year_url_builder is not None and exam_url_builder is not None
         _merge_discovery_manifest(
             manifest,
             discoveries,
@@ -323,32 +387,50 @@ def command_build_bundles(args: argparse.Namespace) -> int:
         mirror_dir=args.mirror_dir,
         normalized=existing_catalog,
         bundle_base_url=args.bundle_base_url,
-        on_progress=lambda i, total, name, count: print(f"  Building [{i}/{total}] {name} ({count} files)", flush=True),
-        on_load_progress=lambda i, total: print(f"  Scanning existing bundles... {i}/{total}", flush=True),
+        on_progress=lambda i, total, name, count: print(
+            f"  Building [{i}/{total}] {name} ({count} files)", flush=True
+        ),
+        on_load_progress=lambda i, total: print(
+            f"  Scanning existing bundles... {i}/{total}", flush=True
+        ),
         min_years=args.min_years,
     )
     bundles = rebuild_result.bundles
     failures = existing_failures + rebuild_result.failures
-    write_data_files(args.data_dir, existing_raw_pages, existing_catalog, aliases, bundles, failures)
-    print(f"Built {len(bundles)} bundles, {len(rebuild_result.failures)} bundle failures", flush=True)
+    write_data_files(
+        args.data_dir, existing_raw_pages, existing_catalog, aliases, bundles, failures
+    )
+    print(
+        f"Built {len(bundles)} bundles, {len(rebuild_result.failures)} bundle failures", flush=True
+    )
     if failures:
         print(f"{len(failures)} total failures (see data/sync-failures.json)", flush=True)
         return 1
     return 0
 
 
-def run_probe_latest(args: argparse.Namespace, client: SourceProvider | None = None, now: str | None = None) -> int:
+def run_probe_latest(
+    args: argparse.Namespace, client: SourceProvider | None = None, now: str | None = None
+) -> int:
     probe_client = _provider_for_args(args, client)
     generated_at = now or datetime.now().astimezone().isoformat()
     provider_id = _provider_id_for_args(args, probe_client)
     if not _supports_probe_manifest(provider_id, probe_client):
-        print(f"probe-latest is not supported for provider {provider_id}: missing probe URL model", flush=True)
+        print(
+            f"probe-latest is not supported for provider {provider_id}: missing probe URL model",
+            flush=True,
+        )
         return 1
     manifest_path = _resolve_probe_manifest_path(args, provider_id)
     manifest = load_source_manifest(manifest_path, provider_id=provider_id)
-    result = probe_latest(client=probe_client, manifest=manifest, year_window=args.years, now=generated_at)
+    result = probe_latest(
+        client=probe_client, manifest=manifest, year_window=args.years, now=generated_at
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result.to_output_data(), ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    args.output.write_text(
+        json.dumps(result.to_output_data(), ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     if args.write_manifest:
         write_source_manifest(manifest_path, result.updated_manifest)
     return 0
@@ -388,7 +470,16 @@ def _download_affected_bundles(
         for asset_name in candidate_names:
             try:
                 subprocess.run(
-                    ["gh", "release", "download", resolved_release_tag, "--pattern", asset_name, "--dir", str(bundle_dir)],
+                    [
+                        "gh",
+                        "release",
+                        "download",
+                        resolved_release_tag,
+                        "--pattern",
+                        asset_name,
+                        "--dir",
+                        str(bundle_dir),
+                    ],
                     check=True,
                 )
             except subprocess.CalledProcessError as exc:
@@ -411,21 +502,25 @@ def _restore_new_public_bundle_files(
     # Its retained years still need bytes on a runner with an empty mirror.
     config = get_site_config(args.site_id)
     eligible_ids = public_bundle_ids(
-        catalog, min_years=config.public_min_years,
+        catalog,
+        min_years=config.public_min_years,
         min_years_by_canonical_prefix=config.public_min_years_by_canonical_prefix,
     )
     published_ids = {bundle.bundle_id or bundle.canonical_id for bundle in existing_bundles}
     new_public_ids = (eligible_ids - published_ids) & affected_ids
     papers = [
-        paper for paper in catalog.papers
+        paper
+        for paper in catalog.papers
         if (paper.bundle_id or paper.canonical_id) in new_public_ids
     ]
     return restore_catalog_files(
-        client, MirrorStore(args.mirror_dir), NormalizedCatalog(papers=papers, review_queue=[]),
+        client,
+        MirrorStore(args.mirror_dir),
+        NormalizedCatalog(papers=papers, review_queue=[]),
     )
 
 
-def _write_probe_manifest_if_present(probe: dict[str, object], manifest_path: Path) -> None:
+def _write_probe_manifest_if_present(probe: dict[str, Any], manifest_path: Path) -> None:
     updated_manifest = probe.get("updated_manifest")
     if isinstance(updated_manifest, dict):
         write_source_manifest(manifest_path, source_manifest_from_data(updated_manifest))
@@ -438,7 +533,7 @@ def _repo_root_from_data_dir(data_dir: Path) -> Path:
 def _resolve_sync_bundle_dir(args: argparse.Namespace) -> Path:
     bundle_dir = getattr(args, "bundle_dir", None)
     if bundle_dir is not None:
-        return bundle_dir
+        return cast(Path, bundle_dir)
     return site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id).bundle_dir
 
 
@@ -453,29 +548,46 @@ def _write_publish_plan(
     payload = {
         "site_id": site_id,
         "affected_canonical_ids": sorted(affected_canonical_ids),
-        "canonical_aliases": {canonical_id: sorted(alias_ids) for canonical_id, alias_ids in sorted(canonical_aliases.items())},
+        "canonical_aliases": {
+            canonical_id: sorted(alias_ids)
+            for canonical_id, alias_ids in sorted(canonical_aliases.items())
+        },
     }
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
 
 
-def _load_publish_plan(path: Path | None, site_id: str) -> tuple[set[str] | None, dict[str, list[str]]]:
+def _load_publish_plan(
+    path: Path | None, site_id: str
+) -> tuple[set[str] | None, dict[str, list[str]]]:
     if path is None:
         return None, {}
     payload = json.loads(path.read_text(encoding="utf-8"))
     payload_site_id = str(payload.get("site_id") or site_id)
     if payload_site_id != site_id:
-        raise ValueError(f"Publish plan site_id mismatch: expected {site_id}, got {payload_site_id}")
-    affected = {str(canonical_id) for canonical_id in payload.get("affected_canonical_ids", []) if canonical_id}
+        raise ValueError(
+            f"Publish plan site_id mismatch: expected {site_id}, got {payload_site_id}"
+        )
+    affected = {
+        str(canonical_id)
+        for canonical_id in payload.get("affected_canonical_ids", [])
+        if canonical_id
+    }
     raw_aliases = payload.get("canonical_aliases", {})
-    canonical_aliases = {
-        str(canonical_id): [str(alias_id) for alias_id in alias_ids if alias_id]
-        for canonical_id, alias_ids in raw_aliases.items()
-        if alias_ids
-    } if isinstance(raw_aliases, dict) else {}
+    canonical_aliases = (
+        {
+            str(canonical_id): [str(alias_id) for alias_id in alias_ids if alias_id]
+            for canonical_id, alias_ids in raw_aliases.items()
+            if alias_ids
+        }
+        if isinstance(raw_aliases, dict)
+        else {}
+    )
     return affected, canonical_aliases
 
 
-def _print_failures(failures: list) -> None:
+def _print_failures(failures: list[SyncFailure]) -> None:
     for failure in failures:
         parts = [failure.stage, failure.source_exam_id]
         if failure.paper_code:
@@ -498,7 +610,6 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
     except ValueError as exc:
         print(str(exc), flush=True)
         return 1
-    changed_exam_codes = list(probe.get("changed_exam_codes", []))
     removed_exam_ids = set(probe.get("removed_exam_codes", []))
     try:
         exam_codes = _targeted_exam_codes_from_probe(probe, provider_id)
@@ -522,15 +633,19 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
         _print_failures(sync_failures)
         return 1
     provider_state = _provider_state_paths(args.data_dir, args.mirror_dir, provider_id)
-    existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = load_provider_state(provider_state)
+    existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
+        load_provider_state(provider_state)
+    )
     refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
-    provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = merge_targeted_state(
-        existing_raw_pages=existing_provider_raw_pages,
-        existing_catalog=existing_provider_catalog,
-        existing_bundles=[],
-        refreshed_raw_pages=refreshed_raw_pages,
-        refreshed_catalog=refreshed_catalog,
-        removed_exam_ids=removed_exam_ids,
+    provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = (
+        merge_targeted_state(
+            existing_raw_pages=existing_provider_raw_pages,
+            existing_catalog=existing_provider_catalog,
+            existing_bundles=[],
+            refreshed_raw_pages=refreshed_raw_pages,
+            refreshed_catalog=refreshed_catalog,
+            removed_exam_ids=removed_exam_ids,
+        )
     )
     if getattr(args, "download_affected_bundles", False) and affected_canonical_ids:
         site = site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id)
@@ -542,7 +657,11 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
             args.release_tag,
         )
         restoration_failures = _restore_new_public_bundle_files(
-            args, sync_client, provider_normalized, existing_bundles, affected_canonical_ids,
+            args,
+            sync_client,
+            provider_normalized,
+            existing_bundles,
+            affected_canonical_ids,
         )
         if restoration_failures:
             _print_failures(restoration_failures)
@@ -555,7 +674,11 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
             canonical_aliases=canonical_aliases,
         )
     replaced_exam_ids = refreshed_exam_ids | removed_exam_ids
-    provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in replaced_exam_ids]
+    provider_failures = [
+        failure
+        for failure in existing_provider_failures
+        if failure.source_exam_id not in replaced_exam_ids
+    ]
     provider_failures.extend(sync_failures)
     write_provider_state(
         provider_state,
@@ -597,7 +720,9 @@ def command_repair_failures(args: argparse.Namespace, client: SourceProvider | N
         print(f"No matching repairable failures for provider {provider_id}.", flush=True)
         return 0
 
-    exam_codes = sorted({(failure.source_exam_id, failure.year_roc + 1911) for failure in selected_failures})
+    exam_codes = sorted(
+        {(failure.source_exam_id, failure.year_roc + 1911) for failure in selected_failures}
+    )
     print(f"Repairing {len(exam_codes)} failed source exam(s) for {provider_id}...", flush=True)
     aliases = load_alias_rules(args.aliases)
     refreshed_raw_pages, refreshed_catalog, sync_failures = sync_exam_pages(
@@ -609,23 +734,31 @@ def command_repair_failures(args: argparse.Namespace, client: SourceProvider | N
         download_attachments=not args.skip_attachments,
     )
     failed_exam_ids = {failure.source_exam_id for failure in sync_failures}
-    safe_exam_ids = {page.source_exam_id for page in refreshed_raw_pages if page.source_exam_id not in failed_exam_ids}
+    safe_exam_ids = {
+        page.source_exam_id
+        for page in refreshed_raw_pages
+        if page.source_exam_id not in failed_exam_ids
+    }
     safe_raw_pages = [page for page in refreshed_raw_pages if page.source_exam_id in safe_exam_ids]
     safe_catalog = NormalizedCatalog(
-        papers=[paper for paper in refreshed_catalog.papers if paper.source_exam_id in safe_exam_ids],
-        review_queue=[item for item in refreshed_catalog.review_queue if item.source_exam_id in safe_exam_ids],
+        papers=[
+            paper for paper in refreshed_catalog.papers if paper.source_exam_id in safe_exam_ids
+        ],
+        review_queue=[
+            item for item in refreshed_catalog.review_queue if item.source_exam_id in safe_exam_ids
+        ],
     )
-    merged_raw_pages, merged_catalog, _, _affected_canonical_ids, _canonical_aliases = merge_incremental_state(
-        existing_raw_pages=existing_raw_pages,
-        existing_catalog=existing_catalog,
-        existing_bundles=[],
-        refreshed_raw_pages=safe_raw_pages,
-        refreshed_catalog=safe_catalog,
+    merged_raw_pages, merged_catalog, _, _affected_canonical_ids, _canonical_aliases = (
+        merge_incremental_state(
+            existing_raw_pages=existing_raw_pages,
+            existing_catalog=existing_catalog,
+            existing_bundles=[],
+            refreshed_raw_pages=safe_raw_pages,
+            refreshed_catalog=safe_catalog,
+        )
     )
     provider_failures = [
-        failure
-        for failure in existing_failures
-        if failure.source_exam_id not in safe_exam_ids
+        failure for failure in existing_failures if failure.source_exam_id not in safe_exam_ids
     ]
     provider_failures.extend(sync_failures)
     write_provider_state(
@@ -658,8 +791,16 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
     provider_state = _provider_state_paths(args.data_dir, args.mirror_dir, provider_id)
     if args.publish_plan_output is not None:
         args.publish_plan_output.unlink(missing_ok=True)
-    if getattr(args, "write_manifest", False) and not _supports_probe_manifest(provider_id, provider):
-        print(f"--write-manifest is not supported for provider {provider_id}: missing probe URL model", flush=True)
+    if getattr(args, "write_manifest", False) and not _supports_probe_manifest(
+        provider_id, provider
+    ):
+        print(
+            (
+                f"--write-manifest is not supported for "
+                f"provider {provider_id}: missing probe URL model"
+            ),
+            flush=True,
+        )
         return 1
     try:
         if getattr(args, "year_window", None):
@@ -667,24 +808,38 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         else:
             years = retry_network(lambda: _discover_years(provider, args.years))
     except Exception as exc:
-        existing_provider_raw_pages, existing_provider_catalog, _existing_provider_failures = load_provider_state(provider_state)
+        existing_provider_raw_pages, existing_provider_catalog, _existing_provider_failures = (
+            load_provider_state(provider_state)
+        )
         if existing_provider_raw_pages or existing_provider_catalog.papers:
-            print(f"Provider {provider_id} discovery unavailable ({exc}); preserving existing provider state.", flush=True)
+            print(
+                (
+                    f"Provider {provider_id} discovery unavailable "
+                    f"({exc}); preserving existing provider state."
+                ),
+                flush=True,
+            )
             return 1
-        print(f"Provider {provider_id} discovery failed and no existing provider state is available: {exc}", flush=True)
+        print(
+            (
+                f"Provider {provider_id} discovery failed and "
+                f"no existing provider state is available: {exc}"
+            ),
+            flush=True,
+        )
         return 1
     aliases = load_alias_rules(args.aliases)
     mirror_store = MirrorStore(args.mirror_dir)
-    all_raw_pages: list = []
-    all_papers: list = []
-    all_review_queue: list = []
-    all_sync_failures: list = []
+    all_raw_pages: list[SourceExamPage] = []
+    all_papers: list[NormalizedPaper] = []
+    all_review_queue: list[ReviewItem] = []
+    all_sync_failures: list[SyncFailure] = []
 
-    discoveries: list[tuple[int, list]] = []
+    discoveries: list[tuple[int, list[ExamOption]]] = []
 
     for year in years:
         try:
-            discovered_exams = retry_network(lambda: provider.discover_exams(year))
+            discovered_exams = retry_network(partial(provider.discover_exams, year))
             discoveries.append((year, discovered_exams))
             exam_codes = [(exam.code, exam.year_ad) for exam in discovered_exams]
         except Exception as exc:
@@ -703,7 +858,9 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             continue
         requested_exam_ids = set(getattr(args, "source_exam_id", []) or [])
         if requested_exam_ids:
-            exam_codes = [exam_code for exam_code in exam_codes if exam_code[0] in requested_exam_ids]
+            exam_codes = [
+                exam_code for exam_code in exam_codes if exam_code[0] in requested_exam_ids
+            ]
         print(f"Syncing year {year} ({len(exam_codes)} exams)...")
         try:
             raw_pages_year, catalog_year, failures_year = sync_exam_pages(
@@ -732,7 +889,10 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         all_papers.extend(catalog_year.papers)
         all_review_queue.extend(catalog_year.review_queue)
         all_sync_failures.extend(failures_year)
-        print(f"Year {year}: {len(raw_pages_year)} exams, {len(catalog_year.papers)} papers, {len(failures_year)} failures")
+        print(
+            f"Year {year}: {len(raw_pages_year)} exams, "
+            f"{len(catalog_year.papers)} papers, {len(failures_year)} failures"
+        )
 
     refreshed_raw_pages = all_raw_pages
     refreshed_catalog = NormalizedCatalog(papers=all_papers, review_queue=all_review_queue)
@@ -740,22 +900,34 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
 
     incremental_mode = getattr(args, "year_window", None) is not None
     if incremental_mode:
-        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = load_provider_state(provider_state)
+        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
+            load_provider_state(provider_state)
+        )
         failed_exam_ids = {failure.source_exam_id for failure in sync_failures}
-        safe_raw_pages = [page for page in refreshed_raw_pages if page.source_exam_id not in failed_exam_ids]
+        safe_raw_pages = [
+            page for page in refreshed_raw_pages if page.source_exam_id not in failed_exam_ids
+        ]
         safe_catalog = NormalizedCatalog(
             papers=[p for p in refreshed_catalog.papers if p.source_exam_id not in failed_exam_ids],
-            review_queue=[r for r in refreshed_catalog.review_queue if r.source_exam_id not in failed_exam_ids],
+            review_queue=[
+                r for r in refreshed_catalog.review_queue if r.source_exam_id not in failed_exam_ids
+            ],
         )
-        provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = merge_incremental_state(
-            existing_raw_pages=existing_provider_raw_pages,
-            existing_catalog=existing_provider_catalog,
-            existing_bundles=[],
-            refreshed_raw_pages=safe_raw_pages,
-            refreshed_catalog=safe_catalog,
+        provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = (
+            merge_incremental_state(
+                existing_raw_pages=existing_provider_raw_pages,
+                existing_catalog=existing_provider_catalog,
+                existing_bundles=[],
+                refreshed_raw_pages=safe_raw_pages,
+                refreshed_catalog=safe_catalog,
+            )
         )
         refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
-        provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
+        provider_failures = [
+            failure
+            for failure in existing_provider_failures
+            if failure.source_exam_id not in refreshed_exam_ids
+        ]
         provider_failures.extend(sync_failures)
         # Retained failures are kept on record but must not fail this run. They
         # belong to events outside the year window, so this run never re-fetched
@@ -775,19 +947,27 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         # is what an archive of past papers has to do. It also keeps the
         # retained papers referenced, so --prune-orphaned-mirror leaves their
         # mirrored files alone.
-        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = load_provider_state(provider_state)
-        provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = merge_incremental_state(
-            existing_raw_pages=existing_provider_raw_pages,
-            existing_catalog=existing_provider_catalog,
-            existing_bundles=[],
-            refreshed_raw_pages=refreshed_raw_pages,
-            refreshed_catalog=refreshed_catalog,
+        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
+            load_provider_state(provider_state)
+        )
+        provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = (
+            merge_incremental_state(
+                existing_raw_pages=existing_provider_raw_pages,
+                existing_catalog=existing_provider_catalog,
+                existing_bundles=[],
+                refreshed_raw_pages=refreshed_raw_pages,
+                refreshed_catalog=refreshed_catalog,
+            )
         )
         # Keep the failure evidence for events this run never fetched, just
         # as the incremental branch does. Successful refreshes replace old
         # failures, while the run's exit status still reflects only new ones.
         refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
-        provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
+        provider_failures = [
+            failure
+            for failure in existing_provider_failures
+            if failure.source_exam_id not in refreshed_exam_ids
+        ]
         provider_failures.extend(sync_failures)
         failures = sync_failures
     download_bundles = getattr(args, "download_affected_bundles", False)
@@ -803,7 +983,11 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
                 args.release_tag,
             )
         restoration_failures = _restore_new_public_bundle_files(
-            args, provider, provider_normalized, existing_bundles, affected_canonical_ids,
+            args,
+            provider,
+            provider_normalized,
+            existing_bundles,
+            affected_canonical_ids,
         )
         if restoration_failures:
             _print_failures(restoration_failures)
@@ -819,7 +1003,12 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
     if getattr(args, "write_manifest", False) and not failures:
         manifest_path = _resolve_sync_manifest_path(args, provider_id)
         manifest = load_source_manifest(manifest_path, provider_id=provider_id)
-        result = probe_latest(client=provider, manifest=manifest, year_window=len(years), now=datetime.now().astimezone().isoformat())
+        result = probe_latest(
+            client=provider,
+            manifest=manifest,
+            year_window=len(years),
+            now=datetime.now().astimezone().isoformat(),
+        )
         provider_manifest = result.updated_manifest
         write_source_manifest(manifest_path, provider_manifest)
     if provider_manifest is None:
@@ -837,7 +1026,9 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
     )
     if failures:
         _print_failures(failures)
-        print(f"Completed with {len(failures)} failure(s). See data/sync-failures.json for details.")
+        print(
+            f"Completed with {len(failures)} failure(s). See data/sync-failures.json for details."
+        )
         return 1
     if getattr(args, "prune_orphaned_mirror", False):
         try:
@@ -858,13 +1049,14 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
     return 0
 
 
-
 def command_dedupe_mirror(args: argparse.Namespace) -> int:
     result = MirrorStore(args.mirror_dir).deduplicate_existing(apply=args.apply)
     action = "Deduplicated" if args.apply else "Would deduplicate"
     print(
-        f"{action} {result.relinked_files} file(s) across {result.duplicate_groups} duplicate payload group(s); "
-        f"reclaimable {result.reclaimable_bytes} bytes from {result.scanned_files} scanned file(s).",
+        f"{action} {result.relinked_files} file(s) across "
+        f"{result.duplicate_groups} duplicate payload group(s); "
+        f"reclaimable {result.reclaimable_bytes} bytes "
+        f"from {result.scanned_files} scanned file(s).",
         flush=True,
     )
     return 0
@@ -886,7 +1078,8 @@ def command_prune_orphaned_mirror(args: argparse.Namespace) -> int:
     action = "Pruned" if args.apply else "Would prune"
     print(
         f"{action} {result.removed_files} unreferenced mirror file(s) for {args.provider}; "
-        f"reclaimable {result.reclaimable_bytes} bytes from {result.scanned_files} scanned file(s).",
+        f"reclaimable {result.reclaimable_bytes} bytes "
+        f"from {result.scanned_files} scanned file(s).",
         flush=True,
     )
     return 0
@@ -894,7 +1087,9 @@ def command_prune_orphaned_mirror(args: argparse.Namespace) -> int:
 
 def command_plan_release(args: argparse.Namespace) -> int:
     try:
-        plan = build_release_plan(args.repo_root, site_id=args.site_id, release_tag_prefix=args.release_tag_prefix)
+        plan = build_release_plan(
+            args.repo_root, site_id=args.site_id, release_tag_prefix=args.release_tag_prefix
+        )
         write_release_plan(plan, args.output)
     except ValueError as exc:
         print(str(exc), flush=True)
@@ -905,6 +1100,7 @@ def command_plan_release(args: argparse.Namespace) -> int:
         flush=True,
     )
     return 0
+
 
 def command_audit_history(args: argparse.Namespace) -> int:
     check_mirror = not args.skip_mirror_check
@@ -930,17 +1126,21 @@ def command_audit_history(args: argparse.Namespace) -> int:
     scope = "" if check_mirror else " (mirror check skipped)"
     print(
         f"Audited {report['provider_count']} provider(s); "
-        f"{report['summary'].get('parser_gap', 0)} source-only event(s){scope}. Report: {args.output}",
+        f"{report['summary'].get('parser_gap', 0)} "
+        f"source-only event(s){scope}. Report: {args.output}",
         flush=True,
     )
     return history_audit_exit_code(report, strict=args.strict)
 
 
 def command_audit_catalog(args: argparse.Namespace) -> int:
-    report = build_catalog_audit(args.repo_root, site_id=args.site_id, include_publication_backlog=True)
+    report = build_catalog_audit(
+        args.repo_root, site_id=args.site_id, include_publication_backlog=True
+    )
     write_catalog_audit(report, args.output)
     print(
-        f"Scanned {report['paper_records_scanned']} records across {report['provider_count']} providers; "
+        f"Scanned {report['paper_records_scanned']} records "
+        f"across {report['provider_count']} providers; "
         f"{len(report['mixed_legacy_groups'])} legacy groups require split and "
         f"{report['records_needing_review']} records require review. Report: {args.output}",
         flush=True,
@@ -954,7 +1154,8 @@ def command_audit_catalog(args: argparse.Namespace) -> int:
     if backlog["unpublished_bundle_count"]:
         print(
             f"WARNING: {backlog['unpublished_bundle_count']} publishable bundle(s) covering "
-            f"{backlog['unpublished_record_count']} paper record(s) are absent from the published site: "
+            f"{backlog['unpublished_record_count']} paper "
+            f"record(s) are absent from the published site: "
             + ", ".join(f"{p} {n}" for p, n in backlog["unpublished_by_provider"].items()),
             flush=True,
         )
@@ -986,19 +1187,26 @@ def command_migrate_catalog(args: argparse.Namespace) -> int:
         )
         migrated += 1
         records += len(migrated_catalog.papers)
-    print(f"Migrated {records} paper records across {migrated} providers to exam-identity-v2", flush=True)
+    print(
+        f"Migrated {records} paper records across {migrated} providers to exam-identity-v2",
+        flush=True,
+    )
     return 0
 
 
 def command_publish_site(args: argparse.Namespace) -> int:
     try:
-        affected_canonical_ids, canonical_aliases = _load_publish_plan(args.publish_plan, args.site_id)
+        affected_canonical_ids, canonical_aliases = _load_publish_plan(
+            args.publish_plan, args.site_id
+        )
         if getattr(args, "download_affected_bundles", False):
             site = site_paths(args.repo_root, args.site_id)
             existing_bundles = load_site_bundles(site)
             affected_ids = affected_canonical_ids
             if affected_ids is None:
-                affected_ids = {bundle.bundle_id or bundle.canonical_id for bundle in existing_bundles}
+                affected_ids = {
+                    bundle.bundle_id or bundle.canonical_id for bundle in existing_bundles
+                }
             _download_affected_bundles(site.bundle_dir, existing_bundles, affected_ids, "")
         publish_site(
             args.repo_root,
@@ -1037,15 +1245,21 @@ def build_parser() -> argparse.ArgumentParser:
     discover.add_argument("--delay-seconds", type=float, default=0.0)
     discover.set_defaults(handler=command_discover)
 
-    probe_parser = subparsers.add_parser("probe-latest", help="Probe recent source changes without downloading files.")
+    probe_parser = subparsers.add_parser(
+        "probe-latest", help="Probe recent source changes without downloading files."
+    )
     probe_parser.add_argument("--provider", default="moex")
     probe_parser.add_argument("--years", type=int, default=2)
     probe_parser.add_argument("--manifest", type=Path, default=None)
-    probe_parser.add_argument("--output", type=Path, default=repo_root / ".tmp" / "source-probe.json")
+    probe_parser.add_argument(
+        "--output", type=Path, default=repo_root / ".tmp" / "source-probe.json"
+    )
     probe_parser.add_argument("--write-manifest", action="store_true")
     probe_parser.set_defaults(handler=run_probe_latest)
 
-    targeted = subparsers.add_parser("sync-targeted", help="Sync only changed exams from a probe output file.")
+    targeted = subparsers.add_parser(
+        "sync-targeted", help="Sync only changed exams from a probe output file."
+    )
     targeted.add_argument("--probe", type=Path, default=repo_root / ".tmp" / "source-probe.json")
     targeted.add_argument("--data-dir", type=Path, default=repo_root / "data")
     targeted.add_argument("--mirror-dir", type=Path, default=repo_root / "mirror")
@@ -1059,7 +1273,10 @@ def build_parser() -> argparse.ArgumentParser:
         "--allow-partial",
         action="store_true",
         default=False,
-        help="Write successfully mirrored records while retaining source failures; exits non-zero until they are resolved.",
+        help=(
+            "Write successfully mirrored records while retaining "
+            "source failures; exits non-zero until they are resolved."
+        ),
     )
     targeted.add_argument("--download-affected-bundles", action="store_true", default=False)
     targeted.add_argument("--publish-plan-output", type=Path, default=None)
@@ -1070,7 +1287,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     repair = subparsers.add_parser(
         "repair-failures",
-        help="Re-fetch only source exams with recorded bundle or download failures, preserving partial failures.",
+        help=(
+            "Re-fetch only source exams with recorded bundle "
+            "or download failures, preserving partial failures."
+        ),
     )
     repair.add_argument("--provider", default="moex")
     repair.add_argument("--data-dir", type=Path, default=repo_root / "data")
@@ -1084,7 +1304,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     dedupe_parser = subparsers.add_parser(
         "dedupe-mirror",
-        help="Replace byte-identical mirror payload copies with hard links while preserving every path.",
+        help=(
+            "Replace byte-identical mirror payload copies "
+            "with hard links while preserving every path."
+        ),
     )
     dedupe_parser.add_argument("--mirror-dir", type=Path, default=repo_root / "mirror")
     dedupe_parser.add_argument("--apply", action="store_true", default=False)
@@ -1092,7 +1315,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     prune_parser = subparsers.add_parser(
         "prune-orphaned-mirror",
-        help="Remove provider mirror files not referenced by current state; refuses incomplete state.",
+        help=(
+            "Remove provider mirror files not referenced "
+            "by current state; refuses incomplete state."
+        ),
     )
     prune_parser.add_argument("--provider", required=True)
     prune_parser.add_argument("--data-dir", type=Path, default=repo_root / "data")
@@ -1112,8 +1338,13 @@ def build_parser() -> argparse.ArgumentParser:
         sync.add_argument("--download-attachments", action="store_true", default=False)
         sync.add_argument("--download-affected-bundles", action="store_true", default=False)
         sync.add_argument(
-            "--restore-new-public-files", action="store_true", default=False,
-            help="Restore retained source files for newly eligible bundles without downloading release ZIPs.",
+            "--restore-new-public-files",
+            action="store_true",
+            default=False,
+            help=(
+                "Restore retained source files for newly eligible "
+                "bundles without downloading release ZIPs."
+            ),
         )
         sync.add_argument("--publish-plan-output", type=Path, default=None)
         sync.add_argument("--provider", default="moex")
@@ -1133,38 +1364,54 @@ def build_parser() -> argparse.ArgumentParser:
             sync.add_argument("--years", dest="year_window", type=int, default=3)
         sync.set_defaults(handler=command_sync)
 
-    build_bundles_parser = subparsers.add_parser("build-bundles", help="Rebuild ZIP bundles from existing local data (no network).")
+    build_bundles_parser = subparsers.add_parser(
+        "build-bundles", help="Rebuild ZIP bundles from existing local data (no network)."
+    )
     build_bundles_parser.add_argument("--data-dir", type=Path, default=repo_root / "data")
     build_bundles_parser.add_argument("--mirror-dir", type=Path, default=repo_root / "mirror")
     build_bundles_parser.add_argument("--bundle-dir", type=Path, default=repo_root / "bundles")
-    build_bundles_parser.add_argument("--aliases", type=Path, default=repo_root / "data" / "aliases.json")
+    build_bundles_parser.add_argument(
+        "--aliases", type=Path, default=repo_root / "data" / "aliases.json"
+    )
     build_bundles_parser.add_argument("--bundle-base-url", default="")
     build_bundles_parser.add_argument("--min-years", type=int, default=2)
     build_bundles_parser.set_defaults(handler=command_build_bundles)
 
     plan_release_parser = subparsers.add_parser(
         "plan-release",
-        help="Plan physical release shards from current site inventory without uploading or deleting assets.",
+        help=(
+            "Plan physical release shards from current site "
+            "inventory without uploading or deleting assets."
+        ),
     )
     plan_release_parser.add_argument("--repo-root", type=Path, default=repo_root)
     plan_release_parser.add_argument("--site-id", default="default")
-    plan_release_parser.add_argument("--output", type=Path, default=repo_root / ".tmp" / "release-plan.json")
+    plan_release_parser.add_argument(
+        "--output", type=Path, default=repo_root / ".tmp" / "release-plan.json"
+    )
     plan_release_parser.add_argument("--release-tag-prefix", default=None)
     plan_release_parser.set_defaults(handler=command_plan_release)
 
     audit_parser = subparsers.add_parser(
         "audit-catalog",
-        help="Audit every provider record and current bundle for identity coverage and mixed groups.",
+        help=(
+            "Audit every provider record and current bundle for identity coverage and mixed groups."
+        ),
     )
     audit_parser.add_argument("--repo-root", type=Path, default=repo_root)
     audit_parser.add_argument("--site-id", default="default")
-    audit_parser.add_argument("--output", type=Path, default=repo_root / ".tmp" / "catalog-audit.json")
+    audit_parser.add_argument(
+        "--output", type=Path, default=repo_root / ".tmp" / "catalog-audit.json"
+    )
     audit_parser.add_argument("--strict", action="store_true")
     audit_parser.set_defaults(handler=command_audit_catalog)
 
     history_audit_parser = subparsers.add_parser(
         "history-audit",
-        help="Audit event-level raw, normalized, mirror, publication, and optional official-source coverage.",
+        help=(
+            "Audit event-level raw, normalized, mirror, "
+            "publication, and optional official-source coverage."
+        ),
     )
     history_audit_parser.add_argument("--repo-root", type=Path, default=repo_root)
     history_audit_parser.add_argument("--site-id", default="default")
@@ -1174,9 +1421,14 @@ def build_parser() -> argparse.ArgumentParser:
     history_audit_parser.add_argument(
         "--skip-mirror-check",
         action="store_true",
-        help="Audit only the checked-in dimensions; use when the gitignored mirror tree is unavailable (e.g. CI).",
+        help=(
+            "Audit only the checked-in dimensions; use when "
+            "the gitignored mirror tree is unavailable (e.g. CI)."
+        ),
     )
-    history_audit_parser.add_argument("--output", type=Path, default=repo_root / ".tmp" / "history-audit.json")
+    history_audit_parser.add_argument(
+        "--output", type=Path, default=repo_root / ".tmp" / "history-audit.json"
+    )
     history_audit_parser.set_defaults(handler=command_audit_history)
 
     migrate_catalog_parser = subparsers.add_parser(
@@ -1188,20 +1440,30 @@ def build_parser() -> argparse.ArgumentParser:
     migrate_catalog_parser.add_argument("--provider", default=None)
     migrate_catalog_parser.set_defaults(handler=command_migrate_catalog)
 
-    publish_site_parser = subparsers.add_parser("publish-site", help="Aggregate provider outputs and publish one site.")
+    publish_site_parser = subparsers.add_parser(
+        "publish-site", help="Aggregate provider outputs and publish one site."
+    )
     publish_site_parser.add_argument("--repo-root", type=Path, default=repo_root)
     publish_site_parser.add_argument("--site-id", default="default")
     publish_site_parser.add_argument("--repository", default="example/repo")
     publish_site_parser.add_argument("--publish-plan", type=Path, default=None)
     publish_site_parser.add_argument(
-        "--download-affected-bundles", action="store_true", default=False,
-        help="Download previous affected release ZIPs using the current site assignments before publishing.",
+        "--download-affected-bundles",
+        action="store_true",
+        default=False,
+        help=(
+            "Download previous affected release ZIPs using "
+            "the current site assignments before publishing."
+        ),
     )
     publish_site_parser.set_defaults(handler=command_publish_site)
 
     migrate_parser = subparsers.add_parser(
         "migrate-legacy-state",
-        help="Promote legacy root-level provider/site state into scoped paths without network access.",
+        help=(
+            "Promote legacy root-level provider/site "
+            "state into scoped paths without network access."
+        ),
     )
     migrate_parser.add_argument("--repo-root", type=Path, default=repo_root)
     migrate_parser.add_argument("--provider", default="moex")
@@ -1214,4 +1476,5 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-    return args.handler(args)
+    handler = cast(Callable[[argparse.Namespace], int], args.handler)
+    return handler(args)

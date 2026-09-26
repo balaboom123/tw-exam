@@ -4,14 +4,23 @@ import json
 from collections.abc import Callable
 from dataclasses import replace
 from pathlib import Path
-from typing import TypeVar
+from typing import Any, TypeVar, cast
 from urllib.parse import quote
 
 from app.bundler import build_bundles
 from app.manifest import SourceManifest, write_source_manifest
-from app.models import AliasRule, BundleAsset, NormalizedCatalog, NormalizedPaper, SourceExamPage, SyncFailure, to_plain_data
+from app.models import (
+    AliasRule,
+    BundleAsset,
+    NormalizedCatalog,
+    NormalizedPaper,
+    ReviewItem,
+    SourceExamPage,
+    SyncFailure,
+    to_plain_data,
+)
 from app.normalizer import load_alias_rules, renormalize_catalog
-from app.paths import provider_paths, site_paths
+from app.paths import ProviderPaths, SitePaths, provider_paths, site_paths
 from app.provider_index import build_provider_index, load_provider_index, write_provider_index
 from app.publication_quarantine import quarantined_provider_ids
 from app.release_tags import (
@@ -26,7 +35,9 @@ from app.state import filter_catalog_by_canonical_ids, load_provider_state, load
 T = TypeVar("T")
 
 
-def _write_split_by_year(directory: Path, items: list[T], year_of: Callable[[T], int]) -> dict[int, list[T]]:
+def _write_split_by_year(
+    directory: Path, items: list[T], year_of: Callable[[T], int]
+) -> dict[int, list[T]]:
     directory.mkdir(parents=True, exist_ok=True)
     by_year: dict[int, list[T]] = {}
     for item in items:
@@ -51,10 +62,14 @@ def write_data_files(
 ) -> None:
     data_dir.mkdir(parents=True, exist_ok=True)
     _write_split_by_year(data_dir / "exams", raw_pages, lambda page: page.year_ad)
-    _write_split_by_year(data_dir / "papers", normalized.papers, lambda paper: paper.year_roc + 1911)
+    _write_split_by_year(
+        data_dir / "papers", normalized.papers, lambda paper: paper.year_roc + 1911
+    )
     for legacy in ("exams.raw.json", "papers.json"):
         (data_dir / legacy).unlink(missing_ok=True)
-    (data_dir / "bundles.json").write_text(json.dumps(to_plain_data(bundles), ensure_ascii=False, indent=2), encoding="utf-8")
+    (data_dir / "bundles.json").write_text(
+        json.dumps(to_plain_data(bundles), ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     (data_dir / "review-queue.json").write_text(
         json.dumps(to_plain_data(normalized.review_queue), ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -63,7 +78,10 @@ def write_data_files(
         json.dumps(to_plain_data(failures), ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    (data_dir / "aliases.json").write_text(json.dumps({"rules": to_plain_data(aliases)}, ensure_ascii=False, indent=2), encoding="utf-8")
+    (data_dir / "aliases.json").write_text(
+        json.dumps({"rules": to_plain_data(aliases)}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
     release_assets = [
         {
             "storage_key": bundle.storage_key,
@@ -80,7 +98,7 @@ def write_data_files(
 
 
 def write_provider_state(
-    provider,
+    provider: ProviderPaths,
     raw_pages: list[SourceExamPage],
     normalized: NormalizedCatalog,
     aliases: list[AliasRule],
@@ -89,7 +107,9 @@ def write_provider_state(
 ) -> None:
     provider.data_dir.mkdir(parents=True, exist_ok=True)
     _write_split_by_year(provider.exams_dir, raw_pages, lambda page: page.year_ad)
-    _write_split_by_year(provider.papers_dir, normalized.papers, lambda paper: paper.year_roc + 1911)
+    _write_split_by_year(
+        provider.papers_dir, normalized.papers, lambda paper: paper.year_roc + 1911
+    )
     provider.review_queue_path.write_text(
         json.dumps(to_plain_data(normalized.review_queue), ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -119,8 +139,8 @@ def _structured_bundle(bundle: BundleAsset) -> bool:
     return bool(bundle.bundle_id or bundle.domain_id or bundle.exam_series_id)
 
 
-def _release_asset_record(bundle: BundleAsset) -> dict:
-    record = {
+def _release_asset_record(bundle: BundleAsset) -> dict[str, Any]:
+    record: dict[str, Any] = {
         "release_tag": bundle.release_tag,
         "storage_key": bundle.storage_key,
         "asset_name": bundle.asset_name,
@@ -152,8 +172,8 @@ def _release_asset_record(bundle: BundleAsset) -> dict:
     return record
 
 
-def _site_bundle_record(bundle: BundleAsset) -> dict:
-    record = to_plain_data(bundle)
+def _site_bundle_record(bundle: BundleAsset) -> dict[str, Any]:
+    record = cast(dict[str, Any], to_plain_data(bundle))
     if bundle.part_count <= 1:
         record.pop("part_index", None)
         record.pop("part_count", None)
@@ -162,13 +182,17 @@ def _site_bundle_record(bundle: BundleAsset) -> dict:
 
 
 def write_site_state(
-    site,
+    site: SitePaths,
     bundles: list[BundleAsset],
-    frontend_bundles: list[dict],
+    frontend_bundles: list[dict[str, Any]],
 ) -> None:
     site.data_dir.mkdir(parents=True, exist_ok=True)
     schema_version = 2 if any(_structured_bundle(bundle) for bundle in bundles) else 1
-    bundles_payload = {"schema_version": schema_version, "site_id": site.site_id, "bundles": [_site_bundle_record(bundle) for bundle in bundles]}
+    bundles_payload = {
+        "schema_version": schema_version,
+        "site_id": site.site_id,
+        "bundles": [_site_bundle_record(bundle) for bundle in bundles],
+    }
     if schema_version == 2:
         bundles_payload["catalog_version"] = "exam-identity-v2"
     site.bundles_path.write_text(
@@ -194,7 +218,11 @@ def write_site_state(
         ),
         encoding="utf-8",
     )
-    frontend_payload = {"schema_version": schema_version, "site_id": site.site_id, "bundles": frontend_bundles}
+    frontend_payload = {
+        "schema_version": schema_version,
+        "site_id": site.site_id,
+        "bundles": frontend_bundles,
+    }
     if schema_version == 2:
         frontend_payload["catalog_version"] = "exam-identity-v2"
     site.frontend_bundles_path.write_text(
@@ -212,13 +240,16 @@ def apply_bundle_download_urls(
     bundles: list[BundleAsset],
     *,
     repository: str,
-) -> tuple[NormalizedCatalog, list[BundleAsset], list[dict]]:
+) -> tuple[NormalizedCatalog, list[BundleAsset], list[dict[str, Any]]]:
     updated_bundles: list[BundleAsset] = []
     bundle_index: dict[str, BundleAsset] = {}
     for bundle in bundles:
         download_url = ""
         if repository and bundle.release_tag:
-            download_url = f"https://github.com/{repository}/releases/download/{bundle.release_tag}/{quote(bundle.asset_name)}"
+            download_url = (
+                f"https://github.com/{repository}/releases/downloa"
+                f"d/{bundle.release_tag}/{quote(bundle.asset_name)}"
+            )
         updated_bundle = replace(bundle, download_url=download_url)
         updated_bundles.append(updated_bundle)
         # Paper-level links retain one stable primary URL. The frontend feed
@@ -230,7 +261,7 @@ def apply_bundle_download_urls(
     updated_papers = [
         replace(
             paper,
-            download_url_bundle=bundle_index.get(_paper_bundle_key(paper)).download_url
+            download_url_bundle=bundle_index[_paper_bundle_key(paper)].download_url
             if _paper_bundle_key(paper) in bundle_index
             else "",
         )
@@ -298,7 +329,10 @@ def _site_bundle_storage_key(site_id: str, asset_name: str) -> str:
 
 
 def _site_scoped_bundles(site_id: str, bundles: list[BundleAsset]) -> list[BundleAsset]:
-    return [replace(bundle, storage_key=_site_bundle_storage_key(site_id, bundle.asset_name)) for bundle in bundles]
+    return [
+        replace(bundle, storage_key=_site_bundle_storage_key(site_id, bundle.asset_name))
+        for bundle in bundles
+    ]
 
 
 def load_site_catalog(
@@ -313,9 +347,12 @@ def load_site_catalog(
     # guard below and publish a site without its mandatory catalog.
     quarantined_required = sorted(quarantined.intersection(site_config.required_provider_ids))
     if quarantined_required:
-        raise ValueError(f"Required providers cannot be quarantined for site {site_id}: {', '.join(quarantined_required)}")
+        raise ValueError(
+            f"Required providers cannot be quarantined for "
+            f"site {site_id}: {', '.join(quarantined_required)}"
+        )
     aggregated_papers: list[NormalizedPaper] = []
-    aggregated_review_queue: list = []
+    aggregated_review_queue: list[ReviewItem] = []
     failures: list[SyncFailure] = []
     for provider_id in site_config.provider_ids:
         # Quarantined providers stay registered and audited; only their public
@@ -325,7 +362,9 @@ def load_site_catalog(
         provider = provider_paths(repo_root, provider_id)
         if not provider.data_dir.exists():
             if provider_id in site_config.required_provider_ids:
-                raise ValueError(f"Missing provider state for {provider_id}: expected {provider.data_dir}")
+                raise ValueError(
+                    f"Missing provider state for {provider_id}: expected {provider.data_dir}"
+                )
             continue
         _raw_pages, provider_catalog, provider_failures = load_provider_state(provider)
         aliases = load_alias_rules(provider.aliases_path)
@@ -340,21 +379,26 @@ def load_site_catalog(
     )
 
 
-def load_site_provider_indexes(repo_root: Path, *, site_id: str) -> list[dict] | None:
+def load_site_provider_indexes(repo_root: Path, *, site_id: str) -> list[dict[str, Any]] | None:
     """Load current provider indexes for a site, or request the full-file path."""
     site_config = get_site_config(site_id)
     quarantined = quarantined_provider_ids(repo_root, site_id=site_id)
     quarantined_required = sorted(quarantined.intersection(site_config.required_provider_ids))
     if quarantined_required:
-        raise ValueError(f"Required providers cannot be quarantined for site {site_id}: {', '.join(quarantined_required)}")
-    indexes: list[dict] = []
+        raise ValueError(
+            f"Required providers cannot be quarantined for "
+            f"site {site_id}: {', '.join(quarantined_required)}"
+        )
+    indexes: list[dict[str, Any]] = []
     for provider_id in site_config.provider_ids:
         if provider_id in quarantined:
             continue
         provider = provider_paths(repo_root, provider_id)
         if not provider.data_dir.exists():
             if provider_id in site_config.required_provider_ids:
-                raise ValueError(f"Missing provider state for {provider_id}: expected {provider.data_dir}")
+                raise ValueError(
+                    f"Missing provider state for {provider_id}: expected {provider.data_dir}"
+                )
             continue
         index = load_provider_index(provider)
         if index is None:
@@ -387,7 +431,9 @@ def publish_site(
     normalized, _provider_failures = load_site_catalog(repo_root, site_id=site_id)
     site = site_paths(repo_root, site_id)
     if affected_canonical_ids is not None and not site.bundles_path.exists():
-        raise ValueError(f"Partial publish requires existing site bundle metadata: expected {site.bundles_path}")
+        raise ValueError(
+            f"Partial publish requires existing site bundle metadata: expected {site.bundles_path}"
+        )
     existing_bundles = load_site_bundles(site)
     if affected_canonical_ids is None:
         preserved_bundles: list[BundleAsset] = []
@@ -399,7 +445,10 @@ def publish_site(
             bundle
             for bundle in existing_bundles
             if (
-                (_bundle_key(bundle) in active_bundle_ids or bundle.canonical_id in active_legacy_ids)
+                (
+                    _bundle_key(bundle) in active_bundle_ids
+                    or bundle.canonical_id in active_legacy_ids
+                )
                 and _bundle_key(bundle) not in affected_canonical_ids
                 and bundle.canonical_id not in affected_canonical_ids
             )

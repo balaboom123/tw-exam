@@ -122,10 +122,14 @@ def _validate_entry(value: Any, *, path: Path, provider: bool) -> dict[str, Any]
     if not isinstance(discovery, dict):
         raise _error(path, "discovery_snapshot must be an object")
     _require_text(discovery.get("manifest_path"), "discovery_snapshot.manifest_path", path=path)
-    discovery_status = _require_text(discovery.get("status"), "discovery_snapshot.status", path=path)
+    discovery_status = _require_text(
+        discovery.get("status"), "discovery_snapshot.status", path=path
+    )
     if discovery_status not in _ALLOWED_DISCOVERY_STATUSES:
         raise _error(path, f"unsupported discovery_snapshot.status {discovery_status!r}")
-    discovery_coverage = _require_text(discovery.get("coverage"), "discovery_snapshot.coverage", path=path)
+    discovery_coverage = _require_text(
+        discovery.get("coverage"), "discovery_snapshot.coverage", path=path
+    )
     if discovery_coverage not in _ALLOWED_DISCOVERY_COVERAGE:
         raise _error(path, f"unsupported discovery_snapshot.coverage {discovery_coverage!r}")
     if discovery_status == "blocked":
@@ -135,7 +139,9 @@ def _validate_entry(value: Any, *, path: Path, provider: bool) -> dict[str, Any]
             raise _error(path, "blocked discovery coverage must be unknown")
         expected_ledger = f"catalog/source-coverage/{value['provider_id']}.json"
         if expected_ledger not in value["evidence"]:
-            raise _error(path, f"blocked discovery requires exact provider coverage ledger {expected_ledger}")
+            raise _error(
+                path, f"blocked discovery requires exact provider coverage ledger {expected_ledger}"
+            )
     return dict(value)
 
 
@@ -188,10 +194,8 @@ def _local_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
     if index is not None:
         raw_events = index["raw_events"]
         papers = index["papers"]
-        event_ids = {(row[0], row[1]) for row in raw_events}
-        event_ids.update(
-            (row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911) for row in papers
-        )
+        event_ids: set[tuple[str, int]] = {(row[0], row[1]) for row in raw_events}
+        event_ids.update((row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911) for row in papers)
         return {
             "years": sorted({year for _source_id, year in event_ids}),
             "raw_event_pages": len(raw_events),
@@ -200,7 +204,7 @@ def _local_observation(repo_root: Path, provider_id: str) -> dict[str, Any]:
             "event_ids": event_ids,
         }
     years: set[int] = set()
-    event_ids: set[tuple[str, int]] = set()
+    event_ids = set()
     counts: dict[str, int] = {}
     for label, directory, year_field, offset in (
         ("raw_event_pages", provider.exams_dir, "year_ad", 0),
@@ -279,14 +283,14 @@ def check_sync_floor(repo_root: Path, provider_ids: Sequence[str]) -> dict[str, 
             regressions.append(record)
 
     if regressions:
-        details = "; ".join(
+        drift_details = "; ".join(
             f"{item['provider_id']}: {', '.join(item['losses'])} "
             f"(sync failures recorded: {item['sync_failures']})"
             for item in regressions
         )
         raise ValueError(
             "sync result drops below the reviewed source inventory floor for "
-            f"{len(regressions)} provider(s): {details}"
+            f"{len(regressions)} provider(s): {drift_details}"
         )
     return {"providers": checked}
 
@@ -357,7 +361,14 @@ def validate_source_inventory(
                 },
                 "actual": {
                     "years": observation["years"],
-                    **{field: observation[field] for field in ("raw_event_pages", "normalized_paper_records", "sync_failures")},
+                    **{
+                        field: observation[field]
+                        for field in (
+                            "raw_event_pages",
+                            "normalized_paper_records",
+                            "sync_failures",
+                        )
+                    },
                 },
             }
             if losses:
@@ -369,11 +380,12 @@ def validate_source_inventory(
         manifest_path = repo_root / discovery["manifest_path"]
         if discovery["status"] == "present":
             if not manifest_path.exists():
-                raise ValueError(f"source inventory marks a missing manifest as present: {provider_id}")
+                raise ValueError(
+                    f"source inventory marks a missing manifest as present: {provider_id}"
+                )
             manifest = load_source_manifest(manifest_path, provider_id=provider_id)
             manifest_events = {
-                (str(code), int(item.get("year_ad", 0)))
-                for code, item in manifest.exams.items()
+                (str(code), int(item.get("year_ad", 0))) for code, item in manifest.exams.items()
             }
             missing_events = sorted(observation["event_ids"] - manifest_events)
             if missing_events:
@@ -396,23 +408,30 @@ def validate_source_inventory(
                 incomplete_manifests.append(provider_id)
         elif discovery["status"] == "missing":
             if manifest_path.exists():
-                raise ValueError(f"source inventory marks an existing manifest as missing: {provider_id}")
+                raise ValueError(
+                    f"source inventory marks an existing manifest as missing: {provider_id}"
+                )
             missing_manifests.append(provider_id)
         elif discovery["status"] == "blocked":
             if manifest_path.exists():
-                raise ValueError(f"source inventory blocked discovery has a manifest: {provider_id}")
+                raise ValueError(
+                    f"source inventory blocked discovery has a manifest: {provider_id}"
+                )
             blocked_discoveries.append(provider_id)
         elif discovery["status"] == "not_applicable":
             if manifest_path.exists():
-                raise ValueError(f"source inventory marks an existing manifest as not applicable: {provider_id}")
+                raise ValueError(
+                    f"source inventory marks an existing manifest as not applicable: {provider_id}"
+                )
             not_applicable_manifests.append(provider_id)
 
     if local_state_drift:
-        details = "; ".join(
+        drift_details = "; ".join(
             f"{item['provider_id']} ({', '.join(item['losses'])})" for item in local_state_drift
         )
         raise ValueError(
-            f"source inventory local state regressed for {len(local_state_drift)} provider(s): {details}"
+            f"source inventory local state regressed for "
+            f"{len(local_state_drift)} provider(s): {drift_details}"
         )
     enforced_manifest_event_gaps = [gap for gap in manifest_event_gaps if gap["enforced"]]
     if enforced_manifest_event_gaps:
@@ -455,7 +474,10 @@ def validate_source_inventory(
         "site_id": site_id,
         "provider_count": len(entries),
         "candidate_count": len(inventory["candidates"]),
-        "discovery_manifests_present": len(entries) - len(missing_manifests) - len(blocked_discoveries) - len(not_applicable_manifests),
+        "discovery_manifests_present": len(entries)
+        - len(missing_manifests)
+        - len(blocked_discoveries)
+        - len(not_applicable_manifests),
         "discovery_manifests_missing": missing_manifests,
         "discovery_manifests_blocked": blocked_discoveries,
         "discovery_manifests_not_applicable": not_applicable_manifests,

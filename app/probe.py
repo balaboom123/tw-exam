@@ -3,8 +3,10 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+from collections.abc import Callable
 from dataclasses import asdict, dataclass, field
-from typing import Callable
+from functools import partial
+from typing import cast
 
 from app.manifest import SourceManifest
 from app.models import SourceExamPage
@@ -14,7 +16,9 @@ from app.sync import retry_network
 
 
 def _stable_hash(value: object) -> str:
-    payload = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    payload = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode(
+        "utf-8"
+    )
     return f"sha256:{hashlib.sha256(payload).hexdigest()}"
 
 
@@ -70,16 +74,22 @@ def _paper_file_count(page: SourceExamPage) -> int:
     return sum(len(paper.files) for paper in page.papers)
 
 
-def _probe_url_builder(client: SourceProvider, provider_id: str, attr_name: str, fallback: Callable[..., str]) -> Callable[..., str]:
+def _probe_url_builder(
+    client: SourceProvider, provider_id: str, attr_name: str, fallback: Callable[..., str]
+) -> Callable[..., str]:
     builder = getattr(client, attr_name, None)
     if callable(builder):
-        return builder
+        return cast(Callable[..., str], builder)
     if provider_id == "moex":
         return fallback
-    raise NotImplementedError(f"probe_latest is not supported for provider {provider_id}: missing probe URL model")
+    raise NotImplementedError(
+        f"probe_latest is not supported for provider {provider_id}: missing probe URL model"
+    )
 
 
-def _exam_entry_from_page(page: SourceExamPage, *, result_url: str, head_content_length: int | None, now: str) -> dict[str, object]:
+def _exam_entry_from_page(
+    page: SourceExamPage, *, result_url: str, head_content_length: int | None, now: str
+) -> dict[str, object]:
     return {
         "source_exam_id": page.source_exam_id,
         "year_ad": page.year_ad,
@@ -95,7 +105,9 @@ def _exam_entry_from_page(page: SourceExamPage, *, result_url: str, head_content
     }
 
 
-def probe_latest(client: SourceProvider, manifest: SourceManifest, year_window: int, now: str) -> ProbeResult:
+def probe_latest(
+    client: SourceProvider, manifest: SourceManifest, year_window: int, now: str
+) -> ProbeResult:
     updated = copy.deepcopy(manifest)
     provider_id = manifest.provider_id or getattr(client, "provider_id", "") or "moex"
     if provider_id and not updated.provider_id:
@@ -106,8 +118,12 @@ def probe_latest(client: SourceProvider, manifest: SourceManifest, year_window: 
     removed_exam_codes: list[str] = []
     unchanged_exam_codes: list[str] = []
     exam_years: dict[str, int] = {}
-    year_url_builder = _probe_url_builder(client, provider_id, "build_probe_year_url", make_year_search_url)
-    exam_url_builder = _probe_url_builder(client, provider_id, "build_probe_exam_url", make_result_url)
+    year_url_builder = _probe_url_builder(
+        client, provider_id, "build_probe_year_url", make_year_search_url
+    )
+    exam_url_builder = _probe_url_builder(
+        client, provider_id, "build_probe_exam_url", make_result_url
+    )
 
     latest_years = sorted(client.discover_available_years(), reverse=True)[:year_window]
     for year_ad in latest_years:
@@ -129,11 +145,15 @@ def probe_latest(client: SourceProvider, manifest: SourceManifest, year_window: 
         )
 
         if year_changed:
-            exams = retry_network(lambda: client.discover_exams(year_ad))
+            exams = retry_network(partial(client.discover_exams, year_ad))
             counts["year_get_count"] += 1
             current_codes = [exam.code for exam in exams]
             current_hash = hash_exam_codes(current_codes)
-            if existing_year is None or existing_year.get("exam_codes_hash") != current_hash or existing_year.get("head_content_length") != year_head.content_length:
+            if (
+                existing_year is None
+                or existing_year.get("exam_codes_hash") != current_hash
+                or existing_year.get("head_content_length") != year_head.content_length
+            ):
                 changed_years.append(year_ad)
             updated.years[year_key] = {
                 "year_ad": year_ad,
@@ -158,7 +178,10 @@ def probe_latest(client: SourceProvider, manifest: SourceManifest, year_window: 
             exam_head = client.head(result_url)
             counts["exam_head_count"] += 1
             existing_exam = manifest.exams.get(exam_code)
-            exam_changed = existing_exam is None or existing_exam.get("head_content_length") != exam_head.content_length
+            exam_changed = (
+                existing_exam is None
+                or existing_exam.get("head_content_length") != exam_head.content_length
+            )
             if exam_changed:
                 page = client.fetch_exam_page(exam_code, year_ad)
                 counts["exam_get_count"] += 1
