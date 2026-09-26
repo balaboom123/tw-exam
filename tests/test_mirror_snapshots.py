@@ -4,6 +4,7 @@ import io
 import json
 import os
 import subprocess
+import sys
 import tarfile
 from pathlib import Path
 
@@ -686,3 +687,185 @@ def test_v1_space_preflight_ignores_untrusted_v2_payload_field(tmp_path, monkeyp
     with pytest.raises(ValueError, match="free bytes"):
         mirror.restore(tmp_path / "restore", "owner/repo", PROVIDER)
     assert downloaded == [source.name]
+
+
+@pytest.fixture
+def hydrating(packed, tmp_path, monkeypatch):
+    _, archive = packed
+    root = tmp_path / "actions"
+    root.mkdir()
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(root))
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(archive),
+    }
+    remote = {"id": 123, "body": json.dumps(pointer)}
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: remote)
+    downloads = []
+
+    def download(repository, provider, name, directory):
+        downloads.append(name)
+        target = directory / name
+        target.write_bytes((archive.parent / name).read_bytes())
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    return root, pointer, archive, downloads, remote
+
+
+def test_hydrate_replaces_partial_cache_and_preserves_new_files(hydrating):
+    root, pointer, archive, downloads, _ = hydrating
+    provider = root / "mirror/providers" / PROVIDER
+    (provider / "111").mkdir(parents=True)
+    (provider / "111/數學.pdf").write_bytes(b"old cache bytes")
+    (provider / "new.pdf").write_bytes(b"new acquisition after failed backup")
+    sibling = root / "mirror/providers/ceec_gsat/retained.pdf"
+    sibling.parent.mkdir()
+    sibling.write_bytes(b"sibling")
+    (root / "mirror/.mirror-dedupe-index.json").write_text("old index")
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert (provider / "111/數學.pdf").stat().st_size == 4096
+    assert (provider / "hardlink.pdf").samefile(provider / "111/數學.pdf")
+    assert (provider / "new.pdf").read_bytes() == b"new acquisition after failed backup"
+    assert sibling.read_bytes() == b"sibling"
+    assert json.loads((provider / mirror.ORIGIN_NAME).read_text())["pointer"] == pointer
+    assert len(downloads) > 2
+    assert not list(provider.parent.glob(".*-hydrate-*"))
+    assert not (root / "mirror/.mirror-dedupe-index.json").exists()
+
+
+def test_current_marked_cache_skips_payload_downloads_and_keeps_progress(hydrating):
+    root, pointer, _, downloads, _ = hydrating
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    downloads.clear()
+    provider = root / "mirror/providers" / PROVIDER
+    (provider / "new.pdf").write_bytes(b"progress")
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert downloads == []
+    assert (provider / "new.pdf").read_bytes() == b"progress"
+
+
+def test_incomplete_marked_cache_is_refreshed(hydrating):
+    root, _, _, downloads, _ = hydrating
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    provider = root / "mirror/providers" / PROVIDER
+    (provider / "hardlink.pdf").unlink()
+    downloads.clear()
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert downloads
+    assert (provider / "hardlink.pdf").samefile(provider / "111/數學.pdf")
+
+
+@pytest.mark.parametrize("failure", ["corrupt", "concurrent"])
+def test_failed_hydration_preserves_existing_cache(hydrating, monkeypatch, failure):
+    root, pointer, archive, _, remote = hydrating
+    provider = root / "mirror/providers" / PROVIDER
+    provider.mkdir(parents=True)
+    (provider / "retained.pdf").write_bytes(b"old cache")
+    original_download = mirror.download
+
+    def download(*args):
+        path = original_download(*args)
+        if path.name.endswith("part0000"):
+            if failure == "corrupt":
+                path.write_bytes(b"corrupt")
+            else:
+                remote["body"] = json.dumps({**pointer, "generation": "newer"})
+        return path
+
+    monkeypatch.setattr(mirror, "download", download)
+    with pytest.raises(ValueError):
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert list(provider.iterdir()) == [provider / "retained.pdf"]
+    assert (provider / "retained.pdf").read_bytes() == b"old cache"
+    assert not list(provider.parent.glob(".*-hydrate-*"))
+
+
+def test_missing_durable_snapshot_preserves_cache(hydrating, monkeypatch):
+    root, _, _, downloads, _ = hydrating
+    provider = root / "mirror/providers" / PROVIDER
+    provider.mkdir(parents=True)
+    (provider / "retained.pdf").write_bytes(b"bootstrap")
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: None)
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) is None
+    assert (provider / "retained.pdf").read_bytes() == b"bootstrap"
+    assert not downloads
+
+
+def test_hydrate_cannot_replace_local_operator_mirrors(hydrating, monkeypatch):
+    root, _, _, downloads, _ = hydrating
+    monkeypatch.delenv("GITHUB_ACTIONS")
+    with pytest.raises(ValueError, match="restricted to an Actions workspace"):
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert not downloads
+
+
+def test_origin_marker_is_excluded_from_snapshot_content(packed, tmp_path):
+    root, path = packed
+    manifest = mirror.load_manifest(path, PROVIDER, "pilot-1")
+    mirror.write_origin(root, PROVIDER, {"generation": "ignored metadata"}, manifest)
+    probe = mirror.pack(root, PROVIDER, "other", tmp_path / "probe", chunk_bytes=257)
+    new = mirror.load_manifest(probe, PROVIDER, "other")
+    assert new["file_count"] == manifest["file_count"]
+    assert new["unpacked_bytes"] == manifest["unpacked_bytes"]
+    assert [c["sha256"] for c in new["chunks"]] == [c["sha256"] for c in manifest["chunks"]]
+
+
+def test_cache_budget_counts_shared_payload_only_once(packed, monkeypatch):
+    root, _ = packed
+    monkeypatch.setattr(mirror, "CACHE_PAYLOAD_LIMIT", 4096)
+    assert mirror.cacheable(root, PROVIDER)
+    monkeypatch.setattr(mirror, "CACHE_PAYLOAD_LIMIT", 4095)
+    assert not mirror.cacheable(root, PROVIDER)
+
+
+def test_cache_budget_output_survives_failed_backup(packed, tmp_path, monkeypatch):
+    root, _ = packed
+    output = tmp_path / "outputs"
+    monkeypatch.setenv("GITHUB_OUTPUT", str(output))
+    monkeypatch.setattr(mirror, "CACHE_PAYLOAD_LIMIT", 4095)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "mirror_snapshots",
+            "save",
+            "--provider",
+            PROVIDER,
+            "--repository",
+            "owner/repo",
+            "--repo-root",
+            str(root),
+        ],
+    )
+
+    def failed(*args):
+        raise RuntimeError("upload unavailable")
+
+    monkeypatch.setattr(mirror, "save", failed)
+    assert mirror.main() == 1
+    assert output.read_text() == "cacheable=false\n"
+
+
+def test_hydrate_cli_uses_latest_pointer_without_restore_flags(hydrating, monkeypatch):
+    root, _, _, _, _ = hydrating
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "mirror_snapshots",
+            "hydrate",
+            "--provider",
+            PROVIDER,
+            "--repository",
+            "owner/repo",
+            "--repo-root",
+            str(root),
+        ],
+    )
+    assert mirror.main() == 0
+    monkeypatch.setattr(sys, "argv", sys.argv + ["--generation", "pilot-1"])
+    assert mirror.main() == 1

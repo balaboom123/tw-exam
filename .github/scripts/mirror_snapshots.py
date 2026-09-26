@@ -31,6 +31,56 @@ from app.providers.registry import get_provider  # noqa: E402 - bootstrap reposi
 CHUNK_BYTES = 1_900_000_000  # Strictly below GitHub's 2 GiB per-asset limit.
 BLOCK_BYTES = 1024 * 1024
 GENERATION = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}")
+ORIGIN_NAME = ".snapshot-origin.json"
+CACHE_PAYLOAD_LIMIT = 8_000_000_000
+
+
+def source_files(source: Path):
+    if not source.is_dir() or source.is_symlink():
+        raise ValueError("No regular provider mirror directory")
+    for path in sorted(source.rglob("*")):
+        if path.parent == source and (
+            path.name == ORIGIN_NAME or path.name.startswith(ORIGIN_NAME + ".")
+        ):
+            continue
+        if path.is_symlink():
+            raise ValueError(f"Mirror contains a symbolic link: {path}")
+        if path.is_dir():
+            continue
+        if not stat.S_ISREG(path.stat().st_mode):
+            raise ValueError(f"Mirror contains a non-regular file: {path}")
+        yield path
+
+
+def write_origin(root: Path, provider: str, pointer: dict, manifest: dict):
+    origin = root / "mirror/providers" / provider / ORIGIN_NAME
+    temporary = origin.with_name(ORIGIN_NAME + "." + uuid.uuid4().hex)
+    temporary.write_text(
+        json.dumps(
+            {
+                "pointer": pointer,
+                "file_count": manifest["file_count"],
+                "unpacked_bytes": manifest["unpacked_bytes"],
+            }
+        ),
+        encoding="utf-8",
+    )
+    temporary.replace(origin)
+
+
+def cacheable(root: Path, provider: str) -> bool:
+    """Reserve cache headroom and count shared payloads only once."""
+    seen = set()
+    total = 0
+    for path in source_files(root / "mirror/providers" / provider):
+        info = path.stat()
+        key = (info.st_dev, info.st_ino)
+        if key not in seen:
+            seen.add(key)
+            total += info.st_size
+            if total > CACHE_PAYLOAD_LIMIT:
+                return False
+    return True
 
 
 def checked_generation(value: str) -> str:
@@ -181,11 +231,7 @@ def pack(
             filename="", mode="wb", fileobj=writer, compresslevel=1, mtime=0
         ) as compressed:
             with tarfile.open(fileobj=compressed, mode="w|") as archive:
-                for path in sorted(source.rglob("*")):
-                    if path.is_symlink():
-                        raise ValueError(f"Mirror contains a symbolic link: {path}")
-                    if path.is_dir():
-                        continue
+                for path in source_files(source):
                     metadata = path.stat()
                     if not stat.S_ISREG(metadata.st_mode):
                         raise ValueError(f"Mirror contains a non-regular file: {path}")
@@ -468,6 +514,17 @@ def restore(
             generation,
             chunk_loader=lambda chunk: download(repository, provider, chunk["name"], directory),
         )
+        write_origin(
+            root,
+            provider,
+            {
+                "version": 1,
+                "provider_id": provider,
+                "generation": generation,
+                "manifest_sha256": manifest_sha256,
+            },
+            manifest,
+        )
     print(
         f"Restored {provider} snapshot {generation}: "
         f"{result['file_count']} files, {result['unpacked_bytes']} bytes"
@@ -535,6 +592,7 @@ def save(root: Path, repository: str, provider: str, generation: str) -> dict:
                 ):
                     raise ValueError("Committed mirror snapshot is missing verified chunks")
                 print(f"Reused unchanged {provider} snapshot {previous['generation']}")
+                write_origin(root, provider, previous, manifest)
                 return previous
         expected = {c["name"]: c for c in manifest["chunks"]}
         names = [*expected, probe_path.name]
@@ -606,6 +664,7 @@ def save(root: Path, repository: str, provider: str, generation: str) -> dict:
             "--input",
             str(request),
         )
+        write_origin(root, provider, pointer, manifest)
     print(
         f"Saved {provider} snapshot {generation}: {manifest['file_count']} files, "
         f"{manifest['unpacked_bytes']} bytes"
@@ -613,9 +672,85 @@ def save(root: Path, repository: str, provider: str, generation: str) -> dict:
     return pointer
 
 
+def hydrate(root: Path, repository: str, provider: str):
+    """Refresh an Actions cache from the committed durable snapshot when needed."""
+    get_provider(provider)
+    if (
+        os.environ.get("GITHUB_ACTIONS") != "true"
+        or Path(os.environ.get("GITHUB_WORKSPACE", "")).resolve() != root.resolve()
+    ):
+        raise ValueError("Cache hydration is restricted to an Actions workspace")
+    remote = release(repository, provider, allow_missing=True)
+    if remote is None:
+        print(
+            f"No durable snapshot yet for {provider}; retained cache/source bootstrap is required"
+        )
+        return None
+    pointer = current_pointer(remote, provider)
+    parent = root / "mirror/providers"
+    source = parent / provider
+    origin = source / ORIGIN_NAME
+    if origin.is_file() and not origin.is_symlink():
+        try:
+            cached = json.loads(origin.read_text(encoding="utf-8"))
+            files = list(source_files(source))
+            if (
+                isinstance(cached, dict)
+                and cached.get("pointer") == pointer
+                and type(cached.get("file_count")) is int
+                and cached["file_count"] > 0
+                and type(cached.get("unpacked_bytes")) is int
+                and cached["unpacked_bytes"] >= 0
+                and len(files) >= cached["file_count"]
+                and sum(p.stat().st_size for p in files) >= cached["unpacked_bytes"]
+            ):
+                print(f"Warm {provider} mirror matches durable generation {pointer['generation']}")
+                return pointer
+        except (ValueError, OSError):
+            pass
+    parent.mkdir(parents=True, exist_ok=True)
+    if source.is_symlink():
+        raise ValueError("Provider mirror cache is a symbolic link")
+    with tempfile.TemporaryDirectory(prefix=f".{provider}-hydrate-", dir=parent) as temporary:
+        stage_root = Path(temporary)
+        restore(
+            stage_root,
+            repository,
+            provider,
+            generation=pointer["generation"],
+            manifest_sha256=pointer["manifest_sha256"],
+        )
+        incoming = stage_root / "mirror/providers" / provider
+        # Keep newly acquired files from a failed backup. The committed snapshot
+        # supplies overlapping paths, avoiding replay of an older cache's bytes.
+        if source.exists():
+            for path in source_files(source):
+                target = incoming / path.relative_to(source)
+                if not target.exists():
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    os.link(path, target)
+        latest = release(repository, provider)
+        if latest["id"] != remote["id"] or current_pointer(latest, provider) != pointer:
+            raise ValueError(
+                "Durable snapshot changed during cache hydration; retained cache was preserved"
+            )
+        previous = stage_root / "previous-cache"
+        if source.exists():
+            source.rename(previous)
+        try:
+            incoming.rename(source)
+        except BaseException:
+            if previous.exists():
+                previous.rename(source)
+            raise
+    (root / "mirror/.mirror-dedupe-index.json").unlink(missing_ok=True)
+    print(f"Refreshed {provider} cache from durable generation {pointer['generation']}")
+    return pointer
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("save", "restore"))
+    parser.add_argument("command", choices=("save", "restore", "hydrate"))
     parser.add_argument("--repo-root", type=Path, default=ROOT)
     parser.add_argument("--repository", default=os.environ.get("GITHUB_REPOSITORY"))
     parser.add_argument("--provider", required=True)
@@ -627,6 +762,12 @@ def main() -> int:
         parser.error("--repository owner/repo is required")
     try:
         if args.command == "save":
+            get_provider(args.provider)
+            if output := os.environ.get("GITHUB_OUTPUT"):
+                with open(output, "a", encoding="utf-8") as stream:
+                    stream.write(
+                        f"cacheable={str(cacheable(args.repo_root, args.provider)).lower()}\n"
+                    )
             generation = args.generation or uuid.uuid4().hex
             pointer = save(args.repo_root, args.repository, args.provider, generation)
             if output := os.environ.get("GITHUB_OUTPUT"):
@@ -634,6 +775,12 @@ def main() -> int:
                     stream.write(
                         f"generation={pointer['generation']}\nmanifest_sha256={pointer['manifest_sha256']}\n"
                     )
+        elif args.command == "hydrate":
+            if args.generation or args.manifest_sha256 or args.allow_missing:
+                raise ValueError(
+                    "hydrate uses the latest durable pointer; restore owns pinned recovery"
+                )
+            hydrate(args.repo_root, args.repository, args.provider)
         else:
             restore(
                 args.repo_root,

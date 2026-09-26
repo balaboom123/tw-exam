@@ -46,11 +46,30 @@ An interrupted upload cannot replace the last committed pointer.
 Restore checks the manifest digest, provider, generation, chunk hashes and sizes,
 archive paths, file types, and declared file inventory before installing the
 provider tree. It preserves other providers and refuses to overwrite a nonempty
-provider mirror. Snapshot format v2 preserves hard-linked source payloads as
+provider mirror during operator restores. Snapshot format v2 preserves hard-linked source payloads as
 links to earlier regular members within the same provider archive. Restore
 validates those targets and retains shared storage; symlinks, forward links,
 and link chains are rejected. Older v1 archives remain readable. The derived
 root dedupe index is discarded after restore.
+
+Sync workflows use `hydrate` inside their Actions workspace before acquisition.
+A restored or successfully backed-up mirror carries a local origin marker.
+A matching marker and retained inventory avoid another payload download;
+unmarked, older, or incomplete warm caches are refreshed from the committed
+durable generation. The replacement is staged and verified before swapping
+provider directories. Durable bytes win at overlapping paths; cache-only files
+from an interrupted backup are retained. A failed download or changed remote
+pointer preserves the old cache. The marker is excluded from backup archives.
+Operator `restore` keeps its empty-directory guard, and publication retries
+continue to use their original pinned generation.
+
+Durable backup runs before Actions cache save, so cached origin markers describe
+the committed snapshot. The helper emits its cache eligibility before attempting
+an upload. Mirrors above its unique-payload budget skip warm cache save and
+recover from public storage on the next run; shared hard-linked files count
+once. This avoids a large mirror competing with smaller providers for the
+repository's Actions cache allowance. Incremental MOEX runs hydrate only when
+the source probe requests sync.
 
 `--allow-missing` permits source bootstrap only when the release does not exist;
 transport errors, incomplete releases, or corrupt archives stop recovery.

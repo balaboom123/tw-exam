@@ -569,6 +569,26 @@ class WorkflowTests(unittest.TestCase):
             self.assertNotIn("PDF_CACHE_VERSION", workflow)
             self.assertNotIn("PDF_QUALITY_PROFILE", workflow)
 
+    def test_sync_hydrates_partial_caches_and_saves_durable_before_warm_cache(self) -> None:
+        for filename in ('_sync-provider.yml', 'sync-full.yml', 'sync-incremental.yml', 'audit-recent.yml'):
+            workflow = _workflow((REPO_ROOT / '.github/workflows' / filename).read_text())
+            job = workflow['jobs']['audit' if filename == 'audit-recent.yml' else 'sync']
+            steps = job['steps']
+            hydrate = next(step for step in steps if 'mirror_snapshots.py hydrate' in step.get('run', ''))
+            sync = next(step for step in steps if step.get('id') in ('sync', 'targeted_sync', 'recent_audit', 'full_sync'))
+            durable = next(step for step in steps if step.get('id') == 'durable')
+            cache = next(step for step in steps if step.get('uses', '').startswith('actions/cache/save@'))
+            with self.subTest(workflow=filename):
+                self.assertNotIn('cache-matched-key', hydrate.get('if', ''))
+                self.assertLess(steps.index(hydrate), steps.index(sync))
+                self.assertLess(steps.index(sync), steps.index(durable))
+                self.assertLess(steps.index(durable), steps.index(cache))
+                self.assertIn("steps.durable.outputs.cacheable == 'true'", cache['if'])
+                if filename == 'sync-incremental.yml':
+                    probe, _ = _app_step(workflow, 'probe-latest')
+                    self.assertLess(steps.index(probe), steps.index(hydrate))
+                    self.assertEqual(hydrate['if'], sync['if'])
+
 
     def test_workflows_define_timeout_and_concurrency_controls(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -1194,7 +1214,11 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         })
         self.assertIn("steps.sync.outcome != 'skipped'", artifact["if"])
         self.assertLess(steps.index(sync), steps.index(save))
-        self.assertLess(steps.index(save), steps.index(artifact))
+        durable = next(step for step in steps if step.get('id') == 'durable')
+        self.assertLess(steps.index(sync), steps.index(artifact))
+        self.assertLess(steps.index(artifact), steps.index(durable))
+        self.assertLess(steps.index(durable), steps.index(save))
+        self.assertIn("steps.durable.outputs.cacheable == 'true'", save['if'])
         self.assertLess(steps.index(artifact), steps.index(fail))
         self.assertEqual(fail["if"], "${{ steps.sync.outcome == 'failure' }}")
         self.assertEqual(fail["run"], "exit 1")
