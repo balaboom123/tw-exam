@@ -15,6 +15,9 @@ on:
       publish:
         type: boolean
         default: true
+      download_affected_bundles:
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -53,7 +56,14 @@ jobs:
       - name: Run provider sync
         id: sync
         continue-on-error: true
-        run: python -m app sync-full --provider "$PROVIDER_ID" --site-id default --publish-plan-output .tmp/site-publish-plan.json
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          args=(sync-full --provider "$PROVIDER_ID" --site-id default --publish-plan-output .tmp/site-publish-plan.json)
+          if [ "${{ inputs.download_affected_bundles }}" = "true" ]; then
+            args+=(--download-affected-bundles)
+          fi
+          python -m app "${args[@]}"
 
       - name: Save mirror directory
         if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}

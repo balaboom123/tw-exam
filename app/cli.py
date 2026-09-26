@@ -754,21 +754,6 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             refreshed_raw_pages=safe_raw_pages,
             refreshed_catalog=safe_catalog,
         )
-        if getattr(args, "download_affected_bundles", False) and affected_canonical_ids:
-            site = site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id)
-            existing_bundles = load_site_bundles(site)
-            _download_affected_bundles(
-                _resolve_sync_bundle_dir(args),
-                existing_bundles,
-                affected_canonical_ids,
-                args.release_tag,
-            )
-            restoration_failures = _restore_new_public_bundle_files(
-                args, provider, provider_normalized, existing_bundles, affected_canonical_ids,
-            )
-            if restoration_failures:
-                _print_failures(restoration_failures)
-                return 1
         refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
         provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
         provider_failures.extend(sync_failures)
@@ -805,6 +790,21 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
         provider_failures.extend(sync_failures)
         failures = sync_failures
+    if getattr(args, "download_affected_bundles", False) and affected_canonical_ids:
+        site = site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id)
+        existing_bundles = load_site_bundles(site)
+        _download_affected_bundles(
+            _resolve_sync_bundle_dir(args),
+            existing_bundles,
+            affected_canonical_ids,
+            args.release_tag,
+        )
+        restoration_failures = _restore_new_public_bundle_files(
+            args, provider, provider_normalized, existing_bundles, affected_canonical_ids,
+        )
+        if restoration_failures:
+            _print_failures(restoration_failures)
+            return 1
     if args.publish_plan_output is not None:
         _write_publish_plan(
             args.publish_plan_output,

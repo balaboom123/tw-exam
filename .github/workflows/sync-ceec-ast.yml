@@ -16,3 +16,4 @@ jobs:
       cache_prefix: ceec-ast
       timeout_minutes: 120
       publish: true
+      download_affected_bundles: true
