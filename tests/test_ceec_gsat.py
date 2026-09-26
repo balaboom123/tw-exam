@@ -1,4 +1,5 @@
 import unittest
+from urllib.error import URLError
 from unittest.mock import patch
 
 from app.models import NormalizedCatalog
@@ -64,6 +65,68 @@ LISTING_HTML_TWO_DIGIT_ROC_YEAR = """
 
 
 class CeecParserTests(unittest.TestCase):
+    def test_listing_retries_only_the_page_that_times_out(self) -> None:
+        html = LISTING_HTML.replace("共 19 頁", "共 2 頁").encode("utf-8")
+        second_page_url = f"{LISTING_URL}&page=2"
+        requested = []
+
+        class Response:
+            status = 200
+            headers = {}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return None
+
+            def read(self):
+                return html
+
+        def open_page(request, _timeout):
+            requested.append(request.full_url)
+            if request.full_url == second_page_url and requested.count(second_page_url) == 1:
+                raise URLError("TLS handshake timed out")
+            return Response()
+
+        client = CeecGsatClient()
+        with patch.object(client._listing_http, "_open", side_effect=open_page), patch("app.providers.http.time.sleep"):
+            self.assertEqual(len(client.discover_exams(2026)), 1)
+
+        self.assertEqual(requested, [LISTING_URL, second_page_url, second_page_url])
+        self.assertEqual(client.http.max_attempts, 1)
+
+    def test_failed_listing_is_not_exposed_and_completed_pages_survive_discovery_retry(self) -> None:
+        first_html = '<div>選擇年度 115 86 ※本試題為PDF</div>' + LISTING_HTML.replace("共 19 頁", "共 3 頁")
+        second_html = LISTING_HTML_TWO_DIGIT_ROC_YEAR
+        third_html = LISTING_HTML_TWO_DIGIT_ROC_YEAR.replace("86", "85")
+        requested = []
+        fail = True
+
+        def fetch(url):
+            requested.append(url)
+            if url == LISTING_URL:
+                return first_html
+            if url.endswith("page=2"):
+                if fail:
+                    raise URLError("Connection reset by peer")
+                return second_html
+            return third_html
+
+        client = CeecGsatClient()
+        with patch.object(client, "_fetch_text", side_effect=fetch):
+            self.assertEqual(client.discover_available_years(), [2026, 1997])
+            with self.assertRaises(URLError):
+                client.discover_exams(2026)
+            self.assertIsNone(client._entries_cache)
+            fail = False
+            self.assertEqual(len(client.discover_exams(2026)), 1)
+            self.assertEqual(len(client.discover_exams(1997)), 1)
+            self.assertEqual(len(client.discover_exams(1996)), 1)
+            self.assertEqual(client.build_discovery_year_url(2026), LISTING_URL)
+
+        self.assertEqual(requested, [LISTING_URL, f"{LISTING_URL}&page=2", f"{LISTING_URL}&page=2", f"{LISTING_URL}&page=3"])
+
     def test_parse_listing_page_extracts_total_pages_and_exam_row(self) -> None:
         page = parse_listing_page(LISTING_HTML)
 

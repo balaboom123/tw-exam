@@ -1200,13 +1200,16 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(fail["run"], "exit 1")
         self.assertFalse(any("commit-and-push" in step.get("run", "") for step in steps))
 
-    def test_ast_recovery_pilot_leaves_the_scheduled_matrix_intact(self) -> None:
+    def test_admissions_recovery_selector_leaves_the_scheduled_matrix_intact(self) -> None:
         caller = self.workflows["sync-admissions.yml"]
         inputs = caller["on"]["workflow_dispatch"]["inputs"]
-        self.assertEqual(inputs["ast_only"]["type"], "boolean")
-        self.assertFalse(inputs["ast_only"]["default"])
+        selector = inputs["provider_id"]
+        self.assertEqual(selector["type"], "choice")
+        self.assertEqual(selector["default"], "all")
+        providers = {entry["provider_id"] for entry in caller["jobs"]["sync"]["strategy"]["matrix"]["include"]}
+        self.assertEqual(set(selector["options"]), {"all", *providers})
         self.assertEqual(caller["jobs"]["sync"]["with"]["enabled"],
-                         "${{ !inputs.ast_only || matrix.provider_id == 'ceec_ast' }}")
+                         "${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}")
         self.assertEqual(len(caller["jobs"]["sync"]["strategy"]["matrix"]["include"]), 5)
 
     def test_all_site_writers_queue_against_current_main(self) -> None:
