@@ -95,6 +95,12 @@ large providers still need a runner or local machine with enough room for
 their restored files. Deploy the v2 reader before seeding v2 snapshots;
 older code rejects that format.
 
+The manual `verify-mirror-recovery.yml` workflow restores a selected provider
+on an empty hosted runner with read-only repository permissions. It reports the
+verified manifest, recovered inventory, unique storage, and hard links. Supply
+both generation and manifest SHA256 to check a pinned snapshot. It performs no
+sync, cache save or eviction, site publication, or Release mutation.
+
 ## Scenario 2: an official source is blocked
 
 Capture the narrowest reproducible event or file evidence and update `catalog/source-coverage/<provider_id>.json` where a coverage ledger exists. Keep valid records even when sibling files are blocked.

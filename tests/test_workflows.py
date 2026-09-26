@@ -589,6 +589,21 @@ class WorkflowTests(unittest.TestCase):
                     self.assertLess(steps.index(probe), steps.index(hydrate))
                     self.assertEqual(hydrate['if'], sync['if'])
 
+    def test_mirror_recovery_pilot_has_no_publication_or_cache_mutations(self) -> None:
+        workflow = _workflow((REPO_ROOT / '.github/workflows/verify-mirror-recovery.yml').read_text())
+        self.assertEqual(set(workflow['on']), {'workflow_dispatch'})
+        self.assertEqual(workflow['permissions'], {'contents': 'read'})
+        job = workflow['jobs']['recovery']
+        self.assertNotIn('permissions', job)
+        steps = job['steps']
+        restore = next(step for step in steps if 'mirror_snapshots.py' in step.get('run', ''))
+        self.assertIn('args=(restore ', restore['run'])
+        self.assertIn('--generation "$GENERATION" --manifest-sha256 "$MANIFEST_SHA256"', restore['run'])
+        self.assertNotIn('--allow-missing', restore['run'])
+        self.assertFalse(_app_steps(workflow))
+        self.assertFalse(any('actions/cache/' in step.get('uses', '') for step in steps))
+        self.assertFalse(any('release_assets.py' in step.get('run', '') or 'commit-and-push' in step.get('run', '') for step in steps))
+
 
     def test_workflows_define_timeout_and_concurrency_controls(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"

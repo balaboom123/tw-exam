@@ -1,0 +1,74 @@
+name: verify-mirror-recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      provider_id:
+        description: "Registered provider whose public mirror backup should be restored"
+        required: true
+        type: string
+      generation:
+        description: "Optional exact generation; requires manifest_sha256"
+        type: string
+      manifest_sha256:
+        description: "SHA256 for an exact generation"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PROVIDER_ID: ${{ inputs.provider_id }}
+      GENERATION: ${{ inputs.generation }}
+      MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Report available recovery storage
+        run: df -B1 "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
+
+      - name: Restore and validate public mirror snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          args=(restore --provider "$PROVIDER_ID" --repository "${{ github.repository }}")
+          if [ -n "$GENERATION" ] || [ -n "$MANIFEST_SHA256" ]; then
+            args+=(--generation "$GENERATION" --manifest-sha256 "$MANIFEST_SHA256")
+          fi
+          python .github/scripts/mirror_snapshots.py "${args[@]}"
+
+      - name: Record recovered inventory
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          import os
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, ".github/scripts")
+          from mirror_snapshots import ORIGIN_NAME, source_files
+
+          provider = os.environ["PROVIDER_ID"]
+          source = Path("mirror/providers") / provider
+          origin = json.loads((source / ORIGIN_NAME).read_text())
+          files = list(source_files(source))
+          unique = {}
+          for path in files:
+              info = path.stat()
+              unique[(info.st_dev, info.st_ino)] = info.st_size
+          print(f"### {provider} recovery")
+          print(f"- Generation: {origin['pointer']['generation']}")
+          print(f"- Verified manifest SHA256: {origin['pointer']['manifest_sha256']}")
+          print(f"- Restored files: {len(files)}")
+          print(f"- Logical payload bytes: {sum(path.stat().st_size for path in files)}")
+          print(f"- Unique payload bytes: {sum(unique.values())}")
+          print(f"- Hard-link paths: {len(files) - len(unique)}")
+          PY
