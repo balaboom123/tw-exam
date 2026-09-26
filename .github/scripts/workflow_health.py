@@ -215,12 +215,14 @@ def _scheduled_workflows(repository: str) -> list[dict]:
 
 
 def _workflow_timeout_minutes(path: Path) -> int:
+    budgets: list[int] = []
     for line in path.read_text(encoding="utf-8").splitlines():
-        if "timeout-minutes:" in line:
-            value = line.partition("timeout-minutes:")[2].strip()
-            if value.isdecimal():
-                return int(value)
-    return 120
+        for key in ("timeout-minutes:", "timeout_minutes:"):
+            if key in line:
+                value = line.partition(key)[2].strip()
+                if value.isdecimal():
+                    budgets.append(int(value))
+    return max(budgets, default=120)
 
 
 def _latest_run(repository: str, workflow_id: int) -> dict | None:

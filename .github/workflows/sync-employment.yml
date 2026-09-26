@@ -1,0 +1,50 @@
+name: sync-employment
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 5 * * 6"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: ${{ matrix.provider_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - provider_id: moea_recruit
+            cache_prefix: moea-recruit
+            timeout_minutes: 120
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: cpc_recruit
+            cache_prefix: cpc-recruit
+            timeout_minutes: 120
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: post_recruit
+            cache_prefix: post-recruit
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: taipower_recruit
+            cache_prefix: taipower-recruit
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: twc_recruit
+            cache_prefix: twc-recruit
+            timeout_minutes: 120
+            publish: false
+            prune_orphaned_mirror: false
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: ${{ matrix.provider_id }}
+      cache_prefix: ${{ matrix.cache_prefix }}
+      timeout_minutes: ${{ matrix.timeout_minutes }}
+      publish: ${{ matrix.publish }}
+      prune_orphaned_mirror: ${{ matrix.prune_orphaned_mirror }}

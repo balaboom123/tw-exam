@@ -1,0 +1,80 @@
+name: sync-education
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 5 * * 2"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: ${{ matrix.provider_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - provider_id: hce_cmu
+            cache_prefix: hce-cmu
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: hce_nsysu
+            cache_prefix: hce-nsysu
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: hce_nthu
+            cache_prefix: hce-nthu
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: hce_tcu
+            cache_prefix: hce-tcu
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_qual
+            cache_prefix: teacher-qual
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_recruit_newtaipei
+            cache_prefix: teacher-recruit-newtaipei
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_recruit_tainan
+            cache_prefix: teacher-recruit-tainan
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_recruit_taipei_elementary
+            cache_prefix: teacher-recruit-taipei-elementary
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_recruit_taipei_junior
+            cache_prefix: teacher-recruit-taipei-junior
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_recruit_taoyuan_elementary
+            cache_prefix: teacher-recruit-taoyuan-elementary
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: teacher_recruit_kaohsiung
+            cache_prefix: teacher-recruit-kaohsiung
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: ${{ matrix.provider_id }}
+      cache_prefix: ${{ matrix.cache_prefix }}
+      timeout_minutes: ${{ matrix.timeout_minutes }}
+      publish: ${{ matrix.publish }}
+      prune_orphaned_mirror: ${{ matrix.prune_orphaned_mirror }}

@@ -26,9 +26,8 @@ python "${repo_root}/scripts/check_sync_floor.py" --repo-root "${repo_root}" -- 
 python "${repo_root}/scripts/validate_publication.py"
 git commit -m "$commit_message"
 
-# Scheduled provider jobs intentionally run in parallel. If another provider
-# publishes while this job is syncing, replay this narrow commit on the new
-# main tip before retrying the push.
+# Site writers are queued, but main can still advance through a maintainer
+# change. Replay this narrow commit on the new main tip before retrying.
 for attempt in 1 2 3 4 5; do
   if git push origin HEAD:main; then
     exit 0

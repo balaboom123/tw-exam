@@ -790,15 +790,18 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
         provider_failures.extend(sync_failures)
         failures = sync_failures
-    if getattr(args, "download_affected_bundles", False) and affected_canonical_ids:
+    download_bundles = getattr(args, "download_affected_bundles", False)
+    restore_new_files = getattr(args, "restore_new_public_files", False)
+    if (download_bundles or restore_new_files) and affected_canonical_ids:
         site = site_paths(_repo_root_from_data_dir(args.data_dir), args.site_id)
         existing_bundles = load_site_bundles(site)
-        _download_affected_bundles(
-            _resolve_sync_bundle_dir(args),
-            existing_bundles,
-            affected_canonical_ids,
-            args.release_tag,
-        )
+        if download_bundles:
+            _download_affected_bundles(
+                _resolve_sync_bundle_dir(args),
+                existing_bundles,
+                affected_canonical_ids,
+                args.release_tag,
+            )
         restoration_failures = _restore_new_public_bundle_files(
             args, provider, provider_normalized, existing_bundles, affected_canonical_ids,
         )
@@ -990,6 +993,13 @@ def command_migrate_catalog(args: argparse.Namespace) -> int:
 def command_publish_site(args: argparse.Namespace) -> int:
     try:
         affected_canonical_ids, canonical_aliases = _load_publish_plan(args.publish_plan, args.site_id)
+        if getattr(args, "download_affected_bundles", False):
+            site = site_paths(args.repo_root, args.site_id)
+            existing_bundles = load_site_bundles(site)
+            affected_ids = affected_canonical_ids
+            if affected_ids is None:
+                affected_ids = {bundle.bundle_id or bundle.canonical_id for bundle in existing_bundles}
+            _download_affected_bundles(site.bundle_dir, existing_bundles, affected_ids, "")
         publish_site(
             args.repo_root,
             site_id=args.site_id,
@@ -1101,6 +1111,10 @@ def build_parser() -> argparse.ArgumentParser:
         sync.add_argument("--mirror-base-url", default="")
         sync.add_argument("--download-attachments", action="store_true", default=False)
         sync.add_argument("--download-affected-bundles", action="store_true", default=False)
+        sync.add_argument(
+            "--restore-new-public-files", action="store_true", default=False,
+            help="Restore retained source files for newly eligible bundles without downloading release ZIPs.",
+        )
         sync.add_argument("--publish-plan-output", type=Path, default=None)
         sync.add_argument("--provider", default="moex")
         sync.add_argument("--site-id", default="default")
@@ -1179,6 +1193,10 @@ def build_parser() -> argparse.ArgumentParser:
     publish_site_parser.add_argument("--site-id", default="default")
     publish_site_parser.add_argument("--repository", default="example/repo")
     publish_site_parser.add_argument("--publish-plan", type=Path, default=None)
+    publish_site_parser.add_argument(
+        "--download-affected-bundles", action="store_true", default=False,
+        help="Download previous affected release ZIPs using the current site assignments before publishing.",
+    )
     publish_site_parser.set_defaults(handler=command_publish_site)
 
     migrate_parser = subparsers.add_parser(

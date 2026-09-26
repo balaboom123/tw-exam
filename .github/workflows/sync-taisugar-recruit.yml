@@ -1,9 +1,7 @@
 name: sync-taisugar-recruit
 
 on:
-  # The corrected provider discovers seven additional historical events. Keep
-  # this manual until that reviewed migration can rebuild the default site and
-  # publish its release asset in the same operator-controlled change.
+  # Keep this manual and provider-only until its historical migration is reviewed.
   workflow_dispatch:
 
 permissions:
@@ -11,43 +9,9 @@ permissions:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
-    timeout-minutes: 120
-    concurrency:
-      group: taisugar-recruit
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-
-      - name: Restore mirror directory
-        uses: actions/cache/restore@v6
-        with:
-          path: mirror
-          key: taisugar-recruit-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            taisugar-recruit-mirror-
-
-      - name: Run Taisugar Recruit sync
-        run: python -m app sync-full --provider taisugar_recruit --site-id default
-
-      - name: Save mirror directory
-        if: '!cancelled()'
-        uses: actions/cache/save@v6
-        with:
-          path: mirror
-          key: taisugar-recruit-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Commit regenerated Taisugar Recruit provider data
-        # sync-full writes the papers it did fetch and records the ones it could
-        # not, then exits non-zero. Gating this step on success discarded the
-        # whole refresh whenever one upstream file was unavailable, and kept the
-        # failure record out of the repository where it could be acted on.
-        if: '!cancelled()'
-        run: >-
-          bash .github/scripts/commit-and-push.sh "chore: refresh Taisugar Recruit provider data" data/providers/taisugar_recruit
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: taisugar_recruit
+      cache_prefix: taisugar-recruit
+      timeout_minutes: 120
+      publish: false

@@ -21,42 +21,14 @@ on:
     types: [completed]
     workflows:
       - audit-recent
-      - sync-ceec-ast
-      - sync-ceec-gsat
-      - sync-cpc-recruit
+      - sync-admissions
+      - sync-certifications
+      - sync-education
+      - sync-employment
       - sync-full
-      - sync-gept-cert
-      - sync-hakka-cert
-      - sync-hce-cmu
-      - sync-hce-nsysu
-      - sync-hce-nthu
-      - sync-hce-tcu
       - sync-incremental
-      - sync-ipas-cert
-      - sync-jlpt-cert
-      - sync-moea-recruit
-      - sync-post-recruit
-      - sync-rcpet-cap
-      - sync-sfi-cert
-      - sync-special-admission
-      - sync-tabf-cert
-      - sync-taigi-cert
-      - sync-taipower-recruit
       - sync-taisugar-recruit
-      - sync-tcte-tve
-      - sync-teacher-qual
       - sync-teacher-recruit-central-alliance
-      - sync-teacher-recruit-kaohsiung
-      - sync-teacher-recruit-newtaipei
-      - sync-teacher-recruit-tainan
-      - sync-teacher-recruit-taipei-elementary
-      - sync-teacher-recruit-taipei-junior
-      - sync-teacher-recruit-taoyuan-elementary
-      - sync-tii-cert
-      - sync-tocfl-cert
-      - sync-tqc-cert
-      - sync-twc-recruit
-      - sync-wdasec-skill
   # Backstop: rebuilds main when the triggers above miss a data-writing run.
   schedule:
     - cron: "20 3 * * *"

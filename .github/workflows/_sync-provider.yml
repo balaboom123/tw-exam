@@ -15,21 +15,27 @@ on:
       publish:
         type: boolean
         default: true
-      download_affected_bundles:
+      prune_orphaned_mirror:
         type: boolean
         default: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   sync:
-    name: ${{ inputs.provider_id }}
+    name: ${{ inputs.provider_id }} sync
     runs-on: ubuntu-latest
     timeout-minutes: ${{ inputs.timeout_minutes }}
     concurrency:
       group: sync-${{ inputs.provider_id }}
+      queue: max
       cancel-in-progress: false
+    outputs:
+      base: ${{ steps.baseline.outputs.sha }}
+      snapshot: ${{ steps.snapshot.outcome == 'success' }}
+      artifact_name: ${{ steps.baseline.outputs.artifact_name }}
+      cache_key: ${{ steps.baseline.outputs.cache_key }}
     env:
       PROVIDER_ID: ${{ inputs.provider_id }}
     steps:
@@ -41,27 +47,45 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Start timer
-        id: timer
-        run: echo "started=$(date +%s)" >> "$GITHUB_OUTPUT"
+      - name: Record sync baseline
+        id: baseline
+        env:
+          CACHE_KEY: ${{ inputs.cache_prefix }}-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+          ARTIFACT_NAME: provider-sync-${{ inputs.provider_id }}-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "started=$(date +%s)" >> "$GITHUB_OUTPUT"
+          echo "cache_key=$CACHE_KEY" >> "$GITHUB_OUTPUT"
+          echo "artifact_name=$ARTIFACT_NAME" >> "$GITHUB_OUTPUT"
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          import os
+          from pathlib import Path
+
+          path = Path("data/providers") / os.environ["PROVIDER_ID"] / "index.json"
+          index = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+          print(f"events={len(index.get('raw_events', []))}")
+          print(f"papers={len(index.get('papers', []))}")
+          PY
 
       - name: Restore mirror directory
         uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: ${{ inputs.cache_prefix }}-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ steps.baseline.outputs.cache_key }}
           restore-keys: |
             ${{ inputs.cache_prefix }}-mirror-
 
       - name: Run provider sync
         id: sync
         continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           args=(sync-full --provider "$PROVIDER_ID" --site-id default --publish-plan-output .tmp/site-publish-plan.json)
-          if [ "${{ inputs.download_affected_bundles }}" = "true" ]; then
-            args+=(--download-affected-bundles)
+          if [ "${{ inputs.publish }}" = "true" ]; then
+            args+=(--restore-new-public-files)
+          fi
+          if [ "${{ inputs.prune_orphaned_mirror }}" = "true" ]; then
+            args+=(--prune-orphaned-mirror)
           fi
           python -m app "${args[@]}"
 
@@ -70,41 +94,29 @@ jobs:
         uses: actions/cache/save@v6
         with:
           path: mirror
-          key: ${{ inputs.cache_prefix }}-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ steps.baseline.outputs.cache_key }}
 
-      - name: Publish affected default-site bundles
-        if: ${{ inputs.publish && steps.sync.outcome == 'success' }}
-        run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json
-
-      - name: Ensure release exists
-        if: ${{ inputs.publish && steps.sync.outcome == 'success' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/release_assets.py ensure
-
-      - name: Upload downloadable bundles
-        id: upload
-        if: ${{ inputs.publish && steps.sync.outcome == 'success' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/release_assets.py upload
-
-      - name: Commit provider and site state
-        if: ${{ inputs.publish && steps.sync.outcome == 'success' && steps.upload.outcome == 'success' }}
-        run: >-
-          bash .github/scripts/commit-and-push.sh "chore: refresh $PROVIDER_ID provider data" "data/providers/$PROVIDER_ID" data/sites/default
-
-      - name: Commit provider state
-        if: ${{ !inputs.publish && steps.sync.outcome == 'success' }}
-        run: >-
-          bash .github/scripts/commit-and-push.sh "chore: refresh $PROVIDER_ID provider data" "data/providers/$PROVIDER_ID"
+      - name: Retain provider snapshot and failure evidence
+        id: snapshot
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ steps.baseline.outputs.artifact_name }}
+          path: |
+            data/providers/${{ inputs.provider_id }}
+            .tmp/site-publish-plan.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Summarize provider sync
         if: always()
         env:
           SYNC_OUTCOME: ${{ steps.sync.outcome }}
           PUBLISH: ${{ inputs.publish }}
-          STARTED: ${{ steps.timer.outputs.started }}
+          STARTED: ${{ steps.baseline.outputs.started }}
+          PREVIOUS_EVENTS: ${{ steps.baseline.outputs.events }}
+          PREVIOUS_PAPERS: ${{ steps.baseline.outputs.papers }}
         run: |
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json
@@ -113,19 +125,105 @@ jobs:
           import time
 
           provider = os.environ["PROVIDER_ID"]
-          path = Path("data/providers") / provider / "sync-failures.json"
+          state = Path("data/providers") / provider
+          path = state / "sync-failures.json"
           failures = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else []
+          index_path = state / "index.json"
+          index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.is_file() else {}
+          events = len(index.get("raw_events", []))
+          papers = len(index.get("papers", []))
           mirror = Path("mirror/providers") / provider
           mirror_bytes = sum(file.stat().st_size for file in mirror.rglob("*") if file.is_file()) if mirror.exists() else 0
           started = int(os.environ.get("STARTED") or time.time())
           print(f"### {provider}")
           print(f"- Sync: {os.environ.get('SYNC_OUTCOME') or 'not started'}")
           print(f"- Site publication requested: {os.environ['PUBLISH']}")
+          print(f"- Events: {events} (change: {events - int(os.environ.get('PREVIOUS_EVENTS') or events):+d})")
+          print(f"- Papers: {papers} (change: {papers - int(os.environ.get('PREVIOUS_PAPERS') or papers):+d})")
           print(f"- Current unresolved failures: {len(failures)}")
           print(f"- Mirrored bytes: {mirror_bytes}")
-          print(f"- Wall time: {int(time.time()) - started} seconds")
+          print(f"- Sync wall time: {int(time.time()) - started} seconds")
           PY
 
       - name: Surface sync failure
         if: ${{ steps.sync.outcome == 'failure' }}
         run: exit 1
+
+  publish:
+    name: ${{ inputs.provider_id }} publication
+    needs: sync
+    # A failed public sync cannot publish. Provider-only failures still reach
+    # the commit guard for diagnosis; it refuses unresolved partial state.
+    if: ${{ !cancelled() && needs.sync.outputs.snapshot == 'true' && (needs.sync.result == 'success' || !inputs.publish) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    concurrency:
+      group: site-publication-default
+      queue: max
+      cancel-in-progress: false
+    env:
+      PROVIDER_ID: ${{ inputs.provider_id }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Download provider snapshot
+        uses: actions/download-artifact@v8
+        with:
+          name: ${{ needs.sync.outputs.artifact_name }}
+          path: .tmp/provider-snapshot
+
+      - name: Apply snapshot against current main
+        env:
+          BASE_SHA: ${{ needs.sync.outputs.base }}
+        run: |
+          args=(--provider "$PROVIDER_ID" --base "$BASE_SHA" --snapshot .tmp/provider-snapshot)
+          if [ "${{ inputs.publish }}" = "true" ]; then
+            args+=(--require-publish-plan)
+          fi
+          python .github/scripts/apply_provider_snapshot.py "${args[@]}"
+
+      - name: Restore this sync's mirror
+        if: ${{ inputs.publish }}
+        uses: actions/cache/restore@v6
+        with:
+          path: mirror
+          key: ${{ needs.sync.outputs.cache_key }}
+          fail-on-cache-miss: true
+
+      - name: Publish affected default-site bundles
+        if: ${{ inputs.publish }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json --download-affected-bundles
+
+      - name: Ensure release exists
+        if: ${{ inputs.publish }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release_assets.py ensure
+
+      - name: Upload downloadable bundles
+        id: upload
+        if: ${{ inputs.publish }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/release_assets.py upload
+
+      - name: Commit provider and site state
+        if: ${{ inputs.publish && steps.upload.outcome == 'success' }}
+        run: >-
+          bash .github/scripts/commit-and-push.sh "chore: refresh $PROVIDER_ID provider data" "data/providers/$PROVIDER_ID" data/sites/default
+
+      - name: Commit provider state
+        if: ${{ !inputs.publish }}
+        run: >-
+          bash .github/scripts/commit-and-push.sh "chore: refresh $PROVIDER_ID provider data" "data/providers/$PROVIDER_ID"
