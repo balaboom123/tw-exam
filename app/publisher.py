@@ -38,7 +38,11 @@ T = TypeVar("T")
 
 
 def _write_split_by_year(
-    directory: Path, items: list[T], year_of: Callable[[T], int]
+    directory: Path,
+    items: list[T],
+    year_of: Callable[[T], int],
+    *,
+    exclude_fields: tuple[str, ...] = (),
 ) -> dict[int, list[T]]:
     directory.mkdir(parents=True, exist_ok=True)
     by_year: dict[int, list[T]] = {}
@@ -46,8 +50,14 @@ def _write_split_by_year(
         by_year.setdefault(year_of(item), []).append(item)
     existing = {int(f.stem) for f in directory.glob("*.json") if f.stem.isdigit()}
     for year_ad, year_items in sorted(by_year.items()):
+        records = to_plain_data(year_items)
+        if exclude_fields:
+            records = [
+                {key: value for key, value in record.items() if key not in exclude_fields}
+                for record in records
+            ]
         (directory / f"{year_ad}.json").write_text(
-            json.dumps(to_plain_data(year_items), ensure_ascii=False), encoding="utf-8"
+            json.dumps(records, ensure_ascii=False), encoding="utf-8"
         )
     for stale_year in existing - by_year.keys():
         (directory / f"{stale_year}.json").unlink(missing_ok=True)
@@ -110,7 +120,10 @@ def write_provider_state(
     provider.data_dir.mkdir(parents=True, exist_ok=True)
     _write_split_by_year(provider.exams_dir, raw_pages, lambda page: page.year_ad)
     _write_split_by_year(
-        provider.papers_dir, normalized.papers, lambda paper: paper.year_roc + 1911
+        provider.papers_dir,
+        normalized.papers,
+        lambda paper: paper.year_roc + 1911,
+        exclude_fields=("download_url_bundle",),
     )
     provider.review_queue_path.write_text(
         json.dumps(

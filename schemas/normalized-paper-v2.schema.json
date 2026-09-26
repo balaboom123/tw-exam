@@ -17,6 +17,7 @@
     "paper_code": {"type": "string"},
     "file_type": {"type": "string"},
     "source_exam_id": {"type": "string"},
+    "download_url_bundle": {"type": "string", "deprecated": true, "description": "Legacy site-derived URL. Scoped provider writers omit it; site state owns current downloads."},
     "bundle_id": {"type": "string", "minLength": 1},
     "domain_id": {"type": "string", "minLength": 1},
     "exam_family_id": {"type": "string", "minLength": 1},
