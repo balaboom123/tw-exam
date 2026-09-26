@@ -1,0 +1,80 @@
+name: sync-certifications
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 5 * * 3"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: ${{ matrix.provider_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - provider_id: gept_cert
+            cache_prefix: gept-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: hakka_cert
+            cache_prefix: hakka-cert
+            timeout_minutes: 360
+            publish: false
+            prune_orphaned_mirror: true
+          - provider_id: ipas_cert
+            cache_prefix: ipas-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: jlpt_cert
+            cache_prefix: jlpt-cert
+            timeout_minutes: 30
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: sfi_cert
+            cache_prefix: sfi-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: tabf_cert
+            cache_prefix: tabf-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: taigi_cert
+            cache_prefix: taigi-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: tii_cert
+            cache_prefix: tii-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: tocfl_cert
+            cache_prefix: tocfl-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: tqc_cert
+            cache_prefix: tqc-cert
+            timeout_minutes: 30
+            publish: false
+            prune_orphaned_mirror: false
+          - provider_id: wdasec_skill
+            cache_prefix: wdasec-skill
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: ${{ matrix.provider_id }}
+      cache_prefix: ${{ matrix.cache_prefix }}
+      timeout_minutes: ${{ matrix.timeout_minutes }}
+      publish: ${{ matrix.publish }}
+      prune_orphaned_mirror: ${{ matrix.prune_orphaned_mirror }}

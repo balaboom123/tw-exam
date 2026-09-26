@@ -12,7 +12,13 @@ Workflow filenames are implementation details; ownership determines what they ma
 
 Provider workflows may pass a scoped publish plan to the site publisher, which owns site state and release assets. They must not invent release assignments. Site workflows must not parse official sources or mutate provider identity. Deploy workflows consume site feeds rather than raw provider crawl state.
 
-Provider sync workflows restore the latest mirror cache by provider prefix and save a new run-specific cache after a sync attempt, including a failed attempt. This preserves downloaded files when a run fails after fetching them. CEEC AST calls `_sync-provider.yml`, which publishes affected bundles and commits provider and site state together only after release upload succeeds. Actions cache remains subject to eviction, so this is an interim recovery measure rather than durable mirror storage. Later provider callers must sequence writes to the shared site metadata.
+Scheduled non-MOEX providers use matrix callers grouped by source topic. Each caller bounds concurrent provider runs and names each matrix leg by provider. Manual-only sources retain manual wrappers, and MOEX retains its full, probe, and recent-audit procedures. The workflow YAML owns membership, schedules, and timeout budgets; quarantine remains owned by the catalog and does not stop provider syncs.
+
+`_sync-provider.yml` separates sync from publication. The sync job restores the latest mirror cache by provider prefix, saves a fresh run-specific cache after an attempted sync, and retains provider state and its publish plan as an artifact. Its summary records event and paper count changes, unresolved failures, mirrored bytes, and elapsed sync time. Failed public syncs cannot enter publication; provider-only failures may reach the commit guard for diagnosis.
+
+Publication jobs and the MOEX writers share a queued concurrency group. Each writer checks out current `main` when it starts. Before applying a provider snapshot, publication compares that provider's committed state with the sync baseline and refuses to overwrite a newer provider update. It preserves changes from other providers, restores the exact sync mirror cache, and downloads affected existing ZIPs using current site assignments. Provider and site state are committed together only after release upload succeeds. Provider-only commits stage no site paths.
+
+Artifact and cache names are carried as sync outputs so a publication-only retry uses the original inputs. Missing exact caches stop public publication. Actions cache remains subject to eviction, so this is an interim recovery measure rather than durable mirror storage. Pages reacts to caller completion, with its existing concurrency control and daily backstop.
 
 ## Generated-state commit guard
 
@@ -41,7 +47,7 @@ the Python and catalog gates.
 
 `workflow-health` runs once daily. It inspects each scheduled workflow's
 latest run and keeps one labelled issue for a failure, timeout, or cancellation
-that lasted at least the workflow's timeout. Short cancellations from
+that lasted at least the workflow's largest configured timeout, including matrix budgets. Short cancellations from
 superseded Pages deployments are ignored. A later success closes a failure
 issue; repeated failures do not add notification comments.
 

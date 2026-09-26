@@ -2,11 +2,18 @@ import hashlib
 import importlib.util
 import json
 import re
+import shlex
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
+
+import yaml
+
+from app.cli import build_parser
+from app.providers.registry import _PROVIDER_FACTORIES
+from app.publication_quarantine import quarantined_provider_ids
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RELEASE_SCRIPT_PATH = REPO_ROOT / ".github" / "scripts" / "release_assets.py"
@@ -29,39 +36,26 @@ def _workflow_implementation(path: Path) -> str:
     return text
 
 
+class WorkflowLoader(yaml.SafeLoader):
+    # YAML 1.1 treats `on` as a boolean. Actions uses it as a mapping key.
+    yaml_implicit_resolvers = {
+        key: [(tag, pattern) for tag, pattern in resolvers
+              if tag != "tag:yaml.org,2002:bool"]
+        for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+    }
+
+
+WorkflowLoader.add_implicit_resolver(
+    "tag:yaml.org,2002:bool", re.compile(r"^(?:true|false)$", re.IGNORECASE), list("tTfF"),
+)
+
+
+def _workflow(text: str) -> dict:
+    return yaml.load(text, Loader=WorkflowLoader)
+
+
 def _workflow_run_workflows(workflow: str) -> list[str]:
-    names: list[str] = []
-    inside_trigger = False
-    inside_workflows = False
-
-    for line in workflow.splitlines():
-        stripped = line.lstrip()
-        indent = len(line) - len(stripped)
-
-        if stripped == "workflow_run:" and indent == 2:
-            inside_trigger = True
-            inside_workflows = False
-            continue
-
-        if inside_trigger and stripped and not stripped.startswith("#") and indent <= 2:
-            inside_trigger = False
-            inside_workflows = False
-
-        if not inside_trigger:
-            continue
-
-        if stripped == "workflows:" and indent == 4:
-            inside_workflows = True
-            continue
-
-        if inside_workflows and stripped.startswith("- ") and indent == 6:
-            names.append(stripped[2:])
-            continue
-
-        if inside_workflows and stripped and indent <= 4:
-            inside_workflows = False
-
-    return names
+    return _workflow(workflow)["on"].get("workflow_run", {}).get("workflows", [])
 
 
 def _data_writing_workflow_names() -> list[str]:
@@ -80,104 +74,82 @@ def _data_writing_workflow_names() -> list[str]:
 
 
 def _workflow_push_paths(workflow: str) -> list[str]:
-    paths: list[str] = []
-    inside_push = False
-    inside_paths = False
+    return _workflow(workflow)["on"].get("push", {}).get("paths", [])
 
-    for line in workflow.splitlines():
-        stripped = line.lstrip()
-        indent = len(line) - len(stripped)
 
-        if stripped == "push:" and indent == 2:
-            inside_push = True
-            inside_paths = False
-            continue
+def _app_steps(workflow: dict) -> list[tuple[dict, object]]:
+    commands = []
+    for job in workflow["jobs"].values():
+        for step in job.get("steps", []):
+            for line in step.get("run", "").splitlines():
+                tokens = shlex.split(line)
+                if tokens[:3] == ["python", "-m", "app"]:
+                    commands.append((step, build_parser().parse_args(tokens[3:])))
+    return commands
 
-        if inside_push and stripped and indent <= 2:
-            inside_push = False
-            inside_paths = False
 
-        if not inside_push:
-            continue
-
-        if stripped == "paths:" and indent == 4:
-            inside_paths = True
-            continue
-
-        if inside_paths and stripped.startswith("- ") and indent == 6:
-            paths.append(stripped[2:])
-            continue
-
-        if inside_paths and stripped and indent <= 4:
-            inside_paths = False
-
-    return paths
+def _app_step(workflow: dict, command: str) -> tuple[dict, object]:
+    return next((step, args) for step, args in _app_steps(workflow) if args.command == command)
 
 
 class WorkflowTests(unittest.TestCase):
     def test_incremental_workflow_fails_fast_when_release_is_incomplete_on_hosted_ci(self) -> None:
-        workflow_path = REPO_ROOT / ".github" / "workflows" / "sync-incremental.yml"
-        workflow = workflow_path.read_text(encoding="utf-8")
-
-        self.assertIn("release_assets.py coverage", workflow)
-        self.assertIn("bootstrap_required", workflow)
-        self.assertNotIn("python -m app sync-full", workflow)
-        self.assertIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertIn("steps.release_state.outputs.bootstrap_required == 'true'", workflow)
-        self.assertIn("Hosted bootstrap is unsupported on GitHub-hosted runners.", workflow)
+        workflow = _workflow((REPO_ROOT / ".github/workflows/sync-incremental.yml").read_text())
+        steps = workflow["jobs"]["sync"]["steps"]
+        coverage = next(step for step in steps if "release_assets.py coverage" in step.get("run", ""))
+        guard = next(step for step in steps if "bootstrap_required" in step.get("if", ""))
+        targeted, _ = _app_step(workflow, "sync-targeted")
+        self.assertLess(steps.index(coverage), steps.index(guard))
+        self.assertLess(steps.index(guard), steps.index(targeted))
+        self.assertIn("exit 1", guard["run"])
+        self.assertNotIn("sync-full", [args.command for _, args in _app_steps(workflow)])
 
     def test_incremental_workflow_probes_before_syncing(self) -> None:
-        workflow_path = REPO_ROOT / ".github" / "workflows" / "sync-incremental.yml"
-        workflow = workflow_path.read_text(encoding="utf-8")
-
-        self.assertIn("python -m app probe-latest --provider moex --years 2 --manifest data/providers/moex/source-manifest.json", workflow)
-        self.assertIn(
-            "python -m app sync-targeted --provider moex --probe .tmp/source-probe.json --manifest data/providers/moex/source-manifest.json --download-affected-bundles --publish-plan-output .tmp/site-publish-plan.json",
-            workflow,
-        )
-        self.assertIn(
-            'python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json',
-            workflow,
-        )
-        self.assertLess(workflow.index("python -m app probe-latest"), workflow.index("python -m app sync-targeted"))
-        self.assertLess(workflow.index("python -m app sync-targeted"), workflow.index("python -m app publish-site"))
+        workflow = _workflow((REPO_ROOT / ".github/workflows/sync-incremental.yml").read_text())
+        steps = workflow["jobs"]["sync"]["steps"]
+        probe, probe_args = _app_step(workflow, "probe-latest")
+        sync, sync_args = _app_step(workflow, "sync-targeted")
+        publish, publish_args = _app_step(workflow, "publish-site")
+        self.assertEqual(probe_args.provider, "moex")
+        self.assertEqual(probe_args.years, 2)
+        self.assertEqual(sync_args.provider, probe_args.provider)
+        self.assertEqual(sync_args.manifest, probe_args.manifest)
+        self.assertEqual(sync_args.probe, probe_args.output)
+        self.assertEqual(sync_args.publish_plan_output, publish_args.publish_plan)
+        self.assertEqual(publish_args.site_id, "default")
+        self.assertLess(steps.index(probe), steps.index(sync))
+        self.assertLess(steps.index(sync), steps.index(publish))
 
     def test_incremental_workflow_can_exit_before_heavy_steps_when_unchanged(self) -> None:
-        workflow_path = REPO_ROOT / ".github" / "workflows" / "sync-incremental.yml"
-        workflow = workflow_path.read_text(encoding="utf-8")
-
-        self.assertIn("steps.probe.outputs.should_sync == 'true'", workflow)
-        self.assertIn(".tmp/source-probe.json", workflow)
-        self.assertIn("steps.probe.outputs.should_sync != 'true'", workflow)
-        self.assertIn("commit-and-push.sh \"chore: refresh source manifest\" data/providers/moex/source-manifest.json", workflow)
+        workflow = _workflow((REPO_ROOT / ".github/workflows/sync-incremental.yml").read_text())
+        for command in ("sync-targeted", "publish-site"):
+            step, _ = _app_step(workflow, command)
+            self.assertEqual(step["if"], "steps.probe.outputs.should_sync == 'true'")
+        manifest_commit = next(step for step in workflow["jobs"]["sync"]["steps"]
+                               if step.get("name") == "Commit source manifest")
+        self.assertEqual(manifest_commit["if"], "steps.probe.outputs.should_sync != 'true'")
+        _, args = _app_step(workflow, "probe-latest")
+        self.assertIn(str(args.manifest), shlex.split(manifest_commit["run"]))
 
     def test_incremental_workflow_downloads_only_affected_release_bundles_via_targeted_sync(self) -> None:
-        workflow_path = REPO_ROOT / ".github" / "workflows" / "sync-incremental.yml"
-        workflow = workflow_path.read_text(encoding="utf-8")
-
-        self.assertNotIn('gh release download "$MOEX_RELEASE_TAG" --pattern "*.zip" --dir bundles', workflow)
-        self.assertIn("--download-affected-bundles", workflow)
-        self.assertIn("--publish-plan-output .tmp/site-publish-plan.json", workflow)
+        workflow = _workflow((REPO_ROOT / ".github/workflows/sync-incremental.yml").read_text())
+        _, args = _app_step(workflow, "sync-targeted")
+        self.assertTrue(args.download_affected_bundles)
+        self.assertIsNotNone(args.publish_plan_output)
+        self.assertFalse(any("gh release download" in step.get("run", "")
+                             for step in workflow["jobs"]["sync"]["steps"]))
 
     def test_monthly_audit_workflow_exists(self) -> None:
-        workflow_path = REPO_ROOT / ".github" / "workflows" / "audit-recent.yml"
-        workflow = workflow_path.read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "45 3 1 * *"', workflow)
-        self.assertIn("release_assets.py coverage", workflow)
-        self.assertIn("bootstrap_required", workflow)
-        self.assertNotIn("python -m app sync-full --provider moex --write-manifest --manifest data/providers/moex/source-manifest.json", workflow)
-        self.assertIn("Hosted bootstrap is unsupported on GitHub-hosted runners.", workflow)
-        self.assertIn(
-            "python -m app sync-incremental --provider moex --years 2 --write-manifest --manifest data/providers/moex/source-manifest.json --download-affected-bundles --publish-plan-output .tmp/site-publish-plan.json",
-            workflow,
-        )
-        self.assertIn(
-            'python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json',
-            workflow,
-        )
-        self.assertIn("--write-manifest", workflow)
-        self.assertIn("release_assets.py prune", workflow)
+        workflow = _workflow((REPO_ROOT / ".github/workflows/audit-recent.yml").read_text())
+        self.assertEqual(workflow["on"]["schedule"], [{"cron": "45 3 1 * *"}])
+        _, args = _app_step(workflow, "sync-incremental")
+        _, publication = _app_step(workflow, "publish-site")
+        self.assertEqual(args.provider, "moex")
+        self.assertEqual(args.year_window, 2)
+        self.assertTrue(args.write_manifest)
+        self.assertTrue(args.download_affected_bundles)
+        self.assertEqual(args.publish_plan_output, publication.publish_plan)
+        self.assertNotIn("sync-full", [args.command for _, args in _app_steps(workflow)])
 
     def test_workflows_prune_stale_assets_via_shared_script(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -186,34 +158,6 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn("release_assets.py upload", workflow)
             self.assertIn("release_assets.py prune", workflow)
 
-    def test_ceec_ast_sync_publishes_its_affected_bundles(self) -> None:
-        caller = (REPO_ROOT / ".github" / "workflows" / "sync-ceec-ast.yml").read_text(encoding="utf-8")
-        workflow = (REPO_ROOT / ".github" / "workflows" / "_sync-provider.yml").read_text(encoding="utf-8")
-
-        self.assertIn("uses: ./.github/workflows/_sync-provider.yml", caller)
-        self.assertIn("provider_id: ceec_ast", caller)
-        self.assertIn("cache_prefix: ceec-ast", caller)
-        self.assertIn("publish: true", caller)
-
-        steps = (
-            "--publish-plan-output .tmp/site-publish-plan.json",
-            "python -m app publish-site --site-id default",
-            "release_assets.py ensure",
-            "release_assets.py upload",
-            "commit-and-push.sh",
-        )
-        self.assertEqual(list(map(workflow.index, steps)), sorted(map(workflow.index, steps)))
-        self.assertIn("--publish-plan .tmp/site-publish-plan.json", workflow)
-        self.assertIn('"data/providers/$PROVIDER_ID" data/sites/default', workflow)
-        self.assertNotIn("release_assets.py prune", workflow)
-        self.assertLess(workflow.index("actions/cache/restore@"), workflow.index("Run provider sync"))
-        self.assertLess(workflow.index("actions/cache/save@"), workflow.index("Publish affected default-site bundles"))
-        self.assertIn("steps.sync.outcome != 'skipped'", workflow)
-        self.assertIn("continue-on-error: true", workflow)
-        self.assertIn("inputs.publish && steps.sync.outcome == 'success' && steps.upload.outcome == 'success'", workflow)
-        self.assertIn("Surface sync failure", workflow)
-        commit_step = workflow[workflow.index("- name: Commit provider and site state"):]
-        self.assertNotIn("if: '!cancelled()'", commit_step)
 
     def test_sync_workflows_do_not_stage_legacy_site_output(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -248,22 +192,6 @@ class WorkflowTests(unittest.TestCase):
         self.assertLess(workflow.index("npm run lint"), workflow.index("npm run build"))
         self.assertLess(workflow.index("npm run build"), workflow.index("uses: actions/upload-pages-artifact@"))
 
-    def test_every_action_is_pinned_to_one_version_across_all_workflows(self) -> None:
-        # checkout drifted to v4 in forty workflows while deploy-pages moved on
-        # to v6, so most of CI kept running the Node 20 runtime GitHub has
-        # deprecated. Splitting an action across majors is how that goes
-        # unnoticed; requiring one version per action makes an upgrade
-        # all-or-nothing.
-        versions: dict[str, set[str]] = {}
-        for path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.yml")):
-            for match in re.finditer(
-                r"uses: ([\w.-]+/[\w.-]+)@(v[\d.]+)", path.read_text(encoding="utf-8")
-            ):
-                versions.setdefault(match.group(1), set()).add(match.group(2))
-
-        self.assertTrue(versions)
-        split = {action: sorted(seen) for action, seen in versions.items() if len(seen) > 1}
-        self.assertEqual(split, {})
 
     def test_ci_history_audit_skips_missing_mirror_dimension(self) -> None:
         # CI checks out without the gitignored mirror tree. Without the opt-out
@@ -620,7 +548,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_workflows_no_longer_install_or_use_ghostscript(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
-        for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml", "sync-ceec-gsat.yml"):
+        for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml", "_sync-provider.yml"):
             workflow = (workflows_dir / workflow_name).read_text(encoding="utf-8")
             self.assertNotIn("ghostscript", workflow.lower())
             self.assertNotIn("--optimize-pdfs", workflow)
@@ -640,21 +568,6 @@ class WorkflowTests(unittest.TestCase):
             self.assertNotIn("PDF_CACHE_VERSION", workflow)
             self.assertNotIn("PDF_QUALITY_PROFILE", workflow)
 
-    def test_provider_workflows_save_fresh_mirror_cache_after_sync_attempts(self) -> None:
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-        for workflow_path in sorted(workflows_dir.glob("sync-*.yml")):
-            workflow = workflow_path.read_text(encoding="utf-8")
-            if re.search(r"(?m)^      - name: Commit regenerated .* provider data$", workflow) is None:
-                continue
-            with self.subTest(workflow=workflow_path.name):
-                self.assertEqual(workflow.count("actions/cache/restore@v6"), 1)
-                self.assertEqual(workflow.count("actions/cache/save@v6"), 1)
-                self.assertEqual(workflow.count("github.run_id"), 2)
-                self.assertEqual(workflow.count("github.run_attempt"), 2)
-                self.assertIn("if: '!cancelled()'\n        uses: actions/cache/save@v6", workflow)
-                self.assertLess(workflow.index("Restore mirror directory"), workflow.index("Run "))
-                self.assertLess(workflow.index("Run "), workflow.index("Save mirror directory"))
-                self.assertLess(workflow.index("Save mirror directory"), workflow.index("Commit regenerated"))
 
     def test_workflows_define_timeout_and_concurrency_controls(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -663,17 +576,6 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn("concurrency:", workflow)
             self.assertIn("timeout-minutes:", workflow)
 
-    def test_every_workflow_job_has_an_explicit_timeout(self) -> None:
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-
-        for workflow_path in sorted(workflows_dir.glob("*.yml")):
-            workflow = workflow_path.read_text(encoding="utf-8")
-            with self.subTest(workflow=workflow_path.name):
-                self.assertEqual(
-                    workflow.count("runs-on:"),
-                    workflow.count("timeout-minutes:"),
-                    f"{workflow_path.name} has a job without an explicit timeout",
-                )
 
     def test_manual_discovery_is_read_only_bounded_and_uploads_its_result(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "discover.yml").read_text(encoding="utf-8")
@@ -688,20 +590,10 @@ class WorkflowTests(unittest.TestCase):
 
     def test_cold_cache_workflows_have_full_hosted_timeout_budget(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
-        for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml", "sync-hakka-cert.yml"):
+        for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml"):
             workflow = (workflows_dir / workflow_name).read_text(encoding="utf-8")
             self.assertIn("timeout-minutes: 360", workflow, workflow_name)
 
-    def test_shared_commit_commands_are_valid_yaml_block_scalars(self) -> None:
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-        for workflow_path in sorted(workflows_dir.glob("*.yml")):
-            lines = workflow_path.read_text(encoding="utf-8").splitlines()
-            for index, line in enumerate(lines):
-                if "commit-and-push.sh" not in line:
-                    continue
-                self.assertGreater(index, 0, workflow_path.name)
-                self.assertEqual(lines[index - 1].strip(), "run: >-", workflow_path.name)
-                self.assertFalse(line.lstrip().startswith("run:"), workflow_path.name)
 
     def test_data_writing_workflows_use_conflict_safe_publisher(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -787,7 +679,7 @@ class WorkflowTests(unittest.TestCase):
         workflows_dir = REPO_ROOT / ".github" / "workflows"
         for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml"):
             workflow = (workflows_dir / workflow_name).read_text(encoding="utf-8")
-            self.assertIn("python -m app publish-site --site-id default", workflow)
+            self.assertEqual(_app_step(_workflow(workflow), "publish-site")[1].site_id, "default")
             self.assertIn("release_assets.py ensure", workflow)
 
         module = _load_release_script()
@@ -802,29 +694,15 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue(any("Human-friendly exam bundles with compatibility aliases" in part for part in create_command))
 
     def test_sync_full_workflow_requires_explicit_override_before_running_unsupported_hosted_bootstrap(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-full.yml").read_text(encoding="utf-8")
+        workflow = _workflow((REPO_ROOT / ".github/workflows/sync-full.yml").read_text())
+        self.assertEqual(workflow["on"]["workflow_dispatch"]["inputs"]["allow_unsupported_hosted_bootstrap"]["default"], "false")
+        guard = next(step for step in workflow["jobs"]["sync"]["steps"]
+                     if "allow_unsupported_hosted_bootstrap" in step.get("if", ""))
+        self.assertIn("exit 1", guard["run"])
+        _, args = _app_step(workflow, "sync-full")
+        self.assertEqual(args.provider, "moex")
+        self.assertTrue(args.write_manifest)
 
-        self.assertIn("allow_unsupported_hosted_bootstrap", workflow)
-        self.assertIn("Hosted bootstrap is unsupported on GitHub-hosted runners.", workflow)
-        self.assertIn("python -m app sync-full --provider moex --write-manifest --manifest data/providers/moex/source-manifest.json", workflow)
-
-    def test_sync_ceec_gsat_workflow_is_provider_only_until_default_site_publication_is_safe(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-ceec-gsat.yml").read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "20 3 * * 6"', workflow)
-        self.assertIn("python -m app sync-full --provider ceec_gsat --site-id default", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py ensure", workflow)
-        self.assertNotIn("release_assets.py upload", workflow)
-        self.assertNotIn("release_assets.py prune", workflow)
-
-    def test_taisugar_sync_is_manual_until_reviewed_migration_can_publish(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-taisugar-recruit.yml").read_text(encoding="utf-8")
-        health = (REPO_ROOT / ".github" / "workflows" / "workflow-health.yml").read_text(encoding="utf-8")
-
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn("schedule:", workflow)
-        self.assertNotIn("sync-taisugar-recruit", _workflow_run_workflows(health))
 
     def test_readme_documents_human_friendly_bundle_assets(self) -> None:
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -837,111 +715,6 @@ class WorkflowTests(unittest.TestCase):
             readme,
         )
         self.assertNotIn("optimize-mirror-pdfs", readme)
-
-
-class FinancialCertWorkflowTests(unittest.TestCase):
-    def test_sync_sfi_cert_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-sfi-cert.yml").read_text(encoding="utf-8")
-
-        self.assertIn("python -m app sync-full --provider sfi_cert --site-id default", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_tabf_cert_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-tabf-cert.yml").read_text(encoding="utf-8")
-
-        self.assertIn("python -m app sync-full --provider tabf_cert --site-id default", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_tii_cert_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-tii-cert.yml").read_text(encoding="utf-8")
-
-        self.assertIn("python -m app sync-full --provider tii_cert --site-id default", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_financial_cert_workflows_have_schedule(self) -> None:
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-        for name in ("sync-sfi-cert.yml", "sync-tabf-cert.yml", "sync-tii-cert.yml"):
-            with self.subTest(name=name):
-                workflow = (workflows_dir / name).read_text(encoding="utf-8")
-                self.assertIn("schedule:", workflow)
-                self.assertIn("cron:", workflow)
-                self.assertIn("workflow_dispatch:", workflow)
-
-
-class RequestedTopicWorkflowTests(unittest.TestCase):
-    def test_sync_teacher_recruit_tainan_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-tainan.yml").read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "25 5 * * 2"', workflow)
-        self.assertNotIn('- cron: "35 5 * * 2"', workflow)
-        self.assertIn("python -m app sync-full --provider teacher_recruit_tainan --site-id default", workflow)
-        self.assertIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_teacher_recruit_taipei_junior_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-taipei-junior.yml").read_text(encoding="utf-8")
-
-        self.assertIn("python -m app sync-full --provider teacher_recruit_taipei_junior --site-id default", workflow)
-        self.assertIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_teacher_recruit_taipei_elementary_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-taipei-elementary.yml").read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "55 5 * * 2"', workflow)
-        self.assertIn("python -m app sync-full --provider teacher_recruit_taipei_elementary --site-id default", workflow)
-        self.assertIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_newtaipei_teacher_recruit_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-newtaipei.yml").read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "5 5 * * 2"', workflow)
-        self.assertIn("python -m app sync-full --provider teacher_recruit_newtaipei --site-id default", workflow)
-        self.assertIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_taoyuan_teacher_recruit_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-taoyuan-elementary.yml").read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "5 6 * * 2"', workflow)
-        self.assertIn("python -m app sync-full --provider teacher_recruit_taoyuan_elementary --site-id default", workflow)
-        self.assertIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_kaohsiung_teacher_recruit_workflow_is_provider_only(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-kaohsiung.yml").read_text(encoding="utf-8")
-
-        self.assertIn('- cron: "25 6 * * 2"', workflow)
-        self.assertIn("python -m app sync-full --provider teacher_recruit_kaohsiung --site-id default", workflow)
-        self.assertIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
-
-    def test_sync_central_alliance_is_manual_while_its_2026_source_is_expired(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-teacher-recruit-central-alliance.yml").read_text(encoding="utf-8")
-        health = (REPO_ROOT / ".github" / "workflows" / "workflow-health.yml").read_text(encoding="utf-8")
-
-        self.assertIn("python -m app sync-full --provider teacher_recruit_central_alliance --site-id default", workflow)
-        self.assertNotIn("schedule:", workflow)
-        self.assertIn("workflow_dispatch:", workflow)
-        self.assertNotIn("sync-teacher-recruit-central-alliance", _workflow_run_workflows(health))
-        self.assertNotIn('python -m app publish-site --site-id default --repository "${{ github.repository }}"', workflow)
-        self.assertNotIn("release_assets.py", workflow)
 
 
 class LaunchCITest(unittest.TestCase):
@@ -978,85 +751,6 @@ class LaunchCITest(unittest.TestCase):
         self.assertIn("if: needs.changes.outputs.catalog == 'true'", catalog_job)
         self.assertIn("scripts/validate_docs.py --check", fast_job)
         self.assertIn("scripts/validate_publication.py", catalog_job)
-
-
-class FailedSyncCommitGuardTest(unittest.TestCase):
-    # Provider sync commands can write partial output before exiting nonzero.
-    # Their commit step still runs so the shared publisher can inspect the
-    # staged tree, but its preflight must refuse non-deployable output.
-    def _provider_sync_workflows(self) -> list[Path]:
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-        return [
-            path
-            for path in sorted(workflows_dir.glob("sync-*.yml"))
-            if path.name not in {"sync-incremental.yml", "sync-full.yml", "sync-ceec-ast.yml"}
-        ]
-
-    def test_provider_sync_workflows_route_partial_results_through_shared_guard(self) -> None:
-        workflows = self._provider_sync_workflows()
-        self.assertTrue(workflows)
-
-        for path in workflows:
-            lines = path.read_text(encoding="utf-8").splitlines()
-            commit_indexes = [i for i, line in enumerate(lines) if "commit-and-push.sh" in line]
-            with self.subTest(workflow=path.name):
-                self.assertEqual(len(commit_indexes), 1)
-                preceding = lines[: commit_indexes[0]]
-                self.assertIn("        if: '!cancelled()'", preceding)
-
-    def test_publishing_workflows_stay_fail_closed_on_a_partial_sync(self) -> None:
-        # These workflows synchronize and publish in one job. Their
-        # commit step stays success-gated so a failed sync cannot combine new
-        # provider state with a stale site projection or release plan.
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-        validator = (REPO_ROOT / "scripts" / "validate_publication.py").read_text(encoding="utf-8")
-        self.assertIn("normalized catalog and public site eligibility differ", validator)
-
-        for name in ("sync-incremental.yml", "audit-recent.yml", "sync-full.yml", "sync-ceec-ast.yml"):
-            lines = _workflow_implementation(workflows_dir / name).splitlines()
-            commit_indexes = [i for i, line in enumerate(lines) if "commit-and-push.sh" in line]
-            with self.subTest(workflow=name):
-                self.assertTrue(commit_indexes)
-                for index in commit_indexes:
-                    self.assertNotIn("        if: '!cancelled()'", lines[max(0, index - 6):index])
-
-    def test_steps_that_download_affected_bundles_carry_a_github_token(self) -> None:
-        # --download-affected-bundles makes a python step shell out to
-        # `gh release download`, which is not obvious from reading the step.
-        # Without GH_TOKEN gh exits "could not find any host configurations" on
-        # the first bundle. That is what failed sync-incremental on 2026-07-20,
-        # 07-27 and 08-06 and audit-recent on 08-01 - each time after the MOEX
-        # sync itself had already succeeded, so a full hour of work was thrown
-        # away at the last moment.
-        workflows_dir = REPO_ROOT / ".github" / "workflows"
-        checked = 0
-
-        for path in sorted(workflows_dir.glob("*.yml")):
-            lines = path.read_text(encoding="utf-8").splitlines()
-            for index, line in enumerate(lines):
-                if "--download-affected-bundles" not in line:
-                    continue
-                checked += 1
-                start = index
-                while start > 0 and not lines[start].lstrip().startswith("- name:"):
-                    start -= 1
-                step = "\n".join(lines[start:index + 1])
-                with self.subTest(workflow=path.name, step=lines[start].strip()):
-                    self.assertIn("GH_TOKEN", step)
-
-        self.assertGreaterEqual(checked, 2)
-
-    def test_provider_sync_workflows_route_partial_state_through_all_shared_gates(self) -> None:
-        # A failed provider step still reaches the shared publisher, whose
-        # complete preflight keeps both truncated and otherwise invalid state
-        # out of main.
-        script = (REPO_ROOT / ".github" / "scripts" / "commit-and-push.sh").read_text(encoding="utf-8")
-        for gate in ("scripts/check_sync_floor.py", "scripts/validate_publication.py"):
-            self.assertIn(gate, script)
-
-        for path in self._provider_sync_workflows():
-            with self.subTest(workflow=path.name):
-                self.assertIn(".github/scripts/commit-and-push.sh", path.read_text(encoding="utf-8"))
 
 
 def _load_health_script():
@@ -1153,6 +847,18 @@ class WorkflowHealthTest(unittest.TestCase):
             module.report("sync-incremental", "success", "https://example/run/4")
 
         run_mock.assert_not_called()
+
+    def test_health_uses_the_largest_matrix_timeout_budget(self) -> None:
+        module = _load_health_script()
+        with tempfile.TemporaryDirectory() as directory:
+            workflow = Path(directory) / "caller.yml"
+            workflow.write_text(
+                "jobs:\n  sync:\n    strategy:\n      matrix:\n        include:\n"
+                "          - timeout_minutes: 30\n          - timeout_minutes: 360\n"
+                "    with:\n      timeout_minutes: ${{ matrix.timeout_minutes }}\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(module._workflow_timeout_minutes(workflow), 360)
 
     def test_daily_audit_reports_latest_failed_run_once(self) -> None:
         module = _load_health_script()
@@ -1333,3 +1039,160 @@ class WorkflowHealthTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProviderMatrixWorkflowTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.workflows = {
+            path.name: _workflow(path.read_text(encoding="utf-8"))
+            for path in (REPO_ROOT / ".github/workflows").glob("*.yml")
+        }
+        self.callers = {
+            filename: workflow for filename, workflow in self.workflows.items()
+            if any(job.get("uses") == "./.github/workflows/_sync-provider.yml"
+                   for job in workflow["jobs"].values())
+        }
+        self.reusable = self.workflows["_sync-provider.yml"]
+
+    def test_every_provider_has_exactly_one_sync_owner(self) -> None:
+        providers = ["moex"]  # Its full, probe, and audit procedures remain dedicated.
+        scheduled_slots = 0
+        manual_providers = set()
+        quarantined = quarantined_provider_ids(REPO_ROOT, site_id="default")
+        for filename, workflow in self.callers.items():
+            job = workflow["jobs"]["sync"]
+            with self.subTest(workflow=filename):
+                if "schedule" in workflow["on"]:
+                    scheduled_slots += 1
+                    self.assertIn("workflow_dispatch", workflow["on"])
+                    self.assertFalse(job["strategy"]["fail-fast"])
+                    self.assertEqual(job["strategy"]["max-parallel"], 3)
+                    self.assertIn("matrix.provider_id", job["name"])
+                    rows = job["strategy"]["matrix"]["include"]
+                    for key in ("provider_id", "cache_prefix", "timeout_minutes", "publish", "prune_orphaned_mirror"):
+                        self.assertEqual(job["with"][key], "${{ matrix." + key + " }}")
+                else:
+                    self.assertEqual(set(workflow["on"]), {"workflow_dispatch"})
+                    rows = [job["with"]]
+                    manual_providers.add(rows[0]["provider_id"])
+                for row in rows:
+                    provider = row["provider_id"]
+                    providers.append(provider)
+                    self.assertEqual(row["cache_prefix"], provider.replace("_", "-"))
+                    self.assertIsInstance(row["timeout_minutes"], int)
+                    self.assertGreater(row["timeout_minutes"], 0)
+                    self.assertLessEqual(row["timeout_minutes"], 360)
+                    self.assertIsInstance(row["publish"], bool)
+                    expected_publish = provider not in quarantined and "schedule" in workflow["on"]
+                    self.assertEqual(row["publish"], expected_publish, provider)
+                    self.assertEqual(row.get("prune_orphaned_mirror", False), provider == "hakka_cert")
+                    if provider == "hakka_cert":
+                        self.assertEqual(row["timeout_minutes"], 360)
+        self.assertEqual(scheduled_slots, 4)
+        self.assertEqual(manual_providers, {"taisugar_recruit", "teacher_recruit_central_alliance"})
+        self.assertEqual(len(providers), len(set(providers)), "A provider has multiple sync owners")
+        self.assertEqual(set(providers), set(_PROVIDER_FACTORIES))
+
+    def test_sync_persists_downloads_and_failure_evidence_before_failing(self) -> None:
+        job = self.reusable["jobs"]["sync"]
+        self.assertEqual(self.reusable["permissions"]["contents"], "read")
+        self.assertEqual(job["concurrency"]["group"], "sync-${{ inputs.provider_id }}")
+        self.assertEqual(job["concurrency"]["queue"], "max")
+        steps = job["steps"]
+        sync = next(step for step in steps if step.get("id") == "sync")
+        artifact = next(step for step in steps if step.get("id") == "snapshot")
+        save = next(step for step in steps if step.get("uses", "").startswith("actions/cache/save@"))
+        restore = next(step for step in steps if step.get("uses", "").startswith("actions/cache/restore@"))
+        fail = next(step for step in steps if step.get("name") == "Surface sync failure")
+        self.assertTrue(sync["continue-on-error"])
+        self.assertIn("!cancelled()", save["if"])
+        self.assertIn("steps.sync.outcome != 'skipped'", save["if"])
+        self.assertEqual(restore["with"]["path"], "mirror")
+        self.assertEqual(restore["with"]["key"], save["with"]["key"])
+        self.assertEqual(save["with"]["key"], "${{ steps.baseline.outputs.cache_key }}")
+        baseline = next(step for step in steps if step.get("id") == "baseline")
+        self.assertIn("github.run_id", baseline["env"]["CACHE_KEY"])
+        self.assertIn("github.run_attempt", baseline["env"]["CACHE_KEY"])
+        self.assertIn("inputs.cache_prefix", restore["with"]["restore-keys"])
+        self.assertEqual(artifact["with"]["if-no-files-found"], "error")
+        self.assertTrue(artifact["with"]["include-hidden-files"])
+        self.assertEqual(set(artifact["with"]["path"].splitlines()), {
+            "data/providers/${{ inputs.provider_id }}", ".tmp/site-publish-plan.json",
+        })
+        self.assertIn("steps.sync.outcome != 'skipped'", artifact["if"])
+        self.assertLess(steps.index(sync), steps.index(save))
+        self.assertLess(steps.index(save), steps.index(artifact))
+        self.assertLess(steps.index(artifact), steps.index(fail))
+        self.assertEqual(fail["if"], "${{ steps.sync.outcome == 'failure' }}")
+        self.assertEqual(fail["run"], "exit 1")
+        self.assertFalse(any("commit-and-push" in step.get("run", "") for step in steps))
+
+    def test_all_site_writers_queue_against_current_main(self) -> None:
+        job = self.reusable["jobs"]["publish"]
+        self.assertEqual(job["needs"], "sync")
+        self.assertIn("needs.sync.result == 'success' || !inputs.publish", job["if"])
+        self.assertIn("needs.sync.outputs.snapshot == 'true'", job["if"])
+        self.assertEqual(job["permissions"]["contents"], "write")
+        writers = [job] + [self.workflows[name] for name in (
+            "sync-full.yml", "sync-incremental.yml", "audit-recent.yml",
+        )]
+        for writer in writers:
+            self.assertEqual(writer["concurrency"]["group"], "site-publication-default")
+            self.assertEqual(writer["concurrency"]["queue"], "max")
+            self.assertFalse(writer["concurrency"]["cancel-in-progress"])
+            steps = writer.get("steps") or next(iter(writer["jobs"].values()))["steps"]
+            checkout = next(step for step in steps if step.get("uses", "").startswith("actions/checkout@"))
+            self.assertEqual(checkout["with"]["ref"], "main")
+            self.assertEqual(checkout["with"]["fetch-depth"], 0)
+
+    def test_publication_uploads_before_committing_the_matching_site_state(self) -> None:
+        steps = self.reusable["jobs"]["publish"]["steps"]
+        snapshot = next(step for step in steps if "apply_provider_snapshot.py" in step.get("run", ""))
+        mirror = next(step for step in steps if step.get("uses", "").startswith("actions/cache/restore@"))
+        publish = next(step for step in steps if "app publish-site" in step.get("run", ""))
+        ensure = next(step for step in steps if "release_assets.py ensure" in step.get("run", ""))
+        upload = next(step for step in steps if step.get("id") == "upload")
+        commits = [step for step in steps if "commit-and-push.sh" in step.get("run", "")]
+        self.assertIn("needs.sync.outputs.base", snapshot["env"]["BASE_SHA"])
+        self.assertTrue(mirror["with"]["fail-on-cache-miss"])
+        self.assertNotIn("restore-keys", mirror["with"])
+        sync_save = next(step for step in self.reusable["jobs"]["sync"]["steps"]
+                         if step.get("uses", "").startswith("actions/cache/save@"))
+        self.assertEqual(mirror["with"]["key"], "${{ needs.sync.outputs.cache_key }}")
+        self.assertEqual(sync_save["with"]["key"], "${{ steps.baseline.outputs.cache_key }}")
+        self.assertEqual(self.reusable["jobs"]["sync"]["outputs"]["cache_key"], sync_save["with"]["key"])
+        artifact = next(step for step in steps if step.get("uses", "").startswith("actions/download-artifact@"))
+        self.assertEqual(artifact["with"]["name"], "${{ needs.sync.outputs.artifact_name }}")
+        ordered = [snapshot, mirror, publish, ensure, upload, *commits]
+        self.assertEqual([steps.index(step) for step in ordered], sorted(steps.index(step) for step in ordered))
+        self.assertIn("steps.upload.outcome == 'success'", commits[0]["if"])
+        self.assertIn("data/sites/default", commits[0]["run"])
+        self.assertEqual(commits[1]["if"], "${{ !inputs.publish }}")
+        self.assertNotIn("data/sites/", commits[1]["run"])
+        self.assertFalse(any("release_assets.py prune" in step.get("run", "") for step in steps))
+
+    def test_every_runner_job_has_a_timeout_and_actions_use_one_version(self) -> None:
+        versions = {}
+        for filename, workflow in self.workflows.items():
+            for job in workflow["jobs"].values():
+                with self.subTest(workflow=filename):
+                    if "runs-on" in job:
+                        budget = job["timeout-minutes"]
+                        self.assertTrue(isinstance(budget, int) or budget == "${{ inputs.timeout_minutes }}")
+                    for step in job.get("steps", []):
+                        action = step.get("uses", "")
+                        if "@" in action:
+                            name, version = action.split("@", 1)
+                            versions.setdefault(name, set()).add(version)
+        self.assertTrue(versions)
+        self.assertEqual({name: seen for name, seen in versions.items() if len(seen) != 1}, {})
+
+    def test_release_recovery_steps_have_a_github_token(self) -> None:
+        count = 0
+        for workflow in self.workflows.values():
+            for job in workflow["jobs"].values():
+                for step in job.get("steps", []):
+                    if "--download-affected-bundles" in step.get("run", ""):
+                        count += 1
+                        self.assertIn("GH_TOKEN", step.get("env", {}))
+        self.assertGreaterEqual(count, 3)

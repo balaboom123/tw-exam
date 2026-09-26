@@ -1,0 +1,50 @@
+name: sync-admissions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 3 * * 6"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: ${{ matrix.provider_id }}
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - provider_id: ceec_ast
+            cache_prefix: ceec-ast
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: ceec_gsat
+            cache_prefix: ceec-gsat
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: tcte_tve
+            cache_prefix: tcte-tve
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: rcpet_cap
+            cache_prefix: rcpet-cap
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+          - provider_id: special_admission
+            cache_prefix: special-admission
+            timeout_minutes: 120
+            publish: true
+            prune_orphaned_mirror: false
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: ${{ matrix.provider_id }}
+      cache_prefix: ${{ matrix.cache_prefix }}
+      timeout_minutes: ${{ matrix.timeout_minutes }}
+      publish: ${{ matrix.publish }}
+      prune_orphaned_mirror: ${{ matrix.prune_orphaned_mirror }}

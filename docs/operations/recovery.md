@@ -12,6 +12,8 @@ Preserve retained provider state and evidence first. Use the smallest repair tha
 6. Confirm the generated-state commit guard left `main` at its last deployable state; use the failed Actions run and workflow-health issue as the failure record.
 7. Do not hand-edit generated state to make publication pass.
 
+For a matrix caller, identify the provider from the failed job name and its sync summary. Provider snapshots retain failure evidence in the run's artifacts; the mirror cache preserves downloaded payloads. If publication reports that the provider changed after sync started, rerun the caller against current `main`. A publication-only retry reuses its original artifact and exact mirror cache; if either has expired, run a fresh sync.
+
 ## Scenario 2: an official source is blocked
 
 Capture the narrowest reproducible event or file evidence and update `catalog/source-coverage/<provider_id>.json` where a coverage ledger exists. Keep valid records even when sibling files are blocked.
@@ -52,6 +54,8 @@ Restoration validates the payload and recorded checksum; a failure stops the
 sync. If the source bytes have changed, refresh that source exam before retrying.
 An empty runner mirror therefore does not require a full bootstrap just because
 a bundle becomes newly eligible.
+
+When sync and publication run in separate jobs, use `--restore-new-public-files` during full or incremental sync to restore newly eligible retained papers without fetching old ZIPs. Transfer the provider state and publish plan, then use `publish-site --download-affected-bundles --publish-plan <path>` against current site state. This keeps recovery tied to the latest release assignments rather than those present when a parallel sync started. These ZIP downloads require `GH_TOKEN`.
 
 ## Scenario 5: frontend build or deployed data fails
 

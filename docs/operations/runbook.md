@@ -7,7 +7,7 @@ This runbook covers the provider-to-site path. Use the generated [command refere
 - Python supported by `pyproject.toml` and `uv`
 - Node and npm for `frontend/`
 - a persistent mirror for full or repair syncs
-- `GH_TOKEN` only when publishing GitHub Release assets
+- `GH_TOKEN` when downloading or publishing GitHub Release assets
 
 Run commands from the repository root. Local Python examples use `uv run python` consistently.
 
@@ -29,6 +29,8 @@ data/providers/<provider_id>/source-manifest.json
 ```
 
 Provider pages under [the generated index](../providers/README.md) record source-specific restrictions and operational exceptions.
+
+Hosted provider runs use the matrix caller that owns the provider in `.github/workflows/`. Inspect the provider job's sync summary and artifact when diagnosing a failure. Publication queues behind other site writers and checks current `main` before applying the sync snapshot; a stale provider baseline requires a fresh caller run. Quarantined providers continue collecting state through provider-only commits.
 
 ## Repair retained failures
 

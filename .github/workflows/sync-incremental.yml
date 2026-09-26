@@ -9,7 +9,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: moex-data-writer
+  group: site-publication-default
+  queue: max
   cancel-in-progress: false
 
 jobs:
@@ -20,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
+          ref: main
           fetch-depth: 0
 
       - uses: actions/setup-python@v7

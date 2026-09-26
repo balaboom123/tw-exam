@@ -1,6 +1,7 @@
 import argparse
 import io
 import json
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -944,19 +945,48 @@ class CliCommandTests(unittest.TestCase):
                     "asset_name": "nurse.zip", "release_tag": "default-bundles-001",
                 }],
             }), encoding="utf-8")
-            args = build_parser().parse_args([
-                "sync-full", "--provider", "moex", "--data-dir", str(data_dir),
-                "--mirror-dir", str(root / "mirror"),
-                "--aliases", str(data_dir / "aliases.json"),
-                "--download-affected-bundles",
-            ])
+            for recovery_flag in ("--download-affected-bundles", "--restore-new-public-files"):
+                with self.subTest(recovery_flag=recovery_flag):
+                    if recovery_flag == "--restore-new-public-files":
+                        shutil.rmtree(data_dir / "providers")
+                    download_mock.reset_mock()
+                    restore_mock.reset_mock()
+                    args = build_parser().parse_args([
+                        "sync-full", "--provider", "moex", "--data-dir", str(data_dir),
+                        "--mirror-dir", str(root / "mirror"),
+                        "--aliases", str(data_dir / "aliases.json"), recovery_flag,
+                    ])
+                    self.assertEqual(command_sync(args, client=MoexClient()), 0)
+                    if recovery_flag == "--download-affected-bundles":
+                        download_mock.assert_called_once()
+                        self.assertEqual(download_mock.call_args.args[0], site.bundle_dir)
+                        self.assertEqual(download_mock.call_args.args[2], {"nurse"})
+                    else:
+                        download_mock.assert_not_called()
+                    restore_mock.assert_called_once()
 
-            self.assertEqual(command_sync(args, client=MoexClient()), 0)
+    @patch("app.cli.publish_site")
+    @patch("app.cli._download_affected_bundles")
+    @patch("app.cli.load_site_bundles")
+    @patch("app.cli._load_publish_plan", return_value=({"nurse"}, {}))
+    def test_publication_recovers_previous_zips_from_current_site_assignments(
+        self, plan_mock, load_mock, download_mock, publish_mock,
+    ) -> None:
+        calls = []
+        download_mock.side_effect = lambda *a, **kw: calls.append("download")
+        publish_mock.side_effect = lambda *a, **kw: calls.append("publish")
+        args = build_parser().parse_args([
+            "publish-site", "--repo-root", "/tmp/publication-test",
+            "--download-affected-bundles", "--publish-plan", "/tmp/plan.json",
+        ])
 
-            download_mock.assert_called_once()
-            self.assertEqual(download_mock.call_args.args[0], site.bundle_dir)
-            self.assertEqual(download_mock.call_args.args[2], {"nurse"})
-            restore_mock.assert_called_once()
+        self.assertEqual(cli.command_publish_site(args), 0)
+
+        self.assertEqual(calls, ["download", "publish"])
+        current_site = site_paths(args.repo_root, args.site_id)
+        load_mock.assert_called_once_with(current_site)
+        download_mock.assert_called_once_with(current_site.bundle_dir, load_mock.return_value, {"nurse"}, "")
+        self.assertEqual(publish_mock.call_args.kwargs["affected_canonical_ids"], {"nurse"})
 
     @patch("app.cli.sync_exam_pages", side_effect=RuntimeError("parser crashed"))
     def test_full_sync_records_unexpected_year_failure(self, sync_exam_pages_mock) -> None:
