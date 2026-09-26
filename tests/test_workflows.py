@@ -1165,7 +1165,10 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
 
     def test_sync_persists_downloads_and_failure_evidence_before_failing(self) -> None:
         job = self.reusable["jobs"]["sync"]
+        self.assertTrue(self.reusable["on"]["workflow_call"]["inputs"]["enabled"]["default"])
+        self.assertEqual(job["if"], "${{ inputs.enabled }}")
         self.assertEqual(self.reusable["permissions"]["contents"], "read")
+        self.assertEqual(job["permissions"]["contents"], "write")
         self.assertEqual(job["concurrency"]["group"], "sync-${{ inputs.provider_id }}")
         self.assertEqual(job["concurrency"]["queue"], "max")
         steps = job["steps"]
@@ -1197,6 +1200,15 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(fail["run"], "exit 1")
         self.assertFalse(any("commit-and-push" in step.get("run", "") for step in steps))
 
+    def test_ast_recovery_pilot_leaves_the_scheduled_matrix_intact(self) -> None:
+        caller = self.workflows["sync-admissions.yml"]
+        inputs = caller["on"]["workflow_dispatch"]["inputs"]
+        self.assertEqual(inputs["ast_only"]["type"], "boolean")
+        self.assertFalse(inputs["ast_only"]["default"])
+        self.assertEqual(caller["jobs"]["sync"]["with"]["enabled"],
+                         "${{ !inputs.ast_only || matrix.provider_id == 'ceec_ast' }}")
+        self.assertEqual(len(caller["jobs"]["sync"]["strategy"]["matrix"]["include"]), 5)
+
     def test_all_site_writers_queue_against_current_main(self) -> None:
         job = self.reusable["jobs"]["publish"]
         self.assertEqual(job["needs"], "sync")
@@ -1224,8 +1236,15 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         upload = next(step for step in steps if step.get("id") == "upload")
         commits = [step for step in steps if "commit-and-push.sh" in step.get("run", "")]
         self.assertIn("needs.sync.outputs.base", snapshot["env"]["BASE_SHA"])
-        self.assertTrue(mirror["with"]["fail-on-cache-miss"])
+        self.assertNotIn("fail-on-cache-miss", mirror["with"])
         self.assertNotIn("restore-keys", mirror["with"])
+        recover = next(step for step in steps if step.get("name") == "Recover this exact sync mirror from public storage")
+        self.assertIn("steps.mirror_cache.outputs.cache-matched-key == ''", recover["if"])
+        self.assertEqual(recover["env"]["MIRROR_GENERATION"], "${{ needs.sync.outputs.mirror_generation }}")
+        self.assertEqual(recover["env"]["MIRROR_SHA256"], "${{ needs.sync.outputs.mirror_sha256 }}")
+        self.assertNotIn("--allow-missing", recover["run"])
+        self.assertIn('--generation "$MIRROR_GENERATION"', recover["run"])
+        self.assertIn('--manifest-sha256 "$MIRROR_SHA256"', recover["run"])
         sync_save = next(step for step in self.reusable["jobs"]["sync"]["steps"]
                          if step.get("uses", "").startswith("actions/cache/save@"))
         self.assertEqual(mirror["with"]["key"], "${{ needs.sync.outputs.cache_key }}")
@@ -1233,7 +1252,7 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(self.reusable["jobs"]["sync"]["outputs"]["cache_key"], sync_save["with"]["key"])
         artifact = next(step for step in steps if step.get("uses", "").startswith("actions/download-artifact@"))
         self.assertEqual(artifact["with"]["name"], "${{ needs.sync.outputs.artifact_name }}")
-        ordered = [snapshot, mirror, publish, ensure, upload, *commits]
+        ordered = [snapshot, mirror, recover, publish, ensure, upload, *commits]
         self.assertEqual([steps.index(step) for step in ordered], sorted(steps.index(step) for step in ordered))
         self.assertIn("steps.upload.outcome == 'success'", commits[0]["if"])
         self.assertIn("data/sites/default", commits[0]["run"])

@@ -12,7 +12,7 @@ Preserve retained provider state and evidence first. Use the smallest repair tha
 6. Confirm the generated-state commit guard left `main` at its last deployable state; use the failed Actions run and workflow-health issue as the failure record.
 7. Do not hand-edit generated state to make publication pass.
 
-For a matrix caller, identify the provider from the failed job name and its sync summary. Provider snapshots retain failure evidence in the run's artifacts; the mirror cache preserves downloaded payloads. If publication reports that the provider changed after sync started, rerun the caller against current `main`. A publication-only retry reuses its original artifact and exact mirror cache; if either has expired, run a fresh sync.
+For a matrix caller, identify the provider from the failed job name and its sync summary. Provider snapshots retain failure evidence in the run's artifacts; the mirror cache and durable backup preserve downloaded payloads. If publication reports that the provider changed after sync started, rerun the caller against current `main`. A publication-only retry reuses its original artifact and exact mirror cache, recovering that sync's pinned durable generation if the cache was evicted. If the artifact or durable generation is unavailable, run a fresh sync.
 
 ## Durable provider mirror backup
 
@@ -52,6 +52,10 @@ Publication recovery can pin `--generation <generation>` and
 `--manifest-sha256 <sha256>` from its original sync outputs instead of using a
 later provider snapshot. Mirror generation and SHA outputs are written when
 `GITHUB_OUTPUT` is present.
+
+For a CEEC AST recovery pilot, dispatch `sync-admissions.yml` with `ast_only`
+enabled. Other provider jobs are skipped; scheduled runs retain their full matrix.
+Verify a durable snapshot before deliberately evicting that provider's cache.
 
 The helper never deletes remote snapshots. Before removing old generations,
 check that no retained publication artifact or pending job needs them. Interrupted

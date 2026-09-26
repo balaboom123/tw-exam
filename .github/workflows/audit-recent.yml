@@ -29,12 +29,19 @@ jobs:
           python-version: "3.12"
 
       - name: Restore mirror directory
+        id: mirror_cache
         uses: actions/cache/restore@v6
         with:
           path: mirror
           key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             moex-mirror-
+
+      - name: Recover evicted MOEX mirror from public storage
+        if: ${{ steps.mirror_cache.outputs.cache-matched-key == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py restore --provider moex --repository "${{ github.repository }}" --allow-missing
 
       - name: Inspect release coverage
         id: release_state
@@ -66,6 +73,12 @@ jobs:
         with:
           path: mirror
           key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Save durable public MOEX mirror snapshot
+        if: ${{ !cancelled() && steps.recent_audit.outcome != 'skipped' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py save --provider moex --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
 
       - name: Publish default site
         run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json

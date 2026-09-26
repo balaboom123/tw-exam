@@ -2,6 +2,11 @@ name: sync-admissions
 
 on:
   workflow_dispatch:
+    inputs:
+      ast_only:
+        description: Run only CEEC AST for a provider recovery pilot
+        type: boolean
+        default: false
   schedule:
     - cron: "20 3 * * 6"
 
@@ -43,6 +48,7 @@ jobs:
             prune_orphaned_mirror: false
     uses: ./.github/workflows/_sync-provider.yml
     with:
+      enabled: ${{ !inputs.ast_only || matrix.provider_id == 'ceec_ast' }}
       provider_id: ${{ matrix.provider_id }}
       cache_prefix: ${{ matrix.cache_prefix }}
       timeout_minutes: ${{ matrix.timeout_minutes }}
