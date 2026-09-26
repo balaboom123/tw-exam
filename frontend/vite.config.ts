@@ -3,9 +3,9 @@ import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 import path from "path"
-import { resolvePagesBase } from "./build/site-config.mjs"
-import { readPublicData } from "./build/public-data.mjs"
-import { buildBundlePage, buildSitemap, bundlePagesCss, siteRoot } from "./build/bundle-pages.mjs"
+import { resolvePagesBase } from "./build/site-config.ts"
+import { readPublicData } from "./build/public-data.ts"
+import { buildBundlePage, buildSitemap, bundlePagesCss, siteRoot } from "./build/bundle-pages.ts"
 
 const repoRoot = path.resolve(__dirname, "..")
 const frontendSourcePath = path.resolve(repoRoot, "data", "sites", "default", "frontend-bundles.json")
@@ -51,8 +51,8 @@ function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
           const current = await readPublicData(frontendSourcePath)
           if (isPage) {
             const id = requestPath.slice(pagePrefix.length, -5)
-            const currentFeed = JSON.parse(current.feedText)
-            const bundle = currentFeed.bundles.find((item: { id: string }) => item.id === id)
+            const currentFeed = current.feed
+            const bundle = currentFeed.bundles.find((item) => item.id === id)
             if (!bundle) { next(); return }
             res.setHeader("Content-Type", "text/html; charset=utf-8")
             res.end(buildBundlePage(bundle, { repo: currentFeed.repo, root }))
@@ -83,7 +83,7 @@ function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
         fileName: current.searchFile,
         source: current.searchText,
       })
-      const currentFeed = JSON.parse(current.feedText)
+      const currentFeed = current.feed
       this.emitFile({ type: "asset", fileName: "assets/bundle-pages.css", source: bundlePagesCss })
       for (const bundle of currentFeed.bundles) {
         this.emitFile({
@@ -146,7 +146,7 @@ function sharedHeadPlugin(root: string): Plugin {
 
 export default defineConfig(async ({ command }) => {
   const publicData = await readPublicData(frontendSourcePath)
-  const repo = JSON.parse(publicData.feedText).repo as string
+  const repo = publicData.feed.repo
   const explicitBase = process.env.VITE_BASE_PATH
   const base = resolvePagesBase({
     githubRepository: process.env.GITHUB_REPOSITORY,

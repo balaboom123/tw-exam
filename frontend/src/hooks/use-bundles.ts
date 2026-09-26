@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import type { Bundle, BundleSource } from "@/types"
+import type { Bundle } from "@/types"
+import type { CompactBundle, CompactFeed, CompactPart } from "@/lib/public-feed"
 import { isBundleSource, isSyncTimestamp } from "@/lib/provenance"
 
 interface UseBundlesResult {
@@ -9,33 +10,9 @@ interface UseBundlesResult {
   error: string | null
 }
 
-interface RawPart {
-  label: string
-  fileCount: number
-  tag: string
-  asset: string
-}
-
-interface RawBundle {
-  id: string
-  name: string
-  years: number[]
-  fileCount: number
-  tag: string
-  asset: string
-  parts?: RawPart[]
-  examClass: string
-  examSubclass: string
-  subjectLabels?: string[]
-  sources?: BundleSource[]
-  updated?: string
-}
-
-interface RawFeed {
-  v: 2
-  repo: string
-  bundles: RawBundle[]
-}
+type RawPart = CompactPart
+type RawBundle = CompactBundle
+type RawFeed = Pick<CompactFeed, "v" | "repo" | "bundles">
 
 const segmentPattern = /^[A-Za-z0-9._-]+$/
 const repositoryPattern = /^[A-Za-z0-9._-]+\/[A-Za-z0-9._-]+$/

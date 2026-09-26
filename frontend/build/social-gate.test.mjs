@@ -1,19 +1,9 @@
 import assert from "node:assert/strict"
-import { readFile } from "node:fs/promises"
 import test from "node:test"
 
-import ts from "typescript"
+import { grantSocialAccess, hasSocialAccess, SOCIAL_CHANNELS } from "../src/lib/social-gate.ts"
 
-async function loadSocialGate() {
-  const source = await readFile(new URL("../src/lib/social-gate.ts", import.meta.url), "utf8")
-  const { outputText } = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.ES2022, target: ts.ScriptTarget.ES2022 },
-  })
-  return import(`data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`)
-}
-
-test("download gate access is global and honors legacy per-channel keys", async () => {
-  const { grantSocialAccess, hasSocialAccess, SOCIAL_CHANNELS } = await loadSocialGate()
+test("download gate access is global and honors legacy per-channel keys", () => {
   const previousWindow = globalThis.window
   const storage = new Map()
 
@@ -43,8 +33,7 @@ test("download gate access is global and honors legacy per-channel keys", async 
   }
 })
 
-test("download gate falls back to session storage when local storage is blocked", async () => {
-  const { grantSocialAccess, hasSocialAccess } = await loadSocialGate()
+test("download gate falls back to session storage when local storage is blocked", () => {
   const previousWindow = globalThis.window
   const session = new Map()
   globalThis.window = {
@@ -68,8 +57,7 @@ test("download gate falls back to session storage when local storage is blocked"
   }
 })
 
-test("a URL flag cannot unlock downloads when browser storage is denied", async () => {
-  const { grantSocialAccess, hasSocialAccess } = await loadSocialGate()
+test("a URL flag cannot unlock downloads when browser storage is denied", () => {
   const previousWindow = globalThis.window
   const blocked = {
     getItem: () => { throw new Error("blocked") },
