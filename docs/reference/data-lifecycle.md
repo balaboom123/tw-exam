@@ -1,243 +1,60 @@
-# Data Lifecycle
+# Data lifecycle
 
-This document defines the source-to-publication lifecycle, the integrity checks at each stage, and the write behavior of current commands.
+Official sources flow through provider discovery, validated mirrors, normalized retained state, site selection, bundle generation, Release upload, and frontend projection. [Contracts](contracts.md) defines the ownership boundaries; [the runbook](../operations/runbook.md) and [recovery guide](../operations/recovery.md) own repeatable procedures.
 
-## Lifecycle Overview
+## Discover, probe, and acquire
 
-The lifecycle is:
+Discovery returns official availability for the selected provider. It is read-only unless manifest writing is explicitly requested; it never writes site publication state. A broad discovery capture should use a positive source-request delay.
 
-1. discover source inventory
-2. probe for recent changes
-3. fetch pages and download files
-4. validate and mirror payloads
-5. normalize provider data into shared catalog records
-6. merge refreshed state with existing published state
-7. build bundles and release metadata
-8. upload/prune release assets
-9. publish frontend outputs
-10. apply frontend social-gated download behavior
+Providers that implement the probe URL model compare year/event HEAD responses against their own source manifest and fetch pages when those comparisons indicate change. The probe produces an explicit sync decision. Its output and optional manifest remain provider-owned.
 
-## Stage Details
+Sync downloads into `mirror/providers/<provider_id>/`. Mirror locators preserve year, event, category, subject, and file-role distinctions. Valid files are reused; successfully refreshed files replace stale siblings with incorrect extensions. Each retained payload receives a SHA-256 checksum.
 
-### 1. Discovery
+Source pages are fetched serially. Independent files may download with bounded concurrency, while mirror writes remain serial; stateful or rate-limited providers restrict concurrency. Shared HTTP adapters relying on sync retries use one transport attempt to avoid multiplying retries. Transient discovery/fetch requests use bounded retries and honor `Retry-After`.
 
-Behavior:
+An unavailable year listing preserves retained provider state, returns failure, and produces no publish plan. Payload validation rejects HTML placeholders and signatures inconsistent with the expected file role. The [sync implementation](../../app/sync.py) owns supported signatures; acceptance of an outer archive does not establish the integrity of its nested papers.
 
-- `discover` asks the selected provider (MOEX by default) for available years and exam codes.
-- discovery is read-only by default and produces JSON output for inspection.
-- `discover --write-manifest` persists the official year/exam listing into the provider-scoped source manifest; operators should use a positive `--delay-seconds` value for broad source captures.
+## Normalize and retain history
 
-Invariant:
+Normalization applies reviewed provider aliases and shared identity rules to raw events; unresolved cases enter the provider review queue. Full provider writes also regenerate a compact index. Index readers fall back to source files when an index is missing or its source snapshot is stale; the catalog audit still reclassifies full records. The index must remain rebuildable, and [its check](../../scripts/build_provider_indexes.py) compares complete contents against source files.
 
-- each provider MUST have a provider-scoped discovery entrypoint
-- discovery MUST NOT mutate publication state
+Full and incremental sync retain previously acquired events and papers that disappear from current listings, including their source-manifest evidence. Incremental and targeted merging preserve unaffected history. Refreshed names may derive canonical migrations; they must not orphan prior compatibility identities or silently merge distinct official programs.
 
-### 2. Probe
+Failure behavior is owned by [the CLI](../../app/cli.py) and [state merging](../../app/state.py):
 
-Behavior:
+- Targeted sync aborts generated-state writes on failure by default. Explicit partial mode may retain the valid subset and failure rows, returns nonzero, and requires follow-up audit/publication.
+- Incremental sync preserves previous records for failed events and returns nonzero while failures remain.
+- Full sync and local bundle construction may produce failure reports and local outputs, but failures remain visible and block an undeployable generated-state commit.
+- [The commit guard](../operations/workflows.md) checks retained-state floors and global publication invariants before generated changes can reach main.
 
-- `probe-latest` uses `data/providers/<provider_id>/source-manifest.json` for providers that implement the probe URL model
-- it compares current year or exam HEAD responses to prior manifest entries
-- it fetches full exam pages only when a HEAD comparison indicates change
+## Reviewed exceptions and quarantine
 
-Integrity properties:
+Source-coverage evidence belongs in `catalog/source-coverage/`. Event exceptions must match the current raw event; file exceptions must match the exact provider, event, year, paper, role, URL, and download failure stage. An event exception conflicts with acquired papers, attachments, normalized records, or failures. Unmatched entries are orphans. Conflicts and orphans fail strict history audit; publication validation ignores only exact reviewed file exceptions. Re-probe or remove evidence when the official source changes or becomes available.
 
-- cheap change detection
-- minimized download volume
-- explicit `should_sync` decision in `.tmp/source-probe.json`
+Quarantine belongs in `catalog/mappings/publication-quarantine.json` and withholds a defective site projection. It does not change source acquisition denominators: registered providers continue discovery, sync, mirroring, normalization, and audits. Source-coverage exceptions explain acquisition blockers; quarantine explains withheld publication.
 
-Invariant:
+Each quarantine entry requires a reason, source evidence, and a resolvable maintained note section. Required providers cannot be quarantined; the site publisher fails closed rather than bypassing its required-state guard. Quarantine must not delete retained provider state, mirrors, or bundle archives.
 
-- each provider MUST own its own source manifest
-- probe manifests MUST be provider-scoped, not global
+The site publisher owns exclusion. History audit reports quarantined events separately from minimum-year exclusions and unexplained publication gaps. Lifting a reviewed entry requires republishing. Removing a projection leaves previously uploaded assets directly downloadable until Release reconciliation/pruning completes.
 
-### 3. Fetch and mirror
+## Build and publish
 
-Behavior:
+The [site configuration](../../app/site_registry.py) selects eligible providers and bundles. The [bundler](../../app/bundler.py) reads normalized papers and validated mirror files, reuses matching unchanged single-part archives, and verifies ZIP CRC for entries whose mirror files are absent before reuse. Deterministic entry timestamps and permissions stabilize rebuilt bytes; completed archive checksums are streamed from files.
 
-- `sync-*` commands download source files into `mirror/providers/<provider_id>/`
-- mirror paths are built from year, exam ID, category, subject, and file type
-- existing mirrored files are reused when valid
-- source pages are fetched serially; independent files within a page may download with up to four workers, while mirror writes remain serial
-- providers with session state or source rate limits set `max_concurrency = 1`
-- simple provider adapters may use the shared HTTP transport; sync wraps adapter calls in transient-request retries, so those adapters use one transport attempt to avoid multiplying retries
-- transient fetch and discovery requests use bounded retries and honor `Retry-After` when provided
-- an unavailable year listing preserves retained provider state, exits with failure, and writes no publish plan
+New archive manifests retain paper keys, checksums, and entry names. Older full-record manifests remain readable and may be reused when projected content agrees. Already compressed media are stored without a second compression pass; manifest text remains compressed.
 
-Integrity properties:
+Site state and bundle files remain under `data/sites/<site_id>/` and `bundles/sites/<site_id>/`. Bundle metadata, Release asset inventories, compatibility aliases, multipart records, and shard assignment remain site-owned. Provider syncs may pass affected-bundle plans to publication; those plans do not authorize hand-written tag assignments.
 
-- mirror files receive SHA-256 checksums
-- invalid payloads are redownloaded
-- stale sibling files with wrong extensions are removed after successful refresh
+Release tooling ensures assigned Releases exist, uploads expected artifacts, checks coverage, and prunes unexpected ZIPs according to the inventory. Compatibility aliases remain published while listed. Successful upload precedes the matching generated-state commit, so a site feed never promises unavailable changed artifacts.
 
-Invariant:
+## Frontend projection
 
-- mirror roots MUST be provider-scoped
-- source download logic MUST remain separate from site publication logic
+The frontend build consumes the site-owned feed and emits a content-hashed compact feed plus a separate search index. Search loads the index lazily, and its positions match bundle order. The same projection creates static bundle landing pages and a sitemap using recorded site URLs and Release locators.
 
-### 4. Payload validation
+The frontend join flow unlocks final ZIP links locally. It does not affect source ingestion, provider state, or Release publication. Provider and publication commands must complete independently of frontend gating.
 
-Behavior:
+## Manual inputs and generated state
 
-- PDF files are validated by signature
-- ZIP files are validated by signature
-- HTML placeholders are rejected
-- wrong binary type for a known file type is treated as failure
+Reviewed source inventory, source-coverage evidence, quarantine decisions, taxonomy/mappings, and provider aliases are maintained inputs. Raw events, normalized papers, derived indexes, review queues, failures, discovery manifests, site inventories, and publication assets are derived outputs. [Scoped paths](../../app/paths.py) and their schemas own the layout.
 
-Why this matters:
-
-- source systems sometimes return an HTML page or placeholder instead of the file
-- bundle generation MUST NOT consume invalid mirrored content
-
-## Reviewed Source-Coverage Exceptions
-
-Manual source evidence belongs in `catalog/source-coverage/<provider_id>.json`, not in generated provider state. An entry may be event-scoped (`blocked` or `intentionally_out_of_scope`) or file-scoped (`blocked`). Each entry records the official URL, capture date, response fingerprint, observation, and reason.
-
-`history-audit` matches event entries to the current raw event and file entries to the exact current download failure: provider, exam ID, AD year, paper code, file type, download URL, and `download` stage must all agree. An event exception conflicts if the current raw page has papers or attachments, normalized records exist, or any failure is recorded. An unmatched exception is an orphan. Both conditions fail strict audit. The publication validator ignores only exact file exceptions; all other provider failures remain blocking.
-
-A reviewed exception is therefore an evidence-backed denominator decision, not a generated-manifest shortcut. When the source changes or a file becomes available, the old entry becomes an orphan or conflict and must be removed or re-probed.
-
-## Publication Quarantine
-
-A source-coverage exception explains what the repository could not *acquire*. A quarantine entry explains what the repository must not *publish*. The two MUST NOT be conflated.
-
-Quarantine lives in `catalog/mappings/publication-quarantine.json` because it is publication policy rather than source evidence. Each entry records the provider, site, a status drawn from `wrong_identity`, `wrong_payload`, `corrupt_payload`, `non_paper_role`, or `duplicate_source_identity`, a reason, and pointers to the source manifest and maintained provider page that evidence the defect. Both pointers MUST resolve; a dangling pointer fails loading, so withheld data can never become unexplained.
-
-Rules:
-
-- A quarantined provider MUST remain registered in `app.site_registry`. Quarantine withholds publication only; dropping the provider from the registry instead would remove it from the source-inventory, catalog-audit, and history-audit denominators and would hide the defect rather than expose it.
-- `app.publisher.load_site_catalog` is the only consumer that skips quarantined providers. Discovery, sync, mirroring, normalization, and every audit continue to run.
-- A provider in `required_provider_ids` MUST NOT be quarantined. `load_site_catalog` fails closed rather than silently bypassing the missing-state guard.
-- `history-audit` reports quarantined events under the distinct `withheld_by_quarantine` status. It MUST NOT reuse `excluded_by_publication_policy`, which means the min-years rule, and it MUST NOT leave them as `normalized_not_published`, which means an unexplained gap. Keeping the status separate is what stops a deliberate withholding from turning a red gate green.
-- Quarantine MUST NOT delete provider state, mirrored bytes, or bundle archives. Lifting an entry is a revert plus a republish.
-
-Removing a provider from the projection also strands its already-uploaded release assets. They stay downloadable by direct URL until `release_assets.py prune` runs, so a quarantine is not fully effective until the release side is reconciled.
-
-### 5. Normalize
-
-Behavior:
-
-- provider raw pages become `NormalizedPaper` records
-- provider-scoped alias rules under `data/providers/<provider_id>/aliases.json` are applied during normalization
-- unresolved naming cases are emitted to `data/providers/<provider_id>/review-queue.json`
-- provider writes also regenerate `data/providers/<provider_id>/index.json`, a compact projection for inventory gates; readers scan source files when the index is missing or its file-size snapshot differs
-- source inventory, publication eligibility, and event-level history checks read a current index; the catalog audit still reclassifies full paper records
-
-Invariant:
-
-- alias rules SHOULD be provider-scoped unless a site explicitly owns cross-provider canonicalization
-- normalized schema MUST remain source-agnostic
-- the derived index MUST be rebuildable from provider source files; `uv run python scripts/build_provider_indexes.py --check` compares its full contents with those files
-
-### 6. Merge refreshed state
-
-Behavior:
-
-- full sync writes a complete regenerated state
-- incremental sync merges refreshed state into existing generated state
-- targeted sync merges only probe-identified exams
-- full and incremental syncs retain previously downloaded events that disappear
-  from the current listing; their source-manifest exam records are retained too
-- canonical ID migrations are derived when refreshed records rename a prior category family
-
-Why this matters:
-
-- unaffected bundles should stay stable
-- recent refreshes should not force full rebuilds
-- canonical renames should not orphan prior records
-
-### 7. Build bundles
-
-Behavior:
-
-- bundle generation reads normalized papers and mirrored files
-- an unchanged single-part ZIP is reused when its embedded paper keys/checksums, entry names, and common bundle metadata match current papers; old full-record manifests project to the same comparison without forcing an archive migration
-- new embedded `bundle.json` manifests use `manifest_version: 2` and retain only paper keys, checksums, and entry names per paper; provider state owns the full records
-- payload compression follows `STORED_BUNDLE_SUFFIXES` in `app/bundler.py`; those entries are stored without ZIP recompression, while other entries and JSON manifests are deflated, including in multipart assets
-- entries whose mirror files are absent are streamed once to verify ZIP CRC before reuse; archive checksums are streamed from the finished files
-- generated site bundle metadata is written to `data/sites/<site_id>/bundles.json`
-- release asset inventory is written to `data/sites/<site_id>/release-assets.json`
-- legacy alias asset names may be preserved for compatibility
-
-Invariant:
-
-- bundle outputs MUST be site-scoped
-- release asset inventory MUST belong to the site that publishes those bundles
-
-### 8. Release synchronization
-
-Behavior:
-
-- `.github/scripts/release_assets.py` ensures the GitHub release exists
-- coverage compares expected ZIP names to release ZIP names
-- upload publishes local bundles
-- prune removes stale ZIP assets not present in the current expected set
-
-Integrity properties:
-
-- release state is derived from generated metadata, not manual memory
-- compatibility alias assets remain published when listed in generated metadata
-
-### 9. Public output
-
-Behavior:
-
-- `app.publisher.publish_site` writes site-scoped publication metadata under `data/sites/<site_id>/`
-- the frontend build projects `frontend-bundles.json` into a content-hashed `data/bundles-<hash>.json` feed and a separate `data/search-index-<hash>.json`
-- the search index is fetched only when a visitor searches; its rows align with the public feed's bundle order
-- the same projection generates one static `b/<bundle-id>.html` landing page per public bundle and `sitemap.xml`; page URLs and release links come from site publication metadata
-
-Invariant:
-
-- public outputs MUST be site-scoped
-- frontend feed generation MUST consume publication outputs, never raw provider state
-
-### 10. Frontend social gate
-
-Behavior:
-
-- the site-owned source feed keeps direct ZIP URLs; the public build feed carries their repository, release tag, and asset name so the browser can reconstruct them
-- the frontend download row opens a category-specific LINE channel before unlocking ZIP downloads locally
-
-Invariant:
-
-- provider and publication commands MUST NOT depend on frontend download gating to complete ingestion or release publication
-
-## Command Write Behavior
-
-| Command | Writes generated data? | Partial writes allowed? | Failure semantics |
-| --- | --- | --- | --- |
-| `discover` | no | n/a | read-only |
-| `probe-latest` | yes, only output file and optional manifest | yes | returns a probe result even when no sync is needed |
-| `sync-targeted` | yes, if successful; `--allow-partial` may commit the valid subset | no by default; explicit partial mode is opt-in | default aborts on any failure; partial mode retains successful records and failure rows, returns non-zero, and requires follow-up audit/publication |
-| `sync-incremental` | yes | yes, safe subset only | preserves existing state for failed exam IDs and returns non-zero if failures remain |
-| `sync-full` | yes | yes | writes full regenerated outputs and returns non-zero if failures remain |
-| `build-bundles` | yes | no | local rebuild path; returns non-zero if failures exist |
-
-## Generated Versus Manual Inputs
-
-Manual inputs today:
-
-- `data/providers/<provider_id>/aliases.json`
-- `catalog/source-coverage/<provider_id>.json` reviewed evidence for blocked or intentionally excluded official sources
-- `catalog/source-inventory.json` reviewed source scope/status/evidence and exact local-state observations
-- `catalog/mappings/publication-quarantine.json` reviewed decisions to withhold a registered provider from a site projection
-
-Generated outputs today:
-
-- `data/providers/<provider_id>/exams/**`
-- `data/providers/<provider_id>/papers/**`
-- `data/providers/<provider_id>/review-queue.json`
-- `data/providers/<provider_id>/sync-failures.json`
-- `data/providers/<provider_id>/source-manifest.json` when supported
-- `data/sites/<site_id>/bundles.json`
-- `data/sites/<site_id>/release-assets.json`
-- `data/sites/<site_id>/*` publication indexes
-
-Operators and developers MUST treat generated outputs as derived state. Manual edits to generated files are temporary recovery actions only and MUST be followed by a rebuilding command or code fix.
-
-## Expansion Rules
-
-- New providers MUST own their own manifests, review queues, failure logs, and source-coverage evidence where an official source is blocked or intentionally excluded. The reviewed source inventory must also gain a provider row before the provider is treated as in scope.
-- New sites MUST own their own bundle metadata and release asset inventory.
-- Shared schemas MAY evolve, but provider-specific fields MUST NOT leak into site-facing bundle feeds without an explicit contract update.
+Fix the owner and regenerate. Manual edits to generated state are temporary recovery actions and must be followed by rebuilding or a code fix. New providers retain their own discovery, failures, review state, mirrors, and evidence; new sites retain their own publication state. Shared contracts may evolve through the reviewed migration process, while provider parsing fields remain outside frontend feeds.

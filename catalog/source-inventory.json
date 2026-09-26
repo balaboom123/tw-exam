@@ -228,7 +228,7 @@
       },
       "evidence": [
         "catalog/source-coverage/moex.json",
-        "docs/providers/moex.md"
+        "docs/providers/notes.md#moex"
       ],
       "exam_category": "Ministry of Examination civil, professional, judicial, police, law, medical, and related public examinations",
       "local_state": {
@@ -297,7 +297,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/ceec_gsat.md"
+        "docs/providers/notes.md#ceec_gsat"
       ],
       "exam_category": "CEEC 學科能力測驗 / GSAT archive",
       "local_state": {
@@ -363,7 +363,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/ceec_ast.md"
+        "docs/providers/notes.md#ceec_ast"
       ],
       "exam_category": "CEEC 分科測驗 general-paper archive",
       "local_state": {
@@ -403,7 +403,7 @@
       },
       "evidence": [
         "data/providers/cpc_recruit/source-manifest.json",
-        "docs/providers/cpc_recruit.md"
+        "docs/providers/notes.md#cpc_recruit"
       ],
       "exam_category": "CPC doctoral and company-specific recruitment written papers",
       "local_state": {
@@ -456,7 +456,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/gept_cert.md"
+        "docs/providers/notes.md#gept_cert"
       ],
       "exam_category": "GEPT official practice and listening materials by proficiency level",
       "local_state": {
@@ -498,7 +498,7 @@
       },
       "evidence": [
         "data/providers/hakka_cert/source-manifest.json",
-        "docs/providers/hakka_cert.md"
+        "docs/providers/notes.md#hakka_cert"
       ],
       "exam_category": "Hakka certification question banks, sample tests, answers, and paired question audio",
       "local_state": {
@@ -546,7 +546,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/hce_cmu.md"
+        "docs/providers/notes.md#hce_cmu"
       ],
       "exam_category": "CMU post-baccalaureate Chinese medicine entrance papers",
       "local_state": {
@@ -587,7 +587,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/hce_nsysu.md"
+        "docs/providers/notes.md#hce_nsysu"
       ],
       "exam_category": "NSYSU post-baccalaureate medicine entrance papers",
       "local_state": {
@@ -628,7 +628,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/hce_nthu.md"
+        "docs/providers/notes.md#hce_nthu"
       ],
       "exam_category": "NTHU post-baccalaureate medicine entrance papers",
       "local_state": {
@@ -668,7 +668,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/hce_tcu.md"
+        "docs/providers/notes.md#hce_tcu"
       ],
       "exam_category": "Tzu Chi University post-baccalaureate Chinese medicine entrance papers",
       "local_state": {
@@ -705,7 +705,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/ipas_cert.md"
+        "docs/providers/notes.md#ipas_cert"
       ],
       "exam_category": "iPAS professional certification learning/question materials",
       "local_state": {
@@ -741,7 +741,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/jlpt_cert.md"
+        "docs/providers/notes.md#jlpt_cert"
       ],
       "exam_category": "JLPT official sample workbook and listening materials",
       "local_state": {
@@ -778,7 +778,7 @@
       },
       "evidence": [
         "data/providers/moea_recruit/source-manifest.json",
-        "docs/providers/moea_recruit.md"
+        "docs/providers/notes.md#moea_recruit"
       ],
       "exam_category": "Ministry of Economic Affairs state-owned-enterprise joint recruitment papers",
       "local_state": {
@@ -838,7 +838,7 @@
       },
       "evidence": [
         "data/providers/post_recruit/source-manifest.json",
-        "docs/providers/post_recruit.md"
+        "docs/providers/notes.md#post_recruit"
       ],
       "exam_category": "Chunghwa Post first-test recruitment papers on an explicitly commissioned TABF host",
       "local_state": {
@@ -880,7 +880,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/rcpet_cap.md"
+        "docs/providers/notes.md#rcpet_cap"
       ],
       "exam_category": "RCPET CAP / teacher-education screening exam papers",
       "local_state": {
@@ -931,7 +931,7 @@
       "evidence": [
         "data/providers/sfi_cert/source-manifest.json",
         "https://www.sfi.org.tw/Node?id=73",
-        "docs/providers/sfi_cert.md"
+        "docs/providers/notes.md#sfi_cert"
       ],
       "exam_category": "SFI rolling written-test questions and selected answers across every current official row",
       "local_state": {
@@ -968,7 +968,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/special_admission.md"
+        "docs/providers/notes.md#special_admission"
       ],
       "exam_category": "University special-admission / special-selection papers in the accepted 大學組 / 共同 scope",
       "local_state": {
@@ -1018,7 +1018,7 @@
       },
       "evidence": [
         "data/providers/tabf_cert/source-manifest.json",
-        "docs/providers/tabf_cert.md"
+        "docs/providers/notes.md#tabf_cert"
       ],
       "exam_category": "TABF banking/finance certification sample and historical materials",
       "local_state": {
@@ -1055,7 +1055,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/taigi_cert.md"
+        "docs/providers/notes.md#taigi_cert"
       ],
       "exam_category": "Ministry of Education Taiwanese-language certification sample papers/audio",
       "local_state": {
@@ -1091,7 +1091,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/taipower_recruit.md"
+        "docs/providers/notes.md#taipower_recruit"
       ],
       "exam_category": "Taipower recruitment written papers and answer keys",
       "local_state": {
@@ -1148,7 +1148,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/taisugar_recruit.md"
+        "docs/providers/notes.md#taisugar_recruit"
       ],
       "exam_category": "Taisugar recruitment paper announcements",
       "local_state": {
@@ -1186,7 +1186,7 @@
       },
       "evidence": [
         "catalog/source-coverage/tcte_tve.json",
-        "docs/providers/tcte_tve.md"
+        "docs/providers/notes.md#tcte_tve"
       ],
       "exam_category": "TCTE 四技二專統一入學測驗 / TVE archive",
       "local_state": {
@@ -1246,7 +1246,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/teacher_qual.md"
+        "docs/providers/notes.md#teacher_qual"
       ],
       "exam_category": "National teacher qualification exam",
       "local_state": {
@@ -1302,7 +1302,7 @@
       },
       "evidence": [
         "catalog/source-coverage/teacher_recruit_central_alliance.json",
-        "docs/providers/teacher_recruit_central_alliance.md"
+        "docs/providers/notes.md#teacher_recruit_central_alliance"
       ],
       "exam_category": "Central-region annual teacher-selection question/answer site",
       "local_state": {
@@ -1337,7 +1337,7 @@
       },
       "evidence": [
         "catalog/source-coverage/teacher_recruit_kaohsiung.json",
-        "docs/providers/teacher_recruit_kaohsiung.md"
+        "docs/providers/notes.md#teacher_recruit_kaohsiung"
       ],
       "exam_category": "Kaohsiung city elementary and special-education teacher recruitment",
       "local_state": {
@@ -1372,7 +1372,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/teacher_recruit_newtaipei.md"
+        "docs/providers/notes.md#teacher_recruit_newtaipei"
       ],
       "exam_category": "New Taipei education-personnel joint-selection written papers",
       "local_state": {
@@ -1406,7 +1406,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/teacher_recruit_tainan.md"
+        "docs/providers/notes.md#teacher_recruit_tainan"
       ],
       "exam_category": "Tainan elementary and pre-K special-ed teacher recruitment",
       "local_state": {
@@ -1440,7 +1440,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/teacher_recruit_taipei_elementary.md"
+        "docs/providers/notes.md#teacher_recruit_taipei_elementary"
       ],
       "exam_category": "Taipei elementary teacher joint recruitment",
       "local_state": {
@@ -1474,7 +1474,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/teacher_recruit_taipei_junior.md"
+        "docs/providers/notes.md#teacher_recruit_taipei_junior"
       ],
       "exam_category": "Taipei junior-high formal teacher recruitment",
       "local_state": {
@@ -1510,7 +1510,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/teacher_recruit_taoyuan_elementary.md"
+        "docs/providers/notes.md#teacher_recruit_taoyuan_elementary"
       ],
       "exam_category": "Taoyuan elementary teacher joint recruitment",
       "local_state": {
@@ -1545,7 +1545,7 @@
       },
       "evidence": [
         "data/providers/tii_cert/source-manifest.json",
-        "docs/providers/tii_cert.md"
+        "docs/providers/notes.md#tii_cert"
       ],
       "exam_category": "Taiwan Insurance Institute certification papers and reviewed exam-family boundaries",
       "local_state": {
@@ -1588,7 +1588,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/tocfl_cert.md"
+        "docs/providers/notes.md#tocfl_cert"
       ],
       "exam_category": "TOCFL reference and official mock-test question/audio/answer/script materials",
       "local_state": {
@@ -1627,7 +1627,7 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/tqc_cert.md"
+        "docs/providers/notes.md#tqc_cert"
       ],
       "exam_category": "TQC certification sample-paper archive",
       "local_state": {
@@ -1674,7 +1674,7 @@
       },
       "evidence": [
         "data/providers/twc_recruit/source-manifest.json",
-        "docs/providers/twc_recruit.md"
+        "docs/providers/notes.md#twc_recruit"
       ],
       "exam_category": "Taiwan Water Corporation recruitment papers",
       "local_state": {
@@ -1722,7 +1722,7 @@
       },
       "evidence": [
         "catalog/source-coverage/wdasec_skill.json",
-        "docs/providers/wdasec_skill.md"
+        "docs/providers/notes.md#wdasec_skill"
       ],
       "exam_category": "Workforce Development Agency skills-evaluation past questions",
       "local_state": {

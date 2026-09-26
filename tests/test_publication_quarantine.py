@@ -5,6 +5,7 @@ from dataclasses import replace
 from pathlib import Path
 
 from app.audit import build_publication_backlog
+from app.evidence import local_evidence_exists
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code
 from app.models import NormalizedCatalog, NormalizedPaper, SourceExamPage
 from app.paths import provider_paths, site_paths
@@ -97,6 +98,16 @@ class QuarantineLoadingTests(unittest.TestCase):
             _write(root, [_entry(spec_path="docs/developer/providers/sfi_cert-spec.md")])
             with self.assertRaisesRegex(ValueError, "spec_path .* does not exist"):
                 load_quarantine(root, site_id="default")
+
+    def test_spec_section_must_exist_even_when_the_file_exists(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            _write(root, [_entry(spec_path="spec.md#sfi_cert")])
+            (root / "spec.md").write_text("## `tqc_cert`\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "spec_path .* does not exist"):
+                load_quarantine(root, site_id="default")
+            (root / "spec.md").write_text("## `sfi_cert`\n", encoding="utf-8")
+            self.assertEqual(quarantined_provider_ids(root, site_id="default"), frozenset({"sfi_cert"}))
 
 
 def _paper(provider_id: str, canonical_id: str) -> NormalizedPaper:
@@ -411,8 +422,8 @@ class RepositoryQuarantineTests(unittest.TestCase):
     def test_checked_in_evidence_pointers_resolve(self) -> None:
         for provider_id, entry in sorted(load_quarantine(ROOT, site_id="default").items()):
             with self.subTest(provider_id=provider_id):
-                self.assertTrue((ROOT / entry.evidence_path).is_file())
-                self.assertTrue((ROOT / entry.spec_path).is_file())
+                self.assertTrue(local_evidence_exists(ROOT, entry.evidence_path))
+                self.assertTrue(local_evidence_exists(ROOT, entry.spec_path))
 
 
 if __name__ == "__main__":

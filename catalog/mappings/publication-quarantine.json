@@ -11,7 +11,7 @@
       "status": "non_paper_role",
       "reason": "The public bundle publishes 12 operational recruitment brochures as exam questions across 9 brochure-only and 3 mixed events; only the five static doctoral packages are administered papers.",
       "evidence_path": "data/providers/cpc_recruit/source-manifest.json",
-      "spec_path": "docs/providers/cpc_recruit.md"
+      "spec_path": "docs/providers/notes.md#cpc_recruit"
     },
     {
       "provider_id": "gept_cert",
@@ -19,7 +19,7 @@
       "status": "wrong_identity",
       "reason": "All 34 public records carry a synthetic 2026 event/year identity instead of the official 2022 level events, and three records point at wrong bytes after label collisions.",
       "evidence_path": "data/providers/gept_cert/source-manifest.json",
-      "spec_path": "docs/providers/gept_cert.md"
+      "spec_path": "docs/providers/notes.md#gept_cert"
     },
     {
       "provider_id": "hakka_cert",
@@ -27,7 +27,7 @@
       "status": "wrong_identity",
       "reason": "Both published non-basic bundles carry a synthetic ROC 115 identity forced by MATERIALS_YEAR onto undated material that is absent from the current exam scope, and 11 ZIPs are published as listening_audio because every ZIP suffix is treated as audio - including the five advanced writing-test ZIPs. The eight historical basic/elementary events are withheld with them: publishing that group would require a 30.02 GB archive of paired audio, and the Hakka Affairs Council's Open Government Data License expressly carves out audiovisual works, so redistribution is unresolved.",
       "evidence_path": "data/providers/hakka_cert/source-manifest.json",
-      "spec_path": "docs/providers/hakka_cert.md"
+      "spec_path": "docs/providers/notes.md#hakka_cert"
     },
     {
       "provider_id": "ipas_cert",
@@ -35,7 +35,7 @@
       "status": "non_paper_role",
       "reason": "The adapter publishes 46 non-paper PDFs as questions while covering only 4 of 16 official families and omitting 34 paper-like PDFs.",
       "evidence_path": "data/providers/ipas_cert/source-manifest.json",
-      "spec_path": "docs/providers/ipas_cert.md"
+      "spec_path": "docs/providers/notes.md#ipas_cert"
     },
     {
       "provider_id": "moea_recruit",
@@ -43,7 +43,7 @@
       "status": "duplicate_source_identity",
       "reason": "All 370 published records are Taipower new-hire papers whose URL and checksum sets exactly duplicate taipower_recruit; no MOEA-identified paper is actually published.",
       "evidence_path": "data/providers/moea_recruit/source-manifest.json",
-      "spec_path": "docs/providers/moea_recruit.md"
+      "spec_path": "docs/providers/notes.md#moea_recruit"
     },
     {
       "provider_id": "sfi_cert",
@@ -51,7 +51,7 @@
       "status": "wrong_identity",
       "reason": "All 30 retained and published files are assigned to the wrong official category or event; embedded PDF headings contradict every adapter-derived event identity.",
       "evidence_path": "data/providers/sfi_cert/source-manifest.json",
-      "spec_path": "docs/providers/sfi_cert.md"
+      "spec_path": "docs/providers/notes.md#sfi_cert"
     },
     {
       "provider_id": "tabf_cert",
@@ -59,7 +59,7 @@
       "status": "wrong_identity",
       "reason": "242 of 252 published records sit on the 47 PHIDs duplicated across 2025 and 2026, and only 6 of the 19 official category rows survive classification intact. Re-verified against the 2026-08-03 upstream refresh, which restored PHIDs 449 and 456 and so retired the stale-PHID finding of the 2026-08-01 capture.",
       "evidence_path": "data/providers/tabf_cert/source-manifest.json",
-      "spec_path": "docs/providers/tabf_cert.md"
+      "spec_path": "docs/providers/notes.md#tabf_cert"
     },
     {
       "provider_id": "taigi_cert",
@@ -67,7 +67,7 @@
       "status": "wrong_identity",
       "reason": "All 35 records carry a synthetic 2026 identity for undated source material, and one public bundle merges the official A, B, and C paper forms into a single form.",
       "evidence_path": "data/providers/taigi_cert/source-manifest.json",
-      "spec_path": "docs/providers/taigi_cert.md"
+      "spec_path": "docs/providers/notes.md#taigi_cert"
     },
     {
       "provider_id": "tii_cert",
@@ -75,7 +75,7 @@
       "status": "non_paper_role",
       "reason": "One of the five published files is an annual investment-insurance brochure normalized and published as an exam question.",
       "evidence_path": "data/providers/tii_cert/source-manifest.json",
-      "spec_path": "docs/providers/tii_cert.md"
+      "spec_path": "docs/providers/notes.md#tii_cert"
     },
     {
       "provider_id": "tocfl_cert",
@@ -83,7 +83,7 @@
       "status": "wrong_identity",
       "reason": "92 of 95 published assets come from a rolling mock-test bank with no stable year, but are published under an unsupported synthetic 2026 process-year identity.",
       "evidence_path": "data/providers/tocfl_cert/source-manifest.json",
-      "spec_path": "docs/providers/tocfl_cert.md"
+      "spec_path": "docs/providers/notes.md#tocfl_cert"
     },
     {
       "provider_id": "tqc_cert",
@@ -91,7 +91,7 @@
       "status": "wrong_payload",
       "reason": "Nine public records point at the wrong bytes after five generic-label storage-key collisions overwrote distinct source PDFs.",
       "evidence_path": "data/providers/tqc_cert/source-manifest.json",
-      "spec_path": "docs/providers/tqc_cert.md"
+      "spec_path": "docs/providers/notes.md#tqc_cert"
     },
     {
       "provider_id": "twc_recruit",
@@ -99,7 +99,7 @@
       "status": "corrupt_payload",
       "reason": "The published bundle contains a byte-exact copy of the official ROC 107 ZIP whose PDF member is corrupt; outer-ZIP validation treats the nested official archive as an opaque payload and cannot detect it.",
       "evidence_path": "data/providers/twc_recruit/source-manifest.json",
-      "spec_path": "docs/providers/twc_recruit.md"
+      "spec_path": "docs/providers/notes.md#twc_recruit"
     }
   ]
 }

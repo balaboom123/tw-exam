@@ -79,7 +79,7 @@ uv run python scripts/render_docs.py
 uv run python scripts/validate_docs.py --check
 ```
 
-Provider/page mismatches require reconciling the runtime registry, site registry, source inventory, and provider pages. A stale generated block is never repaired by hand. A broken archive link may be updated for navigability, but archived claims remain non-authoritative.
+Provider mismatches require reconciling the runtime registry, site registry, source inventory, generated index, and referenced note sections. A stale generated block is never repaired by hand. Historical documents remain reachable through the commit-pinned archive index and do not supply current evidence.
 
 ## After recovery
 
