@@ -28,10 +28,11 @@ The full generated CLI list is in the [command reference](docs/operations/comman
 
 ## Bundle format
 
-Bundle filenames use Chinese display names plus canonical IDs. Release assets can include legacy compatibility alias names during migration. Archive entry paths remain human-readable while machine identity stays in bundle metadata.
+Primary bundle filenames derive from versioned identities and include a stable digest. Release assets may retain compatibility aliases. Archive paths preserve years and readable subject labels; the embedded manifest carries machine identity and paper locators. The [bundler](app/bundler.py) owns these formats.
 
-- Bundle asset: `護理師__nurse.zip`
-- Archive entry: `115/115030_護理師/101_0101_基礎醫學_試題.pdf`
+## Licensing
+
+Repository code is available under the [MIT License](LICENSE). Examination papers and other source materials retain their original terms; see [data sources and reuse](DATA-LICENSE.md).
 
 ## Verification
 
