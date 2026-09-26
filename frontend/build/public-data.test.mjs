@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 
-import { buildPublicData } from "./public-data.mjs"
+import { buildPublicData } from "./public-data.ts"
 import { formatSyncDate } from "../src/lib/provenance.ts"
 
 test("public feed keeps download metadata and defers aliases to the search index", () => {
@@ -52,4 +52,15 @@ test("provenance rejects unsafe source links and dates without a timezone", () =
   assert.throws(() => buildPublicData({ bundles: [{ ...bundle, sources: [{ name: "Official", url: "javascript:alert(1)" }] }] }), /Invalid provenance/)
   assert.throws(() => buildPublicData({ bundles: [{ ...bundle, updated: "2026-09-26" }] }), /Invalid sync timestamp/)
   assert.equal(formatSyncDate("2026-09-25T20:00:00Z"), "2026/09/26")
+})
+
+test("public projection rejects years that cannot satisfy the browser contract", () => {
+  const bundle = {
+    id: "example", name: "測驗", years: [115], fileCount: 1,
+    examClass: "升學測驗", examSubclass: "測驗",
+    url: "https://github.com/example/exams/releases/download/shard-1/example.zip",
+  }
+  for (const years of [["115"], [115.5], [null]]) {
+    assert.throws(() => buildPublicData({ bundles: [{ ...bundle, years }] }), /Invalid frontend bundle/)
+  }
 })

@@ -1,4 +1,4 @@
-function normalizeBasePath(basePath) {
+function normalizeBasePath(basePath?: string): string {
   if (!basePath || basePath === "/") return "/"
   const trimmed = String(basePath).trim()
   if (!trimmed) return "/"
@@ -6,7 +6,10 @@ function normalizeBasePath(basePath) {
   return withLeadingSlash.endsWith("/") ? withLeadingSlash : `${withLeadingSlash}/`
 }
 
-export function resolvePagesBase({ githubRepository, explicitBase } = {}) {
+export function resolvePagesBase({ githubRepository, explicitBase }: {
+  githubRepository?: string
+  explicitBase?: string
+} = {}): string {
   if (explicitBase) return normalizeBasePath(explicitBase)
   const repoName = githubRepository?.split("/")[1]
   return repoName ? normalizeBasePath(repoName) : "/"

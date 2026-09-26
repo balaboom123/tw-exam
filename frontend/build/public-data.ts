@@ -1,8 +1,30 @@
 import { createHash } from "node:crypto"
 import { readFile } from "node:fs/promises"
 import { isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
+import type { CompactBundle, CompactFeed } from "../src/lib/public-feed.ts"
 
-function releaseLocation(rawUrl) {
+export interface PublicData {
+  feed: CompactFeed
+  feedText: string
+  searchText: string
+  feedFile: string
+  searchFile: string
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null
+}
+
+function isStringArray(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((item: unknown) => typeof item === "string")
+}
+
+function isYearArray(value: unknown): value is number[] {
+  return Array.isArray(value) && value.every((item: unknown) => typeof item === "number" && Number.isInteger(item))
+}
+
+function releaseLocation(rawUrl: unknown): { repo: string; tag: string; asset: string } {
+  if (typeof rawUrl !== "string") throw new TypeError("Expected a GitHub Release ZIP URL")
   const url = new URL(rawUrl)
   const parts = url.pathname.split("/").filter(Boolean)
   if (
@@ -20,20 +42,21 @@ function releaseLocation(rawUrl) {
   }
 }
 
-export function buildPublicData(source) {
-  if (!source || typeof source !== "object" || !Array.isArray(source.bundles) || source.bundles.length === 0) {
+export function buildPublicData(source: unknown): { feed: CompactFeed; searchIndex: string[] } {
+  if (!isRecord(source) || !Array.isArray(source.bundles) || source.bundles.length === 0) {
     throw new TypeError("Expected a nonempty site frontend bundle feed")
   }
 
-  const bundles = []
-  const searchIndex = []
-  const classes = new Set()
+  const bundles: CompactBundle[] = []
+  const searchIndex: string[] = []
+  const classes = new Set<string>()
   let repo = ""
-  for (const [index, item] of source.bundles.entries()) {
+  for (const [index, value] of source.bundles.entries()) {
+    const item: unknown = value
     if (
-      !item || typeof item.id !== "string" || !item.id ||
-      typeof item.name !== "string" || !Array.isArray(item.years) ||
-      !Number.isInteger(item.fileCount) || item.fileCount < 1 ||
+      !isRecord(item) || typeof item.id !== "string" || !item.id ||
+      typeof item.name !== "string" || !isYearArray(item.years) ||
+      typeof item.fileCount !== "number" || !Number.isInteger(item.fileCount) || item.fileCount < 1 ||
       typeof item.examClass !== "string" || !item.examClass ||
       typeof item.examSubclass !== "string" || !item.examSubclass
     ) {
@@ -46,13 +69,10 @@ export function buildPublicData(source) {
     repo = location.repo
     const subjectLabels = item.subjectLabels ?? []
     const searchAliases = item.searchAliases ?? []
-    if (!Array.isArray(subjectLabels) || !Array.isArray(searchAliases)) {
+    if (!isStringArray(subjectLabels) || !isStringArray(searchAliases)) {
       throw new TypeError(`Invalid search metadata for bundle ${item.id}`)
     }
-    if (![...subjectLabels, ...searchAliases].every((value) => typeof value === "string")) {
-      throw new TypeError(`Invalid search metadata for bundle ${item.id}`)
-    }
-    const bundle = {
+    const bundle: CompactBundle = {
       id: item.id,
       name: item.name,
       years: item.years,
@@ -76,9 +96,9 @@ export function buildPublicData(source) {
     if (item.parts !== undefined && !Array.isArray(item.parts)) {
       throw new TypeError(`Invalid parts for bundle ${item.id}`)
     }
-    if (item.parts?.length) {
-      bundle.parts = item.parts.map((part) => {
-        if (!part || typeof part.label !== "string" || !Number.isInteger(part.fileCount) || part.fileCount < 1) {
+    if (Array.isArray(item.parts) && item.parts.length) {
+      bundle.parts = item.parts.map((part: unknown) => {
+        if (!isRecord(part) || typeof part.label !== "string" || typeof part.fileCount !== "number" || !Number.isInteger(part.fileCount) || part.fileCount < 1) {
           throw new TypeError(`Invalid part for bundle ${item.id}`)
         }
         const partLocation = releaseLocation(part.url)
@@ -93,17 +113,18 @@ export function buildPublicData(source) {
   return { feed: { v: 2, repo, classes: [...classes], bundles }, searchIndex }
 }
 
-function hashedName(prefix, source) {
+function hashedName(prefix: string, source: string): string {
   const hash = createHash("sha256").update(source).digest("hex").slice(0, 12)
   return `data/${prefix}-${hash}.json`
 }
 
-export async function readPublicData(sourcePath) {
-  const source = JSON.parse(await readFile(sourcePath, "utf8"))
+export async function readPublicData(sourcePath: string): Promise<PublicData> {
+  const source: unknown = JSON.parse(await readFile(sourcePath, "utf8"))
   const { feed, searchIndex } = buildPublicData(source)
   const feedText = JSON.stringify(feed)
   const searchText = JSON.stringify(searchIndex)
   return {
+    feed,
     feedText,
     searchText,
     feedFile: hashedName("bundles", feedText),

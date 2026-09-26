@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 
-import { buildBundlePage, buildSitemap, siteRoot } from "./bundle-pages.mjs"
+import { buildBundlePage, buildSitemap, siteRoot } from "./bundle-pages.ts"
 
 const bundle = {
   id: "exam-one",

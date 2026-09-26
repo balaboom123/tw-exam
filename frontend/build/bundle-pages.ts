@@ -1,18 +1,20 @@
 import { formatSyncDate, isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
+import type { CompactBundle } from "../src/lib/public-feed.ts"
 
 const safeSegment = /^[A-Za-z0-9._-]+$/
 
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, (character) => ({
+function escapeHtml(value: unknown): string {
+  const entities: Record<string, string> = {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-  })[character])
+  }
+  return String(value).replace(/[&<>"']/g, (character) => entities[character])
 }
 
-function safeJson(value) {
+function safeJson(value: object): string {
   return JSON.stringify(value).replace(/</g, "\\u003c")
 }
 
-function zipUrl(repo, tag, asset) {
+function zipUrl(repo: string, tag: string, asset: string): string {
   return `https://github.com/${repo}/releases/download/${encodeURIComponent(tag)}/${encodeURIComponent(asset)}`
 }
 
@@ -26,13 +28,13 @@ p,li{line-height:1.8}.meta{color:#615b57}.subjects{padding-left:1.4em}.actions{d
 .secondary{background:transparent;color:#8b3829;border:1px solid #a8432b}footer{border-top:1px solid #d6cfc0;padding-top:20px;color:#615b57;font-size:.85rem}
 `
 
-export function siteRoot({ base, origin }) {
+export function siteRoot({ base, origin }: { base: string; origin: string }): string {
   const url = new URL(base, origin)
   if (url.protocol !== "https:" && url.protocol !== "http:") throw new TypeError("Expected an HTTP site origin")
   return url.href.endsWith("/") ? url.href : `${url.href}/`
 }
 
-export function buildBundlePage(bundle, { repo, root }) {
+export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: string; root: string }): string {
   if (!safeSegment.test(bundle.id)) throw new TypeError(`Unsafe bundle ID: ${bundle.id}`)
   if (bundle.sources && (!Array.isArray(bundle.sources) || !bundle.sources.every(isBundleSource))) {
     throw new TypeError(`Invalid provenance sources for bundle ${bundle.id}`)
@@ -45,7 +47,7 @@ export function buildBundlePage(bundle, { repo, root }) {
   const parts = bundle.parts?.length ? bundle.parts : [bundle]
   const downloads = parts.map((part) => zipUrl(repo, part.tag, part.asset))
   const downloadButtons = parts.map((part, index) =>
-    `<a class="button download" href="${escapeHtml(joinUrl)}" data-zip="${escapeHtml(downloads[index])}">加入後下載 ${escapeHtml(part.label ?? "ZIP")}</a>`,
+    `<a class="button download" href="${escapeHtml(joinUrl)}" data-zip="${escapeHtml(downloads[index])}">加入後下載 ${escapeHtml("label" in part ? part.label : "ZIP")}</a>`,
   ).join("")
   const title = `${bundle.name} 歷屆試題 ZIP 下載 | tw-exam`
   const description = `${bundle.name}歷屆試題，收錄民國 ${bundle.years.join("、")} 年，共 ${bundle.fileCount} 份檔案。`
@@ -93,7 +95,7 @@ ${subjectItems ? `<h2>科目</h2><ul class="subjects">${subjectItems}</ul>` : ""
 </body></html>`
 }
 
-export function buildSitemap(bundles, root) {
+export function buildSitemap(bundles: CompactBundle[], root: string): string {
   const paths = ["", "about.html", "contact.html", "faq.html", "privacy.html", ...bundles.map((bundle) => `b/${bundle.id}.html`)]
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map((path) => `<url><loc>${escapeHtml(new URL(path, root).href)}</loc></url>`).join("\n")}\n</urlset>\n`
 }

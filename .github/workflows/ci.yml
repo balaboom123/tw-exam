@@ -154,5 +154,5 @@ jobs:
           VITE_ENABLE_ADSENSE: "false"
 
       - name: Check JavaScript size budget
-        run: node build/check-bundle-size.mjs
+        run: node build/check-bundle-size.ts
         working-directory: frontend
