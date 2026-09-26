@@ -676,6 +676,82 @@ class BundlerTests(unittest.TestCase):
             self.assertNotEqual(archive_path.stat().st_mtime_ns, marker)
             self.assertNotEqual(third.bundles[0].checksum, first.bundles[0].checksum)
 
+    def test_publication_rebuilds_changed_cache_or_rejects_bad_recovered_payload(self) -> None:
+        for mirror_present, registered in ((True, True), (False, True), (False, False)):
+            with self.subTest(
+                mirror_present=mirror_present, registered=registered,
+            ), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                mirror = root / "mirror"
+                key = "115/exam-115/101/0101/question.pdf"
+                source = mirror / key
+                source.parent.mkdir(parents=True)
+                payload = b"%PDF-1.7 official question"
+                source.write_bytes(payload)
+                paper = make_paper(
+                    canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                    source_exam_id="exam-115", subject_code="0101", storage_key=key,
+                )
+                paper.checksum = hashlib.sha256(payload).hexdigest()
+                catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+                directory = root / "bundles"
+                first = build_bundles(directory, mirror, catalog, "")
+                bundle = first.bundles[0]
+                path = directory / bundle.asset_name
+                with zipfile.ZipFile(path) as archive:
+                    entries = [(info, archive.read(info)) for info in archive.infolist()]
+                with zipfile.ZipFile(path, "w") as archive:
+                    for info, data in entries:
+                        archive.writestr(
+                            info, data if info.filename == "bundle.json" else b"%PDF-1.7 altered",
+                        )
+                if not mirror_present:
+                    source.unlink()
+                repaired = build_bundles(
+                    directory, mirror, catalog, "",
+                    published_checksums={bundle.asset_name: bundle.checksum} if registered else {},
+                )
+                if mirror_present:
+                    self.assertEqual(repaired.failures, [])
+                    self.assertEqual(repaired.bundles[0].checksum, bundle.checksum)
+                    with zipfile.ZipFile(path) as archive:
+                        row = json.loads(archive.read("bundle.json"))["papers"][0]
+                        self.assertEqual(archive.read(row["bundle_entry"]), payload)
+                else:
+                    self.assertEqual(repaired.bundles, [])
+                    self.assertEqual(len(repaired.failures), 1)
+                    self.assertIn("recorded checksum", repaired.failures[0].message)
+
+    def test_published_digest_preserves_verified_cache_without_mirror(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            mirror = root / "mirror"
+            key = "115/exam-115/101/0101/question.pdf"
+            source = mirror / key
+            source.parent.mkdir(parents=True)
+            payload = b"%PDF-1.7 official question"
+            source.write_bytes(payload)
+            paper = make_paper(
+                canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                source_exam_id="exam-115", subject_code="0101", storage_key=key,
+            )
+            paper.checksum = hashlib.sha256(payload).hexdigest()
+            catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+            directory = root / "bundles"
+            first = build_bundles(directory, mirror, catalog, "")
+            bundle = first.bundles[0]
+            path = directory / bundle.asset_name
+            marker = 946_684_800_000_000_000
+            os.utime(path, ns=(marker, marker))
+            source.unlink()
+            reused = build_bundles(
+                directory, mirror, catalog, "",
+                published_checksums={bundle.asset_name: bundle.checksum},
+            )
+            self.assertEqual(reused.failures, [])
+            self.assertEqual(reused.bundles[0].checksum, bundle.checksum)
+            self.assertEqual(path.stat().st_mtime_ns, marker)
+
     def test_old_full_manifest_reuses_archive_after_provider_only_metadata_changes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

@@ -799,6 +799,7 @@ def build_bundles(
     min_years: int = 1,
     min_years_by_canonical_prefix: dict[str, int] | None = None,
     max_bundle_bytes: int = MAX_BUNDLE_BYTES,
+    published_checksums: dict[str, str] | None = None,
 ) -> BundleBuildResult:
     if max_bundle_bytes < 1 or max_bundle_bytes >= 2_147_483_648:
         raise ValueError("max_bundle_bytes must be below GitHub's 2 GiB per-asset limit")
@@ -890,6 +891,15 @@ def build_bundles(
             arcnames=resolved_names,
             max_bytes=max_bundle_bytes,
         )
+        reused_digest = None
+        if reuse_existing:
+            with bundle_path.open("rb") as existing_file:
+                reused_digest = hashlib.file_digest(existing_file, "sha256").hexdigest()
+            published_digest = (published_checksums or {}).get(asset_name)
+            if published_checksums is not None and (
+                not published_digest or reused_digest != published_digest
+            ):
+                reuse_existing = False
         if reuse_existing:
             included_papers.extend(ordered)
             bundle_entries_by_paper_key.update(
@@ -940,6 +950,26 @@ def build_bundles(
                             _resolve_entry_ref(existing_ref) if existing_ref is not None else None
                         )
                         if existing_bytes is not None:
+                            if (
+                                published_checksums is not None
+                                and paper.checksum
+                                and hashlib.sha256(existing_bytes).hexdigest() != paper.checksum
+                            ):
+                                failures.append(
+                                    SyncFailure(
+                                        stage="bundle",
+                                        source_exam_id=paper.source_exam_id,
+                                        year_roc=paper.year_roc,
+                                        paper_code=paper.paper_code,
+                                        file_type=paper.file_type,
+                                        url=paper.download_url_source,
+                                        message=(
+                                            "Previous bundle entry does not match its recorded "
+                                            f"checksum: {paper.storage_key}"
+                                        ),
+                                    )
+                                )
+                                continue
                             archive.writestr(
                                 _bundle_entry_info(
                                     arcname, compress_type=_bundle_compression(arcname)
@@ -1000,8 +1030,11 @@ def build_bundles(
         split_bundle = len(part_specs) > 1
         part_count = len(part_specs)
         for part_index, (part_path, part_name, part_papers) in enumerate(part_specs, 1):
-            with part_path.open("rb") as part_file:
-                part_digest = hashlib.file_digest(part_file, "sha256").hexdigest()
+            if reuse_existing and part_path == bundle_path and reused_digest is not None:
+                part_digest = reused_digest
+            else:
+                with part_path.open("rb") as part_file:
+                    part_digest = hashlib.file_digest(part_file, "sha256").hexdigest()
             part_years = sorted({paper.year_roc for paper in part_papers}, reverse=True)
             bundle_assets.append(
                 BundleAsset(

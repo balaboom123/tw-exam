@@ -1,6 +1,8 @@
+import hashlib
 import json
 import tempfile
 import unittest
+import zipfile
 from pathlib import Path
 
 from app.manifest import SourceManifest
@@ -285,6 +287,23 @@ class PublisherTests(unittest.TestCase):
                     "bundles/sites/default/ceec-gsat.zip",
                 },
             )
+
+            nurse = next(bundle for bundle in bundles if bundle.asset_name == "nurse.zip")
+            path = root / nurse.storage_key
+            with zipfile.ZipFile(path) as archive:
+                entries = [(info, archive.read(info)) for info in archive.infolist()]
+            with zipfile.ZipFile(path, "w") as archive:
+                for info, data in entries:
+                    archive.writestr(
+                        info, data if info.filename == "bundle.json" else b"%PDF-1.7 altered",
+                    )
+            self.assertNotEqual(hashlib.sha256(path.read_bytes()).hexdigest(), nurse.checksum)
+            _normalized, repaired = publish_site(
+                root, site_id="default", repository="example/repo",
+            )
+            restored = next(bundle for bundle in repaired if bundle.asset_name == nurse.asset_name)
+            self.assertEqual(restored.checksum, nurse.checksum)
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), nurse.checksum)
 
     def test_publish_site_excludes_single_year_bundles_from_public_site_state(self) -> None:
         nurse_latest = NormalizedPaper(
