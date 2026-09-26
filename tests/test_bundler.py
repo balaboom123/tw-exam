@@ -4,10 +4,18 @@ import os
 import tempfile
 import unittest
 import zipfile
+from dataclasses import asdict
 from pathlib import Path
+
+from jsonschema import Draft202012Validator
 
 from app.bundler import build_bundles, public_bundle_ids
 from app.models import NormalizedCatalog, NormalizedPaper
+
+
+ARCHIVE_SCHEMA = Draft202012Validator(json.loads(
+    (Path(__file__).resolve().parents[1] / "schemas/bundle-archive-manifest-v2.schema.json").read_text()
+))
 
 
 def make_paper(
@@ -105,6 +113,7 @@ class BundlerTests(unittest.TestCase):
                 manifest = json.loads(archive.read("bundle.json").decode("utf-8"))
                 self.assertEqual(manifest["canonical_id"], "nurse")
                 self.assertEqual(manifest["years"], [115, 114])
+                ARCHIVE_SCHEMA.validate(manifest)
 
             self.assertTrue(all(paper.download_url_bundle == "" for paper in catalog.papers))
             self.assertEqual(result.failures, [])
@@ -451,6 +460,7 @@ class BundlerTests(unittest.TestCase):
                     self.assertEqual(manifest["part_count"], 3)
                     self.assertEqual(manifest["part_index"], bundle.part_index)
                     self.assertEqual(manifest["file_count"], 1)
+                    ARCHIVE_SCHEMA.validate(manifest)
             self.assertEqual(result.failures, [])
 
     def test_oversized_entry_preserves_existing_assets_before_failing(self) -> None:
@@ -665,6 +675,171 @@ class BundlerTests(unittest.TestCase):
             self.assertEqual(third.failures, [])
             self.assertNotEqual(archive_path.stat().st_mtime_ns, marker)
             self.assertNotEqual(third.bundles[0].checksum, first.bundles[0].checksum)
+
+    def test_old_full_manifest_reuses_archive_after_provider_only_metadata_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            source = root / "mirror/question.pdf"
+            source.parent.mkdir()
+            payload = b"%PDF-1.7 old release payload"
+            source.write_bytes(payload)
+            paper = make_paper(
+                canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                source_exam_id="exam-115", subject_code="0101", storage_key="question.pdf",
+            )
+            paper.checksum = hashlib.sha256(payload).hexdigest()
+            catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+            first = build_bundles(root / "bundles", root / "mirror", catalog, "")
+            archive_path = root / "bundles" / first.bundles[0].asset_name
+            with zipfile.ZipFile(archive_path) as archive:
+                manifest = json.loads(archive.read("bundle.json"))
+                entry = manifest["papers"][0]["bundle_entry"]
+            manifest.pop("manifest_version")
+            manifest["papers"] = [{**asdict(paper), "bundle_entry": entry}]
+            with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                archive.writestr(entry, payload)
+                archive.writestr("bundle.json", json.dumps(manifest, ensure_ascii=False, indent=2))
+            old_bytes = archive_path.read_bytes()
+            marker = 946_684_800_000_000_000
+            os.utime(archive_path, ns=(marker, marker))
+            source.unlink()
+            paper.download_url_source = "https://source.example/new-location.pdf"
+            paper.download_url_mirror = "https://mirror.example/question.pdf"
+
+            reused = build_bundles(root / "bundles", root / "mirror", catalog, "")
+
+            self.assertEqual(reused.failures, [])
+            self.assertEqual(archive_path.read_bytes(), old_bytes)
+            self.assertEqual(archive_path.stat().st_mtime_ns, marker)
+            self.assertEqual(reused.bundles[0].checksum, hashlib.sha256(old_bytes).hexdigest())
+
+    def test_manifest_paper_order_does_not_force_rewriting_an_unchanged_archive(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            mirror = root / "mirror"
+            mirror.mkdir()
+            papers = []
+            for index in range(2):
+                source = mirror / f"{index}.pdf"
+                source.write_bytes(f"%PDF-1.7 paper {index}".encode())
+                paper = make_paper(
+                    canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                    source_exam_id="exam-115", subject_code=str(index), storage_key=source.name,
+                )
+                paper.checksum = hashlib.sha256(source.read_bytes()).hexdigest()
+                papers.append(paper)
+            catalog = NormalizedCatalog(papers=papers, review_queue=[])
+            first = build_bundles(root / "bundles", mirror, catalog, "")
+            path = root / "bundles" / first.bundles[0].asset_name
+            with zipfile.ZipFile(path) as archive:
+                manifest = json.loads(archive.read("bundle.json"))
+                payloads = {row["bundle_entry"]: archive.read(row["bundle_entry"]) for row in manifest["papers"]}
+            manifest["papers"].reverse()
+            with zipfile.ZipFile(path, "w") as archive:
+                for name, payload in payloads.items():
+                    archive.writestr(name, payload)
+                archive.writestr("bundle.json", json.dumps(manifest))
+            old_bytes = path.read_bytes()
+            marker = 946_684_800_000_000_000
+            os.utime(path, ns=(marker, marker))
+            for source in mirror.iterdir():
+                source.unlink()
+
+            reused = build_bundles(root / "bundles", mirror, catalog, "")
+
+            self.assertEqual(reused.failures, [])
+            self.assertEqual(path.stat().st_mtime_ns, marker)
+            self.assertEqual(path.read_bytes(), old_bytes)
+
+    def test_compact_manifest_recovers_payload_after_entry_name_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            source = root / "mirror/question.pdf"
+            source.parent.mkdir()
+            payload = b"%PDF-1.7 retained paper"
+            source.write_bytes(payload)
+            paper = make_paper(
+                canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                source_exam_id="exam-115", subject_code="0101", storage_key="question.pdf",
+                subject_name_raw="Old subject",
+            )
+            paper.checksum = hashlib.sha256(payload).hexdigest()
+            catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+            first = build_bundles(root / "bundles", root / "mirror", catalog, "")
+            source.unlink()
+            paper.subject_name_raw = "Reviewed subject"
+
+            updated = build_bundles(root / "bundles", root / "mirror", catalog, "")
+
+            self.assertEqual(updated.failures, [])
+            self.assertNotEqual(first.bundles[0].checksum, updated.bundles[0].checksum)
+            with zipfile.ZipFile(root / "bundles" / updated.bundles[0].asset_name) as archive:
+                manifest = json.loads(archive.read("bundle.json"))
+                ARCHIVE_SCHEMA.validate(manifest)
+                row = manifest["papers"][0]
+                self.assertIn("Reviewed subject", row["bundle_entry"])
+                self.assertEqual(archive.read(row["bundle_entry"]), payload)
+
+    def test_changed_paper_checksum_rebuilds_compact_archive(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            source = root / "mirror/question.pdf"
+            source.parent.mkdir()
+            source.write_bytes(b"%PDF-1.7 first")
+            paper = make_paper(
+                canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                source_exam_id="exam-115", subject_code="0101", storage_key="question.pdf",
+            )
+            paper.checksum = hashlib.sha256(source.read_bytes()).hexdigest()
+            catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+            first = build_bundles(root / "bundles", root / "mirror", catalog, "")
+            source.write_bytes(b"%PDF-1.7 corrected")
+            paper.checksum = hashlib.sha256(source.read_bytes()).hexdigest()
+
+            updated = build_bundles(root / "bundles", root / "mirror", catalog, "")
+
+            self.assertEqual(updated.failures, [])
+            self.assertNotEqual(first.bundles[0].checksum, updated.bundles[0].checksum)
+            with zipfile.ZipFile(root / "bundles" / updated.bundles[0].asset_name) as archive:
+                manifest = json.loads(archive.read("bundle.json"))
+                ARCHIVE_SCHEMA.validate(manifest)
+                row = manifest["papers"][0]
+                self.assertEqual(row["checksum"], paper.checksum)
+                self.assertEqual(archive.read(row["bundle_entry"]), source.read_bytes())
+
+    def test_compressed_payloads_are_stored_while_text_and_manifest_are_deflated(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            mirror = root / "mirror"
+            mirror.mkdir()
+            papers = []
+            payloads = {}
+            for index, suffix in enumerate((".pdf", ".zip", ".rar", ".mp3", ".jpg", ".PNG", ".docx", ".txt")):
+                source = mirror / f"{index}{suffix}"
+                payload = ("可壓縮的文字內容" * 1000).encode() if suffix == ".txt" else os.urandom(6000)
+                source.write_bytes(payload)
+                paper = make_paper(
+                    canonical_id="mixed", canonical_name="Mixed", year_roc=115,
+                    source_exam_id="exam-115", subject_code=str(index), storage_key=source.name,
+                )
+                paper.checksum = hashlib.sha256(payload).hexdigest()
+                papers.append(paper)
+                payloads[str(index)] = payload
+            result = build_bundles(root / "bundles", mirror, NormalizedCatalog(papers=papers, review_queue=[]), "")
+            self.assertEqual(result.failures, [])
+            with zipfile.ZipFile(root / "bundles" / result.bundles[0].asset_name) as archive:
+                manifest = json.loads(archive.read("bundle.json"))
+                ARCHIVE_SCHEMA.validate(manifest)
+                self.assertEqual(archive.getinfo("bundle.json").compress_type, zipfile.ZIP_DEFLATED)
+                for row in manifest["papers"]:
+                    name = row["bundle_entry"]
+                    info = archive.getinfo(name)
+                    self.assertEqual(archive.read(name), payloads[row["subject_code"]])
+                    if name.endswith(".txt"):
+                        self.assertEqual(info.compress_type, zipfile.ZIP_DEFLATED)
+                        self.assertLess(info.compress_size, info.file_size)
+                    else:
+                        self.assertEqual(info.compress_type, zipfile.ZIP_STORED)
 
     def test_missing_mirror_entry_is_checked_before_reusing_a_bundle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

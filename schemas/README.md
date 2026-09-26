@@ -6,7 +6,8 @@ Schemas here validate persisted v2 boundaries. They are separate from taxonomy d
 - provider-mapping.schema.json: provider rule and review-policy source.
 - normalized-paper-v2.schema.json: provider paper records with identity facets and provenance.
 - provider-index-v1.schema.json: generated event and paper projection used by fast data gates.
-- bundle-v2.schema.json: site bundle inventory entries and ZIP manifest metadata.
+- bundle-v2.schema.json: site bundle inventory entries.
+- bundle-archive-manifest-v2.schema.json: compact embedded `bundle.json` rows with paper keys, checksums, and ZIP entry names; `manifest_version` versions this archive format independently of identity schema versions.
 - frontend-bundle-feed-v2.schema.json: public structured feed consumed by the frontend.
 - release-assets-v2.schema.json: site release asset inventory and shard assignments.
 - release-plan-v2.schema.json: dry-run shard assignments and physical asset counts.

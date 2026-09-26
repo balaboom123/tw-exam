@@ -17,7 +17,6 @@ from app.models import (
     NormalizedPaper,
     SyncFailure,
     file_type_label,
-    to_plain_data,
 )
 from app.normalizer import hashed_fallback_canonical_id, legacy_fallback_canonical_id
 from app.provider_index import (
@@ -52,6 +51,51 @@ BUNDLE_PART_OVERHEAD = 4096
 # and content.
 BUNDLE_ENTRY_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 BUNDLE_ENTRY_EXTERNAL_ATTR = 0o644 << 16
+
+# These payloads already carry compression or are deliberately distributed
+# as PDFs. Recompressing them adds CPU work to every changed bundle.
+STORED_BUNDLE_SUFFIXES = frozenset(
+    {
+        ".pdf",
+        ".zip",
+        ".rar",
+        ".7z",
+        ".gz",
+        ".bz2",
+        ".xz",
+        ".mp3",
+        ".m4a",
+        ".mp4",
+        ".ogg",
+        ".jpg",
+        ".jpeg",
+        ".png",
+        ".gif",
+        ".webp",
+        ".docx",
+        ".xlsx",
+        ".pptx",
+    }
+)
+
+
+def _bundle_compression(arcname: str) -> int:
+    return (
+        zipfile.ZIP_STORED
+        if Path(arcname).suffix.lower() in STORED_BUNDLE_SUFFIXES
+        else zipfile.ZIP_DEFLATED
+    )
+
+
+def _manifest_paper(paper: NormalizedPaper, arcname: str) -> dict[str, str]:
+    return {
+        "source_exam_id": paper.source_exam_id,
+        "category_code": paper.category_code,
+        "subject_code": paper.subject_code,
+        "file_type": paper.file_type,
+        "checksum": paper.checksum,
+        "bundle_entry": arcname,
+    }
 
 
 def _bundle_entry_info(arcname: str, *, compress_type: int) -> zipfile.ZipInfo:
@@ -290,7 +334,9 @@ def _split_bundle_archive(
                 part_path, "w", compression=zipfile.ZIP_STORED, allowZip64=True
             ) as destination:
                 for _paper, arcname in group:
-                    entry_info = _bundle_entry_info(arcname, compress_type=zipfile.ZIP_STORED)
+                    entry_info = _bundle_entry_info(
+                        arcname, compress_type=_bundle_compression(arcname)
+                    )
                     with (
                         source.open(arcname, "r") as source_entry,
                         destination.open(entry_info, "w", force_zip64=True) as destination_entry,
@@ -305,10 +351,10 @@ def _split_bundle_archive(
                     {paper.year_roc for paper, _arcname in group}, reverse=True
                 )
                 part_manifest["papers"] = [
-                    {**to_plain_data(paper), "bundle_entry": arcname} for paper, arcname in group
+                    _manifest_paper(paper, arcname) for paper, arcname in group
                 ]
                 destination.writestr(
-                    _bundle_entry_info("bundle.json", compress_type=zipfile.ZIP_STORED),
+                    _bundle_entry_info("bundle.json", compress_type=zipfile.ZIP_DEFLATED),
                     json.dumps(part_manifest, ensure_ascii=False, indent=2),
                 )
             if part_path.stat().st_size >= 2_147_483_648:
@@ -401,15 +447,22 @@ def _load_existing_entries_by_canonical(
                     continue
                 manifest_bytes = archive.read("bundle.json")
                 manifest = json.loads(manifest_bytes.decode("utf-8"))
+                if not isinstance(manifest, dict):
+                    continue
+                version = manifest.get("manifest_version", 1)
+                if type(version) is not int or version not in (1, 2):
+                    continue
                 canonical_id = manifest.get("bundle_id") or manifest.get("canonical_id")
                 if not canonical_id:
                     continue
                 entry_names = [name for name in names if name != "bundle.json"]
-                archive_signatures[archive_path] = (
-                    hashlib.sha256(manifest_bytes).digest(),
-                    frozenset(entry_names),
-                    len(entry_names),
-                )
+                manifest_digest = _manifest_digest(manifest)
+                if manifest_digest is not None:
+                    archive_signatures[archive_path] = (
+                        manifest_digest,
+                        frozenset(entry_names),
+                        len(entry_names),
+                    )
                 entries_by_name = existing_entries_by_name.setdefault(canonical_id, {})
                 for name in names:
                     if name != "bundle.json":
@@ -584,12 +637,12 @@ def public_bundle_ids_from_indexes(
     return public_ids
 
 
-def _bundle_manifest_bytes(
+def _bundle_manifest_data(
     canonical_id: str,
     canonical_name: str,
     included_papers: list[NormalizedPaper],
     bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str],
-) -> bytes:
+) -> dict[str, Any]:
     if not included_papers:
         manifest = {
             "schema_version": 2,
@@ -601,11 +654,10 @@ def _bundle_manifest_bytes(
             "papers": [],
         }
     else:
-        manifest_papers = []
-        for paper in included_papers:
-            paper_data = to_plain_data(paper)
-            paper_data["bundle_entry"] = bundle_entries_by_paper_key[_paper_bundle_key(paper)]
-            manifest_papers.append(paper_data)
+        manifest_papers = [
+            _manifest_paper(paper, bundle_entries_by_paper_key[_paper_bundle_key(paper)])
+            for paper in included_papers
+        ]
         exemplar = included_papers[0]
         manifest = {
             "schema_version": 2,
@@ -628,7 +680,69 @@ def _bundle_manifest_bytes(
             "file_count": len(included_papers),
             "papers": manifest_papers,
         }
-    return json.dumps(manifest, ensure_ascii=False, indent=2).encode("utf-8")
+    manifest["manifest_version"] = 2
+    return manifest
+
+
+def _bundle_manifest_bytes(
+    canonical_id: str,
+    canonical_name: str,
+    included_papers: list[NormalizedPaper],
+    bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str],
+) -> bytes:
+    return json.dumps(
+        _bundle_manifest_data(
+            canonical_id,
+            canonical_name,
+            included_papers,
+            bundle_entries_by_paper_key,
+        ),
+        ensure_ascii=False,
+        indent=2,
+    ).encode("utf-8")
+
+
+def _manifest_digest(manifest: dict[str, Any]) -> bytes | None:
+    """Compare content locators, not repeated provider-only metadata.
+
+    Old full-record manifests project to the same compact rows so unchanged
+    released archives remain reusable without a blanket checksum migration.
+    """
+    version = manifest.get("manifest_version", 1)
+    if type(version) is not int or version not in (1, 2):
+        return None
+    papers = manifest.get("papers")
+    if not isinstance(papers, list) or any(not isinstance(paper, dict) for paper in papers):
+        return None
+    fields = (
+        "source_exam_id",
+        "category_code",
+        "subject_code",
+        "file_type",
+        "checksum",
+        "bundle_entry",
+    )
+    if version == 2 and any(
+        set(paper) != set(fields) or any(not isinstance(paper.get(key), str) for key in fields)
+        for paper in papers
+    ):
+        return None
+    rows = [{key: paper.get(key, "") for key in fields} for paper in papers]
+    if any(not isinstance(value, str) for row in rows for value in row.values()):
+        return None
+    projected = {
+        **manifest,
+        "manifest_version": 2,
+        "papers": sorted(rows, key=lambda row: tuple(row[key] for key in fields)),
+    }
+    return hashlib.sha256(
+        json.dumps(
+            projected,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    ).digest()
 
 
 def _can_reuse_bundle(
@@ -653,10 +767,8 @@ def _can_reuse_bundle(
     entries_by_key = {
         _paper_bundle_key(paper): arcname for paper, arcname in zip(ordered, arcnames, strict=True)
     }
-    expected_manifest = _bundle_manifest_bytes(
-        canonical_id, canonical_name, ordered, entries_by_key
-    )
-    if hashlib.sha256(expected_manifest).digest() != manifest_digest:
+    expected_manifest = _bundle_manifest_data(canonical_id, canonical_name, ordered, entries_by_key)
+    if _manifest_digest(expected_manifest) != manifest_digest:
         return False
     missing_mirror_entries = [
         arcname
@@ -801,7 +913,7 @@ def build_bundles(
                         source_path = _resolve_mirror_source_path(mirror_dir, paper)
                         if source_path is not None:
                             entry_info = _bundle_source_entry_info(
-                                source_path, arcname, compress_type=zipfile.ZIP_DEFLATED
+                                source_path, arcname, compress_type=_bundle_compression(arcname)
                             )
                             with (
                                 open(source_path, "rb") as source_file,
@@ -829,7 +941,9 @@ def build_bundles(
                         )
                         if existing_bytes is not None:
                             archive.writestr(
-                                _bundle_entry_info(arcname, compress_type=zipfile.ZIP_DEFLATED),
+                                _bundle_entry_info(
+                                    arcname, compress_type=_bundle_compression(arcname)
+                                ),
                                 existing_bytes,
                             )
                             included_papers.append(paper)

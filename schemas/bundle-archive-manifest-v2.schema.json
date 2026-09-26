@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/bundle-archive-manifest-v2.schema.json",
+  "title": "Compact embedded bundle archive manifest",
+  "type": "object",
+  "required": ["manifest_version", "schema_version", "bundle_id", "canonical_id", "canonical_name", "years", "file_count", "papers"],
+  "properties": {
+    "manifest_version": {"const": 2},
+    "schema_version": {"const": 2},
+    "bundle_id": {"type": "string"},
+    "canonical_id": {"type": "string"},
+    "canonical_name": {"type": "string"},
+    "years": {"type": "array", "items": {"type": "integer"}, "uniqueItems": true},
+    "file_count": {"type": "integer", "minimum": 0},
+    "part_index": {"type": "integer", "minimum": 1},
+    "part_count": {"type": "integer", "minimum": 1},
+    "part_label": {"type": "string"},
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_exam_id", "category_code", "subject_code", "file_type", "checksum", "bundle_entry"],
+        "properties": {
+          "source_exam_id": {"type": "string"},
+          "category_code": {"type": "string"},
+          "subject_code": {"type": "string"},
+          "file_type": {"type": "string"},
+          "checksum": {"type": "string"},
+          "bundle_entry": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
