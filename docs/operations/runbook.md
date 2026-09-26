@@ -32,6 +32,18 @@ Provider pages under [the generated index](../providers/README.md) record source
 
 Hosted provider runs use the matrix caller that owns the provider in `.github/workflows/`. Inspect the provider job's sync summary and artifact when diagnosing a failure. Publication queues behind other site writers and checks current `main` before applying the sync snapshot; a stale provider baseline requires a fresh caller run. Quarantined providers continue collecting state through provider-only commits.
 
+## Inspect normalization reviews
+
+Expand a provider's compact review ledger without reading its paper catalog:
+
+```bash
+uv run python -m app review-queue --provider <provider_id> --output .tmp/reviews.json
+```
+
+The expanded records retain their original review reasons and source evidence.
+They are diagnostics; resolve them through normalization rather than editing
+stored tables by hand.
+
 ## Repair retained failures
 
 Prefer the recorded failure set over a broad recrawl:

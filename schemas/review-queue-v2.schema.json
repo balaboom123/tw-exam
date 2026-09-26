@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Provider review queue, compact v2 or legacy record array",
+  "oneOf": [
+    {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "raw_category",
+          "normalized_candidate",
+          "source_exam_id",
+          "year_roc"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "raw_category": {
+            "type": "string"
+          },
+          "normalized_candidate": {
+            "type": "string"
+          },
+          "source_exam_id": {
+            "type": "string"
+          },
+          "year_roc": {
+            "type": "integer"
+          },
+          "raw_exam_name": {
+            "type": "string"
+          },
+          "classification_signature": {
+            "type": "string"
+          },
+          "bundle_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "provider_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "provider_id",
+        "fields",
+        "strings",
+        "items"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 2
+        },
+        "provider_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fields": {
+          "const": [
+            "raw_category",
+            "normalized_candidate",
+            "source_exam_id",
+            "year_roc",
+            "raw_exam_name",
+            "classification_signature",
+            "bundle_id",
+            "reason"
+          ]
+        },
+        "strings": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "prefixItems": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "minItems": 8,
+            "maxItems": 8,
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

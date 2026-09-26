@@ -11,11 +11,11 @@ from app.models import (
     NormalizedCatalog,
     NormalizedPaper,
     ParsedPaper,
-    ReviewItem,
     SourceExamPage,
     SyncFailure,
 )
 from app.paths import ProviderPaths, SitePaths
+from app.review_queue import decode_review_queue
 
 
 def load_existing_state(
@@ -411,13 +411,7 @@ def _load_catalog_dir(
         )
         for paper in _load_json_dir(papers_dir)
     ]
-    review_queue = [
-        ReviewItem(
-            provider_id=item.get("provider_id") or provider_id,
-            **{key: value for key, value in item.items() if key != "provider_id"},
-        )
-        for item in _load_json_records(review_queue_path)
-    ]
+    review_queue = decode_review_queue(_load_json(review_queue_path), provider_id)
     return NormalizedCatalog(papers=papers, review_queue=review_queue)
 
 
