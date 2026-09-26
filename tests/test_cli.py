@@ -905,6 +905,59 @@ class CliCommandTests(unittest.TestCase):
         build_bundles_mock.assert_not_called()
         write_data_files_mock.assert_not_called()
 
+    @patch("app.cli._restore_new_public_bundle_files", return_value=[])
+    @patch("app.cli._download_affected_bundles")
+    @patch("app.cli.sync_exam_pages")
+    def test_full_sync_downloads_existing_affected_bundles_when_requested(
+        self, sync_exam_pages_mock, download_mock, restore_mock,
+    ) -> None:
+        class MoexClient:
+            provider_id = "moex"
+
+            def discover_available_years(self) -> list[int]:
+                return [2026]
+
+            def discover_exams(self, year_ad: int) -> list[ExamOption]:
+                return [ExamOption(code="115030", year_ad=year_ad, year_roc=115, label="MOEX 115")]
+
+        page = SourceExamPage(
+            provider_id="moex", source_exam_id="115030", year_ad=2026,
+            year_roc=115, exam_name_raw="MOEX 115", attachments=[], papers=[],
+        )
+        sync_exam_pages_mock.return_value = (
+            [page], NormalizedCatalog(papers=[_paper("moex", "nurse")], review_queue=[]), [],
+        )
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            data_dir = root / "data"
+            data_dir.mkdir()
+            (data_dir / "aliases.json").write_text('{"rules": []}', encoding="utf-8")
+            site = site_paths(root, "default")
+            site.data_dir.mkdir(parents=True, exist_ok=True)
+            site.bundles_path.write_text(json.dumps({
+                "schema_version": 1,
+                "site_id": "default",
+                "bundles": [{
+                    "canonical_id": "nurse", "canonical_name": "Nurse", "years": [115, 114],
+                    "file_count": 2, "storage_key": "bundles/sites/default/nurse.zip",
+                    "asset_name": "nurse.zip", "release_tag": "default-bundles-001",
+                }],
+            }), encoding="utf-8")
+            args = build_parser().parse_args([
+                "sync-full", "--provider", "moex", "--data-dir", str(data_dir),
+                "--mirror-dir", str(root / "mirror"),
+                "--aliases", str(data_dir / "aliases.json"),
+                "--download-affected-bundles",
+            ])
+
+            self.assertEqual(command_sync(args, client=MoexClient()), 0)
+
+            download_mock.assert_called_once()
+            self.assertEqual(download_mock.call_args.args[0], site.bundle_dir)
+            self.assertEqual(download_mock.call_args.args[2], {"nurse"})
+            restore_mock.assert_called_once()
+
     @patch("app.cli.sync_exam_pages", side_effect=RuntimeError("parser crashed"))
     def test_full_sync_records_unexpected_year_failure(self, sync_exam_pages_mock) -> None:
         class MoexClient:

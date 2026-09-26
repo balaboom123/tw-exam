@@ -45,8 +45,9 @@ Do not weaken bundle-purity checks or introduce prose-only classification except
 
 When a targeted sync makes a previously unpublished bundle meet the site's
 minimum-year policy, there is no release ZIP containing its retained older
-papers. With `--download-affected-bundles`, targeted and incremental sync restore
-those files from their recorded source URLs before writing publication inputs.
+papers. With `--download-affected-bundles`, targeted, incremental, and full sync
+download existing affected release ZIPs and restore newly public files from
+their recorded source URLs before writing publication inputs.
 Restoration validates the payload and recorded checksum; a failure stops the
 sync. If the source bytes have changed, refresh that source exam before retrying.
 An empty runner mirror therefore does not require a full bootstrap just because
