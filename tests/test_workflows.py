@@ -233,23 +233,18 @@ class WorkflowTests(unittest.TestCase):
         ):
             self.assertIn(expected_path, push_paths)
 
-    def test_pages_deploy_runs_catalog_and_frontend_gates_before_upload(self) -> None:
+    def test_pages_deploy_runs_frontend_gates_before_upload(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "deploy-pages.yml").read_text(encoding="utf-8")
 
+        self.assertNotIn("actions/setup-python@", workflow)
+        self.assertNotIn("Run Python and catalog gates", workflow)
         for required in (
-            "uses: actions/setup-python@",
-            "python -m pytest -q",
-            "python -m app audit-catalog",
-            "python -m app history-audit",
-            "python scripts/validate_publication.py",
-            "python scripts/validate_source_inventory.py",
-            "python -m app plan-release",
             "npm test",
             "npm run lint",
             "npm run build",
         ):
             self.assertIn(required, workflow)
-        self.assertLess(workflow.index("python scripts/validate_publication.py"), workflow.index("npm ci"))
+        self.assertLess(workflow.index("npm ci"), workflow.index("npm test"))
         self.assertLess(workflow.index("npm run lint"), workflow.index("npm run build"))
         self.assertLess(workflow.index("npm run build"), workflow.index("uses: actions/upload-pages-artifact@"))
 
@@ -270,17 +265,14 @@ class WorkflowTests(unittest.TestCase):
         split = {action: sorted(seen) for action, seen in versions.items() if len(seen) > 1}
         self.assertEqual(split, {})
 
-    def test_mirrorless_workflows_skip_the_mirror_dimension_of_history_audit(self) -> None:
-        # Both workflows check out without the gitignored mirror tree. Without
-        # the opt-out every retained paper reports a download gap, so the gate
-        # can never pass and the Pages deploy never runs.
-        for name in ("ci.yml", "deploy-pages.yml"):
-            workflow = (REPO_ROOT / ".github" / "workflows" / name).read_text(encoding="utf-8")
-            invocations = [line for line in workflow.splitlines() if "app history-audit" in line]
-            with self.subTest(workflow=name):
-                self.assertTrue(invocations, f"{name} no longer runs history-audit")
-                for line in invocations:
-                    self.assertIn("--skip-mirror-check", line)
+    def test_ci_history_audit_skips_missing_mirror_dimension(self) -> None:
+        # CI checks out without the gitignored mirror tree. Without the opt-out
+        # every retained paper reports a download gap, so the gate cannot pass.
+        workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        invocations = [line for line in workflow.splitlines() if "app history-audit" in line]
+        self.assertTrue(invocations)
+        for line in invocations:
+            self.assertIn("--skip-mirror-check", line)
 
     def test_release_script_only_deletes_stale_zip_assets(self) -> None:
         module = _load_release_script()
