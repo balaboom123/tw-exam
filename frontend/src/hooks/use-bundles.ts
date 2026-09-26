@@ -8,6 +8,9 @@ interface UseBundlesResult {
   searchIndex: string[] | null
   loading: boolean
   error: string | null
+  searchLoading: boolean
+  searchError: boolean
+  retrySearch: () => void
 }
 
 type RawPart = CompactPart
@@ -84,6 +87,8 @@ export function useBundles(query: string): UseBundlesResult {
   const [feedLoading, setFeedLoading] = useState(true)
   const [searchIndex, setSearchIndex] = useState<string[] | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [searchError, setSearchError] = useState(false)
+  const [searchAttempt, setSearchAttempt] = useState(0)
   const searchPromise = useRef<Promise<string[]> | null>(null)
 
   useEffect(() => {
@@ -107,7 +112,7 @@ export function useBundles(query: string): UseBundlesResult {
   }, [])
 
   useEffect(() => {
-    if (!query.trim() || feedLoading || searchIndex || error) return
+    if (!query.trim() || feedLoading || searchIndex || error || searchError) return
     searchPromise.current ??= fetch(`${import.meta.env.BASE_URL}${import.meta.env.VITE_PUBLIC_SEARCH_FILE}`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
@@ -123,17 +128,24 @@ export function useBundles(query: string): UseBundlesResult {
     let active = true
     searchPromise.current.then(
       (data) => { if (active) setSearchIndex(data) },
-      (err: unknown) => {
-        if (active) setError(err instanceof Error ? err.message : "Failed to load search index")
+      () => {
+        if (active) setSearchError(true)
       },
     )
     return () => { active = false }
-  }, [query, feedLoading, bundles.length, searchIndex, error])
+  }, [query, feedLoading, bundles.length, searchIndex, error, searchError, searchAttempt])
 
   return {
     bundles,
     searchIndex,
-    loading: feedLoading || (Boolean(query.trim()) && searchIndex === null && error === null),
+    loading: feedLoading,
     error,
+    searchLoading: Boolean(query.trim()) && !feedLoading && searchIndex === null && !error && !searchError,
+    searchError,
+    retrySearch: () => {
+      searchPromise.current = null
+      setSearchError(false)
+      setSearchAttempt((attempt) => attempt + 1)
+    },
   }
 }

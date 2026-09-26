@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { ExternalLink } from "lucide-react"
 import { PaperGrain } from "@/components/paper-grain"
-import { SOCIAL_CHANNELS, grantSocialAccess } from "@/lib/social-gate"
+import { SOCIAL_CHANNELS, grantSocialAccess, withSocialAccess } from "@/lib/social-gate"
 import { siteHref } from "@/lib/utils"
 
 /** Splits "群組名— 說明文字" into its description half. */
@@ -73,6 +73,11 @@ export function JoinPage() {
         </p>
         <a
           href={returnHref()}
+          onClick={(event) => {
+            if (!grantSocialAccess()) {
+              event.currentTarget.href = withSocialAccess(returnHref(), true)
+            }
+          }}
           className="mt-2 inline-block text-xs font-medium text-ink-800 underline decoration-line-strong underline-offset-4 transition-colors hover:text-ink-950"
         >
           返回試題列表
@@ -80,7 +85,7 @@ export function JoinPage() {
         <details className="mt-5 text-xs text-ink-500">
           <summary className="cursor-pointer">返回後仍顯示鎖定？</summary>
           <p className="mt-2 leading-relaxed">
-            瀏覽器可能阻止儲存網站資料，請改用一般瀏覽器後重試。
+            請點選上方返回連結；即使瀏覽器阻止儲存網站資料，也能繼續下載。
           </p>
         </details>
       </main>

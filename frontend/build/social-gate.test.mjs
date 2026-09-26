@@ -1,7 +1,7 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 
-import { grantSocialAccess, hasSocialAccess, SOCIAL_CHANNELS } from "../src/lib/social-gate.ts"
+import { grantSocialAccess, hasSocialAccess, withSocialAccess, SOCIAL_CHANNELS } from "../src/lib/social-gate.ts"
 
 test("download gate access is global and honors legacy per-channel keys", () => {
   const previousWindow = globalThis.window
@@ -57,7 +57,7 @@ test("download gate falls back to session storage when local storage is blocked"
   }
 })
 
-test("a URL flag cannot unlock downloads when browser storage is denied", () => {
+test("a URL grant preserves access when both stores are denied", () => {
   const previousWindow = globalThis.window
   const blocked = {
     getItem: () => { throw new Error("blocked") },
@@ -66,12 +66,21 @@ test("a URL flag cannot unlock downloads when browser storage is denied", () => 
   globalThis.window = {
     localStorage: blocked,
     sessionStorage: blocked,
-    location: { search: "?unlocked=1" },
+    location: {
+      search: "?unlocked=1", href: "https://example.test/tw-exam/?unlocked=1",
+      origin: "https://example.test",
+    },
   }
 
   try {
     assert.equal(grantSocialAccess(), false)
+    assert.equal(hasSocialAccess(), true)
+    assert.equal(withSocialAccess("/tw-exam/?q=math#results"), "/tw-exam/?q=math&unlocked=1#results")
+    assert.equal(withSocialAccess("https://github.com/example/repo"), "https://github.com/example/repo")
+    window.location.search = "?unlocked=0"
     assert.equal(hasSocialAccess(), false)
+    assert.equal(withSocialAccess("/tw-exam/"), "/tw-exam/")
+    assert.equal(withSocialAccess("/tw-exam/", true), "/tw-exam/?unlocked=1")
   } finally {
     if (previousWindow === undefined) delete globalThis.window
     else globalThis.window = previousWindow

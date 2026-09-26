@@ -15,7 +15,7 @@ import { Stamp } from "@/components/stamp"
 import { CategoryFilter } from "@/components/category-filter"
 import { Footer } from "@/components/footer"
 import { PaperGrain } from "@/components/paper-grain"
-import { hasSocialAccess } from "@/lib/social-gate"
+import { hasSocialAccess, withSocialAccess } from "@/lib/social-gate"
 import { orderExamClasses, orderExamSubclasses } from "@/lib/exam-categories"
 import { buildSearchQuery, readSearchState } from "@/lib/search-state"
 import type { Bundle } from "@/types"
@@ -27,7 +27,7 @@ const initialSearchState = readSearchState(window.location.search)
 function App() {
   const [query, setQuery] = useState(initialSearchState.query)
   const debouncedQuery = useDebouncedValue(query, 200)
-  const { bundles, searchIndex, loading, error } = useBundles(debouncedQuery)
+  const { bundles, searchIndex, loading, error, searchLoading, searchError, retrySearch } = useBundles(debouncedQuery)
   const [selectedYear, setSelectedYear] = useState<number | null>(initialSearchState.year)
   const [selectedClass, setSelectedClass] = useState<string | null>(initialSearchState.examClass)
   const [selectedSubclass, setSelectedSubclass] = useState<string | null>(initialSearchState.subclass)
@@ -75,7 +75,7 @@ function App() {
       sort: sortKey,
       page,
     })
-    const nextUrl = `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`
+    const nextUrl = withSocialAccess(`${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`)
     const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`
     if (nextUrl !== currentUrl) window.history.replaceState(null, "", nextUrl)
   }, [query, selectedYear, selectedClass, selectedSubclass, sortKey, page])
@@ -92,7 +92,7 @@ function App() {
     let result = bundles
     if (debouncedQuery.trim()) {
       const q = debouncedQuery.trim().toLowerCase()
-      result = result.filter((_, index) => searchIndex?.[index]?.includes(q))
+      result = result.filter((bundle, index) => (searchIndex?.[index] ?? bundle.name.toLowerCase()).includes(q))
     }
     if (selectedYear !== null) {
       result = result.filter((b) => b.years.includes(selectedYear))
@@ -340,6 +340,16 @@ function App() {
         </div>
 
         <div className="mt-8">
+          {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
+            <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
+              {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
+              {searchError && (
+                <button type="button" onClick={retrySearch} className="ml-2 min-h-11 underline underline-offset-4">
+                  重試完整搜尋
+                </button>
+              )}
+            </p>
+          )}
           {!loading && !unlocked && (
             <p className="mb-3 text-xs leading-relaxed text-ink-600">
               首次下載前，請先在加入頁選擇一個 LINE 社群；返回後即可下載試題。

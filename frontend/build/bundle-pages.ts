@@ -91,7 +91,7 @@ ${subjectItems ? `<h2>科目</h2><ul class="subjects">${subjectItems}</ul>` : ""
 <div class="actions">${downloadButtons}
 <a class="button secondary" href="${escapeHtml(categoryUrl)}">瀏覽同類試題</a></div>
 <footer>資料來自官方公開考試來源；試題權利及使用條款依各來源公告。<a href="https://github.com/${escapeHtml(repo)}/blob/main/DATA-LICENSE.md">資料使用說明</a> · <a href="../">返回 tw-exam</a></footer></main>
-<script>const keys=["taiwan-exam-download-access","taiwan-exam-download-access:public-service","taiwan-exam-download-access:cap","taiwan-exam-download-access:gsat-ast"];let unlocked=false;for(const name of ["localStorage","sessionStorage"]){try{if(keys.some(k=>window[name].getItem(k)==="1"))unlocked=true}catch{}}if(unlocked)for(const a of document.querySelectorAll(".download")){a.href=a.dataset.zip;a.textContent=a.textContent.replace("加入後下載","下載")}</script>
+<script>const keys=["taiwan-exam-download-access","taiwan-exam-download-access:public-service","taiwan-exam-download-access:cap","taiwan-exam-download-access:gsat-ast"];const urlGrant=new URLSearchParams(location.search).get("unlocked")==="1";let unlocked=urlGrant;for(const name of ["localStorage","sessionStorage"]){try{if(keys.some(k=>window[name].getItem(k)==="1"))unlocked=true}catch{}}if(unlocked)for(const a of document.querySelectorAll(".download")){a.href=a.dataset.zip;a.textContent=a.textContent.replace("加入後下載","下載")};if(urlGrant)for(const a of document.querySelectorAll("a[href]")){const u=new URL(a.href);if(u.origin===location.origin&&u.pathname.startsWith(new URL("../",location.href).pathname)){u.searchParams.set("unlocked","1");a.href=u.href}}</script>
 </body></html>`
 }
 

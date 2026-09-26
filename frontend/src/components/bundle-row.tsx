@@ -2,6 +2,7 @@ import { Download, Lock } from "lucide-react"
 import { formatYearRange, siteHref } from "@/lib/utils"
 import type { Bundle } from "@/types"
 import { formatSyncDate } from "@/lib/provenance"
+import { withSocialAccess } from "@/lib/social-gate"
 
 const MAX_YEAR_CHIPS = 14
 
@@ -18,7 +19,7 @@ export function BundleRow({
     <li className="flex items-center gap-4 px-4 py-4 transition-colors hover:bg-cream">
       <div className="min-w-0 flex-1">
         <h2 className="font-serif text-[17px] font-semibold leading-snug text-ink-950">
-          <a href={siteHref(`b/${bundle.id}.html`)} className="underline-offset-4 hover:underline">
+          <a href={withSocialAccess(siteHref(`b/${bundle.id}.html`))} className="underline-offset-4 hover:underline">
             {bundle.name}
           </a>
         </h2>

@@ -43,7 +43,16 @@ export function hasSocialAccess(): boolean {
       // Some in-app browsers and private modes deny one of the stores.
     }
   }
-  return false
+  return new URLSearchParams(window.location?.search).get("unlocked") === "1"
+}
+
+/** Carry the storage-free grant through internal navigation and filter changes. */
+export function withSocialAccess(href: string, force = false): string {
+  if (!force && new URLSearchParams(window.location?.search).get("unlocked") !== "1") return href
+  const url = new URL(href, window.location.href)
+  if (url.origin !== window.location.origin) return href
+  url.searchParams.set("unlocked", "1")
+  return `${url.pathname}${url.search}${url.hash}`
 }
 
 export function grantSocialAccess(): boolean {
