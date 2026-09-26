@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "test": "node --test ./build/site-config.test.mjs ./build/bundle-pages.test.mjs ./build/exam-categories.test.mjs ./build/search-state.test.mjs ./build/public-data.test.mjs ./build/social-gate.test.mjs",
+    "test": "node --test ./build/site-config.test.mjs ./build/bundle-pages.test.mjs ./build/exam-categories.test.mjs ./build/search-state.test.mjs ./build/bundle-order.test.mjs ./build/public-data.test.mjs ./build/social-gate.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
