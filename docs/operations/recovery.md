@@ -35,6 +35,9 @@ uv run python .github/scripts/mirror_snapshots.py restore --provider <provider_i
 ```
 
 The helper streams a gzip archive into chunks below GitHub's asset size limit.
+It first hashes the archive without staging its compressed bytes. Changed
+mirrors get a second pass that uploads and discards one completed chunk at a
+time; a source change between passes stops publication of the snapshot pointer.
 It verifies uploaded digests before atomically advancing the release metadata
 pointer. An unchanged archive reuses its existing generation. Existing snapshots
 and their chunks are immutable; a different upload needs a new generation.
@@ -43,8 +46,11 @@ An interrupted upload cannot replace the last committed pointer.
 Restore checks the manifest digest, provider, generation, chunk hashes and sizes,
 archive paths, file types, and declared file inventory before installing the
 provider tree. It preserves other providers and refuses to overwrite a nonempty
-provider mirror. Hard-linked source payloads are archived as regular files, and
-the derived root dedupe index is discarded after restore.
+provider mirror. Snapshot format v2 preserves hard-linked source payloads as
+links to earlier regular members within the same provider archive. Restore
+validates those targets and retains shared storage; symlinks, forward links,
+and link chains are rejected. Older v1 archives remain readable. The derived
+root dedupe index is discarded after restore.
 
 `--allow-missing` permits source bootstrap only when the release does not exist;
 transport errors, incomplete releases, or corrupt archives stop recovery.
@@ -61,9 +67,14 @@ Verify a durable snapshot before deliberately evicting that provider's cache.
 The helper never deletes remote snapshots. Before removing old generations,
 check that no retained publication artifact or pending job needs them. Interrupted
 uploads may leave unreferenced chunks; diagnose those before manual cleanup.
-The release asset cap is checked before uploading additional files. Snapshot
-packing and restore need free disk for compressed chunks alongside the mirror;
-large providers still need a runner or local machine with sufficient storage.
+The release asset cap is checked before uploading additional files. Backup
+staging uses at most one compressed chunk plus small manifests. Restore
+verifies and discards each downloaded chunk as it is consumed, then installs
+the complete provider tree atomically. Its preflight requires free space for
+the unique payload bytes, one compressed chunk, and filesystem overhead;
+large providers still need a runner or local machine with enough room for
+their restored files. Deploy the v2 reader before seeding v2 snapshots;
+older code rejects that format.
 
 ## Scenario 2: an official source is blocked
 
