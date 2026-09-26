@@ -16,7 +16,10 @@ from app.providers.base import DownloadedFile, ResponseMetadata
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taipei-elementary-mirror/1.0)"
 CANONICAL_CATEGORY = "臺北市國小教師甄試"
 ARTICLE_URLS_BY_YEAR = {
-    2025: "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+    2025: (
+        "https://www.gov.taipei/News_Content.aspx?n=D0042A"
+        "87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+    ),
 }
 SUBJECT_CODES = {
     "基礎類科知能": "basic-category-knowledge",
@@ -44,7 +47,15 @@ class TaipeiElementaryDownload:
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 def _decode_base64_query_value(value: str) -> str:
@@ -67,7 +78,9 @@ def _decode_download_name(url: str) -> str:
 
 def _is_official_download_url(url: str) -> bool:
     parsed = urlparse(url)
-    return parsed.netloc.lower() == "www-ws.gov.taipei" and parsed.path.lower().endswith("/download.ashx")
+    return parsed.netloc.lower() == "www-ws.gov.taipei" and parsed.path.lower().endswith(
+        "/download.ashx"
+    )
 
 
 def _subject_name(file_name: str) -> str:
@@ -133,19 +146,25 @@ def parse_downloads(html: str, *, page_url: str) -> list[TaipeiElementaryDownloa
 class TaipeiElementaryRecruitClient:
     provider_id = "teacher_recruit_taipei_elementary"
 
-    def __init__(self, article_urls_by_year: dict[int, str] | None = None, article_html_by_year: dict[int, str] | None = None) -> None:
+    def __init__(
+        self,
+        article_urls_by_year: dict[int, str] | None = None,
+        article_html_by_year: dict[int, str] | None = None,
+    ) -> None:
         self.article_urls_by_year = article_urls_by_year or ARTICLE_URLS_BY_YEAR
         self.article_html_by_year = article_html_by_year or {}
 
     def _fetch_text(self, url: str) -> str:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         return raw.decode("utf-8-sig", "replace")
 
     def _article_html(self, year_ad: int) -> str:
         if year_ad not in self.article_html_by_year:
-            self.article_html_by_year[year_ad] = self._fetch_text(self.article_urls_by_year[year_ad])
+            self.article_html_by_year[year_ad] = self._fetch_text(
+                self.article_urls_by_year[year_ad]
+            )
         return self.article_html_by_year[year_ad]
 
     def discover_available_years(self) -> list[int]:
@@ -170,7 +189,9 @@ class TaipeiElementaryRecruitClient:
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         expected_code = f"teacher-recruit-taipei-elementary-{year_ad - 1911}"
         if exam_code != expected_code:
-            raise ValueError(f"Unexpected Taipei elementary discovery exam code for {year_ad}: {exam_code}")
+            raise ValueError(
+                f"Unexpected Taipei elementary discovery exam code for {year_ad}: {exam_code}"
+            )
         return self.article_urls_by_year[year_ad]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:

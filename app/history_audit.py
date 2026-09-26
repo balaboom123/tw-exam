@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Event-level archive coverage audit.
 
 This audit is intentionally separate from bundle construction.  It compares
@@ -8,11 +6,14 @@ mirror references, and can optionally compare source discovery with local
 events.  It never downloads source files or writes provider state.
 """
 
-from collections import Counter, defaultdict
-from dataclasses import dataclass, field
+from __future__ import annotations
+
 import json
+from collections import Counter, defaultdict
+from collections.abc import Iterable
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from app.bundler import public_bundle_ids_from_indexes, resolve_mirror_storage_path
 from app.coverage_exceptions import (
@@ -163,24 +164,31 @@ def build_history_coverage_audit(
             failures = load_provider_failures(provider)
         coverage_exceptions = load_coverage_exceptions(repo_root, provider_id)
         all_indexes.append(index)
-        raw_by_event = {
-            _event_key(row[0], row[1]): row[2]
-            for row in index["raw_events"]
-        }
+        raw_by_event = {_event_key(row[0], row[1]): row[2] for row in index["raw_events"]}
         papers_by_event: dict[tuple[str, int], _EventPapers] = defaultdict(_EventPapers)
         for row in index["papers"]:
-            event = papers_by_event[_event_key(row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911)]
+            event = papers_by_event[
+                _event_key(row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911)
+            ]
             event.count += 1
             event.bundle_ids.add(
                 paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
             )
-            if check_mirror and resolve_mirror_storage_path(repo_root / "mirror", row[PAPER_STORAGE_KEY], provider_id) is None:
+            if (
+                check_mirror
+                and resolve_mirror_storage_path(
+                    repo_root / "mirror", row[PAPER_STORAGE_KEY], provider_id
+                )
+                is None
+            ):
                 event.missing_mirror_files.add(
                     row[PAPER_STORAGE_KEY] or f"{row[PAPER_CODE]}:{row[PAPER_FILE_TYPE]}"
                 )
         failures_by_event: dict[tuple[str, int], list[Any]] = defaultdict(list)
         for failure in failures:
-            failures_by_event[_event_key(failure.source_exam_id, failure.year_roc + 1911)].append(failure)
+            failures_by_event[_event_key(failure.source_exam_id, failure.year_roc + 1911)].append(
+                failure
+            )
 
         event_keys = set(raw_by_event) | set(papers_by_event) | set(failures_by_event)
         events: list[dict[str, Any]] = []
@@ -205,7 +213,9 @@ def build_history_coverage_audit(
                 {
                     published_bundle_id
                     for bundle_id in required_bundle_ids
-                    for published_bundle_id, published_years in published_index.get(bundle_id, {}).items()
+                    for published_bundle_id, published_years in published_index.get(
+                        bundle_id, {}
+                    ).items()
                     if year_ad - 1911 in published_years
                 }
             )
@@ -223,7 +233,11 @@ def build_history_coverage_audit(
                 # An event exception is valid only for a retained event with no
                 # currently materialized records.  It must not hide new data or
                 # a changed failure state.
-                status = "coverage_exception_conflict" if has_current_material else event_exception.status
+                status = (
+                    "coverage_exception_conflict"
+                    if has_current_material
+                    else event_exception.status
+                )
             elif missing_mirror_files:
                 status = "download_gap"
             elif event_failures and len(matched_file_exceptions) == len(event_failures):
@@ -263,7 +277,9 @@ def build_history_coverage_audit(
                     "failure_count": len(event_failures),
                     "failure_stages": sorted({failure.stage for failure in event_failures}),
                     "coverage_exception": event_exception.as_dict() if event_exception else None,
-                    "matched_file_coverage_exceptions": [exception.as_dict() for exception in matched_file_exceptions],
+                    "matched_file_coverage_exceptions": [
+                        exception.as_dict() for exception in matched_file_exceptions
+                    ],
                     "status": status,
                 }
             )
@@ -276,7 +292,13 @@ def build_history_coverage_audit(
         if orphan_coverage_exceptions:
             status_counts["coverage_exception_orphan"] += len(orphan_coverage_exceptions)
 
-        source_probe = {"status": "not_requested", "available_years": [], "source_event_count": 0, "source_only_events": [], "year_errors": []}
+        source_probe: dict[str, Any] = {
+            "status": "not_requested",
+            "available_years": [],
+            "source_event_count": 0,
+            "source_only_events": [],
+            "year_errors": [],
+        }
         if probe_sources:
             source_probe = _probe_provider(
                 provider_id,
@@ -344,7 +366,9 @@ def build_history_coverage_audit(
 
 def write_history_coverage_audit(report: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
 
 
 def history_audit_exit_code(report: dict[str, Any], *, strict: bool) -> int:

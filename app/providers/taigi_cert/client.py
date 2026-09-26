@@ -111,7 +111,14 @@ def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[TaigiDow
         seen.add(url)
         file_type = "listening_audio" if lower_path.endswith(".mp3") else "question"
         display_label = label or Path(unquote(parsed.path)).name
-        downloads.append(TaigiDownload(form_code=_form_code(display_label), label=display_label, file_type=file_type, url=url))
+        downloads.append(
+            TaigiDownload(
+                form_code=_form_code(display_label),
+                label=display_label,
+                file_type=file_type,
+                url=url,
+            )
+        )
     return downloads
 
 
@@ -121,7 +128,8 @@ class TaigiCertClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+            body: bytes = response.read()
+            return body.decode("utf-8", "replace")
 
     def _downloads(self) -> list[TaigiDownload]:
         return parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
@@ -132,15 +140,24 @@ class TaigiCertClient:
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
         if year_ad != MATERIALS_YEAR:
             return []
-        forms = {download.form_code for download in self._downloads() if download.form_code != "general"}
+        forms = {
+            download.form_code for download in self._downloads() if download.form_code != "general"
+        }
         return [
-            ExamOption(code=_exam_code(form_code, year_ad), year_ad=year_ad, year_roc=year_ad - 1911, label=f"臺灣台語語言能力認證 {form_code.upper()}卷")
+            ExamOption(
+                code=_exam_code(form_code, year_ad),
+                year_ad=year_ad,
+                year_roc=year_ad - 1911,
+                label=f"臺灣台語語言能力認證 {form_code.upper()}卷",
+            )
             for form_code in ("a", "b", "c")
             if form_code in forms
         ]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
-        requested_form = next((form for form in ("a", "b", "c") if exam_code == _exam_code(form, year_ad)), None)
+        requested_form = next(
+            (form for form in ("a", "b", "c") if exam_code == _exam_code(form, year_ad)), None
+        )
         downloads = [
             download
             for download in self._downloads()
@@ -167,7 +184,9 @@ class TaigiCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD")
+        request = Request(
+            _quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        )
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(

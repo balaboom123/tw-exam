@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Providers withheld from a site projection because of a published defect.
 
 Quarantine lives under ``catalog/mappings`` because it is publication policy,
@@ -14,8 +12,10 @@ incomplete or blocked upstream source is not a quarantine reason; that belongs
 in ``catalog/source-coverage`` via ``app.coverage_exceptions``.
 """
 
-from dataclasses import dataclass
+from __future__ import annotations
+
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -92,7 +92,9 @@ def load_quarantine(repo_root: Path, *, site_id: str) -> dict[str, QuarantineEnt
         if entry.site_id != site_id:
             continue
         if entry.provider_id in entries:
-            raise ValueError(f"{path}: duplicate quarantine entry for {entry.provider_id} on site {site_id}")
+            raise ValueError(
+                f"{path}: duplicate quarantine entry for {entry.provider_id} on site {site_id}"
+            )
         entries[entry.provider_id] = entry
     return entries
 

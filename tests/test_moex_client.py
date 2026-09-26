@@ -151,3 +151,14 @@ class FetchTextDecodingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_search_options_with_valueless_value_are_ignored():
+    page = parse_search_page('''
+        <select name="ctl00$holderContent$wUctlExamYearStart$ddlExamYear">
+          <option value>請選擇</option><option value="2026">115</option>
+        </select>
+        <select name="ctl00$holderContent$ddlExamCode"><option value>請選擇</option></select>
+    ''')
+    assert page.available_years == [2026]
+    assert page.exams == []

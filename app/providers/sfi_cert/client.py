@@ -104,7 +104,9 @@ class SfiCertClient:
         return self.http.head(url)
 
     def download_file(self, url: str) -> DownloadedFile:
-        return self.http.download(url, filename_fallback="download.pdf", content_disposition_name=False)
+        return self.http.download(
+            url, filename_fallback="download.pdf", content_disposition_name=False
+        )
 
     def _entries(self) -> list[SfiArchiveEntry]:
         return parse_sfi_archive(self._fetch_text(ARCHIVE_URL))

@@ -375,3 +375,9 @@ class NormalizerTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_dropdown_ignores_valueless_option_attributes():
+    from app.providers.rcpet_cap.client import parse_dropdown
+
+    assert parse_dropdown('<select><option value>請選擇</option></select>') == []

@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass
+from email.message import Message
 from pathlib import Path
 from urllib.parse import quote, unquote, unquote_plus, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
@@ -11,15 +12,32 @@ from urllib.request import Request, urlopen
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 
-LIST_API_URL = "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/temopn_newtea_list"
-DETAIL_API_URL = "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/temopn_edu/uuid/{uuid}"
-DOWNLOAD_TOKEN_URL = "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/{file_uuid}"
+LIST_API_URL = (
+    "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/temopn_newtea_list"
+)
+DETAIL_API_URL = (
+    "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/temopn_edu/uuid/{uuid}"
+)
+DOWNLOAD_TOKEN_URL = (
+    "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/{file_uuid}"
+)
 TOKEN_DOWNLOAD_URL = "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/d/{token}"
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-newtaipei-mirror/1.0)"
 CANONICAL_CATEGORY = "新北市教師甄試"
 KEEP_TITLE_TOKENS = ("試題", "題目", "答案")
 SKIP_TITLE_TOKENS = ("疑義", "成績", "錄取", "試場", "分配", "報名", "查詢", "演示", "提醒")
-SKIP_FILE_TOKENS = ("疑義", "申請表", "釋復", "成績", "錄取", "試場", "名單", "分配", "提醒", "演示")
+SKIP_FILE_TOKENS = (
+    "疑義",
+    "申請表",
+    "釋復",
+    "成績",
+    "錄取",
+    "試場",
+    "名單",
+    "分配",
+    "提醒",
+    "演示",
+)
 
 
 @dataclass(frozen=True)
@@ -46,7 +64,15 @@ def _text(value: object) -> str:
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path, safe="/%"),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 def _year_from_text(text: str) -> tuple[int, int] | None:
@@ -121,7 +147,12 @@ def parse_candidate_notices(rows: list[dict[str, object]]) -> list[NewTaipeiNoti
 def detail_matches_notice(notice: NewTaipeiNotice, detail: dict[str, object]) -> bool:
     detail_title = _text(detail.get("opn_title"))
     detail_tag = _text(detail.get("opn_tag"))
-    return detail_title == notice.title or detail_tag == notice.tag or notice.title in detail_title or notice.tag in detail_tag
+    return (
+        detail_title == notice.title
+        or detail_tag == notice.tag
+        or notice.title in detail_title
+        or notice.tag in detail_tag
+    )
 
 
 def parse_detail_downloads(detail: dict[str, object]) -> list[NewTaipeiDownload]:
@@ -168,12 +199,12 @@ class NewTaipeiTeacherRecruitClient:
         self._notice_cache: list[NewTaipeiNotice] | None = None
         self._exam_notice_cache: dict[str, NewTaipeiNotice] | None = None
 
-    def _fetch_json(self, url: str):
+    def _fetch_json(self, url: str) -> object:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
             return json.loads(response.read().decode("utf-8-sig"))
 
-    def _fetch_bytes(self, url: str):
+    def _fetch_bytes(self, url: str) -> tuple[bytes, Message]:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=120) as response:
             return response.read(), response.headers
@@ -217,7 +248,8 @@ class NewTaipeiTeacherRecruitClient:
         notice = self._exam_notice_map()[exam_code]
         if notice.year_ad != year_ad:
             raise ValueError(
-                f"New Taipei discovery year mismatch for {exam_code}: expected {notice.year_ad}, got {year_ad}"
+                f"New Taipei discovery year mismatch for {exam_code}: "
+                f"expected {notice.year_ad}, got {year_ad}"
             )
         return DETAIL_API_URL.format(uuid=notice.uuid)
 
@@ -229,15 +261,19 @@ class NewTaipeiTeacherRecruitClient:
         files: dict[str, str] = {}
         for download in downloads:
             files.setdefault(download.file_type, download.url)
-        papers = [
-            ParsedPaper(
-                category_raw=CANONICAL_CATEGORY,
-                category_code=str(notice.year_roc),
-                subject_code=notice.scope_code,
-                subject_name_raw=notice.scope_name,
-                files=files,
-            )
-        ] if files else []
+        papers = (
+            [
+                ParsedPaper(
+                    category_raw=CANONICAL_CATEGORY,
+                    category_code=str(notice.year_roc),
+                    subject_code=notice.scope_code,
+                    subject_name_raw=notice.scope_name,
+                    files=files,
+                )
+            ]
+            if files
+            else []
+        )
         return SourceExamPage(
             source_exam_id=exam_code,
             year_ad=year_ad,
@@ -259,7 +295,9 @@ class NewTaipeiTeacherRecruitClient:
 
     def head(self, url: str) -> ResponseMetadata:
         download_url = self._token_download_url(url)
-        request = Request(_request_url(download_url), headers={"User-Agent": USER_AGENT}, method="HEAD")
+        request = Request(
+            _request_url(download_url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        )
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
             return ResponseMetadata(
@@ -275,7 +313,10 @@ class NewTaipeiTeacherRecruitClient:
         download_url = self._token_download_url(url)
         data, headers = self._fetch_bytes(download_url)
         content_disposition = headers.get("Content-Disposition", "")
-        file_name = _filename_from_content_disposition(content_disposition) or Path(unquote(urlparse(download_url).path)).name
+        file_name = (
+            _filename_from_content_disposition(content_disposition)
+            or Path(unquote(urlparse(download_url).path)).name
+        )
         return DownloadedFile(
             data=data,
             content_type=headers.get("Content-Type", "application/octet-stream"),

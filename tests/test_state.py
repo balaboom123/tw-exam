@@ -101,3 +101,15 @@ class ScopedStateTests(unittest.TestCase):
 
             with self.assertRaisesRegex(ValueError, "Site bundles site_id mismatch"):
                 load_site_bundles(site)
+
+
+def test_provider_failure_ledger_rejects_non_record_json(tmp_path):
+    import pytest
+    from app.state import load_provider_failures
+
+    provider = provider_paths(tmp_path, "ceec_ast")
+    provider.data_dir.mkdir(parents=True)
+    for malformed in ('null', '"invalid"', '{"stage": "download"}', '["invalid"]'):
+        provider.sync_failures_path.write_text(malformed)
+        with pytest.raises(ValueError, match="Expected a JSON"):
+            load_provider_failures(provider)

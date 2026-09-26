@@ -37,7 +37,15 @@ def _normalize_text(text: str) -> str:
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 class _AnchorParser(HTMLParser):
@@ -122,7 +130,7 @@ class TainanTeacherRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         for encoding in ("utf-8-sig", "utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -164,17 +172,23 @@ class TainanTeacherRecruitClient:
         year_roc = year_ad - 1911
         files: dict[str, str] = {}
         for announcement in parse_announcement_links(self._listing()):
-            for download in parse_downloads(self._fetch_text(announcement.url), page_url=announcement.url):
+            for download in parse_downloads(
+                self._fetch_text(announcement.url), page_url=announcement.url
+            ):
                 files.setdefault(download.file_type, download.url)
-        papers = [
-            ParsedPaper(
-                category_raw=CANONICAL_CATEGORY,
-                category_code=str(year_roc),
-                subject_code=SUBJECT_CODE,
-                subject_name_raw=SUBJECT_NAME,
-                files=files,
-            )
-        ] if files else []
+        papers = (
+            [
+                ParsedPaper(
+                    category_raw=CANONICAL_CATEGORY,
+                    category_code=str(year_roc),
+                    subject_code=SUBJECT_CODE,
+                    subject_name_raw=SUBJECT_NAME,
+                    files=files,
+                )
+            ]
+            if files
+            else []
+        )
         return SourceExamPage(
             source_exam_id=exam_code,
             year_ad=year_ad,

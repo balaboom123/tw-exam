@@ -15,6 +15,7 @@ to the download handler::
 The ``u`` and ``n`` query-string parameters are base64-encoded — they are
 preserved verbatim; this module never decodes or re-encodes them.
 """
+
 from __future__ import annotations
 
 import re
@@ -96,8 +97,10 @@ class _ContentPageParser(HTMLParser):
 def _decode_url_filename(href: str) -> str:
     """Decode the base64-encoded filename from a Download.ashx URL's ``n`` parameter."""
     from base64 import b64decode
+
     parsed = urlparse(href)
     from urllib.parse import parse_qs
+
     qs = parse_qs(parsed.query)
     n_param = qs.get("n", [""])[0]
     if not n_param:
@@ -157,7 +160,7 @@ class CpcRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            body = response.read()
+            body: bytes = response.read()
             # CPC may serve Big5/CP950; detect from meta charset or fall back
             content_type: str = response.headers.get("Content-Type", "")
             return _decode_html_bytes(body, content_type)
@@ -179,9 +182,11 @@ class CpcRecruitClient:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=120) as response:
             content_disposition = response.headers.get("Content-Disposition", "")
-            file_name = _filename_from_disposition(content_disposition) or Path(
-                unquote(urlparse(url).path)
-            ).name or "download.pdf"
+            file_name = (
+                _filename_from_disposition(content_disposition)
+                or Path(unquote(urlparse(url).path)).name
+                or "download.pdf"
+            )
             return DownloadedFile(
                 data=response.read(),
                 content_type=response.headers.get("Content-Type", "application/octet-stream"),
@@ -192,10 +197,7 @@ class CpcRecruitClient:
         """Fetch the accepted doctoral exam-paper archive."""
         phd_html = self._fetch_text(PHD_PAGE_URL)
         entries = parse_employment_page(phd_html, source="phd")
-        return [
-            entry for entry in entries
-            if "博士" in entry.label and "試題" in entry.label
-        ]
+        return [entry for entry in entries if "博士" in entry.label and "試題" in entry.label]
 
     def build_discovery_year_url(self, year_ad: int) -> str:
         return PHD_PAGE_URL
@@ -210,7 +212,6 @@ class CpcRecruitClient:
         )
 
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
-        year_roc = year_ad - 1911
         # The archive exposes one doctoral paper package per represented year.
         seen: set[int] = set()
         options: list[ExamOption] = []
@@ -232,10 +233,7 @@ class CpcRecruitClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         year_roc = year_ad - 1911
-        entries = [
-            e for e in self._iter_entries()
-            if e.year_roc == year_roc
-        ]
+        entries = [e for e in self._iter_entries() if e.year_roc == year_roc]
         if not entries:
             return SourceExamPage(
                 source_exam_id=exam_code,

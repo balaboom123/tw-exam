@@ -51,7 +51,15 @@ class _AnchorParser(HTMLParser):
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path, safe="/%"), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path, safe="/%"),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 def _links(html: str) -> list[tuple[str, str]]:
@@ -75,7 +83,11 @@ def _subject_code(subject_name: str) -> str:
 def parse_elementary_page(page_url: str, html: str) -> KaohsiungPaper | None:
     downloads: dict[str, str] = {}
     seen: set[str] = set()
-    type_by_name = {"試題.zip": "question", "答案.zip": "answer", "正確答案.zip": "corrected_answer"}
+    type_by_name = {
+        "試題.zip": "question",
+        "答案.zip": "answer",
+        "正確答案.zip": "corrected_answer",
+    }
     for href, label in _links(html):
         url = urljoin(page_url, href)
         file_name = _decoded_filename(url, label)
@@ -87,7 +99,9 @@ def parse_elementary_page(page_url: str, html: str) -> KaohsiungPaper | None:
             downloads[file_type] = url
     if not downloads:
         return None
-    return KaohsiungPaper(subject_name="國小教師聯合甄選", subject_code="elementary", downloads=downloads)
+    return KaohsiungPaper(
+        subject_name="國小教師聯合甄選", subject_code="elementary", downloads=downloads
+    )
 
 
 def _special_file_type_and_subject(file_name: str) -> tuple[str, str] | None:
@@ -118,7 +132,9 @@ def parse_special_page(page_url: str, html: str) -> list[KaohsiungPaper]:
         file_type, subject_name = parsed
         by_subject.setdefault(subject_name, {})[file_type] = url
     return [
-        KaohsiungPaper(subject_name=subject_name, subject_code=_subject_code(subject_name), downloads=downloads)
+        KaohsiungPaper(
+            subject_name=subject_name, subject_code=_subject_code(subject_name), downloads=downloads
+        )
         for subject_name, downloads in sorted(by_subject.items())
     ]
 
@@ -138,7 +154,7 @@ class KaohsiungTeacherRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         for encoding in ("utf-8-sig", "utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -167,14 +183,23 @@ class KaohsiungTeacherRecruitClient:
         if year_ad != 2026:
             return []
         return [
-            ExamOption("teacher-recruit-kaohsiung-115-elementary", 2026, 115, "115學年度高雄市國小教師甄試"),
-            ExamOption("teacher-recruit-kaohsiung-115-special", 2026, 115, "115學年度高雄市特殊教育教師甄試"),
+            ExamOption(
+                "teacher-recruit-kaohsiung-115-elementary", 2026, 115, "115學年度高雄市國小教師甄試"
+            ),
+            ExamOption(
+                "teacher-recruit-kaohsiung-115-special",
+                2026,
+                115,
+                "115學年度高雄市特殊教育教師甄試",
+            ),
         ]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         year_roc = year_ad - 1911
         scope = "special" if exam_code.endswith("-special") else "elementary"
-        parsed_papers = parse_special_page(SPECIAL_URL, self._special_html()) if scope == "special" else []
+        parsed_papers = (
+            parse_special_page(SPECIAL_URL, self._special_html()) if scope == "special" else []
+        )
         if scope == "elementary":
             elementary = parse_elementary_page(ELEMENTARY_URL, self._elementary_html())
             parsed_papers = [elementary] if elementary is not None else []
@@ -218,5 +243,6 @@ class KaohsiungTeacherRecruitClient:
             return DownloadedFile(
                 data=response.read(),
                 content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=_filename_from_content_disposition(content_disposition) or Path(unquote(urlparse(url).path)).name,
+                file_name=_filename_from_content_disposition(content_disposition)
+                or Path(unquote(urlparse(url).path)).name,
             )

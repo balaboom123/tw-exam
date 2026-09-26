@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, unquote, urljoin, urlparse
+from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlparse
 from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
@@ -59,6 +59,7 @@ def _resolve_gdrive_confirm_url(html: str, current_url: str) -> str:
     fields = {**existing, **parser._fields}
     return f"{urljoin(current_url, parser._action)}?{urlencode(fields)}"
 
+
 _SUBJECT_MAP: dict[str, tuple[str, str]] = {
     "寫作測驗": ("writing", "question"),
     "國文科": ("chinese", "question"),
@@ -107,7 +108,7 @@ class _DropdownParser(HTMLParser):
             return
         if tag == "option" and self._in_select:
             self._in_option = True
-            self._option_value = attrs_dict.get("value", "")
+            self._option_value = attrs_dict.get("value") or ""
             self._option_text_parts = []
 
     def handle_data(self, data: str) -> None:
@@ -207,7 +208,9 @@ def parse_dropdown(html: str) -> list[DropdownEntry]:
     return parser.entries
 
 
-def parse_year_page(html: str, year_roc: int, base_url: str = "", year_dir: str = "") -> SourceExamPage:
+def parse_year_page(
+    html: str, year_roc: int, base_url: str = "", year_dir: str = ""
+) -> SourceExamPage:
     parser = _YearPageParser()
     parser.feed(unescape(html))
 
@@ -257,7 +260,8 @@ class RcpetCapClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+            body: bytes = response.read()
+            return body.decode("utf-8", "replace")
 
     def head(self, url: str) -> ResponseMetadata:
         url = _resolve_gdrive_url(url)
@@ -277,17 +281,23 @@ class RcpetCapClient:
         url = _resolve_gdrive_url(url)
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=120) as response:
-            data = response.read()
+            data: bytes = response.read()
             content_type = response.headers.get("Content-Type", "application/octet-stream")
             file_name = Path(unquote(urlparse(url).path)).name
-            if "text/html" in content_type.lower() and "Google Drive - Virus scan warning" in data[:4096].decode("utf-8", "ignore"):
-                confirm_url = _resolve_gdrive_confirm_url(data.decode("utf-8", "ignore"), response.geturl())
+            if "text/html" in content_type.lower() and "Google Drive - Virus scan warning" in data[
+                :4096
+            ].decode("utf-8", "ignore"):
+                confirm_url = _resolve_gdrive_confirm_url(
+                    data.decode("utf-8", "ignore"), response.geturl()
+                )
                 if confirm_url:
                     confirm_request = Request(confirm_url, headers={"User-Agent": USER_AGENT})
                     with urlopen(confirm_request, timeout=120) as confirm_response:
                         return DownloadedFile(
                             data=confirm_response.read(),
-                            content_type=confirm_response.headers.get("Content-Type", "application/octet-stream"),
+                            content_type=confirm_response.headers.get(
+                                "Content-Type", "application/octet-stream"
+                            ),
                             file_name=Path(unquote(urlparse(confirm_response.geturl()).path)).name,
                         )
             return DownloadedFile(data=data, content_type=content_type, file_name=file_name)
@@ -353,4 +363,6 @@ class RcpetCapClient:
 
         page_url = urljoin(BASE_URL, entry.page_url)
         html = self._fetch_text(page_url)
-        return parse_year_page(html, year_roc=entry.year_roc, base_url=page_url, year_dir=entry.year_dir)
+        return parse_year_page(
+            html, year_roc=entry.year_roc, base_url=page_url, year_dir=entry.year_dir
+        )

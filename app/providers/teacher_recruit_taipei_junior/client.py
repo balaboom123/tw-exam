@@ -16,8 +16,14 @@ from app.providers.base import DownloadedFile, ResponseMetadata
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taipei-junior-mirror/1.0)"
 CANONICAL_CATEGORY = "臺北市國中教師甄試"
 ARTICLE_URLS_BY_YEAR = {
-    2025: "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=4A85C1A3A3BD7C48",
-    2024: "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=01ADD0497C10AC9C",
+    2025: (
+        "https://www.doe.gov.taipei/News_Content.aspx?n=E831"
+        "CA0A5CD0193D&sms=78D644F2755ACCAA&s=4A85C1A3A3BD7C48"
+    ),
+    2024: (
+        "https://www.doe.gov.taipei/News_Content.aspx?n=E831"
+        "CA0A5CD0193D&sms=78D644F2755ACCAA&s=01ADD0497C10AC9C"
+    ),
 }
 SUBJECT_CODES = {
     "國文": "guo-wen",
@@ -43,7 +49,15 @@ class TaipeiJuniorDownload:
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
-    return urlunsplit((parts.scheme, parts.netloc, quote(parts.path), quote(parts.query, safe="=&%"), parts.fragment))
+    return urlunsplit(
+        (
+            parts.scheme,
+            parts.netloc,
+            quote(parts.path),
+            quote(parts.query, safe="=&%"),
+            parts.fragment,
+        )
+    )
 
 
 def _decode_download_name(url: str) -> str:
@@ -118,19 +132,25 @@ def parse_downloads(html: str, *, page_url: str) -> list[TaipeiJuniorDownload]:
 class TaipeiJuniorRecruitClient:
     provider_id = "teacher_recruit_taipei_junior"
 
-    def __init__(self, article_urls_by_year: dict[int, str] | None = None, article_html_by_year: dict[int, str] | None = None) -> None:
+    def __init__(
+        self,
+        article_urls_by_year: dict[int, str] | None = None,
+        article_html_by_year: dict[int, str] | None = None,
+    ) -> None:
         self.article_urls_by_year = article_urls_by_year or ARTICLE_URLS_BY_YEAR
         self.article_html_by_year = article_html_by_year or {}
 
     def _fetch_text(self, url: str) -> str:
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         return raw.decode("utf-8-sig", "replace")
 
     def _article_html(self, year_ad: int) -> str:
         if year_ad not in self.article_html_by_year:
-            self.article_html_by_year[year_ad] = self._fetch_text(self.article_urls_by_year[year_ad])
+            self.article_html_by_year[year_ad] = self._fetch_text(
+                self.article_urls_by_year[year_ad]
+            )
         return self.article_html_by_year[year_ad]
 
     def discover_available_years(self) -> list[int]:
@@ -155,7 +175,9 @@ class TaipeiJuniorRecruitClient:
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         expected_code = f"teacher-recruit-taipei-junior-{year_ad - 1911}"
         if exam_code != expected_code:
-            raise ValueError(f"Unexpected Taipei junior discovery exam code for {year_ad}: {exam_code}")
+            raise ValueError(
+                f"Unexpected Taipei junior discovery exam code for {year_ad}: {exam_code}"
+            )
         return self.article_urls_by_year[year_ad]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:

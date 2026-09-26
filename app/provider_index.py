@@ -8,8 +8,8 @@ catalog audit remains the authority for classification and record integrity.
 from __future__ import annotations
 
 import json
-from pathlib import Path
-from typing import Any, Iterable
+from collections.abc import Iterable
+from typing import Any, cast
 
 from app.paths import ProviderPaths
 
@@ -46,11 +46,11 @@ _MISSING = object()
 
 
 def paper_index_bundle_id(index: dict[str, Any], row: list[Any]) -> str:
-    return index["bundle_ids"][row[PAPER_BUNDLE_ID]]
+    return cast(str, index["bundle_ids"][row[PAPER_BUNDLE_ID]])
 
 
 def paper_index_canonical_id(index: dict[str, Any], row: list[Any]) -> str:
-    return index["canonical_ids"][row[PAPER_CANONICAL_ID]]
+    return cast(str, index["canonical_ids"][row[PAPER_CANONICAL_ID]])
 
 
 def _field(record: Any, name: str, default: Any = _MISSING) -> Any:
@@ -155,7 +155,9 @@ def build_provider_index_from_files(provider: ProviderPaths) -> dict[str, Any]:
 def write_provider_index(provider: ProviderPaths, index: dict[str, Any]) -> None:
     provider.index_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = provider.index_path.with_suffix(".json.tmp")
-    temporary.write_text(json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    temporary.write_text(
+        json.dumps(index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
+    )
     temporary.replace(provider.index_path)
 
 

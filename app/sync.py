@@ -4,13 +4,24 @@ import hashlib
 import random
 import re
 import time
+from collections.abc import Callable
 from concurrent.futures import Future, ThreadPoolExecutor
 from dataclasses import dataclass
+from functools import partial
 from pathlib import Path
+from typing import TypeVar
 from urllib.error import HTTPError
 from urllib.parse import unquote
 
-from app.models import AliasRule, ExamAttachment, NormalizedCatalog, ParsedPaper, SourceExamPage, StoredFile, SyncFailure
+from app.models import (
+    AliasRule,
+    ExamAttachment,
+    NormalizedCatalog,
+    ParsedPaper,
+    SourceExamPage,
+    StoredFile,
+    SyncFailure,
+)
 from app.normalizer import normalize_papers
 from app.providers.base import SourceProvider
 from app.providers.http import retry_after_seconds
@@ -61,11 +72,17 @@ def _provider_storage_prefix(page: SourceExamPage) -> str:
 
 
 def _mirror_prefix_for_attachment(page: SourceExamPage, attachment: ExamAttachment) -> str:
-    return f"{_provider_storage_prefix(page)}{page.year_roc}/{page.source_exam_id}/exam/{attachment.file_type}"
+    return (
+        f"{_provider_storage_prefix(page)}{page.year_roc}/"
+        f"{page.source_exam_id}/exam/{attachment.file_type}"
+    )
 
 
 def _mirror_prefix_for_paper(page: SourceExamPage, paper: ParsedPaper, file_type: str) -> str:
-    return f"{_provider_storage_prefix(page)}{page.year_roc}/{page.source_exam_id}/{paper.category_code}/{paper.subject_code}/{file_type}"
+    return (
+        f"{_provider_storage_prefix(page)}{page.year_roc}/{page.source_exam_id}"
+        f"/{paper.category_code}/{paper.subject_code}/{file_type}"
+    )
 
 
 def _strip_bom_prefix(data: bytes) -> bytes:
@@ -74,7 +91,11 @@ def _strip_bom_prefix(data: bytes) -> bytes:
 
 def _looks_like_html(data: bytes) -> bool:
     head = _strip_bom_prefix(data[:256]).lstrip().lower()
-    return head.startswith(b"<!doctype html") or head.startswith(b"<html") or head.startswith(b"<!doctype")
+    return (
+        head.startswith(b"<!doctype html")
+        or head.startswith(b"<html")
+        or head.startswith(b"<!doctype")
+    )
 
 
 def _expected_extensions(file_type: str) -> tuple[str, ...]:
@@ -96,7 +117,9 @@ def _matches_expected_binary(data: bytes, expected_extension: str) -> bool:
     if expected_extension == ".rar":
         return any(data.startswith(signature) for signature in RAR_SIGNATURES)
     if expected_extension == ".mp3":
-        return data.startswith(b"ID3") or any(head.startswith(signature) for signature in MP3_FRAME_SYNC_PREFIXES)
+        return data.startswith(b"ID3") or any(
+            head.startswith(signature) for signature in MP3_FRAME_SYNC_PREFIXES
+        )
     if expected_extension in {".jpg", ".jpeg"}:
         return head.startswith(b"\xff\xd8\xff")
     if expected_extension == ".png":
@@ -110,16 +133,24 @@ def _validated_extension(file_type: str, data: bytes, content_type: str, file_na
     expected_extensions = _expected_extensions(file_type)
     resolved_extension = _extension_for(content_type, file_name).lower()
     if _looks_like_html(data) and file_type != "answer_table":
-        joined_extensions = " or ".join(expected_extensions) if expected_extensions else resolved_extension
-        raise RuntimeError(f"Downloaded HTML placeholder instead of {joined_extensions} for {file_type}")
+        joined_extensions = (
+            " or ".join(expected_extensions) if expected_extensions else resolved_extension
+        )
+        raise RuntimeError(
+            f"Downloaded HTML placeholder instead of {joined_extensions} for {file_type}"
+        )
     if expected_extensions:
-        if resolved_extension in expected_extensions and _matches_expected_binary(data, resolved_extension):
+        if resolved_extension in expected_extensions and _matches_expected_binary(
+            data, resolved_extension
+        ):
             return resolved_extension
         for expected_extension in expected_extensions:
             if _matches_expected_binary(data, expected_extension):
                 return expected_extension
         joined_extensions = " or ".join(expected_extensions)
-        raise RuntimeError(f"Downloaded file does not match expected {joined_extensions} payload for {file_type}")
+        raise RuntimeError(
+            f"Downloaded file does not match expected {joined_extensions} payload for {file_type}"
+        )
     return resolved_extension
 
 
@@ -131,7 +162,10 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     return _matches_expected_binary(path.read_bytes()[:8], actual_extension)
 
 
-def retry_network(operation, attempts: int = 3):
+Result = TypeVar("Result")
+
+
+def retry_network(operation: Callable[[], Result], attempts: int = 3) -> Result:
     """Retry transient source requests, respecting a server's Retry-After."""
     for attempt in range(attempts):
         try:
@@ -143,7 +177,9 @@ def retry_network(operation, attempts: int = 3):
                 raise
             delay = 2**attempt + random.uniform(0.0, 0.25)
             if isinstance(exc, HTTPError):
-                retry_after = retry_after_seconds(exc.headers.get("Retry-After") if exc.headers else None)
+                retry_after = retry_after_seconds(
+                    exc.headers.get("Retry-After") if exc.headers else None
+                )
                 if retry_after is not None:
                     delay = max(delay, retry_after)
             if delay > 120:
@@ -165,9 +201,15 @@ def _existing_mirrored(mirror_store: MirrorStore, prefix: str, file_type: str) -
         stored = mirror_store.find_existing(legacy_prefix)
     if stored is not None and not _is_valid_stored_file(stored.path, file_type):
         stored = None
-    if stored is not None and legacy_prefix != prefix and stored.storage_key.startswith(legacy_prefix):
+    if (
+        stored is not None
+        and legacy_prefix != prefix
+        and stored.storage_key.startswith(legacy_prefix)
+    ):
         promoted_storage_key = f"{prefix}{stored.path.suffix.lower()}"
-        promoted = mirror_store.write_bytes(promoted_storage_key, stored.path.read_bytes(), overwrite=False)
+        promoted = mirror_store.write_bytes(
+            promoted_storage_key, stored.path.read_bytes(), overwrite=False
+        )
         stored = StoredFile(
             storage_key=promoted.storage_key,
             path=promoted.path,
@@ -180,7 +222,9 @@ def _existing_mirrored(mirror_store: MirrorStore, prefix: str, file_type: str) -
 
 def _download_validated(client: SourceProvider, file_type: str, url: str) -> tuple[bytes, str]:
     downloaded = retry_network(lambda: client.download_file(url))
-    extension = _validated_extension(file_type, downloaded.data, downloaded.content_type, downloaded.file_name)
+    extension = _validated_extension(
+        file_type, downloaded.data, downloaded.content_type, downloaded.file_name
+    )
     return downloaded.data, extension
 
 
@@ -195,7 +239,9 @@ class _MirrorRequest:
 
 
 def restore_catalog_files(
-    client: SourceProvider, mirror_store: MirrorStore, catalog: NormalizedCatalog,
+    client: SourceProvider,
+    mirror_store: MirrorStore,
+    catalog: NormalizedCatalog,
 ) -> list[SyncFailure]:
     """Restore retained files without changing their recorded identity or bytes."""
     failures: list[SyncFailure] = []
@@ -203,23 +249,39 @@ def restore_catalog_files(
         try:
             path = mirror_store.root / paper.storage_key
             if path.is_file() and _is_valid_stored_file(path, paper.file_type):
-                if not paper.checksum or hashlib.sha256(path.read_bytes()).hexdigest() == paper.checksum:
+                if (
+                    not paper.checksum
+                    or hashlib.sha256(path.read_bytes()).hexdigest() == paper.checksum
+                ):
                     continue
-            downloaded = retry_network(lambda: client.download_file(paper.download_url_source))
+            downloaded = retry_network(partial(client.download_file, paper.download_url_source))
             extension = _validated_extension(
-                paper.file_type, downloaded.data, downloaded.content_type, downloaded.file_name,
+                paper.file_type,
+                downloaded.data,
+                downloaded.content_type,
+                downloaded.file_name,
             )
             if extension != path.suffix.lower():
-                raise RuntimeError("Retained file format changed; refresh its source exam before publication")
+                raise RuntimeError(
+                    "Retained file format changed; refresh its source exam before publication"
+                )
             if paper.checksum and hashlib.sha256(downloaded.data).hexdigest() != paper.checksum:
-                raise RuntimeError("Retained file checksum changed; refresh its source exam before publication")
+                raise RuntimeError(
+                    "Retained file checksum changed; refresh its source exam before publication"
+                )
             mirror_store.write_bytes(paper.storage_key, downloaded.data, overwrite=True)
         except Exception as exc:
-            failures.append(SyncFailure(
-                stage="download", source_exam_id=paper.source_exam_id, year_roc=paper.year_roc,
-                paper_code=paper.paper_code, file_type=paper.file_type,
-                url=paper.download_url_source, message=f"Failed to restore retained file: {exc}",
-            ))
+            failures.append(
+                SyncFailure(
+                    stage="download",
+                    source_exam_id=paper.source_exam_id,
+                    year_roc=paper.year_roc,
+                    paper_code=paper.paper_code,
+                    file_type=paper.file_type,
+                    url=paper.download_url_source,
+                    message=f"Failed to restore retained file: {exc}",
+                )
+            )
     return failures
 
 
@@ -238,7 +300,7 @@ def sync_exam_pages(
 
     for exam_code, year_ad in exam_codes:
         try:
-            page = retry_network(lambda: client.fetch_exam_page(exam_code, year_ad))
+            page = retry_network(partial(client.fetch_exam_page, exam_code, year_ad))
         except Exception as exc:
             failures.append(
                 SyncFailure(
@@ -259,47 +321,67 @@ def sync_exam_pages(
         requests: list[_MirrorRequest] = []
         if download_attachments:
             for attachment in page.attachments:
-                requests.append(_MirrorRequest(
-                    prefix=_mirror_prefix_for_attachment(page, attachment),
-                    file_type=attachment.file_type,
-                    url=attachment.download_url_source,
-                    paper_code=f"exam-{attachment.file_type}",
-                    attachment=attachment,
-                ))
+                requests.append(
+                    _MirrorRequest(
+                        prefix=_mirror_prefix_for_attachment(page, attachment),
+                        file_type=attachment.file_type,
+                        url=attachment.download_url_source,
+                        paper_code=f"exam-{attachment.file_type}",
+                        attachment=attachment,
+                    )
+                )
 
         for paper in page.papers:
             for file_type, download_url in paper.files.items():
-                requests.append(_MirrorRequest(
-                    prefix=_mirror_prefix_for_paper(page, paper, file_type),
-                    file_type=file_type,
-                    url=download_url,
-                    paper_code=f"{paper.category_code}-{paper.subject_code}-{file_type}",
-                    paper=paper,
-                ))
+                requests.append(
+                    _MirrorRequest(
+                        prefix=_mirror_prefix_for_paper(page, paper, file_type),
+                        file_type=file_type,
+                        url=download_url,
+                        paper_code=f"{paper.category_code}-{paper.subject_code}-{file_type}",
+                        paper=paper,
+                    )
+                )
 
         max_workers = max(1, min(4, int(getattr(client, "max_concurrency", 4))))
         stored_by_prefix: dict[str, StoredFile] = {}
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             for start in range(0, len(requests), max_workers):
                 batch: list[tuple[_MirrorRequest, StoredFile | Future[tuple[bytes, str]]]] = []
-                for request in requests[start:start + max_workers]:
+                for request in requests[start : start + max_workers]:
                     try:
                         stored = stored_by_prefix.get(request.prefix)
                         if stored is None:
-                            stored = _existing_mirrored(mirror_store, request.prefix, request.file_type)
+                            stored = _existing_mirrored(
+                                mirror_store, request.prefix, request.file_type
+                            )
                         if stored is not None:
                             stored_by_prefix[request.prefix] = stored
                             batch.append((request, stored))
                         else:
-                            batch.append((request, executor.submit(
-                                _download_validated, client, request.file_type, request.url,
-                            )))
+                            batch.append(
+                                (
+                                    request,
+                                    executor.submit(
+                                        _download_validated,
+                                        client,
+                                        request.file_type,
+                                        request.url,
+                                    ),
+                                )
+                            )
                     except Exception as exc:
-                        failures.append(SyncFailure(
-                            stage="download", source_exam_id=page.source_exam_id,
-                            year_roc=page.year_roc, paper_code=request.paper_code,
-                            file_type=request.file_type, url=request.url, message=str(exc),
-                        ))
+                        failures.append(
+                            SyncFailure(
+                                stage="download",
+                                source_exam_id=page.source_exam_id,
+                                year_roc=page.year_roc,
+                                paper_code=request.paper_code,
+                                file_type=request.file_type,
+                                url=request.url,
+                                message=str(exc),
+                            )
+                        )
 
                 # Only fetches run on workers. All MirrorStore access stays on
                 # this thread because its dedupe index is mutable state.
@@ -310,7 +392,9 @@ def sync_exam_pages(
                             assert isinstance(result, Future)
                             data, extension = result.result()
                             stored = mirror_store.write_bytes(
-                                f"{request.prefix}{extension}", data, overwrite=True,
+                                f"{request.prefix}{extension}",
+                                data,
+                                overwrite=True,
                             )
                             mirror_store.delete_matching_except(request.prefix, stored.storage_key)
                             stored_by_prefix[request.prefix] = stored
@@ -320,7 +404,9 @@ def sync_exam_pages(
                             attachment.asset_name = _asset_name_for(stored.storage_key)
                             attachment.checksum = stored.checksum
                             attachment.download_url_mirror = (
-                                f"{mirror_base_url.rstrip('/')}/{attachment.asset_name}" if mirror_base_url else ""
+                                f"{mirror_base_url.rstrip('/')}/{attachment.asset_name}"
+                                if mirror_base_url
+                                else ""
                             )
                             continue
                         assert request.paper is not None
@@ -330,13 +416,21 @@ def sync_exam_pages(
                             "asset_name": _asset_name_for(stored.storage_key),
                             "checksum": stored.checksum,
                         }
-                        mirror_metadata[(paper.category_code, paper.subject_code, request.file_type)] = paper.mirror_files[request.file_type]
+                        mirror_metadata[
+                            (paper.category_code, paper.subject_code, request.file_type)
+                        ] = paper.mirror_files[request.file_type]
                     except Exception as exc:
-                        failures.append(SyncFailure(
-                            stage="download", source_exam_id=page.source_exam_id,
-                            year_roc=page.year_roc, paper_code=request.paper_code,
-                            file_type=request.file_type, url=request.url, message=str(exc),
-                        ))
+                        failures.append(
+                            SyncFailure(
+                                stage="download",
+                                source_exam_id=page.source_exam_id,
+                                year_roc=page.year_roc,
+                                paper_code=request.paper_code,
+                                file_type=request.file_type,
+                                url=request.url,
+                                message=str(exc),
+                            )
+                        )
 
         normalized_input_papers = [
             ParsedPaper(
@@ -369,4 +463,8 @@ def sync_exam_pages(
         review_queue.extend(normalized.review_queue)
 
     mirror_store.flush_dedupe_index()
-    return raw_pages, NormalizedCatalog(papers=normalized_papers, review_queue=review_queue), failures
+    return (
+        raw_pages,
+        NormalizedCatalog(papers=normalized_papers, review_queue=review_queue),
+        failures,
+    )

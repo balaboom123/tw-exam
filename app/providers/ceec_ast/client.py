@@ -28,7 +28,10 @@ _CEEC_CATEGORY_NAME = "分科測驗"
 _PAGINATION_LABELS = {"第一頁", "上一頁", "下一頁", "最後頁"}
 _AST_NOTICE_TITLE_PATTERNS = (
     ("notice", re.compile(r"(?P<roc_year>\d{3})\s*學年度分科測驗試題\s*/\s*答題卷\s*/\s*參考答案")),
-    ("confirmed", re.compile(r"(?P<roc_year>\d{3})\s*學年度分科測驗各考科選擇[（(]填[）)]題答案確定")),
+    (
+        "confirmed",
+        re.compile(r"(?P<roc_year>\d{3})\s*學年度分科測驗各考科選擇[（(]填[）)]題答案確定"),
+    ),
     ("guidelines", re.compile(r"(?P<roc_year>\d{3})\s*學年度分科測驗各考科非選擇題評分原則")),
 )
 _SUBJECT_SLUGS = {
@@ -181,7 +184,9 @@ def parse_listing_page(html: str) -> CeecAstListingPage:
                 if current_entry is not None and current_entry.downloads:
                     entries.append(current_entry)
                 pending_roc_year = None
-                current_entry = _entry_from_title(int(match.group("roc_year")), match.group("title"))
+                current_entry = _entry_from_title(
+                    int(match.group("roc_year")), match.group("title")
+                )
                 continue
             date_match = _ENTRY_DATE_RE.match(token_text)
             if date_match is not None:
@@ -205,12 +210,12 @@ def parse_listing_page(html: str) -> CeecAstListingPage:
                 entries.append(current_entry)
                 current_entry = None
             continue
-        current_entry.downloads.append(CeecAstDownload(label=token_text, url=urljoin(BASE_URL, token_href)))
+        current_entry.downloads.append(
+            CeecAstDownload(label=token_text, url=urljoin(BASE_URL, token_href))
+        )
     if current_entry is not None and current_entry.downloads:
         entries.append(current_entry)
     return CeecAstListingPage(total_pages=total_pages, entries=entries)
-
-
 
 
 @dataclass
@@ -263,13 +268,18 @@ class _NoticeTableParser(HTMLParser):
             return
         if tag == "a" and self._anchor_href:
             self._cell_links.append(
-                CeecAstDownload(label=_normalize_text(" ".join(self._anchor_text_parts)), url=self._anchor_href)
+                CeecAstDownload(
+                    label=_normalize_text(" ".join(self._anchor_text_parts)), url=self._anchor_href
+                )
             )
             self._anchor_href = ""
             self._anchor_text_parts = []
         elif tag in {"td", "th"} and self._in_cell:
             self._row.append(
-                _NoticeCell(text=_normalize_text(" ".join(self._cell_text_parts)), links=list(self._cell_links))
+                _NoticeCell(
+                    text=_normalize_text(" ".join(self._cell_text_parts)),
+                    links=list(self._cell_links),
+                )
             )
             self._in_cell = False
             self._cell_text_parts = []
@@ -290,7 +300,11 @@ def parse_notice_listing(html: str) -> list[CeecAstNotice]:
         if token_type != "link":
             continue
         matched = next(
-            ((kind, match) for kind, pattern in _AST_NOTICE_TITLE_PATTERNS if (match := pattern.search(token_text))),
+            (
+                (kind, match)
+                for kind, pattern in _AST_NOTICE_TITLE_PATTERNS
+                if (match := pattern.search(token_text))
+            ),
             None,
         )
         if matched is None:
@@ -305,9 +319,10 @@ def parse_notice_listing(html: str) -> list[CeecAstNotice]:
         parsed_url = urlparse(resolved_url)
         query = parse_qs(parsed_url.query)
         if parsed_url.path == "/xmdoc" and query.get("sid") and query.get("xsmsid"):
+            parameters = (("sid", query["sid"][0]), ("xsmsid", query["xsmsid"][0]))
             resolved_url = urljoin(
                 BASE_URL,
-                f"xmdoc/cont?{urlencode((('sid', query['sid'][0]), ('xsmsid', query['xsmsid'][0])))}",
+                f"xmdoc/cont?{urlencode(parameters)}",
             )
         notices.append(
             CeecAstNotice(
@@ -325,12 +340,23 @@ def _notice_header_indices(rows: list[list[_NoticeCell]]) -> tuple[int, dict[str
         labels = [cell.text for cell in row]
         columns = {
             "subject": next((index for index, label in enumerate(labels) if "科目" in label), None),
-            "question": next((index for index, label in enumerate(labels) if "試題" in label), None),
-            "answer_sheet": next((index for index, label in enumerate(labels) if "答題卷" in label), None),
-            "answer": next((index for index, label in enumerate(labels) if "參考答案" in label or label == "答案"), None),
+            "question": next(
+                (index for index, label in enumerate(labels) if "試題" in label), None
+            ),
+            "answer_sheet": next(
+                (index for index, label in enumerate(labels) if "答題卷" in label), None
+            ),
+            "answer": next(
+                (
+                    index
+                    for index, label in enumerate(labels)
+                    if "參考答案" in label or label == "答案"
+                ),
+                None,
+            ),
         }
         if all(index is not None for index in columns.values()):
-            return row_index, {name: int(index) for name, index in columns.items()}
+            return row_index, {name: index for name, index in columns.items() if index is not None}
     return None
 
 
@@ -339,7 +365,9 @@ def parse_notice_papers(html: str, *, base_url: str, year_ad: int) -> list[Parse
     parser.feed(unescape(html))
     header = _notice_header_indices(parser.rows)
     if header is None:
-        raise CeecAstSourceQualityError("CEEC AST notice is missing the 科目/試題/答題卷/參考答案 table")
+        raise CeecAstSourceQualityError(
+            "CEEC AST notice is missing the 科目/試題/答題卷/參考答案 table"
+        )
     header_row_index, columns = header
     papers: list[ParsedPaper] = []
     for row in parser.rows[header_row_index + 1 :]:
@@ -353,7 +381,9 @@ def parse_notice_papers(html: str, *, base_url: str, year_ad: int) -> list[Parse
             for download in row[columns[file_type]].links:
                 if not download.url:
                     continue
-                resolved_type = "question_alt" if file_type == "question" and "question" in files else file_type
+                resolved_type = (
+                    "question_alt" if file_type == "question" and "question" in files else file_type
+                )
                 if resolved_type in files:
                     continue
                 files[resolved_type] = urljoin(base_url, download.url)
@@ -406,7 +436,9 @@ def parse_guideline_papers(html: str, *, base_url: str, year_ad: int) -> list[Pa
             )
         )
     if not papers:
-        raise CeecAstSourceQualityError("CEEC AST notice contains no scoring-principle download rows")
+        raise CeecAstSourceQualityError(
+            "CEEC AST notice contains no scoring-principle download rows"
+        )
     return papers
 
 
@@ -478,11 +510,21 @@ class CeecAstClient:
         notices = [notice for notice in self._iter_notices() if notice.year_ad == year_ad]
         if notices:
             return [
-                ExamOption(code=notice.source_exam_id, year_ad=notice.year_ad, year_roc=notice.year_ad - 1911, label=notice.title)
+                ExamOption(
+                    code=notice.source_exam_id,
+                    year_ad=notice.year_ad,
+                    year_roc=notice.year_ad - 1911,
+                    label=notice.title,
+                )
                 for notice in notices
             ]
         return [
-            ExamOption(code=entry.source_exam_id, year_ad=entry.year_ad, year_roc=entry.year_ad - 1911, label=entry.title)
+            ExamOption(
+                code=entry.source_exam_id,
+                year_ad=entry.year_ad,
+                year_roc=entry.year_ad - 1911,
+                label=entry.title,
+            )
             for entry in self._iter_entries()
             if entry.year_ad == year_ad
         ]
@@ -496,23 +538,34 @@ class CeecAstClient:
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         notice = next(
-            (item for item in self._iter_notices() if item.source_exam_id == exam_code and item.year_ad == year_ad),
+            (
+                item
+                for item in self._iter_notices()
+                if item.source_exam_id == exam_code and item.year_ad == year_ad
+            ),
             None,
         )
         if notice is not None:
             return notice.url
-        if any(item.source_exam_id == exam_code and item.year_ad == year_ad for item in self._iter_entries()):
+        if any(
+            item.source_exam_id == exam_code and item.year_ad == year_ad
+            for item in self._iter_entries()
+        ):
             return LISTING_URL
         raise ValueError(f"Unknown CEEC AST discovery exam: {exam_code} ({year_ad})")
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         notice = next(
-            (item for item in self._iter_notices() if item.source_exam_id == exam_code and item.year_ad == year_ad),
+            (
+                item
+                for item in self._iter_notices()
+                if item.source_exam_id == exam_code and item.year_ad == year_ad
+            ),
             None,
         )
         if notice is not None:
             html = self._fetch_text(notice.url)
-            papers = (
+            papers: list[ParsedPaper] = (
                 parse_guideline_papers(html, base_url=notice.url, year_ad=notice.year_ad)
                 if notice.source_exam_id.startswith("ceec-ast-guidelines-")
                 else parse_notice_papers(html, base_url=notice.url, year_ad=notice.year_ad)
@@ -527,10 +580,14 @@ class CeecAstClient:
                 provider_id=self.provider_id,
             )
 
-        entry = next(item for item in self._iter_entries() if item.source_exam_id == exam_code and item.year_ad == year_ad)
+        entry = next(
+            item
+            for item in self._iter_entries()
+            if item.source_exam_id == exam_code and item.year_ad == year_ad
+        )
         subject_tail = _subject_tail(entry.title)
         subject_slug = _slug_from_title(entry.title)
-        papers: list[ParsedPaper] = []
+        papers = []
         question_seen = 0
         for index, download in enumerate(entry.downloads, start=1):
             if download.label == "試題內容":

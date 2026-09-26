@@ -55,7 +55,9 @@ def load_source_manifest(path: Path, *, provider_id: str | None = None) -> Sourc
     data = json.loads(path.read_text(encoding="utf-8"))
     manifest = source_manifest_from_data(data)
     if provider_id is not None and manifest.provider_id != provider_id:
-        raise ValueError(f"Source manifest provider mismatch: expected {provider_id}, got {manifest.provider_id}")
+        raise ValueError(
+            f"Source manifest provider mismatch: expected {provider_id}, got {manifest.provider_id}"
+        )
     return manifest
 
 

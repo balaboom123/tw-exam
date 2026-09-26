@@ -6,7 +6,9 @@ import time
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
+from http.client import HTTPResponse
 from pathlib import Path
+from typing import cast
 from urllib.parse import parse_qs, quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
@@ -80,7 +82,9 @@ class _LinkParser(HTMLParser):
     def handle_endtag(self, tag: str) -> None:
         if tag != "a" or not self._href:
             return
-        self.links.append(_Link(_normalize_text(" ".join(self._text_parts)), urljoin(self.base_url, self._href)))
+        self.links.append(
+            _Link(_normalize_text(" ".join(self._text_parts)), urljoin(self.base_url, self._href))
+        )
         self._href = ""
         self._text_parts = []
 
@@ -131,7 +135,8 @@ def parse_listing_page_urls(html: str, base_url: str, config: HceArchiveConfig) 
             raise ValueError("Invalid embedded listing pagination template")
         if total_pages > config.max_listing_pages:
             raise ValueError(
-                f"Official listing pagination exceeds configured bound: {total_pages} > {config.max_listing_pages}"
+                f"Official listing pagination exceeds configured "
+                f"bound: {total_pages} > {config.max_listing_pages}"
             )
         base = urlparse(base_url)
         urls = []
@@ -149,11 +154,15 @@ def parse_listing_page_urls(html: str, base_url: str, config: HceArchiveConfig) 
     base = urlparse(base_url)
     base_query = parse_qs(base.query, keep_blank_values=True)
     base_query.pop(config.pagination_param, None)
-    urls: list[str] = []
+    urls = []
     seen: set[str] = set()
     for link in _links_from_html(html, base_url):
         candidate = urlparse(link.url)
-        if (candidate.scheme, candidate.netloc, candidate.path) != (base.scheme, base.netloc, base.path):
+        if (candidate.scheme, candidate.netloc, candidate.path) != (
+            base.scheme,
+            base.netloc,
+            base.path,
+        ):
             continue
         candidate_query = parse_qs(candidate.query, keep_blank_values=True)
         page_values = candidate_query.pop(config.pagination_param, [])
@@ -169,7 +178,9 @@ def parse_listing_page_urls(html: str, base_url: str, config: HceArchiveConfig) 
     return urls
 
 
-def parse_combined_pdf_listing(html: str, base_url: str, config: HceArchiveConfig) -> list[HceYearPage]:
+def parse_combined_pdf_listing(
+    html: str, base_url: str, config: HceArchiveConfig
+) -> list[HceYearPage]:
     pages: list[HceYearPage] = []
     seen: set[int] = set()
     for link in _links_from_html(html, base_url):
@@ -204,13 +215,17 @@ def _asset_kind(label: str) -> tuple[str, str, str] | None:
 
 
 def _subject_for(label: str, config: HceArchiveConfig) -> tuple[str, str] | None:
-    for subject, slug in sorted(config.subject_slugs.items(), key=lambda item: len(item[0]), reverse=True):
+    for subject, slug in sorted(
+        config.subject_slugs.items(), key=lambda item: len(item[0]), reverse=True
+    ):
         if subject in label:
             return slug, subject
     return None
 
 
-def parse_subject_file_page(html: str, base_url: str, config: HceArchiveConfig) -> list[ParsedPaper]:
+def parse_subject_file_page(
+    html: str, base_url: str, config: HceArchiveConfig
+) -> list[ParsedPaper]:
     grouped: dict[str, ParsedPaper] = {}
     for link in _links_from_html(html, base_url):
         if not _candidate_file_url(link):
@@ -223,6 +238,7 @@ def parse_subject_file_page(html: str, base_url: str, config: HceArchiveConfig) 
             # Some historical CMU pages label a question PDF only as
             # "112國文.pdf" rather than including the word "試題".
             file_type = "question"
+            assert subject is not None
             subject_code, subject_name = subject
         else:
             file_type, subject_code, subject_name = kind
@@ -305,13 +321,13 @@ class HceArchiveClient:
                 now += remaining
         self._last_request_at = now
 
-    def _open(self, url: str, *, method: str = "GET", timeout: int = 60):
+    def _open(self, url: str, *, method: str = "GET", timeout: int = 60) -> HTTPResponse:
         self._wait_for_request_slot()
         request = Request(_request_url(url), headers={"User-Agent": USER_AGENT}, method=method)
         context = _ssl_context_for(url)
         if context is None:
-            return urlopen(request, timeout=timeout)
-        return urlopen(request, timeout=timeout, context=context)
+            return cast(HTTPResponse, urlopen(request, timeout=timeout))
+        return cast(HTTPResponse, urlopen(request, timeout=timeout, context=context))
 
     def _fetch_text(self, url: str) -> str:
         with self._open(url) as response:
@@ -337,7 +353,9 @@ class HceArchiveClient:
                 if page_url not in seen and page_url not in pending:
                     pending.append(page_url)
 
-        self._year_pages_cache = tuple(sorted(pages_by_year.values(), key=lambda page: page.year_ad, reverse=True))
+        self._year_pages_cache = tuple(
+            sorted(pages_by_year.values(), key=lambda page: page.year_ad, reverse=True)
+        )
         return list(self._year_pages_cache)
 
     def discover_available_years(self) -> list[int]:
@@ -371,7 +389,8 @@ class HceArchiveClient:
         year_page = next(
             page
             for page in self._year_pages()
-            if page.year_ad == year_ad and exam_code == f"{self.config.canonical_slug}-{page.year_roc}"
+            if page.year_ad == year_ad
+            and exam_code == f"{self.config.canonical_slug}-{page.year_roc}"
         )
         papers = (
             [_combined_pdf_paper(self.config, year_page.url)]
@@ -418,7 +437,12 @@ HCE_CONFIGS = {
         exam_name="中國醫藥大學學士後中醫學系",
         category_code="post-bacc-chinese-medicine",
         category_name="中國醫藥大學學士後中醫學系",
-        subject_slugs={"國文": "chinese", "化學": "chemistry", "英文": "english", "生物學": "biology"},
+        subject_slugs={
+            "國文": "chinese",
+            "化學": "chemistry",
+            "英文": "english",
+            "生物學": "biology",
+        },
         listing_pattern=re.compile(r"(?P<year>\d{3})學年度學士後中醫學系.*試題及參考答案"),
         pagination_param="page",
         max_listing_pages=8,
@@ -431,7 +455,12 @@ HCE_CONFIGS = {
         exam_name="慈濟大學學士後中醫學系",
         category_code="post-bacc-chinese-medicine",
         category_name="慈濟大學學士後中醫學系",
-        subject_slugs={"國文": "chinese", "化學": "chemistry", "英文": "english", "生物學": "biology"},
+        subject_slugs={
+            "國文": "chinese",
+            "化學": "chemistry",
+            "英文": "english",
+            "生物學": "biology",
+        },
         listing_pattern=re.compile(r"(?P<year>\d{3})學年度學士後中醫學系.*試題及參考答案"),
     ),
     "hce_nsysu": HceArchiveConfig(

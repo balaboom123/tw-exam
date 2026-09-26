@@ -26,7 +26,10 @@ DOWNLOAD_URL = "https://www.taipower.com.tw/tc/download.aspx?mid=261"
 LISTING_PATH = "/2289/2544/2554/2556/"
 DISCOVERY_PAGE_SIZE = 200
 MAX_DISCOVERY_YEARS = 100
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+)
 REQUEST_HEADERS = {
     "User-Agent": USER_AGENT,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -123,7 +126,9 @@ class _DownloadPageParser(HTMLParser):
         if tag == "a" and "download" in attrs_dict:
             href = attrs_dict.get("href") or ""
             if href:
-                label = self._current_name or _normalize_text(unquote(Path(urlparse(href).path).stem))
+                label = self._current_name or _normalize_text(
+                    unquote(Path(urlparse(href).path).stem)
+                )
                 url = urljoin(BASE_URL, href)
                 self._current_downloads.append(MoeaRecruitDownload(label=label, url=url))
 
@@ -182,9 +187,7 @@ def _full_year_listing_url(relative_url: str) -> str:
         if key not in {"Page", "PageSize"}
     ]
     query[:0] = [("Page", "1"), ("PageSize", str(DISCOVERY_PAGE_SIZE))]
-    return urlunsplit(
-        (parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment)
-    )
+    return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
 
 
 def parse_listing_page_numbers(html: str, listing_url: str) -> set[int]:
@@ -226,7 +229,7 @@ class MoeaRecruitClient:
     def _fetch_text(self, url: str) -> str:
         request = Request(_quote_url_for_request(url), headers=REQUEST_HEADERS)
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
             for encoding in ("utf-8", "big5", "cp950"):
                 try:
                     return raw.decode(encoding)
@@ -284,9 +287,7 @@ class MoeaRecruitClient:
                     f"MOEA archive year {year_roc} contains cross-year entries: {wrong_years}"
                 )
             remaining_pages = {
-                page
-                for page in parse_listing_page_numbers(page_html, page_url)
-                if page > 1
+                page for page in parse_listing_page_numbers(page_html, page_url) if page > 1
             }
             if remaining_pages:
                 raise ValueError(
@@ -308,16 +309,12 @@ class MoeaRecruitClient:
         try:
             return self._year_urls[year_ad]
         except KeyError as exc:
-            raise ValueError(
-                f"Unknown MOEA recruitment discovery year: {year_ad}"
-            ) from exc
+            raise ValueError(f"Unknown MOEA recruitment discovery year: {year_ad}") from exc
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         expected_code = f"moea-recruit-{year_ad - 1911}"
         if exam_code != expected_code:
-            raise ValueError(
-                f"Unknown MOEA recruitment discovery exam: {exam_code} ({year_ad})"
-            )
+            raise ValueError(f"Unknown MOEA recruitment discovery exam: {exam_code} ({year_ad})")
         return self.build_discovery_year_url(year_ad)
 
     def discover_available_years(self) -> list[int]:
@@ -345,7 +342,8 @@ class MoeaRecruitClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         matching = [
-            item for item in self._iter_entries()
+            item
+            for item in self._iter_entries()
             if f"moea-recruit-{item.year_roc}" == exam_code and item.year_ad == year_ad
         ]
         if not matching:

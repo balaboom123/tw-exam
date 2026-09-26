@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import re
 import hashlib
+import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
@@ -13,7 +13,9 @@ from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
 
 DOWNLOAD_URL = "https://tocfl.edu.tw/tocfl/index.php/exam/download"
-MOCK_TEST_URL = "https://tocfl.edu.tw/tocfl/index.php/exam/test/page/1?pressBtn=%28%E9%A1%8C%E5%BA%AB%29"
+MOCK_TEST_URL = (
+    "https://tocfl.edu.tw/tocfl/index.php/exam/test/page/1?pressBtn=%28%E9%A1%8C%E5%BA%AB%29"
+)
 USER_AGENT = "Mozilla/5.0 (compatible; tocfl-cert-mirror/1.0)"
 CANONICAL_CATEGORY = "TOCFL華語文能力測驗官方參考資料"
 MATERIALS_YEAR = 2026
@@ -135,7 +137,14 @@ class TocflCertClient:
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
         if not any(download.year_ad == year_ad for download in self._downloads()):
             return []
-        return [ExamOption(code=f"tocfl-cert-{year_ad}", year_ad=year_ad, year_roc=year_ad - 1911, label=f"TOCFL官方參考資料 {year_ad}")]
+        return [
+            ExamOption(
+                code=f"tocfl-cert-{year_ad}",
+                year_ad=year_ad,
+                year_roc=year_ad - 1911,
+                label=f"TOCFL官方參考資料 {year_ad}",
+            )
+        ]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         downloads = self._downloads()

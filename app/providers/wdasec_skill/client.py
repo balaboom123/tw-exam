@@ -17,7 +17,6 @@ USER_AGENT = "Mozilla/5.0 (compatible; wdasec-skill-mirror/1.0)"
 CANONICAL_CATEGORY = "全國技術士技能檢定"
 
 
-
 @dataclass(frozen=True)
 class ListingRow:
     year_roc: int
@@ -40,6 +39,7 @@ class DetailRow:
 # HTML parsers
 # ---------------------------------------------------------------------------
 
+
 class _HiddenFieldParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -50,9 +50,9 @@ class _HiddenFieldParser(HTMLParser):
             return
         attr_dict = dict(attrs)
         if attr_dict.get("type") == "hidden":
-            name = attr_dict.get("name", "")
+            name = attr_dict.get("name") or ""
             if name:
-                self.fields[name] = attr_dict.get("value", "")
+                self.fields[name] = attr_dict.get("value") or ""
 
 
 class _ListingParser(HTMLParser):
@@ -91,9 +91,9 @@ class _ListingParser(HTMLParser):
             self._in_cell = True
             self._text_parts = []
         elif tag == "input" and self._in_row:
-            name = attr_dict.get("name", "")
+            name = attr_dict.get("name") or ""
             if name.endswith("$hdfPLAID"):
-                self._current_plaid = attr_dict.get("value", "")
+                self._current_plaid = attr_dict.get("value") or ""
 
     def handle_data(self, data: str) -> None:
         if self._in_cell:
@@ -117,12 +117,14 @@ class _ListingParser(HTMLParser):
             self._in_cell = False
         elif tag == "tr" and self._in_row:
             if self._current_plaid and self._current_year.isdigit():
-                self.rows.append(ListingRow(
-                    year_roc=int(self._current_year),
-                    title=self._current_title,
-                    plaid=self._current_plaid,
-                    row_index=self._row_index,
-                ))
+                self.rows.append(
+                    ListingRow(
+                        year_roc=int(self._current_year),
+                        title=self._current_title,
+                        plaid=self._current_plaid,
+                        row_index=self._row_index,
+                    )
+                )
                 self._row_index += 1
             self._in_row = False
 
@@ -164,7 +166,7 @@ class _DetailParser(HTMLParser):
             self._text_parts = []
             self._cell_href = ""
         elif tag == "a" and self._in_cell:
-            self._cell_href = attr_dict.get("href", "")
+            self._cell_href = attr_dict.get("href") or ""
 
     def handle_data(self, data: str) -> None:
         if self._in_cell:
@@ -195,16 +197,20 @@ class _DetailParser(HTMLParser):
                     self._last_trade_name = self._cells[1]
                 level = self._cells[3]
                 q_url = self._cell_hrefs[4] if self._cell_hrefs[4] else ""
-                p_url = self._cell_hrefs[5] if len(self._cell_hrefs) > 5 and self._cell_hrefs[5] else ""
+                p_url = (
+                    self._cell_hrefs[5] if len(self._cell_hrefs) > 5 and self._cell_hrefs[5] else ""
+                )
                 if level and (q_url or p_url):
-                    self.rows.append(DetailRow(
-                        trade_code=trade_code,
-                        trade_name=trade_name,
-                        exam_date=self._cells[2],
-                        level=level,
-                        question_url=q_url,
-                        practical_url=p_url,
-                    ))
+                    self.rows.append(
+                        DetailRow(
+                            trade_code=trade_code,
+                            trade_name=trade_name,
+                            exam_date=self._cells[2],
+                            level=level,
+                            question_url=q_url,
+                            practical_url=p_url,
+                        )
+                    )
             self._in_row = False
 
 
@@ -235,6 +241,7 @@ class _PaginationParser(HTMLParser):
 # ---------------------------------------------------------------------------
 # Public parse functions
 # ---------------------------------------------------------------------------
+
 
 def parse_hidden_fields(html: str) -> dict[str, str]:
     parser = _HiddenFieldParser()
@@ -267,6 +274,7 @@ _LEVEL_KEYS = {"甲級": "class_a", "乙級": "class_b", "丙級": "class_c", "�
 # ASP.NET session + client
 # ---------------------------------------------------------------------------
 
+
 class WdasecSkillClient:
     provider_id = "wdasec_skill"
 
@@ -279,7 +287,8 @@ class WdasecSkillClient:
     def _get(self, url: str) -> str:
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with self._opener.open(request, timeout=60) as response:
-            html = response.read().decode("utf-8")
+            body: bytes = response.read()
+            html = body.decode("utf-8")
         self._hidden_fields = parse_hidden_fields(html)
         return html
 
@@ -289,14 +298,19 @@ class WdasecSkillClient:
         payload.setdefault("__EVENTARGUMENT", "")
         payload.update(extra_fields)
         data = urlencode(payload).encode("utf-8")
-        request = Request(PAGE_URL, data=data, headers={
-            "User-Agent": USER_AGENT,
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Referer": PAGE_URL,
-            "Origin": "https://owinform.wdasec.gov.tw",
-        })
+        request = Request(
+            PAGE_URL,
+            data=data,
+            headers={
+                "User-Agent": USER_AGENT,
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Referer": PAGE_URL,
+                "Origin": "https://owinform.wdasec.gov.tw",
+            },
+        )
         with self._opener.open(request, timeout=60) as response:
-            html = response.read().decode("utf-8")
+            body: bytes = response.read()
+            html = body.decode("utf-8")
         self._hidden_fields = parse_hidden_fields(html)
         return html
 
@@ -327,16 +341,20 @@ class WdasecSkillClient:
         return self._post({category: "全國技能檢定各梯次試題及答案"})
 
     def fetch_listing_page(self, page_number: int) -> str:
-        return self._post({
-            "__EVENTTARGET": "gvData",
-            "__EVENTARGUMENT": f"Page${page_number}",
-        })
+        return self._post(
+            {
+                "__EVENTTARGET": "gvData",
+                "__EVENTARGUMENT": f"Page${page_number}",
+            }
+        )
 
     def fetch_detail(self, row_index: int) -> str:
-        return self._post({
-            "__EVENTTARGET": "gvData",
-            "__EVENTARGUMENT": f"order${row_index}",
-        })
+        return self._post(
+            {
+                "__EVENTTARGET": "gvData",
+                "__EVENTARGUMENT": f"order${row_index}",
+            }
+        )
 
     def discover_all_listing_rows(self) -> list[ListingRow]:
         if self._listing_rows_cache is not None:
@@ -404,22 +422,26 @@ class WdasecSkillClient:
             subject_base = f"{row.trade_code}-{level_key}"
             if row.question_url:
                 full_url = urljoin(BASE_URL, row.question_url.split("?")[0])
-                papers.append(ParsedPaper(
-                    category_raw=CANONICAL_CATEGORY,
-                    category_code=row.trade_code,
-                    subject_code=f"{subject_base}-question",
-                    subject_name_raw=f"{row.trade_name} {row.level} 學科",
-                    files={"question": full_url},
-                ))
+                papers.append(
+                    ParsedPaper(
+                        category_raw=CANONICAL_CATEGORY,
+                        category_code=row.trade_code,
+                        subject_code=f"{subject_base}-question",
+                        subject_name_raw=f"{row.trade_name} {row.level} 學科",
+                        files={"question": full_url},
+                    )
+                )
             if row.practical_url:
                 full_url = urljoin(BASE_URL, row.practical_url.split("?")[0])
-                papers.append(ParsedPaper(
-                    category_raw=CANONICAL_CATEGORY,
-                    category_code=row.trade_code,
-                    subject_code=f"{subject_base}-practical",
-                    subject_name_raw=f"{row.trade_name} {row.level} 術科",
-                    files={"question": full_url},
-                ))
+                papers.append(
+                    ParsedPaper(
+                        category_raw=CANONICAL_CATEGORY,
+                        category_code=row.trade_code,
+                        subject_code=f"{subject_base}-practical",
+                        subject_name_raw=f"{row.trade_name} {row.level} 術科",
+                        files={"question": full_url},
+                    )
+                )
 
         return SourceExamPage(
             provider_id="wdasec_skill",

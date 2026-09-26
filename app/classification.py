@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Evidence-backed, provider-neutral exam identity classification.
 
 The legacy normalizer intentionally keeps ``canonical_id`` and
@@ -10,13 +8,14 @@ category, and content fields, and ambiguous records are isolated into an
 exam-event-specific review bundle instead of being silently merged.
 """
 
-from dataclasses import asdict, dataclass
-from functools import lru_cache
+from __future__ import annotations
+
 import hashlib
 import re
 import unicodedata
+from dataclasses import asdict, dataclass
+from functools import lru_cache
 from typing import Any
-
 
 IDENTITY_SCHEMA_VERSION = 2
 CATALOG_VERSION = "exam-identity-v2"
@@ -267,12 +266,26 @@ def _clean_moex_track(category: str, canonical_name: str) -> str:
     value = re.sub(r"^\d+(?:年|\s+)", "", value)
     value = re.sub(r"^(?:專門職業及技術人員|專技)(?:高等|普通|特種)?考試", "", value)
     value = re.sub(r"^(?:高等|普通|初等|特種)考試", "", value)
-    value = re.sub(r"^(?:高考|普考|初等|初考|特考|地方政府公務人員考試|原住民族考試|身心障礙人員考試|身障特考|關務特考|關務人員考試)", "", value)
+    value = re.sub(
+        r"^(?:高考|普考|初等|初考|特考|地方政府公務人員考試|原住民族考試|身心障礙人員考試|身障特考|關務特考|關務人員考試)",
+        "",
+        value,
+    )
     value = re.sub(r"^(?:一級|二級|三級|三等|四等|五等|1等|2等|3等|4等|5等)考試", "", value)
     value = re.sub(r"(?:類科|科別)$", "", value)
-    value = re.sub(r"[（(](?:三等|四等|五等|高考|普考|初考|一般組|兩岸組[一二三]|高員級|高級員|員級|佐級|八職等|十二職等)[）)]", "", value)
-    value = re.sub(r"[（(](?:選試[^）)]*|國防部|退輔會|轉任[^）)]*|一般錄取分發區|蘭嶼錄取分發區)[）)]", "", value)
-    value = re.sub(r"^(?:身障|原住民族|地方政府|關務|退除役特考|警察特考|外交人員考試)[^_]*_", "", value)
+    value = re.sub(
+        r"[（(](?:三等|四等|五等|高考|普考|初考|一般組|兩岸組[一二三]|高員級|高級員|員級|佐級|八職等|十二職等)[）)]",
+        "",
+        value,
+    )
+    value = re.sub(
+        r"[（(](?:選試[^）)]*|國防部|退輔會|轉任[^）)]*|一般錄取分發區|蘭嶼錄取分發區)[）)]",
+        "",
+        value,
+    )
+    value = re.sub(
+        r"^(?:身障|原住民族|地方政府|關務|退除役特考|警察特考|外交人員考試)[^_]*_", "", value
+    )
     value = value.strip(" -_/")
     return value or normalize_text(canonical_name)
 
@@ -301,7 +314,9 @@ def _track_details(
     if provider_id in {"ceec_gsat", "ceec_ast"}:
         value = normalize_text(exam_name).split("－", 1)[-1]
         value = re.sub(r"^\d+(?:學年度|年度)?\s*", "", value)
-        if provider_id == "ceec_ast" and not re.search(r"分科測驗\s*[-－]", normalize_text(exam_name)):
+        if provider_id == "ceec_ast" and not re.search(
+            r"分科測驗\s*[-－]", normalize_text(exam_name)
+        ):
             subject = normalize_text(subject_name)
             if subject:
                 value = f"分科測驗-{subject}"
@@ -327,7 +342,13 @@ def _track_details(
         return _slug(canonical_id, prefix="teacher"), _display(canonical_name, canonical_id)
     if provider_id == "teacher_qual":
         return "teacher-qualification", "教師資格考試"
-    if provider_id in {"moea_recruit", "taipower_recruit", "cpc_recruit", "twc_recruit", "taisugar_recruit"}:
+    if provider_id in {
+        "moea_recruit",
+        "taipower_recruit",
+        "cpc_recruit",
+        "twc_recruit",
+        "taisugar_recruit",
+    }:
         return _slug(canonical_id, prefix="recruit"), _display(canonical_name, canonical_id)
     if provider_id == "post_recruit":
         return "postal-recruitment", "中華郵政職階人員甄試"
@@ -338,7 +359,9 @@ def _track_details(
     if provider_id == "moex":
         value = _clean_moex_track(category, canonical_name)
         return _slug(value, prefix="track"), value
-    value = normalize_text(category) or normalize_text(canonical_name) or normalize_text(subject_name)
+    value = (
+        normalize_text(category) or normalize_text(canonical_name) or normalize_text(subject_name)
+    )
     return _slug(value or source_exam_id, prefix="track"), value or source_exam_id
 
 
@@ -362,7 +385,11 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
         (r"警佐", "police-associate", "警佐"),
         (r"員級", "promotion-employee-rank", "員級"),
         (r"佐級", "promotion-associate-rank", "佐級"),
-        (r"第[一二三四五六七八九十百]+職等|第\d+職等|[一二三四五六七八九十百]+職等|\d+職等", "promotion-official-rank", "升等／職等"),
+        (
+            r"第[一二三四五六七八九十百]+職等|第\d+職等|[一二三四五六七八九十百]+職等|\d+職等",
+            "promotion-official-rank",
+            "升等／職等",
+        ),
         (r"高考?\s*一級|高等一級|一級考試|一等考試|一等_|^一等", "grade-1", "一等／高考一級"),
         (r"高等檢定", "qualification-high", "高等檢定"),
         (r"高等_", "grade-3", "三等／高考三級"),
@@ -371,7 +398,11 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
         (r"中醫師檢定|中醫師考試", "qualification-professional", "專業檢定"),
         (r"中醫師考試", "qualification-professional", "專業檢定"),
         (r"高考?\s*二級|高等二級|二級考試|二等考試|二等_", "grade-2", "二等／高考二級"),
-        (r"高考?\s*三級|高3|三級考試|三等考試|三等_|司法三等|3等|三等", "grade-3", "三等／高考三級"),
+        (
+            r"高考?\s*三級|高3|三級考試|三等考試|三等_|司法三等|3等|三等",
+            "grade-3",
+            "三等／高考三級",
+        ),
         (r"二等考試|二等_|2等|二等", "grade-2", "二等"),
         (r"四等考試|四等_|4等|四等", "grade-4", "四等"),
         (r"五等考試|五等_|5等|五等", "grade-5", "五等"),
@@ -389,7 +420,12 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
         if re.search(pattern, cat):
             return level_id, label, "high", f"explicit category marker: {cat}"
     if re.search(r"(?:^|[（(])(?:相當)?高考(?:[_＿]|\s)", cat) or "相當高考" in cat:
-        return "professional-high", "專技高考", "high", f"historical professional high category marker: {cat}"
+        return (
+            "professional-high",
+            "專技高考",
+            "high",
+            f"historical professional high category marker: {cat}",
+        )
     professional_patterns = (
         (r"專技高考|專門職業及技術人員高等(?:考試|技師考試)", "professional-high", "專技高考"),
         (r"專技普考|專門職業及技術人員普通考試", "professional-ordinary", "專技普考"),
@@ -401,10 +437,21 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     event_patterns = (
         (r"晉升士級", "promotion-worker-rank", "士級"),
         (r"專技(?:人員)?檢覈|檢覈筆試|檢覈", "professional-screening", "專技檢覈"),
-        (r"專門職業及技術人員.*特種考試|特種考試.*(?:中醫師|心理師|營養師|護理師|驗船師|引水人|技師|建築師|醫事|牙體|聽力師|語言治療師|消防設備|土地登記專業代理人|不動產經紀人|專責報關|保險)|專責報關.*特考|保險從業.*特考|航海人員.*驗船師|驗船師.*考試", "professional-special", "專技特考"),
+        (
+            (
+                r"專門職業及技術人員.*特種考試|特種考試.*(?:中醫師|心理師|營養師|護理師|驗船師|引水人|技師|建築師|醫事|牙體|聽力師|語言治"
+                r"療師|消防設備|土地登記專業代理人|不動產經紀人|專責報關|保險)|專責報關.*特考|保險從業.*特考|航海人員.*驗船師|驗船師.*考試"
+            ),
+            "professional-special",
+            "專技特考",
+        ),
         (r"專門職業及技術人員高等(?:考試|技師考試)|專技高考", "professional-high", "專技高考"),
         (r"專門職業及技術人員普通(?:考試|技師考試)|專技普考", "professional-ordinary", "專技普考"),
-        (r"專門職業及技術人員.*高等暨普通|專門職業及技術人員.*高等、普通", "combined", "合併／制度待審核"),
+        (
+            r"專門職業及技術人員.*高等暨普通|專門職業及技術人員.*高等、普通",
+            "combined",
+            "合併／制度待審核",
+        ),
         (r"中醫師檢定", "qualification-professional", "專業檢定"),
         (r"檢定考試|檢定", "qualification-ordinary", "普通檢定"),
         (r"公務人員初等考試", "elementary", "初等／初考"),
@@ -413,56 +460,136 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
         (r"公務人員高等考試三級", "grade-3", "三等／高考三級"),
         (r"公務人員普通考試", "ordinary", "普通／普考"),
     )
-    matching = [(level_id, label, pattern) for pattern, level_id, label in event_patterns if re.search(pattern, event)]
+    matching = [
+        (level_id, label, pattern)
+        for pattern, level_id, label in event_patterns
+        if re.search(pattern, event)
+    ]
     if len(matching) == 1:
         level_id, label, _ = matching[0]
         return level_id, label, "medium", f"source event marker: {event}"
     if "升官等" in event or "升等" in event or "升資" in event:
-        return "unknown", _LEVEL_LABELS["unknown"], "review", f"promotion level missing from category: {cat or canonical_name}"
-    if any(marker in event for marker in ("外交領事人員", "國際新聞人員", "民航人員", "調查局調查人員", "國家安全局")):
-        return NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE], "medium", "official special series has no level marker in the source category"
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            f"promotion level missing from category: {cat or canonical_name}",
+        )
+    if any(
+        marker in event
+        for marker in ("外交領事人員", "國際新聞人員", "民航人員", "調查局調查人員", "國家安全局")
+    ):
+        return (
+            NOT_APPLICABLE,
+            _LEVEL_LABELS[NOT_APPLICABLE],
+            "medium",
+            "official special series has no level marker in the source category",
+        )
     if "專門職業及技術人員" in professional and ("高等暨普通" in event or "高等、普通" in event):
-        return "combined", _LEVEL_LABELS["combined"], "medium", "source event officially combines professional levels without a category marker"
+        return (
+            "combined",
+            _LEVEL_LABELS["combined"],
+            "medium",
+            "source event officially combines professional levels without a category marker",
+        )
     # A small set of stable professional aliases is intentionally treated as
     # an ungraded qualification when synthetic/legacy rows omit the official
     # event wording. Real ambiguous MOEX rows still remain review-isolated.
-    if normalize_text(canonical_name).lower() in {"nurse", "doctor", "護理師", "醫師", "中醫師", "牙醫師", "藥師", "獸醫師"}:
-        return NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE], "medium", "known professional qualification has no separate level marker"
-    return "unknown", _LEVEL_LABELS["unknown"], "review", f"no authoritative level marker in category/event: {cat or event or canonical_name}"
+    if normalize_text(canonical_name).lower() in {
+        "nurse",
+        "doctor",
+        "護理師",
+        "醫師",
+        "中醫師",
+        "牙醫師",
+        "藥師",
+        "獸醫師",
+    }:
+        return (
+            NOT_APPLICABLE,
+            _LEVEL_LABELS[NOT_APPLICABLE],
+            "medium",
+            "known professional qualification has no separate level marker",
+        )
+    return (
+        "unknown",
+        _LEVEL_LABELS["unknown"],
+        "review",
+        f"no authoritative level marker in category/event: {cat or event or canonical_name}",
+    )
 
 
-def _non_moex_level(provider_id: str, category: str, canonical_id: str, subject_name: str) -> tuple[str, str, str, str]:
+def _non_moex_level(
+    provider_id: str, category: str, canonical_id: str, subject_name: str
+) -> tuple[str, str, str, str]:
     text = normalize_text(f"{category} {subject_name}")
     if provider_id == "gept_cert":
-        for marker, level_id in (("初級", "elementary"), ("中高級", "high-intermediate"), ("中級", "intermediate"), ("高級", "advanced"), ("優級", "superior")):
+        for marker, level_id in (
+            ("初級", "elementary"),
+            ("中高級", "high-intermediate"),
+            ("中級", "intermediate"),
+            ("高級", "advanced"),
+            ("優級", "superior"),
+        ):
             if marker in text:
                 return level_id, marker, "high", f"GEPT official level marker: {marker}"
     if provider_id == "jlpt_cert":
         match = re.search(r"N([1-5])", text, re.IGNORECASE)
         if match:
             level_id = f"n{match.group(1)}"
-            return level_id, level_id.upper(), "high", f"JLPT official level marker: N{match.group(1)}"
+            return (
+                level_id,
+                level_id.upper(),
+                "high",
+                f"JLPT official level marker: N{match.group(1)}",
+            )
     if provider_id == "hakka_cert":
         for level_id in ("basic-elementary", "intermediate-high-intermediate", "advanced"):
             if level_id in canonical_id or level_id.replace("-", "") in text:
-                return level_id, _LEVEL_LABELS[level_id], "high", f"Hakka provider mapping: {level_id}"
+                return (
+                    level_id,
+                    _LEVEL_LABELS[level_id],
+                    "high",
+                    f"Hakka provider mapping: {level_id}",
+                )
     if provider_id == "taigi_cert":
         match = re.search(r"(?:卷|[-_])([ABC])\b", text, re.IGNORECASE)
         if match:
             level_id = f"paper-{match.group(1).lower()}"
-            return level_id, _LEVEL_LABELS[level_id], "high", f"Taiwanese language paper marker: {match.group(1).upper()}卷"
+            return (
+                level_id,
+                _LEVEL_LABELS[level_id],
+                "high",
+                f"Taiwanese language paper marker: {match.group(1).upper()}卷",
+            )
     if provider_id == "wdasec_skill":
-        for marker, level_id in (("甲級", "class-a"), ("乙級", "class-b"), ("丙級", "class-c"), ("單一級", "single")):
+        for marker, level_id in (
+            ("甲級", "class-a"),
+            ("乙級", "class-b"),
+            ("丙級", "class-c"),
+            ("單一級", "single"),
+        ):
             if marker in text:
                 return level_id, marker, "high", f"skill certification level marker: {marker}"
-        return NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE], "medium", "skill provider has no level marker in record"
-    return NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE], "medium", "provider policy declares no level dimension"
+        return (
+            NOT_APPLICABLE,
+            _LEVEL_LABELS[NOT_APPLICABLE],
+            "medium",
+            "skill provider has no level marker in record",
+        )
+    return (
+        NOT_APPLICABLE,
+        _LEVEL_LABELS[NOT_APPLICABLE],
+        "medium",
+        "provider policy declares no level dimension",
+    )
 
 
-def _moex_series(category: str, exam_name: str, level_id: str, canonical_id: str) -> tuple[str, str, str, str]:
+def _moex_series(
+    category: str, exam_name: str, level_id: str, canonical_id: str
+) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
-    text = f"{cat} {event}"
     category_first = (
         ("原住民族", "special-indigenous", "原住民族特考"),
         ("原住民", "special-indigenous", "原住民族特考"),
@@ -484,8 +611,21 @@ def _moex_series(category: str, exam_name: str, level_id: str, canonical_id: str
     for marker, series_id, label in category_first:
         if marker in cat:
             return "civil-service", "civil-service-exam", series_id, label
-    if "升官等" in cat or "升等" in cat or "升資" in cat or "升官等" in event or "升等" in event or "升資" in event or "晉升士級" in event:
-        return "civil-service", "civil-promotion", "civil-promotion", _SERIES_LABELS["civil-promotion"]
+    if (
+        "升官等" in cat
+        or "升等" in cat
+        or "升資" in cat
+        or "升官等" in event
+        or "升等" in event
+        or "升資" in event
+        or "晉升士級" in event
+    ):
+        return (
+            "civil-service",
+            "civil-promotion",
+            "civil-promotion",
+            _SERIES_LABELS["civil-promotion"],
+        )
     event_rules = (
         ("原住民族", "special-indigenous", "原住民族特考"),
         ("原住民", "special-indigenous", "原住民族特考"),
@@ -520,58 +660,189 @@ def _moex_series(category: str, exam_name: str, level_id: str, canonical_id: str
             if series_id == "professional-combined" and level_id.startswith("professional"):
                 series_id = level_id
                 label = _SERIES_LABELS.get(series_id, _SERIES_LABELS["professional-combined"])
-            return ("professional" if series_id.startswith("professional") else "civil-service", "professional-exam" if series_id.startswith("professional") else "civil-service-exam", series_id, label)
+            return (
+                "professional" if series_id.startswith("professional") else "civil-service",
+                "professional-exam"
+                if series_id.startswith("professional")
+                else "civil-service-exam",
+                series_id,
+                label,
+            )
     if level_id == "elementary":
-        return "civil-service", "civil-service-exam", "civil-elementary", _SERIES_LABELS["civil-elementary"]
+        return (
+            "civil-service",
+            "civil-service-exam",
+            "civil-elementary",
+            _SERIES_LABELS["civil-elementary"],
+        )
     if level_id == "ordinary":
-        return "civil-service", "civil-service-exam", "civil-ordinary", _SERIES_LABELS["civil-ordinary"]
+        return (
+            "civil-service",
+            "civil-service-exam",
+            "civil-ordinary",
+            _SERIES_LABELS["civil-ordinary"],
+        )
     if level_id == "grade-1" or level_id == "grade-2" or level_id == "grade-3":
         return "civil-service", "civil-service-exam", "civil-high", _SERIES_LABELS["civil-high"]
     if level_id.startswith("professional"):
-        return "professional", "professional-exam", "professional-combined", _SERIES_LABELS["professional-combined"]
-    if canonical_id in {"nurse", "doctor", "dietitian", "social-worker", "psychologist", "counseling-psychologist", "clinical-psychologist"}:
-        return "professional", "professional-exam", "professional-combined", _SERIES_LABELS["professional-combined"]
+        return (
+            "professional",
+            "professional-exam",
+            "professional-combined",
+            _SERIES_LABELS["professional-combined"],
+        )
+    if canonical_id in {
+        "nurse",
+        "doctor",
+        "dietitian",
+        "social-worker",
+        "psychologist",
+        "counseling-psychologist",
+        "clinical-psychologist",
+    }:
+        return (
+            "professional",
+            "professional-exam",
+            "professional-combined",
+            _SERIES_LABELS["professional-combined"],
+        )
     return "civil-service", "civil-service-exam", "moex-unknown", "MOEX待審核考試"
 
 
 def _provider_series(provider_id: str, canonical_id: str) -> tuple[str, str, str, str]:
     if provider_id == "ceec_gsat":
-        return "admissions", "university-admission", "admission-gsat", _SERIES_LABELS["admission-gsat"]
+        return (
+            "admissions",
+            "university-admission",
+            "admission-gsat",
+            _SERIES_LABELS["admission-gsat"],
+        )
     if provider_id == "ceec_ast":
-        return "admissions", "university-admission", "admission-ast", _SERIES_LABELS["admission-ast"]
+        return (
+            "admissions",
+            "university-admission",
+            "admission-ast",
+            _SERIES_LABELS["admission-ast"],
+        )
     if provider_id == "tcte_tve":
-        return "admissions", "technical-admission", "admission-tcte", _SERIES_LABELS["admission-tcte"]
+        return (
+            "admissions",
+            "technical-admission",
+            "admission-tcte",
+            _SERIES_LABELS["admission-tcte"],
+        )
     if provider_id == "rcpet_cap":
         return "admissions", "secondary-admission", "admission-cap", _SERIES_LABELS["admission-cap"]
     if provider_id == "special_admission":
-        return "admissions", "special-admission", "admission-special", _SERIES_LABELS["admission-special"]
+        return (
+            "admissions",
+            "special-admission",
+            "admission-special",
+            _SERIES_LABELS["admission-special"],
+        )
     if provider_id == "gept_cert":
-        return "certification", "language-certification", "language-gept", _SERIES_LABELS["language-gept"]
+        return (
+            "certification",
+            "language-certification",
+            "language-gept",
+            _SERIES_LABELS["language-gept"],
+        )
     if provider_id == "jlpt_cert":
-        return "certification", "language-certification", "language-jlpt", _SERIES_LABELS["language-jlpt"]
+        return (
+            "certification",
+            "language-certification",
+            "language-jlpt",
+            _SERIES_LABELS["language-jlpt"],
+        )
     if provider_id == "tocfl_cert":
-        return "certification", "language-certification", "language-tocfl", _SERIES_LABELS["language-tocfl"]
+        return (
+            "certification",
+            "language-certification",
+            "language-tocfl",
+            _SERIES_LABELS["language-tocfl"],
+        )
     if provider_id == "hakka_cert":
-        return "certification", "language-certification", "language-hakka", _SERIES_LABELS["language-hakka"]
+        return (
+            "certification",
+            "language-certification",
+            "language-hakka",
+            _SERIES_LABELS["language-hakka"],
+        )
     if provider_id == "taigi_cert":
-        return "certification", "language-certification", "language-taigi", _SERIES_LABELS["language-taigi"]
+        return (
+            "certification",
+            "language-certification",
+            "language-taigi",
+            _SERIES_LABELS["language-taigi"],
+        )
     if provider_id == "wdasec_skill":
-        return "certification", "skill-certification", "skill-certification", _SERIES_LABELS["skill-certification"]
+        return (
+            "certification",
+            "skill-certification",
+            "skill-certification",
+            _SERIES_LABELS["skill-certification"],
+        )
     if provider_id in {"sfi_cert", "tabf_cert", "tii_cert"}:
-        return "certification", "financial-certification", "financial-certification", _SERIES_LABELS["financial-certification"]
+        return (
+            "certification",
+            "financial-certification",
+            "financial-certification",
+            _SERIES_LABELS["financial-certification"],
+        )
     if provider_id == "ipas_cert":
-        return "certification", "professional-certification", "professional-certification", _SERIES_LABELS["professional-certification"]
+        return (
+            "certification",
+            "professional-certification",
+            "professional-certification",
+            _SERIES_LABELS["professional-certification"],
+        )
     if provider_id == "teacher_qual":
-        return "teacher", "teacher-exam", "teacher-qualification", _SERIES_LABELS["teacher-qualification"]
+        return (
+            "teacher",
+            "teacher-exam",
+            "teacher-qualification",
+            _SERIES_LABELS["teacher-qualification"],
+        )
     if provider_id.startswith("teacher_recruit"):
-        return "teacher", "teacher-exam", "teacher-recruitment", _SERIES_LABELS["teacher-recruitment"]
+        return (
+            "teacher",
+            "teacher-exam",
+            "teacher-recruitment",
+            _SERIES_LABELS["teacher-recruitment"],
+        )
     if provider_id == "post_recruit":
-        return "employment", "employment-exam", "postal-recruitment", _SERIES_LABELS["postal-recruitment"]
-    if provider_id in {"moea_recruit", "taipower_recruit", "cpc_recruit", "twc_recruit", "taisugar_recruit"}:
-        return "employment", "employment-exam", "employment-recruitment", _SERIES_LABELS["employment-recruitment"]
+        return (
+            "employment",
+            "employment-exam",
+            "postal-recruitment",
+            _SERIES_LABELS["postal-recruitment"],
+        )
+    if provider_id in {
+        "moea_recruit",
+        "taipower_recruit",
+        "cpc_recruit",
+        "twc_recruit",
+        "taisugar_recruit",
+    }:
+        return (
+            "employment",
+            "employment-exam",
+            "employment-recruitment",
+            _SERIES_LABELS["employment-recruitment"],
+        )
     if provider_id.startswith("hce_"):
-        return "admissions", "university-admission", "post-baccalaureate-medical", "學士後醫學／中醫"
-    return "other", "provider-exam", _slug(canonical_id, prefix="series"), _display(canonical_id, "待審核考試")
+        return (
+            "admissions",
+            "university-admission",
+            "post-baccalaureate-medical",
+            "學士後醫學／中醫",
+        )
+    return (
+        "other",
+        "provider-exam",
+        _slug(canonical_id, prefix="series"),
+        _display(canonical_id, "待審核考試"),
+    )
 
 
 def _classify_paper_uncached(
@@ -591,9 +862,13 @@ def _classify_paper_uncached(
     exam_name = normalize_text(exam_name_raw)
     if provider_id == "moex":
         level_id, level_label, confidence, reason = _moex_level(category, exam_name, canonical_name)
-        domain_id, family_id, series_id, series_label = _moex_series(category, exam_name, level_id, canonical_id)
+        domain_id, family_id, series_id, series_label = _moex_series(
+            category, exam_name, level_id, canonical_id
+        )
     else:
-        level_id, level_label, confidence, reason = _non_moex_level(provider_id, category, canonical_id, subject_name_raw)
+        level_id, level_label, confidence, reason = _non_moex_level(
+            provider_id, category, canonical_id, subject_name_raw
+        )
         domain_id, family_id, series_id, series_label = _provider_series(provider_id, canonical_id)
     track_id, track_label = _track_details(
         provider_id,

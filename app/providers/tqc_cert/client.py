@@ -104,10 +104,16 @@ def parse_page_requests(html: str) -> list[TqcPageRequest]:
         match = _POSTBACK_RE.search(token_href)
         if match:
             request = TqcPageRequest(event_target=match.group(1), event_argument=match.group(2))
-        elif token_href and not token_href.lower().endswith(".pdf") and "javascript:" not in token_href.lower():
+        elif (
+            token_href
+            and not token_href.lower().endswith(".pdf")
+            and "javascript:" not in token_href.lower()
+        ):
             page_url = urljoin(EXAM_PAPER_URL, token_href)
             parsed_page_url = urlparse(page_url)
-            if not _is_tqc_url(page_url) or not parsed_page_url.path.lower().endswith("/tqcnet/exampaper.aspx"):
+            if not _is_tqc_url(page_url) or not parsed_page_url.path.lower().endswith(
+                "/tqcnet/exampaper.aspx"
+            ):
                 continue
             request = TqcPageRequest(url=page_url)
         else:
@@ -132,7 +138,11 @@ def parse_exam_papers(html: str) -> list[TqcExamPaper]:
         paper_url = urljoin(EXAM_PAPER_URL, token_href)
         parsed_paper_url = urlparse(paper_url)
         paper_path = parsed_paper_url.path.lower()
-        if not _is_tqc_url(paper_url) or "/user/example/" not in paper_path or not paper_path.endswith(".pdf"):
+        if (
+            not _is_tqc_url(paper_url)
+            or "/user/example/" not in paper_path
+            or not paper_path.endswith(".pdf")
+        ):
             continue
         if len(text_window) < 3:
             continue
@@ -162,7 +172,7 @@ class TqcCertClient:
             headers["Content-Type"] = "application/x-www-form-urlencoded"
         request = Request(url, data=data, headers=headers)
         with urlopen(request, timeout=60) as response:
-            raw = response.read()
+            raw: bytes = response.read()
         for encoding in ("utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -184,7 +194,10 @@ class TqcCertClient:
         if self._cached_entries is None:
             first_html = self._fetch_text(EXAM_PAPER_URL)
             pages = [first_html]
-            pages.extend(self._fetch_page_request(first_html, request) for request in parse_page_requests(first_html))
+            pages.extend(
+                self._fetch_page_request(first_html, request)
+                for request in parse_page_requests(first_html)
+            )
             entries_by_url: dict[str, TqcExamPaper] = {}
             for html in pages:
                 for entry in parse_exam_papers(html):
@@ -202,7 +215,14 @@ class TqcCertClient:
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
         if year_ad not in self.discover_available_years():
             return []
-        return [ExamOption(code=f"tqc-cert-samples-{year_ad}", year_ad=year_ad, year_roc=year_ad - 1911, label=f"{year_ad} TQC範例試卷")]
+        return [
+            ExamOption(
+                code=f"tqc-cert-samples-{year_ad}",
+                year_ad=year_ad,
+                year_roc=year_ad - 1911,
+                label=f"{year_ad} TQC範例試卷",
+            )
+        ]
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         entries = [entry for entry in self._entries() if self._entry_year(entry) == year_ad]

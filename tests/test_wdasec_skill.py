@@ -310,3 +310,9 @@ class WdasecSkillProviderTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_hidden_fields_and_listing_inputs_handle_valueless_attributes():
+    assert parse_hidden_fields('<input type="hidden" name="token" value>') == {"token": ""}
+    assert parse_hidden_fields('<input type="hidden" name value="ignored">') == {}
+    assert parse_listing_rows('<tr><td><input name value></td></tr>') == []

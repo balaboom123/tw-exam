@@ -4,7 +4,7 @@ import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from urllib.parse import parse_qs, urljoin, urlparse, urlsplit
+from urllib.parse import parse_qs, urljoin, urlsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
@@ -191,9 +191,7 @@ class TwcRecruitClient:
         for entry in entries:
             self._validate_download_url(entry.url)
             if entry.year_roc in years:
-                raise ValueError(
-                    f"Taiwan Water archive repeats ROC year: {entry.year_roc}"
-                )
+                raise ValueError(f"Taiwan Water archive repeats ROC year: {entry.year_roc}")
             if entry.url in urls:
                 raise ValueError(f"Taiwan Water archive repeats paper URL: {entry.url}")
             years.add(entry.year_roc)
@@ -208,13 +206,10 @@ class TwcRecruitClient:
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
         if not any(
-            f"twc-recruit-{entry.year_roc}" == exam_code
-            and entry.year_ad == year_ad
+            f"twc-recruit-{entry.year_roc}" == exam_code and entry.year_ad == year_ad
             for entry in self._iter_entries()
         ):
-            raise ValueError(
-                f"Unknown Taiwan Water recruitment exam: {exam_code} ({year_ad})"
-            )
+            raise ValueError(f"Unknown Taiwan Water recruitment exam: {exam_code} ({year_ad})")
         return DOWNLOAD_PAGE_URL
 
     def discover_available_years(self) -> list[int]:
@@ -237,15 +232,12 @@ class TwcRecruitClient:
             (
                 item
                 for item in self._iter_entries()
-                if f"twc-recruit-{item.year_roc}" == exam_code
-                and item.year_ad == year_ad
+                if f"twc-recruit-{item.year_roc}" == exam_code and item.year_ad == year_ad
             ),
             None,
         )
         if entry is None:
-            raise ValueError(
-                f"No Taiwan Water recruitment event for {exam_code} ({year_ad})"
-            )
+            raise ValueError(f"No Taiwan Water recruitment event for {exam_code} ({year_ad})")
         paper = ParsedPaper(
             category_raw=CANONICAL_CATEGORY,
             category_code=str(entry.year_roc),

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Reviewed evidence for official sources that are currently blocked or excluded.
 
 Coverage exceptions live under ``catalog/source-coverage`` because they are
@@ -8,8 +6,10 @@ current raw event/failure state; an exception cannot silently hide a changed
 source or a repaired failure.
 """
 
-from dataclasses import dataclass
+from __future__ import annotations
+
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -71,13 +71,25 @@ def _validate_evidence(value: Any, *, path: Path) -> dict[str, Any]:
         raise ValueError(f"{path}: evidence must be an object")
     _require_text(value.get("captured_at"), "evidence.captured_at", path=path)
     http_status = value.get("http_status")
-    if not isinstance(http_status, int) or isinstance(http_status, bool) or not 0 <= http_status <= 599:
+    if (
+        not isinstance(http_status, int)
+        or isinstance(http_status, bool)
+        or not 0 <= http_status <= 599
+    ):
         raise ValueError(f"{path}: evidence.http_status must be an integer from 0 through 599")
     response_bytes = value.get("response_bytes")
-    if not isinstance(response_bytes, int) or isinstance(response_bytes, bool) or response_bytes < 0:
+    if (
+        not isinstance(response_bytes, int)
+        or isinstance(response_bytes, bool)
+        or response_bytes < 0
+    ):
         raise ValueError(f"{path}: evidence.response_bytes must be a non-negative integer")
-    response_sha256 = _require_text(value.get("response_sha256"), "evidence.response_sha256", path=path).lower()
-    if len(response_sha256) != _SHA256_LENGTH or any(character not in "0123456789abcdef" for character in response_sha256):
+    response_sha256 = _require_text(
+        value.get("response_sha256"), "evidence.response_sha256", path=path
+    ).lower()
+    if len(response_sha256) != _SHA256_LENGTH or any(
+        character not in "0123456789abcdef" for character in response_sha256
+    ):
         raise ValueError(f"{path}: evidence.response_sha256 must be a SHA-256 hex digest")
     _require_text(value.get("observation"), "evidence.observation", path=path)
     return dict(value)
@@ -183,8 +195,11 @@ def failure_exception_for(
         and failure.stage == "download"
     ]
     if len(matches) > 1:
-        raise ValueError(
-            "multiple file coverage exceptions for "
-            f"{(failure.source_exam_id, failure.year_roc + 1911, failure.paper_code, failure.file_type)!r}"
+        failure_key = (
+            failure.source_exam_id,
+            failure.year_roc + 1911,
+            failure.paper_code,
+            failure.file_type,
         )
+        raise ValueError(f"multiple file coverage exceptions for {failure_key!r}")
     return matches[0] if matches else None

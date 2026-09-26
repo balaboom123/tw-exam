@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 """Whole-catalog classification and bundle-disposition audit.
 
 The audit is independent of the network and ZIP creation. It loads every
@@ -7,26 +5,45 @@ provider's retained normalized paper record, recomputes identity from raw
 evidence, and compares it with the currently published site inventory.
 """
 
-from collections import Counter, defaultdict
+from __future__ import annotations
+
 import json
+from collections import Counter, defaultdict
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from app.bundler import _bundle_asset_name, _legacy_asset_names
 from app.classification import ExamIdentity, classify_normalized_paper, identity_fields
 from app.models import BundleAsset, NormalizedCatalog
-from app.normalizer import _derive_canonical, _is_legacy_ascii_fixture, load_alias_rules, renormalize_catalog
+from app.normalizer import (
+    _derive_canonical,
+    _is_legacy_ascii_fixture,
+    load_alias_rules,
+    renormalize_catalog,
+)
 from app.paths import provider_paths, site_paths
 from app.publication_quarantine import quarantined_provider_ids
 from app.publisher import load_site_catalog
-from app.release_tags import GITHUB_RELEASE_ASSET_LIMIT, RELEASE_SAFETY_TARGET, assign_release_tags, physical_asset_names, strip_ambiguous_legacy_assets, validate_release_capacity
+from app.release_tags import (
+    GITHUB_RELEASE_ASSET_LIMIT,
+    RELEASE_SAFETY_TARGET,
+    assign_release_tags,
+    physical_asset_names,
+    strip_ambiguous_legacy_assets,
+    validate_release_capacity,
+)
 from app.site_registry import get_site_config
 from app.state import load_provider_state, load_site_bundles
 
 
 def _jsonify_signature(value: dict[str, Any]) -> dict[str, Any]:
     return {
-        **{key: item for key, item in value.items() if key not in {"source_exam_ids", "raw_categories"}},
+        **{
+            key: item
+            for key, item in value.items()
+            if key not in {"source_exam_ids", "raw_categories"}
+        },
         "source_exam_ids": sorted(value["source_exam_ids"]),
         "raw_categories": sorted(value["raw_categories"]),
     }
@@ -37,7 +54,10 @@ def _review_key(item: Any) -> tuple[str, str, str]:
 
 
 def build_catalog_audit(
-    repo_root: Path, *, site_id: str = "default", include_publication_backlog: bool = False,
+    repo_root: Path,
+    *,
+    site_id: str = "default",
+    include_publication_backlog: bool = False,
 ) -> dict[str, Any]:
     site_config = get_site_config(site_id)
     provider_reports: list[dict[str, Any]] = []
@@ -80,7 +100,10 @@ def build_catalog_audit(
                 entry["records_needing_v2_rewrite"] += 1
         alias_rules = load_alias_rules(provider.aliases_path)
         current_review_keys = {_review_key(item) for item in catalog.review_queue}
-        if all(paper.category_raw and paper.canonical_id and paper.canonical_name for paper in catalog.papers):
+        if all(
+            paper.category_raw and paper.canonical_id and paper.canonical_name
+            for paper in catalog.papers
+        ):
             # Persisted records already have canonical names. Their review
             # status is exactly the identity computed in the first scan, so
             # rebuilding the entire catalog would classify every paper again.
@@ -137,8 +160,12 @@ def build_catalog_audit(
                 "review_queue_count": len(catalog.review_queue),
                 "review_queue_stale_entries": len(current_review_keys - rebuilt_review_keys),
                 "review_queue_missing_entries": len(rebuilt_review_keys - current_review_keys),
-                "review_queue_stale_keys": [list(key) for key in sorted(current_review_keys - rebuilt_review_keys)],
-                "review_queue_missing_keys": [list(key) for key in sorted(rebuilt_review_keys - current_review_keys)],
+                "review_queue_stale_keys": [
+                    list(key) for key in sorted(current_review_keys - rebuilt_review_keys)
+                ],
+                "review_queue_missing_keys": [
+                    list(key) for key in sorted(rebuilt_review_keys - current_review_keys)
+                ],
                 "signatures": [
                     _jsonify_signature(value)
                     for value in sorted(signatures.values(), key=lambda item: item["signature"])
@@ -168,7 +195,10 @@ def build_catalog_audit(
         entry["bundle_ids"].add(identity.bundle_id)
 
     mixed_groups = []
-    for entry in sorted(by_legacy_group.values(), key=lambda item: (item["provider_id"], item["legacy_canonical_id"])):
+    for entry in sorted(
+        by_legacy_group.values(),
+        key=lambda item: (item["provider_id"], item["legacy_canonical_id"]),
+    ):
         if len(entry["identity_signatures"]) <= 1:
             continue
         mixed_groups.append(
@@ -201,7 +231,9 @@ def build_catalog_audit(
             disposition = "unmapped"
         elif len(identities) > 1:
             disposition = "split"
-        elif bundle_id and any(identities_by_paper[id(paper)].bundle_id == bundle_id for paper in matching):
+        elif bundle_id and any(
+            identities_by_paper[id(paper)].bundle_id == bundle_id for paper in matching
+        ):
             disposition = "keep"
         else:
             disposition = "rename"
@@ -225,17 +257,19 @@ def build_catalog_audit(
         group["years"].add(paper.year_roc)
         group["canonical_ids"].add(paper.canonical_id)
         group["provider_ids"].add(paper.provider_id)
+
     def required_years(paper_group: dict[str, Any]) -> int:
         minimum = site_config.public_min_years
         for canonical_id in paper_group["canonical_ids"]:
-            for prefix, prefix_minimum in (site_config.public_min_years_by_canonical_prefix or {}).items():
+            for prefix, prefix_minimum in (
+                site_config.public_min_years_by_canonical_prefix or {}
+            ).items():
                 if canonical_id.startswith(prefix):
                     minimum = min(minimum, prefix_minimum)
         return minimum
+
     public_planned_groups = [
-        group
-        for group in planned_groups.values()
-        if len(group["years"]) >= required_years(group)
+        group for group in planned_groups.values() if len(group["years"]) >= required_years(group)
     ]
     planned_bundle_count = len(public_planned_groups)
     release_target = min(max(site_config.release_shard_size, 1), RELEASE_SAFETY_TARGET)
@@ -276,11 +310,11 @@ def build_catalog_audit(
     current_release_capacity_ok = all(
         count <= GITHUB_RELEASE_ASSET_LIMIT for count in current_release_counts.values()
     )
-    records_with_identity = sum(1 for identity in identities_by_paper.values() if identity.bundle_id)
+    records_with_identity = sum(
+        1 for identity in identities_by_paper.values() if identity.bundle_id
+    )
     review_queue_signatures = {
-        item.classification_signature
-        for item in all_review_items
-        if item.classification_signature
+        item.classification_signature for item in all_review_items if item.classification_signature
     }
     review_records = 0
     approved_review_isolated_records = 0
@@ -307,13 +341,19 @@ def build_catalog_audit(
         "catalog_version": "exam-identity-v2",
         "site_id": site_id,
         "provider_count": len(site_config.provider_ids),
-        "providers_with_state": sum(1 for report in provider_reports if report["paper_records"] or report["raw_exam_pages"]),
+        "providers_with_state": sum(
+            1 for report in provider_reports if report["paper_records"] or report["raw_exam_pages"]
+        ),
         "paper_records_scanned": len(all_papers),
         "records_with_identity": records_with_identity,
         "records_needing_review": review_records,
         "review_queue_entries": len(all_review_items),
-        "review_queue_stale_entries": sum(report["review_queue_stale_entries"] for report in provider_reports),
-        "review_queue_missing_entries": sum(report["review_queue_missing_entries"] for report in provider_reports),
+        "review_queue_stale_entries": sum(
+            report["review_queue_stale_entries"] for report in provider_reports
+        ),
+        "review_queue_missing_entries": sum(
+            report["review_queue_missing_entries"] for report in provider_reports
+        ),
         "review_isolation_policy": "event-specific-review-bundle-v1",
         "approved_review_isolated_records": approved_review_isolated_records,
         "unapproved_review_records": unapproved_review_records,
@@ -321,7 +361,9 @@ def build_catalog_audit(
         "mixed_legacy_groups": mixed_groups,
         "current_bundle_count": len(current_bundles),
         "current_bundle_dispositions": bundle_dispositions,
-        "current_bundle_disposition_counts": dict(Counter(item["disposition"] for item in bundle_dispositions)),
+        "current_bundle_disposition_counts": dict(
+            Counter(item["disposition"] for item in bundle_dispositions)
+        ),
         "current_release_asset_counts": dict(sorted(current_release_counts.items())),
         "current_release_capacity_ok": current_release_capacity_ok,
         "release_asset_limit": GITHUB_RELEASE_ASSET_LIMIT,
@@ -338,13 +380,19 @@ def build_catalog_audit(
         quarantined_required = sorted(quarantined.intersection(site_config.required_provider_ids))
         if quarantined_required:
             raise ValueError(
-                f"Required providers cannot be quarantined for site {site_id}: {', '.join(quarantined_required)}"
+                f"Required providers cannot be quarantined for "
+                f"site {site_id}: {', '.join(quarantined_required)}"
             )
         for provider_id in site_config.required_provider_ids:
             provider = provider_paths(repo_root, provider_id)
             if not provider.data_dir.exists():
-                raise ValueError(f"Missing provider state for {provider_id}: expected {provider.data_dir}")
-        if all(paper.category_raw and paper.canonical_id and paper.canonical_name for paper in all_papers):
+                raise ValueError(
+                    f"Missing provider state for {provider_id}: expected {provider.data_dir}"
+                )
+        if all(
+            paper.category_raw and paper.canonical_id and paper.canonical_name
+            for paper in all_papers
+        ):
             report["publication_backlog"] = _publication_backlog_from_classified(
                 site_id=site_id,
                 classified_papers=(
@@ -363,18 +411,24 @@ def build_catalog_audit(
 
 def write_catalog_audit(report: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.write_text(
+        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
 
 
 def audit_exit_code(report: dict[str, Any], *, strict: bool) -> int:
     if not strict:
         return 0
-    return 1 if (
-        report["unapproved_review_records"]
-        or report["review_queue_stale_entries"]
-        or report["review_queue_missing_entries"]
-        or not report["all_records_covered"]
-    ) else 0
+    return (
+        1
+        if (
+            report["unapproved_review_records"]
+            or report["review_queue_stale_entries"]
+            or report["review_queue_missing_entries"]
+            or not report["all_records_covered"]
+        )
+        else 0
+    )
 
 
 def build_publication_backlog(repo_root: Path, *, site_id: str = "default") -> dict[str, Any]:
@@ -393,7 +447,9 @@ def build_publication_backlog(repo_root: Path, *, site_id: str = "default") -> d
     normalized, _failures = load_site_catalog(repo_root, site_id=site_id)
     return _publication_backlog_from_classified(
         site_id=site_id,
-        classified_papers=((paper, classify_normalized_paper(paper)) for paper in normalized.papers),
+        classified_papers=(
+            (paper, classify_normalized_paper(paper)) for paper in normalized.papers
+        ),
         current_bundles=load_site_bundles(site_paths(repo_root, site_id)),
     )
 
@@ -419,7 +475,9 @@ def _publication_backlog_from_classified(
     def required_years(group: dict[str, Any]) -> int:
         minimum = site_config.public_min_years
         for canonical_id in group["canonical_ids"]:
-            for prefix, prefix_minimum in (site_config.public_min_years_by_canonical_prefix or {}).items():
+            for prefix, prefix_minimum in (
+                site_config.public_min_years_by_canonical_prefix or {}
+            ).items():
                 if canonical_id.startswith(prefix):
                     minimum = min(minimum, prefix_minimum)
         return minimum
@@ -439,14 +497,18 @@ def _publication_backlog_from_classified(
         "published_bundle_count": len(published),
         "unpublished_bundle_count": len(outstanding),
         "unpublished_record_count": sum(group["record_count"] for group in outstanding.values()),
-        "provider_ids": sorted({p for group in outstanding.values() for p in group["provider_ids"]}),
+        "provider_ids": sorted(
+            {p for group in outstanding.values() for p in group["provider_ids"]}
+        ),
         "unpublished_by_provider": dict(sorted(by_provider.items())),
         "affected_canonical_ids": sorted(outstanding),
         "canonical_aliases": {},
     }
 
 
-def build_release_plan(repo_root: Path, *, site_id: str = "default", release_tag_prefix: str | None = None) -> dict[str, Any]:
+def build_release_plan(
+    repo_root: Path, *, site_id: str = "default", release_tag_prefix: str | None = None
+) -> dict[str, Any]:
     """Build a read-only physical-asset release plan from current site state."""
     site_config = get_site_config(site_id)
     bundles = load_site_bundles(site_paths(repo_root, site_id))
@@ -491,4 +553,6 @@ def build_release_plan(repo_root: Path, *, site_id: str = "default", release_tag
 
 def write_release_plan(plan: dict[str, Any], output: Path) -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(plan, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.write_text(
+        json.dumps(plan, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )

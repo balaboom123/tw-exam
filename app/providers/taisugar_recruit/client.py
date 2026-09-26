@@ -42,6 +42,7 @@ _TOTAL_ROWS_RE = re.compile(
 @dataclass(frozen=True)
 class TaisugarNewsItem:
     """A news listing item that links to an exam-paper detail page."""
+
     title: str
     detail_url: str
     year_roc: int
@@ -50,6 +51,7 @@ class TaisugarNewsItem:
 @dataclass(frozen=True)
 class TaisugarDownload:
     """A single official PDF or ZIP download from a detail page."""
+
     label: str
     url: str
 
