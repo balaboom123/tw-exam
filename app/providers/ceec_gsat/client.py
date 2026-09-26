@@ -206,10 +206,20 @@ class CeecGsatClient:
 
     def __init__(self) -> None:
         self._entries_cache: tuple[CeecEntry, ...] | None = None
+        self._listing_pages: dict[int, str] = {}
+        self._listing_http = Http(self.provider_id, user_agent=USER_AGENT)
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _fetch_text(self, url: str) -> str:
-        return self.http.get_text(url, encoding="utf-8")
+        return self._listing_http.get_text(url, encoding="utf-8")
+
+    def _listing_html(self, page_number: int) -> str:
+        # Keep successful pages across an outer discovery retry. The complete
+        # entries cache is still committed only after every page succeeds.
+        if page_number not in self._listing_pages:
+            url = LISTING_URL if page_number == 1 else f"{LISTING_URL}&page={page_number}"
+            self._listing_pages[page_number] = self._fetch_text(url)
+        return self._listing_pages[page_number]
 
     def head(self, url: str) -> ResponseMetadata:
         return self.http.head(url)
@@ -220,11 +230,11 @@ class CeecGsatClient:
     def _iter_entries(self) -> list[CeecEntry]:
         if self._entries_cache is not None:
             return list(self._entries_cache)
-        first_page_html = self._fetch_text(LISTING_URL)
+        first_page_html = self._listing_html(1)
         first_page = parse_listing_page(first_page_html)
         entries = list(first_page.entries)
         for page_number in range(2, first_page.total_pages + 1):
-            page = parse_listing_page(self._fetch_text(f"{LISTING_URL}&page={page_number}"))
+            page = parse_listing_page(self._listing_html(page_number))
             entries.extend(page.entries)
 
         deduped: list[CeecEntry] = []
@@ -239,7 +249,7 @@ class CeecGsatClient:
         return list(self._entries_cache)
 
     def discover_available_years(self) -> list[int]:
-        first_page_html = self._fetch_text(LISTING_URL)
+        first_page_html = self._listing_html(1)
         years = _available_years_from_text(_plain_text_from_html(first_page_html))
         if years:
             return years
