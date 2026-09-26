@@ -17,11 +17,11 @@ export function BundleRow({
   return (
     <li className="flex items-center gap-4 px-4 py-4 transition-colors hover:bg-cream">
       <div className="min-w-0 flex-1">
-        <h3 className="font-serif text-[17px] font-semibold leading-snug text-ink-950">
+        <h2 className="font-serif text-[17px] font-semibold leading-snug text-ink-950">
           <a href={siteHref(`b/${bundle.id}.html`)} className="underline-offset-4 hover:underline">
             {bundle.name}
           </a>
-        </h3>
+        </h2>
         <p className="mt-1.5 font-mono text-xs text-ink-500">
           民國 {formatYearRange(bundle.years)} · {bundle.fileCount} 份試題
         </p>
@@ -81,7 +81,7 @@ export function BundleRow({
             href={joinHref}
             target="_blank"
             rel="noopener"
-            aria-label={`加入 LINE 社群，解鎖 ${bundle.name} 試題下載`}
+            aria-label={`加入後下載 ${bundle.name} 試題（加入 LINE 社群解鎖）`}
             onClick={(event) => {
               if (window.matchMedia("(max-width: 639px)").matches) {
                 event.preventDefault()
