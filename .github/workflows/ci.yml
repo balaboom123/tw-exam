@@ -46,6 +46,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Report runner storage for mirror recovery
+        run: df -B1 "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
+
       - name: Set up uv
         uses: astral-sh/setup-uv@v10.2.0
 

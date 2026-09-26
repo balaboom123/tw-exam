@@ -85,11 +85,10 @@ jobs:
           restore-keys: |
             ${{ inputs.cache_prefix }}-mirror-
 
-      - name: Recover evicted mirror from public storage
-        if: ${{ steps.mirror_cache.outputs.cache-matched-key == '' }}
+      - name: Hydrate mirror cache from public storage
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/mirror_snapshots.py restore --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --allow-missing
+        run: python .github/scripts/mirror_snapshots.py hydrate --provider "$PROVIDER_ID" --repository "${{ github.repository }}"
 
       - name: Run provider sync
         id: sync
@@ -103,13 +102,6 @@ jobs:
             args+=(--prune-orphaned-mirror)
           fi
           python -m app "${args[@]}"
-
-      - name: Save mirror directory
-        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
-        uses: actions/cache/save@v6
-        with:
-          path: mirror
-          key: ${{ steps.baseline.outputs.cache_key }}
 
       - name: Retain provider snapshot and failure evidence
         id: snapshot
@@ -130,6 +122,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/mirror_snapshots.py save --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && steps.durable.outputs.cacheable == 'true' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: ${{ steps.baseline.outputs.cache_key }}
 
       - name: Summarize provider sync
         if: always()

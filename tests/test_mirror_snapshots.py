@@ -4,6 +4,7 @@ import io
 import json
 import os
 import subprocess
+import sys
 import tarfile
 from pathlib import Path
 
@@ -31,9 +32,7 @@ def packed(tmp_path):
     sibling = root / "mirror/providers/ceec_gsat"
     sibling.mkdir()
     (sibling / "excluded.pdf").write_bytes(b"sibling provider")
-    manifest_path = mirror.pack(
-        root, PROVIDER, "pilot-1", tmp_path / "snapshot", chunk_bytes=257
-    )
+    manifest_path = mirror.pack(root, PROVIDER, "pilot-1", tmp_path / "snapshot", chunk_bytes=257)
     return root, manifest_path
 
 
@@ -51,17 +50,15 @@ def test_chunked_roundtrip_preserves_payloads_and_provider_ownership(packed, tmp
     incoming = root / "mirror/providers" / PROVIDER
     restored = destination / "mirror/providers" / PROVIDER
     assert {
-        p.relative_to(restored): p.read_bytes()
-        for p in restored.rglob("*")
-        if p.is_file()
-    } == {
-        p.relative_to(incoming): p.read_bytes()
-        for p in incoming.rglob("*")
-        if p.is_file()
-    }
+        p.relative_to(restored): p.read_bytes() for p in restored.rglob("*") if p.is_file()
+    } == {p.relative_to(incoming): p.read_bytes() for p in incoming.rglob("*") if p.is_file()}
     assert sibling.read_bytes() == b"preserved sibling"
     assert not (destination / "mirror/.mirror-dedupe-index.json").exists()
     assert not (restored / "excluded.pdf").exists()
+    assert payload["version"] == 2
+    assert payload["payload_bytes"] == 4096
+    assert payload["unpacked_bytes"] == 8192
+    assert (restored / "hardlink.pdf").samefile(restored / "111/數學.pdf")
 
 
 def test_corrupt_chunk_fails_before_installing_any_files(packed, tmp_path):
@@ -87,13 +84,11 @@ def test_restore_never_overwrites_an_existing_provider(packed, tmp_path):
     assert retained.read_bytes() == b"existing"
 
 
-def handcrafted(tmp_path, members, *, count=None, total=None, truncate=False):
+def handcrafted(tmp_path, members, *, count=None, total=None, truncate=False, version=1):
     archive_bytes = io.BytesIO()
     with tarfile.open(fileobj=archive_bytes, mode="w") as archive:
         for member in members:
-            archive.addfile(
-                member, io.BytesIO(b"x" * member.size) if member.isfile() else None
-            )
+            archive.addfile(member, io.BytesIO(b"x" * member.size) if member.isfile() else None)
     data = gzip.compress(archive_bytes.getvalue())
     if truncate:
         data = data[:-8]
@@ -105,14 +100,13 @@ def handcrafted(tmp_path, members, *, count=None, total=None, truncate=False):
     path.write_text(
         json.dumps(
             {
-                "version": 1,
+                "version": version,
                 "provider_id": PROVIDER,
                 "generation": "test",
                 "format": "tar.gz",
                 "file_count": count if count is not None else len(members),
-                "unpacked_bytes": total
-                if total is not None
-                else sum(m.size for m in members),
+                "unpacked_bytes": total if total is not None else sum(m.size for m in members),
+                "payload_bytes": sum(m.size for m in members if m.isfile()),
                 "chunks": [
                     {
                         "name": chunk.name,
@@ -143,9 +137,7 @@ def test_unsafe_archive_members_are_rejected_atomically(tmp_path, name, kind):
     member = tarfile.TarInfo(name)
     member.type = kind
     member.size = 1 if member.isfile() else 0
-    member.linkname = (
-        "../escape.pdf" if kind in (tarfile.SYMTYPE, tarfile.LNKTYPE) else ""
-    )
+    member.linkname = "../escape.pdf" if kind in (tarfile.SYMTYPE, tarfile.LNKTYPE) else ""
     path = handcrafted(tmp_path, [member])
     destination = tmp_path / "restore"
     with pytest.raises(ValueError, match="Unsafe"):
@@ -177,7 +169,10 @@ def test_invalid_archive_inventory_and_gzip_trailer_cannot_install(tmp_path, cas
         ("provider_id", "ceec_gsat"),
         ("generation", "other"),
         ("format", "zip"),
-        ("version", 2),
+        ("version", 3),
+        ("version", True),
+        ("payload_bytes", -1),
+        ("payload_bytes", True),
         ("chunks", [{"name": "../../escape"}]),
         ("file_count", True),
     ],
@@ -191,9 +186,7 @@ def test_manifest_contract_is_validated(packed, field, value):
         mirror.load_manifest(path, PROVIDER, "pilot-1")
 
 
-@pytest.mark.parametrize(
-    "generation", ["../escape", "a/b", "", "a\noutput=x", "x" * 81]
-)
+@pytest.mark.parametrize("generation", ["../escape", "a/b", "", "a\noutput=x", "x" * 81])
 def test_invalid_generations_never_become_paths(generation):
     with pytest.raises(ValueError):
         mirror.checked_generation(generation)
@@ -241,8 +234,7 @@ def test_remote_pointer_advances_only_after_all_upload_digests_are_confirmed(
                 raise subprocess.CalledProcessError(1, ["gh"])
             uploaded[path.name] = {
                 "name": path.name,
-                "digest": "sha256:"
-                + ("0" * 64 if fail == "digest" else mirror.digest(path)),
+                "digest": "sha256:" + ("0" * 64 if fail == "digest" else mirror.digest(path)),
             }
         elif args[:3] == ("api", "--method", "PATCH"):
             patches.append(json.loads(Path(args[-1]).read_text()))
@@ -294,9 +286,7 @@ def test_only_a_missing_release_allows_source_bootstrap(monkeypatch):
 def test_existing_release_without_a_committed_pointer_is_not_treated_as_empty(
     monkeypatch, tmp_path
 ):
-    monkeypatch.setattr(
-        mirror, "release", lambda *args, **kwargs: {"body": "upload interrupted"}
-    )
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: {"body": "upload interrupted"})
     with pytest.raises(ValueError, match="committed snapshot pointer"):
         mirror.restore(tmp_path, "owner/repo", PROVIDER, allow_missing=True)
 
@@ -311,9 +301,7 @@ def test_publication_retry_restores_its_exact_generation_instead_of_latest(
         "generation": "a-newer-run",
         "manifest_sha256": "0" * 64,
     }
-    monkeypatch.setattr(
-        mirror, "release", lambda *args, **kwargs: {"body": json.dumps(pointer)}
-    )
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: {"body": json.dumps(pointer)})
     downloaded = []
 
     def fake_download(repository, provider, name, directory):
@@ -345,9 +333,7 @@ def test_restore_validates_downloaded_manifest_before_fetching_payloads(
         "generation": "pilot-1",
         "manifest_sha256": "0" * 64,
     }
-    monkeypatch.setattr(
-        mirror, "release", lambda *args, **kwargs: {"body": json.dumps(pointer)}
-    )
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: {"body": json.dumps(pointer)})
     downloaded = []
 
     def fake_download(repository, provider, name, directory):
@@ -385,13 +371,10 @@ def test_unchanged_mirror_reuses_verified_generation_without_uploading(
         mirror,
         "assets",
         lambda *args: [
-            {"name": c["name"], "digest": "sha256:" + c["sha256"]}
-            for c in old["chunks"]
+            {"name": c["name"], "digest": "sha256:" + c["sha256"]} for c in old["chunks"]
         ],
     )
-    monkeypatch.setattr(
-        mirror, "gh", lambda *args: pytest.fail(f"Unexpected write: {args}")
-    )
+    monkeypatch.setattr(mirror, "gh", lambda *args: pytest.fail(f"Unexpected write: {args}"))
     assert mirror.save(root, "owner/repo", PROVIDER, "new") == pointer
 
 
@@ -413,8 +396,476 @@ def test_unchanged_snapshot_with_missing_remote_chunks_cannot_be_reused(
     )
     monkeypatch.setattr(mirror, "download", lambda *args: path)
     monkeypatch.setattr(mirror, "assets", lambda *args: [])
-    monkeypatch.setattr(
-        mirror, "gh", lambda *args: pytest.fail(f"Unexpected write: {args}")
-    )
+    monkeypatch.setattr(mirror, "gh", lambda *args: pytest.fail(f"Unexpected write: {args}"))
     with pytest.raises(ValueError, match="missing verified chunks"):
         mirror.save(root, "owner/repo", PROVIDER, "new")
+
+
+def test_probe_hashes_archive_without_staging_chunks(packed, tmp_path):
+    root, path = packed
+    probe = mirror.pack(
+        root, PROVIDER, "probe", tmp_path / "probe", chunk_bytes=257, keep_chunks=False
+    )
+    staged = json.loads(path.read_text())
+    hashed = json.loads(probe.read_text())
+    assert [(c["size"], c["sha256"]) for c in staged["chunks"]] == [
+        (c["size"], c["sha256"]) for c in hashed["chunks"]
+    ]
+    assert list(probe.parent.iterdir()) == [probe]
+
+
+@pytest.mark.parametrize("target", ["../escape", "/escape", "missing.pdf", "windows\\escape"])
+def test_v2_hardlinks_cannot_escape_or_reference_unknown_payloads(tmp_path, target):
+    paper = tarfile.TarInfo("paper.pdf")
+    paper.size = 1
+    link = tarfile.TarInfo("alias.pdf")
+    link.type = tarfile.LNKTYPE
+    link.linkname = target
+    path = handcrafted(tmp_path, [paper, link], total=2, version=2)
+    destination = tmp_path / "restore"
+    with pytest.raises(ValueError, match="Unsafe.*hard link"):
+        mirror.unpack(destination, PROVIDER, path, "test")
+    assert not (destination / "mirror/providers" / PROVIDER).exists()
+
+
+def test_v1_regular_archives_remain_readable(tmp_path):
+    paper = tarfile.TarInfo("paper.pdf")
+    paper.size = 3
+    path = handcrafted(tmp_path, [paper])
+    destination = tmp_path / "restore"
+    mirror.unpack(destination, PROVIDER, path, "test")
+    assert (destination / "mirror/providers" / PROVIDER / "paper.pdf").read_bytes() == b"xxx"
+
+
+def test_streamed_restore_discards_each_verified_chunk_before_downloading_next(
+    packed, tmp_path, monkeypatch
+):
+    root, source = packed
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(source),
+    }
+    monkeypatch.setattr(
+        mirror, "release", lambda *args, **kwargs: {"id": 123, "body": json.dumps(pointer)}
+    )
+    downloads = []
+
+    def download(repository, provider, name, directory):
+        assert not list(directory.glob("*.part*"))
+        target = directory / name
+        target.write_bytes((source.parent / name).read_bytes())
+        downloads.append(name)
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    destination = tmp_path / "restore"
+    mirror.restore(destination, "owner/repo", PROVIDER)
+    assert len(downloads) > 2
+    assert (destination / "mirror/providers" / PROVIDER / "hardlink.pdf").read_bytes() == (
+        root / "mirror/providers" / PROVIDER / "hardlink.pdf"
+    ).read_bytes()
+
+
+def test_save_uploads_and_discards_one_chunk_at_a_time(packed, tmp_path, monkeypatch):
+    root, source = packed
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(source),
+    }
+    remote = {"id": 123, "body": json.dumps(pointer)}
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: remote)
+    monkeypatch.setattr(mirror, "download", lambda *args: source)
+    monkeypatch.setattr(mirror, "CHUNK_BYTES", 257)
+    uploaded = {}
+    patches = []
+    monkeypatch.setattr(mirror, "assets", lambda *args: list(uploaded.values()))
+    (root / "mirror/providers" / PROVIDER / "111/數學.pdf").write_bytes(os.urandom(4096))
+
+    def gh(*args):
+        if args[:2] == ("release", "upload"):
+            path = Path(args[3])
+            assert len(list(path.parent.glob("*.part*"))) <= 1
+            uploaded[path.name] = {"name": path.name, "digest": "sha256:" + mirror.digest(path)}
+        elif args[:3] == ("api", "--method", "PATCH"):
+            patches.append(json.loads(Path(args[-1]).read_text()))
+        else:
+            pytest.fail(f"Unexpected operation: {args}")
+        return ""
+
+    monkeypatch.setattr(mirror, "gh", gh)
+    result = mirror.save(root, "owner/repo", PROVIDER, "new")
+    assert result["generation"] == "new"
+    assert len(uploaded) > 2
+    assert len(patches) == 1
+
+
+def test_changed_mirror_between_probe_and_upload_preserves_pointer(packed, tmp_path, monkeypatch):
+    root, source = packed
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(source),
+    }
+    remote = {"id": 123, "body": json.dumps(pointer)}
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: remote)
+    monkeypatch.setattr(mirror, "download", lambda *args: source)
+    monkeypatch.setattr(mirror, "assets", lambda *args: [])
+    monkeypatch.setattr(mirror, "gh", lambda *args: pytest.fail(f"Unexpected write: {args}"))
+    (root / "mirror/providers" / PROVIDER / "111/數學.pdf").write_bytes(b"changed before probe")
+    pack = mirror.pack
+
+    def changing_pack(*args, **kwargs):
+        result = pack(*args, **kwargs)
+        if kwargs.get("keep_chunks") is False:
+            (root / "mirror/providers" / PROVIDER / "111/數學.pdf").write_bytes(
+                b"changed after probe"
+            )
+        return result
+
+    monkeypatch.setattr(mirror, "pack", changing_pack)
+    with pytest.raises(ValueError, match="changed while packing"):
+        mirror.save(root, "owner/repo", PROVIDER, "new")
+    assert json.loads(remote["body"]) == pointer
+
+
+@pytest.mark.parametrize("mode", ["forward", "chain"])
+def test_v2_hardlinks_require_an_earlier_regular_member(tmp_path, mode):
+    paper = tarfile.TarInfo("paper.pdf")
+    paper.size = 1
+    first = tarfile.TarInfo("first.pdf")
+    first.type = tarfile.LNKTYPE
+    first.linkname = "paper.pdf"
+    second = tarfile.TarInfo("second.pdf")
+    second.type = tarfile.LNKTYPE
+    second.linkname = "first.pdf"
+    members = [first, paper] if mode == "forward" else [paper, first, second]
+    path = handcrafted(tmp_path, members, total=len(members), version=2)
+    with pytest.raises(ValueError, match="Unsafe.*hard link"):
+        mirror.unpack(tmp_path / "restore", PROVIDER, path, "test")
+    assert not (tmp_path / "restore/mirror/providers" / PROVIDER).exists()
+
+
+def test_v2_payload_size_disagreement_cannot_install(packed, tmp_path):
+    _, path = packed
+    payload = json.loads(path.read_text())
+    payload["payload_bytes"] = 0
+    path.write_text(json.dumps(payload))
+    with pytest.raises(ValueError, match="payload bytes"):
+        mirror.unpack(tmp_path / "restore", PROVIDER, path, "pilot-1")
+    assert not (tmp_path / "restore/mirror/providers" / PROVIDER).exists()
+
+
+def test_late_corrupt_download_leaves_no_installed_provider_or_staging(
+    packed, tmp_path, monkeypatch
+):
+    _, source = packed
+    payload = json.loads(source.read_text())
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(source),
+    }
+    monkeypatch.setattr(
+        mirror, "release", lambda *args, **kwargs: {"id": 123, "body": json.dumps(pointer)}
+    )
+
+    def download(repository, provider, name, directory):
+        target = directory / name
+        target.write_bytes(
+            b"corrupt"
+            if name == payload["chunks"][-1]["name"]
+            else (source.parent / name).read_bytes()
+        )
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    destination = tmp_path / "restore"
+    sibling = destination / "mirror/providers/ceec_gsat/kept.pdf"
+    sibling.parent.mkdir(parents=True)
+    sibling.write_bytes(b"kept")
+    with pytest.raises(ValueError, match="checksum/size"):
+        mirror.restore(destination, "owner/repo", PROVIDER)
+    assert not (destination / "mirror/providers" / PROVIDER).exists()
+    assert sibling.read_bytes() == b"kept"
+    assert not list((destination / ".tmp").iterdir())
+    assert not list((destination / "mirror/providers").glob(".*-restore-*"))
+
+
+def test_restore_rejects_insufficient_space_before_downloading_chunks(
+    packed, tmp_path, monkeypatch
+):
+    _, source = packed
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(source),
+    }
+    monkeypatch.setattr(
+        mirror, "release", lambda *args, **kwargs: {"id": 123, "body": json.dumps(pointer)}
+    )
+    downloaded = []
+
+    def download(repository, provider, name, directory):
+        downloaded.append(name)
+        target = directory / name
+        target.write_bytes((source.parent / name).read_bytes())
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    monkeypatch.setattr(mirror.shutil, "disk_usage", lambda path: type("Usage", (), {"free": 0})())
+    with pytest.raises(ValueError, match="free bytes"):
+        mirror.restore(tmp_path / "restore", "owner/repo", PROVIDER)
+    assert downloaded == [source.name]
+
+
+def test_concurrent_pointer_change_is_not_overwritten(packed, tmp_path, monkeypatch):
+    root, source = packed
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(source),
+    }
+    remote = {"id": 123, "body": json.dumps(pointer)}
+    original_body = remote["body"]
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: remote)
+    monkeypatch.setattr(mirror, "download", lambda *args: source)
+    uploaded = {}
+    monkeypatch.setattr(mirror, "assets", lambda *args: list(uploaded.values()))
+    (root / "mirror/providers" / PROVIDER / "empty.pdf").write_bytes(b"changed")
+
+    def gh(*args):
+        assert args[:2] == ("release", "upload"), "Concurrent pointer must not be overwritten"
+        path = Path(args[3])
+        uploaded[path.name] = {"name": path.name, "digest": "sha256:" + mirror.digest(path)}
+        remote["body"] = json.dumps({**pointer, "generation": "concurrent"})
+        return ""
+
+    monkeypatch.setattr(mirror, "gh", gh)
+    with pytest.raises(ValueError, match="pointer changed"):
+        mirror.save(root, "owner/repo", PROVIDER, "new")
+    assert remote["body"] != original_body
+    assert json.loads(remote["body"])["generation"] == "concurrent"
+
+
+def test_v1_space_preflight_ignores_untrusted_v2_payload_field(tmp_path, monkeypatch):
+    paper = tarfile.TarInfo("paper.pdf")
+    paper.size = 3
+    source = handcrafted(tmp_path, [paper])
+    payload = json.loads(source.read_text())
+    payload["payload_bytes"] = 0
+    source.write_text(json.dumps(payload))
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "test",
+        "manifest_sha256": mirror.digest(source),
+    }
+    monkeypatch.setattr(
+        mirror, "release", lambda *args, **kwargs: {"id": 123, "body": json.dumps(pointer)}
+    )
+    downloaded = []
+
+    def download(repository, provider, name, directory):
+        downloaded.append(name)
+        target = directory / name
+        target.write_bytes((source.parent / name).read_bytes())
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    free = payload["chunks"][0]["size"] + 4096 + 2
+    monkeypatch.setattr(
+        mirror.shutil, "disk_usage", lambda path: type("Usage", (), {"free": free})()
+    )
+    with pytest.raises(ValueError, match="free bytes"):
+        mirror.restore(tmp_path / "restore", "owner/repo", PROVIDER)
+    assert downloaded == [source.name]
+
+
+@pytest.fixture
+def hydrating(packed, tmp_path, monkeypatch):
+    _, archive = packed
+    root = tmp_path / "actions"
+    root.mkdir()
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(root))
+    pointer = {
+        "version": 1,
+        "provider_id": PROVIDER,
+        "generation": "pilot-1",
+        "manifest_sha256": mirror.digest(archive),
+    }
+    remote = {"id": 123, "body": json.dumps(pointer)}
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: remote)
+    downloads = []
+
+    def download(repository, provider, name, directory):
+        downloads.append(name)
+        target = directory / name
+        target.write_bytes((archive.parent / name).read_bytes())
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    return root, pointer, archive, downloads, remote
+
+
+def test_hydrate_replaces_partial_cache_and_preserves_new_files(hydrating):
+    root, pointer, archive, downloads, _ = hydrating
+    provider = root / "mirror/providers" / PROVIDER
+    (provider / "111").mkdir(parents=True)
+    (provider / "111/數學.pdf").write_bytes(b"old cache bytes")
+    (provider / "new.pdf").write_bytes(b"new acquisition after failed backup")
+    sibling = root / "mirror/providers/ceec_gsat/retained.pdf"
+    sibling.parent.mkdir()
+    sibling.write_bytes(b"sibling")
+    (root / "mirror/.mirror-dedupe-index.json").write_text("old index")
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert (provider / "111/數學.pdf").stat().st_size == 4096
+    assert (provider / "hardlink.pdf").samefile(provider / "111/數學.pdf")
+    assert (provider / "new.pdf").read_bytes() == b"new acquisition after failed backup"
+    assert sibling.read_bytes() == b"sibling"
+    assert json.loads((provider / mirror.ORIGIN_NAME).read_text())["pointer"] == pointer
+    assert len(downloads) > 2
+    assert not list(provider.parent.glob(".*-hydrate-*"))
+    assert not (root / "mirror/.mirror-dedupe-index.json").exists()
+
+
+def test_current_marked_cache_skips_payload_downloads_and_keeps_progress(hydrating):
+    root, pointer, _, downloads, _ = hydrating
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    downloads.clear()
+    provider = root / "mirror/providers" / PROVIDER
+    (provider / "new.pdf").write_bytes(b"progress")
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert downloads == []
+    assert (provider / "new.pdf").read_bytes() == b"progress"
+
+
+def test_incomplete_marked_cache_is_refreshed(hydrating):
+    root, _, _, downloads, _ = hydrating
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    provider = root / "mirror/providers" / PROVIDER
+    (provider / "hardlink.pdf").unlink()
+    downloads.clear()
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert downloads
+    assert (provider / "hardlink.pdf").samefile(provider / "111/數學.pdf")
+
+
+@pytest.mark.parametrize("failure", ["corrupt", "concurrent"])
+def test_failed_hydration_preserves_existing_cache(hydrating, monkeypatch, failure):
+    root, pointer, archive, _, remote = hydrating
+    provider = root / "mirror/providers" / PROVIDER
+    provider.mkdir(parents=True)
+    (provider / "retained.pdf").write_bytes(b"old cache")
+    original_download = mirror.download
+
+    def download(*args):
+        path = original_download(*args)
+        if path.name.endswith("part0000"):
+            if failure == "corrupt":
+                path.write_bytes(b"corrupt")
+            else:
+                remote["body"] = json.dumps({**pointer, "generation": "newer"})
+        return path
+
+    monkeypatch.setattr(mirror, "download", download)
+    with pytest.raises(ValueError):
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert list(provider.iterdir()) == [provider / "retained.pdf"]
+    assert (provider / "retained.pdf").read_bytes() == b"old cache"
+    assert not list(provider.parent.glob(".*-hydrate-*"))
+
+
+def test_missing_durable_snapshot_preserves_cache(hydrating, monkeypatch):
+    root, _, _, downloads, _ = hydrating
+    provider = root / "mirror/providers" / PROVIDER
+    provider.mkdir(parents=True)
+    (provider / "retained.pdf").write_bytes(b"bootstrap")
+    monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: None)
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) is None
+    assert (provider / "retained.pdf").read_bytes() == b"bootstrap"
+    assert not downloads
+
+
+def test_hydrate_cannot_replace_local_operator_mirrors(hydrating, monkeypatch):
+    root, _, _, downloads, _ = hydrating
+    monkeypatch.delenv("GITHUB_ACTIONS")
+    with pytest.raises(ValueError, match="restricted to an Actions workspace"):
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert not downloads
+
+
+def test_origin_marker_is_excluded_from_snapshot_content(packed, tmp_path):
+    root, path = packed
+    manifest = mirror.load_manifest(path, PROVIDER, "pilot-1")
+    mirror.write_origin(root, PROVIDER, {"generation": "ignored metadata"}, manifest)
+    probe = mirror.pack(root, PROVIDER, "other", tmp_path / "probe", chunk_bytes=257)
+    new = mirror.load_manifest(probe, PROVIDER, "other")
+    assert new["file_count"] == manifest["file_count"]
+    assert new["unpacked_bytes"] == manifest["unpacked_bytes"]
+    assert [c["sha256"] for c in new["chunks"]] == [c["sha256"] for c in manifest["chunks"]]
+
+
+def test_cache_budget_counts_shared_payload_only_once(packed, monkeypatch):
+    root, _ = packed
+    monkeypatch.setattr(mirror, "CACHE_PAYLOAD_LIMIT", 4096)
+    assert mirror.cacheable(root, PROVIDER)
+    monkeypatch.setattr(mirror, "CACHE_PAYLOAD_LIMIT", 4095)
+    assert not mirror.cacheable(root, PROVIDER)
+
+
+def test_cache_budget_output_survives_failed_backup(packed, tmp_path, monkeypatch):
+    root, _ = packed
+    output = tmp_path / "outputs"
+    monkeypatch.setenv("GITHUB_OUTPUT", str(output))
+    monkeypatch.setattr(mirror, "CACHE_PAYLOAD_LIMIT", 4095)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "mirror_snapshots",
+            "save",
+            "--provider",
+            PROVIDER,
+            "--repository",
+            "owner/repo",
+            "--repo-root",
+            str(root),
+        ],
+    )
+
+    def failed(*args):
+        raise RuntimeError("upload unavailable")
+
+    monkeypatch.setattr(mirror, "save", failed)
+    assert mirror.main() == 1
+    assert output.read_text() == "cacheable=false\n"
+
+
+def test_hydrate_cli_uses_latest_pointer_without_restore_flags(hydrating, monkeypatch):
+    root, _, _, _, _ = hydrating
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "mirror_snapshots",
+            "hydrate",
+            "--provider",
+            PROVIDER,
+            "--repository",
+            "owner/repo",
+            "--repo-root",
+            str(root),
+        ],
+    )
+    assert mirror.main() == 0
+    monkeypatch.setattr(sys, "argv", sys.argv + ["--generation", "pilot-1"])
+    assert mirror.main() == 1

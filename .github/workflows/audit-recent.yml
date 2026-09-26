@@ -37,12 +37,6 @@ jobs:
           restore-keys: |
             moex-mirror-
 
-      - name: Recover evicted MOEX mirror from public storage
-        if: ${{ steps.mirror_cache.outputs.cache-matched-key == '' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/mirror_snapshots.py restore --provider moex --repository "${{ github.repository }}" --allow-missing
-
       - name: Inspect release coverage
         id: release_state
         env:
@@ -56,6 +50,11 @@ jobs:
           echo "Repair the release from a machine with persistent MOEX state, then rerun this workflow."
           exit 1
 
+      - name: Hydrate MOEX mirror cache from public storage
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py hydrate --provider moex --repository "${{ github.repository }}"
+
       - name: Run recent audit
         id: recent_audit
         # _download_affected_bundles shells out to `gh release download` to
@@ -67,18 +66,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python -m app sync-incremental --provider moex --years 2 --write-manifest --manifest data/providers/moex/source-manifest.json --download-affected-bundles --publish-plan-output .tmp/site-publish-plan.json --bundle-dir bundles/sites/default
 
-      - name: Save mirror directory
-        if: ${{ !cancelled() && steps.recent_audit.outcome != 'skipped' }}
-        uses: actions/cache/save@v6
-        with:
-          path: mirror
-          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-
       - name: Save durable public MOEX mirror snapshot
+        id: durable
         if: ${{ !cancelled() && steps.recent_audit.outcome != 'skipped' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/mirror_snapshots.py save --provider moex --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.recent_audit.outcome != 'skipped' && steps.durable.outputs.cacheable == 'true' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Publish default site
         run: python -m app publish-site --site-id default --repository "${{ github.repository }}" --publish-plan .tmp/site-publish-plan.json

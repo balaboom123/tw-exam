@@ -37,12 +37,6 @@ jobs:
           restore-keys: |
             moex-mirror-
 
-      - name: Recover evicted MOEX mirror from public storage
-        if: ${{ steps.mirror_cache.outputs.cache-matched-key == '' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/mirror_snapshots.py restore --provider moex --repository "${{ github.repository }}" --allow-missing
-
       - name: Inspect release coverage
         id: release_state
         env:
@@ -67,6 +61,12 @@ jobs:
         run: >-
           bash .github/scripts/commit-and-push.sh "chore: refresh source manifest" data/providers/moex/source-manifest.json
 
+      - name: Hydrate MOEX mirror cache from public storage
+        if: steps.probe.outputs.should_sync == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py hydrate --provider moex --repository "${{ github.repository }}"
+
       - name: Run targeted sync
         id: targeted_sync
         if: steps.probe.outputs.should_sync == 'true'
@@ -79,18 +79,19 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python -m app sync-targeted --provider moex --probe .tmp/source-probe.json --manifest data/providers/moex/source-manifest.json --download-affected-bundles --publish-plan-output .tmp/site-publish-plan.json --bundle-dir bundles/sites/default
 
-      - name: Save mirror directory
-        if: ${{ !cancelled() && steps.targeted_sync.outcome != 'skipped' }}
-        uses: actions/cache/save@v6
-        with:
-          path: mirror
-          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-
       - name: Save durable public MOEX mirror snapshot
+        id: durable
         if: ${{ !cancelled() && steps.targeted_sync.outcome != 'skipped' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/mirror_snapshots.py save --provider moex --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.targeted_sync.outcome != 'skipped' && steps.durable.outputs.cacheable == 'true' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Publish default site
         if: steps.probe.outputs.should_sync == 'true'
