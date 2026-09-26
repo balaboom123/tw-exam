@@ -12,7 +12,57 @@ Preserve retained provider state and evidence first. Use the smallest repair tha
 6. Confirm the generated-state commit guard left `main` at its last deployable state; use the failed Actions run and workflow-health issue as the failure record.
 7. Do not hand-edit generated state to make publication pass.
 
-For a matrix caller, identify the provider from the failed job name and its sync summary. Provider snapshots retain failure evidence in the run's artifacts; the mirror cache preserves downloaded payloads. If publication reports that the provider changed after sync started, rerun the caller against current `main`. A publication-only retry reuses its original artifact and exact mirror cache; if either has expired, run a fresh sync.
+For a matrix caller, identify the provider from the failed job name and its sync summary. Provider snapshots retain failure evidence in the run's artifacts; the mirror cache and durable backup preserve downloaded payloads. If publication reports that the provider changed after sync started, rerun the caller against current `main`. A publication-only retry reuses its original artifact and exact mirror cache, recovering that sync's pinned durable generation if the cache was evicted. If the artifact or durable generation is unavailable, run a fresh sync.
+
+## Durable provider mirror backup
+
+`.github/scripts/mirror_snapshots.py` stores provider payloads in public prereleases
+named `mirror-<provider_id>` in the source repository. These archives are recovery
+inputs, separate from site release shards and the publication inventory. Public
+storage includes retained provider files even when their site projection is
+quarantined. It does not change quarantine or authorize site publication.
+
+With an authenticated `gh` CLI, save one provider's local mirror:
+
+```bash
+uv run python .github/scripts/mirror_snapshots.py save --provider <provider_id> --repository <owner>/<repo>
+```
+
+Restore into an empty provider directory:
+
+```bash
+uv run python .github/scripts/mirror_snapshots.py restore --provider <provider_id> --repository <owner>/<repo>
+```
+
+The helper streams a gzip archive into chunks below GitHub's asset size limit.
+It verifies uploaded digests before atomically advancing the release metadata
+pointer. An unchanged archive reuses its existing generation. Existing snapshots
+and their chunks are immutable; a different upload needs a new generation.
+An interrupted upload cannot replace the last committed pointer.
+
+Restore checks the manifest digest, provider, generation, chunk hashes and sizes,
+archive paths, file types, and declared file inventory before installing the
+provider tree. It preserves other providers and refuses to overwrite a nonempty
+provider mirror. Hard-linked source payloads are archived as regular files, and
+the derived root dedupe index is discarded after restore.
+
+`--allow-missing` permits source bootstrap only when the release does not exist;
+transport errors, incomplete releases, or corrupt archives stop recovery.
+Publication recovery can pin `--generation <generation>` and
+`--manifest-sha256 <sha256>` from its original sync outputs instead of using a
+later provider snapshot. Mirror generation and SHA outputs are written when
+`GITHUB_OUTPUT` is present.
+
+For a CEEC AST recovery pilot, dispatch `sync-admissions.yml` with `ast_only`
+enabled. Other provider jobs are skipped; scheduled runs retain their full matrix.
+Verify a durable snapshot before deliberately evicting that provider's cache.
+
+The helper never deletes remote snapshots. Before removing old generations,
+check that no retained publication artifact or pending job needs them. Interrupted
+uploads may leave unreferenced chunks; diagnose those before manual cleanup.
+The release asset cap is checked before uploading additional files. Snapshot
+packing and restore need free disk for compressed chunks alongside the mirror;
+large providers still need a runner or local machine with sufficient storage.
 
 ## Scenario 2: an official source is blocked
 

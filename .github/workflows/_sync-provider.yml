@@ -6,6 +6,9 @@ on:
       provider_id:
         required: true
         type: string
+      enabled:
+        type: boolean
+        default: true
       cache_prefix:
         required: true
         type: string
@@ -24,9 +27,12 @@ permissions:
 
 jobs:
   sync:
+    if: ${{ inputs.enabled }}
     name: ${{ inputs.provider_id }} sync
     runs-on: ubuntu-latest
     timeout-minutes: ${{ inputs.timeout_minutes }}
+    permissions:
+      contents: write
     concurrency:
       group: sync-${{ inputs.provider_id }}
       queue: max
@@ -36,6 +42,8 @@ jobs:
       snapshot: ${{ steps.snapshot.outcome == 'success' }}
       artifact_name: ${{ steps.baseline.outputs.artifact_name }}
       cache_key: ${{ steps.baseline.outputs.cache_key }}
+      mirror_generation: ${{ steps.durable.outputs.generation }}
+      mirror_sha256: ${{ steps.durable.outputs.manifest_sha256 }}
     env:
       PROVIDER_ID: ${{ inputs.provider_id }}
     steps:
@@ -69,12 +77,19 @@ jobs:
           PY
 
       - name: Restore mirror directory
+        id: mirror_cache
         uses: actions/cache/restore@v6
         with:
           path: mirror
           key: ${{ steps.baseline.outputs.cache_key }}
           restore-keys: |
             ${{ inputs.cache_prefix }}-mirror-
+
+      - name: Recover evicted mirror from public storage
+        if: ${{ steps.mirror_cache.outputs.cache-matched-key == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py restore --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --allow-missing
 
       - name: Run provider sync
         id: sync
@@ -108,6 +123,13 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 7
+
+      - name: Save durable public mirror snapshot
+        id: durable
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py save --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
 
       - name: Summarize provider sync
         if: always()
@@ -192,12 +214,20 @@ jobs:
           python .github/scripts/apply_provider_snapshot.py "${args[@]}"
 
       - name: Restore this sync's mirror
+        id: mirror_cache
         if: ${{ inputs.publish }}
         uses: actions/cache/restore@v6
         with:
           path: mirror
           key: ${{ needs.sync.outputs.cache_key }}
-          fail-on-cache-miss: true
+
+      - name: Recover this exact sync mirror from public storage
+        if: ${{ inputs.publish && steps.mirror_cache.outputs.cache-matched-key == '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MIRROR_GENERATION: ${{ needs.sync.outputs.mirror_generation }}
+          MIRROR_SHA256: ${{ needs.sync.outputs.mirror_sha256 }}
+        run: python .github/scripts/mirror_snapshots.py restore --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --generation "$MIRROR_GENERATION" --manifest-sha256 "$MIRROR_SHA256"
 
       - name: Publish affected default-site bundles
         if: ${{ inputs.publish }}

@@ -55,6 +55,12 @@ uv run python -m app repair-failures --provider <provider_id>
 
 If mirror storage contains byte-identical payloads, preview and then explicitly apply deduplication. Orphan pruning is fail-closed and requires a provider plus `--apply`; follow [recovery](recovery.md) before deleting retained payload paths.
 
+## Back up provider mirrors
+
+Use the provider-scoped public Release snapshot helper described in
+[recovery](recovery.md#durable-provider-mirror-backup) to retain payloads beyond
+Actions cache eviction. A mirror backup does not publish site bundles.
+
 ## Audit before publication
 
 ```bash
