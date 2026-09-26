@@ -324,7 +324,13 @@ class CliCommandTests(unittest.TestCase):
         class CeecClient:
             provider_id = "ceec_gsat"
 
+            def __init__(self) -> None:
+                self.discovery_calls = 0
+
             def discover_available_years(self) -> list[int]:
+                self.discovery_calls += 1
+                if self.discovery_calls == 1:
+                    raise TimeoutError("temporary listing timeout")
                 return [2026]
 
             def discover_exams(self, year_ad: int) -> list[ExamOption]:
@@ -379,7 +385,10 @@ class CliCommandTests(unittest.TestCase):
                     "--publish-plan-output", str(plan_path),
                 ]
             )
-            self.assertEqual(command_sync(sync_args, client=CeecClient()), 0)
+            client = CeecClient()
+            with patch("app.sync.time.sleep"):
+                self.assertEqual(command_sync(sync_args, client=client), 0)
+            self.assertEqual(client.discovery_calls, 2)
             self.assertTrue(plan_path.exists())
             self.assertEqual(main([*publish_args, "--publish-plan", str(plan_path)]), 0)
 
@@ -533,7 +542,11 @@ class CliCommandTests(unittest.TestCase):
         class DiscoveryOutageClient:
             provider_id = "wdasec_skill"
 
+            def __init__(self) -> None:
+                self.calls = 0
+
             def discover_available_years(self) -> list[int]:
+                self.calls += 1
                 raise OSError("temporary name resolution failure")
 
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -566,6 +579,8 @@ class CliCommandTests(unittest.TestCase):
             )
             before_exams = (provider.exams_dir / "2026.json").read_text(encoding="utf-8")
             before_papers = (provider.papers_dir / "2026.json").read_text(encoding="utf-8")
+            plan_path = root / "site-publish-plan.json"
+            plan_path.write_text('{"affected_canonical_ids": ["stale"]}', encoding="utf-8")
             args = build_parser().parse_args(
                 [
                     "sync-full",
@@ -577,15 +592,20 @@ class CliCommandTests(unittest.TestCase):
                     str(root / "mirror"),
                     "--aliases",
                     str(data_dir / "aliases.json"),
+                    "--publish-plan-output",
+                    str(plan_path),
                 ]
             )
             output = io.StringIO()
+            client = DiscoveryOutageClient()
 
-            with redirect_stdout(output):
-                exit_code = command_sync(args, client=DiscoveryOutageClient())
+            with redirect_stdout(output), patch("app.sync.time.sleep"):
+                exit_code = command_sync(args, client=client)
 
-            self.assertEqual(exit_code, 0)
+            self.assertEqual(exit_code, 1)
+            self.assertEqual(client.calls, 3)
             self.assertIn("preserving existing", output.getvalue())
+            self.assertFalse(plan_path.exists())
             self.assertEqual((provider.exams_dir / "2026.json").read_text(encoding="utf-8"), before_exams)
             self.assertEqual((provider.papers_dir / "2026.json").read_text(encoding="utf-8"), before_papers)
 
