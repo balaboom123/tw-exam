@@ -1,7 +1,9 @@
 import json
 import tempfile
 import unittest
+from dataclasses import replace
 from pathlib import Path
+from unittest.mock import patch
 
 from app.audit import audit_exit_code, build_catalog_audit, build_publication_backlog
 from app.models import NormalizedCatalog, NormalizedPaper, ReviewItem
@@ -197,7 +199,11 @@ class CatalogAuditTests(unittest.TestCase):
                 frontend_bundles=[],
             )
 
-            plan = build_release_plan(root)
+            from app.site_registry import get_site_config
+
+            retaining_site = replace(get_site_config("default"), retain_legacy_asset_names=True)
+            with patch("app.audit.get_site_config", return_value=retaining_site):
+                plan = build_release_plan(root)
 
             self.assertEqual(plan["schema_version"], 2)
             self.assertEqual(plan["shards"][0]["release_tag"], "default-bundles-v2-001")

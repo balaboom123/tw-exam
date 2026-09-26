@@ -12,6 +12,7 @@ class SiteConfig:
     public_min_years: int = 1
     public_min_years_by_canonical_prefix: dict[str, int] | None = None
     required_provider_ids: tuple[str, ...] = ()
+    retain_legacy_asset_names: bool = True
 
 
 _SITES = {
@@ -56,6 +57,7 @@ _SITES = {
         ),
         release_tag_prefix="default-bundles",
         release_shard_size=900,
+        retain_legacy_asset_names=False,
         public_min_years=2,
         public_min_years_by_canonical_prefix={
             "sfi-": 1,
