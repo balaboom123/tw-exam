@@ -416,6 +416,11 @@ def renormalize_catalog(
     review_queue: list[ReviewItem] = (
         [] if collect_reviews else _deduplicate_review_queue(list(catalog.review_queue))
     )
+    canonical_review_keys = {
+        (item.provider_id, item.source_exam_id, item.raw_category)
+        for item in catalog.review_queue
+        if item.reason.startswith("legacy canonicalization requires review")
+    } if collect_reviews else set()
     for paper in catalog.papers:
         raw_category = paper.category_raw or paper.exam_name_raw
         provider_id = paper.provider_id
@@ -424,10 +429,16 @@ def renormalize_catalog(
         canonical_name = paper.canonical_name
         candidate = canonical_name
         needs_review = False
-        if not canonical_id or not canonical_name:
-            canonical_id, canonical_name, candidate, needs_review = _derive_canonical(
+        # Preserve unresolved canonicalization reviews after canonical fields
+        # are filled. Re-evaluate aliases so resolved reviews can disappear;
+        # previously unqueued historical records keep their reviewed scope.
+        has_canonical_review = (provider_id, paper.source_exam_id, raw_category) in canonical_review_keys
+        if not canonical_id or not canonical_name or has_canonical_review:
+            derived_id, derived_name, candidate, needs_review = _derive_canonical(
                 paper.source_exam_id, raw_category, paper.exam_name_raw, year_ad, alias_rules
             )
+            if not canonical_id or not canonical_name:
+                canonical_id, canonical_name = derived_id, derived_name
         identity = None
         fields = {}
         if provider_id and not _is_legacy_ascii_fixture(paper):

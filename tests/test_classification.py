@@ -19,6 +19,13 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_whitespace_skill_subject_uses_its_recorded_subject_code(self) -> None:
+        blank = classify("甲級", "技能檢定", provider="wdasec_skill", canonical="skill", subject="")
+        whitespace = classify("甲級", "技能檢定", provider="wdasec_skill", canonical="skill", subject=" \t\u3000")
+        self.assertEqual(whitespace, blank)
+        self.assertEqual(whitespace.track_id, "0101")
+        self.assertNotEqual(whitespace.confidence, "review")
+
     def test_moex_papers_in_one_category_share_identity_across_subjects(self) -> None:
         base = dict(
             provider_id="moex",
