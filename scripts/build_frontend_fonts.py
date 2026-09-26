@@ -32,9 +32,11 @@ FONT_SOURCES = (
 def public_characters() -> set[int]:
     feed = json.loads(SITE_FEED.read_text(encoding="utf-8"))
     catalog_texts = []
+    source_texts = set()
     for item in feed["bundles"]:
         catalog_texts.append(item["name"])
         catalog_texts.extend(item.get("subjectLabels", []))
+        source_texts.update(source["name"] for source in item.get("sources", []))
     ui_texts = []
     for source in FRONTEND.glob("*.html"):
         ui_texts.append(source.read_text(encoding="utf-8"))
@@ -51,7 +53,7 @@ def public_characters() -> set[int]:
     }
     # Every static UI character remains covered; rare future catalog names use
     # the platform font until the subset is regenerated with updated data.
-    return {ord(character) for character in ui_text + string.printable + "".join(common_cjk)}
+    return {ord(character) for character in ui_text + string.printable + "".join(common_cjk) + "".join(source_texts)}
 
 
 def set_subset_names(font: TTFont, family: str, style: str) -> None:

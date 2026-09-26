@@ -20,6 +20,8 @@ Normalization applies reviewed provider aliases and shared identity rules to raw
 
 Full and incremental sync retain previously acquired events and papers that disappear from current listings, including their source-manifest evidence. Incremental and targeted merging preserve unaffected history. Refreshed names may derive canonical migrations; they must not orphan prior compatibility identities or silently merge distinct official programs.
 
+Successful full, incremental, targeted, and repair syncs record a UTC receipt for each completely refreshed event. Failed and unrefreshed events keep their previous receipt. Discovery, catalog migration, and bundle builds do not advance dates. Retained state may lack receipts; never backfill them from discovery or file modification time.
+
 Failure behavior is owned by [the CLI](../../app/cli.py) and [state merging](../../app/state.py):
 
 - Targeted sync aborts generated-state writes on failure by default. Explicit partial mode may retain the valid subset and failure rows, returns nonzero, and requires follow-up audit/publication.

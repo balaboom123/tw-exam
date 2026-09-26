@@ -38,7 +38,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     for path in sorted(schema_dir.glob("*.json")):
         schema = _read_json(path)
         Draft202012Validator.check_schema(schema)
-        schemas[path.name] = Draft202012Validator(schema)
+        schemas[path.name] = Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER)
 
     site_dir = repo_root / "data" / "sites" / "default"
     bundles = _read_json(site_dir / "bundles.json")
@@ -64,6 +64,9 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
             payload = _read_json(review_path)
             _validate(schemas["review-queue-v2.schema.json"], payload, str(review_path.relative_to(repo_root)))
             decode_review_queue(payload, provider_id)
+        status = repo_root / "data" / "providers" / provider_id / "sync-status.json"
+        if status.is_file():
+            _validate(schemas["provider-sync-status-v1.schema.json"], _read_json(status), str(status.relative_to(repo_root)))
         paper_dir = repo_root / "data" / "providers" / provider_id / "papers"
         year_files = [path for path in paper_dir.glob("*.json") if path.stem.isdigit()]
         if not year_files:

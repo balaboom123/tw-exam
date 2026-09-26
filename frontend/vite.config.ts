@@ -153,7 +153,8 @@ export default defineConfig(async ({ command }) => {
     explicitBase,
   })
   const origin = process.env.VITE_SITE_ORIGIN || `https://${repo.split("/")[0]}.github.io`
-  const root = siteRoot({ base, origin })
+  const canonicalBase = process.env.VITE_SITE_ORIGIN ? base : resolvePagesBase({ githubRepository: repo })
+  const root = siteRoot({ base: canonicalBase, origin })
   return {
     base,
     logLevel: command === "build" ? ("warn" as const) : ("info" as const),

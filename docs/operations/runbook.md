@@ -26,6 +26,7 @@ Use `probe-latest` and `sync-targeted` when the provider implements a probe mode
 data/providers/<provider_id>/sync-failures.json
 data/providers/<provider_id>/review-queue.json
 data/providers/<provider_id>/source-manifest.json
+data/providers/<provider_id>/sync-status.json
 ```
 
 The [generated index](../providers/README.md) projects reviewed source facts; [source judgment](../providers/notes.md) records provider-specific boundaries and operational exceptions.
@@ -75,6 +76,8 @@ uv run python -m app publish-site --site-id default --repository <owner>/<repo>
 ```
 
 Verify `data/sites/default/bundles.json`, `data/sites/default/release-assets.json`, and the planned asset-to-tag assignments before any external upload. Release uploads and pruning are separate explicit operations owned by `.github/scripts/release_assets.py` and the release workflows.
+
+The frontend feed also projects reviewed source names/links and successful event sync receipts. Republish after updating source attribution or completing a sync. For an attribution-only refresh, an empty affected-ID publish plan preserves existing bundles and refreshes site metadata without rebuilding ZIPs. To roll back these optional v2 fields, regenerate the frontend feed with the previous publisher; release bytes and assignments need no changes. Older data with no receipts displays an unrecorded sync date until a successful sync establishes one.
 
 ## Verify the repository
 

@@ -1,17 +1,9 @@
 import { Download, Lock } from "lucide-react"
 import { formatYearRange, siteHref } from "@/lib/utils"
 import type { Bundle } from "@/types"
+import { formatSyncDate } from "@/lib/provenance"
 
 const MAX_YEAR_CHIPS = 14
-const SOURCE_NOTES: Record<string, string> = {
-  "teacher-qual": "來源：教育部教師資格考試歷屆試題，全國資格考試。",
-  "teacher-recruit-newtaipei": "來源：新北市教育人員聯合甄選公告 API，目前收錄 115 學年度。",
-  "teacher-recruit-taoyuan-elementary": "來源：桃園市國小教師甄選網，目前收錄 115 學年度。",
-  "teacher-recruit-kaohsiung": "來源：高雄市國小與特教教師甄選官方網站，目前收錄 115 學年度。",
-  "teacher-recruit-central-alliance": "來源：中區策略聯盟試題疑義網站，官方縣市甄選系統指向此站，目前收錄 115 學年度。",
-  "teacher-recruit-tainan": "來源：臺南市國小教師甄選網，目前僅 115 學年度公開 ZIP。",
-  "teacher-recruit-taipei-junior": "來源：臺北市教育局公告，目前僅 113–114 學年度國中聯甄。",
-}
 
 export function BundleRow({
   bundle,
@@ -22,8 +14,6 @@ export function BundleRow({
   unlocked: boolean
   joinHref: string
 }) {
-  const sourceNote = SOURCE_NOTES[bundle.id]
-
   return (
     <li className="flex items-center gap-4 px-4 py-4 transition-colors hover:bg-cream">
       <div className="min-w-0 flex-1">
@@ -41,11 +31,21 @@ export function BundleRow({
             {bundle.subjectLabels.join("、")}
           </p>
         )}
-        {sourceNote && (
+        {bundle.sources?.length ? (
           <p className="mt-1.5 text-xs leading-relaxed text-ink-500">
-            {sourceNote}
+            來源：{bundle.sources.map((source, index) => (
+              <span key={source.url}>
+                {index > 0 ? "、" : ""}
+                <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink-800">
+                  {source.name}
+                </a>
+              </span>
+            ))}
           </p>
-        )}
+        ) : null}
+        <p className="mt-1 text-xs leading-relaxed text-ink-500">
+          {bundle.updated ? <>最近成功同步：<time dateTime={bundle.updated}>{formatSyncDate(bundle.updated)}</time></> : "同步日期未記錄"}
+        </p>
         {bundle.years.length > 2 && (
           <p className="mt-1 hidden flex-wrap gap-x-2 font-mono text-[11px] leading-relaxed text-ink-500 sm:flex">
             {bundle.years.slice(0, MAX_YEAR_CHIPS).map((y) => (

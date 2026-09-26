@@ -5,6 +5,7 @@
   publish = "dist"
 
 [build.environment]
+  NODE_VERSION = "22"
   VITE_BASE_PATH = "/"
   VITE_ENABLE_ADSENSE = "false"
 

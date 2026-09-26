@@ -1,3 +1,5 @@
+import { formatSyncDate, isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
+
 const safeSegment = /^[A-Za-z0-9._-]+$/
 
 function escapeHtml(value) {
@@ -32,10 +34,14 @@ export function siteRoot({ base, origin }) {
 
 export function buildBundlePage(bundle, { repo, root }) {
   if (!safeSegment.test(bundle.id)) throw new TypeError(`Unsafe bundle ID: ${bundle.id}`)
+  if (bundle.sources && (!Array.isArray(bundle.sources) || !bundle.sources.every(isBundleSource))) {
+    throw new TypeError(`Invalid provenance sources for bundle ${bundle.id}`)
+  }
+  if (bundle.updated && !isSyncTimestamp(bundle.updated)) throw new TypeError(`Invalid sync timestamp for bundle ${bundle.id}`)
   const canonical = new URL(`b/${bundle.id}.html`, root).href
   const categoryQuery = new URLSearchParams({ class: bundle.examClass, subclass: bundle.examSubclass })
-  const categoryUrl = `${root}?${categoryQuery}`
-  const joinUrl = `${root}join.html?return=${encodeURIComponent(canonical)}`
+  const categoryUrl = `../?${categoryQuery}`
+  const joinUrl = `../join.html?return=${encodeURIComponent(canonical)}`
   const parts = bundle.parts?.length ? bundle.parts : [bundle]
   const downloads = parts.map((part) => zipUrl(repo, part.tag, part.asset))
   const downloadButtons = parts.map((part, index) =>
@@ -54,6 +60,7 @@ export function buildBundlePage(bundle, { repo, root }) {
     {
       "@context": "https://schema.org", "@type": "Dataset",
       name: bundle.name, description, url: canonical,
+      ...(bundle.sources?.length ? { isBasedOn: bundle.sources.map((source) => source.url) } : {}),
       keywords: [bundle.examClass, bundle.examSubclass, ...(bundle.subjectLabels ?? [])],
       distribution: downloads.map((url) => ({
         "@type": "DataDownload", contentUrl: url, encodingFormat: "application/zip",
@@ -62,20 +69,26 @@ export function buildBundlePage(bundle, { repo, root }) {
   ]
   const yearItems = bundle.years.map((year) => `<li>民國 ${escapeHtml(year)} 年</li>`).join("")
   const subjectItems = (bundle.subjectLabels ?? []).map((subject) => `<li>${escapeHtml(subject)}</li>`).join("")
-  const cssUrl = new URL("assets/bundle-pages.css", root).href
+  const cssUrl = "../assets/bundle-pages.css"
+  const sources = (bundle.sources ?? []).map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>`).join("、")
+  const syncDate = bundle.updated
+    ? `最近成功同步：<time datetime="${escapeHtml(bundle.updated)}">${escapeHtml(formatSyncDate(bundle.updated))}</time>`
+    : "同步日期未記錄"
   return `<!doctype html>
 <html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}">
 <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="${escapeHtml(cssUrl)}">
 <meta property="og:type" content="article"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:image" content="${escapeHtml(new URL('og-card.png', root).href)}"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${safeJson(structuredData)}</script></head>
-<body><main><nav aria-label="麵包屑"><a href="${escapeHtml(root)}">歷屆試題</a> / ${escapeHtml(bundle.name)}</nav>
+<body><main><nav aria-label="麵包屑"><a href="../">歷屆試題</a> / ${escapeHtml(bundle.name)}</nav>
 <p class="eyebrow">${escapeHtml(bundle.examClass)} · ${escapeHtml(bundle.examSubclass)}</p><h1>${escapeHtml(bundle.name)}</h1>
-<p class="meta">${escapeHtml(description)}</p><h2>收錄年度</h2><ul>${yearItems}</ul>
+<p class="meta">${escapeHtml(description)}</p>
+${sources ? `<p class="meta">來源：${sources}</p>` : ""}<p class="meta">${syncDate}</p>
+<h2>收錄年度</h2><ul>${yearItems}</ul>
 ${subjectItems ? `<h2>科目</h2><ul class="subjects">${subjectItems}</ul>` : ""}
 <div class="actions">${downloadButtons}
 <a class="button secondary" href="${escapeHtml(categoryUrl)}">瀏覽同類試題</a></div>
-<footer>資料來自官方公開考試來源。<a href="${escapeHtml(root)}">返回 tw-exam</a></footer></main>
+<footer>資料來自官方公開考試來源；試題權利及使用條款依各來源公告。<a href="https://github.com/${escapeHtml(repo)}/blob/main/DATA-LICENSE.md">資料使用說明</a> · <a href="../">返回 tw-exam</a></footer></main>
 <script>const keys=["taiwan-exam-download-access","taiwan-exam-download-access:public-service","taiwan-exam-download-access:cap","taiwan-exam-download-access:gsat-ast"];let unlocked=false;for(const name of ["localStorage","sessionStorage"]){try{if(keys.some(k=>window[name].getItem(k)==="1"))unlocked=true}catch{}}if(unlocked)for(const a of document.querySelectorAll(".download")){a.href=a.dataset.zip;a.textContent=a.textContent.replace("加入後下載","下載")}</script>
 </body></html>`
 }

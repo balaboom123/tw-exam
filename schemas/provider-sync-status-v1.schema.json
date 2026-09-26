@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Successful provider event sync receipts",
+  "type": "object",
+  "required": ["schema_version", "provider_id", "events"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider_id": {"type": "string", "minLength": 1},
+    "events": {"type": "object", "propertyNames": {"minLength": 1},
+      "additionalProperties": {"type": "string", "format": "date-time"}}
+  },
+  "additionalProperties": false
+}

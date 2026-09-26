@@ -15,6 +15,7 @@ class ProviderPaths:
     sync_failures_path: Path
     aliases_path: Path
     source_manifest_path: Path
+    sync_status_path: Path
     mirror_dir: Path
 
 
@@ -48,6 +49,7 @@ def provider_paths(repo_root: Path, provider_id: str) -> ProviderPaths:
         sync_failures_path=data_dir / "sync-failures.json",
         aliases_path=data_dir / "aliases.json",
         source_manifest_path=data_dir / "source-manifest.json",
+        sync_status_path=data_dir / "sync-status.json",
         mirror_dir=repo_root / "mirror" / "providers" / provider_id,
     )
 

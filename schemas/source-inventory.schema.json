@@ -39,6 +39,7 @@
       "required": ["official_source_urls", "exam_category", "status", "status_reason", "available_years", "restrictions", "evidence"],
       "properties": {
         "official_source_urls": {"type": "array", "items": {"type": "string", "pattern": "^https://"}},
+        "source_name": {"type": "string", "minLength": 1},
         "exam_category": {"type": "string", "minLength": 1},
         "status": {"enum": ["covered", "partial", "blocked", "intentionally_out_of_scope"]},
         "status_reason": {"type": "string", "minLength": 1},

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 import sys
 from urllib.parse import unquote, urlparse
@@ -16,6 +16,8 @@ from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
 from app.coverage_exceptions import failure_exception_for, load_coverage_exceptions
 from app.paths import provider_paths
 from app.publisher import load_site_catalog, load_site_provider_indexes
+from app.provider_index import PAPER_BUNDLE_ID, PAPER_CANONICAL_ID, PAPER_SOURCE_EXAM_ID
+from app.provenance import project_provenance
 from app.site_registry import get_site_config
 from app.source_inventory import validate_source_inventory
 from app.state import load_provider_failures
@@ -159,6 +161,19 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     validate_provider_site_coverage(site_bundle_ids, repo_root=repo_root)
     validate_source_inventory(repo_root, site_id="default")
 
+    events_by_bundle = defaultdict(set)
+    indexes = load_site_provider_indexes(repo_root, site_id="default")
+    if indexes is None:
+        catalog, _ = load_site_catalog(repo_root, site_id="default")
+        for paper in catalog.papers:
+            events_by_bundle[paper.bundle_id or paper.canonical_id].add((paper.provider_id, paper.source_exam_id))
+    else:
+        for provider in indexes:
+            for paper in provider["papers"]:
+                bundle_id = provider["bundle_ids"][paper[PAPER_BUNDLE_ID]] or provider["canonical_ids"][paper[PAPER_CANONICAL_ID]]
+                events_by_bundle[bundle_id].add((provider["provider_id"], paper[PAPER_SOURCE_EXAM_ID]))
+    provenance = project_provenance(repo_root, events_by_bundle)
+
     feed_ids = []
     for index, row in enumerate(feed_rows):
         prefix = f"frontend bundle {index}"
@@ -166,6 +181,10 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
             if key not in row:
                 fail(f"{prefix} missing {key}")
         bundle_id = row["id"]
+        expected = provenance.get(bundle_id, {})
+        for field in ("sources", "updated"):
+            if row.get(field) != expected.get(field):
+                fail(f"{prefix} {field} differs from reviewed sources and successful sync receipts")
         feed_ids.append(bundle_id)
         if bundle_id not in site_bundle_ids:
             fail(f"{prefix} is not present in site publication")

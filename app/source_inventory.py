@@ -92,6 +92,8 @@ def _validate_entry(value: Any, *, path: Path, provider: bool) -> dict[str, Any]
         raise _error(path, "every entry must be an object")
     identifier_field = "provider_id" if provider else "source_id"
     _require_text(value.get(identifier_field), identifier_field, path=path)
+    if "source_name" in value:
+        _require_text(value["source_name"], "source_name", path=path)
     urls = _require_string_list(
         value.get("official_source_urls"),
         "official_source_urls",
