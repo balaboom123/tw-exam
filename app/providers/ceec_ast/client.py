@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 BASE_URL = "https://www.ceec.edu.tw/"
 LISTING_URL = "https://www.ceec.edu.tw/xmfile?xsmsid=0J052427633128416650"
@@ -415,11 +416,10 @@ class CeecAstClient:
     def __init__(self) -> None:
         self._entries_cache: tuple[CeecAstEntry, ...] | None = None
         self._notices_cache: tuple[CeecAstNotice, ...] | None = None
+        self._http = Http(self.provider_id, user_agent=USER_AGENT)
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=60) as response:
-            return response.read().decode("utf-8", "replace")
+        return self._http.get_text(url, encoding="utf-8")
 
     def head(self, url: str) -> ResponseMetadata:
         request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
