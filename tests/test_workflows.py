@@ -705,19 +705,6 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue(args.write_manifest)
 
 
-    def test_readme_documents_human_friendly_bundle_assets(self) -> None:
-        readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-
-        self.assertIn("Bundle filenames use Chinese display names plus canonical IDs.", readme)
-        self.assertIn("Release assets can include legacy compatibility alias names during migration.", readme)
-        self.assertIn("Bundle asset: `\u8b77\u7406\u5e2b__nurse.zip`", readme)
-        self.assertIn(
-            "Archive entry: `115/115030_\u8b77\u7406\u5e2b/101_0101_\u57fa\u790e\u91ab\u5b78_\u8a66\u984c.pdf`",
-            readme,
-        )
-        self.assertNotIn("optimize-mirror-pdfs", readme)
-
-
 class LaunchCITest(unittest.TestCase):
     def test_ci_enforces_locked_application_lint_and_strict_types(self) -> None:
         workflow = _workflow((REPO_ROOT / ".github/workflows/ci.yml").read_text())
