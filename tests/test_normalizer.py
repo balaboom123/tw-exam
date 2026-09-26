@@ -5,6 +5,33 @@ from app.normalizer import normalize_papers, renormalize_catalog
 
 
 class NormalizePapersTests(unittest.TestCase):
+    def test_renormalization_keeps_ambiguous_canonicalization_review_until_resolved(self) -> None:
+        parsed = ParsedPaper(
+            category_raw="甲組暨乙組", category_code="301", subject_code="0101",
+            subject_name_raw="國文", files={"question": "https://official.example/question.pdf"},
+        )
+        original = normalize_papers(
+            source_exam_id="115030", year_ad=2026, exam_name_raw="專門職業及技術人員高等考試",
+            papers=[parsed], alias_rules=[], mirror_base_url="", mirror_metadata={},
+            provider_id="moex",
+        )
+        first = renormalize_catalog(original, alias_rules=[])
+        second = renormalize_catalog(first, alias_rules=[])
+        self.assertEqual(first, original)
+        self.assertEqual(second, first)
+        self.assertEqual(len(first.review_queue), 1)
+        self.assertIn("legacy canonicalization requires review", first.review_queue[0].reason)
+
+        resolved = renormalize_catalog(first, alias_rules=[AliasRule(
+            match_type="exact", raw_pattern="甲組暨乙組", canonical_id="reviewed-program",
+            canonical_name="甲組暨乙組",
+        )])
+        self.assertEqual(resolved.papers[0].canonical_id, first.papers[0].canonical_id)
+        self.assertEqual(resolved.review_queue, [])
+
+        historical = renormalize_catalog(NormalizedCatalog(papers=first.papers, review_queue=[]), alias_rules=[])
+        self.assertEqual(historical.review_queue, [])
+
     def test_renormalization_rebuilds_review_queue_from_current_papers(self) -> None:
         resolved = NormalizedPaper(
             canonical_id="general-administration",

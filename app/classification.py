@@ -288,7 +288,7 @@ def _track_details(
     exam_name: str,
 ) -> tuple[str, str]:
     if provider_id == "wdasec_skill":
-        value = normalize_text(subject_name or subject_code)
+        value = normalize_text(subject_name) or normalize_text(subject_code)
         value = re.sub(r"\s*(?:甲級|乙級|丙級|單一級|學科|術科)\s*$", "", value)
         return _slug(value, prefix="skill"), value
     if provider_id == "tcte_tve":
