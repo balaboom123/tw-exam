@@ -62,6 +62,7 @@ Behavior:
 - providers with session state or source rate limits set `max_concurrency = 1`
 - simple provider adapters may use the shared HTTP transport; sync wraps adapter calls in transient-request retries, so those adapters use one transport attempt to avoid multiplying retries
 - transient fetch and discovery requests use bounded retries and honor `Retry-After` when provided
+- an unavailable year listing preserves retained provider state, exits with failure, and writes no publish plan
 
 Integrity properties:
 

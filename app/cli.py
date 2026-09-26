@@ -656,19 +656,21 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
     provider = _provider_for_args(args, client)
     provider_id = _provider_id_for_args(args, provider)
     provider_state = _provider_state_paths(args.data_dir, args.mirror_dir, provider_id)
+    if args.publish_plan_output is not None:
+        args.publish_plan_output.unlink(missing_ok=True)
     if getattr(args, "write_manifest", False) and not _supports_probe_manifest(provider_id, provider):
         print(f"--write-manifest is not supported for provider {provider_id}: missing probe URL model", flush=True)
         return 1
     try:
         if getattr(args, "year_window", None):
-            years = _latest_years(provider, args.year_window)
+            years = retry_network(lambda: _latest_years(provider, args.year_window))
         else:
-            years = _discover_years(provider, args.years)
+            years = retry_network(lambda: _discover_years(provider, args.years))
     except Exception as exc:
         existing_provider_raw_pages, existing_provider_catalog, _existing_provider_failures = load_provider_state(provider_state)
         if existing_provider_raw_pages or existing_provider_catalog.papers:
             print(f"Provider {provider_id} discovery unavailable ({exc}); preserving existing provider state.", flush=True)
-            return 0
+            return 1
         print(f"Provider {provider_id} discovery failed and no existing provider state is available: {exc}", flush=True)
         return 1
     aliases = load_alias_rules(args.aliases)
