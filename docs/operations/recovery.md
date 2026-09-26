@@ -53,8 +53,9 @@ Publication recovery can pin `--generation <generation>` and
 later provider snapshot. Mirror generation and SHA outputs are written when
 `GITHUB_OUTPUT` is present.
 
-For a CEEC AST recovery pilot, dispatch `sync-admissions.yml` with `ast_only`
-enabled. Other provider jobs are skipped; scheduled runs retain their full matrix.
+For an admissions recovery pilot, dispatch `sync-admissions.yml` with
+`provider_id` set to the affected provider. Other provider jobs are skipped;
+the default `all` and scheduled runs retain their full matrix.
 Verify a durable snapshot before deliberately evicting that provider's cache.
 
 The helper never deletes remote snapshots. Before removing old generations,
