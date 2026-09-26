@@ -40,6 +40,8 @@ Each source manifest belongs to one provider and contains no site or Release sta
 
 `source_exam_id` retains the official event traceability key. `canonical_id` remains a compatibility lookup/URL identity. V2 publication groups by `bundle_id` and its reviewed identity dimensions; display labels alone must not merge distinct official programs or levels. Provider normalization does not require a site-derived bundle URL.
 
+Scoped provider writers omit the optional legacy `download_url_bundle` field; current download URLs belong to site publication state. Readers retain compatibility with earlier provider records and default an absent field to an empty string. The legacy root-layout writer remains available for migration consumers.
+
 Review queues contain unresolved normalization work and remain provider-scoped unless a site explicitly owns cross-provider canonicalization. Failure rows use the shared model and retain enough event, file, URL, and stage information for machine-readable triage and recovery.
 
 The compact review codec preserves original text, classification signatures, source keys, and row order without reclassifying retained evidence. Empty queues remain empty arrays; readers also accept earlier rich record arrays. Use `review-queue` to expand a ledger without loading papers.
