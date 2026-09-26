@@ -38,6 +38,7 @@ from app.models import (
     ReviewItem,
     SourceExamPage,
     SyncFailure,
+    to_plain_data,
 )
 from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, provider_paths, site_paths
@@ -46,6 +47,7 @@ from app.providers.base import SourceProvider
 from app.providers.moex.client import make_result_url, make_year_search_url, year_ad_from_code
 from app.providers.registry import get_provider
 from app.publisher import publish_site, write_data_files, write_provider_state
+from app.review_queue import decode_review_queue
 from app.site_registry import get_site_config
 from app.state import (
     load_existing_state,
@@ -1232,6 +1234,28 @@ def command_migrate_legacy_state(args: argparse.Namespace) -> int:
     return report.exit_code
 
 
+def command_review_queue(args: argparse.Namespace) -> int:
+    try:
+        get_provider(args.provider)
+        provider = provider_paths(args.repo_root, args.provider)
+        payload = (
+            json.loads(provider.review_queue_path.read_text(encoding="utf-8"))
+            if provider.review_queue_path.exists()
+            else []
+        )
+        reviews = decode_review_queue(payload, provider.provider_id)
+        rendered = json.dumps(to_plain_data(reviews), ensure_ascii=False, indent=2) + "\n"
+        if args.output is None:
+            print(rendered, end="")
+        else:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(rendered, encoding="utf-8")
+    except (ValueError, OSError) as exc:
+        print(str(exc), flush=True)
+        return 1
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="python -m app")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -1470,6 +1494,14 @@ def build_parser() -> argparse.ArgumentParser:
     migrate_parser.add_argument("--site-id", default="default")
     migrate_parser.add_argument("--mode", choices=("dry-run", "move", "verify"), default="dry-run")
     migrate_parser.set_defaults(handler=command_migrate_legacy_state)
+    review_parser = subparsers.add_parser(
+        "review-queue",
+        help="Expand one provider's review records without loading papers.",
+    )
+    review_parser.add_argument("--repo-root", type=Path, default=repo_root)
+    review_parser.add_argument("--provider", default="moex")
+    review_parser.add_argument("--output", type=Path, default=None)
+    review_parser.set_defaults(handler=command_review_queue)
     return parser
 
 

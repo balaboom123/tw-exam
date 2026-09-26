@@ -29,6 +29,7 @@ from app.release_tags import (
     strip_ambiguous_legacy_assets,
     validate_release_capacity,
 )
+from app.review_queue import encode_review_queue
 from app.site_registry import get_site_config
 from app.state import filter_catalog_by_canonical_ids, load_provider_state, load_site_bundles
 
@@ -111,7 +112,11 @@ def write_provider_state(
         provider.papers_dir, normalized.papers, lambda paper: paper.year_roc + 1911
     )
     provider.review_queue_path.write_text(
-        json.dumps(to_plain_data(normalized.review_queue), ensure_ascii=False, indent=2),
+        json.dumps(
+            encode_review_queue(normalized.review_queue, provider.provider_id),
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ),
         encoding="utf-8",
     )
     provider.sync_failures_path.write_text(

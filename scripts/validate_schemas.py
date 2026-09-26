@@ -15,6 +15,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.site_registry import get_site_config
+from app.review_queue import decode_review_queue
 
 
 def _read_json(path: Path) -> Any:
@@ -58,6 +59,11 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validated_providers = 0
     providers_without_papers: list[str] = []
     for provider_id in get_site_config("default").provider_ids:
+        review_path = repo_root / "data/providers" / provider_id / "review-queue.json"
+        if review_path.exists():
+            payload = _read_json(review_path)
+            _validate(schemas["review-queue-v2.schema.json"], payload, str(review_path.relative_to(repo_root)))
+            decode_review_queue(payload, provider_id)
         paper_dir = repo_root / "data" / "providers" / provider_id / "papers"
         year_files = [path for path in paper_dir.glob("*.json") if path.stem.isdigit()]
         if not year_files:

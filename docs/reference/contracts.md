@@ -188,6 +188,14 @@ Rules:
 - Review queue entries MUST only represent unresolved normalization work.
 - Review queue records MUST be provider-scoped unless a site explicitly owns cross-provider canonicalization.
 
+Persisted queues use the lossless compact format in
+[`review-queue-v2.schema.json`](../../schemas/review-queue-v2.schema.json);
+`ReviewItem` owns the decoded record fields. The codec preserves the original
+review text, classification signature, source keys, and row order without
+reclassifying retained evidence. Empty queues remain empty arrays, and readers
+also accept the earlier record arrays. Use `review-queue` to expand the stored
+representation for inspection.
+
 ## Provider Contract: Sync Failure Record
 
 Current shape is derived from `SyncFailure`.
