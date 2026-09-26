@@ -258,6 +258,10 @@ A future envelope change would require a schema version and migration; the curre
 }
 ```
 
+## Site Contract: Embedded Bundle Archive
+
+The embedded `bundle.json` contract is separate from the site inventory. New archives use `manifest_version: 2`, owned by `schemas/bundle-archive-manifest-v2.schema.json`; each paper row carries its four-field source key, checksum, and `bundle_entry`. Full provider records remain provider-owned. The archive reader accepts older full-record manifests for recovery and reuse. An unchanged archive keeps its prior bytes; a changed or new archive uses the current manifest/compression format and receives a newly computed checksum. This does not change asset names, aliases, or release tag assignments.
+
 ## Site Contract: Release Asset Inventory
 
 Required fields:

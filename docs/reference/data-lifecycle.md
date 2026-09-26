@@ -151,7 +151,10 @@ Why this matters:
 Behavior:
 
 - bundle generation reads normalized papers and mirrored files
-- an unchanged single-part ZIP is reused when its full embedded manifest and entry names match current papers; entries whose mirror files are absent are streamed once to verify ZIP CRC before reuse
+- an unchanged single-part ZIP is reused when its embedded paper keys/checksums, entry names, and common bundle metadata match current papers; old full-record manifests project to the same comparison without forcing an archive migration
+- new embedded `bundle.json` manifests use `manifest_version: 2` and retain only paper keys, checksums, and entry names per paper; provider state owns the full records
+- payload compression follows `STORED_BUNDLE_SUFFIXES` in `app/bundler.py`; those entries are stored without ZIP recompression, while other entries and JSON manifests are deflated, including in multipart assets
+- entries whose mirror files are absent are streamed once to verify ZIP CRC before reuse; archive checksums are streamed from the finished files
 - generated site bundle metadata is written to `data/sites/<site_id>/bundles.json`
 - release asset inventory is written to `data/sites/<site_id>/release-assets.json`
 - legacy alias asset names may be preserved for compatibility
