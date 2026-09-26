@@ -24,6 +24,26 @@ uv run python -m app plan-release --repo-root . --site-id default --output .tmp/
 
 Review provider failures, publication quarantine, expected asset names, release tags, and the release plan before uploading anything.
 
+## Unpublished v2 alias metadata
+
+The [proposed alias decision](../decisions/ADR-2026-09-27-unused-v2-release-aliases.md)
+requires its own explicit acceptance before activating the default-site policy.
+Original v1 Release retirement is a separate authorization.
+
+Before activation, verify against freshly fetched main and GitHub:
+
+```bash
+GITHUB_REPOSITORY=<owner>/<repo> uv run python .github/scripts/release_assets.py primary-only-check
+```
+
+This read-only gate rejects hosted aliases, other unexpected ZIPs, and missing,
+stale, or unverifiable primary downloads. If it fails, keep the current metadata
+and investigate before merging the policy change. Regenerate site metadata with
+the site writer and verify that removing `legacy_asset_names` is the only JSON
+change; the frontend feed and primary names, tags, URLs, and checksums must match.
+Run final CI and repeat the remote check immediately before merging. No remote
+prune or asset deletion is part of this procedure.
+
 ## Frontend verification
 
 ```bash
