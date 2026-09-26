@@ -28,7 +28,7 @@ data/providers/<provider_id>/review-queue.json
 data/providers/<provider_id>/source-manifest.json
 ```
 
-Provider pages under [the generated index](../providers/README.md) record source-specific restrictions and operational exceptions.
+The [generated index](../providers/README.md) projects reviewed source facts; [source judgment](../providers/notes.md) records provider-specific boundaries and operational exceptions.
 
 Hosted provider runs use the matrix caller that owns the provider in `.github/workflows/`. Inspect the provider job's sync summary and artifact when diagnosing a failure. Publication queues behind other site writers and checks current `main` before applying the sync snapshot; a stale provider baseline requires a fresh caller run. Quarantined providers continue collecting state through provider-only commits.
 

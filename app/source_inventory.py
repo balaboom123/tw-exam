@@ -14,6 +14,7 @@ from collections.abc import Iterable, Sequence
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from app.evidence import local_evidence_exists
 from app.manifest import load_source_manifest
 from app.paths import provider_paths
 from app.provider_index import PAPER_SOURCE_EXAM_ID, PAPER_YEAR_ROC, load_provider_index
@@ -180,8 +181,7 @@ def _validate_evidence_paths(repo_root: Path, inventory: dict[str, Any]) -> None
         for evidence in entry["evidence"]:
             if evidence.startswith("https://"):
                 continue
-            evidence_path = repo_root / evidence
-            if not evidence_path.is_file():
+            if not local_evidence_exists(repo_root, evidence):
                 raise ValueError(
                     f"source inventory evidence does not exist for {identifier}: {evidence}"
                 )

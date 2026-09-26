@@ -45,9 +45,10 @@ uv run python scripts/validate_docs.py --check
 | [`operations/runbook.md`](operations/runbook.md) | Operations runbook |
 | [`operations/workflows.md`](operations/workflows.md) | Workflow ownership |
 | [`providers/README.md`](providers/README.md) | Providers |
+| [`providers/notes.md`](providers/notes.md) | Source judgment |
 | [`providers/rejected-sources.md`](providers/rejected-sources.md) | Rejected and deferred sources |
 | [`reference/contracts.md`](reference/contracts.md) | Contracts |
-| [`reference/data-lifecycle.md`](reference/data-lifecycle.md) | Data Lifecycle |
+| [`reference/data-lifecycle.md`](reference/data-lifecycle.md) | Data lifecycle |
 | [`reference/exam-classification.md`](reference/exam-classification.md) | Frontend display classification |
 | [`reference/exam-identity.md`](reference/exam-identity.md) | Exam identity and bundle policy v2 |
 | [`reference/extension-rules.md`](reference/extension-rules.md) | Extension Rules |

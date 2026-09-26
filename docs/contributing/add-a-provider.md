@@ -7,7 +7,7 @@ Use this workflow for both source investigation and implementation. A provider i
 - Choose a stable snake-case `provider_id`.
 - Identify official entry points, stable event and attachment identities, availability semantics, access restrictions, payload types, and update cadence.
 - Reject authentication-gated, non-enumerable, third-party-only, or non-paper sources unless the product scope explicitly changes.
-- Record an investigated but unshipped source under `candidates` in `catalog/source-inventory.json`; do not create a provider page or adapter for it.
+- Record an investigated but unshipped source under `candidates` in `catalog/source-inventory.json`; provider notes and adapters describe registered sources.
 
 ## 2. Define ownership and contracts
 
@@ -27,15 +27,9 @@ Use this workflow for both source investigation and implementation. A provider i
 
 ## 4. Write source judgment
 
-Run the renderer to create `docs/providers/<provider_id>.md`, then maintain its five judgment sections:
+Add source-specific judgment to `docs/providers/notes.md` when the source needs a boundary, durable blocker, publication exception, or operating deviation. Use a stable ``## `provider_id` `` heading so evidence can reference `docs/providers/notes.md#provider_id`; both the file and section are checked. Keep shared procedures in the runbook and accepted rationale in an ADR.
 
-- Source boundary: what official material is eligible and how ambiguity is resolved.
-- Gaps and blockers: durable explanation, without copying inventory status or counts.
-- Publication shape: exceptional bundle, quarantine, or site behavior.
-- Operating it: only provider-specific deviations from the shared runbook.
-- Open decisions: links to ADRs or issues, never an embedded execution plan.
-
-Do not edit frontmatter or generated inventory blocks. Changing facts such as status, URLs, years, record counts, or restrictions starts in `catalog/source-inventory.json`.
+Run the renderer to refresh the generated provider index. Changing facts such as status, URLs, years, record counts, or restrictions starts in `catalog/source-inventory.json`. Keep those facts out of maintained notes.
 
 ## 5. Verify definition of done
 
@@ -48,4 +42,4 @@ uv run python -m app audit-catalog --repo-root . --site-id default --strict
 uv run python -m app history-audit --repo-root . --site-id default --strict --skip-mirror-check
 ```
 
-The change is incomplete if any registered provider lacks a page, any page lacks a provider, generated state is unscoped, publication ownership is unclear, or an operator cannot recover the provider without reading implementation code.
+The change is incomplete if the inventory, runtime registry, site registry, or generated index disagree; a note refers to an unregistered provider; an evidence file or section is missing; generated state is unscoped; publication ownership is unclear; or an operator cannot recover the provider from the shared procedures and its source-specific notes.

@@ -19,6 +19,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from app.evidence import local_evidence_exists
+
 _ALLOWED_STATUSES = {
     "wrong_identity",
     "wrong_payload",
@@ -63,7 +65,7 @@ def _parse_entry(value: Any, *, path: Path, repo_root: Path) -> QuarantineEntry:
     # reviewable evidence; a stale pointer would leave the withholding
     # unexplained after the referenced file is moved or removed.
     for field, reference in (("evidence_path", evidence_path), ("spec_path", spec_path)):
-        if not (repo_root / reference).exists():
+        if not local_evidence_exists(repo_root, reference):
             raise ValueError(f"{path}: {field} {reference!r} for {provider_id} does not exist")
     return QuarantineEntry(
         provider_id=provider_id,

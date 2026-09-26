@@ -87,7 +87,7 @@ Every expansion PR MUST update:
 - the owning catalog, schema, registry, or mapping
 - the maintained reference or ADR when rules or rationale change
 - the operator procedure when execution or recovery changes
-- the generated provider page and index through `scripts/render_docs.py`
+- the generated provider index through `scripts/render_docs.py`, and source-specific judgment in `docs/providers/notes.md` when needed
 
 No provider or site is production-ready until the runbook and recovery guide describe how to operate it. Changing status, URLs, years, counts, or restrictions starts in `catalog/source-inventory.json`, never in generated Markdown.
 

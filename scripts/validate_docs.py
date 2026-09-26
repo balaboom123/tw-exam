@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -13,19 +14,12 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.cli import build_parser
+from app.evidence import local_evidence_exists, markdown_evidence_sections
 from app.providers.registry import _PROVIDER_FACTORIES
 from app.site_registry import get_site_config
-from scripts.render_docs import PROVIDER_END, expected_outputs
+from scripts.render_docs import expected_outputs
 
 
-STATUS_VALUES = {"covered", "partial", "blocked"}
-PROVIDER_SECTIONS = [
-    "Source boundary",
-    "Gaps and blockers",
-    "Publication shape",
-    "Operating it",
-    "Open decisions",
-]
 REQUIRED_PATHS = [
     "AGENTS.md",
     "docs/architecture.md",
@@ -36,6 +30,8 @@ REQUIRED_PATHS = [
     "docs/operations/commands.md",
     "docs/providers/README.md",
     "docs/providers/rejected-sources.md",
+    "docs/providers/notes.md",
+    "docs/archive/README.md",
 ]
 FORBIDDEN_LIVE_DIRS = ["docs/developer", "docs/operator", "docs/superpowers"]
 INLINE_LINK = re.compile(r"!?\[[^\]]*\]\((?P<target><[^>]+>|[^)\s]+)(?:\s+[^)]*)?\)")
@@ -46,69 +42,36 @@ def _load_inventory(repo_root: Path) -> dict[str, object]:
     return json.loads((repo_root / "catalog" / "source-inventory.json").read_text(encoding="utf-8"))
 
 
-def _frontmatter(text: str) -> dict[str, str]:
-    if not text.startswith("---\n"):
-        return {}
-    try:
-        raw = text.split("---\n", 2)[1]
-    except IndexError:
-        return {}
-    fields: dict[str, str] = {}
-    for line in raw.splitlines():
-        if ":" not in line:
-            continue
-        key, value = line.split(":", 1)
-        fields[key.strip()] = value.strip()
-    return fields
-
-
 def _cli_commands() -> set[str]:
     parser = build_parser()
     subparsers_action = next(action for action in parser._actions if action.dest == "command")
     return set(subparsers_action.choices)
 
 
-def _validate_provider_pages(repo_root: Path, inventory: dict[str, object]) -> list[str]:
+def _validate_provider_notes(repo_root: Path, inventory: dict[str, object]) -> list[str]:
     errors: list[str] = []
-    provider_root = repo_root / "docs" / "providers"
-    inventory_by_id = {entry["provider_id"]: entry for entry in inventory["providers"]}
-    page_paths = {
-        path.stem: path
-        for path in provider_root.glob("*.md")
-        if path.name not in {"README.md", "rejected-sources.md"}
-    }
-    inventory_ids = set(inventory_by_id)
+    inventory_ids = {entry["provider_id"] for entry in inventory["providers"]}
     registry_ids = set(_PROVIDER_FACTORIES)
     site_ids = set(get_site_config(str(inventory["site_id"])).provider_ids)
-    page_ids = set(page_paths)
-    for label, actual in (("runtime registry", registry_ids), ("site registry", site_ids), ("provider pages", page_ids)):
+    for label, actual in (("runtime registry", registry_ids), ("site registry", site_ids)):
         missing = sorted(inventory_ids - actual)
         extra = sorted(actual - inventory_ids)
         if missing or extra:
             errors.append(f"inventory/{label} mismatch: missing={missing} extra={extra}")
-
-    for provider_id, path in sorted(page_paths.items()):
-        if provider_id not in inventory_by_id:
-            continue
-        text = path.read_text(encoding="utf-8")
-        fields = _frontmatter(text)
-        expected_fields = {
-            "provider_id": provider_id,
-            "status": str(inventory_by_id[provider_id]["status"]),
-            "site": str(inventory["site_id"]),
-            "last_verified": str(inventory["captured_at"]),
-        }
-        if fields != expected_fields:
-            errors.append(f"{path.relative_to(repo_root)}: frontmatter {fields!r} != {expected_fields!r}")
-        if fields.get("status") not in STATUS_VALUES:
-            errors.append(f"{path.relative_to(repo_root)}: invalid provider status {fields.get('status')!r}")
-        sections = re.findall(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE)
-        if sections != PROVIDER_SECTIONS:
-            errors.append(f"{path.relative_to(repo_root)}: expected sections {PROVIDER_SECTIONS!r}, found {sections!r}")
-        body = text.split(PROVIDER_END, 1)[1] if PROVIDER_END in text else text
-        for url in inventory_by_id[provider_id]["official_source_urls"]:
-            if url in body:
-                errors.append(f"{path.relative_to(repo_root)}: official URL is duplicated outside the generated block")
+    provider_root = repo_root / "docs" / "providers"
+    for path in provider_root.glob("*.md"):
+        if path.name not in {"README.md", "rejected-sources.md", "notes.md"}:
+            errors.append(f"legacy provider page remains: {path.relative_to(repo_root)}")
+    notes_path = provider_root / "notes.md"
+    if not notes_path.is_file():
+        return errors
+    text = notes_path.read_text(encoding="utf-8")
+    unknown = sorted(markdown_evidence_sections(text) - inventory_ids)
+    if unknown:
+        errors.append(f"docs/providers/notes.md: unregistered provider sections: {unknown}")
+    for provider in inventory["providers"]:
+        if any(url in text for url in provider["official_source_urls"]):
+            errors.append(f"docs/providers/notes.md: official URL for {provider['provider_id']} duplicates inventory")
     return errors
 
 
@@ -131,6 +94,10 @@ def _relative_link_errors(repo_root: Path) -> list[str]:
             resolved = (repo_root / target_path.lstrip("/")) if target_path.startswith("/") else (path.parent / target_path)
             if not resolved.exists():
                 errors.append(f"{path.relative_to(repo_root)}: broken relative link {raw_target!r}")
+            elif "#" in target and os.path.relpath(resolved, repo_root) == "docs/providers/notes.md":
+                reference = f"docs/providers/notes.md#{target.split('#', 1)[1]}"
+                if not local_evidence_exists(repo_root, reference):
+                    errors.append(f"{path.relative_to(repo_root)}: broken source-judgment anchor {raw_target!r}")
     return errors
 
 
@@ -171,7 +138,7 @@ def _documentation_hygiene_errors(repo_root: Path, inventory: dict[str, object])
                 continue
             if evidence.startswith("docs/archive/"):
                 errors.append(f"{entry.get('provider_id', entry.get('source_id'))}: archive path used as inventory evidence: {evidence}")
-            if not (repo_root / evidence).exists():
+            if not local_evidence_exists(repo_root, evidence):
                 errors.append(f"{entry.get('provider_id', entry.get('source_id'))}: missing inventory evidence: {evidence}")
     return errors
 
@@ -193,7 +160,7 @@ def _freshness_errors(repo_root: Path) -> list[str]:
 def validate(repo_root: Path) -> list[str]:
     inventory = _load_inventory(repo_root)
     errors: list[str] = []
-    errors.extend(_validate_provider_pages(repo_root, inventory))
+    errors.extend(_validate_provider_notes(repo_root, inventory))
     errors.extend(_documentation_hygiene_errors(repo_root, inventory))
     errors.extend(_relative_link_errors(repo_root))
     errors.extend(_freshness_errors(repo_root))
