@@ -68,11 +68,14 @@ def set_subset_names(font: TTFont, family: str, style: str) -> None:
 
 
 def build_face(source: Path, target: Path, family: str, style: str, characters: set[int]) -> None:
-    font = TTFont(source, fontNumber=3)
+    font = TTFont(source, fontNumber=3, recalcTimestamp=False)
     options = subset.Options()
     options.notdef_glyph = True
+    # The site uses zh-TW and Latin text; other Noto regional variants need
+    # hundreds of alternate glyphs that this subset never renders.
+    options.layout_scripts = ["DFLT.dflt", "hani.ZHT", "latn.dflt"]
     subsetter = subset.Subsetter(options=options)
-    subsetter.populate(unicodes=characters)
+    subsetter.populate(unicodes=sorted(characters))
     subsetter.subset(font)
     set_subset_names(font, family, style)
     font.flavor = "woff2"
@@ -81,7 +84,8 @@ def build_face(source: Path, target: Path, family: str, style: str, characters: 
     font.save(temporary)
     temporary.replace(target)
     font.close()
-    print(f"{target.relative_to(ROOT)}: {target.stat().st_size:,} bytes")
+    display_path = target.relative_to(ROOT) if target.is_relative_to(ROOT) else target
+    print(f"{display_path}: {target.stat().st_size:,} bytes")
 
 
 def main() -> None:
