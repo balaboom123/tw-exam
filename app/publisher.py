@@ -21,6 +21,7 @@ from app.models import (
 )
 from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, SitePaths, provider_paths, site_paths
+from app.provenance import add_frontend_provenance
 from app.provider_index import build_provider_index, load_provider_index, write_provider_index
 from app.publication_quarantine import quarantined_provider_ids
 from app.release_tags import (
@@ -494,6 +495,7 @@ def publish_site(
         tagged_bundles,
         repository=repository,
     )
+    add_frontend_provenance(repo_root, normalized_with_urls.papers, frontend_bundles)
     write_site_state(
         site,
         bundles_with_urls,

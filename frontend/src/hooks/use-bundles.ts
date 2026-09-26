@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import type { Bundle } from "@/types"
+import type { Bundle, BundleSource } from "@/types"
+import { isBundleSource, isSyncTimestamp } from "@/lib/provenance"
 
 interface UseBundlesResult {
   bundles: Bundle[]
@@ -26,6 +27,8 @@ interface RawBundle {
   examClass: string
   examSubclass: string
   subjectLabels?: string[]
+  sources?: BundleSource[]
+  updated?: string
 }
 
 interface RawFeed {
@@ -58,6 +61,8 @@ function isValidRawBundle(value: unknown): value is RawBundle {
     typeof item.examClass === "string" && item.examClass.length > 0 &&
     typeof item.examSubclass === "string" && item.examSubclass.length > 0 &&
     (item.subjectLabels === undefined || (Array.isArray(item.subjectLabels) && item.subjectLabels.every((label) => typeof label === "string"))) &&
+    (item.sources === undefined || (Array.isArray(item.sources) && item.sources.length > 0 && item.sources.every(isBundleSource))) &&
+    (item.updated === undefined || isSyncTimestamp(item.updated)) &&
     (item.parts === undefined || (Array.isArray(item.parts) && item.parts.every(isValidPart)))
 }
 
@@ -85,6 +90,8 @@ function toBundle(raw: RawBundle, repo: string): Bundle {
     examClass: raw.examClass,
     examSubclass: raw.examSubclass,
     ...(raw.subjectLabels ? { subjectLabels: raw.subjectLabels } : {}),
+    ...(raw.sources ? { sources: raw.sources } : {}),
+    ...(raw.updated ? { updated: raw.updated } : {}),
     ...(raw.parts ? {
       parts: raw.parts.map((part) => ({
         label: part.label,

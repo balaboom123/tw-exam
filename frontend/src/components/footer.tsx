@@ -38,6 +38,13 @@ export function Footer() {
             資料來源：考選部、大考中心、國中教育會考、國營事業甄試、技能檢定及各教師甄選單位之公開資料。
           </p>
           <p className="mt-1.5">
+            來源明示採用{" "}
+            <a href="https://data.gov.tw/license" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink-800">
+              政府資料開放授權條款
+            </a>
+            者，使用時請標明原提供機關；其他資料依來源條款使用。
+          </p>
+          <p className="mt-1.5">
             本站為非官方彙整；試題權利及使用條款依各來源公告。詳見{" "}
             <a
               href="https://github.com/balaboom123/tw-exam/blob/main/DATA-LICENSE.md"

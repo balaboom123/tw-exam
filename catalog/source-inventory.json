@@ -281,6 +281,7 @@
         "Official 35-year discovery snapshot contains 870 exam codes; all 870 currently listed event IDs are represented in local retained state.",
         "Five exact file URLs return the same HTML placeholder; three affected events retain valid normalized records. Eight historical result-page blockers remain evidence-backed in catalog/source-coverage/moex.json."
       ],
+      "source_name": "考選部",
       "status": "partial",
       "status_reason": "Partial / source-blocked; official listing: 1992–2026, 870 codes; local coverage: 1992–2026, 35 buckets; 870 → 228,022; 0 listed codes remain unsynced; eight event pages and five file URLs remain blocked at the official source."
     },
@@ -347,6 +348,7 @@
       "restrictions": [
         "Public CEEC pages and linked PDF/DOC/ZIP files only; one 2003 scoring-principle file is a signature-validated legacy OLE DOC. No paid publications or browser automation."
       ],
+      "source_name": "大學入學考試中心",
       "status": "covered",
       "status_reason": "Covered in declared scope; official listing: 1994–2026, 179 events; local coverage: 1994–2026, 33 buckets; 179 → 648; zero failures and zero normalization-review records."
     },
@@ -386,6 +388,7 @@
       "restrictions": [
         "Public static/PDF source. The declared provider scope is the AST general-paper archive plus current confirmed-answer and scoring-principle notices; predecessor 指定科目考試, special-paper, and special-answer-sheet pages are intentionally excluded."
       ],
+      "source_name": "大學入學考試中心",
       "status": "covered",
       "status_reason": "Covered in declared general-paper scope; official discovery: 2022–2026, 31 events; local coverage: 2022–2026, 5 buckets; 31 → 177; all 31 events are published-complete with zero failures and zero normalization-review records."
     },
@@ -440,6 +443,7 @@
         "The CPC MOEA-joint page delegates to Taipower and is owned by moea_recruit, so it is not duplicated here.",
         "CPC's open-data declaration permits broad attributed reuse for material within CPC's copyright but does not establish third-party rights for every archived item."
       ],
+      "source_name": "台灣中油股份有限公司",
       "status": "partial",
       "status_reason": "Partial: 5/5 packages on the static doctoral-paper page are manifest-backed and byte-verified, but the broader contracted source family is not enumerable and the current 14-event/17-record local publication still contains 12 recruitment brochures misclassified as question papers."
     },
@@ -481,6 +485,7 @@
         "The historical 108-entry listing is removed and cannot currently be enumerated from a live official page.",
         "Current LTTC terms prohibit republication without authorization; the old non-profit download statement does not clearly grant redistribution."
       ],
+      "source_name": "語言訓練測驗中心",
       "status": "partial",
       "status_reason": "Partial; current source has 5 level events and 34 records in 2022, while local/public state has one synthetic 2026 event with all 34 records under wrong identity and 3 wrong payloads; the 108-entry historical listing is removed"
     },
@@ -530,6 +535,7 @@
         "Taiwan Government Data Open License 1.0 requires attribution and excludes specially marked audiovisual or third-party works; academy terms also restrict unauthorized commercial use, so audio republication requires review.",
         "Source de-listing confirmed 2026-08-05: upstream replaced the ROC 114–115 basic/elementary 題庫音檔 entries with 詞彙音檔 under new URLs, and the five intermediate 語料選粹 ZIPs and the 通過標準與題型說明 ZIP are absent from all 1,526 anchors across c=2, c=3, and c=5 although the files themselves still return HTTP 200. Sixteen retained records were dropped, leaving the intermediate/high-intermediate level with no published event."
       ],
+      "source_name": "客家委員會",
       "status": "partial",
       "status_reason": "Partial / source, identity, licensing, and release blockers: an evidence manifest now bounds both official surfaces, but one source event and 40 current/alternate source files are unintegrated, one retained event identity is synthetic, and eight historical events are absent from publication"
     },
@@ -571,6 +577,7 @@
         "The official archive robots.txt specifies Crawl-delay: 10; the adapter now honors it and deduplicates fragment-only pagination links.",
         "All six retained events publish all 30 mirrored papers, but no explicit redistribution license or copyright terms were linked from the archive pages."
       ],
+      "source_name": "中國醫藥大學",
       "status": "covered",
       "status_reason": "Covered in declared scope; official four-page archive and all 30 accepted assets rechecked 2026-07-30; local coverage: 2021–2026; 6 → 30"
     },
@@ -612,6 +619,7 @@
         "robots.txt allows the archive and default TLS verification succeeds.",
         "All five live PDFs match retained checksums, but no explicit redistribution license or copyright terms were linked from the archive pages."
       ],
+      "source_name": "國立中山大學",
       "status": "covered",
       "status_reason": "Covered in declared combined-PDF scope; official archive and all 5 live files rechecked 2026-07-30; local coverage: 2022–2026; 5 → 5"
     },
@@ -652,6 +660,7 @@
         "All 24 asset URLs reject HEAD with HTTP 403 but succeed through ordinary GET; all live files (76,022,336 bytes) match retained SHA-256 checksums, robots.txt allows the archive, and default TLS verification succeeds.",
         "All five retained events publish all 24 mirrored papers, but no explicit redistribution license or copyright terms were linked from the archive pages."
       ],
+      "source_name": "國立清華大學",
       "status": "covered",
       "status_reason": "Covered in declared scope; official four-page archive and all 24 live assets rechecked 2026-07-30; local coverage: 2022–2026; 5 → 24"
     },
@@ -689,6 +698,7 @@
         "Three known official 2025 question/clarification URLs now return HTTP 302 to the homepage, and the current category/API exposes no 2025 paper event; historical coverage is source-removed rather than complete.",
         "The site publishes no machine-readable robots policy because /robots.txt returns the WordPress homepage as text/html; default TLS verification succeeds, but no explicit redistribution license or copyright terms were linked from the archive pages."
       ],
+      "source_name": "慈濟大學",
       "status": "partial",
       "status_reason": "Partial / historical source removed; current official category snapshot and all 8 live 2026 assets rechecked 2026-07-30; local coverage: 2026; 1 → 8"
     },
@@ -725,6 +735,7 @@
         "Forty-six of the 62 retained PDFs are briefs, rules, forms, study guides, or scope references published as questions; event years are process-date identities.",
         "No blanket redistribution license was established, and the robots endpoint disconnected during audit."
       ],
+      "source_name": "經濟部產業人才能力鑑定推動網",
       "status": "partial",
       "status_reason": "Partial / 12 of 16 official families omitted, 34 paper-like PDFs absent, 46 non-paper PDFs misclassified, and source identity/licensing unresolved; local coverage: synthetic 2026; 4 → 62"
     },
@@ -761,6 +772,7 @@
         "The exact declared workbook scope is 2012 and 2018 only and is not an archive of every JLPT sitting.",
         "The official copyright policy requires authorization for broader use and separately restricts third-party N1/N2 text and all N1–N5 listening audio; no blanket archive-republication grant was established."
       ],
+      "source_name": "日本語能力試驗官方網站",
       "status": "partial",
       "status_reason": "Source-complete for the exact 2012/2018 official-workbook scope (2 events, 116 URLs), but redistribution remains blocked pending legal/operator approval"
     },
@@ -821,6 +833,7 @@
         "Five official MOEA events are absent locally and five local events are absent from the official MOEA manifest; replacement or quarantine requires a reviewed destructive provider-state and publication migration.",
         "Taipower's open-data declaration permits attributed reuse within Taipower-owned rights with exclusions; it does not independently prove ownership of every exam item. No machine-readable robots policy was found."
       ],
+      "source_name": "經濟部所屬事業機構新進職員甄試",
       "status": "partial",
       "status_reason": "Partial / contaminated publication: official listing discovery covers 21 events, 515 subject groups, and 1,486 unique URLs, but none is represented by correct retained MOEA data; all 370 current records duplicate Taipower hiring material."
     },
@@ -864,6 +877,7 @@
         "The checked 115post01 specialist history contributes no unique files: all 19 PDFs are byte-identical subsets of the accepted general-cycle inventory; separate ad-hoc/local/special-purpose recruitments remain outside this provider unless reviewed.",
         "No redistribution grant was found; Chunghwa Post states that reproduction or reposting of site content requires prior written consent, so public redistribution requires legal review."
       ],
+      "source_name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
       "status": "partial",
       "status_reason": "Partial / bounded live-index coverage; source availability: AD 2022–2025 currently enumerable; local coverage: AD 2022–2025; 4 → 167; AD 2026 is login-gated and pre-2022 history is non-enumerable"
     },
@@ -913,6 +927,7 @@
         "Pilot-year and reference-test materials are intentionally included in this provider scope.",
         "Materials are publicly downloadable, but no explicit redistribution license is recorded in the repository."
       ],
+      "source_name": "國中教育會考",
       "status": "covered",
       "status_reason": "Covered in declared scope; the 2026-07-29 official dropdown manifest contains 14 year buckets and 15 events, all represented by 136 local records"
     },
@@ -952,6 +967,7 @@
         "All 30 retained/public files are currently attached to the wrong official certification or event identity; 20 additional official URLs are not retained.",
         "SFI or other rights holders claim intellectual-property rights in site files/content; no exam-PDF republication license was found."
       ],
+      "source_name": "證券暨期貨市場發展基金會",
       "status": "partial",
       "status_reason": "Partial and release-blocking: the exact 25-event/50-file rolling snapshot has 13 source-only events, 3 local-only synthetic events, and all 30 retained/public files under wrong identity."
     },
@@ -1001,6 +1017,7 @@
         "robots.txt explicitly allows /EnableSys/, but no blanket redistribution license or copyright terms were linked from the archive page; retain official-source attribution and takedown readiness.",
         "No third-party mirrors are accepted."
       ],
+      "source_name": "身心障礙學生升學大專校院甄試",
       "status": "covered",
       "status_reason": "Covered in declared scope; official selector and all 216 accepted assets rechecked 2026-07-30; local coverage: 2013–2026, 14 buckets; 14 → 216"
     },
@@ -1039,6 +1056,7 @@
         "Current state duplicates 47 PHIDs across 2025 and 2026, flattens 13 of 19 official category rows, omits current PHID 431, retains stale PHIDs 449 and 456, and projects 211 wrong or stale records into eight public bundles.",
         "The asset host robots policy disallows /BEExam, and no exam-PDF republication license was found; automated mirroring and republication require an approved policy/legal decision."
       ],
+      "source_name": "台灣金融研訓院",
       "status": "partial",
       "status_reason": "Partial / identity-contaminated publication: exact current discovery covers 50 events and 127 files, but only 16 corrected event IDs overlap local state and 211 normalized/public records are wrong or stale."
     },
@@ -1075,6 +1093,7 @@
         "The public A-form bundle merges A, B, and C records, obscuring source taxonomy.",
         "Official robots rules disallow generic crawling and the /tmt/src/ asset path; no explicit redistribution grant was found."
       ],
+      "source_name": "教育部臺灣台語語言能力認證考試",
       "status": "partial",
       "status_reason": "Partial / exact current A/B/C URLs retained, but source dates are unknown, public taxonomy is merged, and robots/licensing block refresh and release; local coverage: synthetic 2026; 3 → 35"
     },
@@ -1132,6 +1151,7 @@
         "All 370 retained records have unique official Taipower media URLs discovered under the /2557 archive and unique checksums, but the incorrect MOEA sibling state duplicates them exactly; eight additional unreferenced mirror PDFs (3,570,035 bytes) are MOEA new-staff material and remain undeleted pending migration approval.",
         "Taipower's open-data declaration permits attributed reuse within Taipower-owned rights with exclusions; it does not independently prove ownership of every exam item."
       ],
+      "source_name": "台灣電力股份有限公司",
       "status": "partial",
       "status_reason": "Partial: the official event set is represented by a 23-event manifest, but retained state has 21 events/370 records, omits both ROC 107 sessions, and is demonstrably first-page-truncated for modern years; live full-asset enumeration is currently WAF-blocked."
     },
@@ -1169,6 +1189,7 @@
         "The ROC 115 contractor paper route redirects unauthenticated users to login, and no ROC 115 paper announcement is yet present in the Taiwan Sugar archive. No access control was bypassed.",
         "Two doctoral-paper rows are intentionally excluded from the new-worker identity. Taiwan Sugar's CC0 declaration has intellectual-property, personal-data, specially excluded work, moral-rights, integrity, and endorsement caveats."
       ],
+      "source_name": "台灣糖業股份有限公司",
       "status": "partial",
       "status_reason": "Partial: current public source discovery is byte-reconciled for eight worker-paper events/49 files, but local state has only ROC 114 / one file, ROC 115 papers are login-gated, and the sole retained event is excluded by publication policy."
     },
@@ -1230,6 +1251,7 @@
         "The ROC 91 XLS answer is intentionally excluded as a duplicate format of the retained official PDF.",
         "The official archive says historical papers and answers are reference material; no explicit redistribution license is recorded."
       ],
+      "source_name": "技專校院入學測驗中心",
       "status": "covered",
       "status_reason": "Covered in declared paper/answer scope; 26/26 official listing events are manifest-represented and local, with 3,079 mirrored normalized assets across AD 2001–2026 and zero failures"
     },
@@ -1285,6 +1307,7 @@
       "restrictions": [
         "The 2026-07-29 official selector snapshot has 22 years and all 23 retained events. ASP.NET WebForms postbacks are required; AD 2018 is sample-only and AD 2019 is the two-order format transition. Those semantics remain visible in the manifest and completeness metric."
       ],
+      "source_name": "教育部教師資格考試",
       "status": "covered",
       "status_reason": "Covered in declared scope; source availability: Source selector ROC 094–115 / AD 2005–2026; local coverage: 2005–2026, 22 buckets; 23 → 23"
     },
@@ -1320,6 +1343,7 @@
       "restrictions": [
         "The 2026-07-29 snapshot represents all three declared events with corrected category mapping (kindergarten A, elementary B, junior C). All subject/final page pairs returned HTTP 200, `已截止`, and no links; exact fingerprints remain in `catalog/source-coverage/teacher_recruit_central_alliance.json`. All six endpoints returned HTTP 503 when rechecked 2026-09-02, so the expired 2026 workflow is manual-only. Provenance remains official through Taichung, Keelung, and Hsinchu notices."
       ],
+      "source_name": "中區策略聯盟教師甄選",
       "status": "blocked",
       "status_reason": "Blocked / source expired; source availability: Closed 115 school year / AD 2026; all six subject/final endpoints returned HTTP 503 on 2026-09-02; local coverage: 2026; 3 → 0"
     },
@@ -1356,6 +1380,7 @@
       "restrictions": [
         "Discovery is evidence-blocked without a fabricated manifest: the regular endpoint returned HTTP 404 (993 bytes, SHA-256 25d3409669519deee0adb32c70906510d0d85f8174025bb6b6a0ab1954bb0621) and the special endpoint HTTP 404 (146 bytes, SHA-256 55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0). The elementary event has an exact coverage-ledger exception; retained special papers remain covered but cannot currently be rediscovered."
       ],
+      "source_name": "高雄市教師甄選",
       "status": "partial",
       "status_reason": "Partial / source endpoint blocker; source availability: Current 2026 scope; regular and special endpoints rechecked 2026-07-29; local coverage: 2026; 2 → 2"
     },
@@ -1390,6 +1415,7 @@
       "restrictions": [
         "Public list/detail/token API. The 2026-07-29 discovery snapshot recorded four in-scope notices; as of 2026-08-05 the live temopn_newtea_list response carries 61 entries and no longer includes the elementary-kindergarten or senior notices, whose detail endpoints still resolve when requested directly. Two notices and three papers remain in scope. Teaching-demo, score, and list notices remain intentionally skipped."
       ],
+      "source_name": "新北市教育人員聯合甄選",
       "status": "covered",
       "status_reason": "Covered, current-year scope; source availability: Current 2026 scope; local coverage: 2026; 2 → 3"
     },
@@ -1424,6 +1450,7 @@
       "restrictions": [
         "The 2026-07-29 official current-year snapshot has one in-scope event whose three question/answer URLs match retained state. Historical reconstruction is intentionally excluded until a stable official archive is found."
       ],
+      "source_name": "臺南市教師甄選",
       "status": "covered",
       "status_reason": "Covered, current-year scope; source availability: Current 2026 scope; local coverage: 2026; 1 → 3"
     },
@@ -1458,6 +1485,7 @@
       "restrictions": [
         "The 2026-07-29 reviewed-article snapshot has one event and 12 matching retained URLs. The city-wide news listing is not treated as an archive."
       ],
+      "source_name": "臺北市國小教師聯合甄選",
       "status": "covered",
       "status_reason": "Covered, reviewed current-year scope; source availability: Reviewed 114 school year / AD 2025; local coverage: 2025; 1 → 12"
     },
@@ -1494,6 +1522,7 @@
       "restrictions": [
         "The 2026-07-29 two-article snapshot has 68 matching retained URLs across two events. The map is reviewed and fixed; no automatic future-year discovery occurs until a stable endpoint exists."
       ],
+      "source_name": "臺北市國中教師聯合甄選",
       "status": "covered",
       "status_reason": "Covered in reviewed scope; source availability: Reviewed 2024–2025; local coverage: 2024–2025; 2 → 68"
     },
@@ -1528,6 +1557,7 @@
       "restrictions": [
         "The 2026-07-29 official current-year snapshot has one event and 21 matching retained URLs across seven subjects. Direct question/suggested/final answer files are in scope; appeal, score/list, and venue material is skipped."
       ],
+      "source_name": "桃園市國小教師聯合甄選",
       "status": "covered",
       "status_reason": "Covered, current-year scope; source availability: Current 2026 scope; local coverage: 2026; 1 → 21"
     },
@@ -1572,6 +1602,7 @@
         "Normal HTTPS verification fails with an incomplete issuer chain; no trust bypass was used, so live byte/URL/robots verification remains blocked.",
         "TII displays a copyright notice and no exam-PDF republication grant was found; redistribution requires operator/legal review."
       ],
+      "source_name": "保險事業發展中心",
       "status": "partial",
       "status_reason": "Partial; current listing evidence covers 10 events and 24 entries across 2024–2026, but 20 files are absent, one brochure is publicly misclassified, normal TLS verification fails, and the AML history ZIP denominator is unresolved"
     },
@@ -1611,6 +1642,7 @@
         "The official page dates the 2,138-question rolling bank to an October 2025 update, but the adapter assigns synthetic AD 2026 identity to all 92 mock assets.",
         "TOCFL limits the mock materials to learning/non-commercial use and reserves copyright; no blanket GitHub redistribution grant was established."
       ],
+      "source_name": "國家華語測驗推動工作委員會",
       "status": "partial",
       "status_reason": "Partial / all 95 current URLs retained, but 92 rolling-bank assets use unsupported synthetic 2026 identity and redistribution is unresolved"
     },
@@ -1657,6 +1689,7 @@
         "Nine of 44 public records point to wrong bytes because five generic-label groups collide on storage keys.",
         "No sample-paper republication grant was established; broader CSF pages prohibit reposting/excerpting without authorization."
       ],
+      "source_name": "中華民國電腦技能基金會",
       "status": "partial",
       "status_reason": "Partial / exact 44-row listing retained but nine payloads are wrong after storage-key collisions and redistribution remains unresolved"
     },
@@ -1705,6 +1738,7 @@
         "The ROC 115 contractor paper route redirects to applicant login even though a public news item announces the papers.",
         "Taiwan Water's open-data declaration uses Taiwan Government Data Open License 1.0 with attribution and stated caveats; robots.txt contains contradictory wildcard Allow and Disallow groups."
       ],
+      "source_name": "台灣自來水股份有限公司",
       "status": "partial",
       "status_reason": "Complete bounded discovery of the current canonical archive and current contractor evidence, but partial usability/access: 10/10 public ZIPs are retained and published, ROC 107 is internally corrupt, three official SHA records disagree, and ROC 115 papers are login-gated"
     },
@@ -1767,6 +1801,7 @@
         "Eight retained events remain explicit publication-policy exclusions, and event `201309140001` is a reviewed official empty result rechecked 2026-07-30.",
         "Official PDFs are publicly downloadable, but no explicit redistribution license is recorded in the repository."
       ],
+      "source_name": "勞動部勞動力發展署技能檢定中心",
       "status": "partial",
       "status_reason": "Partial / source and publication-policy constraints; the 2026-07-30 manifest contains 145 official sessions across 26 years, all represented locally by 10,809 records or the exact reviewed empty-result blocker"
     }

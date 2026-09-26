@@ -9,6 +9,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Source discovery/probe manifest | [SourceManifest](../../app/manifest.py) | `data/providers/<provider_id>/source-manifest.json` |
 | Raw events, review entries, failures, aliases | [Models](../../app/models.py), [state](../../app/state.py) | `data/providers/<provider_id>/` |
 | Compact review ledger | [Review schema](../../schemas/review-queue-v2.schema.json), [codec](../../app/review_queue.py) | `data/providers/<provider_id>/review-queue.json` |
+| Successful event sync receipts | [Sync status schema](../../schemas/provider-sync-status-v1.schema.json), [provenance](../../app/provenance.py) | `data/providers/<provider_id>/sync-status.json` |
 | Normalized papers | [Normalized-paper schema](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
 | Derived provider index | [Index schema](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
 | Reviewed source scope and evidence | [Inventory schema](../../schemas/source-inventory.schema.json), [inventory validator](../../app/source_inventory.py) | `catalog/source-inventory.json` |
@@ -50,6 +51,8 @@ The site inventory contains only bundles selected by its executable policy, incl
 Final download URLs identify ungated Release artifacts. Frontend download gates may wrap those URLs, but ingestion and publication must complete independently of the gate. A site can span multiple Release tags; consumers must use recorded assignments.
 
 The frontend consumes structured identity and classification from the feed. It must not reconstruct official identity from display-name regexes or read raw provider crawl fields. Its compact build projection may replace URLs with repository/tag/asset locators and defer search aliases to an index, provided reconstructed URLs are identical and index positions match bundle order. Both hashed assets come from one build.
+
+Optional source entries project reviewed names and official HTTPS URLs from the inventory. Optional `updated` is the latest successful sync timestamp among contributing events; it is not the source's publication date. Both projections are validated against their owners before commit. These additive fields require no ZIP or identity migration; missing historical receipts remain unknown.
 
 Multipart bundles share one logical identity and have distinct physical assets. The frontend presents one logical row, sums its file counts, and provides a control for each part. A legacy alias must not present a partial ZIP as a complete archive; aliases are retained only for unsplit assets, with older Releases remaining the compatibility source.
 

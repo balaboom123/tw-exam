@@ -392,6 +392,8 @@ class CliCommandTests(unittest.TestCase):
                 self.assertEqual(command_sync(sync_args, client=client), 0)
             self.assertEqual(client.discovery_calls, 2)
             self.assertTrue(plan_path.exists())
+            receipts = json.loads(provider_paths(root, "ceec_gsat").sync_status_path.read_text(encoding="utf-8"))
+            self.assertEqual(set(receipts["events"]), {"gsat-115-guozong"})
             self.assertEqual(main([*publish_args, "--publish-plan", str(plan_path)]), 0)
 
             after = json.loads(feed_path.read_text(encoding="utf-8"))["bundles"]

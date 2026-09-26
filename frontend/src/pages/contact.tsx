@@ -3,7 +3,7 @@ import { SOCIAL_CHANNELS } from "@/lib/social-gate"
 
 const REPO_ISSUES_URL =
   "https://github.com/balaboom123/tw-exam/issues"
-const CONTACT_EMAIL = "onlineedu666@gmail.com"
+const CONTACT_EMAIL = "onlineedu666 [at] gmail [dot] com"
 
 export function ContactPage() {
   return (
@@ -27,7 +27,8 @@ export function ContactPage() {
       <h2>電子郵件</h2>
       <p>
         其他事項（包含著作權相關的移除請求）請來信：
-        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        <span className="font-mono">{CONTACT_EMAIL}</span>。
+        請將 [at] 改為 @、[dot] 改為 .。
       </p>
 
       <h2>LINE 社群</h2>

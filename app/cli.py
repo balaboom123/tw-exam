@@ -43,6 +43,7 @@ from app.models import (
 from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, provider_paths, site_paths
 from app.probe import hash_exam_codes, probe_latest
+from app.provenance import record_successful_sync
 from app.providers.base import SourceProvider
 from app.providers.moex.client import make_result_url, make_year_search_url, year_ad_from_code
 from app.providers.registry import get_provider
@@ -124,6 +125,7 @@ def _provider_state_paths(data_dir: Path, mirror_dir: Path, provider_id: str) ->
         sync_failures_path=provider_data_dir / "sync-failures.json",
         aliases_path=provider_data_dir / "aliases.json",
         source_manifest_path=provider_data_dir / "source-manifest.json",
+        sync_status_path=provider_data_dir / "sync-status.json",
         mirror_dir=mirror_dir / "providers" / provider_id,
     )
 
@@ -690,6 +692,7 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
         failures=provider_failures,
         manifest=_provider_manifest_from_probe(probe),
     )
+    record_successful_sync(provider_state, refreshed_raw_pages, sync_failures)
     _write_probe_manifest_if_present(probe, _resolve_sync_manifest_path(args, provider_id))
     if sync_failures:
         _print_failures(sync_failures)
@@ -771,6 +774,7 @@ def command_repair_failures(args: argparse.Namespace, client: SourceProvider | N
         failures=provider_failures,
         manifest=None,
     )
+    record_successful_sync(provider_state, refreshed_raw_pages, sync_failures)
     selected_keys = {(failure.source_exam_id, failure.year_roc) for failure in selected_failures}
     remaining = [
         failure
@@ -1026,6 +1030,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         failures=provider_failures,
         manifest=provider_manifest,
     )
+    record_successful_sync(provider_state, refreshed_raw_pages, sync_failures)
     if failures:
         _print_failures(failures)
         print(

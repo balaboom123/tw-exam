@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto"
 import { readFile } from "node:fs/promises"
+import { isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
 
 function releaseLocation(rawUrl) {
   const url = new URL(rawUrl)
@@ -62,6 +63,16 @@ export function buildPublicData(source) {
       asset: location.asset,
     }
     if (subjectLabels.length) bundle.subjectLabels = subjectLabels
+    if (item.sources !== undefined) {
+      if (!Array.isArray(item.sources) || !item.sources.length || !item.sources.every(isBundleSource)) {
+        throw new TypeError(`Invalid provenance sources for bundle ${item.id}`)
+      }
+      bundle.sources = item.sources
+    }
+    if (item.updated !== undefined) {
+      if (!isSyncTimestamp(item.updated)) throw new TypeError(`Invalid sync timestamp for bundle ${item.id}`)
+      bundle.updated = item.updated
+    }
     if (item.parts !== undefined && !Array.isArray(item.parts)) {
       throw new TypeError(`Invalid parts for bundle ${item.id}`)
     }

@@ -10,6 +10,8 @@ The workflow file is the owner of exact CI commands. This document explains why 
 
 ## Frontend build assets
 
+Use Node 22.18 or newer: build projections share the frontend provenance validator through native TypeScript loading. CI and Netlify previews use Node 22.
+
 The frontend build emits a compact, content-hashed bundle feed, a lazy search index, bundle landing pages, and a sitemap from the site-owned frontend feed. Its Traditional Chinese font subsets are checked in under `frontend/src/assets/fonts/`. After changing public bundle names or visible UI copy, regenerate them with `uv run scripts/build_frontend_fonts.py` on a machine with the `fonts-noto-cjk` package, then run the frontend build. The accompanying OFL texts are shipped from `frontend/public/fonts/`. Regenerate the share card with `uv run scripts/build_og_card.py` after changing its text or visual design.
 
 ## Release ownership

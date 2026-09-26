@@ -4,6 +4,11 @@ export interface BundlePart {
   fileCount: number
 }
 
+export interface BundleSource {
+  name: string
+  url: string
+}
+
 export interface Bundle {
   id: string
   name: string
@@ -14,4 +19,6 @@ export interface Bundle {
   examClass: string
   examSubclass: string
   subjectLabels?: string[]
+  sources?: BundleSource[]
+  updated?: string
 }
