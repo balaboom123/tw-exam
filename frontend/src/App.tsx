@@ -18,10 +18,10 @@ import { PaperGrain } from "@/components/paper-grain"
 import { hasSocialAccess, withSocialAccess } from "@/lib/social-gate"
 import { orderExamClasses, orderExamSubclasses } from "@/lib/exam-categories"
 import { buildSearchQuery, readSearchState } from "@/lib/search-state"
+import { orderBundles, selectOrderedBundles } from "@/lib/bundle-order"
 import type { Bundle } from "@/types"
 
 const PAGE_SIZE = 30
-const nameCollator = new Intl.Collator("zh-TW")
 const initialSearchState = readSearchState(window.location.search)
 
 function App() {
@@ -127,32 +127,11 @@ function App() {
     [subclassCounts]
   )
 
-  const filtered = useMemo(() => {
-    let result = baseFiltered
-
-    if (selectedClass) {
-      result = result.filter((b) => b.examClass === selectedClass)
-    }
-
-    if (selectedSubclass) {
-      result = result.filter((b) => b.examSubclass === selectedSubclass)
-    }
-
-    const sorted = [...result]
-    switch (sortKey) {
-      case "name":
-        sorted.sort((a, b) => nameCollator.compare(a.name, b.name))
-        break
-      case "files-desc":
-        sorted.sort((a, b) => b.fileCount - a.fileCount)
-        break
-      case "years-desc":
-        sorted.sort((a, b) => b.years.length - a.years.length)
-        break
-    }
-
-    return sorted
-  }, [baseFiltered, selectedClass, selectedSubclass, sortKey])
+  const orderedBundles = useMemo(() => orderBundles(bundles, sortKey), [bundles, sortKey])
+  const filtered = useMemo(
+    () => selectOrderedBundles(orderedBundles, baseFiltered, selectedClass, selectedSubclass),
+    [orderedBundles, baseFiltered, selectedClass, selectedSubclass],
+  )
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
   const safePage = Math.min(page, totalPages)

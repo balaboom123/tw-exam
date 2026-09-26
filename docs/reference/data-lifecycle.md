@@ -10,6 +10,12 @@ Providers that implement the probe URL model compare year/event HEAD responses a
 
 Sync downloads into `mirror/providers/<provider_id>/`. Mirror locators preserve year, event, category, subject, and file-role distinctions. Valid files are reused; successfully refreshed files replace stale siblings with incorrect extensions. Each retained payload receives a SHA-256 checksum.
 
+Legacy mirror fallback validates each candidate once. A valid historical payload
+can replace an invalid scoped copy without another source download, using the
+checksum returned by the mirror writer. Mirror deduplication uses hard links;
+the mirror root and its temporary/canonical files must share a filesystem that
+supports them.
+
 Source pages are fetched serially. Independent files may download with bounded concurrency, while mirror writes remain serial; stateful or rate-limited providers restrict concurrency. Shared HTTP adapters relying on sync retries use one transport attempt to avoid multiplying retries. Transient discovery/fetch requests use bounded retries and honor `Retry-After`.
 
 An unavailable year listing preserves retained provider state, returns failure, and produces no publish plan. Payload validation rejects HTML placeholders and signatures inconsistent with the expected file role. The [sync implementation](../../app/sync.py) owns supported signatures; acceptance of an outer archive does not establish the integrity of its nested papers.
