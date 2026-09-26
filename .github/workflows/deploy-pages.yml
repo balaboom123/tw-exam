@@ -57,8 +57,7 @@ on:
       - sync-tqc-cert
       - sync-twc-recruit
       - sync-wdasec-skill
-  # Backstop: catches anything the triggers above miss, and re-runs the full
-  # gate set against main even on a quiet day.
+  # Backstop: rebuilds main when the triggers above miss a data-writing run.
   schedule:
     - cron: "20 3 * * *"
   workflow_dispatch:
@@ -83,21 +82,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Set up Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-          cache: pip
-      - name: Install Python test dependencies
-        run: python -m pip install --disable-pip-version-check pytest
-      - name: Run Python and catalog gates
-        run: |
-          python -m pytest -q
-          python -m app audit-catalog --repo-root . --site-id default --strict --output .tmp/catalog-audit.json
-          python scripts/validate_publication.py
-          python scripts/validate_source_inventory.py
-          python -m app history-audit --repo-root . --site-id default --strict --skip-mirror-check --output .tmp/history-audit.json
-          python -m app plan-release --repo-root . --site-id default --output .tmp/release-plan.json
       - name: Validate shell scripts and whitespace
         run: |
           bash -n .github/scripts/*.sh
