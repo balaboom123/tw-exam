@@ -51,6 +51,25 @@ def make_paper(
 
 
 class BundlerTests(unittest.TestCase):
+    def test_direct_v1_asset_naming_does_not_depend_on_display_language(self) -> None:
+        for label in ("Legacy Exam", "歷史考試"):
+            with self.subTest(label=label), tempfile.TemporaryDirectory() as tmp_dir:
+                root = Path(tmp_dir)
+                mirror = root / "mirror"
+                mirror.mkdir()
+                (mirror / "question.pdf").write_bytes(b"%PDF-1.7 legacy")
+                paper = make_paper(
+                    canonical_id="legacy-exam", canonical_name=label, year_roc=115,
+                    source_exam_id="legacy-115", subject_code="0101", storage_key="question.pdf",
+                )
+                result = build_bundles(
+                    bundle_dir=root / "bundles", mirror_dir=mirror,
+                    normalized=NormalizedCatalog([paper], []), bundle_base_url="",
+                )
+                self.assertEqual(result.bundles[0].asset_name, "legacy-exam.zip")
+                self.assertEqual(result.bundles[0].schema_version, 1)
+                self.assertEqual(result.bundles[0].bundle_id, "")
+
     def test_build_bundles_groups_multiple_years_under_one_stable_zip(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

@@ -5,6 +5,37 @@ from app.normalizer import normalize_papers, renormalize_catalog
 
 
 class NormalizePapersTests(unittest.TestCase):
+    def test_ascii_official_records_receive_v2_identity_on_ingest_and_migration(self) -> None:
+        parsed = ParsedPaper(
+            category_raw="GSAT", category_code="101", subject_code="0101",
+            subject_name_raw="English", files={"question": "https://official.example/question.pdf"},
+        )
+        aliases = [AliasRule(
+            match_type="exact", raw_pattern="CEEC GSAT", canonical_id="ceec-gsat", canonical_name="CEEC GSAT",
+        )]
+        result = normalize_papers(
+            source_exam_id="gsat-115-english", year_ad=2026, exam_name_raw="115 CEEC GSAT",
+            papers=[parsed], alias_rules=aliases, mirror_base_url="", mirror_metadata={},
+            provider_id="ceec_gsat",
+        )
+        paper = result.papers[0]
+        self.assertEqual(paper.schema_version, 2)
+        self.assertEqual(paper.exam_series_id, "admission-gsat")
+        self.assertEqual(paper.bundle_id, "ceec-gsat-admission-gsat-not-applicable-ceec-gsat")
+        self.assertEqual(paper.classification_confidence, "medium")
+
+        legacy = NormalizedPaper(
+            provider_id="ceec_gsat", canonical_id="ceec-gsat", canonical_name="CEEC GSAT",
+            year_roc=115, exam_name_raw="115 CEEC GSAT", category_raw="GSAT",
+            category_code="101", source_exam_id="gsat-115-english", subject_code="0101",
+            subject_name_raw="English", paper_code="101-0101-question", file_type="question",
+            download_url_source="https://official.example/question.pdf",
+        )
+        migrated = renormalize_catalog(NormalizedCatalog([legacy], []), aliases).papers[0]
+        self.assertEqual(migrated.schema_version, 2)
+        self.assertEqual(migrated.bundle_id, paper.bundle_id)
+        self.assertEqual(migrated.canonical_id, legacy.canonical_id)
+
     def test_renormalization_keeps_ambiguous_canonicalization_review_until_resolved(self) -> None:
         parsed = ParsedPaper(
             category_raw="甲組暨乙組", category_code="301", subject_code="0101",
