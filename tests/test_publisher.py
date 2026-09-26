@@ -288,7 +288,7 @@ class PublisherTests(unittest.TestCase):
                 },
             )
 
-            nurse = next(bundle for bundle in bundles if bundle.asset_name == "nurse.zip")
+            nurse = next(bundle for bundle in bundles if bundle.canonical_id == "nurse")
             path = root / nurse.storage_key
             with zipfile.ZipFile(path) as archive:
                 entries = [(info, archive.read(info)) for info in archive.infolist()]
