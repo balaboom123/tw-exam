@@ -24,8 +24,8 @@ The v2 rule is catalog-wide:
 | Responsibility | Source of truth |
 | --- | --- |
 | Shared concepts and labels | catalog/taxonomy/exam-identity-v2.json |
-| MOEX level and promotion vocabulary | catalog/mappings/moex/level-rules.json |
-| Provider publication policy | catalog/mappings/provider-policies.json |
+| MOEX level and promotion rules | app/classification.py |
+| Provider membership and publication policy | app/site_registry.py and catalog/mappings/publication-quarantine.json |
 | Deterministic identity resolution | app/classification.py |
 | Normalized paper contract | schemas/normalized-paper-v2.schema.json |
 | Bundle contract | schemas/bundle-v2.schema.json |
@@ -117,4 +117,3 @@ A change is safe only when:
 - release tags stay at or below the 900 operational target and never exceed the 1,000 hard cap;
 - frontend series/level facets come from the v2 feed, not name regexes;
 - legacy assets remain recoverable until separately authorized retirement.
-

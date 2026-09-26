@@ -58,6 +58,10 @@ Behavior:
 - `sync-*` commands download source files into `mirror/providers/<provider_id>/`
 - mirror paths are built from year, exam ID, category, subject, and file type
 - existing mirrored files are reused when valid
+- source pages are fetched serially; independent files within a page may download with up to four workers, while mirror writes remain serial
+- providers with session state or source rate limits set `max_concurrency = 1`
+- simple provider adapters may use the shared HTTP transport; sync wraps adapter calls in transient-request retries, so those adapters use one transport attempt to avoid multiplying retries
+- transient fetch and discovery requests use bounded retries and honor `Retry-After` when provided
 
 Integrity properties:
 
@@ -115,11 +119,14 @@ Behavior:
 - provider raw pages become `NormalizedPaper` records
 - provider-scoped alias rules under `data/providers/<provider_id>/aliases.json` are applied during normalization
 - unresolved naming cases are emitted to `data/providers/<provider_id>/review-queue.json`
+- provider writes also regenerate `data/providers/<provider_id>/index.json`, a compact projection for inventory gates; readers scan source files when the index is missing or its file-size snapshot differs
+- source inventory, publication eligibility, and event-level history checks read a current index; the catalog audit still reclassifies full paper records
 
 Invariant:
 
 - alias rules SHOULD be provider-scoped unless a site explicitly owns cross-provider canonicalization
 - normalized schema MUST remain source-agnostic
+- the derived index MUST be rebuildable from provider source files; `uv run python scripts/build_provider_indexes.py --check` compares its full contents with those files
 
 ### 6. Merge refreshed state
 
@@ -143,6 +150,7 @@ Why this matters:
 Behavior:
 
 - bundle generation reads normalized papers and mirrored files
+- an unchanged single-part ZIP is reused when its full embedded manifest and entry names match current papers; entries whose mirror files are absent are streamed once to verify ZIP CRC before reuse
 - generated site bundle metadata is written to `data/sites/<site_id>/bundles.json`
 - release asset inventory is written to `data/sites/<site_id>/release-assets.json`
 - legacy alias asset names may be preserved for compatibility
@@ -171,7 +179,9 @@ Integrity properties:
 Behavior:
 
 - `app.publisher.publish_site` writes site-scoped publication metadata under `data/sites/<site_id>/`
-- the frontend build emits a frontend-specific `data/bundles.json` feed from publication data
+- the frontend build projects `frontend-bundles.json` into a content-hashed `data/bundles-<hash>.json` feed and a separate `data/search-index-<hash>.json`
+- the search index is fetched only when a visitor searches; its rows align with the public feed's bundle order
+- the same projection generates one static `b/<bundle-id>.html` landing page per public bundle and `sitemap.xml`; page URLs and release links come from site publication metadata
 
 Invariant:
 
@@ -182,7 +192,7 @@ Invariant:
 
 Behavior:
 
-- generated bundle feeds keep direct ZIP URLs
+- the site-owned source feed keeps direct ZIP URLs; the public build feed carries their repository, release tag, and asset name so the browser can reconstruct them
 - the frontend download row opens a category-specific LINE channel before unlocking ZIP downloads locally
 
 Invariant:

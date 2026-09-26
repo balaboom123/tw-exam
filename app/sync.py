@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import hashlib
+import random
 import re
 import time
+from concurrent.futures import Future, ThreadPoolExecutor
+from dataclasses import dataclass
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import unquote
@@ -10,6 +13,7 @@ from urllib.parse import unquote
 from app.models import AliasRule, ExamAttachment, NormalizedCatalog, ParsedPaper, SourceExamPage, StoredFile, SyncFailure
 from app.normalizer import normalize_papers
 from app.providers.base import SourceProvider
+from app.providers.http import retry_after_seconds
 from app.storage import MirrorStore
 
 EXTENSION_OVERRIDES = {
@@ -127,7 +131,8 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     return _matches_expected_binary(path.read_bytes()[:8], actual_extension)
 
 
-def _retry_network(operation, attempts: int = 3):
+def retry_network(operation, attempts: int = 3):
+    """Retry transient source requests, respecting a server's Retry-After."""
     for attempt in range(attempts):
         try:
             return operation()
@@ -136,11 +141,18 @@ def _retry_network(operation, attempts: int = 3):
                 raise
             if attempt + 1 == attempts:
                 raise
-            time.sleep(2**attempt)
+            delay = 2**attempt + random.uniform(0.0, 0.25)
+            if isinstance(exc, HTTPError):
+                retry_after = retry_after_seconds(exc.headers.get("Retry-After") if exc.headers else None)
+                if retry_after is not None:
+                    delay = max(delay, retry_after)
+            if delay > 120:
+                raise
+            time.sleep(delay)
     raise AssertionError("network retry loop did not return or raise")
 
 
-def _ensure_mirrored(client: SourceProvider, mirror_store: MirrorStore, prefix: str, file_type: str, download_url: str) -> StoredFile:
+def _existing_mirrored(mirror_store: MirrorStore, prefix: str, file_type: str) -> StoredFile | None:
     legacy_prefix = prefix
     stored = mirror_store.find_existing(prefix)
     if prefix.startswith("providers/"):
@@ -153,12 +165,7 @@ def _ensure_mirrored(client: SourceProvider, mirror_store: MirrorStore, prefix: 
         stored = mirror_store.find_existing(legacy_prefix)
     if stored is not None and not _is_valid_stored_file(stored.path, file_type):
         stored = None
-    if stored is None:
-        downloaded = _retry_network(lambda: client.download_file(download_url))
-        extension = _validated_extension(file_type, downloaded.data, downloaded.content_type, downloaded.file_name)
-        stored = mirror_store.write_bytes(f"{prefix}{extension}", downloaded.data, overwrite=True)
-        mirror_store.delete_matching_except(prefix, stored.storage_key)
-    elif legacy_prefix != prefix and stored.storage_key.startswith(legacy_prefix):
+    if stored is not None and legacy_prefix != prefix and stored.storage_key.startswith(legacy_prefix):
         promoted_storage_key = f"{prefix}{stored.path.suffix.lower()}"
         promoted = mirror_store.write_bytes(promoted_storage_key, stored.path.read_bytes(), overwrite=False)
         stored = StoredFile(
@@ -169,6 +176,22 @@ def _ensure_mirrored(client: SourceProvider, mirror_store: MirrorStore, prefix: 
             size=promoted.size,
         )
     return stored
+
+
+def _download_validated(client: SourceProvider, file_type: str, url: str) -> tuple[bytes, str]:
+    downloaded = retry_network(lambda: client.download_file(url))
+    extension = _validated_extension(file_type, downloaded.data, downloaded.content_type, downloaded.file_name)
+    return downloaded.data, extension
+
+
+@dataclass(frozen=True)
+class _MirrorRequest:
+    prefix: str
+    file_type: str
+    url: str
+    paper_code: str
+    attachment: ExamAttachment | None = None
+    paper: ParsedPaper | None = None
 
 
 def restore_catalog_files(
@@ -182,7 +205,7 @@ def restore_catalog_files(
             if path.is_file() and _is_valid_stored_file(path, paper.file_type):
                 if not paper.checksum or hashlib.sha256(path.read_bytes()).hexdigest() == paper.checksum:
                     continue
-            downloaded = _retry_network(lambda: client.download_file(paper.download_url_source))
+            downloaded = retry_network(lambda: client.download_file(paper.download_url_source))
             extension = _validated_extension(
                 paper.file_type, downloaded.data, downloaded.content_type, downloaded.file_name,
             )
@@ -215,7 +238,7 @@ def sync_exam_pages(
 
     for exam_code, year_ad in exam_codes:
         try:
-            page = _retry_network(lambda: client.fetch_exam_page(exam_code, year_ad))
+            page = retry_network(lambda: client.fetch_exam_page(exam_code, year_ad))
         except Exception as exc:
             failures.append(
                 SyncFailure(
@@ -233,56 +256,87 @@ def sync_exam_pages(
         if provider_id and not page.provider_id:
             page.provider_id = provider_id
         mirror_metadata: dict[tuple[str, str, str], dict[str, str]] = {}
-
+        requests: list[_MirrorRequest] = []
         if download_attachments:
             for attachment in page.attachments:
-                try:
-                    stored = _ensure_mirrored(
-                        client,
-                        mirror_store,
-                        _mirror_prefix_for_attachment(page, attachment),
-                        attachment.file_type,
-                        attachment.download_url_source,
-                    )
-                    attachment.storage_key = stored.storage_key
-                    attachment.asset_name = _asset_name_for(stored.storage_key)
-                    attachment.checksum = stored.checksum
-                    attachment.download_url_mirror = f"{mirror_base_url.rstrip('/')}/{attachment.asset_name}" if mirror_base_url else ""
-                except Exception as exc:
-                    failures.append(
-                        SyncFailure(
-                            stage="download",
-                            source_exam_id=page.source_exam_id,
-                            year_roc=page.year_roc,
-                            paper_code=f"exam-{attachment.file_type}",
-                            file_type=attachment.file_type,
-                            url=attachment.download_url_source,
-                            message=str(exc),
-                        )
-                    )
+                requests.append(_MirrorRequest(
+                    prefix=_mirror_prefix_for_attachment(page, attachment),
+                    file_type=attachment.file_type,
+                    url=attachment.download_url_source,
+                    paper_code=f"exam-{attachment.file_type}",
+                    attachment=attachment,
+                ))
 
         for paper in page.papers:
             for file_type, download_url in paper.files.items():
-                try:
-                    stored = _ensure_mirrored(client, mirror_store, _mirror_prefix_for_paper(page, paper, file_type), file_type, download_url)
-                    paper.mirror_files[file_type] = {
-                        "storage_key": stored.storage_key,
-                        "asset_name": _asset_name_for(stored.storage_key),
-                        "checksum": stored.checksum,
-                    }
-                    mirror_metadata[(paper.category_code, paper.subject_code, file_type)] = paper.mirror_files[file_type]
-                except Exception as exc:
-                    failures.append(
-                        SyncFailure(
-                            stage="download",
-                            source_exam_id=page.source_exam_id,
-                            year_roc=page.year_roc,
-                            paper_code=f"{paper.category_code}-{paper.subject_code}-{file_type}",
-                            file_type=file_type,
-                            url=download_url,
-                            message=str(exc),
-                        )
-                    )
+                requests.append(_MirrorRequest(
+                    prefix=_mirror_prefix_for_paper(page, paper, file_type),
+                    file_type=file_type,
+                    url=download_url,
+                    paper_code=f"{paper.category_code}-{paper.subject_code}-{file_type}",
+                    paper=paper,
+                ))
+
+        max_workers = max(1, min(4, int(getattr(client, "max_concurrency", 4))))
+        stored_by_prefix: dict[str, StoredFile] = {}
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            for start in range(0, len(requests), max_workers):
+                batch: list[tuple[_MirrorRequest, StoredFile | Future[tuple[bytes, str]]]] = []
+                for request in requests[start:start + max_workers]:
+                    try:
+                        stored = stored_by_prefix.get(request.prefix)
+                        if stored is None:
+                            stored = _existing_mirrored(mirror_store, request.prefix, request.file_type)
+                        if stored is not None:
+                            stored_by_prefix[request.prefix] = stored
+                            batch.append((request, stored))
+                        else:
+                            batch.append((request, executor.submit(
+                                _download_validated, client, request.file_type, request.url,
+                            )))
+                    except Exception as exc:
+                        failures.append(SyncFailure(
+                            stage="download", source_exam_id=page.source_exam_id,
+                            year_roc=page.year_roc, paper_code=request.paper_code,
+                            file_type=request.file_type, url=request.url, message=str(exc),
+                        ))
+
+                # Only fetches run on workers. All MirrorStore access stays on
+                # this thread because its dedupe index is mutable state.
+                for request, result in batch:
+                    try:
+                        stored = stored_by_prefix.get(request.prefix)
+                        if stored is None:
+                            assert isinstance(result, Future)
+                            data, extension = result.result()
+                            stored = mirror_store.write_bytes(
+                                f"{request.prefix}{extension}", data, overwrite=True,
+                            )
+                            mirror_store.delete_matching_except(request.prefix, stored.storage_key)
+                            stored_by_prefix[request.prefix] = stored
+                        if request.attachment is not None:
+                            attachment = request.attachment
+                            attachment.storage_key = stored.storage_key
+                            attachment.asset_name = _asset_name_for(stored.storage_key)
+                            attachment.checksum = stored.checksum
+                            attachment.download_url_mirror = (
+                                f"{mirror_base_url.rstrip('/')}/{attachment.asset_name}" if mirror_base_url else ""
+                            )
+                            continue
+                        assert request.paper is not None
+                        paper = request.paper
+                        paper.mirror_files[request.file_type] = {
+                            "storage_key": stored.storage_key,
+                            "asset_name": _asset_name_for(stored.storage_key),
+                            "checksum": stored.checksum,
+                        }
+                        mirror_metadata[(paper.category_code, paper.subject_code, request.file_type)] = paper.mirror_files[request.file_type]
+                    except Exception as exc:
+                        failures.append(SyncFailure(
+                            stage="download", source_exam_id=page.source_exam_id,
+                            year_roc=page.year_roc, paper_code=request.paper_code,
+                            file_type=request.file_type, url=request.url, message=str(exc),
+                        ))
 
         normalized_input_papers = [
             ParsedPaper(

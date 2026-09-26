@@ -21,6 +21,7 @@ The goal is to prevent the multi-source expansion from drifting into ad hoc JSON
 | source manifest | provider | `data/providers/<provider_id>/source-manifest.json` |
 | raw exam pages | provider | `data/providers/<provider_id>/exams/*.json` |
 | normalized papers | provider | `data/providers/<provider_id>/papers/*.json` |
+| derived event and paper index | provider | `data/providers/<provider_id>/index.json` |
 | review queue | provider | `data/providers/<provider_id>/review-queue.json` |
 | sync failures | provider | `data/providers/<provider_id>/sync-failures.json` |
 | alias rules | provider | `data/providers/<provider_id>/aliases.json` |
@@ -297,7 +298,8 @@ Rules:
 - The frontend feed MUST be site-owned.
 - The frontend feed MUST NOT expose raw provider-specific crawl fields.
 - The frontend feed MUST be derivable entirely from site publication outputs.
-- Frontend consumers MUST NOT need to know which release tag stores a given asset.
+- The public build projection MAY replace a direct URL with its GitHub repository, release tag, and asset name. It MUST reconstruct the same URL without consulting provider state.
+- Search aliases MAY be split into a lazy index. Index positions MUST align with the public bundle order, and both content-hashed files MUST be emitted by the same build.
 - V2 frontend entries MUST consume structured series/level/track facets; they MUST NOT reconstruct official identity from display-name regexes.
 - Multipart entries MUST render one logical row with one download control per part; the row's file count is the sum of its parts.
 

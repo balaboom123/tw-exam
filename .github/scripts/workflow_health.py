@@ -2,9 +2,9 @@
 
 Nothing in this repository used to react to a failed scheduled run, so
 sync-incremental failed every week from 2026-07-13 to 2026-08-03 without
-anyone learning of it while 86% of the published catalog went stale. This
-script is the reaction: one open issue per unhealthy workflow, closed again
-as soon as that workflow succeeds. Repeated failures remain visible in Actions
+anyone learning of it while 86% of the published catalog went stale. The
+daily audit keeps one open issue per unhealthy workflow and closes it after
+a successful recovery. Repeated failures remain visible in Actions
 without generating a fresh issue notification for every identical outcome.
 
 Requires the gh CLI with GH_TOKEN set.
@@ -22,10 +22,8 @@ from pathlib import Path
 WORKFLOWS_DIR = Path(__file__).resolve().parents[1] / "workflows"
 SELF_WORKFLOW = "workflow-health.yml"
 HEALTH_LABEL = "workflow-health"
-# "cancelled" is deliberately absent: deploy-pages cancels its own in-flight
-# runs by design, so reporting it would bury the real failures. A workflow that
-# only ever gets cancelled - as sync-hakka-cert did on 2026-07-08, 07-15 and
-# 07-22 - is caught by the staleness pass instead.
+# A short cancellation may be intentional deploy supersession. The daily audit
+# reports cancellation only when its elapsed runtime reaches the job timeout.
 UNHEALTHY_CONCLUSIONS = ("failure", "timed_out")
 
 
@@ -195,10 +193,77 @@ def _scheduled_workflows(repository: str) -> list[dict]:
     workflows = (payload or {}).get("workflows", [])
     scheduled = _scheduled_workflow_paths()
     return [
-        {**w, "interval_days": scheduled[w["path"]]}
+        {**w, "interval_days": scheduled[w["path"]],
+         "timeout_minutes": _workflow_timeout_minutes(WORKFLOWS_DIR / Path(w["path"]).name)}
         for w in workflows
         if w.get("state") == "active" and w.get("path") in scheduled
     ]
+
+
+def _workflow_timeout_minutes(path: Path) -> int:
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if "timeout-minutes:" in line:
+            value = line.partition("timeout-minutes:")[2].strip()
+            if value.isdecimal():
+                return int(value)
+    return 120
+
+
+def _latest_run(repository: str, workflow_id: int) -> dict | None:
+    payload = _gh_api(
+        f"repos/{repository}/actions/workflows/{workflow_id}/runs",
+        "-X", "GET", "-f", "status=completed", "-f", "per_page=1",
+    )
+    runs = (payload or {}).get("workflow_runs", [])
+    return runs[0] if runs else None
+
+
+def _cancelled_past_timeout(run: dict, timeout_minutes: int) -> bool:
+    started = run.get("run_started_at") or run.get("created_at")
+    finished = run.get("updated_at")
+    if not started or not finished:
+        return False
+    start_time = datetime.fromisoformat(started.replace("Z", "+00:00"))
+    finish_time = datetime.fromisoformat(finished.replace("Z", "+00:00"))
+    return finish_time - start_time >= timedelta(minutes=timeout_minutes)
+
+
+def audit_latest() -> int:
+    """Inspect each scheduled workflow's latest completed run once per day."""
+    repository = _repository()
+    unhealthy = 0
+    for workflow in _scheduled_workflows(repository):
+        name = workflow["name"]
+        run = _latest_run(repository, workflow["id"])
+        if run is None or run.get("status") not in (None, "completed"):
+            continue
+        conclusion = run.get("conclusion")
+        existing = _open_health_issue(repository, name)
+        if conclusion == "success":
+            if existing is not None and not _is_staleness_issue(existing):
+                _close(repository, existing["number"],
+                       f"`{name}` succeeded again.\n\nRun: {run.get('html_url', '')}")
+            continue
+        if conclusion == "cancelled" and not _cancelled_past_timeout(
+            run, workflow.get("timeout_minutes", 120)
+        ):
+            continue
+        if conclusion not in (*UNHEALTHY_CONCLUSIONS, "cancelled"):
+            continue
+        unhealthy += 1
+        if existing is None:
+            body = f"`{name}` concluded **{conclusion}**.\n\nRun: {run.get('html_url', '')}"
+            _create_issue(repository, name, body)
+            print(f"opened health issue for {name} ({conclusion})")
+        else:
+            print(f"health issue #{existing['number']} already tracks {name}")
+    print(f"{unhealthy} workflow(s) with an unhealthy latest run")
+    return 0
+
+
+def daily(max_age_days: int) -> int:
+    audit_latest()
+    return stale(max_age_days)
 
 
 def _last_success(repository: str, workflow_id: int) -> datetime | None:
@@ -226,9 +291,8 @@ def stale(max_age_days: int) -> int:
         # every month no matter how healthy it was. Allow two missed runs, which
         # is exactly what 14 days already meant for the weekly syncs that make up
         # every other scheduled workflow here. Losing tightness on the monthly
-        # one costs nothing: an outright failure is reported the moment it
-        # happens by the workflow_run pass, and this pass only exists to catch a
-        # schedule that silently stopped firing at all.
+        # one costs little: the latest-run audit reports outright failures
+        # daily, and this pass catches schedules that stop firing at all.
         window = max(max_age_days, 2 * workflow["interval_days"])
         last = _last_success(repository, workflow["id"])
         if last is not None and last >= now - timedelta(days=window):
@@ -271,10 +335,14 @@ def main(argv: list[str] | None = None) -> int:
 
     stale_parser = sub.add_parser("stale", help="Report scheduled workflows with no recent successful run")
     stale_parser.add_argument("--max-age-days", type=int, default=14)
+    daily_parser = sub.add_parser("daily", help="Check latest outcomes and stale schedules")
+    daily_parser.add_argument("--max-age-days", type=int, default=14)
 
     args = parser.parse_args(argv)
     if args.command == "report":
         return report(args.workflow, args.conclusion, args.run_url)
+    if args.command == "daily":
+        return daily(args.max_age_days)
     return stale(args.max_age_days)
 
 

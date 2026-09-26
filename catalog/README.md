@@ -5,8 +5,7 @@ This directory contains reviewed, versioned domain knowledge used to classify ex
 ## Layout
 
 - taxonomy/exam-identity-v2.json: shared domains, families, series, levels, and policy metadata.
-- mappings/moex/level-rules.json: MOEX level, promotion, qualification, and historical marker rules.
-- mappings/provider-policies.json: provider-specific publication and minimum-history policy.
+- mappings/publication-quarantine.json: reviewed provider publication exclusions. Provider membership and minimum-history rules are executable in `app/site_registry.py`; MOEX phrase rules are executable in `app/classification.py`.
 - mappings/<provider>/: future provider-specific mappings when shared rules are insufficient.
 - source-coverage/<provider_id>.json: reviewed evidence for official source events/files that are blocked or intentionally out of scope; these are manual inputs, not generated crawl state.
 - source-inventory.json: reviewed source-scope matrix with status/evidence and exact local-state observations; it is not proof of live source completeness.
@@ -25,5 +24,4 @@ Every concept or rule change must include:
 
 IDs are keys. Labels and aliases may change without renaming an ID. Do not put generated paper/bundle JSON or source downloads here.
 
-The classifier may contain a small deterministic rule that cannot be expressed as data, but catalog remains the reviewable vocabulary. A change that can alter historical bundles requires full migrate-catalog and audit-catalog runs.
-
+Provider-specific phrase rules live in `app/classification.py`; catalog taxonomy remains the reviewed shared vocabulary. A change that can alter historical bundles requires full migrate-catalog and audit-catalog runs.

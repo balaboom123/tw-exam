@@ -12,6 +12,7 @@ from app.manifest import SourceManifest, write_source_manifest
 from app.models import AliasRule, BundleAsset, NormalizedCatalog, NormalizedPaper, SourceExamPage, SyncFailure, to_plain_data
 from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import provider_paths, site_paths
+from app.provider_index import build_provider_index, load_provider_index, write_provider_index
 from app.publication_quarantine import quarantined_provider_ids
 from app.release_tags import (
     RELEASE_SAFETY_TARGET,
@@ -103,6 +104,7 @@ def write_provider_state(
     )
     if manifest is not None:
         write_source_manifest(provider.source_manifest_path, manifest)
+    write_provider_index(provider, build_provider_index(provider, raw_pages, normalized.papers))
 
 
 def _bundle_key(bundle: BundleAsset) -> str:
@@ -336,6 +338,29 @@ def load_site_catalog(
         NormalizedCatalog(papers=aggregated_papers, review_queue=aggregated_review_queue),
         failures,
     )
+
+
+def load_site_provider_indexes(repo_root: Path, *, site_id: str) -> list[dict] | None:
+    """Load current provider indexes for a site, or request the full-file path."""
+    site_config = get_site_config(site_id)
+    quarantined = quarantined_provider_ids(repo_root, site_id=site_id)
+    quarantined_required = sorted(quarantined.intersection(site_config.required_provider_ids))
+    if quarantined_required:
+        raise ValueError(f"Required providers cannot be quarantined for site {site_id}: {', '.join(quarantined_required)}")
+    indexes: list[dict] = []
+    for provider_id in site_config.provider_ids:
+        if provider_id in quarantined:
+            continue
+        provider = provider_paths(repo_root, provider_id)
+        if not provider.data_dir.exists():
+            if provider_id in site_config.required_provider_ids:
+                raise ValueError(f"Missing provider state for {provider_id}: expected {provider.data_dir}")
+            continue
+        index = load_provider_index(provider)
+        if index is None:
+            return None
+        indexes.append(index)
+    return indexes
 
 
 def _format_bundle_failures(failures: list[SyncFailure]) -> str:

@@ -7,12 +7,8 @@ from app.audit import audit_exit_code, build_catalog_audit, build_publication_ba
 from app.models import NormalizedCatalog, NormalizedPaper, ReviewItem
 from app.normalizer import _derive_canonical
 from app.paths import provider_paths
-from app.publication_quarantine import quarantined_provider_ids
 from app.publisher import load_site_catalog, write_provider_state
 from app.state import filter_catalog_by_canonical_ids
-
-REPO_ROOT = Path(__file__).resolve().parents[1]
-
 
 def paper(category: str, event: str, year: int, source: str) -> NormalizedPaper:
     return NormalizedPaper(
@@ -94,6 +90,22 @@ class ReviewQueueStalenessTests(unittest.TestCase):
             report = self._audit_with_queued_row(Path(tmp_dir))
 
         self.assertEqual(report["review_queue_missing_entries"], 0)
+
+    def test_incomplete_canonical_fields_still_rebuild_review_evidence(self) -> None:
+        incomplete = paper(self.REVIEW_CATEGORY, "115年公務人員特種考試司法官考試（第一試）", 115, "115110")
+        incomplete.canonical_id = ""
+        incomplete.canonical_name = ""
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            write_provider_state(
+                provider_paths(root, "moex"),
+                raw_pages=[],
+                normalized=NormalizedCatalog(papers=[incomplete], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
+            report = build_catalog_audit(root)
+
+        self.assertEqual(report["review_queue_missing_entries"], 1)
 
 
 class CatalogAuditTests(unittest.TestCase):
@@ -194,30 +206,55 @@ class CatalogAuditTests(unittest.TestCase):
 
 
 class PublicationBacklogTests(unittest.TestCase):
-    def test_quarantined_providers_are_not_reported_as_a_backlog(self) -> None:
-        # A quarantined provider is registered and audited but deliberately
-        # withheld from the public projection. Counting raw provider records
-        # against the published catalog therefore reports every quarantined
-        # provider as unpublished - the repository's twelve quarantined
-        # providers once read as a 36-bundle backlog that did not exist.
-        backlog = build_publication_backlog(REPO_ROOT, site_id="default")
-        quarantined = quarantined_provider_ids(REPO_ROOT, site_id="default")
+    def test_audit_reuses_classification_for_publication_backlog(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            write_provider_state(
+                provider_paths(root, "moex"),
+                raw_pages=[],
+                normalized=NormalizedCatalog(papers=[
+                    paper("一般行政", "公務人員高等考試三級", 115, "high-115"),
+                    paper("一般行政", "公務人員高等考試三級", 114, "high-114"),
+                ], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
+            write_provider_state(
+                provider_paths(root, "ceec_gsat"),
+                raw_pages=[], normalized=NormalizedCatalog(papers=[], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
 
-        self.assertTrue(quarantined, "fixture assumes the repository quarantines something")
-        self.assertEqual(set(backlog["provider_ids"]) & quarantined, set())
+            audit = build_catalog_audit(root, include_publication_backlog=True)
+            standalone = build_publication_backlog(root)
+            normalized, _failures = load_site_catalog(root, site_id="default")
+            selected = filter_catalog_by_canonical_ids(normalized, set(standalone["affected_canonical_ids"]))
 
-    def test_backlog_matches_what_publish_site_would_actually_build(self) -> None:
-        # The plan is fed to publish-site as --publish-plan, so the ids have to
-        # select papers from the renormalized catalog publish-site loads. Ids
-        # classified from raw records select nothing, and the publish silently
-        # becomes a no-op.
-        backlog = build_publication_backlog(REPO_ROOT, site_id="default")
-        normalized, _failures = load_site_catalog(REPO_ROOT, site_id="default")
-        selected = filter_catalog_by_canonical_ids(normalized, set(backlog["affected_canonical_ids"]))
+            self.assertEqual(audit["publication_backlog"], standalone)
+            self.assertEqual(standalone["unpublished_bundle_count"], 1)
+            self.assertEqual(standalone["unpublished_record_count"], 2)
+            self.assertEqual(len(selected.papers), standalone["unpublished_record_count"])
 
-        self.assertEqual(bool(backlog["affected_canonical_ids"]), bool(selected.papers))
-        self.assertEqual(len(selected.papers), backlog["unpublished_record_count"])
+    def test_incomplete_records_use_publication_backlog_load_path(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            incomplete = paper("一般行政", "公務人員高等考試三級", 115, "high-115")
+            incomplete.canonical_id = ""
+            incomplete.canonical_name = ""
+            write_provider_state(
+                provider_paths(root, "moex"),
+                raw_pages=[], normalized=NormalizedCatalog(papers=[incomplete], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
+            write_provider_state(
+                provider_paths(root, "ceec_gsat"),
+                raw_pages=[], normalized=NormalizedCatalog(papers=[], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
 
+            audit = build_catalog_audit(root, include_publication_backlog=True)
+            standalone = build_publication_backlog(root)
+
+            self.assertEqual(audit["publication_backlog"], standalone)
 
 if __name__ == "__main__":
     unittest.main()

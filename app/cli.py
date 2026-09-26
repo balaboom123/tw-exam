@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from app.audit import audit_exit_code, build_catalog_audit, build_publication_backlog, build_release_plan, write_catalog_audit, write_release_plan
+from app.audit import audit_exit_code, build_catalog_audit, build_release_plan, write_catalog_audit, write_release_plan
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code, write_history_coverage_audit
 from app.bundler import build_bundles, public_bundle_ids
 from app.crawler import make_result_url, make_year_search_url, year_ad_from_code
@@ -22,7 +22,7 @@ from app.providers.base import SourceProvider
 from app.providers.registry import get_provider
 from app.state import load_existing_state, load_provider_state, load_site_bundles, merge_incremental_state, merge_targeted_state
 from app.site_registry import get_site_config
-from app.sync import restore_catalog_files, sync_exam_pages
+from app.sync import restore_catalog_files, retry_network, sync_exam_pages
 from app.storage import MirrorStore
 
 
@@ -81,6 +81,7 @@ def _provider_state_paths(data_dir: Path, mirror_dir: Path, provider_id: str) ->
         data_dir=provider_data_dir,
         exams_dir=provider_data_dir / "exams",
         papers_dir=provider_data_dir / "papers",
+        index_path=provider_data_dir / "index.json",
         review_queue_path=provider_data_dir / "review-queue.json",
         sync_failures_path=provider_data_dir / "sync-failures.json",
         aliases_path=provider_data_dir / "aliases.json",
@@ -288,7 +289,7 @@ def command_discover(args: argparse.Namespace, client: SourceProvider | None = N
     for index, year in enumerate(years):
         if index and delay_seconds:
             time.sleep(delay_seconds)
-        exams = client.discover_exams(year)
+        exams = retry_network(lambda: client.discover_exams(year))
         discoveries.append((year, exams))
         payload.append(
             {
@@ -681,7 +682,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
 
     for year in years:
         try:
-            discovered_exams = provider.discover_exams(year)
+            discovered_exams = retry_network(lambda: provider.discover_exams(year))
             discoveries.append((year, discovered_exams))
             exam_codes = [(exam.code, exam.year_ad) for exam in discovered_exams]
         except Exception as exc:
@@ -713,6 +714,17 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             )
         except Exception as exc:
             print(f"Year {year}: failed with unexpected error: {exc}")
+            all_sync_failures.append(
+                SyncFailure(
+                    stage="sync",
+                    source_exam_id=f"{provider_id}-{year}",
+                    year_roc=year - 1911,
+                    paper_code="",
+                    file_type="",
+                    url="",
+                    message=f"Failed to sync year: {exc}",
+                )
+            )
             continue
         all_raw_pages.extend(raw_pages_year)
         all_papers.extend(catalog_year.papers)
@@ -776,7 +788,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         # is what an archive of past papers has to do. It also keeps the
         # retained papers referenced, so --prune-orphaned-mirror leaves their
         # mirrored files alone.
-        existing_provider_raw_pages, existing_provider_catalog, _ = load_provider_state(provider_state)
+        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = load_provider_state(provider_state)
         provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = merge_incremental_state(
             existing_raw_pages=existing_provider_raw_pages,
             existing_catalog=existing_provider_catalog,
@@ -784,10 +796,12 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             refreshed_raw_pages=refreshed_raw_pages,
             refreshed_catalog=refreshed_catalog,
         )
-        # Failures still describe this run alone: a retained event is one the
-        # source no longer reaches, so an old failure against it cannot be
-        # re-checked and must not be resurrected.
-        provider_failures = sync_failures
+        # Keep the failure evidence for events this run never fetched, just
+        # as the incremental branch does. Successful refreshes replace old
+        # failures, while the run's exit status still reflects only new ones.
+        refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
+        provider_failures = [failure for failure in existing_provider_failures if failure.source_exam_id not in refreshed_exam_ids]
+        provider_failures.extend(sync_failures)
         failures = sync_failures
     if args.publish_plan_output is not None:
         _write_publish_plan(
@@ -918,7 +932,7 @@ def command_audit_history(args: argparse.Namespace) -> int:
 
 
 def command_audit_catalog(args: argparse.Namespace) -> int:
-    report = build_catalog_audit(args.repo_root, site_id=args.site_id)
+    report = build_catalog_audit(args.repo_root, site_id=args.site_id, include_publication_backlog=True)
     write_catalog_audit(report, args.output)
     print(
         f"Scanned {report['paper_records_scanned']} records across {report['provider_count']} providers; "
@@ -931,7 +945,7 @@ def command_audit_catalog(args: argparse.Namespace) -> int:
     # Quarantined providers are withheld from that projection deliberately, so
     # the two differ by design and subtracting them measures nothing. Use the
     # backlog check, which reads the same population publish-site does.
-    backlog = build_publication_backlog(args.repo_root, site_id=args.site_id)
+    backlog = report["publication_backlog"]
     if backlog["unpublished_bundle_count"]:
         print(
             f"WARNING: {backlog['unpublished_bundle_count']} publishable bundle(s) covering "

@@ -3,49 +3,64 @@ import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 import path from "path"
-// @ts-expect-error Vite can load the ESM build helper directly; runtime behavior is covered by tests.
-import { readFrontendBundlesSource, resolveAdsenseEnabled, resolvePagesBase } from "./build/bundles-data.mjs"
+import { resolvePagesBase } from "./build/site-config.mjs"
+import { readPublicData } from "./build/public-data.mjs"
+import { buildBundlePage, buildSitemap, bundlePagesCss, siteRoot } from "./build/bundle-pages.mjs"
 
 const repoRoot = path.resolve(__dirname, "..")
-const generatedBundlesPaths = [path.resolve(repoRoot, "data", "sites", "default", "bundles.json")]
-const adsensePublisherId = "ca-pub-9524747112096155"
-const adsenseAuthorizedSeller = "google.com, pub-9524747112096155, DIRECT, f08c47fec0942fa0"
+const frontendSourcePath = path.resolve(repoRoot, "data", "sites", "default", "frontend-bundles.json")
 
-function servedBundlesPlugin(): Plugin {
+type PublicData = Awaited<ReturnType<typeof readPublicData>>
+
+function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
   return {
     name: "served-bundles",
     buildStart() {
-      for (const generatedBundlesPath of generatedBundlesPaths) {
-        this.addWatchFile(generatedBundlesPath)
-      }
+      this.addWatchFile(frontendSourcePath)
     },
     configureServer(server) {
-      const servedPath = `${server.config.base}data/bundles.json`.replace(/\/{2,}/g, "/")
-      const watchedPaths = new Set(generatedBundlesPaths)
+      const feedPath = `${server.config.base}${publicData.feedFile}`.replace(/\/{2,}/g, "/")
+      const searchPath = `${server.config.base}${publicData.searchFile}`.replace(/\/{2,}/g, "/")
+      const pagePrefix = `${server.config.base}b/`.replace(/\/{2,}/g, "/")
+      const cssPath = `${server.config.base}assets/bundle-pages.css`.replace(/\/{2,}/g, "/")
       const reloadServedBundles = (file: string) => {
-        if (watchedPaths.has(path.resolve(file))) {
+        if (path.resolve(file) === frontendSourcePath) {
           server.ws.send({ type: "full-reload" })
         }
       }
 
-      for (const generatedBundlesPath of generatedBundlesPaths) {
-        server.watcher.add(generatedBundlesPath)
-      }
+      server.watcher.add(frontendSourcePath)
       server.watcher.on("add", reloadServedBundles)
       server.watcher.on("change", reloadServedBundles)
       server.watcher.on("unlink", reloadServedBundles)
 
       server.middlewares.use(async (req, res, next) => {
         const requestPath = req.url?.split("?")[0] ?? ""
-        if (requestPath !== servedPath) {
+        const isPage = requestPath.startsWith(pagePrefix) && requestPath.endsWith(".html")
+        if (requestPath !== feedPath && requestPath !== searchPath && requestPath !== cssPath && !isPage) {
           next()
           return
         }
 
         try {
-          const source = await readFrontendBundlesSource(generatedBundlesPaths)
+          if (requestPath === cssPath) {
+            res.setHeader("Content-Type", "text/css; charset=utf-8")
+            res.end(bundlePagesCss)
+            return
+          }
+          const current = await readPublicData(frontendSourcePath)
+          if (isPage) {
+            const id = requestPath.slice(pagePrefix.length, -5)
+            const currentFeed = JSON.parse(current.feedText)
+            const bundle = currentFeed.bundles.find((item: { id: string }) => item.id === id)
+            if (!bundle) { next(); return }
+            res.setHeader("Content-Type", "text/html; charset=utf-8")
+            res.end(buildBundlePage(bundle, { repo: currentFeed.repo, root }))
+            return
+          }
           res.setHeader("Content-Type", "application/json; charset=utf-8")
-          res.end(source)
+          res.setHeader("Cache-Control", "no-store")
+          res.end(requestPath === feedPath ? current.feedText : current.searchText)
         } catch (error) {
           res.statusCode = 500
           res.setHeader("Content-Type", "application/json; charset=utf-8")
@@ -54,78 +69,104 @@ function servedBundlesPlugin(): Plugin {
       })
     },
     async generateBundle() {
+      const current = await readPublicData(frontendSourcePath)
+      if (current.feedFile !== publicData.feedFile || current.searchFile !== publicData.searchFile) {
+        throw new Error("Frontend bundle source changed while building; restart the build")
+      }
       this.emitFile({
         type: "asset",
-        fileName: "data/bundles.json",
-        source: await readFrontendBundlesSource(generatedBundlesPaths),
+        fileName: current.feedFile,
+        source: current.feedText,
       })
+      this.emitFile({
+        type: "asset",
+        fileName: current.searchFile,
+        source: current.searchText,
+      })
+      const currentFeed = JSON.parse(current.feedText)
+      this.emitFile({ type: "asset", fileName: "assets/bundle-pages.css", source: bundlePagesCss })
+      for (const bundle of currentFeed.bundles) {
+        this.emitFile({
+          type: "asset",
+          fileName: `b/${bundle.id}.html`,
+          source: buildBundlePage(bundle, { repo: currentFeed.repo, root }),
+        })
+      }
+      this.emitFile({ type: "asset", fileName: "sitemap.xml", source: buildSitemap(currentFeed.bundles, root) })
     },
   }
 }
 
-function adsenseAssetsPlugin({ enabled }: { enabled: boolean }): Plugin {
+const favicon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23a8432b'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='38' font-weight='700' fill='%23faf7f0' text-anchor='middle'%3E%E8%A9%A6%3C/text%3E%3C/svg%3E"
+
+function sharedHeadPlugin(root: string): Plugin {
   return {
-    name: "adsense-assets",
-    transformIndexHtml(html) {
-      if (!enabled) {
-        return undefined
+    name: "shared-site-head",
+    transformIndexHtml(html, context) {
+      const title = html.match(/<title>([^<]+)<\/title>/)?.[1]
+      const description = html.match(/<meta name="description" content="([^"]*)"\s*\/>/)?.[1]
+      if (!title || !description) throw new Error(`Missing title or description in ${context.filename}`)
+      const page = path.basename(context.filename)
+      const canonical = new URL(page === "index.html" ? "" : page, root).href
+      const tags: Array<{ tag: string; attrs?: Record<string, string>; children?: string; injectTo: "head" }> = [
+        { tag: "meta", attrs: { name: "theme-color", content: "#f7f5ec" }, injectTo: "head" },
+        { tag: "link", attrs: { rel: "icon", type: "image/svg+xml", href: favicon }, injectTo: "head" },
+      ]
+      if (page !== "404.html") {
+        tags.push(
+          { tag: "link", attrs: { rel: "canonical", href: canonical }, injectTo: "head" },
+          { tag: "meta", attrs: { property: "og:type", content: "website" }, injectTo: "head" },
+          { tag: "meta", attrs: { property: "og:locale", content: "zh_TW" }, injectTo: "head" },
+          { tag: "meta", attrs: { property: "og:url", content: canonical }, injectTo: "head" },
+          { tag: "meta", attrs: { property: "og:title", content: title }, injectTo: "head" },
+          { tag: "meta", attrs: { property: "og:description", content: description }, injectTo: "head" },
+          { tag: "meta", attrs: { property: "og:image", content: `${root}og-card.png` }, injectTo: "head" },
+          { tag: "meta", attrs: { name: "twitter:card", content: "summary_large_image" }, injectTo: "head" },
+        )
       }
-
-      return {
-        html,
-        tags: [
-          {
-            tag: "meta",
-            attrs: {
-              name: "google-adsense-account",
-              content: adsensePublisherId,
+      if (page === "index.html") {
+        tags.push({
+          tag: "script",
+          attrs: { type: "application/ld+json" },
+          children: JSON.stringify({
+            "@context": "https://schema.org", "@type": "WebSite", name: "tw-exam",
+            url: root,
+            potentialAction: {
+              "@type": "SearchAction", target: `${root}?q={search_term_string}`,
+              "query-input": "required name=search_term_string",
             },
-            injectTo: "head",
-          },
-          {
-            tag: "script",
-            attrs: {
-              async: true,
-              src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}`,
-              crossorigin: "anonymous",
-            },
-            injectTo: "head",
-          },
-        ],
+          }),
+          injectTo: "head",
+        })
       }
-    },
-    generateBundle() {
-      if (!enabled) {
-        return
-      }
-
-      this.emitFile({
-        type: "asset",
-        fileName: "ads.txt",
-        source: `${adsenseAuthorizedSeller}\n`,
-      })
+      return { html, tags }
     },
   }
 }
 
-export default defineConfig(({ command }) => {
+export default defineConfig(async ({ command }) => {
+  const publicData = await readPublicData(frontendSourcePath)
+  const repo = JSON.parse(publicData.feedText).repo as string
   const explicitBase = process.env.VITE_BASE_PATH
   const base = resolvePagesBase({
     githubRepository: process.env.GITHUB_REPOSITORY,
     explicitBase,
   })
-  const adsenseEnabled = resolveAdsenseEnabled({
-    githubRepository: process.env.GITHUB_REPOSITORY,
-    explicitBase,
-    explicitEnabled: process.env.VITE_ENABLE_ADSENSE,
-    isBuild: command === "build",
-  })
+  const origin = process.env.VITE_SITE_ORIGIN || `https://${repo.split("/")[0]}.github.io`
+  const root = siteRoot({ base, origin })
   return {
     base,
+    logLevel: command === "build" ? ("warn" as const) : ("info" as const),
+    define: {
+      "import.meta.env.VITE_PUBLIC_BUNDLES_FILE": JSON.stringify(publicData.feedFile),
+      "import.meta.env.VITE_PUBLIC_SEARCH_FILE": JSON.stringify(publicData.searchFile),
+    },
     build: {
+      reportCompressedSize: false,
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, "index.html"),
+          notFound: path.resolve(__dirname, "404.html"),
           about: path.resolve(__dirname, "about.html"),
           contact: path.resolve(__dirname, "contact.html"),
           faq: path.resolve(__dirname, "faq.html"),
@@ -135,8 +176,8 @@ export default defineConfig(({ command }) => {
       },
     },
     plugins: [
-      servedBundlesPlugin(),
-      adsenseAssetsPlugin({ enabled: adsenseEnabled }),
+      servedBundlesPlugin(publicData, root),
+      sharedHeadPlugin(root),
       react(),
       tailwindcss(),
     ],

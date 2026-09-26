@@ -1,8 +1,10 @@
 import json
 import tempfile
 import unittest
+from dataclasses import replace
 from pathlib import Path
 
+from app.audit import build_publication_backlog
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code
 from app.models import NormalizedCatalog, NormalizedPaper, SourceExamPage
 from app.paths import provider_paths, site_paths
@@ -11,7 +13,7 @@ from app.publication_quarantine import (
     quarantine_path,
     quarantined_provider_ids,
 )
-from app.publisher import load_site_catalog, write_provider_state, write_site_state
+from app.publisher import load_site_catalog, load_site_provider_indexes, write_provider_state, write_site_state
 from app.site_registry import get_site_config
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -143,6 +145,30 @@ class SiteProjectionTests(unittest.TestCase):
             normalized, _failures = load_site_catalog(root, site_id="default")
 
             self.assertEqual({paper.provider_id for paper in normalized.papers}, required)
+            self.assertEqual(
+                {index["provider_id"] for index in load_site_provider_indexes(root, site_id="default")},
+                required,
+            )
+
+    def test_quarantine_excludes_an_otherwise_publishable_backlog(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            self._seed_required(root)
+            paper_115 = _paper("sfi_cert", "dropped-sfi")
+            paper_114 = replace(paper_115, year_roc=114, source_exam_id="114010", paper_code="301-0608-114-question")
+            write_provider_state(
+                provider_paths(root, "sfi_cert"), raw_pages=[],
+                normalized=NormalizedCatalog(papers=[paper_115, paper_114], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
+            _write(root, [_entry("sfi_cert")])
+
+            withheld = build_publication_backlog(root)
+            _write(root, [])
+            visible = build_publication_backlog(root)
+
+            self.assertEqual(withheld["unpublished_bundle_count"], 0)
+            self.assertEqual(visible["provider_ids"], ["sfi_cert"])
 
     def test_projection_keeps_the_provider_without_a_quarantine_entry(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -154,6 +180,10 @@ class SiteProjectionTests(unittest.TestCase):
             normalized, _failures = load_site_catalog(root, site_id="default")
 
             self.assertEqual({paper.provider_id for paper in normalized.papers}, required | {"sfi_cert"})
+            self.assertEqual(
+                {index["provider_id"] for index in load_site_provider_indexes(root, site_id="default")},
+                required | {"sfi_cert"},
+            )
 
     def test_quarantining_a_required_provider_fails_closed(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

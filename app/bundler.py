@@ -5,12 +5,19 @@ import json
 import re
 import shutil
 import zipfile
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from app.normalizer import hashed_fallback_canonical_id, legacy_fallback_canonical_id
 from app.models import BundleAsset, BundleBuildResult, NormalizedCatalog, NormalizedPaper, SyncFailure, file_type_label, to_plain_data
 from app.publication_metadata import derive_public_metadata
+from app.provider_index import (
+    PAPER_LEGACY_CANDIDATE,
+    PAPER_YEAR_ROC,
+    paper_index_bundle_id,
+    paper_index_canonical_id,
+)
 
 WINDOWS_RESERVED_NAMES = {
     "CON",
@@ -284,6 +291,7 @@ def _split_bundle_archive(
 
 
 _EntryRef = tuple[Path, str]
+_ArchiveSignature = tuple[bytes, frozenset[str], int]
 
 
 def _resolve_entry_ref(ref: _EntryRef) -> bytes | None:
@@ -296,16 +304,23 @@ def _resolve_entry_ref(ref: _EntryRef) -> bytes | None:
 
 
 def _resolve_mirror_source_path(mirror_dir: Path, paper: NormalizedPaper) -> Path | None:
-    if not paper.storage_key:
+    return resolve_mirror_storage_path(mirror_dir, paper.storage_key, paper.provider_id)
+
+
+def resolve_mirror_storage_path(
+    mirror_dir: Path, storage_key: str, provider_id: str
+) -> Path | None:
+    """Resolve a provider mirror entry from its stored locator fields."""
+    if not storage_key:
         return None
 
-    storage_path = Path(paper.storage_key)
+    storage_path = Path(storage_key)
     direct_path = mirror_dir / storage_path
     if direct_path.exists():
         return direct_path
 
-    if paper.provider_id:
-        provider_scoped_path = mirror_dir / "providers" / paper.provider_id / storage_path
+    if provider_id:
+        provider_scoped_path = mirror_dir / "providers" / provider_id / storage_path
         if provider_scoped_path.exists():
             return provider_scoped_path
 
@@ -335,9 +350,14 @@ def _validate_source_entry_sizes(
 def _load_existing_entries_by_canonical(
     bundle_dir: Path,
     on_progress: Callable | None = None,
-) -> tuple[dict[str, dict[str, _EntryRef]], dict[str, dict[tuple[str, str, str, str], _EntryRef]]]:
+) -> tuple[
+    dict[str, dict[str, _EntryRef]],
+    dict[str, dict[tuple[str, str, str, str], _EntryRef]],
+    dict[Path, _ArchiveSignature],
+]:
     existing_entries_by_name: dict[str, dict[str, _EntryRef]] = {}
     existing_entries_by_key: dict[str, dict[tuple[str, str, str, str], _EntryRef]] = {}
+    archive_signatures: dict[Path, _ArchiveSignature] = {}
     archives = sorted(bundle_dir.glob("*.zip"))
     total = len(archives)
     for idx, archive_path in enumerate(archives, 1):
@@ -348,10 +368,17 @@ def _load_existing_entries_by_canonical(
                 names = archive.namelist()
                 if "bundle.json" not in names:
                     continue
-                manifest = json.loads(archive.read("bundle.json").decode("utf-8"))
+                manifest_bytes = archive.read("bundle.json")
+                manifest = json.loads(manifest_bytes.decode("utf-8"))
                 canonical_id = manifest.get("bundle_id") or manifest.get("canonical_id")
                 if not canonical_id:
                     continue
+                entry_names = [name for name in names if name != "bundle.json"]
+                archive_signatures[archive_path] = (
+                    hashlib.sha256(manifest_bytes).digest(),
+                    frozenset(entry_names),
+                    len(entry_names),
+                )
                 entries_by_name = existing_entries_by_name.setdefault(canonical_id, {})
                 for name in names:
                     if name != "bundle.json":
@@ -367,7 +394,7 @@ def _load_existing_entries_by_canonical(
                             entries_by_key[_paper_bundle_key(paper_data)] = entries_by_name[entry_name]
         except (OSError, ValueError, zipfile.BadZipFile):
             continue
-    return existing_entries_by_name, existing_entries_by_key
+    return existing_entries_by_name, existing_entries_by_key, archive_signatures
 
 
 def _preserve_rewrite_sources(
@@ -415,9 +442,24 @@ def _required_years_for_group(
     min_years: int,
     min_years_by_canonical_prefix: dict[str, int] | None,
 ) -> int:
+    return _required_years_for_hints(
+        canonical_id,
+        papers[0].provider_id,
+        papers[0].canonical_id,
+        min_years=min_years,
+        min_years_by_canonical_prefix=min_years_by_canonical_prefix,
+    )
+
+
+def _required_years_for_hints(
+    canonical_id: str,
+    provider_hint: str,
+    legacy_hint: str,
+    *,
+    min_years: int,
+    min_years_by_canonical_prefix: dict[str, int] | None,
+) -> int:
     required_years = min_years
-    provider_hint = papers[0].provider_id
-    legacy_hint = papers[0].canonical_id
     for prefix, prefix_min_years in (min_years_by_canonical_prefix or {}).items():
         if canonical_id.startswith(prefix) or provider_hint.startswith(prefix) or legacy_hint.startswith(prefix):
             required_years = prefix_min_years
@@ -455,6 +497,148 @@ def public_bundle_ids(
     return public_ids
 
 
+@dataclass(slots=True)
+class _IndexedBundleGroup:
+    provider_hint: str
+    legacy_hint: str
+    legacy_candidate: bool
+    years: set[int] = field(default_factory=set)
+    canonical_ids: set[str] = field(default_factory=set)
+
+
+def public_bundle_ids_from_indexes(
+    indexes: Iterable[dict],
+    *,
+    min_years: int = 1,
+    min_years_by_canonical_prefix: dict[str, int] | None = None,
+) -> set[str]:
+    """Apply the same public year and legacy rules to provider index rows."""
+    grouped: dict[str, _IndexedBundleGroup] = {}
+    for index in indexes:
+        for row in index["papers"]:
+            canonical_id = paper_index_canonical_id(index, row)
+            bundle_id = paper_index_bundle_id(index, row) or canonical_id
+            group = grouped.get(bundle_id)
+            if group is None:
+                group = grouped[bundle_id] = _IndexedBundleGroup(
+                    provider_hint=index["provider_id"],
+                    legacy_hint=canonical_id,
+                    legacy_candidate=row[PAPER_LEGACY_CANDIDATE],
+                )
+            group.years.add(row[PAPER_YEAR_ROC])
+            group.canonical_ids.add(canonical_id)
+
+    public_ids: set[str] = set()
+    for bundle_id, group in grouped.items():
+        required_years = _required_years_for_hints(
+            bundle_id,
+            group.provider_hint,
+            group.legacy_hint,
+            min_years=min_years,
+            min_years_by_canonical_prefix=min_years_by_canonical_prefix,
+        )
+        if len(group.years) < required_years:
+            continue
+        public_ids.add(
+            group.legacy_hint
+            if group.legacy_candidate and len(group.canonical_ids) == 1
+            else bundle_id
+        )
+    return public_ids
+
+
+def _bundle_manifest_bytes(
+    canonical_id: str,
+    canonical_name: str,
+    included_papers: list[NormalizedPaper],
+    bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str],
+) -> bytes:
+    if not included_papers:
+        manifest = {
+            "schema_version": 2,
+            "bundle_id": canonical_id,
+            "canonical_id": canonical_id,
+            "canonical_name": canonical_name,
+            "years": [],
+            "file_count": 0,
+            "papers": [],
+        }
+    else:
+        manifest_papers = []
+        for paper in included_papers:
+            paper_data = to_plain_data(paper)
+            paper_data["bundle_entry"] = bundle_entries_by_paper_key[_paper_bundle_key(paper)]
+            manifest_papers.append(paper_data)
+        exemplar = included_papers[0]
+        manifest = {
+            "schema_version": 2,
+            "bundle_id": canonical_id,
+            "canonical_id": canonical_id,
+            "canonical_name": canonical_name,
+            "domain_id": exemplar.domain_id,
+            "exam_family_id": exemplar.exam_family_id,
+            "exam_series_id": exemplar.exam_series_id,
+            "level_id": exemplar.level_id,
+            "track_id": exemplar.track_id,
+            "variant_ids": exemplar.variant_ids,
+            "stage_id": exemplar.stage_id,
+            "bundle_policy_id": exemplar.bundle_policy_id,
+            "classification_confidence": exemplar.classification_confidence,
+            "classification_reason": exemplar.classification_reason,
+            "exam_class": exemplar.exam_class,
+            "exam_subclass": exemplar.exam_subclass,
+            "years": sorted({paper.year_roc for paper in included_papers}, reverse=True),
+            "file_count": len(included_papers),
+            "papers": manifest_papers,
+        }
+    return json.dumps(manifest, ensure_ascii=False, indent=2).encode("utf-8")
+
+
+def _can_reuse_bundle(
+    bundle_path: Path,
+    archive_signatures: dict[Path, _ArchiveSignature],
+    *,
+    mirror_dir: Path,
+    canonical_id: str,
+    canonical_name: str,
+    ordered: list[NormalizedPaper],
+    arcnames: list[str],
+    max_bytes: int,
+) -> bool:
+    signature = archive_signatures.get(bundle_path)
+    if signature is None or bundle_path.stat().st_size > max_bytes:
+        return False
+    manifest_digest, entry_names, entry_count = signature
+    if not all(paper.checksum for paper in ordered):
+        return False
+    if entry_count != len(arcnames) or entry_names != frozenset(arcnames):
+        return False
+    entries_by_key = {
+        _paper_bundle_key(paper): arcname for paper, arcname in zip(ordered, arcnames)
+    }
+    expected_manifest = _bundle_manifest_bytes(
+        canonical_id, canonical_name, ordered, entries_by_key
+    )
+    if hashlib.sha256(expected_manifest).digest() != manifest_digest:
+        return False
+    missing_mirror_entries = [
+        arcname
+        for paper, arcname in zip(ordered, arcnames)
+        if _resolve_mirror_source_path(mirror_dir, paper) is None
+    ]
+    if not missing_mirror_entries:
+        return True
+    try:
+        with zipfile.ZipFile(bundle_path) as archive:
+            for arcname in missing_mirror_entries:
+                with archive.open(arcname) as entry:
+                    while entry.read(1024 * 1024):
+                        pass
+    except (OSError, ValueError, zipfile.BadZipFile, KeyError):
+        return False
+    return True
+
+
 def build_bundles(
     bundle_dir: Path,
     mirror_dir: Path,
@@ -470,7 +654,7 @@ def build_bundles(
     if max_bundle_bytes < 1 or max_bundle_bytes >= 2_147_483_648:
         raise ValueError("max_bundle_bytes must be below GitHub's 2 GiB per-asset limit")
     bundle_dir.mkdir(parents=True, exist_ok=True)
-    existing_entries_by_canonical, existing_entries_by_paper_key = _load_existing_entries_by_canonical(bundle_dir, on_progress=on_load_progress)
+    existing_entries_by_canonical, existing_entries_by_paper_key, archive_signatures = _load_existing_entries_by_canonical(bundle_dir, on_progress=on_load_progress)
     grouped: dict[str, list[NormalizedPaper]] = {}
     for paper in normalized.papers:
         # v2 records carry a complete identity-derived bundle_id. Legacy test
@@ -516,7 +700,6 @@ def build_bundles(
 
         included_papers: list[NormalizedPaper] = []
         bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str] = {}
-        included_years: set[int] = set()
         file_count = 0
 
         ordered = sorted(
@@ -530,115 +713,87 @@ def build_bundles(
             resolved_names,
             max_bytes=max_bundle_bytes,
         )
-        existing_entries, existing_entries_by_key, preserved_archive = _preserve_rewrite_sources(
+        reuse_existing = _can_reuse_bundle(
             bundle_path,
-            existing_entries,
-            existing_entries_by_key,
+            archive_signatures,
+            mirror_dir=mirror_dir,
+            canonical_id=canonical_id,
+            canonical_name=canonical_name,
+            ordered=ordered,
+            arcnames=resolved_names,
+            max_bytes=max_bundle_bytes,
         )
-        try:
-            with zipfile.ZipFile(bundle_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-                for paper, arcname in zip(ordered, resolved_names):
-                    source_path = _resolve_mirror_source_path(mirror_dir, paper)
-                    if source_path is not None:
-                        entry_info = _bundle_source_entry_info(
-                            source_path, arcname, compress_type=zipfile.ZIP_DEFLATED
+        if reuse_existing:
+            included_papers.extend(ordered)
+            bundle_entries_by_paper_key.update(
+                {_paper_bundle_key(paper): arcname for paper, arcname in zip(ordered, resolved_names)}
+            )
+            file_count = len(ordered)
+        else:
+            existing_entries, existing_entries_by_key, preserved_archive = _preserve_rewrite_sources(
+                bundle_path,
+                existing_entries,
+                existing_entries_by_key,
+            )
+            try:
+                with zipfile.ZipFile(bundle_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                    for paper, arcname in zip(ordered, resolved_names):
+                        source_path = _resolve_mirror_source_path(mirror_dir, paper)
+                        if source_path is not None:
+                            entry_info = _bundle_source_entry_info(
+                                source_path, arcname, compress_type=zipfile.ZIP_DEFLATED
+                            )
+                            with open(source_path, "rb") as source_file, archive.open(
+                                entry_info, "w"
+                            ) as archive_entry:
+                                shutil.copyfileobj(source_file, archive_entry, 1024 * 1024)
+                            included_papers.append(paper)
+                            bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
+                            file_count += 1
+                            continue
+                        legacy_arcname = _legacy_bundle_arcname(paper)
+                        existing_ref = existing_entries.get(arcname)
+                        if existing_ref is None:
+                            base_arcname = _bundle_arcname(paper)
+                            if base_arcname != arcname:
+                                existing_ref = existing_entries.get(base_arcname)
+                        if existing_ref is None:
+                            existing_ref = existing_entries.get(_code_bundle_arcname(paper))
+                        if existing_ref is None:
+                            existing_ref = existing_entries.get(legacy_arcname)
+                        if existing_ref is None:
+                            existing_ref = existing_entries_by_key.get(_paper_bundle_key(paper))
+                        existing_bytes = _resolve_entry_ref(existing_ref) if existing_ref is not None else None
+                        if existing_bytes is not None:
+                            archive.writestr(
+                                _bundle_entry_info(arcname, compress_type=zipfile.ZIP_DEFLATED),
+                                existing_bytes,
+                            )
+                            included_papers.append(paper)
+                            bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
+                            file_count += 1
+                            continue
+                        failures.append(
+                            SyncFailure(
+                                stage="bundle",
+                                source_exam_id=paper.source_exam_id,
+                                year_roc=paper.year_roc,
+                                paper_code=paper.paper_code,
+                                file_type=paper.file_type,
+                                url=paper.download_url_source,
+                                message=f"Missing mirrored file for bundle entry: {paper.storage_key}",
+                            )
                         )
-                        with open(source_path, "rb") as source_file, archive.open(
-                            entry_info, "w"
-                        ) as archive_entry:
-                            shutil.copyfileobj(source_file, archive_entry, 1024 * 1024)
-                        included_papers.append(paper)
-                        bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
-                        included_years.add(paper.year_roc)
-                        file_count += 1
-                        continue
-                    legacy_arcname = _legacy_bundle_arcname(paper)
-                    existing_ref = existing_entries.get(arcname)
-                    if existing_ref is None:
-                        base_arcname = _bundle_arcname(paper)
-                        if base_arcname != arcname:
-                            existing_ref = existing_entries.get(base_arcname)
-                    if existing_ref is None:
-                        existing_ref = existing_entries.get(_code_bundle_arcname(paper))
-                    if existing_ref is None:
-                        existing_ref = existing_entries.get(legacy_arcname)
-                    if existing_ref is None:
-                        existing_ref = existing_entries_by_key.get(_paper_bundle_key(paper))
-                    existing_bytes = _resolve_entry_ref(existing_ref) if existing_ref is not None else None
-                    if existing_bytes is not None:
-                        archive.writestr(
-                            _bundle_entry_info(arcname, compress_type=zipfile.ZIP_DEFLATED),
-                            existing_bytes,
-                        )
-                        included_papers.append(paper)
-                        bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
-                        included_years.add(paper.year_roc)
-                        file_count += 1
-                        continue
-                    failures.append(
-                        SyncFailure(
-                            stage="bundle",
-                            source_exam_id=paper.source_exam_id,
-                            year_roc=paper.year_roc,
-                            paper_code=paper.paper_code,
-                            file_type=paper.file_type,
-                            url=paper.download_url_source,
-                            message=f"Missing mirrored file for bundle entry: {paper.storage_key}",
-                        )
-                    )
 
-                if not included_papers:
                     archive.writestr(
                         _bundle_entry_info("bundle.json", compress_type=zipfile.ZIP_DEFLATED),
-                        json.dumps(
-                            {
-                                "schema_version": 2,
-                                "bundle_id": canonical_id,
-                                "canonical_id": canonical_id,
-                                "canonical_name": canonical_name,
-                                "years": [],
-                                "file_count": 0,
-                                "papers": [],
-                            },
-                            ensure_ascii=False,
-                            indent=2,
+                        _bundle_manifest_bytes(
+                            canonical_id, canonical_name, included_papers, bundle_entries_by_paper_key
                         ),
                     )
-                else:
-                    manifest_papers = []
-                    for paper in included_papers:
-                        paper_data = to_plain_data(paper)
-                        paper_data["bundle_entry"] = bundle_entries_by_paper_key[_paper_bundle_key(paper)]
-                        manifest_papers.append(paper_data)
-                    exemplar = included_papers[0]
-                    manifest = {
-                        "schema_version": 2,
-                        "bundle_id": canonical_id,
-                        "canonical_id": canonical_id,
-                        "canonical_name": canonical_name,
-                        "domain_id": exemplar.domain_id,
-                        "exam_family_id": exemplar.exam_family_id,
-                        "exam_series_id": exemplar.exam_series_id,
-                        "level_id": exemplar.level_id,
-                        "track_id": exemplar.track_id,
-                        "variant_ids": exemplar.variant_ids,
-                        "stage_id": exemplar.stage_id,
-                        "bundle_policy_id": exemplar.bundle_policy_id,
-                        "classification_confidence": exemplar.classification_confidence,
-                        "classification_reason": exemplar.classification_reason,
-                        "exam_class": exemplar.exam_class,
-                        "exam_subclass": exemplar.exam_subclass,
-                        "years": sorted(included_years, reverse=True),
-                        "file_count": file_count,
-                        "papers": manifest_papers,
-                    }
-                    archive.writestr(
-                        _bundle_entry_info("bundle.json", compress_type=zipfile.ZIP_DEFLATED),
-                        json.dumps(manifest, ensure_ascii=False, indent=2),
-                    )
-        finally:
-            if preserved_archive is not None:
-                preserved_archive.unlink(missing_ok=True)
+            finally:
+                if preserved_archive is not None:
+                    preserved_archive.unlink(missing_ok=True)
 
         if not included_papers:
             bundle_path.unlink(missing_ok=True)
@@ -663,7 +818,8 @@ def build_bundles(
         split_bundle = len(part_specs) > 1
         part_count = len(part_specs)
         for part_index, (part_path, part_name, part_papers) in enumerate(part_specs, 1):
-            part_digest = hashlib.sha256(part_path.read_bytes()).hexdigest()
+            with part_path.open("rb") as part_file:
+                part_digest = hashlib.file_digest(part_file, "sha256").hexdigest()
             part_years = sorted({paper.year_roc for paper in part_papers}, reverse=True)
             bundle_assets.append(
                 BundleAsset(

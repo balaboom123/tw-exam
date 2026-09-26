@@ -319,6 +319,75 @@ class CliCommandTests(unittest.TestCase):
                 },
             )
 
+    @patch("app.cli.sync_exam_pages")
+    def test_non_moex_sync_plan_updates_frontend_feed(self, sync_exam_pages_mock) -> None:
+        class CeecClient:
+            provider_id = "ceec_gsat"
+
+            def discover_available_years(self) -> list[int]:
+                return [2026]
+
+            def discover_exams(self, year_ad: int) -> list[ExamOption]:
+                return [ExamOption(code="gsat-115-guozong", year_ad=year_ad, year_roc=115, label="GSAT 115")]
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            data_dir = root / "data"
+            data_dir.mkdir()
+            (data_dir / "aliases.json").write_text('{"rules": []}', encoding="utf-8")
+            prior_papers = [_paper("ceec_gsat", "ceec-gsat", year_roc=year) for year in (113, 114)]
+            new_paper = _paper("ceec_gsat", "ceec-gsat", year_roc=115)
+            for paper in [*prior_papers, new_paper]:
+                mirror_path = root / "mirror" / paper.storage_key
+                mirror_path.parent.mkdir(parents=True, exist_ok=True)
+                mirror_path.write_bytes(b"%PDF-1.7 demo")
+
+            write_provider_state(
+                provider_paths(root, "moex"),
+                raw_pages=[], normalized=NormalizedCatalog(papers=[], review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
+            write_provider_state(
+                provider_paths(root, "ceec_gsat"),
+                raw_pages=[], normalized=NormalizedCatalog(papers=prior_papers, review_queue=[]),
+                aliases=[], failures=[], manifest=None,
+            )
+            publish_args = [
+                "publish-site", "--repo-root", str(root), "--site-id", "default",
+                "--repository", "example/repo",
+            ]
+            self.assertEqual(main(publish_args), 0)
+            feed_path = site_paths(root, "default").frontend_bundles_path
+            before = json.loads(feed_path.read_text(encoding="utf-8"))["bundles"]
+            self.assertEqual(before[0]["years"], [114, 113])
+
+            page = SourceExamPage(
+                provider_id="ceec_gsat", source_exam_id="gsat-115-guozong",
+                year_ad=2026, year_roc=115, exam_name_raw="GSAT 115",
+                attachments=[], papers=[],
+            )
+            sync_exam_pages_mock.return_value = (
+                [page], NormalizedCatalog(papers=[new_paper], review_queue=[]), [],
+            )
+            plan_path = root / ".tmp" / "site-publish-plan.json"
+            sync_args = build_parser().parse_args(
+                [
+                    "sync-full", "--provider", "ceec_gsat", "--site-id", "default",
+                    "--data-dir", str(data_dir), "--mirror-dir", str(root / "mirror"),
+                    "--bundle-dir", str(root / "bundles"),
+                    "--aliases", str(data_dir / "aliases.json"),
+                    "--publish-plan-output", str(plan_path),
+                ]
+            )
+            self.assertEqual(command_sync(sync_args, client=CeecClient()), 0)
+            self.assertTrue(plan_path.exists())
+            self.assertEqual(main([*publish_args, "--publish-plan", str(plan_path)]), 0)
+
+            after = json.loads(feed_path.read_text(encoding="utf-8"))["bundles"]
+            self.assertEqual(len(after), 1)
+            self.assertEqual(after[0]["years"], [115, 114, 113])
+            self.assertEqual(after[0]["fileCount"], 3)
+
     def test_publish_site_command_returns_non_zero_when_bundle_build_fails(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
@@ -816,6 +885,45 @@ class CliCommandTests(unittest.TestCase):
         build_bundles_mock.assert_not_called()
         write_data_files_mock.assert_not_called()
 
+    @patch("app.cli.sync_exam_pages", side_effect=RuntimeError("parser crashed"))
+    def test_full_sync_records_unexpected_year_failure(self, sync_exam_pages_mock) -> None:
+        class MoexClient:
+            provider_id = "moex"
+
+            def discover_available_years(self) -> list[int]:
+                return [2026]
+
+            def discover_exams(self, year_ad: int) -> list[ExamOption]:
+                return [ExamOption(code="115030", year_ad=year_ad, year_roc=115, label="MOEX 115")]
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            data_dir = root / "data"
+            data_dir.mkdir()
+            (data_dir / "aliases.json").write_text('{"rules": []}', encoding="utf-8")
+            args = build_parser().parse_args(
+                [
+                    "sync-full", "--provider", "moex",
+                    "--data-dir", str(data_dir),
+                    "--mirror-dir", str(root / "mirror"),
+                    "--bundle-dir", str(root / "bundles"),
+                    "--aliases", str(data_dir / "aliases.json"),
+                ]
+            )
+
+            exit_code = command_sync(args, client=MoexClient())
+
+            pages, catalog, failures = load_provider_state(provider_paths(root, "moex"))
+            self.assertEqual(pages, [])
+            self.assertEqual(catalog.papers, [])
+            self.assertEqual(len(failures), 1)
+            self.assertEqual(failures[0].stage, "sync")
+            self.assertEqual(failures[0].source_exam_id, "moex-2026")
+            self.assertIn("parser crashed", failures[0].message)
+
+        self.assertEqual(exit_code, 1)
+        sync_exam_pages_mock.assert_called_once()
+
     @patch("app.cli.write_data_files")
     @patch("app.cli.build_bundles")
     @patch("app.cli.sync_exam_pages")
@@ -869,6 +977,15 @@ class CliCommandTests(unittest.TestCase):
                 attachments=[],
                 papers=[],
             )
+            retained_failure = SyncFailure(
+                stage="download",
+                source_exam_id="115040",
+                year_roc=115,
+                paper_code="retired-paper",
+                file_type="question",
+                url="https://source.example/retired.pdf",
+                message="Source removed the file",
+            )
             write_provider_state(
                 provider,
                 raw_pages=[still_listed, retired],
@@ -880,7 +997,7 @@ class CliCommandTests(unittest.TestCase):
                     review_queue=[],
                 ),
                 aliases=[],
-                failures=[],
+                failures=[retained_failure],
                 manifest=None,
             )
 
@@ -907,7 +1024,7 @@ class CliCommandTests(unittest.TestCase):
         self.assertEqual(exit_code, 0)
         self.assertEqual({page.source_exam_id for page in raw_pages}, {"115030", "115040"})
         self.assertEqual({paper.source_exam_id for paper in catalog.papers}, {"115030", "115040"})
-        self.assertEqual(failures, [])
+        self.assertEqual([failure.source_exam_id for failure in failures], ["115040"])
 
     @patch("app.cli.write_data_files")
     @patch("app.cli.build_bundles")

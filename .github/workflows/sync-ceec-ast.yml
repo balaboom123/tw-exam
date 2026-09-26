@@ -10,36 +10,9 @@ permissions:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
-    timeout-minutes: 120
-    concurrency:
-      group: ceec-ast
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.12"
-
-      - name: Cache mirror directory
-        uses: actions/cache@v6
-        with:
-          path: mirror
-          key: ceec-ast-mirror-${{ hashFiles('data/providers/ceec_ast/source-manifest.json') }}
-          restore-keys: |
-            ceec-ast-mirror-
-
-      - name: Run CEEC AST sync
-        run: python -m app sync-full --provider ceec_ast --site-id default
-
-      - name: Commit regenerated CEEC AST provider data
-        # sync-full writes the papers it did fetch and records the ones it could
-        # not, then exits non-zero. Gating this step on success discarded the
-        # whole refresh whenever one upstream file was unavailable, and kept the
-        # failure record out of the repository where it could be acted on.
-        if: '!cancelled()'
-        run: >-
-          bash .github/scripts/commit-and-push.sh "chore: refresh CEEC AST provider data" data/providers/ceec_ast
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: ceec_ast
+      cache_prefix: ceec-ast
+      timeout_minutes: 120
+      publish: true

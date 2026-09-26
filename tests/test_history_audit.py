@@ -21,7 +21,40 @@ class _ProbeClient:
         ]
 
 
+class _FailingYearProbeClient:
+    provider_id = "moex"
+
+    def discover_available_years(self) -> list[int]:
+        return [2026]
+
+    def discover_exams(self, year_ad: int) -> list[ExamOption]:
+        raise RuntimeError("year source unavailable")
+
+
+class _FailingYearsProbeClient:
+    provider_id = "moex"
+
+    def discover_available_years(self) -> list[int]:
+        raise RuntimeError("year index unavailable")
+
+
 class HistoryAuditTests(unittest.TestCase):
+    def test_probe_errors_count_as_parser_gaps(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            for client, expected_status in (
+                (_FailingYearProbeClient(), "partial"),
+                (_FailingYearsProbeClient(), "error"),
+            ):
+                with self.subTest(expected_status=expected_status):
+                    report = build_history_coverage_audit(
+                        root, provider_ids=["moex"], probe_sources=True,
+                        check_mirror=False, clients={"moex": client},
+                    )
+                    self.assertEqual(report["providers"][0]["source_probe"]["status"], expected_status)
+                    self.assertEqual(report["summary"]["parser_gap"], 1)
+                    self.assertEqual(history_audit_exit_code(report, strict=True), 1)
+
     def test_audit_explicitly_disposes_single_year_publication_exclusion(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

@@ -1,6 +1,7 @@
 import unittest
+from types import SimpleNamespace
 
-from app.classification import classify_paper
+from app.classification import _classify_paper_uncached, classify_normalized_paper, classify_paper
 
 
 def classify(category: str, event: str, *, source: str = "event-115", canonical: str = "一般行政", provider: str = "moex", subject: str = ""):
@@ -18,6 +19,33 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_moex_papers_in_one_category_share_identity_across_subjects(self) -> None:
+        base = dict(
+            provider_id="moex",
+            source_exam_id="115030",
+            year_roc=115,
+            category_raw="一般行政",
+            exam_name_raw="115年公務人員高等考試三級",
+            canonical_id="general-administration",
+            canonical_name="一般行政",
+        )
+        first = SimpleNamespace(**base, subject_name_raw="國文", subject_code="0101")
+        second = SimpleNamespace(**base, subject_name_raw="法學知識", subject_code="0102")
+
+        expected = _classify_paper_uncached(
+            provider_id="moex",
+            source_exam_id=base["source_exam_id"],
+            year_ad=2026,
+            category_raw=base["category_raw"],
+            exam_name_raw=base["exam_name_raw"],
+            canonical_id=base["canonical_id"],
+            canonical_name=base["canonical_name"],
+            subject_name_raw=second.subject_name_raw,
+            subject_code=second.subject_code,
+        )
+        self.assertEqual(classify_normalized_paper(first), expected)
+        self.assertEqual(classify_normalized_paper(second), expected)
+
     def test_same_track_is_separated_by_civil_service_level_and_series(self) -> None:
         high = classify("一般行政", "115年公務人員高等考試三級", source="high-115")
         ordinary = classify("一般行政", "115年公務人員普通考試", source="ordinary-115")

@@ -1,13 +1,18 @@
 import tempfile
+import threading
+import time
 import unittest
 from pathlib import Path
+from urllib.error import HTTPError
+from unittest.mock import patch
 
 from app.crawler import DownloadedFile
 from app.models import AliasRule, ExamAttachment, ParsedPaper, SourceExamPage
 from app.providers.base import SourceProvider
 from app.providers.moex.provider import MoexProvider
+from app.providers.registry import get_provider
 from app.storage import MirrorStore
-from app.sync import sync_exam_pages
+from app.sync import retry_network, sync_exam_pages
 
 
 class FakeClient:
@@ -99,6 +104,88 @@ class QuestionOnlyClient:
     def download_file(self, url: str) -> DownloadedFile:
         self.downloaded_urls.append(url)
         return DownloadedFile(data=b"%PDF-1.7 original payload", content_type="application/pdf", file_name=Path(url).name)
+
+
+class ConcurrentQuestionClient(QuestionOnlyClient):
+    def __init__(self, *, max_concurrency: int) -> None:
+        super().__init__()
+        self.max_concurrency = max_concurrency
+        self.barrier = threading.Barrier(2) if max_concurrency > 1 else None
+        self.active = 0
+        self.peak = 0
+        self.lock = threading.Lock()
+
+    def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
+        page = super().fetch_exam_page(exam_code, year_ad)
+        page.papers[0].files["answer"] = "https://example.test/answer.pdf"
+        return page
+
+    def download_file(self, url: str) -> DownloadedFile:
+        with self.lock:
+            self.active += 1
+            self.peak = max(self.peak, self.active)
+        try:
+            if self.barrier is not None:
+                self.barrier.wait(timeout=2)
+            else:
+                time.sleep(0.01)
+            return super().download_file(url)
+        finally:
+            with self.lock:
+                self.active -= 1
+
+
+class MainThreadMirrorStore(MirrorStore):
+    def __init__(self, root: Path) -> None:
+        super().__init__(root)
+        self.owner_thread = threading.get_ident()
+
+    def find_existing(self, storage_key_prefix: str):
+        assert threading.get_ident() == self.owner_thread
+        return super().find_existing(storage_key_prefix)
+
+    def write_bytes(self, storage_key: str, data: bytes, *, overwrite: bool = False):
+        assert threading.get_ident() == self.owner_thread
+        return super().write_bytes(storage_key, data, overwrite=overwrite)
+
+    def delete_matching_except(self, storage_key_prefix: str, keep_storage_key: str) -> None:
+        assert threading.get_ident() == self.owner_thread
+        super().delete_matching_except(storage_key_prefix, keep_storage_key)
+
+
+class NetworkRetryTests(unittest.TestCase):
+    def test_retry_after_controls_transient_http_backoff(self) -> None:
+        attempts = 0
+
+        def request() -> str:
+            nonlocal attempts
+            attempts += 1
+            if attempts == 1:
+                raise HTTPError("https://example.test/paper.pdf", 429, "rate limited", {"Retry-After": "7"}, None)
+            return "ok"
+
+        with patch("app.sync.time.sleep") as sleep, patch("app.sync.random.uniform", return_value=0):
+            self.assertEqual(retry_network(request), "ok")
+        self.assertEqual(attempts, 2)
+        sleep.assert_called_once_with(7.0)
+
+    def test_non_transient_http_error_is_not_retried(self) -> None:
+        def request() -> None:
+            raise HTTPError("https://example.test/missing.pdf", 404, "missing", {}, None)
+
+        with patch("app.sync.time.sleep") as sleep:
+            with self.assertRaises(HTTPError):
+                retry_network(request)
+        sleep.assert_not_called()
+
+    def test_long_retry_after_defers_to_later_sync(self) -> None:
+        def request() -> None:
+            raise HTTPError("https://example.test/paper.pdf", 429, "rate limited", {"Retry-After": "600"}, None)
+
+        with patch("app.sync.time.sleep") as sleep:
+            with self.assertRaises(HTTPError):
+                retry_network(request)
+        sleep.assert_not_called()
 
 
 class RetryOnceClient(QuestionOnlyClient):
@@ -407,6 +494,37 @@ class TcteHistoricalAssetClient:
 class SyncExamPagesTests(unittest.TestCase):
     def test_moex_provider_implements_source_provider_contract(self) -> None:
         self.assertIsInstance(MoexProvider(), SourceProvider)
+
+    def test_session_and_rate_limited_providers_remain_serial(self) -> None:
+        for provider_id in (
+            "teacher_qual", "wdasec_skill", "hce_cmu", "hce_nsysu", "hce_nthu", "hce_tcu",
+        ):
+            with self.subTest(provider_id=provider_id):
+                self.assertEqual(get_provider(provider_id).max_concurrency, 1)
+
+    def test_downloads_overlap_but_mirror_writes_stay_on_main_thread(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            client = ConcurrentQuestionClient(max_concurrency=4)
+            _, catalog, failures = sync_exam_pages(
+                client=client, exam_codes=[("115030", 2026)],
+                mirror_store=MainThreadMirrorStore(Path(tmp_dir)),
+                alias_rules=[], mirror_base_url="",
+            )
+        self.assertEqual(client.peak, 2)
+        self.assertEqual(len(catalog.papers), 2)
+        self.assertEqual(failures, [])
+
+    def test_provider_can_limit_downloads_to_one_worker(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            client = ConcurrentQuestionClient(max_concurrency=1)
+            _, catalog, failures = sync_exam_pages(
+                client=client, exam_codes=[("115030", 2026)],
+                mirror_store=MainThreadMirrorStore(Path(tmp_dir)),
+                alias_rules=[], mirror_base_url="",
+            )
+        self.assertEqual(client.peak, 1)
+        self.assertEqual(len(catalog.papers), 2)
+        self.assertEqual(failures, [])
 
     def test_sync_exam_pages_keeps_partial_success_and_records_failures(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

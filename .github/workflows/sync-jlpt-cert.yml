@@ -24,16 +24,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: jlpt-cert-mirror-${{ hashFiles('data/providers/jlpt_cert/source-manifest.json') }}
+          key: jlpt-cert-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             jlpt-cert-mirror-
 
       - name: Run JLPT cert sync
         run: python -m app sync-full --provider jlpt_cert --site-id default
+
+      - name: Save mirror directory
+        if: '!cancelled()'
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: jlpt-cert-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit regenerated JLPT cert provider data
         # sync-full writes the papers it did fetch and records the ones it could

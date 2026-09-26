@@ -33,8 +33,13 @@ def load_provider_state(provider) -> tuple[list[SourceExamPage], NormalizedCatal
     return (
         _load_raw_pages_dir(provider.exams_dir, provider_id=provider.provider_id),
         _load_catalog_dir(provider.papers_dir, provider.review_queue_path, provider_id=provider.provider_id),
-        _load_failures(provider.sync_failures_path),
+        load_provider_failures(provider),
     )
+
+
+def load_provider_failures(provider) -> list[SyncFailure]:
+    """Read the small failure ledger without loading retained event and paper files."""
+    return _load_failures(provider.sync_failures_path)
 
 
 def load_site_bundles(site) -> list[BundleAsset]:

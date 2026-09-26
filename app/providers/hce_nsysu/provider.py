@@ -6,6 +6,7 @@ from app.providers.hce_archive import HCE_CONFIGS, HceArchiveClient
 
 class HceNsysuProvider(SourceProvider):
     provider_id = "hce_nsysu"
+    max_concurrency = 1
 
     def __init__(self, client: HceArchiveClient | None = None) -> None:
         self.client = client or HceArchiveClient(HCE_CONFIGS[self.provider_id])

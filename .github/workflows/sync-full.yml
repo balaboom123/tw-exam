@@ -28,11 +28,11 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: moex-mirror-${{ hashFiles('data/providers/moex/source-manifest.json') }}
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             moex-mirror-
 
@@ -44,8 +44,16 @@ jobs:
           exit 1
 
       - name: Run full sync
+        id: full_sync
         if: ${{ inputs.allow_unsupported_hosted_bootstrap == 'true' }}
         run: python -m app sync-full --provider moex --write-manifest --manifest data/providers/moex/source-manifest.json
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.full_sync.outcome != 'skipped' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Publish default site
         if: ${{ inputs.allow_unsupported_hosted_bootstrap == 'true' }}

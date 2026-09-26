@@ -11,6 +11,7 @@ exam-event-specific review bundle instead of being silently merged.
 """
 
 from dataclasses import asdict, dataclass
+from functools import lru_cache
 import hashlib
 import re
 import unicodedata
@@ -114,7 +115,6 @@ _SERIES_LABELS = {
     "professional-high": "專技高考",
     "professional-ordinary": "專技普考",
     "professional-special": "專技特考",
-    "professional-screening": "專技檢覈",
     "professional-combined": "專技綜合／歷史制度",
     "professional-screening": "專技檢覈／檢覈筆試",
     "teacher-qualification": "教師資格考試",
@@ -259,6 +259,7 @@ def _stage_id(category: str, exam_name: str) -> str:
     return NOT_APPLICABLE
 
 
+@lru_cache(maxsize=8192)
 def _clean_moex_track(category: str, canonical_name: str) -> str:
     value = normalize_text(category or canonical_name)
     if "_" in value:
@@ -341,6 +342,7 @@ def _track_details(
     return _slug(value or source_exam_id, prefix="track"), value or source_exam_id
 
 
+@lru_cache(maxsize=8192)
 def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
@@ -572,7 +574,7 @@ def _provider_series(provider_id: str, canonical_id: str) -> tuple[str, str, str
     return "other", "provider-exam", _slug(canonical_id, prefix="series"), _display(canonical_id, "待審核考試")
 
 
-def classify_paper(
+def _classify_paper_uncached(
     *,
     provider_id: str,
     source_exam_id: str,
@@ -674,6 +676,62 @@ def identity_fields(identity: ExamIdentity) -> dict[str, Any]:
         "exam_class": facets["exam_class"],
         "exam_subclass": facets["exam_subclass"],
     }
+
+
+@lru_cache(maxsize=8192)
+def _classify_moex_record(
+    source_exam_id: str,
+    year_ad: int,
+    category_raw: str,
+    exam_name_raw: str,
+    canonical_id: str,
+    canonical_name: str,
+) -> ExamIdentity:
+    # MOEX classification depends on the event and category, not the paper's
+    # subject. Hundreds of papers can therefore share one immutable identity.
+    return _classify_paper_uncached(
+        provider_id="moex",
+        source_exam_id=source_exam_id,
+        year_ad=year_ad,
+        category_raw=category_raw,
+        exam_name_raw=exam_name_raw,
+        canonical_id=canonical_id,
+        canonical_name=canonical_name,
+    )
+
+
+def classify_paper(
+    *,
+    provider_id: str,
+    source_exam_id: str,
+    year_ad: int,
+    category_raw: str,
+    exam_name_raw: str,
+    canonical_id: str,
+    canonical_name: str,
+    subject_name_raw: str = "",
+    subject_code: str = "",
+) -> ExamIdentity:
+    if provider_id == "moex":
+        return _classify_moex_record(
+            source_exam_id,
+            year_ad,
+            category_raw,
+            exam_name_raw,
+            canonical_id,
+            canonical_name,
+        )
+    return _classify_paper_uncached(
+        provider_id=provider_id,
+        source_exam_id=source_exam_id,
+        year_ad=year_ad,
+        category_raw=category_raw,
+        exam_name_raw=exam_name_raw,
+        canonical_id=canonical_id,
+        canonical_name=canonical_name,
+        subject_name_raw=subject_name_raw,
+        subject_code=subject_code,
+    )
 
 
 def classify_normalized_paper(paper: Any) -> ExamIdentity:

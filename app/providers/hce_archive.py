@@ -263,7 +263,7 @@ def _combined_pdf_paper(config: HceArchiveConfig, url: str) -> ParsedPaper:
 def _ssl_context_for(url: str) -> ssl.SSLContext | None:
     host = urlparse(url).hostname or ""
     if host == "adm21.cmu.edu.tw":
-        return ssl._create_unverified_context()
+        return ssl.create_default_context()
     return None
 
 

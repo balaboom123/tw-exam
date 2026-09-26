@@ -13,13 +13,5 @@ export interface Bundle {
   parts?: BundlePart[]
   examClass: string
   examSubclass: string
-  domainId?: string
-  examFamilyId?: string
-  seriesId?: string
-  levelId?: string
-  trackId?: string
-  variantIds?: string[]
-  stageId?: string
-  searchAliases?: string[]
   subjectLabels?: string[]
 }

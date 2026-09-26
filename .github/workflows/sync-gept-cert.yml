@@ -24,16 +24,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: gept-cert-mirror-${{ hashFiles('data/providers/gept_cert/source-manifest.json') }}
+          key: gept-cert-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             gept-cert-mirror-
 
       - name: Run GEPT cert sync
         run: python -m app sync-full --provider gept_cert --site-id default
+
+      - name: Save mirror directory
+        if: '!cancelled()'
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: gept-cert-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit regenerated GEPT cert provider data
         # sync-full writes the papers it did fetch and records the ones it could

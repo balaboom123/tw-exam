@@ -16,9 +16,11 @@ const SOURCE_NOTES: Record<string, string> = {
 export function BundleRow({
   bundle,
   unlocked,
+  joinHref,
 }: {
   bundle: Bundle
   unlocked: boolean
+  joinHref: string
 }) {
   const sourceNote = SOURCE_NOTES[bundle.id]
 
@@ -26,7 +28,9 @@ export function BundleRow({
     <li className="flex items-center gap-4 px-4 py-4 transition-colors hover:bg-cream">
       <div className="min-w-0 flex-1">
         <h3 className="font-serif text-[17px] font-semibold leading-snug text-ink-950">
-          {bundle.name}
+          <a href={siteHref(`b/${bundle.id}.html`)} className="underline-offset-4 hover:underline">
+            {bundle.name}
+          </a>
         </h3>
         <p className="mt-1.5 font-mono text-xs text-ink-500">
           民國 {formatYearRange(bundle.years)} · {bundle.fileCount} 份試題
@@ -43,7 +47,7 @@ export function BundleRow({
           </p>
         )}
         {bundle.years.length > 2 && (
-          <p className="mt-1 hidden flex-wrap gap-x-2 font-mono text-[11px] leading-relaxed text-ink-400 sm:flex">
+          <p className="mt-1 hidden flex-wrap gap-x-2 font-mono text-[11px] leading-relaxed text-ink-500 sm:flex">
             {bundle.years.slice(0, MAX_YEAR_CHIPS).map((y) => (
               <span key={y}>{y}</span>
             ))}
@@ -72,29 +76,22 @@ export function BundleRow({
           ))}
         </div>
       ) : (
-        <div className="flex shrink-0 items-center gap-2">
-          {/* Real anchors, not window.open: a user-gesture anchor can't be
-              popup-blocked, and the join page itself grants access. */}
+        <div className="flex shrink-0 items-center">
           <a
-            href={siteHref("join.html")}
+            href={joinHref}
             target="_blank"
             rel="noopener"
             aria-label={`加入 LINE 社群，解鎖 ${bundle.name} 試題下載`}
-            className="flex h-11 shrink-0 items-center rounded-[3px] border border-line-strong px-3 text-xs font-medium text-ink-800 transition-colors hover:bg-cream active:translate-y-px"
-          >
-            加入
-          </a>
-          <a
-            href={siteHref("join.html")}
-            target="_blank"
-            rel="noopener"
-            aria-label={`下載 ${bundle.name} 試題 ZIP（需先加入 LINE 社群）`}
-            className="flex h-11 w-11 shrink-0 items-center justify-center gap-2 rounded-[3px] border border-line bg-paper-deep text-ink-500 transition-colors hover:text-ink-950 sm:w-auto sm:px-4"
+            onClick={(event) => {
+              if (window.matchMedia("(max-width: 639px)").matches) {
+                event.preventDefault()
+                window.location.assign(event.currentTarget.href)
+              }
+            }}
+            className="flex h-11 shrink-0 items-center gap-2 rounded-[3px] border border-line-strong px-3 text-xs font-medium text-ink-800 transition-colors hover:bg-cream active:translate-y-px"
           >
             <Lock className="size-4" strokeWidth={2} />
-            <span className="hidden font-mono text-xs font-medium tracking-[0.15em] sm:inline">
-              ZIP
-            </span>
+            加入後下載
           </a>
         </div>
       )}

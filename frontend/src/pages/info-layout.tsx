@@ -7,7 +7,7 @@ interface InfoLayoutProps {
   title: string
   lead?: string
   ornament: string
-  active: NavKey
+  active?: NavKey
   children: ReactNode
 }
 
@@ -25,9 +25,9 @@ export function InfoLayout({
       <main id="main" className="mx-auto w-full max-w-4xl flex-1 px-6 pb-16 pt-10">
         <div className="flex items-start justify-between gap-8">
           <div>
-            <h2 className="font-serif text-3xl font-black tracking-tight text-ink-950 md:text-[2.5rem] md:leading-[1.15]">
+            <h1 className="font-serif text-3xl font-black tracking-tight text-ink-950 md:text-[2.5rem] md:leading-[1.15]">
               {title}
-            </h2>
+            </h1>
             {lead && (
               <p className="mt-3 max-w-[58ch] text-[15px] leading-relaxed text-ink-600">
                 {lead}

@@ -24,16 +24,23 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Cache mirror directory
-        uses: actions/cache@v6
+      - name: Restore mirror directory
+        uses: actions/cache/restore@v6
         with:
           path: mirror
-          key: teacher-recruit-kaohsiung-mirror-${{ hashFiles('data/providers/teacher_recruit_kaohsiung/source-manifest.json') }}
+          key: teacher-recruit-kaohsiung-mirror-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
             teacher-recruit-kaohsiung-mirror-
 
       - name: Run Kaohsiung teacher recruitment sync
         run: python -m app sync-full --provider teacher_recruit_kaohsiung --site-id default
+
+      - name: Save mirror directory
+        if: '!cancelled()'
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: teacher-recruit-kaohsiung-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Commit regenerated Kaohsiung teacher recruitment provider data
         # sync-full writes the papers it did fetch and records the ones it could

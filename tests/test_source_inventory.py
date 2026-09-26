@@ -2,10 +2,13 @@ from __future__ import annotations
 
 import contextlib
 import json
+from functools import lru_cache
 from pathlib import Path
 import shutil
 import tempfile
 import unittest
+
+import pytest
 
 from app.source_inventory import (
     check_sync_floor,
@@ -17,6 +20,11 @@ from app.source_inventory import (
 
 ROOT = Path(__file__).resolve().parents[1]
 FLOOR_FIXTURE_PROVIDER = "teacher_recruit_tainan"
+
+
+@lru_cache(maxsize=1)
+def _checked_in_inventory_report() -> dict:
+    return validate_source_inventory(ROOT)
 
 
 @contextlib.contextmanager
@@ -136,8 +144,9 @@ class SyncFloorTests(unittest.TestCase):
 
 
 class SourceInventoryTests(unittest.TestCase):
+    @pytest.mark.repo_data
     def test_current_inventory_covers_default_registry_and_matches_local_state(self) -> None:
-        report = validate_source_inventory(ROOT)
+        report = _checked_in_inventory_report()
 
         self.assertEqual(report["provider_count"], 35)
         self.assertEqual(report["candidate_count"], 10)
@@ -703,13 +712,14 @@ class SourceInventoryTests(unittest.TestCase):
             46,
         )
 
+    @pytest.mark.repo_data
     def test_growth_above_the_reviewed_floor_does_not_gate_the_site(self) -> None:
         # check_sync_floor already treats a sync that adds records as ordinary.
         # This validator demanded exact equality, so the first sync to succeed
         # since 2026-06-29 added one event and 24 papers and failed the
         # deploy-pages gate on 2026-08-06, leaving the published site behind
         # data that had already been committed to main.
-        report = validate_source_inventory(ROOT)
+        report = _checked_in_inventory_report()
 
         self.assertEqual(report["local_state_drift"], [])
         for item in report["local_state_growth"]:
@@ -718,6 +728,7 @@ class SourceInventoryTests(unittest.TestCase):
                 for field in ("raw_event_pages", "normalized_paper_records"):
                     self.assertGreaterEqual(item["actual"][field], item["inventory"][field])
 
+    @pytest.mark.repo_data
     def test_local_state_below_the_reviewed_floor_still_fails(self) -> None:
         # Relaxing growth must not relax loss. Raising one provider's recorded
         # floor above what it actually holds is the same shape as a source that
@@ -748,6 +759,7 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertIn(FLOOR_FIXTURE_PROVIDER, message)
         self.assertIn(f"normalized_paper_records {inflated} -> ", message)
 
+    @pytest.mark.repo_data
     def test_strict_manifest_requirement_remains_red_until_snapshots_are_complete(self) -> None:
         with self.assertRaisesRegex(ValueError, "complete source discovery remains unresolved") as context:
             validate_source_inventory(ROOT, require_discovery_manifests=True)

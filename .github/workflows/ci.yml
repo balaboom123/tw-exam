@@ -14,8 +14,61 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    name: Select catalog gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      catalog: ${{ steps.scope.outputs.catalog }}
+    steps:
+      - name: Checkout history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check changed paths
+        id: scope
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before || '' }}
+        run: python3 .github/scripts/ci_scope.py --event "$EVENT_NAME" --base "$BASE_SHA"
+
+  fast-python:
+    name: Fast Python tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.2.0
+
+      - name: Install locked dependencies
+        run: uv sync --frozen
+
+      - name: Run fast Python tests
+        run: uv run --frozen python -m pytest -q -m "not repo_data"
+
+      - name: Validate documentation projections
+        run: |
+          uv run --frozen python scripts/render_docs.py --check
+          uv run --frozen python scripts/validate_docs.py --check
+
+      - name: Validate shell scripts and whitespace
+        run: |
+          bash -n .github/scripts/*.sh
+          git diff --check
+
   python:
     name: Python and catalog
+    needs: changes
+    if: needs.changes.outputs.catalog == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -26,45 +79,40 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-          cache: pip
 
-      - name: Install test dependencies
-        run: python -m pip install --disable-pip-version-check pytest
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.2.0
 
-      - name: Run Python tests
-        run: python -m pytest -q
+      - name: Install locked dependencies
+        run: uv sync --frozen
 
-      - name: Validate workflow contracts
-        run: python -m pytest -q tests/test_workflows.py
+      - name: Run catalog-data tests
+        run: uv run --frozen python -m pytest -q -m repo_data
 
       - name: Audit public catalog
-        run: python -m app audit-catalog --repo-root . --site-id default --strict --output .tmp/catalog-audit.json
+        run: uv run --frozen python -m app audit-catalog --repo-root . --site-id default --strict --output .tmp/catalog-audit.json
 
-      - name: Validate publication and schemas
-        run: python scripts/validate_publication.py
+      - name: Validate publication and JSON syntax
+        run: uv run --frozen python scripts/validate_publication.py
+
+      - name: Validate persisted JSON Schemas
+        run: uv run --frozen python scripts/validate_schemas.py
 
       - name: Validate source scope inventory
-        run: python scripts/validate_source_inventory.py
+        run: uv run --frozen python scripts/validate_source_inventory.py
 
-      - name: Validate documentation projections
-        run: |
-          python scripts/render_docs.py --check
-          python scripts/validate_docs.py --check
+      - name: Verify generated provider indexes against source files
+        run: uv run --frozen python scripts/build_provider_indexes.py --check
 
       - name: Audit event-level coverage
         # CI checks out without the gitignored mirror tree, so the download
         # dimension is unverifiable here and is audited by operators instead.
         # Every other dimension - identity, publication, coverage exceptions,
         # and quarantine - is enforced.
-        run: python -m app history-audit --repo-root . --site-id default --strict --skip-mirror-check --output .tmp/history-audit.json
+        run: uv run --frozen python -m app history-audit --repo-root . --site-id default --strict --skip-mirror-check --output .tmp/history-audit.json
 
       - name: Plan release shards
-        run: python -m app plan-release --repo-root . --site-id default --output .tmp/release-plan.json
-
-      - name: Validate shell scripts and whitespace
-        run: |
-          bash -n .github/scripts/*.sh
-          git diff --check
+        run: uv run --frozen python -m app plan-release --repo-root . --site-id default --output .tmp/release-plan.json
 
   frontend:
     name: Frontend test, lint, and build
@@ -98,3 +146,7 @@ jobs:
         working-directory: frontend
         env:
           VITE_ENABLE_ADSENSE: "false"
+
+      - name: Check JavaScript size budget
+        run: node build/check-bundle-size.mjs
+        working-directory: frontend

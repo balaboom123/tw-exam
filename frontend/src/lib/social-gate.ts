@@ -34,19 +34,27 @@ export const SOCIAL_CHANNELS: readonly SocialChannel[] = [
 ]
 
 export function hasSocialAccess(): boolean {
-  try {
-    return [ACCESS_KEY, ...LEGACY_ACCESS_KEYS].some(
-      (key) => window.localStorage.getItem(key) === "1",
-    )
-  } catch {
-    return false
+  for (const storageName of ["localStorage", "sessionStorage"] as const) {
+    try {
+      if ([ACCESS_KEY, ...LEGACY_ACCESS_KEYS].some(
+        (key) => window[storageName].getItem(key) === "1",
+      )) return true
+    } catch {
+      // Some in-app browsers and private modes deny one of the stores.
+    }
   }
+  return false
 }
 
-export function grantSocialAccess() {
-  try {
-    window.localStorage.setItem(ACCESS_KEY, "1")
-  } catch {
-    // Browser storage can be blocked; component state still unlocks this tab.
+export function grantSocialAccess(): boolean {
+  let stored = false
+  for (const storageName of ["localStorage", "sessionStorage"] as const) {
+    try {
+      window[storageName].setItem(ACCESS_KEY, "1")
+      stored = true
+    } catch {
+      // Keep the other store available when this one is blocked.
+    }
   }
+  return stored
 }

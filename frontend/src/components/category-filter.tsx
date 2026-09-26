@@ -1,13 +1,10 @@
 import { cn } from "@/lib/utils"
-import type { ExamClass } from "@/lib/exam-classification"
-import { EXAM_CLASSES, SUBCLASS_ORDER } from "@/lib/exam-classification"
-
 interface CategoryFilterProps {
-  availableClasses: ExamClass[]
+  availableClasses: string[]
   availableSubclasses: string[]
-  selectedClass: ExamClass | null
+  selectedClass: string | null
   selectedSubclass: string | null
-  onClassChange: (cls: ExamClass | null) => void
+  onClassChange: (cls: string | null) => void
   onSubclassChange: (sub: string | null) => void
   classCounts: Record<string, number>
   subclassCounts: Record<string, number>
@@ -23,21 +20,15 @@ export function CategoryFilter({
   classCounts,
   subclassCounts,
 }: CategoryFilterProps) {
-  const orderedClasses = EXAM_CLASSES.filter((c) => availableClasses.includes(c))
-  const orderedSubclasses = selectedClass
-    ? (SUBCLASS_ORDER[selectedClass] ?? []).filter((s) =>
-        availableSubclasses.includes(s)
-      )
-    : []
-
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
+      <div role="group" aria-label="考試分類" className="mask-fade-x flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
         <button
+          type="button"
           onClick={() => onClassChange(null)}
           aria-pressed={selectedClass === null}
           className={cn(
-            "h-9 shrink-0 rounded-[3px] border px-3.5 text-sm font-medium transition-colors",
+            "h-11 shrink-0 rounded-[3px] border px-3.5 text-sm font-medium transition-colors sm:h-9",
             selectedClass === null
               ? "border-ink-950 bg-ink-950 text-cream"
               : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
@@ -45,33 +36,35 @@ export function CategoryFilter({
         >
           全部分類
         </button>
-        {orderedClasses.map((cls) => (
+        {availableClasses.map((cls) => (
           <button
+            type="button"
             key={cls}
             onClick={() => onClassChange(cls === selectedClass ? null : cls)}
             aria-pressed={cls === selectedClass}
             className={cn(
-              "h-9 shrink-0 rounded-[3px] border px-3.5 text-sm font-medium transition-colors",
+              "h-11 shrink-0 rounded-[3px] border px-3.5 text-sm font-medium transition-colors sm:h-9",
               cls === selectedClass
                 ? "border-ink-950 bg-ink-950 text-cream"
                 : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
             )}
           >
             {cls}
-            <span className="ml-1.5 text-[11px] opacity-60">
+            <span className="ml-1.5 text-[11px]">
               {classCounts[cls] ?? 0}
             </span>
           </button>
         ))}
       </div>
 
-      {selectedClass && orderedSubclasses.length > 0 && (
-        <div className="mask-fade-x flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
+      {selectedClass && availableSubclasses.length > 0 && (
+        <div role="group" aria-label="考試子分類" className="mask-fade-x flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
           <button
+            type="button"
             onClick={() => onSubclassChange(null)}
             aria-pressed={selectedSubclass === null}
             className={cn(
-              "h-8 shrink-0 rounded-[3px] border px-3 text-xs font-medium transition-colors",
+              "h-11 shrink-0 rounded-[3px] border px-3 text-xs font-medium transition-colors sm:h-8",
               selectedSubclass === null
                 ? "border-seal-600 bg-seal-600 text-cream"
                 : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
@@ -79,22 +72,23 @@ export function CategoryFilter({
           >
             全部
           </button>
-          {orderedSubclasses.map((sub) => (
+          {availableSubclasses.map((sub) => (
             <button
+              type="button"
               key={sub}
               onClick={() =>
                 onSubclassChange(sub === selectedSubclass ? null : sub)
               }
               aria-pressed={sub === selectedSubclass}
               className={cn(
-                "h-8 shrink-0 rounded-[3px] border px-3 text-xs font-medium transition-colors",
+                "h-11 shrink-0 rounded-[3px] border px-3 text-xs font-medium transition-colors sm:h-8",
                 sub === selectedSubclass
                   ? "border-seal-600 bg-seal-600 text-cream"
                   : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
               )}
             >
               {sub}
-              <span className="ml-1 text-[10px] opacity-60">
+              <span className="ml-1 text-[10px]">
                 {subclassCounts[sub] ?? 0}
               </span>
             </button>

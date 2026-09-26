@@ -1,0 +1,35 @@
+import assert from "node:assert/strict"
+import test from "node:test"
+
+import { buildBundlePage, buildSitemap, siteRoot } from "./bundle-pages.mjs"
+
+const bundle = {
+  id: "exam-one",
+  name: "測驗 <甲>",
+  years: [115, 114],
+  fileCount: 2,
+  examClass: "升學測驗",
+  examSubclass: "分科測驗",
+  tag: "shard-1",
+  asset: "exam-one.zip",
+  subjectLabels: ["數學甲"],
+}
+
+test("bundle page has a canonical URL, safe metadata, ZIP distribution, and a return path", () => {
+  const root = siteRoot({ base: "/tw-exam/", origin: "https://example.github.io" })
+  const html = buildBundlePage(bundle, { repo: "example/tw-exam", root })
+  assert.match(html, /<link rel="canonical" href="https:\/\/example\.github\.io\/tw-exam\/b\/exam-one\.html">/)
+  assert.match(html, /測驗 &lt;甲&gt;/)
+  assert.doesNotMatch(html, /<title>測驗 <甲>/)
+  assert.match(html, /https:\/\/github\.com\/example\/tw-exam\/releases\/download\/shard-1\/exam-one\.zip/)
+  assert.match(html, /join\.html\?return=/)
+  assert.match(html, /application\/ld\+json/)
+})
+
+test("sitemap includes every bundle page under the site base", () => {
+  const root = siteRoot({ base: "/tw-exam/", origin: "https://example.github.io" })
+  const sitemap = buildSitemap([bundle], root)
+  assert.match(sitemap, /https:\/\/example\.github\.io\/tw-exam\/b\/exam-one\.html/)
+  assert.match(sitemap, /https:\/\/example\.github\.io\/tw-exam\/about\.html/)
+  assert.equal((sitemap.match(/<url>/g) ?? []).length, 6)
+})

@@ -1,0 +1,8 @@
+The Exam Sans TC and Exam Serif TC WOFF2 files in this site are subsets of
+Noto Sans CJK TC and Noto Serif CJK TC, respectively. They were generated
+from the fonts-noto-cjk package using scripts/build_frontend_fonts.py.
+The font family names were changed for these modified subsets.
+
+Source: https://github.com/notofonts/noto-cjk
+License: SIL Open Font License 1.1. The full upstream license texts are
+OFL-NotoSans.txt and OFL-NotoSerif.txt in this directory.

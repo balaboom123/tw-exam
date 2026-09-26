@@ -21,6 +21,14 @@ def _load_release_script():
     return module
 
 
+def _workflow_implementation(path: Path) -> str:
+    """Include same-repository reusable jobs when checking a caller's gates."""
+    text = path.read_text(encoding="utf-8")
+    for name in re.findall(r"uses: \./\.github/workflows/([\w-]+\.yml)", text):
+        text += "\n" + (path.parent / name).read_text(encoding="utf-8")
+    return text
+
+
 def _workflow_run_workflows(workflow: str) -> list[str]:
     names: list[str] = []
     inside_trigger = False
@@ -59,10 +67,12 @@ def _workflow_run_workflows(workflow: str) -> list[str]:
 def _data_writing_workflow_names() -> list[str]:
     names: list[str] = []
     for path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.yml")):
-        text = path.read_text(encoding="utf-8")
+        if path.name.startswith("_"):
+            continue
+        text = _workflow_implementation(path)
         if "commit-and-push.sh" not in text:
             continue
-        for line in text.splitlines():
+        for line in path.read_text(encoding="utf-8").splitlines():
             if line.startswith("name:"):
                 names.append(line.removeprefix("name:").strip())
                 break
@@ -175,6 +185,35 @@ class WorkflowTests(unittest.TestCase):
             workflow = (workflows_dir / workflow_name).read_text(encoding="utf-8")
             self.assertIn("release_assets.py upload", workflow)
             self.assertIn("release_assets.py prune", workflow)
+
+    def test_ceec_ast_sync_publishes_its_affected_bundles(self) -> None:
+        caller = (REPO_ROOT / ".github" / "workflows" / "sync-ceec-ast.yml").read_text(encoding="utf-8")
+        workflow = (REPO_ROOT / ".github" / "workflows" / "_sync-provider.yml").read_text(encoding="utf-8")
+
+        self.assertIn("uses: ./.github/workflows/_sync-provider.yml", caller)
+        self.assertIn("provider_id: ceec_ast", caller)
+        self.assertIn("cache_prefix: ceec-ast", caller)
+        self.assertIn("publish: true", caller)
+
+        steps = (
+            "--publish-plan-output .tmp/site-publish-plan.json",
+            "python -m app publish-site --site-id default",
+            "release_assets.py ensure",
+            "release_assets.py upload",
+            "commit-and-push.sh",
+        )
+        self.assertEqual(list(map(workflow.index, steps)), sorted(map(workflow.index, steps)))
+        self.assertIn("--publish-plan .tmp/site-publish-plan.json", workflow)
+        self.assertIn('"data/providers/$PROVIDER_ID" data/sites/default', workflow)
+        self.assertNotIn("release_assets.py prune", workflow)
+        self.assertLess(workflow.index("actions/cache/restore@"), workflow.index("Run provider sync"))
+        self.assertLess(workflow.index("actions/cache/save@"), workflow.index("Publish affected default-site bundles"))
+        self.assertIn("steps.sync.outcome != 'skipped'", workflow)
+        self.assertIn("continue-on-error: true", workflow)
+        self.assertIn("inputs.publish && steps.sync.outcome == 'success' && steps.upload.outcome == 'success'", workflow)
+        self.assertIn("Surface sync failure", workflow)
+        commit_step = workflow[workflow.index("- name: Commit provider and site state"):]
+        self.assertNotIn("if: '!cancelled()'", commit_step)
 
     def test_sync_workflows_do_not_stage_legacy_site_output(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -596,13 +635,34 @@ class WorkflowTests(unittest.TestCase):
             self.assertNotIn("--pdf-quality", workflow)
             self.assertNotIn("--rewrite-existing-pdfs", workflow)
 
-    def test_workflows_use_plain_manifest_based_mirror_cache(self) -> None:
+    def test_moex_workflows_save_fresh_mirror_cache_after_sync_attempts(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
         for workflow_name in ("sync-full.yml", "sync-incremental.yml", "audit-recent.yml"):
             workflow = (workflows_dir / workflow_name).read_text(encoding="utf-8")
-            self.assertIn("moex-mirror-${{ hashFiles('data/providers/moex/source-manifest.json') }}", workflow)
+            self.assertIn("moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}", workflow)
+            self.assertIn("actions/cache/restore@", workflow)
+            self.assertIn("actions/cache/save@", workflow)
+            self.assertLess(workflow.index("Restore mirror directory"), workflow.index("Save mirror directory"))
+            self.assertLess(workflow.index("Run "), workflow.index("Save mirror directory"))
+            self.assertIn("!cancelled()", workflow)
             self.assertNotIn("PDF_CACHE_VERSION", workflow)
             self.assertNotIn("PDF_QUALITY_PROFILE", workflow)
+
+    def test_provider_workflows_save_fresh_mirror_cache_after_sync_attempts(self) -> None:
+        workflows_dir = REPO_ROOT / ".github" / "workflows"
+        for workflow_path in sorted(workflows_dir.glob("sync-*.yml")):
+            workflow = workflow_path.read_text(encoding="utf-8")
+            if re.search(r"(?m)^      - name: Commit regenerated .* provider data$", workflow) is None:
+                continue
+            with self.subTest(workflow=workflow_path.name):
+                self.assertEqual(workflow.count("actions/cache/restore@v6"), 1)
+                self.assertEqual(workflow.count("actions/cache/save@v6"), 1)
+                self.assertEqual(workflow.count("github.run_id"), 2)
+                self.assertEqual(workflow.count("github.run_attempt"), 2)
+                self.assertIn("if: '!cancelled()'\n        uses: actions/cache/save@v6", workflow)
+                self.assertLess(workflow.index("Restore mirror directory"), workflow.index("Run "))
+                self.assertLess(workflow.index("Run "), workflow.index("Save mirror directory"))
+                self.assertLess(workflow.index("Save mirror directory"), workflow.index("Commit regenerated"))
 
     def test_workflows_define_timeout_and_concurrency_controls(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -656,7 +716,7 @@ class WorkflowTests(unittest.TestCase):
         workflow_paths = sorted(workflows_dir.glob("sync-*.yml")) + [workflows_dir / "audit-recent.yml"]
 
         for workflow_path in workflow_paths:
-            workflow = workflow_path.read_text(encoding="utf-8")
+            workflow = _workflow_implementation(workflow_path)
             if "contents: write" not in workflow:
                 continue
             self.assertIn(".github/scripts/commit-and-push.sh", workflow, workflow_path.name)
@@ -725,7 +785,7 @@ class WorkflowTests(unittest.TestCase):
 
         self.assertTrue(writers)
         for workflow_path in writers:
-            workflow = workflow_path.read_text(encoding="utf-8")
+            workflow = _workflow_implementation(workflow_path)
             with self.subTest(workflow=workflow_path.name):
                 self.assertIn(".github/scripts/commit-and-push.sh", workflow)
                 for forbidden in ("git commit -m", "git push origin"):
@@ -898,11 +958,12 @@ class LaunchCITest(unittest.TestCase):
 
         for required in (
             "pull_request:",
-            "python -m pytest -q",
-            "tests/test_workflows.py",
+            'python -m pytest -q -m "not repo_data"',
+            "python -m pytest -q -m repo_data",
             "python -m app audit-catalog",
             "python -m app history-audit",
             "python scripts/validate_publication.py",
+            "python scripts/validate_schemas.py",
             "python -m app plan-release",
             "npm ci",
             "npm test",
@@ -910,7 +971,21 @@ class LaunchCITest(unittest.TestCase):
             "npm run build",
         ):
             self.assertIn(required, workflow)
+        self.assertEqual(workflow.count("uv sync --frozen"), 2)
+        self.assertTrue((REPO_ROOT / "uv.lock").is_file())
         self.assertIn('node-version: "22"', workflow)
+
+    def test_ci_catalog_gate_is_conditional_but_docs_run_on_every_change(self) -> None:
+        workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        fast_job = workflow.split("  fast-python:\n", 1)[1].split("  python:\n", 1)[0]
+        catalog_job = workflow.split("  python:\n", 1)[1].split("  frontend:\n", 1)[0]
+
+        self.assertIn("fetch-depth: 0", workflow)
+        self.assertIn("ci_scope.py", workflow)
+        self.assertIn("needs: changes", catalog_job)
+        self.assertIn("if: needs.changes.outputs.catalog == 'true'", catalog_job)
+        self.assertIn("scripts/validate_docs.py --check", fast_job)
+        self.assertIn("scripts/validate_publication.py", catalog_job)
 
 
 class FailedSyncCommitGuardTest(unittest.TestCase):
@@ -922,7 +997,7 @@ class FailedSyncCommitGuardTest(unittest.TestCase):
         return [
             path
             for path in sorted(workflows_dir.glob("sync-*.yml"))
-            if path.name not in {"sync-incremental.yml", "sync-full.yml"}
+            if path.name not in {"sync-incremental.yml", "sync-full.yml", "sync-ceec-ast.yml"}
         ]
 
     def test_provider_sync_workflows_route_partial_results_through_shared_guard(self) -> None:
@@ -938,15 +1013,15 @@ class FailedSyncCommitGuardTest(unittest.TestCase):
                 self.assertIn("        if: '!cancelled()'", preceding)
 
     def test_publishing_workflows_stay_fail_closed_on_a_partial_sync(self) -> None:
-        # These three workflows synchronize and publish in one job. Their
+        # These workflows synchronize and publish in one job. Their
         # commit step stays success-gated so a failed sync cannot combine new
         # provider state with a stale site projection or release plan.
         workflows_dir = REPO_ROOT / ".github" / "workflows"
         validator = (REPO_ROOT / "scripts" / "validate_publication.py").read_text(encoding="utf-8")
         self.assertIn("normalized catalog and public site eligibility differ", validator)
 
-        for name in ("sync-incremental.yml", "audit-recent.yml", "sync-full.yml"):
-            lines = (workflows_dir / name).read_text(encoding="utf-8").splitlines()
+        for name in ("sync-incremental.yml", "audit-recent.yml", "sync-full.yml", "sync-ceec-ast.yml"):
+            lines = _workflow_implementation(workflows_dir / name).splitlines()
             commit_indexes = [i for i, line in enumerate(lines) if "commit-and-push.sh" in line]
             with self.subTest(workflow=name):
                 self.assertTrue(commit_indexes)
@@ -1016,15 +1091,17 @@ class WorkflowHealthTest(unittest.TestCase):
                     break
         return sorted(names)
 
-    def test_health_workflow_reacts_to_every_scheduled_workflow(self) -> None:
+    def test_health_workflow_uses_one_daily_audit(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "workflow-health.yml").read_text(encoding="utf-8")
 
-        self.assertEqual(sorted(_workflow_run_workflows(workflow)), self._scheduled_workflow_names())
+        self.assertNotIn("workflow_run:", workflow)
+        self.assertIn("workflow_health.py daily --max-age-days 14", workflow)
+        self.assertGreater(len(self._scheduled_workflow_names()), 1)
 
     def test_health_workflow_does_not_react_to_itself(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "workflow-health.yml").read_text(encoding="utf-8")
 
-        self.assertNotIn("workflow-health", _workflow_run_workflows(workflow))
+        self.assertNotIn("workflow_run:", workflow)
 
     def test_health_workflow_keeps_a_schedule_for_workflows_that_stop_running(self) -> None:
         workflow = (REPO_ROOT / ".github" / "workflows" / "workflow-health.yml").read_text(encoding="utf-8")
@@ -1085,6 +1162,56 @@ class WorkflowHealthTest(unittest.TestCase):
 
         run_mock.assert_not_called()
 
+    def test_daily_audit_reports_latest_failed_run_once(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "sync-incremental", "timeout_minutes": 360}
+        run = {"status": "completed", "conclusion": "failure", "html_url": "https://example/run/5"}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_open_health_issue", return_value=None), \
+                mock.patch.object(module, "_create_issue") as create_mock:
+            module.audit_latest()
+
+        create_mock.assert_called_once()
+        self.assertIn("https://example/run/5", create_mock.call_args.args[2])
+
+    def test_daily_audit_ignores_quick_cancellation_but_reports_timeout(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "deploy-pages", "timeout_minutes": 30}
+        start = datetime.now(timezone.utc) - timedelta(minutes=35)
+        cancelled = {
+            "status": "completed", "conclusion": "cancelled",
+            "run_started_at": start.isoformat(),
+            "updated_at": (start + timedelta(minutes=2)).isoformat(),
+        }
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=cancelled), \
+                mock.patch.object(module, "_open_health_issue", return_value=None), \
+                mock.patch.object(module, "_create_issue") as create_mock:
+            module.audit_latest()
+            create_mock.assert_not_called()
+            cancelled["updated_at"] = (start + timedelta(minutes=31)).isoformat()
+            module.audit_latest()
+
+        create_mock.assert_called_once()
+        self.assertIn("**cancelled**", create_mock.call_args.args[2])
+
+    def test_daily_audit_closes_a_failure_issue_after_success(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "sync-incremental", "timeout_minutes": 360}
+        existing = {"number": 42, "body": "`sync-incremental` concluded **failure**."}
+        run = {"status": "completed", "conclusion": "success", "html_url": "https://example/run/6"}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                mock.patch.object(module, "_close") as close_mock:
+            module.audit_latest()
+
+        close_mock.assert_called_once()
+
     def test_read_requests_force_the_get_method(self) -> None:
         # gh turns a bare -f into a request body and posts it, so a read that
         # carries query parameters without -X GET reaches the API as a POST and
@@ -1095,6 +1222,7 @@ class WorkflowHealthTest(unittest.TestCase):
                 mock.patch.object(module.subprocess, "run") as run_mock:
             run_mock.return_value = mock.Mock(stdout='{"workflow_runs": []}')
             module._last_success("o/r", 1)
+            module._latest_run("o/r", 1)
             module._scheduled_workflows("o/r")
 
         for call in run_mock.call_args_list:
@@ -1103,6 +1231,8 @@ class WorkflowHealthTest(unittest.TestCase):
                 if any(arg == "-f" for arg in argv):
                     self.assertIn("-X", argv)
                     self.assertEqual(argv[argv.index("-X") + 1], "GET")
+        latest_argv = run_mock.call_args_list[1].args[0]
+        self.assertIn("status=completed", latest_argv)
 
     def test_manual_recovery_counts_as_a_recent_success(self) -> None:
         module = _load_health_script()

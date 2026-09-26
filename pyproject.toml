@@ -5,10 +5,14 @@ description = "Mirror, normalize, and publish Taiwan examination papers from off
 requires-python = ">=3.11"
 
 [dependency-groups]
-dev = ["pytest>=8.0"]
+dev = [
+    "jsonschema>=4.26.0",
+    "pytest>=8.0",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["repo_data: tests that load checked-in provider or site catalogs"]
 
 [build-system]
 requires = ["setuptools>=68"]
