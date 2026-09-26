@@ -1,4 +1,5 @@
 import unittest
+from urllib.error import URLError
 from unittest.mock import patch
 
 from app.models import NormalizedCatalog
@@ -76,6 +77,37 @@ AST_GUIDELINE_PAGE_HTML = """
 
 
 class CeecAstParserTests(unittest.TestCase):
+    def test_listing_retries_only_the_page_that_times_out(self) -> None:
+        html = LISTING_HTML.replace("共 25 頁", "共 2 頁").encode("utf-8")
+        second_page_url = f"{LISTING_URL}&page=2"
+        requested: list[str] = []
+
+        class Response:
+            status = 200
+            headers: dict[str, str] = {}
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return None
+
+            def read(self) -> bytes:
+                return html
+
+        def open_page(request, _timeout):
+            requested.append(request.full_url)
+            if request.full_url == second_page_url and requested.count(second_page_url) == 1:
+                raise URLError("TLS handshake timed out")
+            return Response()
+
+        client = CeecAstClient()
+        with patch.object(client._http, "_open", side_effect=open_page), patch("app.providers.http.time.sleep"):
+            entries = client._iter_entries()
+
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(requested, [LISTING_URL, second_page_url, second_page_url])
+
     def test_parse_listing_page_extracts_total_pages_and_ast_row(self) -> None:
         page = parse_listing_page(LISTING_HTML)
 
