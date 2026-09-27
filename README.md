@@ -34,6 +34,13 @@ Primary bundle filenames derive from versioned identities and include a stable d
 
 Repository code is available under the [MIT License](LICENSE). Examination papers and other source materials retain their original terms; see [data sources and reuse](DATA-LICENSE.md).
 
+## Older download links
+
+2026-09-26 notice, accepted 2026-09-27: the original v1 bundle Releases will be retired after current v2 coverage is verified.
+Use the [current catalog](https://balaboom123.github.io/tw-exam/) to find the
+separate v2 exam bundles. Saved v1 download links will stop working after deletion. The [retirement decision](docs/decisions/ADR-2026-09-26-v1-release-retirement.md)
+defines the affected Releases and required verification; deletion has separate maintainer authorization and must pass the documented checks.
+
 ## Verification
 
 ```bash
