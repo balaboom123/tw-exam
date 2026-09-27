@@ -37,6 +37,7 @@ class MirrorStore:
     def __init__(self, root: Path) -> None:
         self.root = root
         self._dedupe_index: dict[str, dict[str, int | str]] | None = None
+        self._checksums_by_path: dict[str, set[str]] = {}
         self._index_dirty = False
 
     @property
@@ -79,8 +80,29 @@ class MirrorStore:
                 size = entry.get("size")
                 if isinstance(storage_key, str) and isinstance(size, int) and size >= 0:
                     entries[checksum] = {"storage_key": storage_key, "size": size}
-        self._dedupe_index = entries
+        self._set_dedupe_index(entries)
         return entries
+
+    def _set_dedupe_index(self, entries: dict[str, dict[str, int | str]]) -> None:
+        self._dedupe_index = entries
+        self._checksums_by_path = {}
+        for checksum, entry in entries.items():
+            storage_key = entry.get("storage_key")
+            if isinstance(storage_key, str):
+                self._checksums_by_path.setdefault(storage_key, set()).add(checksum)
+
+    def _discard_checksum(self, checksum: str) -> None:
+        entry = self._load_dedupe_index().pop(checksum, None)
+        if entry is None:
+            return
+        storage_key = entry.get("storage_key")
+        if isinstance(storage_key, str):
+            checksums = self._checksums_by_path.get(storage_key)
+            if checksums is not None:
+                checksums.discard(checksum)
+                if not checksums:
+                    del self._checksums_by_path[storage_key]
+        self._index_dirty = True
 
     def _ensure_dedupe_index(self) -> None:
         if self._dedupe_index is not None:
@@ -157,21 +179,16 @@ class MirrorStore:
         entry = index.get(checksum)
         if entry is None:
             index[checksum] = {"storage_key": storage_key, "size": size}
+            self._checksums_by_path.setdefault(storage_key, set()).add(checksum)
             self._index_dirty = True
 
     def _discard_index_paths(self, storage_keys: set[str]) -> None:
         if not storage_keys:
             return
-        index = self._load_dedupe_index()
-        removed = [
-            checksum
-            for checksum, entry in index.items()
-            if entry.get("storage_key") in storage_keys
-        ]
-        for checksum in removed:
-            del index[checksum]
-        if removed:
-            self._index_dirty = True
+        self._load_dedupe_index()
+        for storage_key in storage_keys:
+            for checksum in tuple(self._checksums_by_path.get(storage_key, ())):
+                self._discard_checksum(checksum)
 
     def _canonical_path(self, checksum: str, size: int) -> Path | None:
         index = self._load_dedupe_index()
@@ -180,14 +197,12 @@ class MirrorStore:
             return None
         storage_key = entry.get("storage_key")
         if not isinstance(storage_key, str):
-            del index[checksum]
-            self._index_dirty = True
+            self._discard_checksum(checksum)
             return None
         path = self.root / Path(storage_key)
         if path.is_file() and path.stat().st_size == size and self._checksum_path(path) == checksum:
             return path
-        del index[checksum]
-        self._index_dirty = True
+        self._discard_checksum(checksum)
         return None
 
     @staticmethod
@@ -289,7 +304,7 @@ class MirrorStore:
                     self._replace_with_hard_link(canonical_path, duplicate_path)
 
         if apply:
-            self._dedupe_index = rebuilt_index
+            self._set_dedupe_index(rebuilt_index)
             self._index_dirty = True
             self.flush_dedupe_index()
         return MirrorDedupeResult(
@@ -375,7 +390,13 @@ class MirrorStore:
                 if key in references
             }
             index = self._load_dedupe_index()
-            for checksum, entry in list(index.items()):
+            stale_checksums = {
+                checksum
+                for storage_key in stale_keys
+                for checksum in self._checksums_by_path.get(storage_key, ())
+            }
+            for checksum in stale_checksums:
+                entry = index[checksum]
                 storage_key = entry.get("storage_key")
                 if not isinstance(storage_key, str) or storage_key not in stale_keys:
                     continue
@@ -385,8 +406,8 @@ class MirrorStore:
                 )
                 if replacement is None:
                     continue
-                index[checksum] = {"storage_key": replacement, "size": stale_path.stat().st_size}
-                self._index_dirty = True
+                self._discard_checksum(checksum)
+                self._register_checksum(checksum, stale_path.stat().st_size, replacement)
             for path in stale_paths:
                 path.unlink()
             self._discard_index_paths(stale_keys)
