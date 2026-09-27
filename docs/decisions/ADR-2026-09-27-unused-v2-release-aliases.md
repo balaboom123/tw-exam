@@ -1,6 +1,7 @@
 # ADR-2026-09-27: retire unpublished v2 alias metadata
 
-- Status: proposed
+- Status: accepted
+- Accepted: 2026-09-27 by the maintainer
 - Owners: publication and operations maintainers
 - Scope: the default site's v2 Release projection
 
@@ -12,7 +13,7 @@ The upload helper uploads primary ZIPs and retains declared aliases only when th
 
 This proposal is separate from original v1 Release retirement. Accepting that notice or deleting those Releases does not authorize this change.
 
-## Proposed decision
+## Decision
 
 After explicit acceptance and a fresh remote inventory proves every active primary is current and no declared alias exists on its assigned v2 Release, disable alias retention for the default site in `app/site_registry.py`.
 
@@ -30,4 +31,4 @@ Future default-site publications no longer declare speculative legacy fallback n
 
 ## Authorization boundary
 
-This ADR remains proposed until the maintainer explicitly accepts it. Its draft implementation and generated metadata must not be merged before acceptance and final CI. Neither this document nor its local verification authorizes deleting v1 Releases or hosted v2 aliases.
+The maintainer explicitly accepted this decision and authorized merging its implementation after final CI and a fresh remote primary-only check. This accepted ADR is append-only. Alias retirement does not authorize deleting v1 Releases or hosted v2 aliases.
