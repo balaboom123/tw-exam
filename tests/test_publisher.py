@@ -2,11 +2,19 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from dataclasses import replace
+
+from app.classification import classify_normalized_paper, identity_fields
 
 from app.manifest import SourceManifest
 from app.models import AliasRule, BundleAsset, NormalizedCatalog, NormalizedPaper, ReviewItem, SourceExamPage
 from app.paths import provider_paths, site_paths
 from app.publisher import publish_site, write_data_files, write_provider_state, write_site_state
+
+
+def _v2_paper(**kwargs):
+    paper = NormalizedPaper(**kwargs)
+    return replace(paper, **identity_fields(classify_normalized_paper(paper)))
 
 
 class PublisherTests(unittest.TestCase):
@@ -167,7 +175,7 @@ class PublisherTests(unittest.TestCase):
             self.assertFalse((root / "data" / "release-assets.json").exists())
 
     def test_publish_site_aggregates_provider_catalogs_into_default_site(self) -> None:
-        moex_latest = NormalizedPaper(
+        moex_latest = _v2_paper(
             provider_id="moex",
             canonical_id="nurse",
             canonical_name="Nurse",
@@ -183,7 +191,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="115/115030/101/0101/question.pdf",
         )
-        moex_prior = NormalizedPaper(
+        moex_prior = _v2_paper(
             provider_id="moex",
             canonical_id="nurse",
             canonical_name="Nurse",
@@ -199,7 +207,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="114/114030/101/0101/question.pdf",
         )
-        ceec_latest = NormalizedPaper(
+        ceec_latest = _v2_paper(
             provider_id="ceec_gsat",
             canonical_id="ceec-gsat",
             canonical_name="CEEC GSAT",
@@ -215,7 +223,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="115/gsat-115-guozong/101/0101/question.pdf",
         )
-        ceec_prior = NormalizedPaper(
+        ceec_prior = _v2_paper(
             provider_id="ceec_gsat",
             canonical_id="ceec-gsat",
             canonical_name="CEEC GSAT",
@@ -268,26 +276,26 @@ class PublisherTests(unittest.TestCase):
             self.assertEqual(
                 {bundle.storage_key for bundle in bundles},
                 {
-                    "bundles/sites/default/nurse.zip",
-                    "bundles/sites/default/ceec-gsat.zip",
+                    "bundles/sites/default/moex-professional-combined-not-applicable-nurse--a167604af56e.zip",
+                    "bundles/sites/default/ceec-gsat-admission-gsat-not-applicable-ceec-gsat--468bb1ad9f50.zip",
                 },
             )
             self.assertTrue(site_paths(root, "default").bundles_path.exists())
             self.assertFalse((root / "data" / "bundles.json").exists())
-            self.assertTrue((site_paths(root, "default").bundle_dir / "nurse.zip").exists())
-            self.assertTrue((site_paths(root, "default").bundle_dir / "ceec-gsat.zip").exists())
+            self.assertTrue((site_paths(root, "default").bundle_dir / "moex-professional-combined-not-applicable-nurse--a167604af56e.zip").exists())
+            self.assertTrue((site_paths(root, "default").bundle_dir / "ceec-gsat-admission-gsat-not-applicable-ceec-gsat--468bb1ad9f50.zip").exists())
 
             release_assets = json.loads(site_paths(root, "default").release_assets_path.read_text(encoding="utf-8"))
             self.assertEqual(
                 {asset["storage_key"] for asset in release_assets["assets"]},
                 {
-                    "bundles/sites/default/nurse.zip",
-                    "bundles/sites/default/ceec-gsat.zip",
+                    "bundles/sites/default/moex-professional-combined-not-applicable-nurse--a167604af56e.zip",
+                    "bundles/sites/default/ceec-gsat-admission-gsat-not-applicable-ceec-gsat--468bb1ad9f50.zip",
                 },
             )
 
     def test_publish_site_excludes_single_year_bundles_from_public_site_state(self) -> None:
-        nurse_latest = NormalizedPaper(
+        nurse_latest = _v2_paper(
             provider_id="moex",
             canonical_id="nurse",
             canonical_name="Nurse",
@@ -303,7 +311,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="115/115030/101/0101/question.pdf",
         )
-        nurse_prior = NormalizedPaper(
+        nurse_prior = _v2_paper(
             provider_id="moex",
             canonical_id="nurse",
             canonical_name="Nurse",
@@ -319,7 +327,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="114/114030/101/0101/question.pdf",
         )
-        ceec_single = NormalizedPaper(
+        ceec_single = _v2_paper(
             provider_id="ceec_gsat",
             canonical_id="ceec-gsat",
             canonical_name="CEEC GSAT",
@@ -374,13 +382,13 @@ class PublisherTests(unittest.TestCase):
             self.assertEqual([bundle["canonical_id"] for bundle in site_bundles["bundles"]], ["nurse"])
 
             frontend_bundles = json.loads(site.frontend_bundles_path.read_text(encoding="utf-8"))
-            self.assertEqual([bundle["id"] for bundle in frontend_bundles["bundles"]], ["nurse"])
+            self.assertEqual([bundle["id"] for bundle in frontend_bundles["bundles"]], ["moex-professional-combined-not-applicable-nurse"])
 
             release_assets = json.loads(site.release_assets_path.read_text(encoding="utf-8"))
-            self.assertEqual([asset["asset_name"] for asset in release_assets["assets"]], ["nurse.zip"])
+            self.assertEqual([asset["asset_name"] for asset in release_assets["assets"]], ["moex-professional-combined-not-applicable-nurse--a167604af56e.zip"])
 
     def test_publish_site_preserves_unaffected_existing_site_bundles_when_affected_ids_are_provided(self) -> None:
-        nurse_latest = NormalizedPaper(
+        nurse_latest = _v2_paper(
             provider_id="moex",
             canonical_id="nurse",
             canonical_name="Nurse",
@@ -396,7 +404,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="115/115030/101/0101/question.pdf",
         )
-        nurse_prior = NormalizedPaper(
+        nurse_prior = _v2_paper(
             provider_id="moex",
             canonical_id="nurse",
             canonical_name="Nurse",
@@ -412,7 +420,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0101",
             storage_key="114/114030/101/0101/question.pdf",
         )
-        doctor_latest = NormalizedPaper(
+        doctor_latest = _v2_paper(
             provider_id="moex",
             canonical_id="doctor",
             canonical_name="Doctor",
@@ -428,7 +436,7 @@ class PublisherTests(unittest.TestCase):
             subject_code="0201",
             storage_key="115/115040/201/0201/question.pdf",
         )
-        doctor_prior = NormalizedPaper(
+        doctor_prior = _v2_paper(
             provider_id="moex",
             canonical_id="doctor",
             canonical_name="Doctor",
@@ -476,10 +484,19 @@ class PublisherTests(unittest.TestCase):
                 canonical_name="Nurse",
                 years=[115, 114],
                 file_count=2,
-                storage_key="bundles/sites/default/nurse.zip",
-                asset_name="nurse.zip",
-                release_tag="default-bundles-001",
-                download_url="https://github.com/example/repo/releases/download/default-bundles-001/nurse.zip",
+                storage_key="bundles/sites/default/moex-professional-combined-not-applicable-nurse--a167604af56e.zip",
+                asset_name="moex-professional-combined-not-applicable-nurse--a167604af56e.zip",
+                release_tag="default-bundles-v2-001",
+                download_url="https://github.com/example/repo/releases/download/default-bundles-v2-001/moex-professional-combined-not-applicable-nurse--a167604af56e.zip",
+                schema_version=2,
+                bundle_id=nurse_latest.bundle_id,
+                catalog_version=nurse_latest.catalog_version,
+                domain_id=nurse_latest.domain_id,
+                exam_family_id=nurse_latest.exam_family_id,
+                exam_series_id=nurse_latest.exam_series_id,
+                level_id=nurse_latest.level_id,
+                track_id=nurse_latest.track_id,
+                stage_id=nurse_latest.stage_id,
                 checksum="nurse-existing",
             )
             write_site_state(
@@ -487,7 +504,7 @@ class PublisherTests(unittest.TestCase):
                 bundles=[nurse_bundle],
                 frontend_bundles=[
                     {
-                        "id": "nurse",
+                        "id": nurse_latest.bundle_id,
                         "name": "Nurse",
                         "years": [115, 114],
                         "fileCount": 2,
@@ -507,9 +524,9 @@ class PublisherTests(unittest.TestCase):
             self.assertEqual({bundle.canonical_id for bundle in bundles}, {"nurse", "doctor"})
             preserved_nurse = next(bundle for bundle in bundles if bundle.canonical_id == "nurse")
             self.assertEqual(preserved_nurse.checksum, "nurse-existing")
-            self.assertEqual(preserved_nurse.storage_key, "bundles/sites/default/nurse.zip")
-            self.assertFalse((site_paths(root, "default").bundle_dir / "nurse.zip").exists())
-            self.assertTrue((site_paths(root, "default").bundle_dir / "doctor.zip").exists())
+            self.assertEqual(preserved_nurse.storage_key, "bundles/sites/default/moex-professional-combined-not-applicable-nurse--a167604af56e.zip")
+            self.assertFalse((site_paths(root, "default").bundle_dir / "moex-professional-combined-not-applicable-nurse--a167604af56e.zip").exists())
+            self.assertTrue((site_paths(root, "default").bundle_dir / "moex-professional-combined-not-applicable-doctor--71f8362bd185.zip").exists())
 
     def test_publish_site_rejects_partial_publish_without_existing_site_bundle_metadata(self) -> None:
         doctor_latest = NormalizedPaper(

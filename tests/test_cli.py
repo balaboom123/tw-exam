@@ -7,6 +7,9 @@ import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
+from dataclasses import replace
+
+from app.classification import classify_normalized_paper, identity_fields
 from unittest.mock import patch
 
 from app import cli
@@ -273,6 +276,9 @@ class CliCommandTests(unittest.TestCase):
                 _paper("ceec_gsat", "ceec-gsat", year_roc=114),
             ]
 
+            moex_papers = [replace(p, **identity_fields(classify_normalized_paper(p))) for p in moex_papers]
+            ceec_papers = [replace(p, **identity_fields(classify_normalized_paper(p))) for p in ceec_papers]
+
             for paper in [*moex_papers, *ceec_papers]:
                 mirror_path = root / "mirror" / paper.storage_key
                 mirror_path.parent.mkdir(parents=True, exist_ok=True)
@@ -316,8 +322,8 @@ class CliCommandTests(unittest.TestCase):
             self.assertEqual(
                 {bundle["storage_key"] for bundle in bundles_payload["bundles"]},
                 {
-                    "bundles/sites/default/nurse.zip",
-                    "bundles/sites/default/ceec-gsat.zip",
+                    "bundles/sites/default/moex-professional-combined-not-applicable-nurse--a167604af56e.zip",
+                    "bundles/sites/default/ceec-gsat-admission-gsat-not-applicable-ceec-gsat-exam--ee3f9cdb3584.zip",
                 },
             )
 
