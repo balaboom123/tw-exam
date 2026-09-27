@@ -35,6 +35,9 @@ uv run python .github/scripts/mirror_snapshots.py restore --provider <provider_i
 ```
 
 The helper streams a gzip archive into chunks below GitHub's asset size limit.
+It first hashes the archive without staging its compressed bytes. Changed
+mirrors get a second pass that uploads and discards one completed chunk at a
+time; a source change between passes stops publication of the snapshot pointer.
 It verifies uploaded digests before atomically advancing the release metadata
 pointer. An unchanged archive reuses its existing generation. Existing snapshots
 and their chunks are immutable; a different upload needs a new generation.
@@ -43,8 +46,30 @@ An interrupted upload cannot replace the last committed pointer.
 Restore checks the manifest digest, provider, generation, chunk hashes and sizes,
 archive paths, file types, and declared file inventory before installing the
 provider tree. It preserves other providers and refuses to overwrite a nonempty
-provider mirror. Hard-linked source payloads are archived as regular files, and
-the derived root dedupe index is discarded after restore.
+provider mirror during operator restores. Snapshot format v2 preserves hard-linked source payloads as
+links to earlier regular members within the same provider archive. Restore
+validates those targets and retains shared storage; symlinks, forward links,
+and link chains are rejected. Older v1 archives remain readable. The derived
+root dedupe index is discarded after restore.
+
+Sync workflows use `hydrate` inside their Actions workspace before acquisition.
+A restored or successfully backed-up mirror carries a local origin marker.
+A matching marker and retained inventory avoid another payload download;
+unmarked, older, or incomplete warm caches are refreshed from the committed
+durable generation. The replacement is staged and verified before swapping
+provider directories. Durable bytes win at overlapping paths; cache-only files
+from an interrupted backup are retained. A failed download or changed remote
+pointer preserves the old cache. The marker is excluded from backup archives.
+Operator `restore` keeps its empty-directory guard, and publication retries
+continue to use their original pinned generation.
+
+Durable backup runs before Actions cache save, so cached origin markers describe
+the committed snapshot. The helper emits its cache eligibility before attempting
+an upload. Mirrors above its unique-payload budget skip warm cache save and
+recover from public storage on the next run; shared hard-linked files count
+once. This avoids a large mirror competing with smaller providers for the
+repository's Actions cache allowance. Incremental MOEX runs hydrate only when
+the source probe requests sync.
 
 `--allow-missing` permits source bootstrap only when the release does not exist;
 transport errors, incomplete releases, or corrupt archives stop recovery.
@@ -61,9 +86,20 @@ Verify a durable snapshot before deliberately evicting that provider's cache.
 The helper never deletes remote snapshots. Before removing old generations,
 check that no retained publication artifact or pending job needs them. Interrupted
 uploads may leave unreferenced chunks; diagnose those before manual cleanup.
-The release asset cap is checked before uploading additional files. Snapshot
-packing and restore need free disk for compressed chunks alongside the mirror;
-large providers still need a runner or local machine with sufficient storage.
+The release asset cap is checked before uploading additional files. Backup
+staging uses at most one compressed chunk plus small manifests. Restore
+verifies and discards each downloaded chunk as it is consumed, then installs
+the complete provider tree atomically. Its preflight requires free space for
+the unique payload bytes, one compressed chunk, and filesystem overhead;
+large providers still need a runner or local machine with enough room for
+their restored files. Deploy the v2 reader before seeding v2 snapshots;
+older code rejects that format.
+
+The manual `verify-mirror-recovery.yml` workflow restores a selected provider
+on an empty hosted runner with read-only repository permissions. It reports the
+verified manifest, recovered inventory, unique storage, and hard links. Supply
+both generation and manifest SHA256 to check a pinned snapshot. It performs no
+sync, cache save or eviction, site publication, or Release mutation.
 
 ## Scenario 2: an official source is blocked
 
