@@ -39,7 +39,7 @@ Use the repository release workflow to ensure and upload expected site assets. P
 
 ## V1 retirement
 
-The [proposed retirement decision](../decisions/ADR-2026-09-26-v1-release-retirement.md)
+The [accepted retirement decision](../decisions/ADR-2026-09-26-v1-release-retirement.md)
 defines the historical Release scope. Publication pruning is not a substitute
 for this separately authorized operation.
 

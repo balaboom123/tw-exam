@@ -36,12 +36,10 @@ Repository code is available under the [MIT License](LICENSE). Examination paper
 
 ## Older download links
 
-2026-09-26 notice: the original v1 bundle Releases are proposed for retirement.
+2026-09-26 notice, accepted 2026-09-27: the original v1 bundle Releases will be retired after current v2 coverage is verified.
 Use the [current catalog](https://balaboom123.github.io/tw-exam/) to find the
-separate v2 exam bundles. Saved v1 download links will stop working if retirement
-is approved. The [retirement proposal](docs/decisions/ADR-2026-09-26-v1-release-retirement.md)
-defines the affected Releases and required verification; no deletion is scheduled
-or authorized by this notice alone.
+separate v2 exam bundles. Saved v1 download links will stop working after deletion. The [retirement decision](docs/decisions/ADR-2026-09-26-v1-release-retirement.md)
+defines the affected Releases and required verification; deletion has separate maintainer authorization and must pass the documented checks.
 
 ## Verification
 

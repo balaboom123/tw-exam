@@ -1,6 +1,7 @@
 # ADR-2026-09-26: retire original v1 bundle Releases
 
-- Status: proposed
+- Status: accepted
+- Accepted: 2026-09-27 by the maintainer
 - Owners: publication and operations maintainers
 - Scope: the original default-site v1 Releases
 
@@ -17,7 +18,7 @@ The proposal is limited to `moex-bundles`, `default-bundles-001`, and
 retired; live asset inventory and coverage are determined from GitHub and the
 site-owned publication state during preflight.
 
-## Proposed decision
+## Decision
 
 1. Publish the dated README notice before deleting any Release.
 2. Require a fresh retirement report proving that current site downloads are
@@ -55,6 +56,6 @@ remain subject to their normal retention rules.
 ## Execution and evidence
 
 Follow the [retirement procedure](../operations/release-checklist.md#v1-retirement)
-and retain the fresh report with the authorization record. This proposal and the
-README notice do not themselves authorize public deletion. Once accepted, this
-decision is append-only.
+and retain the fresh report with the authorization record. The README notice does not itself authorize public deletion. The maintainer
+separately authorized deletion of the three named Releases after the notice is
+public and fresh coverage passes. This accepted decision is append-only.
