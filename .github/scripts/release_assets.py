@@ -287,7 +287,35 @@ def prune() -> int:
     return 0
 
 
-COMMANDS = {"ensure": ensure, "coverage": coverage, "upload": upload, "prune": prune}
+def primary_only_check() -> int:
+    """Fail closed unless every active Release contains only current primary ZIPs."""
+    grouped = _group_assets_by_release_tag()
+    if not grouped:
+        print("No site Release inventory to verify", file=sys.stderr)
+        return 1
+    failed = False
+    for tag, assets in sorted(grouped.items()):
+        remote = _release_zip_digests(tag)
+        expected = {asset["asset_name"] for asset in assets}
+        unexpected = sorted(remote.keys() - expected)
+        invalid = sorted(
+            asset["asset_name"] for asset in assets
+            if not asset.get("checksum") or remote.get(asset["asset_name"]) != asset["checksum"]
+        )
+        print(f"{tag}: primary ZIPs={len(expected)}, unexpected ZIPs={len(unexpected)}, "
+              f"missing or unverifiable primaries={len(invalid)}")
+        failed = failed or bool(unexpected or invalid)
+        for name in unexpected:
+            print(f"unexpected hosted ZIP: {tag}/{name}", file=sys.stderr)
+        for name in invalid:
+            print(f"missing or unverifiable primary: {tag}/{name}", file=sys.stderr)
+    return int(failed)
+
+
+COMMANDS = {
+    "ensure": ensure, "coverage": coverage, "upload": upload, "prune": prune,
+    "primary-only-check": primary_only_check,
+}
 
 
 def main() -> int:

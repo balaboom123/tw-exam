@@ -117,3 +117,13 @@ def strip_ambiguous_legacy_assets(
         )
         for bundle in bundles
     ], conflicts
+
+
+def project_release_assets(
+    bundles: list[BundleAsset], *, retain_legacy_asset_names: bool
+) -> tuple[list[BundleAsset], list[dict[str, object]]]:
+    """Apply the site's alias policy before planning physical release capacity."""
+    projected, conflicts = strip_ambiguous_legacy_assets(bundles)
+    if not retain_legacy_asset_names:
+        projected = [replace(bundle, legacy_asset_names=[]) for bundle in projected]
+    return projected, conflicts

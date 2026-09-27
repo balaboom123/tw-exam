@@ -38,6 +38,7 @@ uv run python scripts/validate_docs.py --check
 | [`contributing/add-a-provider.md`](contributing/add-a-provider.md) | Add a provider |
 | [`decisions/ADR-2026-07-16-exam-identity-and-release-shards.md`](decisions/ADR-2026-07-16-exam-identity-and-release-shards.md) | ADR-2026-07-16: versioned identity, pure bundles, and release shards |
 | [`decisions/ADR-2026-09-26-v1-release-retirement.md`](decisions/ADR-2026-09-26-v1-release-retirement.md) | ADR-2026-09-26: retire original v1 bundle Releases |
+| [`decisions/ADR-2026-09-27-unused-v2-release-aliases.md`](decisions/ADR-2026-09-27-unused-v2-release-aliases.md) | ADR-2026-09-27: retire unpublished v2 alias metadata |
 | [`operations/catalog-audit.md`](operations/catalog-audit.md) | Catalog audit |
 | [`operations/ci-cd-and-release.md`](operations/ci-cd-and-release.md) | CI/CD and release |
 | [`operations/commands.md`](operations/commands.md) | Command reference |

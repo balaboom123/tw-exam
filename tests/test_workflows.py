@@ -256,6 +256,30 @@ class WorkflowTests(unittest.TestCase):
             with mock.patch.object(module, "RELEASE_ASSETS_PATH", release_assets_path):
                 self.assertEqual(module._local_assets(), [{"asset_name": "nurse.zip", "release_tag": "default-bundles-001"}])
 
+    def test_alias_retirement_check_requires_only_current_primary_downloads(self) -> None:
+        module = _load_release_script()
+        assets = [{"asset_name": "a.zip", "checksum": "current", "release_tag": "v2-001",
+                   "legacy_asset_names": ["old-a.zip"]}]
+        cases = [
+            ({"a.zip": "current"}, 0),
+            ({"a.zip": "current", "old-a.zip": "current"}, 1),
+            ({"a.zip": "current", "unknown.zip": "other"}, 1),
+            ({"a.zip": "stale"}, 1),
+            ({"a.zip": ""}, 1),
+            ({}, 1),
+        ]
+        for remote, expected in cases:
+            with self.subTest(remote=remote), \
+                    mock.patch.object(module, "_local_assets", return_value=assets), \
+                    mock.patch.object(module, "_release_zip_digests", return_value=remote), \
+                    mock.patch.object(module.subprocess, "run") as mutation:
+                self.assertEqual(module.primary_only_check(), expected)
+                mutation.assert_not_called()
+        assets[0].pop("checksum")
+        with mock.patch.object(module, "_local_assets", return_value=assets), \
+                mock.patch.object(module, "_release_zip_digests", return_value={"a.zip": "current"}):
+            self.assertEqual(module.primary_only_check(), 1)
+
     def test_release_script_defaults_to_scoped_site_release_assets_path(self) -> None:
         module = _load_release_script()
 

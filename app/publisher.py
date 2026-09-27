@@ -27,7 +27,7 @@ from app.publication_quarantine import quarantined_provider_ids
 from app.release_tags import (
     RELEASE_SAFETY_TARGET,
     assign_release_tags,
-    strip_ambiguous_legacy_assets,
+    project_release_assets,
     validate_release_capacity,
 )
 from app.review_queue import encode_review_queue
@@ -164,8 +164,9 @@ def _release_asset_record(bundle: BundleAsset) -> dict[str, Any]:
         "storage_key": bundle.storage_key,
         "asset_name": bundle.asset_name,
         "checksum": bundle.checksum,
-        "legacy_asset_names": bundle.legacy_asset_names,
     }
+    if bundle.legacy_asset_names:
+        record["legacy_asset_names"] = bundle.legacy_asset_names
     if _structured_bundle(bundle):
         record.update(
             {
@@ -193,6 +194,8 @@ def _release_asset_record(bundle: BundleAsset) -> dict[str, Any]:
 
 def _site_bundle_record(bundle: BundleAsset) -> dict[str, Any]:
     record = cast(dict[str, Any], to_plain_data(bundle))
+    if not bundle.legacy_asset_names:
+        record.pop("legacy_asset_names", None)
     if bundle.part_count <= 1:
         record.pop("part_index", None)
         record.pop("part_count", None)
@@ -494,7 +497,10 @@ def publish_site(
     # namespace. Ambiguous legacy aliases cannot safely point to more than
     # one v2 identity, so omit them from the new projection and retain them in
     # the v1 release inventory for rollback/compatibility.
-    release_projection, _alias_conflicts = strip_ambiguous_legacy_assets(site_scoped_bundles)
+    release_projection, _alias_conflicts = project_release_assets(
+        site_scoped_bundles,
+        retain_legacy_asset_names=site_config.retain_legacy_asset_names,
+    )
     v2_release_prefix = f"{site_config.release_tag_prefix}-v2"
     tagged_bundles = assign_release_tags(
         release_tag_prefix=v2_release_prefix,

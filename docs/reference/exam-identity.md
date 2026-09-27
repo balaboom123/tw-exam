@@ -86,9 +86,15 @@ V2 is additive and reversible:
 
 - v1 canonical_id, canonical_name, source IDs, and raw labels remain in normalized records;
 - v2 fields carry schema_version 2 and catalog_version exam-identity-v2;
-- legacy public asset names can remain in legacy_asset_names;
+- site alias retention is owned by `app/site_registry.py`; retained legacy public asset names occupy physical slots;
 - the v1 reader remains available;
 - v2 publication can be rebuilt without deleting v1 assets.
+
+The default-site draft retires unpublished alias metadata under the
+[proposed alias decision](../decisions/ADR-2026-09-27-unused-v2-release-aliases.md).
+Activation requires explicit acceptance and a fresh remote inventory showing no
+hosted alias on any active v2 Release. Historical readers and download fallback
+remain available.
 
 A taxonomy or mapping change requires full historical reclassification, because old records can change bundle identity even when no new source page was fetched.
 

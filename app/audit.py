@@ -29,7 +29,7 @@ from app.release_tags import (
     RELEASE_SAFETY_TARGET,
     assign_release_tags,
     physical_asset_names,
-    strip_ambiguous_legacy_assets,
+    project_release_assets,
     validate_release_capacity,
 )
 from app.site_registry import get_site_config
@@ -289,7 +289,10 @@ def build_catalog_audit(
                 ),
             )
         )
-    planned_assets, _planned_alias_conflicts = strip_ambiguous_legacy_assets(planned_assets)
+    planned_assets, _planned_alias_conflicts = project_release_assets(
+        planned_assets,
+        retain_legacy_asset_names=site_config.retain_legacy_asset_names,
+    )
     planned_tagged = assign_release_tags(
         release_tag_prefix=f"{site_config.release_tag_prefix}-v2",
         existing_bundles=current_bundles,
@@ -510,7 +513,10 @@ def build_release_plan(
     """Build a read-only physical-asset release plan from current site state."""
     site_config = get_site_config(site_id)
     bundles = load_site_bundles(site_paths(repo_root, site_id))
-    bundles, alias_conflicts = strip_ambiguous_legacy_assets(bundles)
+    bundles, alias_conflicts = project_release_assets(
+        bundles,
+        retain_legacy_asset_names=site_config.retain_legacy_asset_names,
+    )
     assigned = assign_release_tags(
         release_tag_prefix=release_tag_prefix or f"{site_config.release_tag_prefix}-v2",
         existing_bundles=bundles,
