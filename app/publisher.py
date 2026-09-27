@@ -485,6 +485,7 @@ def publish_site(
         canonical_aliases=canonical_aliases,
         min_years=site_config.public_min_years,
         min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
+        published_checksums={bundle.asset_name: bundle.checksum for bundle in existing_bundles},
     )
     if bundle_result.failures:
         raise ValueError(_format_bundle_failures(bundle_result.failures))
