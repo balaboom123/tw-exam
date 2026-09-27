@@ -508,19 +508,6 @@ def _preserve_rewrite_sources(
     )
 
 
-def _is_legacy_projection(papers: list[NormalizedPaper]) -> bool:
-    paper = papers[0]
-    return (
-        paper.schema_version != 2
-        and not paper.bundle_id
-        and not paper.domain_id
-        and not paper.exam_series_id
-        and bool(paper.canonical_name)
-        and paper.canonical_name.isascii()
-        and len({item.canonical_id for item in papers}) == 1
-    )
-
-
 def _required_years_for_group(
     canonical_id: str,
     papers: list[NormalizedPaper],
@@ -583,7 +570,7 @@ def public_bundle_ids(
         )
         if len({paper.year_roc for paper in papers}) < required_years:
             continue
-        public_ids.add(papers[0].canonical_id if _is_legacy_projection(papers) else canonical_id)
+        public_ids.add(canonical_id)
     return public_ids
 
 
@@ -817,11 +804,10 @@ def build_bundles(
     failures: list[SyncFailure] = []
     for group_index, (canonical_id, papers) in enumerate(sorted(grouped.items()), 1):
         canonical_name = papers[0].bundle_name or papers[0].canonical_name
-        # Legacy fixtures and hand-authored v1 records often use an ASCII
-        # display label with no official identity evidence. Keep their public
-        # asset name stable; real catalog records use the structured ID.
-        legacy_projection = _is_legacy_projection(papers)
-        public_bundle_id = papers[0].canonical_id if legacy_projection else canonical_id
+        # Naming follows the record's identity contract, independent of the
+        # display label's language. Direct v1 callers retain their URL names.
+        structured = papers[0].schema_version == 2 or bool(papers[0].bundle_id)
+        public_bundle_id = canonical_id
         required_years = _required_years_for_group(
             canonical_id,
             papers,
@@ -834,7 +820,7 @@ def build_bundles(
                 if on_progress:
                     on_progress(group_index, total_groups, f"[skipped] {canonical_name}", 0)
                 continue
-        asset_name = _bundle_asset_name(public_bundle_id, structured=not legacy_projection)
+        asset_name = _bundle_asset_name(public_bundle_id, structured=structured)
         compatibility_ids = (
             list(canonical_aliases.get(canonical_id, [])) if canonical_aliases else []
         )
@@ -1015,25 +1001,23 @@ def build_bundles(
                     download_url="",
                     checksum=part_digest,
                     legacy_asset_names=[] if split_bundle else legacy_asset_names,
-                    schema_version=1 if legacy_projection else 2,
-                    bundle_id="" if legacy_projection else canonical_id,
-                    catalog_version="" if legacy_projection else exemplar.catalog_version,
-                    domain_id="" if legacy_projection else exemplar.domain_id,
-                    exam_family_id="" if legacy_projection else exemplar.exam_family_id,
-                    exam_series_id="" if legacy_projection else exemplar.exam_series_id,
-                    level_id="" if legacy_projection else exemplar.level_id,
-                    track_id="" if legacy_projection else exemplar.track_id,
-                    variant_ids=[] if legacy_projection else list(exemplar.variant_ids),
-                    stage_id="" if legacy_projection else exemplar.stage_id,
-                    bundle_policy_id="" if legacy_projection else exemplar.bundle_policy_id,
+                    schema_version=2 if structured else 1,
+                    bundle_id="" if not structured else canonical_id,
+                    catalog_version="" if not structured else exemplar.catalog_version,
+                    domain_id="" if not structured else exemplar.domain_id,
+                    exam_family_id="" if not structured else exemplar.exam_family_id,
+                    exam_series_id="" if not structured else exemplar.exam_series_id,
+                    level_id="" if not structured else exemplar.level_id,
+                    track_id="" if not structured else exemplar.track_id,
+                    variant_ids=[] if not structured else list(exemplar.variant_ids),
+                    stage_id="" if not structured else exemplar.stage_id,
+                    bundle_policy_id="" if not structured else exemplar.bundle_policy_id,
                     classification_confidence=""
-                    if legacy_projection
+                    if not structured
                     else exemplar.classification_confidence,
-                    classification_reason=""
-                    if legacy_projection
-                    else exemplar.classification_reason,
-                    exam_class="" if legacy_projection else exemplar.exam_class,
-                    exam_subclass="" if legacy_projection else exemplar.exam_subclass,
+                    classification_reason="" if not structured else exemplar.classification_reason,
+                    exam_class="" if not structured else exemplar.exam_class,
+                    exam_subclass="" if not structured else exemplar.exam_subclass,
                     search_aliases=search_aliases,
                     subject_labels=subject_labels,
                     legacy_canonical_ids=sorted(

@@ -18,7 +18,6 @@ from app.classification import ExamIdentity, classify_normalized_paper, identity
 from app.models import BundleAsset, NormalizedCatalog
 from app.normalizer import (
     _derive_canonical,
-    _is_legacy_ascii_fixture,
     load_alias_rules,
     renormalize_catalog,
 )
@@ -110,8 +109,7 @@ def build_catalog_audit(
             rebuilt_review_keys = {
                 (paper.provider_id, paper.source_exam_id, paper.category_raw)
                 for paper in catalog.papers
-                if not _is_legacy_ascii_fixture(paper)
-                and identities_by_paper[id(paper)].confidence == "review"
+                if identities_by_paper[id(paper)].confidence == "review"
             }
         else:
             # Incomplete historical records can acquire a canonical name (and
