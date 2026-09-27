@@ -39,12 +39,6 @@ jobs:
           restore-keys: |
             moex-mirror-
 
-      - name: Recover evicted MOEX mirror from public storage
-        if: ${{ steps.mirror_cache.outputs.cache-matched-key == '' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: python .github/scripts/mirror_snapshots.py restore --provider moex --repository "${{ github.repository }}" --allow-missing
-
       - name: Fail unsupported hosted bootstrap
         if: ${{ inputs.allow_unsupported_hosted_bootstrap != 'true' }}
         run: |
@@ -52,23 +46,29 @@ jobs:
           echo "Use sync-incremental for normal operation and perform full bootstrap on a machine with persistent MOEX state."
           exit 1
 
+      - name: Hydrate MOEX mirror cache from public storage
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/mirror_snapshots.py hydrate --provider moex --repository "${{ github.repository }}"
+
       - name: Run full sync
         id: full_sync
         if: ${{ inputs.allow_unsupported_hosted_bootstrap == 'true' }}
         run: python -m app sync-full --provider moex --write-manifest --manifest data/providers/moex/source-manifest.json
 
-      - name: Save mirror directory
-        if: ${{ !cancelled() && steps.full_sync.outcome != 'skipped' }}
-        uses: actions/cache/save@v6
-        with:
-          path: mirror
-          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
-
       - name: Save durable public MOEX mirror snapshot
+        id: durable
         if: ${{ !cancelled() && steps.full_sync.outcome != 'skipped' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/mirror_snapshots.py save --provider moex --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
+
+      - name: Save mirror directory
+        if: ${{ !cancelled() && steps.full_sync.outcome != 'skipped' && steps.durable.outputs.cacheable == 'true' }}
+        uses: actions/cache/save@v6
+        with:
+          path: mirror
+          key: moex-mirror-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Publish default site
         if: ${{ inputs.allow_unsupported_hosted_bootstrap == 'true' }}

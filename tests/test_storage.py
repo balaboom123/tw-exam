@@ -1,13 +1,68 @@
+import hashlib
+import json
 import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from app.models import NormalizedCatalog, ParsedPaper, SourceExamPage
 from app.storage import MirrorStore
 
 
 class MirrorStoreTests(unittest.TestCase):
+    def test_overwrite_removes_all_loaded_checksums_for_the_same_path(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            (root / 'target.pdf').write_bytes(b'old')
+            (root / 'unrelated.pdf').write_bytes(b'unrelated')
+            old = hashlib.sha256(b'old').hexdigest()
+            unrelated = hashlib.sha256(b'unrelated').hexdigest()
+            store = MirrorStore(root)
+            store.dedupe_index_path.write_text(json.dumps({'schema_version': 1, 'entries': {
+                old: {'storage_key': 'target.pdf', 'size': 3},
+                '0' * 64: {'storage_key': 'target.pdf', 'size': 3},
+                unrelated: {'storage_key': 'unrelated.pdf', 'size': 9},
+            }}))
+            stored = store.write_bytes('target.pdf', b'new', overwrite=True)
+            store.flush_dedupe_index()
+            entries = json.loads(store.dedupe_index_path.read_text())['entries']
+            self.assertEqual(set(entries), {stored.checksum, unrelated})
+            self.assertEqual(entries[stored.checksum]['storage_key'], 'target.pdf')
+            self.assertEqual((root / 'unrelated.pdf').read_bytes(), b'unrelated')
+
+    def test_prune_rehomes_shared_payload_and_later_overwrite_clears_old_checksum(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            store = MirrorStore(root)
+            orphan = store.write_bytes('providers/demo/orphan/question.pdf', b'shared')
+            active = store.write_bytes('providers/demo/active/question.pdf', b'shared')
+            with mock.patch.object(store, 'referenced_storage_keys', return_value={active.storage_key}):
+                store.prune_unreferenced_provider('demo', [], NormalizedCatalog([], []), apply=True)
+            entries = json.loads(store.dedupe_index_path.read_text())['entries']
+            self.assertEqual(entries[orphan.checksum]['storage_key'], active.storage_key)
+            self.assertFalse(orphan.path.exists())
+            self.assertEqual(active.path.read_bytes(), b'shared')
+            updated = store.write_bytes(active.storage_key, b'updated', overwrite=True)
+            store.flush_dedupe_index()
+            entries = json.loads(store.dedupe_index_path.read_text())['entries']
+            self.assertEqual(set(entries), {updated.checksum})
+            self.assertEqual(active.path.read_bytes(), b'updated')
+
+    def test_dedupe_rebuild_supports_later_canonical_overwrite(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            (root / 'a.pdf').write_bytes(b'shared')
+            (root / 'b.pdf').write_bytes(b'shared')
+            store = MirrorStore(root)
+            store.deduplicate_existing(apply=True)
+            updated = store.write_bytes('a.pdf', b'updated', overwrite=True)
+            store.flush_dedupe_index()
+            entries = json.loads(store.dedupe_index_path.read_text())['entries']
+            self.assertEqual(set(entries), {updated.checksum})
+            self.assertEqual((root / 'b.pdf').read_bytes(), b'shared')
+            self.assertFalse((root / 'a.pdf').samefile(root / 'b.pdf'))
+
     def test_write_bytes_is_idempotent_for_existing_content(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             store = MirrorStore(Path(tmp_dir))

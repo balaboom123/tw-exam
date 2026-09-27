@@ -1,4 +1,5 @@
 import tempfile
+import hashlib
 import threading
 import time
 import unittest
@@ -12,7 +13,36 @@ from app.providers.base import SourceProvider
 from app.providers.moex.provider import MoexProvider
 from app.providers.registry import get_provider
 from app.storage import MirrorStore
-from app.sync import retry_network, sync_exam_pages
+from app.sync import _existing_mirrored, retry_network, sync_exam_pages
+
+
+class MirrorFallbackTests(unittest.TestCase):
+    def test_valid_legacy_payload_replaces_invalid_scoped_copy(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            valid = b"%PDF-1.7 valid historical paper"
+            legacy_key = "115/event/101/0101/question.pdf"
+            scoped_key = f"providers/moex/{legacy_key}"
+            store.write_bytes(legacy_key, valid)
+            store.write_bytes(scoped_key, b"<html>provider error</html>")
+
+            repaired = _existing_mirrored(store, scoped_key.removesuffix(".pdf"), "question")
+
+            self.assertIsNotNone(repaired)
+            self.assertEqual(repaired.storage_key, scoped_key)
+            self.assertEqual(repaired.path.read_bytes(), valid)
+            self.assertEqual(repaired.checksum, hashlib.sha256(valid).hexdigest())
+            self.assertEqual((store.root / legacy_key).read_bytes(), valid)
+
+    def test_invalid_scoped_and_legacy_payloads_are_not_reused(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            legacy_key = "115/event/101/0101/question.pdf"
+            scoped_key = f"providers/moex/{legacy_key}"
+            store.write_bytes(legacy_key, b"<html>legacy error</html>")
+            store.write_bytes(scoped_key, b"<html>current error</html>")
+
+            self.assertIsNone(_existing_mirrored(store, scoped_key.removesuffix(".pdf"), "question"))
 
 
 class FakeClient:

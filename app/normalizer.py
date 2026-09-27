@@ -344,9 +344,7 @@ def normalize_papers(
         )
         identity = None
         fields = {}
-        if provider_id and not _is_legacy_ascii_fixture(
-            paper, canonical_name=canonical_name, exam_name_raw=exam_name_raw
-        ):
+        if provider_id:
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -410,23 +408,6 @@ def normalize_papers(
     )
 
 
-def _is_legacy_ascii_fixture(
-    paper: NormalizedPaper | ParsedPaper, *, canonical_name: str = "", exam_name_raw: str = ""
-) -> bool:
-    """Keep hand-authored ASCII fixture records on the v1 projection.
-
-    Real provider records carry source-language names; this narrow guard exists
-    only so legacy unit fixtures do not silently change their public asset IDs.
-    """
-    schema_version = getattr(paper, "schema_version", 1)
-    paper_name = canonical_name or getattr(paper, "canonical_name", "")
-    category_raw = getattr(paper, "category_raw", "")
-    if schema_version != 1 or not paper_name.isascii() or not category_raw.isascii():
-        return False
-    source_exam_name = exam_name_raw or getattr(paper, "exam_name_raw", "")
-    return bool(re.search(r"\b(?:exam|gsat)\b", source_exam_name, re.IGNORECASE))
-
-
 def renormalize_catalog(
     catalog: NormalizedCatalog,
     alias_rules: list[AliasRule],
@@ -483,7 +464,7 @@ def renormalize_catalog(
                 canonical_id, canonical_name = derived_id, derived_name
         identity = None
         fields = {}
-        if provider_id and not _is_legacy_ascii_fixture(paper):
+        if provider_id:
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=paper.source_exam_id,

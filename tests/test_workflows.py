@@ -256,6 +256,30 @@ class WorkflowTests(unittest.TestCase):
             with mock.patch.object(module, "RELEASE_ASSETS_PATH", release_assets_path):
                 self.assertEqual(module._local_assets(), [{"asset_name": "nurse.zip", "release_tag": "default-bundles-001"}])
 
+    def test_alias_retirement_check_requires_only_current_primary_downloads(self) -> None:
+        module = _load_release_script()
+        assets = [{"asset_name": "a.zip", "checksum": "current", "release_tag": "v2-001",
+                   "legacy_asset_names": ["old-a.zip"]}]
+        cases = [
+            ({"a.zip": "current"}, 0),
+            ({"a.zip": "current", "old-a.zip": "current"}, 1),
+            ({"a.zip": "current", "unknown.zip": "other"}, 1),
+            ({"a.zip": "stale"}, 1),
+            ({"a.zip": ""}, 1),
+            ({}, 1),
+        ]
+        for remote, expected in cases:
+            with self.subTest(remote=remote), \
+                    mock.patch.object(module, "_local_assets", return_value=assets), \
+                    mock.patch.object(module, "_release_zip_digests", return_value=remote), \
+                    mock.patch.object(module.subprocess, "run") as mutation:
+                self.assertEqual(module.primary_only_check(), expected)
+                mutation.assert_not_called()
+        assets[0].pop("checksum")
+        with mock.patch.object(module, "_local_assets", return_value=assets), \
+                mock.patch.object(module, "_release_zip_digests", return_value={"a.zip": "current"}):
+            self.assertEqual(module.primary_only_check(), 1)
+
     def test_release_script_defaults_to_scoped_site_release_assets_path(self) -> None:
         module = _load_release_script()
 
@@ -568,6 +592,41 @@ class WorkflowTests(unittest.TestCase):
             self.assertIn("!cancelled()", workflow)
             self.assertNotIn("PDF_CACHE_VERSION", workflow)
             self.assertNotIn("PDF_QUALITY_PROFILE", workflow)
+
+    def test_sync_hydrates_partial_caches_and_saves_durable_before_warm_cache(self) -> None:
+        for filename in ('_sync-provider.yml', 'sync-full.yml', 'sync-incremental.yml', 'audit-recent.yml'):
+            workflow = _workflow((REPO_ROOT / '.github/workflows' / filename).read_text())
+            job = workflow['jobs']['audit' if filename == 'audit-recent.yml' else 'sync']
+            steps = job['steps']
+            hydrate = next(step for step in steps if 'mirror_snapshots.py hydrate' in step.get('run', ''))
+            sync = next(step for step in steps if step.get('id') in ('sync', 'targeted_sync', 'recent_audit', 'full_sync'))
+            durable = next(step for step in steps if step.get('id') == 'durable')
+            cache = next(step for step in steps if step.get('uses', '').startswith('actions/cache/save@'))
+            with self.subTest(workflow=filename):
+                self.assertNotIn('cache-matched-key', hydrate.get('if', ''))
+                self.assertLess(steps.index(hydrate), steps.index(sync))
+                self.assertLess(steps.index(sync), steps.index(durable))
+                self.assertLess(steps.index(durable), steps.index(cache))
+                self.assertIn("steps.durable.outputs.cacheable == 'true'", cache['if'])
+                if filename == 'sync-incremental.yml':
+                    probe, _ = _app_step(workflow, 'probe-latest')
+                    self.assertLess(steps.index(probe), steps.index(hydrate))
+                    self.assertEqual(hydrate['if'], sync['if'])
+
+    def test_mirror_recovery_pilot_has_no_publication_or_cache_mutations(self) -> None:
+        workflow = _workflow((REPO_ROOT / '.github/workflows/verify-mirror-recovery.yml').read_text())
+        self.assertEqual(set(workflow['on']), {'workflow_dispatch'})
+        self.assertEqual(workflow['permissions'], {'contents': 'read'})
+        job = workflow['jobs']['recovery']
+        self.assertNotIn('permissions', job)
+        steps = job['steps']
+        restore = next(step for step in steps if 'mirror_snapshots.py' in step.get('run', ''))
+        self.assertIn('args=(restore ', restore['run'])
+        self.assertIn('--generation "$GENERATION" --manifest-sha256 "$MANIFEST_SHA256"', restore['run'])
+        self.assertNotIn('--allow-missing', restore['run'])
+        self.assertFalse(_app_steps(workflow))
+        self.assertFalse(any('actions/cache/' in step.get('uses', '') for step in steps))
+        self.assertFalse(any('release_assets.py' in step.get('run', '') or 'commit-and-push' in step.get('run', '') for step in steps))
 
 
     def test_workflows_define_timeout_and_concurrency_controls(self) -> None:
@@ -1194,7 +1253,11 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         })
         self.assertIn("steps.sync.outcome != 'skipped'", artifact["if"])
         self.assertLess(steps.index(sync), steps.index(save))
-        self.assertLess(steps.index(save), steps.index(artifact))
+        durable = next(step for step in steps if step.get('id') == 'durable')
+        self.assertLess(steps.index(sync), steps.index(artifact))
+        self.assertLess(steps.index(artifact), steps.index(durable))
+        self.assertLess(steps.index(durable), steps.index(save))
+        self.assertIn("steps.durable.outputs.cacheable == 'true'", save['if'])
         self.assertLess(steps.index(artifact), steps.index(fail))
         self.assertEqual(fail["if"], "${{ steps.sync.outcome == 'failure' }}")
         self.assertEqual(fail["run"], "exit 1")
