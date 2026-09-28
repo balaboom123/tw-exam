@@ -249,16 +249,14 @@ function App() {
       <Header totalBundles={bundles.length} />
       <main id="main" aria-busy={loading} className="workspace-shell flex-1">
         <section className="collection-intro" aria-labelledby="collection-title">
-          <div>
+          <div className="collection-copy">
             <h1 id="collection-title" className="collection-title">歷屆試題，一次整理好。</h1>
-            <p className="mt-3 max-w-[42em] text-[15px] leading-7 text-ink-600">
+            <p className="collection-description">
               依類科彙整歷年試題，搜尋後即可下載多年度 ZIP 檔。
+              {!loading && !unlocked && (
+                <>{" "}<span className="download-notice">首次下載請先<a href={joinHref} className="underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。</span></>
+              )}
             </p>
-            {!loading && !unlocked && (
-              <p className="download-notice">
-                首次下載請先<a href={joinHref} className="underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。
-              </p>
-            )}
           </div>
           {loading ? (
             <div aria-hidden="true" className="collection-stats"><div className="skeleton h-4 w-72 max-w-full" /></div>
@@ -279,15 +277,13 @@ function App() {
         <div className="catalog-layout">
           <aside className="filter-rail" aria-label="搜尋結果與篩選">
             <div className="sidebar-summary">
-              {selectedClass && selectedSubclass && selectedClass !== selectedSubclass && (
-                <p className="summary-parent">{selectedClass}</p>
-              )}
               <div className="summary-heading">
                 <h2 id="results-title" className="text-base font-bold leading-6 text-ink-950">
-                  {selectedSubclass ?? selectedClass ?? "全部試題"}
+                  {selectedClass ?? "考試分類"}
                 </h2>
                 {hasFilters && <button type="button" onClick={handleReset} className="reset-filters">清除篩選</button>}
               </div>
+              <p id="results-subtitle" className="summary-subtitle">{selectedSubclass ?? "全部"}</p>
               <p className="result-count" role="status">
                 {loading ? "正在載入試題目錄…" : (
                   <>共 {filtered.length.toLocaleString()} 個類科
@@ -328,7 +324,7 @@ function App() {
             </div>
           </aside>
 
-          <section ref={listTopRef} id="catalog-results" tabIndex={-1} className="min-w-0 scroll-mt-24" aria-labelledby="results-title">
+          <section ref={listTopRef} id="catalog-results" tabIndex={-1} className="min-w-0 scroll-mt-24" aria-labelledby="results-title results-subtitle">
             {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
               <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
                 {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
