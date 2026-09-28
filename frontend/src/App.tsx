@@ -2,13 +2,12 @@ import { useState, useMemo, useRef, useEffect } from "react"
 import { ListFilter, Share2 } from "lucide-react"
 import { useBundles } from "@/hooks/use-bundles"
 import { useDebouncedValue } from "@/hooks/use-debounce"
-import { formatYearRange, siteHref } from "@/lib/utils"
+import { siteHref } from "@/lib/utils"
 import { Header } from "@/components/header"
 import { SearchBar } from "@/components/search-bar"
 import { YearFilter } from "@/components/year-filter"
 import { SortSelect, type SortKey } from "@/components/sort-select"
 import { BundleRow } from "@/components/bundle-row"
-import { StatsBar } from "@/components/stats-bar"
 import { EmptyState } from "@/components/empty-state"
 import { LoadingSkeleton } from "@/components/loading-skeleton"
 import { Pagination } from "@/components/pagination"
@@ -144,12 +143,6 @@ function App() {
     safePage * PAGE_SIZE
   )
 
-  const totalFiles = useMemo(
-    () => bundles.reduce((sum, b) => sum + b.fileCount, 0),
-    [bundles]
-  )
-
-  const yearRange = useMemo(() => formatYearRange(allYears), [allYears])
   const returnSearch = buildSearchQuery({
     query, year: selectedYear, examClass: selectedClass,
     subclass: selectedSubclass, sort: sortKey, page,
@@ -258,11 +251,7 @@ function App() {
               )}
             </p>
           </div>
-          {loading ? (
-            <div aria-hidden="true" className="collection-stats"><div className="skeleton h-4 w-72 max-w-full" /></div>
-          ) : (
-            <StatsBar total={bundles.length} totalFiles={totalFiles} yearRange={yearRange} />
-          )}
+
         </section>
 
         <section aria-label="搜尋試題" className="search-panel">

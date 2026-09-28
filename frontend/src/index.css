@@ -182,7 +182,7 @@ body {
   margin-inline: auto;
   padding: 36px 32px 48px;
 }
-.collection-intro { display: grid; grid-template-columns: minmax(0, 1fr) 246px; align-items: stretch; gap: 28px; padding-bottom: 24px; }
+.collection-intro { padding-bottom: 24px; }
 .collection-copy { min-width: 0; display: flex; flex-direction: column; justify-content: center; }
 .collection-description { margin-top: 12px; font-size: 15px; line-height: 1.85; color: var(--color-ink-600); }
 .collection-title {
@@ -192,24 +192,6 @@ body {
   line-height: 1.4;
   color: var(--color-ink-950);
 }
-.collection-stats {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  padding: 12px 16px;
-  border: 1px solid var(--color-line);
-  border-left: 3px solid var(--color-seal-600);
-  border-radius: 8px;
-  background: var(--color-cream);
-  font-size: 12px;
-  color: var(--color-ink-600);
-}
-.collection-stats > div { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-.collection-stats dt { flex-shrink: 0; }
-.collection-stats dd { color: var(--color-ink-950); font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.collection-stats .stats-years dd { font-size: 12px; white-space: nowrap; }
-.collection-stats dd span { display: none; }
 .search-panel { position: relative; display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
 .search-input {
   height: 54px;
@@ -317,11 +299,6 @@ body {
 .bundle-details summary:hover, .bundle-details[open] summary { color: var(--color-seal-600); }
 .mobile-nav summary::-webkit-details-marker { display: none; }
 button, a, select, summary { -webkit-tap-highlight-color: transparent; }
-@media (max-width: 1100px) {
-  .collection-intro { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .collection-stats { flex-direction: row; justify-content: space-between; gap: 20px; }
-  .collection-stats > div { flex-wrap: wrap; }
-}
 @media (max-width: 1023px) {
   .workspace-shell { padding: 28px 24px 40px; }
   .catalog-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
@@ -333,9 +310,6 @@ button, a, select, summary { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 639px) {
   .workspace-shell { padding: 28px 20px 32px; }
   .collection-title { font-size: clamp(25px, 7vw, 30px); }
-  .collection-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 20px; }
-  .collection-stats > div { flex-direction: column; gap: 2px; }
-  .collection-stats .stats-years { grid-column: 1 / -1; flex-direction: row; justify-content: flex-start; gap: 12px; }
   .search-panel { gap: 8px; margin-bottom: 16px; }
   .search-input { padding-left: 42px; }
   .share-button { width: 44px; padding-inline: 0; }
