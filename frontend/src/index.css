@@ -73,25 +73,28 @@ body {
   outline-offset: 2px;
 }
 
-/* Long-form info pages (about, faq, contact, privacy): archive colophon prose. */
+/* Simple, readable information pages. */
 .prose-info {
-  max-width: 65ch;
+  max-width: 100%;
   font-size: 15px;
   line-height: 1.9;
   color: var(--color-ink-800);
 }
 .prose-info h2 {
-  margin: 2.75rem 0 0.875rem;
-  padding-top: 1.5rem;
+  margin: 2rem 0 0.75rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--color-line);
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  scroll-margin-top: 96px;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--color-ink-950);
 }
 .prose-info h2:first-child {
   margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
 }
 .prose-info p {
   margin: 0.875rem 0;
@@ -121,7 +124,7 @@ body {
   text-decoration-color: var(--color-ink-950);
 }
 .prose-info strong {
-  font-weight: 500;
+  font-weight: 700;
   color: var(--color-ink-950);
 }
 
@@ -244,112 +247,4 @@ button, a, select, summary { -webkit-tap-highlight-color: transparent; }
   .bundle-details summary { min-height: 44px; }
   nav[aria-label="分頁"] { gap: 0; }
   nav[aria-label="分頁"] > * { width: 36px; }
-}
-
-/* Information pages share the catalog shell, with a readable content column. */
-.info-shell { padding-top: 24px; }
-.info-back-link, .info-text-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13px; font-weight: 700; color: var(--color-seal-600); }
-.info-back-link { font-weight: 400; color: var(--color-ink-600); }
-.info-back-link:hover, .info-text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-.info-intro { padding: 16px 0 32px; }
-.info-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); align-items: start; gap: 32px; }
-.info-sidebar { position: sticky; top: 100px; }
-.info-nav { display: flex; flex-direction: column; gap: 4px; padding: 12px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-cream); }
-.info-nav-link { display: flex; align-items: center; min-height: 44px; border-radius: 7px; padding: 10px 12px; font-size: 13px; color: var(--color-ink-600); }
-.info-nav-link:hover { background: var(--color-paper); }
-.info-nav-link.is-active { background: var(--color-seal-600); color: white; font-weight: 700; }
-.info-sidebar-note { padding: 24px 14px; }
-.info-content { min-width: 0; width: 100%; }
-.info-prose-panel { max-width: none; padding: 28px 32px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-cream); }
-.info-content h2 { font-size: 20px; font-weight: 700; line-height: 1.6; color: var(--color-ink-950); }
-.info-content h3 { font-size: 14px; font-weight: 700; line-height: 1.7; color: var(--color-ink-950); }
-.info-primary-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 10px 18px; border-radius: 8px; background: var(--color-seal-600); color: white; font-size: 13px; font-weight: 700; cursor: pointer; }
-.info-primary-link:hover { background: var(--color-seal-700); }
-.about-mission { padding: 32px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-cream); }
-.info-badge { display: inline-block; border-radius: 5px; background: var(--color-seal-100); padding: 5px 9px; color: var(--color-seal-700); font-size: 12px; }
-.about-mission h2 { margin: 18px 0 14px; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.65; }
-.about-mission p, .info-body-copy { max-width: 48em; margin: 12px 0; font-size: 14px; line-height: 1.9; color: var(--color-ink-600); }
-.about-mission .info-primary-link { margin-top: 10px; }
-.info-section { margin-top: 32px; }
-.getting-started { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 20px; }
-.getting-started li { border-top: 2px solid var(--color-line-strong); padding-top: 20px; }
-.getting-started svg { width: 20px; height: 20px; margin-bottom: 12px; color: var(--color-seal-600); }
-.getting-started p, .about-facts p { margin-top: 8px; font-size: 13px; line-height: 1.9; color: var(--color-ink-600); }
-.about-facts { margin-top: 16px; border-top: 1px solid var(--color-line); }
-.about-facts > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--color-line); }
-.about-facts p { margin-top: 0; }
-.about-facts a { color: var(--color-seal-600); text-decoration: underline; text-underline-offset: 3px; }
-.info-callout { margin-top: 32px; padding: 24px; border-left: 3px solid var(--color-seal-600); border-radius: 0 10px 10px 0; background: var(--color-paper-deep); }
-.info-callout h2 { font-size: 15px; }
-.info-callout p { margin-top: 8px; color: var(--color-ink-600); font-size: 13px; line-height: 1.9; }
-.info-next-step { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-line); }
-.info-next-step h2 { font-size: 16px; }
-.info-next-step p { font-size: 13px; line-height: 1.9; color: var(--color-ink-600); }
-.info-next-step .info-text-link { flex-shrink: 0; }
-.faq-search { position: relative; }
-.faq-clear { position: absolute; top: 7px; right: 6px; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 7px; color: var(--color-ink-600); cursor: pointer; }
-.faq-clear:hover { background: var(--color-paper-deep); }
-.faq-group { margin-top: 28px; }
-.faq-group > h2 { margin-bottom: 12px; font-size: 15px; }
-.faq-questions { border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-cream); }
-.faq-question + .faq-question { border-top: 1px solid var(--color-line); }
-.faq-question { scroll-margin-top: 100px; }
-.faq-question summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 66px; padding: 18px 24px; list-style: none; color: var(--color-ink-950); font-size: 14px; font-weight: 700; cursor: pointer; }
-.faq-question summary::-webkit-details-marker { display: none; }
-.faq-question summary:hover { color: var(--color-seal-600); }
-.faq-question summary svg { color: var(--color-ink-500); transition: transform 150ms; }
-.faq-question[open] summary { color: var(--color-seal-600); }
-.faq-question[open] summary svg { transform: rotate(180deg); }
-.faq-answer { padding: 0 24px 20px; font-size: 14px; line-height: 1.9; color: var(--color-ink-600); }
-.faq-answer p + p { margin-top: 10px; }
-.faq-empty { margin-top: 24px; padding: 32px 24px; border: 1px dashed var(--color-line-strong); border-radius: 12px; text-align: center; }
-.faq-empty p { margin: 12px 0 20px; font-size: 14px; line-height: 1.8; color: var(--color-ink-600); }
-.contact-report { padding: 28px 32px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-cream); }
-.contact-section-heading { display: flex; align-items: center; gap: 12px; color: var(--color-seal-600); }
-.contact-section-heading svg { flex-shrink: 0; }
-.contact-report > p { margin-top: 12px; font-size: 14px; line-height: 1.9; color: var(--color-ink-600); }
-.contact-report-fields { margin-top: 20px; padding: 20px; border-radius: 8px; background: var(--color-paper); }
-.contact-report-fields ul { margin: 10px 0; padding-left: 20px; list-style: disc; color: var(--color-ink-600); font-size: 13px; line-height: 2; }
-.contact-report-fields > p { font-size: 12px; line-height: 1.8; color: var(--color-ink-600); }
-.contact-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 20px; }
-.contact-report .contact-caption { font-size: 12px; }
-.contact-email { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
-.contact-email > a { min-width: 0; padding-block: 10px; overflow-wrap: anywhere; font-size: 17px; font-weight: 700; color: var(--color-seal-600); text-decoration: underline; text-underline-offset: 4px; }
-.copy-email { display: flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid var(--color-line-strong); border-radius: 7px; padding: 8px 12px; background: var(--color-cream); font-size: 12px; color: var(--color-ink-600); cursor: pointer; }
-.copy-email:hover { background: var(--color-paper-deep); }
-.community-links { margin-top: 16px; border: 1px solid var(--color-line); border-radius: 12px; background: var(--color-cream); }
-.community-links li + li { border-top: 1px solid var(--color-line); }
-.community-links a { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 24px; color: var(--color-seal-600); }
-.community-links a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
-.community-links strong { display: block; font-size: 14px; }
-.community-links a > span > span { display: block; margin-top: 6px; font-size: 12px; line-height: 1.8; color: var(--color-ink-600); }
-@media (max-width: 1023px) {
-  .info-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
-  .info-sidebar { position: static; }
-  .info-nav { flex-direction: row; flex-wrap: wrap; gap: 4px; padding: 6px; }
-  .info-sidebar-note { display: none; }
-}
-@media (max-width: 639px) {
-  .info-shell { padding-top: 12px; }
-  .info-intro { padding-top: 12px; padding-bottom: 20px; }
-  .info-nav-link { flex: 1 1 40%; justify-content: center; padding-inline: 8px; font-size: 12px; }
-  .about-mission, .contact-report, .info-prose-panel { padding: 24px 20px; }
-  .about-mission h2 { font-size: 24px; }
-  .getting-started { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-  .getting-started li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0 12px; padding-top: 16px; }
-  .getting-started svg { margin-top: 2px; grid-row: span 2; }
-  .getting-started p { margin-top: 4px; }
-  .about-facts > div { grid-template-columns: minmax(0, 1fr); gap: 8px; }
-  .info-content h2 { font-size: 19px; }
-  .about-mission h2 { font-size: 24px; }
-  .info-callout { padding: 20px; }
-  .info-callout h2, .info-next-step h2 { font-size: 15px; }
-  .info-next-step { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .faq-group > h2 { font-size: 15px; }
-  .faq-question summary { padding: 16px; font-size: 14px; }
-  .faq-answer { padding: 0 16px 18px; }
-  .faq-search .search-input { height: 58px; }
-  .contact-report-fields { padding: 16px; }
-  .contact-actions { gap: 8px; }
-  .community-links a { padding: 18px 16px; }
 }

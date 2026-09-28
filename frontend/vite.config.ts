@@ -1,5 +1,5 @@
 import type { Plugin } from "vite"
-import { FAQ_GROUPS } from "./src/lib/faq-content.ts"
+import { FAQ_ITEMS } from "./src/lib/faq-content.ts"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
@@ -132,11 +132,11 @@ function sharedHeadPlugin(root: string): Plugin {
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: FAQ_GROUPS.flatMap((group) => group.questions.map((question) => ({
+            mainEntity: FAQ_ITEMS.map((question) => ({
               "@type": "Question",
               name: question.title,
-              acceptedAnswer: { "@type": "Answer", text: question.paragraphs.join(" ") },
-            }))),
+              acceptedAnswer: { "@type": "Answer", text: question.answer },
+            })),
           }),
           injectTo: "head",
         })
