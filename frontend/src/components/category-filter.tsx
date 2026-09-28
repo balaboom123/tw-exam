@@ -1,4 +1,7 @@
+import { useId, useState } from "react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
+
 interface CategoryFilterProps {
   availableClasses: string[]
   availableSubclasses: string[]
@@ -20,81 +23,68 @@ export function CategoryFilter({
   classCounts,
   subclassCounts,
 }: CategoryFilterProps) {
-  return (
-    <div className="space-y-3">
-      <div role="group" aria-label="考試分類" className="mask-fade-x flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
-        <button
-          type="button"
-          onClick={() => onClassChange(null)}
-          aria-pressed={selectedClass === null}
-          className={cn(
-            "h-11 shrink-0 rounded-[3px] border px-3.5 text-sm font-medium transition-colors sm:h-9",
-            selectedClass === null
-              ? "border-ink-950 bg-ink-950 text-cream"
-              : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
-          )}
-        >
-          全部分類
-        </button>
-        {availableClasses.map((cls) => (
-          <button
-            type="button"
-            key={cls}
-            onClick={() => onClassChange(cls === selectedClass ? null : cls)}
-            aria-pressed={cls === selectedClass}
-            className={cn(
-              "h-11 shrink-0 rounded-[3px] border px-3.5 text-sm font-medium transition-colors sm:h-9",
-              cls === selectedClass
-                ? "border-ink-950 bg-ink-950 text-cream"
-                : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
-            )}
-          >
-            {cls}
-            <span className="ml-1.5 text-[11px]">
-              {classCounts[cls] ?? 0}
-            </span>
-          </button>
-        ))}
-      </div>
+  const [collapsedClass, setCollapsedClass] = useState<string | null>(null)
+  const submenuId = useId()
+  const total = Object.values(classCounts).reduce((sum, count) => sum + count, 0)
+  // Keep filters from shared URLs visible even if they are no longer in the feed.
+  const classes = selectedClass && !availableClasses.includes(selectedClass)
+    ? [...availableClasses, selectedClass] : availableClasses
+  const subclasses = selectedSubclass && !availableSubclasses.includes(selectedSubclass)
+    ? [...availableSubclasses, selectedSubclass] : availableSubclasses
 
-      {selectedClass && availableSubclasses.length > 0 && (
-        <div role="group" aria-label="考試子分類" className="mask-fade-x flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
-          <button
-            type="button"
-            onClick={() => onSubclassChange(null)}
-            aria-pressed={selectedSubclass === null}
-            className={cn(
-              "h-11 shrink-0 rounded-[3px] border px-3 text-xs font-medium transition-colors sm:h-8",
-              selectedSubclass === null
-                ? "border-seal-600 bg-seal-600 text-cream"
-                : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
-            )}
-          >
-            全部
-          </button>
-          {availableSubclasses.map((sub) => (
+  function handleClassClick(cls: string | null) {
+    if (cls && cls === selectedClass) {
+      setCollapsedClass(collapsedClass === cls ? null : cls)
+    } else {
+      setCollapsedClass(null)
+      onClassChange(cls)
+    }
+  }
+
+  return (
+    <div role="group" aria-label="考試分類" className="category-options">
+      {[null, ...classes].map((cls) => {
+        const selected = cls === selectedClass
+        const hasSubmenu = Boolean(cls && selected && subclasses.length)
+        const expanded = hasSubmenu && collapsedClass !== cls
+        const Chevron = expanded ? ChevronDown : ChevronRight
+        return (
+          <div key={cls ?? "all"}>
             <button
               type="button"
-              key={sub}
-              onClick={() =>
-                onSubclassChange(sub === selectedSubclass ? null : sub)
-              }
-              aria-pressed={sub === selectedSubclass}
-              className={cn(
-                "h-11 shrink-0 rounded-[3px] border px-3 text-xs font-medium transition-colors sm:h-8",
-                sub === selectedSubclass
-                  ? "border-seal-600 bg-seal-600 text-cream"
-                  : "border-line bg-cream text-ink-600 hover:border-line-strong hover:text-ink-950"
-              )}
+              onClick={() => handleClassClick(cls)}
+              aria-pressed={selected}
+              aria-expanded={cls ? expanded : undefined}
+              aria-controls={hasSubmenu ? submenuId : undefined}
+              disabled={cls !== null && !selected && !classCounts[cls]}
+              className={cn("category-option", selected && (cls ? "is-parent-selected" : "is-selected"))}
             >
-              {sub}
-              <span className="ml-1 text-[10px]">
-                {subclassCounts[sub] ?? 0}
+              <span className="category-label">{cls ?? "全部分類"}</span>
+              <span className="category-trailing">
+                <span className="category-count">{(cls ? classCounts[cls] ?? 0 : total).toLocaleString()}</span>
+                {cls ? <Chevron aria-hidden="true" className="size-3" /> : <span aria-hidden="true" className="size-3" />}
               </span>
             </button>
-          ))}
-        </div>
-      )}
+            {hasSubmenu && (
+              <div id={submenuId} role="group" aria-label={`${cls}細分類`} className="subcategory-options" hidden={!expanded}>
+                {[null, ...subclasses].map((sub) => (
+                  <button
+                    type="button"
+                    key={sub ?? "all"}
+                    onClick={() => onSubclassChange(sub)}
+                    aria-pressed={sub === selectedSubclass}
+                    disabled={sub !== null && sub !== selectedSubclass && !subclassCounts[sub]}
+                    className={cn("category-option", sub === selectedSubclass && "is-selected")}
+                  >
+                    <span className="category-label">{sub ?? "全部"}</span>
+                    <span className="category-count">{(sub ? subclassCounts[sub] ?? 0 : classCounts[cls!] ?? 0).toLocaleString()}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }

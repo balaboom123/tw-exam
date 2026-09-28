@@ -6,7 +6,6 @@ export function PrivacyPage() {
     <InfoLayout
       title="隱私權與免責聲明"
       lead="本站如何處理你的資料，以及使用本站前應了解的事項。"
-      ornament="隱私權政策"
       active="privacy"
     >
       <h2>個人資料</h2>
