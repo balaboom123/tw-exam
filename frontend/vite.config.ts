@@ -98,7 +98,7 @@ function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
   }
 }
 
-const favicon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23284f91'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='38' font-weight='700' fill='%23ffffff' text-anchor='middle'%3E%E8%A9%A6%3C/text%3E%3C/svg%3E"
+const favicon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23a8432b'/%3E%3Ctext x='32' y='45' font-family='serif' font-size='38' font-weight='700' fill='%23faf7f0' text-anchor='middle'%3E%E8%A9%A6%3C/text%3E%3C/svg%3E"
 
 function sharedHeadPlugin(root: string): Plugin {
   return {
@@ -110,7 +110,7 @@ function sharedHeadPlugin(root: string): Plugin {
       const page = path.basename(context.filename)
       const canonical = new URL(page === "index.html" ? "" : page, root).href
       const tags: Array<{ tag: string; attrs?: Record<string, string>; children?: string; injectTo: "head" }> = [
-        { tag: "meta", attrs: { name: "theme-color", content: "#f3f6fa" }, injectTo: "head" },
+        { tag: "meta", attrs: { name: "theme-color", content: "#f7f5ec" }, injectTo: "head" },
         { tag: "link", attrs: { rel: "icon", type: "image/svg+xml", href: favicon }, injectTo: "head" },
       ]
       if (page !== "404.html") {

@@ -29,23 +29,23 @@ export function Header({
     return () => document.removeEventListener("keydown", closeOnEscape)
   }, [])
   return (
-    <header className="sticky top-0 z-10 border-b border-line bg-cream">
+    <header className="sticky top-0 z-10 border-t-[3px] border-b border-t-ink-950 border-b-line bg-paper">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-[3px] focus:bg-ink-950 focus:px-4 focus:py-2.5 focus:text-sm focus:text-cream"
       >
         跳至主要內容
       </a>
-      <div className="mx-auto flex h-[76px] max-w-[1232px] items-center gap-3 px-5 sm:px-8">
+      <div className="mx-auto flex h-16 max-w-[960px] items-center gap-3 px-5 sm:px-8">
         <a href={siteHref("")} className="flex min-w-0 items-center gap-3">
           <span
             aria-hidden="true"
-            className="flex size-10 shrink-0 select-none items-center justify-center rounded-xl bg-seal-600 font-serif text-lg font-bold text-cream"
+            className="flex size-9 shrink-0 select-none items-center justify-center rounded-[4px] bg-seal-600 font-serif text-lg font-bold text-cream"
           >
             試
           </span>
           <div className="min-w-0">
-            <span className="text-lg font-bold leading-tight tracking-wide text-ink-950">
+            <span className="font-serif text-lg font-bold leading-tight tracking-wide text-ink-950">
               tw-exam
             </span>
             <p className="text-[10px] leading-tight tracking-[0.08em] text-ink-500">
@@ -74,11 +74,6 @@ export function Header({
             </a>
           ))}
         </nav>
-        {totalBundles !== undefined && totalBundles > 0 && (
-          <span className="ml-3 hidden shrink-0 border-l border-line pl-4 text-xs text-ink-500 lg:block">
-            {totalBundles.toLocaleString()} 類科
-          </span>
-        )}
         <details ref={mobileNavRef} className="mobile-nav ml-auto sm:hidden">
           <summary aria-label="網站選單" className="flex size-11 cursor-pointer list-none items-center justify-center rounded-lg border border-line"><Menu aria-hidden="true" className="size-5" /></summary>
           <nav aria-label="行動版網站導覽" className="absolute inset-x-0 top-full border-b border-line bg-cream px-5 py-3 shadow-lg">

@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils"
-
 export type SortKey = "name" | "files-desc" | "years-desc"
 
 interface SortSelectProps {
@@ -7,40 +5,15 @@ interface SortSelectProps {
   onChange: (value: SortKey) => void
 }
 
-const options: { value: SortKey; label: string }[] = [
-  { value: "name", label: "名稱" },
-  { value: "files-desc", label: "檔案數" },
-  { value: "years-desc", label: "年度數" },
-]
-
 export function SortSelect({ value, onChange }: SortSelectProps) {
   return (
-    <div className="flex shrink-0 items-center gap-2">
-      <span id="sort-label" className="text-xs text-ink-500">
-        排序
-      </span>
-      <div
-        role="group"
-        aria-labelledby="sort-label"
-        className="flex rounded-lg border border-line bg-paper p-0.5"
-      >
-        {options.map((opt) => (
-          <button
-            type="button"
-            key={opt.value}
-            onClick={() => onChange(opt.value)}
-            aria-pressed={value === opt.value}
-            className={cn(
-              "h-11 rounded-md px-3 text-xs transition-colors",
-              value === opt.value
-                ? "bg-cream text-ink-950 shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
-                : "text-ink-500 hover:text-ink-950"
-            )}
-          >
-            {opt.label}
-          </button>
-        ))}
-      </div>
+    <div className="sort-control">
+      <label htmlFor="exam-sort">排序</label>
+      <select id="exam-sort" value={value} onChange={(event) => onChange(event.target.value as SortKey)}>
+        <option value="name">名稱</option>
+        <option value="files-desc">檔案數最多</option>
+        <option value="years-desc">年度數最多</option>
+      </select>
     </div>
   )
 }

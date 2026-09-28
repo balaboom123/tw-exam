@@ -19,8 +19,7 @@ export function BundleRow({
   return (
     <li className="bundle-row">
       <div className="min-w-0 flex-1">
-        <p className="mb-2 text-[11px] font-medium text-seal-600">{bundle.examClass} <span aria-hidden="true" className="mx-1 text-line-strong">/</span> {bundle.examSubclass}</p>
-        <h3 className="text-base font-bold leading-relaxed text-ink-950">
+        <h3 className="font-serif text-[17px] font-semibold leading-relaxed text-ink-950">
           <a href={withSocialAccess(siteHref(`b/${bundle.id}.html`))} className="underline-offset-4 hover:underline">
             {bundle.name}
           </a>
@@ -31,6 +30,7 @@ export function BundleRow({
         <details className="bundle-details" onToggle={(event) => setDetailsOpen(event.currentTarget.open)}>
           <summary>科目、來源與收錄年度</summary>
           {detailsOpen && <div className="pb-2 text-xs leading-6 text-ink-600">
+            <p>分類：{bundle.examClass}／{bundle.examSubclass}</p>
             {bundle.subjectLabels && bundle.subjectLabels.length > 0 && <p>科目：{bundle.subjectLabels.join("、")}</p>}
             {bundle.sources?.length ? <p>來源：{bundle.sources.map((source, index) => (
               <span key={source.url}>{index > 0 ? "、" : ""}<a href={source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink-950">{source.name}</a></span>
@@ -49,7 +49,7 @@ export function BundleRow({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`下載 ${bundle.name} ${part.label}`}
-              className="flex h-11 items-center justify-center gap-2 rounded-lg bg-seal-600 px-3 text-cream transition-all hover:bg-seal-700 active:translate-y-px sm:px-4"
+              className="flex h-11 items-center justify-center gap-2 rounded-[4px] bg-seal-600 px-3 text-cream transition-all hover:bg-seal-700 active:translate-y-px sm:px-4"
             >
               <Download className="size-4" strokeWidth={2} />
               <span className="text-xs font-bold">
@@ -71,7 +71,7 @@ export function BundleRow({
                 window.location.assign(event.currentTarget.href)
               }
             }}
-            className="flex h-11 shrink-0 items-center gap-2 rounded-lg border border-line-strong bg-cream px-3 text-xs font-medium text-ink-800 transition-colors hover:bg-cream active:translate-y-px"
+            className="flex h-11 shrink-0 items-center gap-2 rounded-[4px] border border-line-strong bg-cream px-3 text-xs font-medium text-ink-800 transition-colors hover:bg-cream active:translate-y-px"
           >
             <Lock className="size-4" strokeWidth={2} />
             加入後下載

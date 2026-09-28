@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react"
-import { ArrowUpRight, Check, ListFilter, Share2, X } from "lucide-react"
+import { Share2 } from "lucide-react"
 import { useBundles } from "@/hooks/use-bundles"
 import { useDebouncedValue } from "@/hooks/use-debounce"
 import { formatYearRange, siteHref } from "@/lib/utils"
@@ -37,7 +37,6 @@ function App() {
   const [shareFeedback, setShareFeedback] = useState<string | null>(null)
   const listTopRef = useRef<HTMLHeadingElement>(null)
   const shareTimeoutRef = useRef<number | undefined>(undefined)
-  const [filtersOpen, setFiltersOpen] = useState(false)
 
   useEffect(() => () => window.clearTimeout(shareTimeoutRef.current), [])
 
@@ -242,12 +241,7 @@ function App() {
     )
   }
 
-  const activeFilters = [
-    ...(query.trim() ? [{ label: `搜尋：${query}`, clear: () => handleQueryChange("") }] : []),
-    ...(selectedClass ? [{ label: selectedClass, clear: () => handleClassChange(null) }] : []),
-    ...(selectedSubclass ? [{ label: selectedSubclass, clear: () => handleSubclassChange(null) }] : []),
-    ...(selectedYear ? [{ label: `民國 ${selectedYear} 年`, clear: () => handleYearChange(null) }] : []),
-  ]
+  const hasFilters = Boolean(query.trim() || selectedClass || selectedSubclass || selectedYear)
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
@@ -255,14 +249,13 @@ function App() {
       <main id="main" aria-busy={loading} className="workspace-shell flex-1">
         <section className="collection-intro" aria-labelledby="collection-title">
           <div>
-            <h1 id="collection-title" className="collection-title">歷屆試題，一次整理好。</h1>
-            <p className="mt-4 max-w-[40em] text-sm leading-7 text-ink-600 sm:text-[15px]">
-              找到你的考試類科，收齊歷年試題。<br />
-              依類科彙整多年度 ZIP 檔，讓準備更有方向。
+            <h1 id="collection-title" className="collection-title">歷屆試題下載</h1>
+            <p className="mt-3 max-w-[42em] text-[15px] leading-7 text-ink-600">
+              依類科彙整歷年試題，搜尋後即可下載多年度 ZIP 檔。
             </p>
           </div>
           {loading ? (
-            <div aria-hidden="true" className="collection-stats"><div className="skeleton h-20 w-full" /></div>
+            <div aria-hidden="true" className="collection-stats"><div className="skeleton h-4 w-72 max-w-full" /></div>
           ) : (
             <StatsBar total={bundles.length} totalFiles={totalFiles} yearRange={yearRange} />
           )}
@@ -277,82 +270,61 @@ function App() {
           <span role="status" className={shareFeedback ? "share-feedback" : "sr-only"}>{shareFeedback}</span>
         </section>
 
-        <div className="catalog-layout">
-          <aside className="filter-rail" aria-label="篩選試題">
-            <button type="button" className="mobile-filter-toggle" aria-expanded={filtersOpen} aria-controls="catalog-filters" onClick={() => setFiltersOpen(!filtersOpen)}>
-              <ListFilter aria-hidden="true" className="size-4" />
-              篩選考試{activeFilters.length > 0 ? `（${activeFilters.length}）` : ""}
-              <span className="ml-auto text-xs">{filtersOpen ? "收起" : "展開"}</span>
-            </button>
-            <div id="catalog-filters" className={`filter-content ${filtersOpen ? "is-open" : ""}`}>
-              <h2 className="mb-4 hidden items-center gap-2 text-sm font-bold text-ink-950 lg:flex"><ListFilter aria-hidden="true" className="size-4" />考試分類</h2>
-              {loading ? <div aria-hidden="true" className="skeleton h-64 w-full" /> : (
-                <CategoryFilter
-                  availableClasses={availableClasses} availableSubclasses={availableSubclasses}
-                  selectedClass={selectedClass} selectedSubclass={selectedSubclass}
-                  onClassChange={handleClassChange} onSubclassChange={handleSubclassChange}
-                  classCounts={classCounts} subclassCounts={subclassCounts}
-                />
-              )}
-              <div className="mt-6 border-t border-line pt-5">
-                <label htmlFor="exam-year" className="mb-3 block text-sm font-bold text-ink-950">考試年度</label>
-                <YearFilter years={allYears} selected={selectedYear} onSelect={handleYearChange} />
-                <p className="mt-2 text-xs leading-5 text-ink-500">年度以民國紀年，下載檔包含該類科收錄的所有年度。</p>
-              </div>
+        <section className="catalog-filters" aria-label="篩選試題">
+          <h2 className="filter-heading">考試分類</h2>
+          {loading ? <div aria-hidden="true" className="skeleton h-11 w-full" /> : (
+            <CategoryFilter
+              availableClasses={availableClasses} availableSubclasses={availableSubclasses}
+              selectedClass={selectedClass} selectedSubclass={selectedSubclass}
+              onClassChange={handleClassChange} onSubclassChange={handleSubclassChange}
+              classCounts={classCounts} subclassCounts={subclassCounts}
+            />
+          )}
+          <div className="filter-selects">
+            <div className="year-control">
+              <label htmlFor="exam-year">考試年度</label>
+              <YearFilter years={allYears} selected={selectedYear} onSelect={handleYearChange} />
             </div>
-            <div className="study-note">
-              <h2 className="text-sm font-bold text-ink-950">第一次下載？</h2>
-              <p className="mt-2 text-xs leading-6 text-ink-600">選擇一個 LINE 社群，返回後即可下載。試題來源與收錄年度可在各類科中查看。</p>
-              <a href={siteHref("faq.html")} className="mt-3 inline-flex min-h-11 items-center gap-1 text-xs font-bold text-seal-600">查看常見問題<ArrowUpRight aria-hidden="true" className="size-4" /></a>
-            </div>
-          </aside>
+            <SortSelect value={sortKey} onChange={handleSortChange} />
+          </div>
+          <p id="year-download-note" className={selectedYear ? "year-note" : "sr-only"}>年度篩選用於查找類科，ZIP 仍包含該類科收錄的所有年度。</p>
+        </section>
 
-          <section className="min-w-0" aria-labelledby="results-title">
-            <div className="results-toolbar">
-              <div>
-                <h2 ref={listTopRef} id="results-title" tabIndex={-1} className="scroll-mt-24 text-lg font-bold text-ink-950">{selectedSubclass ?? selectedClass ?? "全部試題"}</h2>
-                <p className="mt-1 text-xs text-ink-500" role="status">
-                  {loading ? "正在載入試題目錄…" : `共 ${filtered.length.toLocaleString()} 個類科${filtered.length > 0 ? `，顯示 ${(safePage - 1) * PAGE_SIZE + 1}–${Math.min(safePage * PAGE_SIZE, filtered.length)} 筆` : ""}`}
-                </p>
-              </div>
-              <SortSelect value={sortKey} onChange={handleSortChange} />
-            </div>
-
-            {activeFilters.length > 0 && (
-              <div className="active-filters" aria-label="目前篩選條件">
-                {activeFilters.map(({ label, clear }) => (
-                  <button type="button" key={label} onClick={clear} aria-label={`移除篩選：${label}`} className="filter-chip">
-                    <span className="min-w-0 break-words">{label}</span><X aria-hidden="true" className="size-3.5 shrink-0" />
-                  </button>
-                ))}
-                <button type="button" onClick={handleReset} className="min-h-11 px-2 text-xs text-ink-600 underline underline-offset-4">清除全部</button>
-              </div>
-            )}
-
-            {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
-              <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
-                {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
-                {searchError && <button type="button" onClick={retrySearch} className="ml-2 min-h-11 underline underline-offset-4">重試完整搜尋</button>}
+        <section className="min-w-0" aria-labelledby="results-title">
+          <div className="results-toolbar">
+            <div>
+              <h2 ref={listTopRef} id="results-title" tabIndex={-1} className="scroll-mt-24 text-lg font-bold text-ink-950">{selectedSubclass ?? selectedClass ?? "全部試題"}</h2>
+              <p className="mt-1 text-xs text-ink-500" role="status">
+                {loading ? "正在載入試題目錄…" : `共 ${filtered.length.toLocaleString()} 個類科${filtered.length > 0 ? `，顯示 ${(safePage - 1) * PAGE_SIZE + 1}–${Math.min(safePage * PAGE_SIZE, filtered.length)} 筆` : ""}`}
               </p>
+            </div>
+            {hasFilters && (
+              <button type="button" onClick={handleReset} className="reset-filters">清除篩選</button>
             )}
-            {!loading && (
-              <div className="download-notice">
-                {unlocked ? <Check aria-hidden="true" className="size-4 shrink-0" /> : <ArrowUpRight aria-hidden="true" className="size-4 shrink-0" />}
-                <p>{unlocked ? "已解鎖下載，選擇類科即可取得 ZIP 試題檔。" : <>首次下載請先<a href={joinHref} className="font-bold underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。</>}</p>
-              </div>
-            )}
-            {loading ? <LoadingSkeleton /> : filtered.length === 0 ? <EmptyState onReset={handleReset} /> : (
-              <>
-                {/* Safari needs an explicit list role when markers are removed. */}
-                {/* eslint-disable-next-line jsx-a11y-x/no-redundant-roles */}
-                <ul role="list" className="bundle-list">
-                  {paginated.map((bundle: Bundle) => <BundleRow key={bundle.id} bundle={bundle} unlocked={unlocked} joinHref={joinHref} />)}
-                </ul>
-                <Pagination current={safePage} total={totalPages} onChange={handlePageChange} />
-              </>
-            )}
-          </section>
-        </div>
+          </div>
+
+          {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
+            <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
+              {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
+              {searchError && <button type="button" onClick={retrySearch} className="ml-2 min-h-11 underline underline-offset-4">重試完整搜尋</button>}
+            </p>
+          )}
+          {!loading && !unlocked && (
+            <p className="download-notice">
+              首次下載請先<a href={joinHref} className="underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。
+            </p>
+          )}
+          {loading ? <LoadingSkeleton /> : filtered.length === 0 ? <EmptyState onReset={handleReset} /> : (
+            <>
+              {/* Safari needs an explicit list role when markers are removed. */}
+              {/* eslint-disable-next-line jsx-a11y-x/no-redundant-roles */}
+              <ul role="list" className="bundle-list">
+                {paginated.map((bundle: Bundle) => <BundleRow key={bundle.id} bundle={bundle} unlocked={unlocked} joinHref={joinHref} />)}
+              </ul>
+              <Pagination current={safePage} total={totalPages} onChange={handlePageChange} />
+            </>
+          )}
+        </section>
       </main>
       <Footer />
     </div>

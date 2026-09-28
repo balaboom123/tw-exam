@@ -2,7 +2,7 @@ export function LoadingSkeleton() {
   return (
     <div
       aria-hidden="true"
-      className="divide-y divide-line overflow-hidden rounded-xl border border-line bg-cream"
+      className="divide-y divide-line border-y border-line"
     >
       {Array.from({ length: 8 }, (_, i) => (
         <div key={i} className="flex items-center gap-4 px-5 py-8">
