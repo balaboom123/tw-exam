@@ -41,7 +41,10 @@ time; a source change between passes stops publication of the snapshot pointer.
 It verifies uploaded digests before atomically advancing the release metadata
 pointer. An unchanged archive reuses its existing generation. Existing snapshots
 and their chunks are immutable; a different upload needs a new generation.
-An interrupted upload cannot replace the last committed pointer.
+An interrupted upload cannot replace the last committed pointer. If the first
+upload stops before any pointer is committed, Actions hydration recognizes the
+initial upload marker and resumes through the retained cache or source bootstrap.
+Other malformed pointers still stop recovery.
 
 Restore checks the manifest digest, provider, generation, chunk hashes and sizes,
 archive paths, file types, and declared file inventory before installing the
@@ -54,12 +57,14 @@ root dedupe index is discarded after restore.
 
 Sync workflows use `hydrate` inside their Actions workspace before acquisition.
 A restored or successfully backed-up mirror carries a local origin marker.
-A matching marker and retained inventory avoid another payload download;
+A matching marker and its recorded file paths and sizes avoid another payload download;
 unmarked, older, or incomplete warm caches are refreshed from the committed
 durable generation. The replacement is staged and verified before swapping
 provider directories. Durable bytes win at overlapping paths; cache-only files
 from an interrupted backup are retained. A failed download or changed remote
-pointer preserves the old cache. The marker is excluded from backup archives.
+pointer preserves the old cache. Extra cache files cannot mask a missing or
+truncated committed file. Older markers containing only aggregate counts are
+refreshed once to record the file inventory. The marker is excluded from backup archives.
 Operator `restore` keeps its empty-directory guard, and publication retries
 continue to use their original pinned generation.
 

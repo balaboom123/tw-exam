@@ -291,6 +291,20 @@ def test_existing_release_without_a_committed_pointer_is_not_treated_as_empty(
         mirror.restore(tmp_path, "owner/repo", PROVIDER, allow_missing=True)
 
 
+def test_hydration_can_resume_after_an_interrupted_first_backup(tmp_path, monkeypatch):
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setenv("GITHUB_WORKSPACE", str(tmp_path))
+    source = tmp_path / "mirror/providers" / PROVIDER / "retained.pdf"
+    source.parent.mkdir(parents=True)
+    source.write_bytes(b"retained progress")
+    monkeypatch.setattr(
+        mirror, "release", lambda *args, **kwargs: {"body": "Snapshot upload in progress"},
+    )
+    monkeypatch.setattr(mirror, "restore", lambda *args, **kwargs: pytest.fail("No committed snapshot"))
+    assert mirror.hydrate(tmp_path, "owner/repo", PROVIDER) is None
+    assert source.read_bytes() == b"retained progress"
+
+
 def test_publication_retry_restores_its_exact_generation_instead_of_latest(
     packed, tmp_path, monkeypatch
 ):
@@ -748,15 +762,38 @@ def test_current_marked_cache_skips_payload_downloads_and_keeps_progress(hydrati
     assert (provider / "new.pdf").read_bytes() == b"progress"
 
 
-def test_incomplete_marked_cache_is_refreshed(hydrating):
+def test_aggregate_only_origin_marker_is_upgraded_by_verified_recovery(hydrating):
+    root, _, _, downloads, _ = hydrating
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    origin = root / "mirror/providers" / PROVIDER / mirror.ORIGIN_NAME
+    marker = json.loads(origin.read_text())
+    marker.pop("files")
+    origin.write_text(json.dumps(marker))
+    downloads.clear()
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert downloads
+    assert "files" in json.loads(origin.read_text())
+    downloads.clear()
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert downloads == []
+
+
+@pytest.mark.parametrize("extra_progress", [False, True])
+def test_incomplete_marked_cache_is_refreshed(hydrating, extra_progress):
     root, _, _, downloads, _ = hydrating
     mirror.hydrate(root, "owner/repo", PROVIDER)
     provider = root / "mirror/providers" / PROVIDER
     (provider / "hardlink.pdf").unlink()
+    if extra_progress:
+        # New acquisitions must not mask a missing committed file merely by
+        # making the aggregate count and byte totals look complete.
+        (provider / "new.pdf").write_bytes(b"n" * 4096)
     downloads.clear()
     mirror.hydrate(root, "owner/repo", PROVIDER)
     assert downloads
     assert (provider / "hardlink.pdf").samefile(provider / "111/數學.pdf")
+    if extra_progress:
+        assert (provider / "new.pdf").read_bytes() == b"n" * 4096
 
 
 @pytest.mark.parametrize("failure", ["corrupt", "concurrent"])

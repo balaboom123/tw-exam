@@ -51,7 +51,7 @@ The [site configuration](../../app/site_registry.py) selects eligible providers 
 
 New archive manifests retain paper keys, checksums, and entry names. Older full-record manifests remain readable and may be reused when projected content agrees. Already compressed media are stored without a second compression pass; manifest text remains compressed.
 
-Publication also checks a reusable local ZIP against its retained published archive checksum. A differing local archive is rebuilt; entries recovered from an older ZIP must match their recorded paper checksums. Restore a verified mirror or download before retrying a checksum failure.
+Publication also checks a reusable local ZIP against its retained published archive checksum. A differing local archive is rebuilt; mirrored files and entries recovered from an older ZIP must match their recorded paper checksums. Rebuilds hash mirrored bytes as they are copied and stage the new archive separately, preserving the previous ZIP when a mirror checksum or I/O operation fails. Restore a verified mirror or download before retrying a checksum failure.
 
 Site state and bundle files remain under `data/sites/<site_id>/` and `bundles/sites/<site_id>/`. Bundle metadata, Release asset inventories, compatibility aliases, multipart records, and shard assignment remain site-owned. Provider syncs may pass affected-bundle plans to publication; those plans do not authorize hand-written tag assignments.
 

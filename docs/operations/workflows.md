@@ -49,7 +49,9 @@ the Python and catalog gates.
 latest run and keeps one labelled issue for a failure, timeout, or cancellation
 that lasted at least the workflow's largest configured timeout, including matrix budgets. Short cancellations from
 superseded Pages deployments are ignored. A later success closes a failure
-issue; repeated failures do not add notification comments.
+issue; repeated failures do not add notification comments. A new failure replaces
+an older staleness or slow-run explanation in the same issue, so clearing
+staleness cannot hide a newer failed run.
 
 A successful run also raises an issue when its duration exceeds three times
 the median of at least three prior successful runs (up to ten are checked).
@@ -57,8 +59,10 @@ The issue points to the latest slow run; the next normal-duration success
 closes it.
 
 The same pass uses each workflow's schedule to set a staleness window and
-accepts a successful manual rerun as recovery. This also detects schedules
-that stop firing entirely.
+accepts a successful full manual rerun on `main` as recovery. Provider-only
+pilots that skip other sync jobs do not clear whole-workflow health or enter
+its timing baseline. Branch experiments are excluded. This also detects
+workflows that stop completing their full provider scope.
 
 Manual diagnosis uses:
 

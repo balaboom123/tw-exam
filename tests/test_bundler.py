@@ -726,6 +726,7 @@ class BundlerTests(unittest.TestCase):
                         )
                 if not mirror_present:
                     source.unlink()
+                previous_bytes = path.read_bytes()
                 repaired = build_bundles(
                     directory, mirror, catalog, "",
                     published_checksums={bundle.asset_name: bundle.checksum} if registered else {},
@@ -740,6 +741,42 @@ class BundlerTests(unittest.TestCase):
                     self.assertEqual(repaired.bundles, [])
                     self.assertEqual(len(repaired.failures), 1)
                     self.assertIn("recorded checksum", repaired.failures[0].message)
+                    self.assertEqual(path.read_bytes(), previous_bytes)
+
+    def test_publication_rejects_changed_mirror_bytes_and_preserves_previous_zip(self) -> None:
+        for existing in (False, True):
+            with self.subTest(existing=existing), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                mirror = root / "mirror"
+                source = mirror / "question.pdf"
+                source.parent.mkdir()
+                source.write_bytes(b"%PDF-original")
+                paper = make_paper(
+                    canonical_id="nurse", canonical_name="Nurse", year_roc=115,
+                    source_exam_id="exam-115", subject_code="0101", storage_key="question.pdf",
+                )
+                paper.checksum = hashlib.sha256(source.read_bytes()).hexdigest()
+                catalog = NormalizedCatalog(papers=[paper], review_queue=[])
+                directory = root / "bundles"
+                published = {}
+                previous = None
+                if existing:
+                    bundle = build_bundles(directory, mirror, catalog, "").bundles[0]
+                    path = directory / bundle.asset_name
+                    previous = path.read_bytes()
+                    published[bundle.asset_name] = bundle.checksum
+                paper.checksum = hashlib.sha256(b"%PDF-new official paper").hexdigest()
+                source.write_bytes(b"%PDF-corrupt mirror")
+                result = build_bundles(
+                    directory, mirror, catalog, "", published_checksums=published,
+                )
+                self.assertEqual(result.bundles, [])
+                self.assertEqual(len(result.failures), 1)
+                self.assertIn("Mirrored file does not match its recorded checksum", result.failures[0].message)
+                if existing:
+                    self.assertEqual(path.read_bytes(), previous)
+                else:
+                    self.assertEqual(list(directory.iterdir()), [])
 
     def test_published_digest_preserves_verified_cache_without_mirror(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

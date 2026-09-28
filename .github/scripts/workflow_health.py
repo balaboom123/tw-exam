@@ -225,13 +225,50 @@ def _workflow_timeout_minutes(path: Path) -> int:
     return max(budgets, default=120)
 
 
+def _covers_provider_matrix(repository: str, run: dict) -> bool:
+    if run.get("event") != "workflow_dispatch":
+        return True
+    page = 1
+    saw_jobs = False
+    while True:
+        payload = _gh_api(
+            f"repos/{repository}/actions/runs/{run['id']}/jobs",
+            "-X", "GET", "-f", "per_page=100", "-f", f"page={page}",
+        )
+        jobs = (payload or {}).get("jobs", [])
+        saw_jobs = saw_jobs or bool(jobs)
+        if any(
+            job.get("conclusion") == "skipped"
+            and " / " in job.get("name", "")
+            and job["name"].endswith(" sync")
+            for job in jobs
+        ):
+            return False
+        if len(jobs) < 100:
+            return saw_jobs
+        page += 1
+
+
+def _complete_scope_runs(repository: str, workflow_id: int, status: str):
+    """Exclude branch experiments and provider-only pilots from whole-workflow health."""
+    page = 1
+    while True:
+        payload = _gh_api(
+            f"repos/{repository}/actions/workflows/{workflow_id}/runs",
+            "-X", "GET", "-f", f"status={status}", "-f", "branch=main",
+            "-f", "per_page=100", "-f", f"page={page}",
+        )
+        runs = (payload or {}).get("workflow_runs", [])
+        for run in runs:
+            if _covers_provider_matrix(repository, run):
+                yield run
+        if len(runs) < 100:
+            return
+        page += 1
+
+
 def _latest_run(repository: str, workflow_id: int) -> dict | None:
-    payload = _gh_api(
-        f"repos/{repository}/actions/workflows/{workflow_id}/runs",
-        "-X", "GET", "-f", "status=completed", "-f", "per_page=1",
-    )
-    runs = (payload or {}).get("workflow_runs", [])
-    return runs[0] if runs else None
+    return next(_complete_scope_runs(repository, workflow_id, "completed"), None)
 
 
 def _cancelled_past_timeout(run: dict, timeout_minutes: int) -> bool:
@@ -262,15 +299,14 @@ def _slow_run(repository: str, workflow_id: int, run: dict) -> tuple[float, floa
     duration = _duration_minutes(run)
     if duration is None:
         return None
-    payload = _gh_api(
-        f"repos/{repository}/actions/workflows/{workflow_id}/runs",
-        "-X", "GET", "-f", "status=success", "-f", "per_page=11",
-    )
-    previous = [
-        minutes for previous_run in (payload or {}).get("workflow_runs", [])
-        if previous_run.get("id") != run.get("id")
-        and (minutes := _duration_minutes(previous_run)) is not None
-    ][:10]
+    previous = []
+    for previous_run in _complete_scope_runs(repository, workflow_id, "success"):
+        if previous_run.get("id") == run.get("id"):
+            continue
+        if (minutes := _duration_minutes(previous_run)) is not None:
+            previous.append(minutes)
+        if len(previous) == 10:
+            break
     if len(previous) < 3:
         return None
     baseline = median(previous)
@@ -321,10 +357,15 @@ def audit_latest() -> int:
         if conclusion not in (*UNHEALTHY_CONCLUSIONS, "cancelled"):
             continue
         unhealthy += 1
+        body = f"`{name}` concluded **{conclusion}**.\n\nRun: {run.get('html_url', '')}"
         if existing is None:
-            body = f"`{name}` concluded **{conclusion}**.\n\nRun: {run.get('html_url', '')}"
             _create_issue(repository, name, body)
             print(f"opened health issue for {name} ({conclusion})")
+        elif _is_staleness_issue(existing) or _is_slow_issue(existing):
+            # A recent success can resolve staleness even when a newer run
+            # failed. Keep that current failure visible to the stale pass.
+            _replace_issue_body(repository, existing["number"], body)
+            print(f"updated health issue #{existing['number']} for {name} ({conclusion})")
         else:
             print(f"health issue #{existing['number']} already tracks {name}")
     print(f"{unhealthy} workflow(s) with an unhealthy latest run")
@@ -337,16 +378,10 @@ def daily(max_age_days: int) -> int:
 
 
 def _last_success(repository: str, workflow_id: int) -> datetime | None:
-    payload = _gh_api(
-        f"repos/{repository}/actions/workflows/{workflow_id}/runs",
-        "-X", "GET",
-        "-f", "status=success",
-        "-f", "per_page=1",
-    )
-    runs = (payload or {}).get("workflow_runs", [])
-    if not runs:
+    run = next(_complete_scope_runs(repository, workflow_id, "success"), None)
+    if run is None:
         return None
-    return datetime.fromisoformat(runs[0]["created_at"].replace("Z", "+00:00"))
+    return datetime.fromisoformat(run["created_at"].replace("Z", "+00:00"))
 
 
 def stale(max_age_days: int) -> int:

@@ -61,6 +61,10 @@ def write_origin(root: Path, provider: str, pointer: dict, manifest: dict):
                 "pointer": pointer,
                 "file_count": manifest["file_count"],
                 "unpacked_bytes": manifest["unpacked_bytes"],
+                "files": {
+                    path.relative_to(origin.parent).as_posix(): path.stat().st_size
+                    for path in source_files(origin.parent)
+                },
             }
         ),
         encoding="utf-8",
@@ -681,7 +685,7 @@ def hydrate(root: Path, repository: str, provider: str):
     ):
         raise ValueError("Cache hydration is restricted to an Actions workspace")
     remote = release(repository, provider, allow_missing=True)
-    if remote is None:
+    if remote is None or remote.get("body") == "Snapshot upload in progress":
         print(
             f"No durable snapshot yet for {provider}; retained cache/source bootstrap is required"
         )
@@ -693,7 +697,11 @@ def hydrate(root: Path, repository: str, provider: str):
     if origin.is_file() and not origin.is_symlink():
         try:
             cached = json.loads(origin.read_text(encoding="utf-8"))
-            files = list(source_files(source))
+            files = {
+                path.relative_to(source).as_posix(): path.stat().st_size
+                for path in source_files(source)
+            }
+            committed_files = cached.get("files") if isinstance(cached, dict) else None
             if (
                 isinstance(cached, dict)
                 and cached.get("pointer") == pointer
@@ -701,8 +709,11 @@ def hydrate(root: Path, repository: str, provider: str):
                 and cached["file_count"] > 0
                 and type(cached.get("unpacked_bytes")) is int
                 and cached["unpacked_bytes"] >= 0
-                and len(files) >= cached["file_count"]
-                and sum(p.stat().st_size for p in files) >= cached["unpacked_bytes"]
+                and isinstance(committed_files, dict)
+                and len(committed_files) == cached["file_count"]
+                and all(type(size) is int and size >= 0 for size in committed_files.values())
+                and sum(committed_files.values()) == cached["unpacked_bytes"]
+                and all(files.get(name) == size for name, size in committed_files.items())
             ):
                 print(f"Warm {provider} mirror matches durable generation {pointer['generation']}")
                 return pointer

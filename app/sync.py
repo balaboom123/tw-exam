@@ -159,7 +159,8 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     actual_extension = path.suffix.lower()
     if not expected_extensions or actual_extension not in expected_extensions:
         return False
-    return _matches_expected_binary(path.read_bytes()[:8], actual_extension)
+    with path.open("rb") as stream:
+        return _matches_expected_binary(stream.read(8), actual_extension)
 
 
 Result = TypeVar("Result")

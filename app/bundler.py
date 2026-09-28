@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 import shutil
+import tempfile
 import zipfile
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
@@ -483,29 +484,10 @@ def _load_existing_entries_by_canonical(
     return existing_entries_by_name, existing_entries_by_key, archive_signatures
 
 
-def _preserve_rewrite_sources(
-    bundle_path: Path,
-    existing_entries: dict[str, _EntryRef],
-    existing_entries_by_key: dict[tuple[str, str, str, str], _EntryRef],
-) -> tuple[dict[str, _EntryRef], dict[tuple[str, str, str, str], _EntryRef], Path | None]:
-    refs = [*existing_entries.values(), *existing_entries_by_key.values()]
-    if not any(archive_path == bundle_path for archive_path, _entry_name in refs):
-        return existing_entries, existing_entries_by_key, None
-
-    preserved_path = bundle_path.with_name(f".{bundle_path.name}.preserve")
-    shutil.copyfile(bundle_path, preserved_path)
-
-    def rewrite(ref: _EntryRef) -> _EntryRef:
-        archive_path, entry_name = ref
-        if archive_path == bundle_path:
-            return preserved_path, entry_name
-        return ref
-
-    return (
-        {name: rewrite(ref) for name, ref in existing_entries.items()},
-        {key: rewrite(ref) for key, ref in existing_entries_by_key.items()},
-        preserved_path,
-    )
+class _MirrorChecksumMismatch(ValueError):
+    def __init__(self, paper: NormalizedPaper) -> None:
+        self.paper = paper
+        super().__init__(f"Mirrored file does not match its recorded checksum: {paper.storage_key}")
 
 
 def _required_years_for_group(
@@ -896,15 +878,15 @@ def build_bundles(
             )
             file_count = len(ordered)
         else:
-            existing_entries, existing_entries_by_key, preserved_archive = (
-                _preserve_rewrite_sources(
-                    bundle_path,
-                    existing_entries,
-                    existing_entries_by_key,
-                )
-            )
+            # Keep the previous archive readable for recovery and preserve it
+            # if a source checksum or an I/O operation fails during rebuilding.
+            previous_failure_count = len(failures)
+            with tempfile.NamedTemporaryFile(
+                prefix=f".{asset_name}.", suffix=".tmp", dir=bundle_dir, delete=False
+            ) as temporary:
+                staged_path = Path(temporary.name)
             try:
-                with zipfile.ZipFile(bundle_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                with zipfile.ZipFile(staged_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
                     for paper, arcname in zip(ordered, resolved_names, strict=True):
                         source_path = _resolve_mirror_source_path(mirror_dir, paper)
                         if source_path is not None:
@@ -915,7 +897,17 @@ def build_bundles(
                                 open(source_path, "rb") as source_file,
                                 archive.open(entry_info, "w") as archive_entry,
                             ):
-                                shutil.copyfileobj(source_file, archive_entry, 1024 * 1024)
+                                checksum = (
+                                    hashlib.sha256()
+                                    if published_checksums is not None and paper.checksum
+                                    else None
+                                )
+                                for block in iter(lambda: source_file.read(1024 * 1024), b""):
+                                    archive_entry.write(block)
+                                    if checksum is not None:
+                                        checksum.update(block)
+                                if checksum is not None and checksum.hexdigest() != paper.checksum:
+                                    raise _MirrorChecksumMismatch(paper)
                             included_papers.append(paper)
                             bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
                             file_count += 1
@@ -989,9 +981,25 @@ def build_bundles(
                             bundle_entries_by_paper_key,
                         ),
                     )
+                if published_checksums is not None and len(failures) > previous_failure_count:
+                    continue
+                staged_path.replace(bundle_path)
+            except _MirrorChecksumMismatch as exc:
+                failed_paper = exc.paper
+                failures.append(
+                    SyncFailure(
+                        stage="bundle",
+                        source_exam_id=failed_paper.source_exam_id,
+                        year_roc=failed_paper.year_roc,
+                        paper_code=failed_paper.paper_code,
+                        file_type=failed_paper.file_type,
+                        url=failed_paper.download_url_source,
+                        message=str(exc),
+                    )
+                )
+                continue
             finally:
-                if preserved_archive is not None:
-                    preserved_archive.unlink(missing_ok=True)
+                staged_path.unlink(missing_ok=True)
 
         if not included_papers:
             bundle_path.unlink(missing_ok=True)

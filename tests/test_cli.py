@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import io
 import json
 import shutil
@@ -283,6 +284,7 @@ class CliCommandTests(unittest.TestCase):
                 mirror_path = root / "mirror" / paper.storage_key
                 mirror_path.parent.mkdir(parents=True, exist_ok=True)
                 mirror_path.write_bytes(b"%PDF-1.7 demo")
+                paper.checksum = hashlib.sha256(b"%PDF-1.7 demo").hexdigest()
 
             write_provider_state(
                 moex_provider,
@@ -355,6 +357,7 @@ class CliCommandTests(unittest.TestCase):
                 mirror_path = root / "mirror" / paper.storage_key
                 mirror_path.parent.mkdir(parents=True, exist_ok=True)
                 mirror_path.write_bytes(b"%PDF-1.7 demo")
+                paper.checksum = hashlib.sha256(b"%PDF-1.7 demo").hexdigest()
 
             write_provider_state(
                 provider_paths(root, "moex"),

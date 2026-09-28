@@ -1,5 +1,6 @@
 import assert from "node:assert/strict"
 import test from "node:test"
+import { runInNewContext } from "node:vm"
 
 import { buildBundlePage, buildSitemap, siteRoot } from "./bundle-pages.ts"
 
@@ -51,4 +52,33 @@ test("bundle pages attribute official sources and display a recorded sync date i
   const withoutDate = buildBundlePage(bundle, { repo: "example/tw-exam", root })
   assert.match(withoutDate, /同步日期未記錄/)
   assert.doesNotMatch(withoutDate, /<time /)
+})
+
+test("bundle downloads unlock on return and cross-tab access changes", () => {
+  const root = "https://example.github.io/tw-exam/"
+  const html = buildBundlePage(bundle, { repo: "example/tw-exam", root })
+  const script = html.match(/<script>(.*?)<\/script>/s)[1]
+  for (const event of ["pageshow", "focus", "storage", "visibilitychange"]) {
+    let granted = false
+    const listeners = new Map()
+    const location = new URL(`${root}b/exam-one.html`)
+    const link = { href: `${root}join.html`, dataset: { zip: "https://github.com/example/paper.zip" }, textContent: "加入後下載 ZIP" }
+    const window = {
+      localStorage: { getItem: () => granted ? "1" : null },
+      sessionStorage: { getItem: () => null },
+      addEventListener: (name, handler) => listeners.set(name, handler),
+    }
+    const document = {
+      querySelectorAll: () => [link],
+      addEventListener: (name, handler) => listeners.set(name, handler),
+    }
+    runInNewContext(script, { window, document, location, URL, URLSearchParams })
+    assert.equal(link.href, `${root}join.html`)
+    granted = true
+    listeners.get(event)?.()
+    assert.equal(link.href, link.dataset.zip, event)
+    assert.equal(link.textContent, "下載 ZIP")
+    listeners.get(event)?.()
+    assert.equal(link.textContent, "下載 ZIP")
+  }
 })

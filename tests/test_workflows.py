@@ -937,6 +937,39 @@ class WorkflowHealthTest(unittest.TestCase):
         create_mock.assert_called_once()
         self.assertIn("https://example/run/5", create_mock.call_args.args[2])
 
+    def test_daily_audit_keeps_latest_failure_when_staleness_has_recovered(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "sync-incremental", "interval_days": 7}
+        for old_body in (
+            "`sync-incremental` has no successful run within the last 14 days",
+            "`sync-incremental` exceeded 3 times its recent median",
+        ):
+            with self.subTest(old_body=old_body):
+                existing = {"number": 42, "body": old_body}
+                run = {"status": "completed", "conclusion": "failure",
+                       "html_url": "https://example/run/latest"}
+
+                def replace_body(repository, number, body):
+                    existing["body"] = body
+
+                with (
+                    mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}),
+                    mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]),
+                    mock.patch.object(module, "_latest_run", return_value=run),
+                    mock.patch.object(module, "_last_success", return_value=datetime.now(timezone.utc)),
+                    mock.patch.object(module, "_open_health_issue", return_value=existing),
+                    mock.patch.object(module, "_replace_issue_body", side_effect=replace_body) as update,
+                    mock.patch.object(module, "_close") as close,
+                    mock.patch.object(module, "_create_issue") as create,
+                ):
+                    module.daily(14)
+                    module.daily(14)
+                close.assert_not_called()
+                create.assert_not_called()
+                update.assert_called_once()
+                self.assertIn("concluded **failure**", existing["body"])
+                self.assertIn(run["html_url"], existing["body"])
+
     def test_daily_audit_ignores_quick_cancellation_but_reports_timeout(self) -> None:
         module = _load_health_script()
         workflow = {"id": 1, "name": "deploy-pages", "timeout_minutes": 30}
@@ -990,7 +1023,8 @@ class WorkflowHealthTest(unittest.TestCase):
             self.assertEqual(module._slow_run("o/r", 1, current), (31, 10.0))
             api.assert_called_once_with(
                 "repos/o/r/actions/workflows/1/runs",
-                "-X", "GET", "-f", "status=success", "-f", "per_page=11",
+                "-X", "GET", "-f", "status=success", "-f", "branch=main",
+                "-f", "per_page=100", "-f", "page=1",
             )
             self.assertIsNone(module._slow_run("o/r", 1, run(5, 30)))
             history["workflow_runs"] = [current, run(4, 10), run(3, 11)]
@@ -1060,6 +1094,39 @@ class WorkflowHealthTest(unittest.TestCase):
                     self.assertEqual(argv[argv.index("-X") + 1], "GET")
         latest_argv = run_mock.call_args_list[1].args[0]
         self.assertIn("status=completed", latest_argv)
+
+    def test_partial_provider_pilots_do_not_mask_health_or_distort_timing(self) -> None:
+        module = _load_health_script()
+        start = datetime(2026, 9, 25, tzinfo=timezone.utc)
+
+        def run(run_id, minutes, event):
+            return {"id": run_id, "event": event, "created_at": start.isoformat(),
+                    "run_started_at": start.isoformat(),
+                    "updated_at": (start + timedelta(minutes=minutes)).isoformat()}
+
+        partial = [run(i, 1, "workflow_dispatch") for i in (6, 5, 4)]
+        for pilot in partial:
+            pilot["created_at"] = (start + timedelta(days=1)).isoformat()
+        full = [run(i, 10, "schedule") for i in (3, 2, 1)]
+
+        def api(path, *args):
+            if path.endswith("/jobs"):
+                return {"jobs": [
+                    {"name": "ceec_gsat / ceec_gsat sync", "conclusion": "success"},
+                    {"name": "ceec_ast / ${{ inputs.provider_id }} sync", "conclusion": "skipped"},
+                ]}
+            return {"workflow_runs": partial + full}
+
+        with mock.patch.object(module, "_gh_api", side_effect=api):
+            self.assertEqual(module._latest_run("o/r", 1)["id"], 3)
+            self.assertEqual(module._last_success("o/r", 1), start)
+            self.assertIsNone(module._slow_run("o/r", 1, run(7, 20, "schedule")))
+
+        with mock.patch.object(module, "_gh_api", return_value={"jobs": [
+            {"name": "ceec_ast / ceec_ast sync", "conclusion": "success"},
+            {"name": "ceec_gsat / ceec_gsat sync", "conclusion": "success"},
+        ]}):
+            self.assertTrue(module._covers_provider_matrix("o/r", partial[0]))
 
     def test_manual_recovery_counts_as_a_recent_success(self) -> None:
         module = _load_health_script()
