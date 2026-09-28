@@ -57,7 +57,7 @@ export function Header({
           aria-label="網站導覽"
           className="ml-auto hidden items-center gap-2 sm:flex"
         >
-          <a href={siteHref("")} className="flex h-11 items-center px-2.5 text-[13px] font-bold text-seal-600">試題目錄</a>
+          <a href={siteHref("")} aria-current={totalBundles !== undefined ? "page" : undefined} className={cn("flex h-11 items-center px-2.5 text-[13px]", totalBundles !== undefined ? "font-bold text-seal-600" : "text-ink-600 hover:text-ink-950")}>試題目錄</a>
           {NAV.map((item) => (
             <a
               key={item.key}
@@ -82,7 +82,7 @@ export function Header({
         <details ref={mobileNavRef} className="mobile-nav ml-auto sm:hidden">
           <summary aria-label="網站選單" className="flex size-11 cursor-pointer list-none items-center justify-center rounded-lg border border-line"><Menu aria-hidden="true" className="size-5" /></summary>
           <nav aria-label="行動版網站導覽" className="absolute inset-x-0 top-full border-b border-line bg-cream px-5 py-3 shadow-lg">
-            <a href={siteHref("")} className="flex min-h-11 items-center text-sm font-bold text-seal-600">試題目錄</a>
+            <a href={siteHref("")} aria-current={totalBundles !== undefined ? "page" : undefined} className={cn("flex min-h-11 items-center text-sm", totalBundles !== undefined ? "font-bold text-seal-600" : "text-ink-800")}>試題目錄</a>
             {NAV.map((item) => <a key={item.key} href={siteHref(item.href)} aria-current={active === item.key ? "page" : undefined} className="flex min-h-11 items-center text-sm text-ink-800">{item.label}</a>)}
           </nav>
         </details>
