@@ -19,13 +19,13 @@ function zipUrl(repo: string, tag: string, asset: string): string {
 }
 
 export const bundlePagesCss = `
-:root{color-scheme:light;font-family:system-ui,"Noto Sans TC",sans-serif;background:#f9f6ee;color:#242b2b}
-*{box-sizing:border-box}body{margin:0}a{color:#8b3829;text-underline-offset:3px}a:focus-visible{outline:3px solid #8b3829;outline-offset:3px}
-main{max-width:760px;margin:auto;padding:32px 24px 72px}.eyebrow{font-size:.85rem;letter-spacing:.08em;color:#695d55}
+:root{color-scheme:light;font-family:system-ui,"Noto Sans TC",sans-serif;background:#f3f6fa;color:#182b49}
+*{box-sizing:border-box}body{margin:0}a{color:#284f91;text-underline-offset:3px}a:focus-visible{outline:3px solid #284f91;outline-offset:3px}
+main{max-width:760px;margin:auto;padding:32px 24px 72px}.eyebrow{font-size:.85rem;letter-spacing:.08em;color:#52647a}
 h1{font-family:"Noto Serif TC",serif;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.3;margin:.65em 0 .4em}
-p,li{line-height:1.8}.meta{color:#615b57}.subjects{padding-left:1.4em}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0}
-.button{display:inline-block;background:#a8432b;color:#fff;text-decoration:none;padding:12px 20px;border-radius:3px;font-weight:700}
-.secondary{background:transparent;color:#8b3829;border:1px solid #a8432b}footer{border-top:1px solid #d6cfc0;padding-top:20px;color:#615b57;font-size:.85rem}
+p,li{line-height:1.8}.meta{color:#52647a}.subjects{padding-left:1.4em}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0}
+.button{display:inline-block;background:#284f91;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:700}
+.secondary{background:transparent;color:#284f91;border:1px solid #284f91}footer{border-top:1px solid #dce3ec;padding-top:20px;color:#52647a;font-size:.85rem}
 `
 
 export function siteRoot({ base, origin }: { base: string; origin: string }): string {

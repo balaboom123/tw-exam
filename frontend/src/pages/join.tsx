@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { ExternalLink } from "lucide-react"
-import { PaperGrain } from "@/components/paper-grain"
 import { SOCIAL_CHANNELS, grantSocialAccess, withSocialAccess } from "@/lib/social-gate"
 import { siteHref } from "@/lib/utils"
 
@@ -32,7 +31,6 @@ export function JoinPage() {
 
   return (
     <div className="flex min-h-[100dvh] flex-col items-center px-6 py-16">
-      <PaperGrain />
       <main className="w-full max-w-sm animate-fade-in text-center">
         <span className="mx-auto flex size-14 items-center justify-center rounded-[4px] bg-seal-600 font-serif text-3xl font-bold text-cream">
           試

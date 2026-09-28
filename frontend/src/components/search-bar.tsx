@@ -13,12 +13,14 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
         strokeWidth={1.8}
       />
       <input
-        type="text"
+        type="search"
+        autoComplete="off"
+        spellCheck={false}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="搜尋考試類科，例如：護理師、律師"
+        placeholder="搜尋類科或科目，例如：護理師、英文"
         aria-label="搜尋考試類科"
-        className="h-12 w-full rounded-sm border border-line bg-cream pl-12 pr-16 text-base text-ink-950 transition-colors placeholder:text-ink-400 focus:border-ink-800 focus:outline-none focus:ring-[3px] focus:ring-seal-600/15"
+        className="search-input"
       />
       {value && (
         <button

@@ -1,7 +1,6 @@
 import type { ReactNode } from "react"
 import { Header, type NavKey } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { PaperGrain } from "@/components/paper-grain"
 
 interface InfoLayoutProps {
   title: string
@@ -20,7 +19,6 @@ export function InfoLayout({
 }: InfoLayoutProps) {
   return (
     <div className="flex min-h-[100dvh] flex-col">
-      <PaperGrain />
       <Header active={active} />
       <main id="main" className="mx-auto w-full max-w-4xl flex-1 px-6 pb-16 pt-10">
         <div className="flex items-start justify-between gap-8">

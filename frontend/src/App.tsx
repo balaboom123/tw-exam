@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react"
+import { ArrowUpRight, Check, ListFilter, Share2, X } from "lucide-react"
 import { useBundles } from "@/hooks/use-bundles"
 import { useDebouncedValue } from "@/hooks/use-debounce"
 import { formatYearRange, siteHref } from "@/lib/utils"
@@ -14,7 +15,6 @@ import { Pagination } from "@/components/pagination"
 import { Stamp } from "@/components/stamp"
 import { CategoryFilter } from "@/components/category-filter"
 import { Footer } from "@/components/footer"
-import { PaperGrain } from "@/components/paper-grain"
 import { hasSocialAccess, withSocialAccess } from "@/lib/social-gate"
 import { orderExamClasses, orderExamSubclasses } from "@/lib/exam-categories"
 import { buildSearchQuery, readSearchState } from "@/lib/search-state"
@@ -35,7 +35,11 @@ function App() {
   const [page, setPage] = useState(initialSearchState.page)
   const [unlocked, setUnlocked] = useState(hasSocialAccess)
   const [shareFeedback, setShareFeedback] = useState<string | null>(null)
-  const listTopRef = useRef<HTMLParagraphElement>(null)
+  const listTopRef = useRef<HTMLHeadingElement>(null)
+  const shareTimeoutRef = useRef<number | undefined>(undefined)
+  const [filtersOpen, setFiltersOpen] = useState(false)
+
+  useEffect(() => () => window.clearTimeout(shareTimeoutRef.current), [])
 
   // Pick up access granted in another tab or after a same-tab mobile return.
   useEffect(() => {
@@ -109,8 +113,8 @@ function App() {
   }, [baseFiltered])
 
   const availableClasses = useMemo(
-    () => orderExamClasses(Object.keys(classCounts)),
-    [classCounts]
+    () => orderExamClasses([...new Set(bundles.map((bundle) => bundle.examClass))]),
+    [bundles]
   )
 
   const subclassCounts = useMemo(() => {
@@ -123,8 +127,8 @@ function App() {
   }, [baseFiltered, selectedClass])
 
   const availableSubclasses = useMemo(
-    () => orderExamSubclasses(Object.keys(subclassCounts)),
-    [subclassCounts]
+    () => orderExamSubclasses([...new Set(bundles.filter((bundle) => bundle.examClass === selectedClass).map((bundle) => bundle.examSubclass))]),
+    [bundles, selectedClass]
   )
 
   const orderedBundles = useMemo(() => orderBundles(bundles, sortKey), [bundles, sortKey])
@@ -183,6 +187,7 @@ function App() {
   }
 
   async function handleShareLink() {
+    window.clearTimeout(shareTimeoutRef.current)
     try {
       if (navigator.share) {
         await navigator.share({ title: "tw-exam", url: window.location.href })
@@ -190,16 +195,20 @@ function App() {
       } else if (navigator.clipboard) {
         await navigator.clipboard.writeText(window.location.href)
         setShareFeedback("連結已複製")
+      } else {
+        setShareFeedback("請複製網址列的連結")
       }
-      window.setTimeout(() => setShareFeedback(null), 1800)
-    } catch {
-      // Closing the native share sheet is an expected user action.
+    } catch (error) {
+      if (error instanceof Error && error.name === "AbortError") return
+      setShareFeedback("請複製網址列的連結")
     }
+    shareTimeoutRef.current = window.setTimeout(() => setShareFeedback(null), 4000)
   }
 
   function handlePageChange(nextPage: number) {
     setPage(nextPage)
-    listTopRef.current?.scrollIntoView()
+    listTopRef.current?.focus({ preventScroll: true })
+    listTopRef.current?.scrollIntoView({ block: "start" })
   }
 
   function handleReset() {
@@ -213,9 +222,8 @@ function App() {
   if (error) {
     return (
       <div className="flex min-h-[100dvh] flex-col">
-        <PaperGrain />
         <Header totalBundles={0} />
-        <div className="flex flex-1 items-center justify-center px-6">
+        <main id="main" className="flex flex-1 items-center justify-center px-6">
           <div className="flex flex-col items-center text-center">
             <Stamp>載入失敗</Stamp>
             <h1 className="mt-7 font-medium text-ink-950">資料載入失敗</h1>
@@ -228,152 +236,124 @@ function App() {
               重新載入
             </button>
           </div>
-        </div>
+        </main>
         <Footer />
       </div>
     )
   }
 
+  const activeFilters = [
+    ...(query.trim() ? [{ label: `搜尋：${query}`, clear: () => handleQueryChange("") }] : []),
+    ...(selectedClass ? [{ label: selectedClass, clear: () => handleClassChange(null) }] : []),
+    ...(selectedSubclass ? [{ label: selectedSubclass, clear: () => handleSubclassChange(null) }] : []),
+    ...(selectedYear ? [{ label: `民國 ${selectedYear} 年`, clear: () => handleYearChange(null) }] : []),
+  ]
+
   return (
     <div className="flex min-h-[100dvh] flex-col">
-      <PaperGrain />
       <Header totalBundles={bundles.length} />
-
-      <main id="main" aria-busy={loading} className="mx-auto w-full max-w-4xl flex-1 px-6 pb-10 pt-10">
-        <section className="flex items-start justify-between gap-8">
+      <main id="main" aria-busy={loading} className="workspace-shell flex-1">
+        <section className="collection-intro" aria-labelledby="collection-title">
           <div>
-            <h1 className="font-serif text-3xl font-black tracking-tight text-ink-950 md:text-[2.5rem] md:leading-[1.15]">
-              歷屆試題下載
-            </h1>
-            <p className="mt-3 max-w-[58ch] text-[15px] leading-relaxed text-ink-600">
-              收錄國家考試、國營事業甄試、國中會考及技能檢定歷年試題，依類科彙整為多年度
-              ZIP 檔，可直接下載。
+            <h1 id="collection-title" className="collection-title">歷屆試題，一次整理好。</h1>
+            <p className="mt-4 max-w-[40em] text-sm leading-7 text-ink-600 sm:text-[15px]">
+              找到你的考試類科，收齊歷年試題。<br />
+              依類科彙整多年度 ZIP 檔，讓準備更有方向。
             </p>
           </div>
-          <span
-            aria-hidden="true"
-            className="hidden shrink-0 select-none border-l border-line pl-4 pt-1 font-serif text-sm tracking-[0.3em] text-ink-400 [writing-mode:vertical-rl] md:block"
-          >
-            歷屆試題檔案庫
-          </span>
-        </section>
-
-        <div className="mt-8 min-h-[70px] sm:min-h-[44px]">
           {loading ? (
-            <div aria-hidden="true" className="flex flex-wrap items-center gap-8 border-y border-line py-3">
-              <span className="h-3 w-20 animate-pulse rounded-sm bg-paper-deep" />
-              <span className="h-3 w-20 animate-pulse rounded-sm bg-paper-deep" />
-              <span className="h-3 w-28 animate-pulse rounded-sm bg-paper-deep" />
-            </div>
+            <div aria-hidden="true" className="collection-stats"><div className="skeleton h-20 w-full" /></div>
           ) : (
             <StatsBar total={bundles.length} totalFiles={totalFiles} yearRange={yearRange} />
           )}
-        </div>
+        </section>
 
-        <div className={selectedClass ? "mt-6 min-h-[108px] sm:min-h-[88px]" : "mt-6 min-h-[48px] sm:min-h-[40px]"}>
-          {loading ? (
-            <div aria-hidden="true" className="space-y-3">
-              <div className="flex h-11 items-center gap-2 sm:h-9">
-                <span className="h-8 w-20 animate-pulse rounded-sm bg-paper-deep" />
-                <span className="h-8 w-24 animate-pulse rounded-sm bg-paper-deep" />
-                <span className="h-8 w-24 animate-pulse rounded-sm bg-paper-deep" />
-              </div>
-              {selectedClass && <div className="h-11 w-64 animate-pulse rounded-sm bg-paper-deep sm:h-8" />}
-            </div>
-          ) : (
-            <CategoryFilter
-              availableClasses={availableClasses}
-              availableSubclasses={availableSubclasses}
-              selectedClass={selectedClass}
-              selectedSubclass={selectedSubclass}
-              onClassChange={handleClassChange}
-              onSubclassChange={handleSubclassChange}
-              classCounts={classCounts}
-              subclassCounts={subclassCounts}
-            />
-          )}
-        </div>
+        <section aria-label="搜尋試題" className="search-panel">
+          <div className="min-w-0 flex-1"><SearchBar value={query} onChange={handleQueryChange} /></div>
+          <button type="button" onClick={handleShareLink} aria-label="分享搜尋連結" className="share-button">
+            <Share2 aria-hidden="true" className="size-4" />
+            <span>分享搜尋</span>
+          </button>
+          <span role="status" className={shareFeedback ? "share-feedback" : "sr-only"}>{shareFeedback}</span>
+        </section>
 
-        <div className="mt-6 flex flex-col gap-4">
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <div className="min-w-0 flex-1">
-              <SearchBar value={query} onChange={handleQueryChange} />
-            </div>
-            <button
-              type="button"
-              onClick={handleShareLink}
-              className="h-12 shrink-0 rounded-sm border border-line-strong bg-cream px-4 text-sm font-medium text-ink-700 transition-colors hover:bg-paper-deep hover:text-ink-950"
-            >
-              {shareFeedback ?? "分享搜尋連結"}
+        <div className="catalog-layout">
+          <aside className="filter-rail" aria-label="篩選試題">
+            <button type="button" className="mobile-filter-toggle" aria-expanded={filtersOpen} aria-controls="catalog-filters" onClick={() => setFiltersOpen(!filtersOpen)}>
+              <ListFilter aria-hidden="true" className="size-4" />
+              篩選考試{activeFilters.length > 0 ? `（${activeFilters.length}）` : ""}
+              <span className="ml-auto text-xs">{filtersOpen ? "收起" : "展開"}</span>
             </button>
-          </div>
-
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <YearFilter
-              years={allYears}
-              selected={selectedYear}
-              onSelect={handleYearChange}
-            />
-            <SortSelect value={sortKey} onChange={handleSortChange} />
-          </div>
-        </div>
-
-        <div className="mt-8">
-          {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
-            <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
-              {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
-              {searchError && (
-                <button type="button" onClick={retrySearch} className="ml-2 min-h-11 underline underline-offset-4">
-                  重試完整搜尋
-                </button>
+            <div id="catalog-filters" className={`filter-content ${filtersOpen ? "is-open" : ""}`}>
+              <h2 className="mb-4 hidden items-center gap-2 text-sm font-bold text-ink-950 lg:flex"><ListFilter aria-hidden="true" className="size-4" />考試分類</h2>
+              {loading ? <div aria-hidden="true" className="skeleton h-64 w-full" /> : (
+                <CategoryFilter
+                  availableClasses={availableClasses} availableSubclasses={availableSubclasses}
+                  selectedClass={selectedClass} selectedSubclass={selectedSubclass}
+                  onClassChange={handleClassChange} onSubclassChange={handleSubclassChange}
+                  classCounts={classCounts} subclassCounts={subclassCounts}
+                />
               )}
-            </p>
-          )}
-          {!loading && !unlocked && (
-            <p className="mb-3 text-xs leading-relaxed text-ink-600">
-              首次下載前，請先在加入頁選擇一個 LINE 社群；返回後即可下載試題。
-            </p>
-          )}
-          {loading ? (
-            <LoadingSkeleton />
-          ) : filtered.length === 0 ? (
-            <EmptyState onReset={handleReset} />
-          ) : (
-            <div className="animate-fade-in">
-              <p
-                ref={listTopRef}
-                className="mb-2 scroll-mt-24 font-mono text-xs text-ink-500"
-                aria-live="polite"
-              >
-                第 {(safePage - 1) * PAGE_SIZE + 1}–
-                {Math.min(safePage * PAGE_SIZE, filtered.length)} 筆 · 共{" "}
-                {filtered.length.toLocaleString()} 筆
-              </p>
-              {/* Safari needs an explicit list role when markers are removed. */}
-              {/* eslint-disable-next-line jsx-a11y-x/no-redundant-roles */}
-              <ul
-                role="list"
-                className="-mx-4 divide-y divide-line border-y border-line"
-              >
-                {paginated.map((bundle: Bundle) => (
-                  <BundleRow
-                    key={bundle.id}
-                    bundle={bundle}
-                    unlocked={unlocked}
-                    joinHref={joinHref}
-                  />
-                ))}
-              </ul>
-              <Pagination
-                current={safePage}
-                total={totalPages}
-                onChange={handlePageChange}
-              />
+              <div className="mt-6 border-t border-line pt-5">
+                <label htmlFor="exam-year" className="mb-3 block text-sm font-bold text-ink-950">考試年度</label>
+                <YearFilter years={allYears} selected={selectedYear} onSelect={handleYearChange} />
+                <p className="mt-2 text-xs leading-5 text-ink-500">年度以民國紀年，下載檔包含該類科收錄的所有年度。</p>
+              </div>
             </div>
-          )}
+            <div className="study-note">
+              <h2 className="text-sm font-bold text-ink-950">第一次下載？</h2>
+              <p className="mt-2 text-xs leading-6 text-ink-600">選擇一個 LINE 社群，返回後即可下載。試題來源與收錄年度可在各類科中查看。</p>
+              <a href={siteHref("faq.html")} className="mt-3 inline-flex min-h-11 items-center gap-1 text-xs font-bold text-seal-600">查看常見問題<ArrowUpRight aria-hidden="true" className="size-4" /></a>
+            </div>
+          </aside>
+
+          <section className="min-w-0" aria-labelledby="results-title">
+            <div className="results-toolbar">
+              <div>
+                <h2 ref={listTopRef} id="results-title" tabIndex={-1} className="scroll-mt-24 text-lg font-bold text-ink-950">{selectedSubclass ?? selectedClass ?? "全部試題"}</h2>
+                <p className="mt-1 text-xs text-ink-500" role="status">
+                  {loading ? "正在載入試題目錄…" : `共 ${filtered.length.toLocaleString()} 個類科${filtered.length > 0 ? `，顯示 ${(safePage - 1) * PAGE_SIZE + 1}–${Math.min(safePage * PAGE_SIZE, filtered.length)} 筆` : ""}`}
+                </p>
+              </div>
+              <SortSelect value={sortKey} onChange={handleSortChange} />
+            </div>
+
+            {activeFilters.length > 0 && (
+              <div className="active-filters" aria-label="目前篩選條件">
+                {activeFilters.map(({ label, clear }) => (
+                  <button type="button" key={label} onClick={clear} aria-label={`移除篩選：${label}`} className="filter-chip">
+                    <span className="min-w-0 break-words">{label}</span><X aria-hidden="true" className="size-3.5 shrink-0" />
+                  </button>
+                ))}
+                <button type="button" onClick={handleReset} className="min-h-11 px-2 text-xs text-ink-600 underline underline-offset-4">清除全部</button>
+              </div>
+            )}
+
+            {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
+              <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
+                {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
+                {searchError && <button type="button" onClick={retrySearch} className="ml-2 min-h-11 underline underline-offset-4">重試完整搜尋</button>}
+              </p>
+            )}
+            {!loading && (
+              <div className="download-notice">
+                {unlocked ? <Check aria-hidden="true" className="size-4 shrink-0" /> : <ArrowUpRight aria-hidden="true" className="size-4 shrink-0" />}
+                <p>{unlocked ? "已解鎖下載，選擇類科即可取得 ZIP 試題檔。" : <>首次下載請先<a href={joinHref} className="font-bold underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。</>}</p>
+              </div>
+            )}
+            {loading ? <LoadingSkeleton /> : filtered.length === 0 ? <EmptyState onReset={handleReset} /> : (
+              <>
+                {/* Safari needs an explicit list role when markers are removed. */}
+                {/* eslint-disable-next-line jsx-a11y-x/no-redundant-roles */}
+                <ul role="list" className="bundle-list">
+                  {paginated.map((bundle: Bundle) => <BundleRow key={bundle.id} bundle={bundle} unlocked={unlocked} joinHref={joinHref} />)}
+                </ul>
+                <Pagination current={safePage} total={totalPages} onChange={handlePageChange} />
+              </>
+            )}
+          </section>
         </div>
       </main>
-
       <Footer />
     </div>
   )

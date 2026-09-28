@@ -22,7 +22,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
       <div
         role="group"
         aria-labelledby="sort-label"
-        className="flex rounded-sm border border-line bg-paper-deep p-0.5"
+        className="flex rounded-lg border border-line bg-paper p-0.5"
       >
         {options.map((opt) => (
           <button
@@ -31,7 +31,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
             onClick={() => onChange(opt.value)}
             aria-pressed={value === opt.value}
             className={cn(
-              "h-11 rounded-[3px] px-3 text-sm transition-colors sm:h-8",
+              "h-11 rounded-md px-3 text-xs transition-colors",
               value === opt.value
                 ? "bg-cream text-ink-950 shadow-[0_1px_2px_rgba(0,0,0,0.06)]"
                 : "text-ink-500 hover:text-ink-950"
