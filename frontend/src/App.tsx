@@ -35,7 +35,7 @@ function App() {
   const [page, setPage] = useState(initialSearchState.page)
   const [unlocked, setUnlocked] = useState(hasSocialAccess)
   const [shareFeedback, setShareFeedback] = useState<string | null>(null)
-  const listTopRef = useRef<HTMLHeadingElement>(null)
+  const listTopRef = useRef<HTMLElement>(null)
   const shareTimeoutRef = useRef<number | undefined>(undefined)
   const [filtersOpen, setFiltersOpen] = useState(false)
 
@@ -254,6 +254,11 @@ function App() {
             <p className="mt-3 max-w-[42em] text-[15px] leading-7 text-ink-600">
               依類科彙整歷年試題，搜尋後即可下載多年度 ZIP 檔。
             </p>
+            {!loading && !unlocked && (
+              <p className="download-notice">
+                首次下載請先<a href={joinHref} className="underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。
+              </p>
+            )}
           </div>
           {loading ? (
             <div aria-hidden="true" className="collection-stats"><div className="skeleton h-4 w-72 max-w-full" /></div>
@@ -272,7 +277,23 @@ function App() {
         </section>
 
         <div className="catalog-layout">
-          <aside className="filter-rail" aria-label="篩選試題">
+          <aside className="filter-rail" aria-label="搜尋結果與篩選">
+            <div className="sidebar-summary">
+              <h2 id="results-title" className="text-base font-bold leading-6 text-ink-950">
+                {selectedSubclass ?? selectedClass ?? "全部試題"}
+              </h2>
+              <p className="result-count" role="status">
+                {loading ? "正在載入試題目錄…" : (
+                  <>共 {filtered.length.toLocaleString()} 個類科
+                    {filtered.length > 0 && <>，顯示 {(safePage - 1) * PAGE_SIZE + 1}–{Math.min(safePage * PAGE_SIZE, filtered.length)} 筆</>}
+                  </>
+                )}
+              </p>
+              <div className="summary-actions">
+                {hasFilters && <button type="button" onClick={handleReset} className="reset-filters">清除篩選</button>}
+                <SortSelect value={sortKey} onChange={handleSortChange} />
+              </div>
+            </div>
             <button
               type="button"
               className="mobile-filter-toggle"
@@ -302,29 +323,11 @@ function App() {
             </div>
           </aside>
 
-          <section className="min-w-0" aria-labelledby="results-title">
-            <div className="results-toolbar">
-              <div>
-                <h2 ref={listTopRef} id="results-title" tabIndex={-1} className="scroll-mt-24 text-lg font-bold text-ink-950">{selectedSubclass ?? selectedClass ?? "全部試題"}</h2>
-                <div className="results-meta">
-                  <p className="text-xs text-ink-500" role="status">
-                    {loading ? "正在載入試題目錄…" : `共 ${filtered.length.toLocaleString()} 個類科${filtered.length > 0 ? `，顯示 ${(safePage - 1) * PAGE_SIZE + 1}–${Math.min(safePage * PAGE_SIZE, filtered.length)} 筆` : ""}`}
-                  </p>
-                  {hasFilters && <button type="button" onClick={handleReset} className="reset-filters">清除篩選</button>}
-                </div>
-              </div>
-              <SortSelect value={sortKey} onChange={handleSortChange} />
-            </div>
-
+          <section ref={listTopRef} id="catalog-results" tabIndex={-1} className="min-w-0 scroll-mt-24" aria-labelledby="results-title">
             {Boolean(debouncedQuery.trim()) && (searchLoading || searchError) && (
               <p role="status" className="mb-3 text-xs leading-relaxed text-ink-600">
                 {searchError ? "完整搜尋暫時無法載入，目前僅搜尋試題名稱。" : "目前搜尋試題名稱，完整搜尋載入中。"}
                 {searchError && <button type="button" onClick={retrySearch} className="ml-2 min-h-11 underline underline-offset-4">重試完整搜尋</button>}
-              </p>
-            )}
-            {!loading && !unlocked && (
-              <p className="download-notice">
-                首次下載請先<a href={joinHref} className="underline underline-offset-4">加入 LINE 社群</a>，返回後即可下載試題。
               </p>
             )}
             {loading ? <LoadingSkeleton /> : filtered.length === 0 ? <EmptyState onReset={handleReset} /> : (
