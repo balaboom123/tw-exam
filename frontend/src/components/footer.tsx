@@ -9,8 +9,8 @@ const NAV: { href: string; label: string }[] = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-line">
-      <div className="mx-auto max-w-[960px] px-5 py-8 sm:px-8">
+    <footer className="border-t border-line bg-cream">
+      <div className="mx-auto max-w-[1232px] px-5 py-8 sm:px-8">
         <nav
           aria-label="網站資訊"
           className="flex flex-wrap items-center gap-x-6 gap-y-0"

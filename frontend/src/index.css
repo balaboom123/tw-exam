@@ -175,17 +175,17 @@ body {
   }
 }
 
-/* One reading column, with compact controls above the original-style list. */
+/* The redesigned workspace, with quieter secondary controls. */
 .workspace-shell {
   width: 100%;
-  max-width: 960px;
+  max-width: 1232px;
   margin-inline: auto;
   padding: 36px 32px 48px;
 }
 .collection-intro { padding-bottom: 20px; }
 .collection-title {
   font-family: var(--font-serif);
-  font-size: clamp(28px, 3.2vw, 38px);
+  font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 700;
   line-height: 1.4;
   color: var(--color-ink-950);
@@ -201,12 +201,12 @@ body {
 .collection-stats > div { display: flex; align-items: baseline; gap: 6px; }
 .collection-stats dd { color: var(--color-ink-950); font-variant-numeric: tabular-nums; }
 .collection-stats dd span { display: none; }
-.search-panel { position: relative; display: flex; align-items: center; gap: 8px; }
+.search-panel { position: relative; display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
 .search-input {
-  height: 48px;
+  height: 54px;
   width: 100%;
   border: 1px solid var(--color-line-strong);
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--color-cream);
   padding: 0 48px;
   color: var(--color-ink-950);
@@ -220,9 +220,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 48px;
-  padding: 0 12px;
-  border-radius: 4px;
+  min-height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-cream);
   color: var(--color-ink-600);
   font-size: 13px;
   cursor: pointer;
@@ -239,50 +241,55 @@ body {
   color: var(--color-cream);
   font-size: 12px;
 }
-.catalog-filters { margin-block: 20px 24px; }
-.filter-heading { margin-bottom: 10px; font-size: 13px; font-weight: 700; color: var(--color-ink-800); }
-.category-options { display: flex; flex-wrap: wrap; gap: 6px; }
+.catalog-layout { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 28px; align-items: start; }
+.filter-rail { min-width: 0; }
+.catalog-filters { padding: 20px 14px; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-cream); }
+.filter-heading { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: 14px; font-weight: 700; color: var(--color-ink-950); }
+.mobile-filter-toggle { display: none; }
+.category-options { display: flex; flex-direction: column; gap: 4px; }
 .category-option {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
+  width: 100%;
   min-height: 44px;
   padding: 8px 10px;
-  border: 1px solid var(--color-line);
-  border-radius: 4px;
-  background: var(--color-cream);
+  border-radius: 6px;
   text-align: left;
   font-size: 13px;
   color: var(--color-ink-600);
   cursor: pointer;
 }
-.category-option:hover { border-color: var(--color-line-strong); color: var(--color-ink-950); }
-.category-option.is-selected { border-color: var(--color-seal-600); background: var(--color-seal-100); color: var(--color-seal-700); font-weight: 700; }
+.category-option:hover { background: var(--color-paper); color: var(--color-ink-950); }
+.category-option.is-selected { background: var(--color-seal-100); color: var(--color-seal-700); font-weight: 700; }
 .category-option:disabled { opacity: .5; cursor: default; }
 .category-count { font-size: 11px; font-variant-numeric: tabular-nums; }
 .mobile-category-control { display: none; }
-.filter-selects { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 12px; }
-.year-control, .sort-control, .subclass-control { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.subclass-control { margin-top: 12px; }
-.catalog-filters label { font-size: 12px; color: var(--color-ink-600); }
-.catalog-filters select {
+.year-control, .subclass-control { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.year-control { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--color-line); }
+.subclass-control { margin-top: 18px; }
+.sort-control { display: flex; align-items: center; flex-shrink: 0; gap: 8px; }
+.catalog-filters label, .sort-control label { font-size: 12px; color: var(--color-ink-600); }
+.catalog-filters select, .sort-control select {
   min-width: 0;
   max-width: 100%;
   min-height: 44px;
   border: 1px solid var(--color-line-strong);
-  border-radius: 4px;
+  border-radius: 6px;
   background: var(--color-cream);
   padding: 8px 10px;
   font-size: 13px;
   color: var(--color-ink-800);
 }
-.subclass-control select { max-width: min(420px, 80%); }
 .year-note { margin-top: 10px; font-size: 12px; line-height: 1.7; color: var(--color-ink-500); }
-.results-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.results-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.results-toolbar > div:first-child { min-width: 0; }
+.results-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0 8px; margin-top: 4px; }
 .reset-filters { flex-shrink: 0; min-height: 44px; padding: 8px; font-size: 12px; color: var(--color-ink-600); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .download-notice { margin-bottom: 12px; font-size: 12px; line-height: 1.8; color: var(--color-ink-600); }
-.bundle-list { border-block: 1px solid var(--color-line); }
-.bundle-row { display: flex; align-items: center; gap: 24px; padding: 18px 0 8px; }
+.bundle-list { border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-cream); }
+.bundle-row { display: flex; align-items: center; gap: 24px; padding: 20px 22px 8px; }
 .bundle-row + .bundle-row { border-top: 1px solid var(--color-line); }
 .bundle-row h3 { overflow-wrap: anywhere; }
 .bundle-row h3 a:hover { color: var(--color-seal-600); }
@@ -292,20 +299,29 @@ body {
 .bundle-details summary:hover, .bundle-details[open] summary { color: var(--color-seal-600); }
 .mobile-nav summary::-webkit-details-marker { display: none; }
 button, a, select, summary { -webkit-tap-highlight-color: transparent; }
+@media (max-width: 1023px) {
+  .workspace-shell { padding: 28px 24px 40px; }
+  .catalog-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .mobile-filter-toggle { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 48px; border: 1px solid var(--color-line); border-radius: 8px; background: var(--color-cream); padding: 12px 16px; text-align: left; font-size: 14px; color: var(--color-ink-800); }
+  .catalog-filters { display: none; margin-top: 8px; }
+  .catalog-filters.is-open { display: block; }
+  .filter-heading, .category-options { display: none; }
+  .mobile-category-control { display: flex; flex-direction: column; gap: 8px; }
+}
 @media (max-width: 639px) {
   .workspace-shell { padding: 28px 20px 32px; }
+  .collection-title { font-size: clamp(25px, 7vw, 30px); }
   .collection-stats { gap: 6px 16px; margin-top: 16px; }
   .collection-stats .stats-years { flex-basis: 100%; }
+  .search-panel { gap: 8px; margin-bottom: 16px; }
   .search-input { padding-left: 42px; }
   .share-button { width: 44px; padding-inline: 0; }
   .share-button span { display: none; }
-  .filter-heading, .category-options { display: none; }
-  .mobile-category-control { display: flex; flex-direction: column; gap: 6px; }
-  .filter-selects { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px; }
-  .year-control, .sort-control, .subclass-control { flex-direction: column; align-items: stretch; gap: 6px; }
-  .subclass-control select { max-width: 100%; }
   .catalog-filters select { width: 100%; font-size: 16px; }
-  .bundle-row { flex-direction: column; align-items: stretch; gap: 4px; padding: 16px 0; }
+  .sort-control { gap: 6px; }
+  .sort-control select { max-width: 128px; font-size: 14px; }
+  .results-toolbar { gap: 8px; }
+  .bundle-row { flex-direction: column; align-items: stretch; gap: 4px; padding: 18px 16px; }
   .bundle-actions { justify-content: flex-start; max-width: none; padding: 0; }
   .bundle-actions > a { flex: 1; justify-content: center; }
   .bundle-details summary { min-height: 44px; }
