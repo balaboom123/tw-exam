@@ -279,9 +279,15 @@ function App() {
         <div className="catalog-layout">
           <aside className="filter-rail" aria-label="搜尋結果與篩選">
             <div className="sidebar-summary">
-              <h2 id="results-title" className="text-base font-bold leading-6 text-ink-950">
-                {selectedSubclass ?? selectedClass ?? "全部試題"}
-              </h2>
+              {selectedClass && selectedSubclass && selectedClass !== selectedSubclass && (
+                <p className="summary-parent">{selectedClass}</p>
+              )}
+              <div className="summary-heading">
+                <h2 id="results-title" className="text-base font-bold leading-6 text-ink-950">
+                  {selectedSubclass ?? selectedClass ?? "全部試題"}
+                </h2>
+                {hasFilters && <button type="button" onClick={handleReset} className="reset-filters">清除篩選</button>}
+              </div>
               <p className="result-count" role="status">
                 {loading ? "正在載入試題目錄…" : (
                   <>共 {filtered.length.toLocaleString()} 個類科
@@ -290,7 +296,6 @@ function App() {
                 )}
               </p>
               <div className="summary-actions">
-                {hasFilters && <button type="button" onClick={handleReset} className="reset-filters">清除篩選</button>}
                 <SortSelect value={sortKey} onChange={handleSortChange} />
               </div>
             </div>
