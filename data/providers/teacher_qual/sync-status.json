@@ -1,0 +1,29 @@
+{
+  "events": {
+    "teacher-qual-100": "2026-09-29T11:30:51Z",
+    "teacher-qual-101": "2026-09-29T11:30:51Z",
+    "teacher-qual-102": "2026-09-29T11:30:51Z",
+    "teacher-qual-103": "2026-09-29T11:30:51Z",
+    "teacher-qual-104": "2026-09-29T11:30:51Z",
+    "teacher-qual-105": "2026-09-29T11:30:51Z",
+    "teacher-qual-106": "2026-09-29T11:30:51Z",
+    "teacher-qual-107": "2026-09-29T11:30:51Z",
+    "teacher-qual-108-1": "2026-09-29T11:30:51Z",
+    "teacher-qual-108-2": "2026-09-29T11:30:51Z",
+    "teacher-qual-109": "2026-09-29T11:30:51Z",
+    "teacher-qual-110": "2026-09-29T11:30:51Z",
+    "teacher-qual-111": "2026-09-29T11:30:51Z",
+    "teacher-qual-112": "2026-09-29T11:30:51Z",
+    "teacher-qual-113": "2026-09-29T11:30:51Z",
+    "teacher-qual-114": "2026-09-29T11:30:51Z",
+    "teacher-qual-115": "2026-09-29T11:30:51Z",
+    "teacher-qual-94": "2026-09-29T11:30:51Z",
+    "teacher-qual-95": "2026-09-29T11:30:51Z",
+    "teacher-qual-96": "2026-09-29T11:30:51Z",
+    "teacher-qual-97": "2026-09-29T11:30:51Z",
+    "teacher-qual-98": "2026-09-29T11:30:51Z",
+    "teacher-qual-99": "2026-09-29T11:30:51Z"
+  },
+  "provider_id": "teacher_qual",
+  "schema_version": 1
+}
