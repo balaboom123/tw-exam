@@ -81,7 +81,13 @@ Publication aggregates provider state, applies site policy, builds bundles, and 
 uv run python -m app publish-site --site-id default --repository <owner>/<repo>
 ```
 
-Verify `data/sites/default/bundles.json`, `data/sites/default/release-assets.json`, and the planned asset-to-tag assignments before any external upload. Release uploads and pruning are separate explicit operations owned by `.github/scripts/release_assets.py` and the release workflows.
+Verify `data/sites/default/bundles.json`, `data/sites/default/release-assets.json`, and the planned asset-to-tag assignments before any external upload. The upload and prune stages are owned by `.github/scripts/release_assets.py` and the release workflows; the full republish script runs them after verification.
+
+For a full rebuild after a classification or bundling change, run
+`scripts/republish.sh` from a machine that holds `mirror/` or
+`bundles/sites/default/`. Pass `--download` when neither is present; it needs
+about 50 GB of free disk. The script stops at the first failing stage, uploads
+only after the content audit passes, and leaves the commit to you.
 
 The frontend feed also projects reviewed source names/links and successful event sync receipts. Republish after updating source attribution or completing a sync. For an attribution-only refresh, an empty affected-ID publish plan preserves existing bundles and refreshes site metadata without rebuilding ZIPs. To roll back these optional v2 fields, regenerate the frontend feed with the previous publisher; release bytes and assignments need no changes. Older data with no receipts displays an unrecorded sync date until a successful sync establishes one.
 
