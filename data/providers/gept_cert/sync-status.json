@@ -1,0 +1,11 @@
+{
+  "events": {
+    "gept-cert-advanced-2022": "2026-09-30T11:14:23Z",
+    "gept-cert-elementary-2022": "2026-09-30T11:14:23Z",
+    "gept-cert-high-intermediate-2022": "2026-09-30T11:14:23Z",
+    "gept-cert-intermediate-2022": "2026-09-30T11:14:23Z",
+    "gept-cert-superior-2022": "2026-09-30T11:14:23Z"
+  },
+  "provider_id": "gept_cert",
+  "schema_version": 1
+}
