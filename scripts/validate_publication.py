@@ -86,6 +86,17 @@ def validate_provider_site_coverage(site_bundle_ids: set[str], *, repo_root: Pat
         fail("normalized catalog and public site eligibility differ: " + "; ".join(samples))
 
 
+def validate_distinct_track_titles(rows):
+    tracks_by_title = defaultdict(set)
+    for row in rows:
+        if row["id"].startswith(GENERIC_SUBJECT_PREFIXES):
+            key = (row.get("seriesId"), row.get("levelId"), row["name"])
+            tracks_by_title[key].add(row.get("trackId"))
+    ambiguous = [key[2] for key, tracks in tracks_by_title.items() if len(tracks) > 1]
+    if ambiguous:
+        fail("different subject/occupation tracks share a public title: " + ", ".join(ambiguous))
+
+
 def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     site_dir = repo_root / "data" / "sites" / "default"
     site = load_json(site_dir / "bundles.json", repo_root=repo_root)
@@ -197,6 +208,7 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     if set(feed_ids) != site_bundle_ids:
         fail("frontend feed and site publication logical bundle sets differ")
 
+    validate_distinct_track_titles(feed_rows)
     return len(site_rows), len(feed_rows), len(release_rows)
 
 

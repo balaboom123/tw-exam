@@ -228,7 +228,11 @@ def upload() -> int:
                 )
                 return 1
             if not local_path.exists():
-                if any(name not in remote_names for name in zip_names):
+                if any(
+                    name not in remote_names
+                    or (asset.get("checksum") and release_digests[name] != asset["checksum"])
+                    for name in zip_names
+                ):
                     missing.append(str(local_path))
                 continue
             recorded_checksum = asset.get("checksum", "")
@@ -275,13 +279,36 @@ def upload() -> int:
 
 
 def prune() -> int:
-    for release_tag in sorted(_group_assets_by_release_tag()):
+    grouped = _group_assets_by_release_tag()
+    if not grouped:
+        print("Refusing cleanup without a site Release inventory", file=sys.stderr)
+        return 1
+    remote = {
+        tag: _release_zip_digests(tag, allow_missing=True) for tag in sorted(grouped)
+    }
+    # Verify every shard before the first deletion. A partial upload or a
+    # missing local ZIP must never turn an inventory cleanup into data loss.
+    invalid = [
+        f"{tag}/{asset['asset_name']}"
+        for tag, assets in grouped.items()
+        for asset in assets
+        if not asset.get("checksum")
+        or remote[tag].get(asset["asset_name"]) != asset["checksum"]
+    ]
+    if invalid:
+        print(
+            "Refusing cleanup until all primary archives have verified hosted checksums:\n"
+            + "\n".join(invalid),
+            file=sys.stderr,
+        )
+        return 1
+    for release_tag in sorted(grouped):
         desired = {
             name
-            for asset in _group_assets_by_release_tag().get(release_tag, [])
+            for asset in grouped[release_tag]
             for name in _asset_zip_names(asset, include_legacy=True)
         }
-        for name in _release_zip_names(release_tag, allow_missing=True):
+        for name in sorted(remote[release_tag]):
             if name not in desired:
                 subprocess.run(["gh", "release", "delete-asset", release_tag, name, "--yes"], check=True)
     return 0

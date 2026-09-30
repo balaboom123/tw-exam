@@ -211,7 +211,15 @@ def _slug(value: str, *, prefix: str = "concept") -> str:
     normalized = normalize_text(value)
     if normalized in _TRACK_ALIASES:
         return _TRACK_ALIASES[normalized]
-    return _ascii_slug(normalized, prefix=prefix)
+    slug = _ascii_slug(normalized, prefix=prefix)
+    # Mixed-script labels must retain all of their meaning. Dropping the
+    # Chinese text collapses different occupations to e.g. "pc" or "cnc".
+    if re.search(r"[a-zA-Z0-9]", normalized) and any(
+        char.isalnum() and not char.isascii() for char in normalized
+    ):
+        digest = hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:12]
+        return f"{slug}-{digest}"
+    return slug
 
 
 def _display(value: str, fallback: str) -> str:
@@ -910,6 +918,16 @@ def _classify_paper_uncached(
         bundle_name = _display(canonical_name, track_label)
         if level_id not in {NOT_APPLICABLE, "unknown"}:
             bundle_name = f"{bundle_name}｜{level_label}"
+        # These providers publish separate subject/occupation tracks under a
+        # shared legacy canonical name. Surface the identity discriminator.
+        if provider_id in {"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill"}:
+            label = track_label
+            if provider_id in {"ceec_gsat", "ceec_ast"}:
+                label = re.sub(r"^(?:分科測驗|學科能力測驗)\s*[-－]\s*", "", label)
+            if provider_id == "wdasec_skill":
+                label = re.sub(r"\s*(?:甲級|乙級|丙級|單一級)\s*$", "", label)
+            if label and label != bundle_name:
+                bundle_name = f"{bundle_name}｜{label}"
     return ExamIdentity(
         provider_id=provider_id,
         domain_id=domain_id,

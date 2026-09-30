@@ -174,3 +174,36 @@ class ExamIdentityClassificationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_subject_track_titles_are_distinct_without_changing_identity():
+    for provider, canonical, subjects in (
+        ('ceec_ast', '分科測驗', ['物理', '化學']),
+        ('ceec_gsat', '學科能力測驗', ['數學A', '數學B']),
+    ):
+        identities = [classify(canonical, f'115學年度{canonical}－{subject}',
+                               provider=provider, canonical=canonical, subject=subject)
+                      for subject in subjects]
+        assert len({i.bundle_name for i in identities}) == 2
+        for subject, identity in zip(subjects, identities):
+            assert identity.bundle_name == f'{canonical}｜{subject}'
+    skill = classify('乙級', '技能檢定', provider='wdasec_skill',
+                     canonical='全國技術士技能檢定', subject='室內配線 乙級')
+    assert skill.bundle_name == '全國技術士技能檢定｜乙級｜室內配線'
+    tve = classify('統測', '115年統測', provider='tcte_tve',
+                   canonical='四技二專統一入學測驗', subject='01機械群 專業科目(一)')
+    assert tve.bundle_name == '四技二專統一入學測驗｜01機械群'
+
+
+def test_mixed_script_occupation_names_cannot_collapse_to_ascii_fragment():
+    pairs = [
+        ('車床─CNC車床 乙級 學科', '銑床─CNC銑床 乙級 學科'),
+        ('視覺傳達設計─平面設計PC 乙級 學科', '視覺傳達設計─包裝設計PC 乙級 學科'),
+        ('視覺傳達設計─平面設計MAC 乙級 學科', '印前製程─MAC 乙級 學科'),
+    ]
+    for first, second in pairs:
+        identities = [classify('乙級', '技能檢定', provider='wdasec_skill',
+                               canonical='全國技術士技能檢定', subject=subject)
+                      for subject in (first, second)]
+        assert identities[0].bundle_id != identities[1].bundle_id
+        assert all(identity.bundle_name.count('乙級') == 1 for identity in identities)

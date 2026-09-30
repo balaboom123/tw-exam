@@ -26,7 +26,8 @@ def _field(paper: Any, name: str) -> str:
     return value if isinstance(value, str) else ""
 
 
-def _clean_label(value: str) -> str:
+def file_subject_label(value: str) -> str:
+    """Remove file-role suffixes without discarding subject/group distinctions."""
     value = re.sub(r"[\r\n\t]+", " ", value)
     value = re.sub(r"\s+", " ", value).strip(" -—–")
     if not value:
@@ -36,6 +37,11 @@ def _clean_label(value: str) -> str:
         "",
         value,
     )
+    return value.strip(" -—–")
+
+
+def _clean_label(value: str) -> str:
+    value = file_subject_label(value)
     value = re.sub(r"\s+專業科目\s*[（(][一二三123]+[）)](?:-[^ ]+)?$", "", value)
     value = re.sub(r"\s+(?:學科|術科)$", "", value)
     value = re.sub(r"\s+(?:甲級|乙級|丙級|單一級)(?:\s+(?:學科|術科))?$", "", value)

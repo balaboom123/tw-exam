@@ -206,7 +206,7 @@ class WorkflowTests(unittest.TestCase):
     def test_release_script_only_deletes_stale_zip_assets(self) -> None:
         module = _load_release_script()
         release_digests = {"keep.zip": "keep-digest", "stale.zip": "stale-digest"}
-        with mock.patch.object(module, "_local_assets", return_value=[{"asset_name": "keep.zip", "release_tag": "default-bundles-001"}]), \
+        with mock.patch.object(module, "_local_assets", return_value=[{"asset_name": "keep.zip", "checksum": "keep-digest", "release_tag": "default-bundles-001"}]), \
                 mock.patch.object(module, "_release_zip_digests", return_value=release_digests), \
                 mock.patch.object(module.subprocess, "run") as run_mock:
             exit_code = module.prune()
@@ -222,6 +222,7 @@ class WorkflowTests(unittest.TestCase):
         local_assets = [
             {
                 "asset_name": "nurse-id.zip",
+                "checksum": "a",
                 "legacy_asset_names": ["nurse-display.zip", "nurse.zip"],
                 "release_tag": "default-bundles-001",
             }
@@ -238,6 +239,48 @@ class WorkflowTests(unittest.TestCase):
             [call.args[0] for call in run_mock.call_args_list],
             [["gh", "release", "delete-asset", "default-bundles-001", "stale.zip", "--yes"]],
         )
+
+    def test_release_cleanup_checks_every_shard_before_deleting(self) -> None:
+        module = _load_release_script()
+        assets = [
+            {"asset_name": "a.zip", "checksum": "a", "release_tag": "v2-001"},
+            {"asset_name": "b.zip", "checksum": "b", "release_tag": "v2-002"},
+        ]
+        for second in ({}, {"b.zip": "old"}, {"b.zip": ""}):
+            with self.subTest(second=second), \
+                    mock.patch.object(module, "_local_assets", return_value=assets), \
+                    mock.patch.object(module, "_release_zip_digests", side_effect=[
+                        {"a.zip": "a", "obsolete.zip": "old"}, second,
+                    ]), \
+                    mock.patch.object(module.subprocess, "run") as mutation:
+                self.assertEqual(module.prune(), 1)
+                mutation.assert_not_called()
+
+    def test_release_cleanup_requires_nonempty_inventory_and_checksums(self) -> None:
+        module = _load_release_script()
+        for assets in ([], [{"asset_name": "a.zip", "release_tag": "v2-001"}]):
+            with self.subTest(assets=assets), \
+                    mock.patch.object(module, "_local_assets", return_value=assets), \
+                    mock.patch.object(module, "_release_zip_digests", return_value={"a.zip": "a"}), \
+                    mock.patch.object(module.subprocess, "run") as mutation:
+                self.assertEqual(module.prune(), 1)
+                mutation.assert_not_called()
+
+    def test_missing_local_archive_requires_matching_hosted_bytes(self) -> None:
+        module = _load_release_script()
+        with tempfile.TemporaryDirectory() as tmp:
+            assets = [{
+                "storage_key": str(Path(tmp) / "missing.zip"),
+                "asset_name": "a.zip", "checksum": "current", "release_tag": "v2-001",
+            }]
+            for remote, expected in (({}, 1), ({"a.zip": "old"}, 1),
+                                     ({"a.zip": ""}, 1), ({"a.zip": "current"}, 0)):
+                with self.subTest(remote=remote), \
+                        mock.patch.object(module, "_local_assets", return_value=assets), \
+                        mock.patch.object(module, "_release_zip_digests", return_value=remote), \
+                        mock.patch.object(module.subprocess, "run") as mutation:
+                    self.assertEqual(module.upload(), expected)
+                    mutation.assert_not_called()
 
     def test_release_script_reads_wrapped_site_release_assets_schema(self) -> None:
         module = _load_release_script()

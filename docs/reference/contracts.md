@@ -16,7 +16,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Coverage exceptions | [Exception schema](../../schemas/source-coverage-exceptions.schema.json), [matcher](../../app/coverage_exceptions.py) | `catalog/source-coverage/` |
 | Publication quarantine | [Quarantine loader](../../app/publication_quarantine.py) | `catalog/mappings/publication-quarantine.json` |
 | Site bundles | [Bundle schema](../../schemas/bundle-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/bundles.json` |
-| Embedded archive manifest | [Manifest schema](../../schemas/bundle-archive-manifest-v2.schema.json), [bundler](../../app/bundler.py) | `bundle.json` inside ZIPs |
+| Embedded archive manifest | [Manifest schema](../../schemas/bundle-archive-manifest-v3.schema.json), [bundler](../../app/bundler.py) | `bundle.json` inside ZIPs |
 | Release assets and plans | [Asset schema](../../schemas/release-assets-v2.schema.json), [plan schema](../../schemas/release-plan-v2.schema.json), [shard policy](../../app/release_tags.py) | `data/sites/<site_id>/` |
 | Site frontend feed | [Feed schema](../../schemas/frontend-bundle-feed-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/frontend-bundles.json` |
 
@@ -63,7 +63,22 @@ Optional source entries project reviewed names and official HTTPS URLs from the 
 
 Multipart bundles share one logical identity and have distinct physical assets. The frontend presents one logical row, sums its file counts, and provides a control for each part. A legacy alias must not present a partial ZIP as a complete archive; aliases are retained only for unsplit assets, with older Releases remaining the compatibility source.
 
-Embedded archive manifests store content locators and checksums rather than full provider records. Readers accept both earlier rich manifests and the compact version; semantic equality permits reuse of unchanged released ZIPs.
+Embedded archive manifests store content locators and checksums rather than full provider records.
+Manifest version 3 records the year and source URL alongside event/category/
+subject/role codes. These codes alone are not unique: one event can reference
+multiple URLs for the same paper. Every retained source record remains in
+`papers`; equivalent payloads for the same
+subject, year, and file role may share one `bundle_entry` when their SHA-256
+checksums and extensions match. `file_count` counts physical payloads, excluding
+`bundle.json`, rather than source references. Revised bytes, different subjects,
+years, and roles remain separate. Multipart construction keeps all references to
+a shared entry in the same part. ZIP paths must be relative, unique even on
+case-insensitive filesystems, and portable to Windows and UTF-8 filesystems.
+ Readers can recover entries from rich v1 and compact v2 manifests. Publication
+rebuilds them into v3 before reuse so source references are unambiguous. The v2
+schema remains available for historical readers. Identity and site-feed schema
+versions stay at 2. Rollback requires the earlier code and matching site inventory,
+plus the previously released archives; never pair old checksums with rebuilt ZIPs.
 
 ## Release and compatibility rules
 

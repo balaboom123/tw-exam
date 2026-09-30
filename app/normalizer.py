@@ -374,7 +374,9 @@ def normalize_papers(
             )
 
         for file_type, download_url_source in paper.files.items():
-            metadata = mirror_metadata.get((paper.category_code, paper.subject_code, file_type), {})
+            metadata = paper.mirror_files.get(file_type) or mirror_metadata.get(
+                (paper.category_code, paper.subject_code, file_type), {}
+            )
             storage_key = metadata.get("storage_key", "")
             asset_name = metadata.get("asset_name") or storage_key
             download_url_mirror = (

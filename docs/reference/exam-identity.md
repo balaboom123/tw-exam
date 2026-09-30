@@ -62,6 +62,15 @@ The default bundle policy groups papers only when these values match:
 
 exam_series_id, level_id, track_id, stage_id when stage changes content, and every provider-policy variant that changes the paper set.
 
+Subject- and occupation-scoped providers include the track label in the public
+bundle title, so different tracks do not appear as duplicate downloads. Display
+label corrections preserve identity-derived asset names and release assignments.
+When official labels vary historically within a reviewed track, publication uses
+the latest retained label. Unmapped mixed Chinese/Latin labels include a digest
+of the full text in their IDs; keeping only the Latin fragment can merge distinct
+occupations such as CNC turning and CNC milling. Correcting such a collision
+requires reclassification and archive splitting, not just a title change.
+
 Years and separate exam events may vary inside one bundle. Legal equivalence is not identity: an equivalent grade in another program remains a separate bundle. A site policy may add a discriminator, but it may not remove one without a versioned decision record and invariant tests.
 
 The bundle key is bundle_id (or the explicit v2 identity fields). canonical_id is retained as a legacy URL/lookup key only. It must never be the sole grouping key for v2 publication.

@@ -32,3 +32,15 @@ class PublicationFailureGateTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_subject_tracks_must_have_distinct_public_titles():
+    import pytest
+    from scripts.validate_publication import validate_distinct_track_titles
+    rows = [dict(id=f'ceec-ast-{track}', name='分科測驗', seriesId='ast',
+                 levelId='not-applicable', trackId=track) for track in ('physics', 'chemistry')]
+    with pytest.raises(ValueError, match='share a public title'):
+        validate_distinct_track_titles(rows)
+    rows[0]['name'] += '｜物理'
+    rows[1]['name'] += '｜化學'
+    validate_distinct_track_titles(rows)

@@ -1,61 +1,4 @@
 {
-  "schema_version": 1,
-  "provider_id": "jlpt_cert",
-  "probe_policy": {
-    "captured_at": "2026-08-01",
-    "coverage_status": "complete_declared_source_scope_with_redistribution_blocker",
-    "declared_scope": "Every direct PDF and MP3 in the official 2012 and 2018 JLPT Official Practice Workbook sections. This is a sample-workbook scope, not an archive of every administered JLPT sitting.",
-    "official_listing_urls": [
-      "https://www.jlpt.jp/e/samples/sampleindex.html"
-    ],
-    "official_event_count": 2,
-    "official_listed_file_count": 116,
-    "official_unique_url_count": 116,
-    "listed_file_types": {
-      "answer": 10,
-      "answer_sheet": 10,
-      "listening_audio": 46,
-      "question": 40,
-      "question_alt": 10
-    },
-    "retained_local_state": {
-      "raw_event_pages": 2,
-      "normalized_records": 116,
-      "sync_failures": 0,
-      "source_urls_matching_current_listing": 116,
-      "mirror_files": 232,
-      "mirror_bytes": 760920192,
-      "unreferenced_mirror_files": 116,
-      "unreferenced_mirror_bytes": 380460096,
-      "unreferenced_evidence": "The unreferenced half is the older per-level storage-key identity set; it is preserved pending a reviewed deduplication decision."
-    },
-    "legal_and_technical": {
-      "copyright_policy_url": "https://www.jlpt.jp/e/policy.html",
-      "redistribution_status": "operator_or_legal_review_required",
-      "restriction": "The official policy limits use and requires separate authorization for third-party works in N1/N2 grammar/reading and all N1-N5 listening audio. No blanket archive-republication grant was established.",
-      "robots_status": "The current robots policy names some automated agents and imposes a crawl delay on one bot; no access control was bypassed."
-    },
-    "publication_risk": {
-      "published_bundle_count": 5,
-      "published_file_records": 116,
-      "manifest_agreement_warning": "Exact source/local URL agreement proves only the declared workbook denominator; it does not authorize redistribution or imply historical sitting coverage.",
-      "release_status": "blocked_pending_redistribution_decision"
-    }
-  },
-  "years": {
-    "2012": {
-      "exam_codes": ["jlpt-cert-practice-2012"],
-      "listed_asset_count": 58,
-      "year_ad": 2012,
-      "year_roc": 101
-    },
-    "2018": {
-      "exam_codes": ["jlpt-cert-practice-2018"],
-      "listed_asset_count": 58,
-      "year_ad": 2018,
-      "year_roc": 107
-    }
-  },
   "exams": {
     "jlpt-cert-practice-2012": {
       "accepted_asset_count": 58,
@@ -74,5 +17,66 @@
       "year_basis": "Explicit official workbook section year."
     }
   },
-  "files": {}
+  "files": {},
+  "probe_policy": {
+    "captured_at": "2026-08-01",
+    "coverage_status": "complete_declared_source_scope_with_redistribution_blocker",
+    "declared_scope": "Every direct PDF and MP3 in the official 2012 and 2018 JLPT Official Practice Workbook sections. This is a sample-workbook scope, not an archive of every administered JLPT sitting.",
+    "legal_and_technical": {
+      "copyright_policy_url": "https://www.jlpt.jp/e/policy.html",
+      "redistribution_status": "operator_or_legal_review_required",
+      "restriction": "The official policy limits use and requires separate authorization for third-party works in N1/N2 grammar/reading and all N1-N5 listening audio. No blanket archive-republication grant was established.",
+      "robots_status": "The current robots policy names some automated agents and imposes a crawl delay on one bot; no access control was bypassed."
+    },
+    "listed_file_types": {
+      "answer": 10,
+      "answer_sheet": 10,
+      "listening_audio": 46,
+      "question": 40,
+      "question_alt": 10
+    },
+    "official_event_count": 2,
+    "official_listed_file_count": 116,
+    "official_listing_urls": [
+      "https://www.jlpt.jp/e/samples/sampleindex.html"
+    ],
+    "official_unique_url_count": 116,
+    "publication_risk": {
+      "manifest_agreement_warning": "Exact source/local URL agreement proves only the declared workbook denominator; it does not authorize redistribution or imply historical sitting coverage.",
+      "published_bundle_count": 5,
+      "published_file_records": 116,
+      "release_status": "blocked_pending_redistribution_decision"
+    },
+    "retained_local_state": {
+      "mirror_bytes": 760920192,
+      "mirror_files": 232,
+      "normalized_records": 116,
+      "raw_event_pages": 2,
+      "source_urls_matching_current_listing": 116,
+      "sync_failures": 0,
+      "unreferenced_evidence": "The unreferenced half is the older per-level storage-key identity set; it is preserved pending a reviewed deduplication decision.",
+      "unreferenced_mirror_bytes": 380460096,
+      "unreferenced_mirror_files": 116
+    }
+  },
+  "provider_id": "jlpt_cert",
+  "schema_version": 1,
+  "years": {
+    "2012": {
+      "exam_codes": [
+        "jlpt-cert-practice-2012"
+      ],
+      "listed_asset_count": 58,
+      "year_ad": 2012,
+      "year_roc": 101
+    },
+    "2018": {
+      "exam_codes": [
+        "jlpt-cert-practice-2018"
+      ],
+      "listed_asset_count": 58,
+      "year_ad": 2018,
+      "year_roc": 107
+    }
+  }
 }

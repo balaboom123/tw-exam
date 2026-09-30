@@ -5,6 +5,7 @@ import json
 import re
 import shutil
 import tempfile
+import unicodedata
 import zipfile
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass, field
@@ -26,7 +27,9 @@ from app.provider_index import (
     paper_index_bundle_id,
     paper_index_canonical_id,
 )
-from app.publication_metadata import derive_public_metadata
+from app.publication_metadata import derive_public_metadata, file_subject_label
+
+PaperKey = tuple[int, str, str, str, str, str]
 
 WINDOWS_RESERVED_NAMES = {
     "CON",
@@ -88,8 +91,10 @@ def _bundle_compression(arcname: str) -> int:
     )
 
 
-def _manifest_paper(paper: NormalizedPaper, arcname: str) -> dict[str, str]:
+def _manifest_paper(paper: NormalizedPaper, arcname: str) -> dict[str, Any]:
     return {
+        "year_roc": paper.year_roc,
+        "download_url_source": paper.download_url_source,
         "source_exam_id": paper.source_exam_id,
         "category_code": paper.category_code,
         "subject_code": paper.subject_code,
@@ -119,7 +124,7 @@ def _bundle_source_entry_info(
 
 
 def _safe_segment(value: str, max_length: int | None = None) -> str:
-    cleaned = (value or "").strip()
+    cleaned = unicodedata.normalize("NFC", value or "").strip()
     cleaned = "".join("_" if char in '\\/:*?"<>|' or ord(char) < 32 else char for char in cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned)
     cleaned = cleaned.rstrip(" .")
@@ -127,7 +132,7 @@ def _safe_segment(value: str, max_length: int | None = None) -> str:
         cleaned = cleaned[:max_length].rstrip(" .")
     if not cleaned or not cleaned.strip(" ._-"):
         return "unknown"
-    stem = Path(cleaned).stem.upper()
+    stem = cleaned.split(".", 1)[0].upper()
     if stem in WINDOWS_RESERVED_NAMES:
         cleaned = f"_{cleaned}"
     return cleaned
@@ -143,6 +148,10 @@ def _bundle_arcname(paper: NormalizedPaper) -> str:
             _safe_segment(file_type_label(paper.file_type), max_length=20),
         ]
     )
+    if len((file_name + suffix).encode("utf-8")) > 180:
+        digest = hashlib.sha256(file_name.encode("utf-8")).hexdigest()[:12]
+        file_name = file_name.encode("utf-8")[:150].decode("utf-8", errors="ignore")
+        file_name = f"{file_name}_{digest}"
     return f"{paper.year_roc}/{file_name}{suffix}"
 
 
@@ -163,8 +172,8 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
     used: set[str] = set()
     final: list[str] = []
     for name in resolved:
-        if name not in used:
-            used.add(name)
+        if name.casefold() not in used:
+            used.add(name.casefold())
             final.append(name)
         else:
             counter = 2
@@ -173,11 +182,26 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
                 candidate = (
                     f"{name[:dot]}_{counter}{name[dot:]}" if dot > 0 else f"{name}_{counter}"
                 )
-                if candidate not in used:
-                    used.add(candidate)
+                if candidate.casefold() not in used:
+                    used.add(candidate.casefold())
                     final.append(candidate)
                     break
                 counter += 1
+    # Retain every source record in the manifest, but store an identical
+    # subject/year/role payload only once. Never merge revised answers,
+    # different years, different subjects, or records without real hashes.
+    payloads: dict[tuple[int, str, str, str, str], str] = {}
+    for index, paper in enumerate(ordered):
+        if not re.fullmatch(r"[0-9a-f]{64}", paper.checksum):
+            continue
+        key = (
+            paper.year_roc,
+            paper.file_type,
+            file_subject_label(paper.subject_name_raw),
+            Path(paper.storage_key).suffix.lower(),
+            paper.checksum,
+        )
+        final[index] = payloads.setdefault(key, final[index])
     return final
 
 
@@ -212,15 +236,29 @@ def _legacy_bundle_arcname(paper: NormalizedPaper) -> str:
     )
 
 
-def _paper_bundle_key(paper: NormalizedPaper | dict[str, object]) -> tuple[str, str, str, str]:
+def _paper_bundle_key(paper: NormalizedPaper | dict[str, Any]) -> PaperKey:
     if isinstance(paper, dict):
+        # Older compact manifests stored the year only in the ZIP path.
+        year = paper.get("year_roc")
+        if year is None:
+            folder = str(paper.get("bundle_entry", "")).split("/", 1)[0]
+            year = int(folder) if folder.isdigit() else 0
         return (
+            int(year),
             str(paper.get("source_exam_id", "")),
             str(paper.get("category_code", "")),
             str(paper.get("subject_code", "")),
             str(paper.get("file_type", "")),
+            str(paper.get("download_url_source", "")),
         )
-    return (paper.source_exam_id, paper.category_code, paper.subject_code, paper.file_type)
+    return (
+        paper.year_roc,
+        paper.source_exam_id,
+        paper.category_code,
+        paper.subject_code,
+        paper.file_type,
+        paper.download_url_source,
+    )
 
 
 def _bundle_asset_name(canonical_id: str, *, structured: bool = False) -> str:
@@ -287,7 +325,11 @@ def _partition_bundle_entries(
     groups: list[list[tuple[NormalizedPaper, str]]] = []
     current: list[tuple[NormalizedPaper, str]] = []
     current_size = BUNDLE_PART_OVERHEAD
+    seen: set[str] = set()
     for paper, arcname in entries:
+        if arcname in seen:
+            continue
+        seen.add(arcname)
         info = archive.getinfo(arcname)
         contribution = info.file_size + BUNDLE_PART_OVERHEAD
         if contribution > max_bytes:
@@ -311,7 +353,7 @@ def _split_bundle_archive(
     asset_name: str,
     *,
     included_papers: list[NormalizedPaper],
-    bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str],
+    bundle_entries_by_paper_key: dict[PaperKey, str],
     max_bytes: int,
 ) -> list[tuple[Path, str, list[NormalizedPaper]]]:
     """Split an oversized archive into independently downloadable ZIP parts."""
@@ -329,6 +371,8 @@ def _split_bundle_archive(
         part_paths: list[tuple[Path, str, list[NormalizedPaper]]] = []
         part_count = len(groups)
         for part_index, group in enumerate(groups, 1):
+            group_names = {arcname for _paper, arcname in group}
+            group_papers = [(paper, name) for paper, name in entries if name in group_names]
             part_name = _part_asset_name(asset_name, part_index, part_count)
             part_path = bundle_path.with_name(part_name)
             with zipfile.ZipFile(
@@ -352,7 +396,7 @@ def _split_bundle_archive(
                     {paper.year_roc for paper, _arcname in group}, reverse=True
                 )
                 part_manifest["papers"] = [
-                    _manifest_paper(paper, arcname) for paper, arcname in group
+                    _manifest_paper(paper, arcname) for paper, arcname in group_papers
                 ]
                 destination.writestr(
                     _bundle_entry_info("bundle.json", compress_type=zipfile.ZIP_DEFLATED),
@@ -362,7 +406,7 @@ def _split_bundle_archive(
                 raise ValueError(
                     f"generated multipart asset still exceeds GitHub's 2 GiB limit: {part_path}"
                 )
-            part_paths.append((part_path, part_name, [paper for paper, _arcname in group]))
+            part_paths.append((part_path, part_name, [paper for paper, _arcname in group_papers]))
 
     bundle_path.unlink()
     return part_paths
@@ -430,11 +474,11 @@ def _load_existing_entries_by_canonical(
     on_progress: Callable[[int, int], None] | None = None,
 ) -> tuple[
     dict[str, dict[str, _EntryRef]],
-    dict[str, dict[tuple[str, str, str, str], _EntryRef]],
+    dict[str, dict[PaperKey, _EntryRef]],
     dict[Path, _ArchiveSignature],
 ]:
     existing_entries_by_name: dict[str, dict[str, _EntryRef]] = {}
-    existing_entries_by_key: dict[str, dict[tuple[str, str, str, str], _EntryRef]] = {}
+    existing_entries_by_key: dict[str, dict[PaperKey, _EntryRef]] = {}
     archive_signatures: dict[Path, _ArchiveSignature] = {}
     archives = sorted(bundle_dir.glob("*.zip"))
     total = len(archives)
@@ -451,7 +495,7 @@ def _load_existing_entries_by_canonical(
                 if not isinstance(manifest, dict):
                     continue
                 version = manifest.get("manifest_version", 1)
-                if type(version) is not int or version not in (1, 2):
+                if type(version) is not int or version not in (1, 2, 3):
                     continue
                 canonical_id = manifest.get("bundle_id") or manifest.get("canonical_id")
                 if not canonical_id:
@@ -610,7 +654,7 @@ def _bundle_manifest_data(
     canonical_id: str,
     canonical_name: str,
     included_papers: list[NormalizedPaper],
-    bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str],
+    bundle_entries_by_paper_key: dict[PaperKey, str],
 ) -> dict[str, Any]:
     if not included_papers:
         manifest = {
@@ -646,10 +690,10 @@ def _bundle_manifest_data(
             "exam_class": exemplar.exam_class,
             "exam_subclass": exemplar.exam_subclass,
             "years": sorted({paper.year_roc for paper in included_papers}, reverse=True),
-            "file_count": len(included_papers),
+            "file_count": len(set(bundle_entries_by_paper_key.values())),
             "papers": manifest_papers,
         }
-    manifest["manifest_version"] = 2
+    manifest["manifest_version"] = 3
     return manifest
 
 
@@ -657,7 +701,7 @@ def _bundle_manifest_bytes(
     canonical_id: str,
     canonical_name: str,
     included_papers: list[NormalizedPaper],
-    bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str],
+    bundle_entries_by_paper_key: dict[PaperKey, str],
 ) -> bytes:
     return json.dumps(
         _bundle_manifest_data(
@@ -672,13 +716,13 @@ def _bundle_manifest_bytes(
 
 
 def _manifest_digest(manifest: dict[str, Any]) -> bytes | None:
-    """Compare content locators, not repeated provider-only metadata.
+    """Compare versioned source references without provider-only metadata.
 
-    Old full-record manifests project to the same compact rows so unchanged
-    released archives remain reusable without a blanket checksum migration.
+    Legacy manifests remain recoverable, but are rebuilt into v3 because
+    v2 source keys cannot distinguish multiple URLs with the same codes.
     """
     version = manifest.get("manifest_version", 1)
-    if type(version) is not int or version not in (1, 2):
+    if type(version) is not int or version not in (1, 2, 3):
         return None
     papers = manifest.get("papers")
     if not isinstance(papers, list) or any(not isinstance(paper, dict) for paper in papers):
@@ -690,9 +734,10 @@ def _manifest_digest(manifest: dict[str, Any]) -> bytes | None:
         "file_type",
         "checksum",
         "bundle_entry",
+        "download_url_source",
     )
-    if version == 2 and any(
-        set(paper) != set(fields) or any(not isinstance(paper.get(key), str) for key in fields)
+    if version == 3 and any(
+        set(paper) != {*fields, "year_roc"} or type(paper.get("year_roc")) is not int
         for paper in papers
     ):
         return None
@@ -701,8 +746,14 @@ def _manifest_digest(manifest: dict[str, Any]) -> bytes | None:
         return None
     projected = {
         **manifest,
-        "manifest_version": 2,
-        "papers": sorted(rows, key=lambda row: tuple(row[key] for key in fields)),
+        "manifest_version": version,
+        "papers": sorted(
+            [
+                {**row, "year_roc": _paper_bundle_key(paper)[0]}
+                for row, paper in zip(rows, papers, strict=True)
+            ],
+            key=lambda row: (row["year_roc"], *(row[key] for key in fields)),
+        ),
     }
     return hashlib.sha256(
         json.dumps(
@@ -731,7 +782,7 @@ def _can_reuse_bundle(
     manifest_digest, entry_names, entry_count = signature
     if not all(paper.checksum for paper in ordered):
         return False
-    if entry_count != len(arcnames) or entry_names != frozenset(arcnames):
+    if entry_count != len(set(arcnames)) or entry_names != frozenset(arcnames):
         return False
     entries_by_key = {
         _paper_bundle_key(paper): arcname for paper, arcname in zip(ordered, arcnames, strict=True)
@@ -786,7 +837,10 @@ def build_bundles(
     bundle_assets: list[BundleAsset] = []
     failures: list[SyncFailure] = []
     for group_index, (canonical_id, papers) in enumerate(sorted(grouped.items()), 1):
-        canonical_name = papers[0].bundle_name or papers[0].canonical_name
+        # Official track labels can change over time (e.g. 統測 群/類).
+        # Choose the latest retained label independent of catalog load order.
+        latest = max(papers, key=lambda paper: (paper.year_roc, paper.source_exam_id))
+        canonical_name = latest.bundle_name or latest.canonical_name
         # Naming follows the record's identity contract, independent of the
         # display label's language. Direct v1 callers retain their URL names.
         structured = papers[0].schema_version == 2 or bool(papers[0].bundle_id)
@@ -823,13 +877,13 @@ def build_bundles(
         bundle_path = bundle_dir / asset_name
 
         existing_entries: dict[str, _EntryRef] = {}
-        existing_entries_by_key: dict[tuple[str, str, str, str], _EntryRef] = {}
+        existing_entries_by_key: dict[PaperKey, _EntryRef] = {}
         for lookup_id in _lookup_canonical_ids(canonical_id, canonical_name, compatibility_ids):
             existing_entries.update(existing_entries_by_canonical.get(lookup_id, {}))
             existing_entries_by_key.update(existing_entries_by_paper_key.get(lookup_id, {}))
 
         included_papers: list[NormalizedPaper] = []
-        bundle_entries_by_paper_key: dict[tuple[str, str, str, str], str] = {}
+        bundle_entries_by_paper_key: dict[PaperKey, str] = {}
         file_count = 0
 
         ordered = sorted(
@@ -876,19 +930,31 @@ def build_bundles(
                     for paper, arcname in zip(ordered, resolved_names, strict=True)
                 }
             )
-            file_count = len(ordered)
+            file_count = len(set(resolved_names))
         else:
             # Keep the previous archive readable for recovery and preserve it
             # if a source checksum or an I/O operation fails during rebuilding.
             previous_failure_count = len(failures)
+            # Any retained source reference can supply a shared payload. A
+            # missing first alias must not hide an available equivalent mirror.
+            sources_by_entry: dict[str, Path] = {}
+            for paper, arcname in zip(ordered, resolved_names, strict=True):
+                source = _resolve_mirror_source_path(mirror_dir, paper)
+                if source is not None:
+                    sources_by_entry.setdefault(arcname, source)
             with tempfile.NamedTemporaryFile(
                 prefix=f".{asset_name}.", suffix=".tmp", dir=bundle_dir, delete=False
             ) as temporary:
                 staged_path = Path(temporary.name)
             try:
                 with zipfile.ZipFile(staged_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+                    written_entries: set[str] = set()
                     for paper, arcname in zip(ordered, resolved_names, strict=True):
-                        source_path = _resolve_mirror_source_path(mirror_dir, paper)
+                        if arcname in written_entries:
+                            included_papers.append(paper)
+                            bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
+                            continue
+                        source_path = sources_by_entry.get(arcname)
                         if source_path is not None:
                             entry_info = _bundle_source_entry_info(
                                 source_path, arcname, compress_type=_bundle_compression(arcname)
@@ -910,6 +976,7 @@ def build_bundles(
                                     raise _MirrorChecksumMismatch(paper)
                             included_papers.append(paper)
                             bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
+                            written_entries.add(arcname)
                             file_count += 1
                             continue
                         legacy_arcname = _legacy_bundle_arcname(paper)
@@ -924,6 +991,11 @@ def build_bundles(
                             existing_ref = existing_entries.get(legacy_arcname)
                         if existing_ref is None:
                             existing_ref = existing_entries_by_key.get(_paper_bundle_key(paper))
+                        if existing_ref is None:
+                            # v1/v2 recovery remains checksum-verified by the
+                            # publication caller even when the source URL was absent.
+                            key = _paper_bundle_key(paper)
+                            existing_ref = existing_entries_by_key.get((*key[:-1], ""))
                         existing_bytes = (
                             _resolve_entry_ref(existing_ref) if existing_ref is not None else None
                         )
@@ -956,6 +1028,7 @@ def build_bundles(
                             )
                             included_papers.append(paper)
                             bundle_entries_by_paper_key[_paper_bundle_key(paper)] = arcname
+                            written_entries.add(arcname)
                             file_count += 1
                             continue
                         failures.append(
@@ -1035,7 +1108,12 @@ def build_bundles(
                     canonical_id=legacy_ids[0] if legacy_ids else canonical_id,
                     canonical_name=canonical_name,
                     years=part_years,
-                    file_count=len(part_papers),
+                    file_count=len(
+                        {
+                            bundle_entries_by_paper_key[_paper_bundle_key(paper)]
+                            for paper in part_papers
+                        }
+                    ),
                     storage_key=f"bundles/{part_name}",
                     asset_name=part_name,
                     release_tag="",

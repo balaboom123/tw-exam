@@ -10,6 +10,7 @@
     "site_id": {"type": "string"},
     "provider_count": {"type": "integer", "minimum": 0},
     "paper_records_scanned": {"type": "integer", "minimum": 0},
+    "mirror_locator_collisions": {"type": "array", "items": {"type": "object", "required": ["provider_id", "storage_key", "source_urls"], "properties": {"provider_id": {"type": "string"}, "storage_key": {"type": "string"}, "source_urls": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}}},
     "records_with_identity": {"type": "integer", "minimum": 0},
     "records_needing_review": {"type": "integer", "minimum": 0},
     "review_isolation_policy": {"const": "event-specific-review-bundle-v1"},

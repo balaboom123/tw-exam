@@ -1,23 +1,117 @@
 {
-  "schema_version": 1,
-  "provider_id": "ipas_cert",
+  "exams": {
+    "ipas-cert-3dp-2026": {
+      "source_exam_id": "ipas-cert-3dp-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-aiap-2026": {
+      "source_exam_id": "ipas-cert-aiap-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-aiot-2026": {
+      "source_exam_id": "ipas-cert-aiot-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-ant-2026": {
+      "source_exam_id": "ipas-cert-ant-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-cpm-2026": {
+      "source_exam_id": "ipas-cert-cpm-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-cv-2026": {
+      "source_exam_id": "ipas-cert-cv-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-emc-2026": {
+      "source_exam_id": "ipas-cert-emc-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-evm-2026": {
+      "source_exam_id": "ipas-cert-evm-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-fqa-2026": {
+      "source_exam_id": "ipas-cert-fqa-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-ise-2026": {
+      "source_exam_id": "ipas-cert-ise-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-mdmt-2026": {
+      "source_exam_id": "ipas-cert-mdmt-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-nz-2026": {
+      "source_exam_id": "ipas-cert-nz-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-oia-2026": {
+      "source_exam_id": "ipas-cert-oia-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-pcb-2026": {
+      "source_exam_id": "ipas-cert-pcb-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-pmae-2026": {
+      "source_exam_id": "ipas-cert-pmae-2026",
+      "year_ad": 2026
+    },
+    "ipas-cert-spe-2026": {
+      "source_exam_id": "ipas-cert-spe-2026",
+      "year_ad": 2026
+    }
+  },
+  "files": {},
   "probe_policy": {
+    "adapter_certification_family_count": 4,
+    "adapter_gap": {
+      "included_families": [
+        "AIAP",
+        "AIOT",
+        "ISE",
+        "OIA"
+      ],
+      "omitted_families": [
+        "3DP",
+        "ANT",
+        "CPM",
+        "CV",
+        "EMC",
+        "EVM",
+        "FQA",
+        "MDMT",
+        "NZ",
+        "PCB",
+        "PMAE",
+        "SPE"
+      ],
+      "year_status": "All four local events use the 2026 process date rather than source-declared event identity; individual documents include mixed 2025/2026 rounds and undated resources."
+    },
+    "adapter_pdf_count": 62,
     "captured_at": "2026-08-01",
     "coverage_status": "partial",
     "declared_scope": "All certification families linked by the current official iPAS home page, with paper-like downloads separated from briefs, rules, forms, study guides, and scope references.",
-    "official_listing_urls": ["https://ipd.nat.gov.tw/ipas/"],
+    "legal_and_technical": {
+      "redistribution_status": "operator_or_legal_review_required",
+      "robots_status": "The canonical robots request disconnected during the audit; no bypass was attempted and no permissive policy is inferred.",
+      "scope_decision": "The four-family IT-adjacent boundary was implementation-selected, not approved as the complete Taiwanese-examination scope."
+    },
     "official_certification_family_count": 16,
-    "adapter_certification_family_count": 4,
-    "omitted_certification_family_count": 12,
+    "official_listing_urls": [
+      "https://ipd.nat.gov.tw/ipas/"
+    ],
     "official_pdf_count": 182,
-    "adapter_pdf_count": 62,
+    "omitted_certification_family_count": 12,
     "omitted_pdf_count": 120,
     "paper_classification": {
-      "official_paper_like_pdf_count": 50,
-      "paper_like_pdf_count_in_adapter_families": 16,
-      "paper_like_pdf_count_in_omitted_families": 34,
       "non_paper_pdfs_published_as_question": 46,
+      "official_paper_like_pdf_count": 50,
       "omitted_paper_like_counts": {
+        "3DP": 0,
         "ANT": 3,
         "CPM": 1,
         "CV": 4,
@@ -28,70 +122,56 @@
         "NZ": 4,
         "PCB": 5,
         "PMAE": 3,
-        "SPE": 4,
-        "3DP": 0
-      }
-    },
-    "adapter_gap": {
-      "included_families": ["AIAP", "AIOT", "ISE", "OIA"],
-      "omitted_families": ["3DP", "ANT", "CPM", "CV", "EMC", "EVM", "FQA", "MDMT", "NZ", "PCB", "PMAE", "SPE"],
-      "year_status": "All four local events use the 2026 process date rather than source-declared event identity; individual documents include mixed 2025/2026 rounds and undated resources."
-    },
-    "retained_local_state": {
-      "raw_event_pages": 4,
-      "normalized_records": 62,
-      "sync_failures": 0,
-      "current_adapter_urls_matching_current_four_family_pages": 62,
-      "mirror_files": 159,
-      "mirror_bytes": 131509055,
-      "unreferenced_mirror_files": 97,
-      "unreferenced_mirror_bytes": 53395004,
-      "source_only_family_events": 12,
-      "local_only_events": []
-    },
-    "legal_and_technical": {
-      "redistribution_status": "operator_or_legal_review_required",
-      "robots_status": "The canonical robots request disconnected during the audit; no bypass was attempted and no permissive policy is inferred.",
-      "scope_decision": "The four-family IT-adjacent boundary was implementation-selected, not approved as the complete Taiwanese-examination scope."
+        "SPE": 4
+      },
+      "paper_like_pdf_count_in_adapter_families": 16,
+      "paper_like_pdf_count_in_omitted_families": 34
     },
     "publication_risk": {
+      "omitted_official_paper_like_files": 34,
       "published_bundle_count": 4,
       "published_file_records": 62,
       "published_non_paper_files_as_question": 46,
-      "omitted_official_paper_like_files": 34,
       "release_status": "blocked_pending_scope_identity_role_and_redistribution_decisions"
+    },
+    "retained_local_state": {
+      "current_adapter_urls_matching_current_four_family_pages": 62,
+      "local_only_events": [],
+      "mirror_bytes": 131509055,
+      "mirror_files": 159,
+      "normalized_records": 62,
+      "raw_event_pages": 4,
+      "source_only_family_events": 12,
+      "sync_failures": 0,
+      "unreferenced_mirror_bytes": 53395004,
+      "unreferenced_mirror_files": 97
     }
   },
+  "provider_id": "ipas_cert",
+  "schema_version": 1,
   "years": {
     "2026": {
       "exam_codes": [
-        "ipas-cert-3dp-2026", "ipas-cert-aiap-2026", "ipas-cert-aiot-2026", "ipas-cert-ant-2026",
-        "ipas-cert-cpm-2026", "ipas-cert-cv-2026", "ipas-cert-emc-2026", "ipas-cert-evm-2026",
-        "ipas-cert-fqa-2026", "ipas-cert-ise-2026", "ipas-cert-mdmt-2026", "ipas-cert-nz-2026",
-        "ipas-cert-oia-2026", "ipas-cert-pcb-2026", "ipas-cert-pmae-2026", "ipas-cert-spe-2026"
+        "ipas-cert-3dp-2026",
+        "ipas-cert-aiap-2026",
+        "ipas-cert-aiot-2026",
+        "ipas-cert-ant-2026",
+        "ipas-cert-cpm-2026",
+        "ipas-cert-cv-2026",
+        "ipas-cert-emc-2026",
+        "ipas-cert-evm-2026",
+        "ipas-cert-fqa-2026",
+        "ipas-cert-ise-2026",
+        "ipas-cert-mdmt-2026",
+        "ipas-cert-nz-2026",
+        "ipas-cert-oia-2026",
+        "ipas-cert-pcb-2026",
+        "ipas-cert-pmae-2026",
+        "ipas-cert-spe-2026"
       ],
       "official_family_count": 16,
       "year_ad": 2026,
       "year_basis": "Audit capture grouping only; not a claim that every family or document is an AD 2026 exam."
     }
-  },
-  "exams": {
-    "ipas-cert-3dp-2026": {"source_exam_id": "ipas-cert-3dp-2026", "year_ad": 2026},
-    "ipas-cert-aiap-2026": {"source_exam_id": "ipas-cert-aiap-2026", "year_ad": 2026},
-    "ipas-cert-aiot-2026": {"source_exam_id": "ipas-cert-aiot-2026", "year_ad": 2026},
-    "ipas-cert-ant-2026": {"source_exam_id": "ipas-cert-ant-2026", "year_ad": 2026},
-    "ipas-cert-cpm-2026": {"source_exam_id": "ipas-cert-cpm-2026", "year_ad": 2026},
-    "ipas-cert-cv-2026": {"source_exam_id": "ipas-cert-cv-2026", "year_ad": 2026},
-    "ipas-cert-emc-2026": {"source_exam_id": "ipas-cert-emc-2026", "year_ad": 2026},
-    "ipas-cert-evm-2026": {"source_exam_id": "ipas-cert-evm-2026", "year_ad": 2026},
-    "ipas-cert-fqa-2026": {"source_exam_id": "ipas-cert-fqa-2026", "year_ad": 2026},
-    "ipas-cert-ise-2026": {"source_exam_id": "ipas-cert-ise-2026", "year_ad": 2026},
-    "ipas-cert-mdmt-2026": {"source_exam_id": "ipas-cert-mdmt-2026", "year_ad": 2026},
-    "ipas-cert-nz-2026": {"source_exam_id": "ipas-cert-nz-2026", "year_ad": 2026},
-    "ipas-cert-oia-2026": {"source_exam_id": "ipas-cert-oia-2026", "year_ad": 2026},
-    "ipas-cert-pcb-2026": {"source_exam_id": "ipas-cert-pcb-2026", "year_ad": 2026},
-    "ipas-cert-pmae-2026": {"source_exam_id": "ipas-cert-pmae-2026", "year_ad": 2026},
-    "ipas-cert-spe-2026": {"source_exam_id": "ipas-cert-spe-2026", "year_ad": 2026}
-  },
-  "files": {}
+  }
 }

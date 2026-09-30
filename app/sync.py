@@ -6,7 +6,7 @@ import re
 import time
 from collections.abc import Callable
 from concurrent.futures import Future, ThreadPoolExecutor
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from functools import partial
 from pathlib import Path
 from typing import TypeVar
@@ -333,6 +333,18 @@ def sync_exam_pages(
                         paper=paper,
                     )
                 )
+
+        # Some official pages reuse subject codes for different source URLs.
+        # Never let one URL's cached payload satisfy another URL in that group.
+        urls_by_prefix: dict[str, set[str]] = {}
+        for request in requests:
+            urls_by_prefix.setdefault(request.prefix, set()).add(request.url)
+        for index, request in enumerate(requests):
+            prefix_path = mirror_store.root / request.prefix
+            previously_split = any(prefix_path.parent.glob(f"{prefix_path.name}--source-*"))
+            if len(urls_by_prefix[request.prefix]) > 1 or previously_split:
+                digest = hashlib.sha256(request.url.encode("utf-8")).hexdigest()[:16]
+                requests[index] = replace(request, prefix=f"{request.prefix}--source-{digest}")
 
         max_workers = max(1, min(4, int(getattr(client, "max_concurrency", 4))))
         stored_by_prefix: dict[str, StoredFile] = {}

@@ -24,6 +24,13 @@ The frontend build emits a compact, content-hashed bundle feed, a lazy search in
 - The release plan assigns assets to bounded site-owned tags without relying on one global release.
 - Upload and prune operations must compare external state with generated expectations before mutation.
 
+Release cleanup verifies every primary archive's hosted checksum across all
+shards before deleting the first obsolete ZIP. Missing, stale, or unverifiable
+primaries block cleanup. Upload also rejects a missing local ZIP unless the
+hosted archive already matches its expected checksum. After an interrupted bulk
+upload, rerun upload to skip matching archives, then verify coverage before
+pruning and deploying the corresponding site feed.
+
 Changing shard policy, compatibility aliases, or release ownership requires tests, an updated operator procedure, and an ADR when the rationale is durable.
 
 ## Documentation enforcement

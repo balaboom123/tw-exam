@@ -1,129 +1,13 @@
 {
-  "schema_version": 1,
-  "provider_id": "gept_cert",
-  "probe_policy": {
-    "captured_at": "2026-08-01",
-    "coverage_status": "partial",
-    "declared_scope": "Every direct PDF/ZIP link and every MP3 reached through playAudio on the five current official GEPT level-introduction pages. The removed 2009 pretest index is recorded as a separate historical blocker; iPrep browser exercises are outside the direct-download archive boundary.",
-    "official_listing_urls": [
-      "https://www.gept.org.tw/Exam_Intro/t01_introduction.asp",
-      "https://www.gept.org.tw/Exam_Intro/t02_introduction.asp",
-      "https://www.gept.org.tw/Exam_Intro/t03_introduction.asp",
-      "https://www.gept.org.tw/Exam_Intro/t04_introduction.asp",
-      "https://www.gept.org.tw/Exam_Intro/t05_introduction.asp"
-    ],
-    "official_event_count": 5,
-    "official_listed_file_count": 34,
-    "official_unique_url_count": 32,
-    "official_unique_url_bytes": 183174255,
-    "listed_file_types": {
-      "listening_audio": 22,
-      "question": 12
-    },
-    "live_verification": {
-      "http_200_unique_urls": 32,
-      "payloads_checked": 32,
-      "standard_tls_verification": true,
-      "source_bytes_matching_retained_record": 31,
-      "source_bytes_not_matching_retained_record": 3
-    },
-    "removed_historical_archive": {
-      "archive_url": "https://www.gept.org.tw/Exam_Intro/download.asp",
-      "level_page_urls": [
-        "https://www.gept.org.tw/Exam_Intro/down01.asp",
-        "https://www.gept.org.tw/Exam_Intro/down02.asp",
-        "https://www.gept.org.tw/Exam_Intro/down03.asp",
-        "https://www.gept.org.tw/Exam_Intro/down04.asp",
-        "https://www.gept.org.tw/Exam_Intro/down05.asp"
-      ],
-      "page_date": "2009-07",
-      "listed_entry_count": 108,
-      "entries_by_level": {
-        "advanced": 16,
-        "elementary": 30,
-        "high-intermediate": 30,
-        "intermediate": 30,
-        "superior": 2
-      },
-      "current_page_result": "The archive index and all five level pages return the same HTTP 404 IIS response; official search-index evidence retained the listing labels, but the complete direct-asset denominator cannot currently be enumerated from a live official page.",
-      "status": "blocked_removed_listing",
-      "scope_warning": "The 34-record current-material denominator is not historical completeness. The old page also states that these pilot items differ from current formal examinations."
-    },
-    "legal_and_technical": {
-      "historical_page_statement": "The removed 2009 page stated that the Ministry of Education authorized publication and allowed unlimited free non-profit download.",
-      "current_lttc_disclaimer_url": "https://www.lttc.ntu.edu.tw/tw/disclaimer",
-      "current_lttc_disclaimer": "Current LTTC terms prohibit reproduction, reposting, distribution, alteration, broadcasting, or publication without consent or authorization.",
-      "redistribution_status": "operator_or_legal_review_required",
-      "robots_status": "unknown because https://www.gept.org.tw/robots.txt returns the same 404 HTML rather than a robots policy",
-      "access_control_bypassed": false
-    },
-    "adapter_gap": {
-      "source_year": 2022,
-      "retained_year": 2026,
-      "source_event_model": "one event per proficiency level",
-      "retained_event_model": "one synthetic gept-cert-materials event",
-      "generic_label_collision_count": 3,
-      "root_cause": "The retained snapshot predates the level/year event split, and subject codes derived from repeated generic link labels collapse distinct URLs onto the same storage key.",
-      "role_gap": "All direct PDFs and ZIPs are labeled question even when they are writing samples, speaking instructions, software, or installation documentation."
-    },
-    "retained_local_state": {
-      "raw_event_pages": 1,
-      "normalized_records": 34,
-      "sync_failures": 0,
-      "review_records": 0,
-      "retained_event": [
-        "gept-cert-materials",
-        2026
-      ],
-      "source_only_events": [
-        ["gept-cert-advanced-2022", 2022],
-        ["gept-cert-elementary-2022", 2022],
-        ["gept-cert-high-intermediate-2022", 2022],
-        ["gept-cert-intermediate-2022", 2022],
-        ["gept-cert-superior-2022", 2022]
-      ],
-      "local_only_events": [
-        ["gept-cert-materials", 2026]
-      ],
-      "mirror_files": 68,
-      "mirror_bytes": 715025582,
-      "referenced_storage_keys": 31,
-      "unreferenced_mirror_files": 37,
-      "unreferenced_mirror_bytes": 357922707,
-      "unreferenced_evidence": "All 34 source-correct ROC 111 per-level mirrors plus three distinct ROC 115 files lost to storage-key collisions remain preserved for a reviewed migration."
-    },
-    "publication_risk": {
-      "published_bundle_count": 5,
-      "published_file_records": 34,
-      "wrong_event_or_year_records": 34,
-      "wrong_payload_records": 3,
-      "manifest_agreement_warning": "Raw, normalized, bundle, frontend, and release layers inherited the same synthetic 2026 identity and therefore cannot prove source correctness.",
-      "release_status": "blocked_pending_identity_role_payload_migration_historical_scope_and_legal_decision"
-    }
-  },
-  "years": {
-    "2022": {
-      "exam_codes": [
-        "gept-cert-advanced-2022",
-        "gept-cert-elementary-2022",
-        "gept-cert-high-intermediate-2022",
-        "gept-cert-intermediate-2022",
-        "gept-cert-superior-2022"
-      ],
-      "official_event_count": 5,
-      "listed_asset_count": 34,
-      "unique_url_count": 32,
-      "year_ad": 2022,
-      "year_roc": 111
-    }
-  },
   "exams": {
     "gept-cert-advanced-2022": {
       "accepted_asset_count": 1,
       "category_slug": "advanced",
       "discovered_at": "2026-08-01",
       "event_label": "GEPT 全民英檢高級官方練習資料",
-      "file_keys": ["official/advanced/01"],
+      "file_keys": [
+        "official/advanced/01"
+      ],
       "local_event_refs": [],
       "source_exam_id": "gept-cert-advanced-2022",
       "source_url": "https://www.gept.org.tw/Exam_Intro/t04_introduction.asp",
@@ -137,8 +21,14 @@
       "discovered_at": "2026-08-01",
       "event_label": "GEPT 全民英檢初級官方練習資料",
       "file_keys": [
-        "official/elementary/01", "official/elementary/02", "official/elementary/03", "official/elementary/04",
-        "official/elementary/05", "official/elementary/06", "official/elementary/07", "official/elementary/08"
+        "official/elementary/01",
+        "official/elementary/02",
+        "official/elementary/03",
+        "official/elementary/04",
+        "official/elementary/05",
+        "official/elementary/06",
+        "official/elementary/07",
+        "official/elementary/08"
       ],
       "local_event_refs": [],
       "source_exam_id": "gept-cert-elementary-2022",
@@ -153,10 +43,18 @@
       "discovered_at": "2026-08-01",
       "event_label": "GEPT 全民英檢中高級官方練習資料",
       "file_keys": [
-        "official/high-intermediate/01", "official/high-intermediate/02", "official/high-intermediate/03",
-        "official/high-intermediate/04", "official/high-intermediate/05", "official/high-intermediate/06",
-        "official/high-intermediate/07", "official/high-intermediate/08", "official/high-intermediate/09",
-        "official/high-intermediate/10", "official/high-intermediate/11", "official/high-intermediate/12"
+        "official/high-intermediate/01",
+        "official/high-intermediate/02",
+        "official/high-intermediate/03",
+        "official/high-intermediate/04",
+        "official/high-intermediate/05",
+        "official/high-intermediate/06",
+        "official/high-intermediate/07",
+        "official/high-intermediate/08",
+        "official/high-intermediate/09",
+        "official/high-intermediate/10",
+        "official/high-intermediate/11",
+        "official/high-intermediate/12"
       ],
       "local_event_refs": [],
       "source_exam_id": "gept-cert-high-intermediate-2022",
@@ -171,10 +69,17 @@
       "discovered_at": "2026-08-01",
       "event_label": "GEPT 全民英檢中級官方練習資料",
       "file_keys": [
-        "official/intermediate/01", "official/intermediate/02", "official/intermediate/03",
-        "official/intermediate/04", "official/intermediate/05", "official/intermediate/06",
-        "official/intermediate/07", "official/intermediate/08", "official/intermediate/09",
-        "official/intermediate/10", "official/intermediate/11"
+        "official/intermediate/01",
+        "official/intermediate/02",
+        "official/intermediate/03",
+        "official/intermediate/04",
+        "official/intermediate/05",
+        "official/intermediate/06",
+        "official/intermediate/07",
+        "official/intermediate/08",
+        "official/intermediate/09",
+        "official/intermediate/10",
+        "official/intermediate/11"
       ],
       "local_event_refs": [],
       "source_exam_id": "gept-cert-intermediate-2022",
@@ -188,7 +93,10 @@
       "category_slug": "superior",
       "discovered_at": "2026-08-01",
       "event_label": "GEPT 全民英檢優級官方練習資料",
-      "file_keys": ["official/superior/01", "official/superior/02"],
+      "file_keys": [
+        "official/superior/01",
+        "official/superior/02"
+      ],
       "local_event_refs": [],
       "source_exam_id": "gept-cert-superior-2022",
       "source_url": "https://www.gept.org.tw/Exam_Intro/t05_introduction.asp",
@@ -198,39 +106,416 @@
     }
   },
   "files": {
-    "official/advanced/01": {"bytes": 170864, "checksum": "038f48a35864645ca0a1dfeabe92baabdbd47364856b1520eb8d2025736c3765", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-advanced-2022", "url": "https://www.gept.org.tw/2022/GEPT1/Advanced/AdvWritingSamples.pdf"},
-    "official/elementary/01": {"bytes": 82411, "checksum": "22ca51ff10fb2167c965a5e7abc781ef844b7e4dfe94f64e205ec449699d9dd3", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/geptscoreremark/%E5%88%9D%E7%B4%9A%E4%BD%9C%E6%96%87.pdf"},
-    "official/elementary/02": {"bytes": 254696, "checksum": "711303f698e295f47a7ce0c871e2102d7c85a7bef3a07a4e749993d551ac2ed0", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_1.mp3"},
-    "official/elementary/03": {"bytes": 119277, "checksum": "761d5cd135eff8f92f98a524ed40c7ccfed1b405357403182f2e11ffe70ceb92", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_2.mp3"},
-    "official/elementary/04": {"bytes": 134637, "checksum": "efa82c19b7e6b6c949ade5fce8ea875cbbe525a1917aa3efbc11dddee07491aa", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_3.mp3"},
-    "official/elementary/05": {"bytes": 295148, "checksum": "cbdfaae7f7da65d638107fea9f9ffc1db01c420918f1cb04b729e9db01d7c1a6", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_4.mp3"},
-    "official/elementary/06": {"bytes": 550070, "checksum": "772705b7f4c2207bd6a09123525ae1cc4943ab26614fe265160d254748e40a1d", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_l5.mp3"},
-    "official/elementary/07": {"bytes": 108305, "checksum": "c4912604e1fe2d022a191c3b2bcd70685b23abd1ed9eea4efd2cdfaa151969e7", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_5.mp3"},
-    "official/elementary/08": {"bytes": 117709, "checksum": "8b1fdcfef5ca620b0dbef3790897293e8dfb3586b48c2d1594c94635bf678990", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-elementary-2022", "url": "https://www.gept.org.tw/2022/realplayer/el_web_6.mp3"},
-    "official/high-intermediate/01": {"bytes": 91192, "checksum": "ddaa09aedbdee28c6dfb7b8ddbd57c67a3c4f15606f0b72174b7ec11911fa33f", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/geptscoreremark/hitranslation.pdf"},
-    "official/high-intermediate/02": {"bytes": 113645, "checksum": "22e6d073a85e1365682229256823c52491fef7a3aaef9bb86418a060dfde53e4", "file_type": "question", "local_checksum": "ddaa09aedbdee28c6dfb7b8ddbd57c67a3c4f15606f0b72174b7ec11911fa33f", "local_status": "retained_under_wrong_identity_with_wrong_bytes", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/geptscoreremark/hicomposition.pdf"},
-    "official/high-intermediate/03": {"bytes": 173242376, "checksum": "5906b2dac625da771ae0f9128f1bc0c307686a439335928fb13ca5305c3946ce", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/WebFile/GEPTCBTPracticeTest.zip"},
-    "official/high-intermediate/04": {"bytes": 1096160, "checksum": "35e78c27b6d8abad9529adbf8cebe3bdcd65b9689e404f9034ea2dc6a3f53d7d", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/Exam_Intro/ETSampleTest.pdf"},
-    "official/high-intermediate/05": {"bytes": 118963, "checksum": "7cef7f4328d42f9b7c826e384a5cfddd061684e20af91feeea7775d8ca532e7c", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_1.mp3"},
-    "official/high-intermediate/06": {"bytes": 684190, "checksum": "919f3bb498922ce76d634cecd5a026c6092a7381a2f78690ac18678739b127ad", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_2_new.mp3"},
-    "official/high-intermediate/07": {"bytes": 710482, "checksum": "6b14d4d4fb317bc0ab62a34a8a86040cd4d291deca2d89af11028aad94781cea", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_3_new.mp3"},
-    "official/high-intermediate/08": {"bytes": 261352, "checksum": "817b1813094d665fac2423e3e01f2c47be525cd7c2040e8f67bf813a6832dab6", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_4_new.mp3"},
-    "official/high-intermediate/09": {"bytes": 836786, "checksum": "763237a53c0988d36d5092fc5535ae8063e6e6eafc6a943f3db949fca6c3cf4a", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_5_new.mp3"},
-    "official/high-intermediate/10": {"bytes": 294295, "checksum": "dffaf7c5965e3cbb6a157de50dd18d6125a127c8f0c061ac07f6c5fecae64eb8", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_6_new.mp3"},
-    "official/high-intermediate/11": {"bytes": 151251, "checksum": "fbb36f66568b9e968e4f1713569d286272102bfdfd6133835e9dbeb76cad4126", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_5.mp3"},
-    "official/high-intermediate/12": {"bytes": 127114, "checksum": "b30a4832a83a0f14395d76b8f41dbdb310b079cd757a8530051a3d2463790538", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-high-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/hi_web_6.mp3"},
-    "official/intermediate/01": {"bytes": 83251, "checksum": "d1eaa8c18e694e28fd524d160aa9d196266750ce1ec9c57ab25b1399ab09826a", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/geptscoreremark/itranslation.pdf"},
-    "official/intermediate/02": {"bytes": 121365, "checksum": "186f71557e7dc17c4b91ff005c8697c222bfe6de3efb01ad902c905f1a2f733a", "file_type": "question", "local_checksum": "d1eaa8c18e694e28fd524d160aa9d196266750ce1ec9c57ab25b1399ab09826a", "local_status": "retained_under_wrong_identity_with_wrong_bytes", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/geptscoreremark/icomposition.pdf"},
-    "official/intermediate/03": {"bytes": 173242376, "checksum": "5906b2dac625da771ae0f9128f1bc0c307686a439335928fb13ca5305c3946ce", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/WebFile/GEPTCBTPracticeTest.zip"},
-    "official/intermediate/04": {"bytes": 1096160, "checksum": "35e78c27b6d8abad9529adbf8cebe3bdcd65b9689e404f9034ea2dc6a3f53d7d", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/Exam_Intro/ETSampleTest.pdf"},
-    "official/intermediate/05": {"bytes": 365350, "checksum": "07220dffc1065dfa3fc250df73403e4e93bbf54bdfd496261769e1d715a5b694", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/record1.mp3"},
-    "official/intermediate/06": {"bytes": 157834, "checksum": "5d627d2c7428ab6319a1e0dd94fdc393b57634afcbcc13b1fefa58d3808a29f1", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/record2.mp3"},
-    "official/intermediate/07": {"bytes": 717751, "checksum": "a92b12aeb7790a75c98126c976f606974f4834b8e136a6372b23a29336fcfe57", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/record3_new.mp3"},
-    "official/intermediate/08": {"bytes": 668344, "checksum": "f84544c26331585a8ffbacdd9fa1afca9f224ca9da4178d1c3d95eea9106dfb5", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/record4.mp3"},
-    "official/intermediate/09": {"bytes": 618721, "checksum": "5f8b8dfecab72fe20a49ae0798693f10ca821dd9dee62058b8512a44c2271cd6", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/record5.mp3"},
-    "official/intermediate/10": {"bytes": 181971, "checksum": "e0462083a4d9bfa43c25086943bd71f4eca1c020b72f69aa5540d24f42a515fb", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/N52.mp3"},
-    "official/intermediate/11": {"bytes": 208929, "checksum": "f3a5ee3ceb02ce79aab911a9e830bc0ddf2787e46c83b4bb79cda9a6bfb51431", "file_type": "listening_audio", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-intermediate-2022", "url": "https://www.gept.org.tw/2022/realplayer/N57.mp3"},
-    "official/superior/01": {"bytes": 314910, "checksum": "817b654025178cf06c2ec8dc431e586c13c9ca5cb32734c015eac313f38afbbc", "file_type": "question", "local_status": "retained_under_wrong_identity", "source_exam_id": "gept-cert-superior-2022", "url": "https://www.gept.org.tw/download/pretest/doc/%E5%84%AA%E7%B4%9A%E6%B8%AC%E9%A9%97%E5%AF%AB%E4%BD%9C%E9%83%A8%E5%88%86%E8%A9%A6%E9%A1%8C%E8%88%87%E4%BD%9C%E7%AD%94%E8%AA%AA%E6%98%8E.pdf"},
-    "official/superior/02": {"bytes": 174906, "checksum": "e2e651c7a5f6961c4a7e8ef8b179e07dafe007c9e51f97b129d958a05e93167c", "file_type": "question", "local_checksum": "817b654025178cf06c2ec8dc431e586c13c9ca5cb32734c015eac313f38afbbc", "local_status": "retained_under_wrong_identity_with_wrong_bytes", "source_exam_id": "gept-cert-superior-2022", "url": "https://www.gept.org.tw/download/pretest/doc/%E5%84%AA%E7%B4%9A%E6%B8%AC%E9%A9%97%E5%8F%A3%E8%AA%AA%E9%83%A8%E5%88%86%E8%A9%A6%E9%A1%8C%E8%88%87%E4%BD%9C%E7%AD%94%E8%AA%AA%E6%98%8E.pdf"}
+    "official/advanced/01": {
+      "bytes": 170864,
+      "checksum": "038f48a35864645ca0a1dfeabe92baabdbd47364856b1520eb8d2025736c3765",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-advanced-2022",
+      "url": "https://www.gept.org.tw/2022/GEPT1/Advanced/AdvWritingSamples.pdf"
+    },
+    "official/elementary/01": {
+      "bytes": 82411,
+      "checksum": "22ca51ff10fb2167c965a5e7abc781ef844b7e4dfe94f64e205ec449699d9dd3",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/geptscoreremark/%E5%88%9D%E7%B4%9A%E4%BD%9C%E6%96%87.pdf"
+    },
+    "official/elementary/02": {
+      "bytes": 254696,
+      "checksum": "711303f698e295f47a7ce0c871e2102d7c85a7bef3a07a4e749993d551ac2ed0",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_1.mp3"
+    },
+    "official/elementary/03": {
+      "bytes": 119277,
+      "checksum": "761d5cd135eff8f92f98a524ed40c7ccfed1b405357403182f2e11ffe70ceb92",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_2.mp3"
+    },
+    "official/elementary/04": {
+      "bytes": 134637,
+      "checksum": "efa82c19b7e6b6c949ade5fce8ea875cbbe525a1917aa3efbc11dddee07491aa",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_3.mp3"
+    },
+    "official/elementary/05": {
+      "bytes": 295148,
+      "checksum": "cbdfaae7f7da65d638107fea9f9ffc1db01c420918f1cb04b729e9db01d7c1a6",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_4.mp3"
+    },
+    "official/elementary/06": {
+      "bytes": 550070,
+      "checksum": "772705b7f4c2207bd6a09123525ae1cc4943ab26614fe265160d254748e40a1d",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_l5.mp3"
+    },
+    "official/elementary/07": {
+      "bytes": 108305,
+      "checksum": "c4912604e1fe2d022a191c3b2bcd70685b23abd1ed9eea4efd2cdfaa151969e7",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_5.mp3"
+    },
+    "official/elementary/08": {
+      "bytes": 117709,
+      "checksum": "8b1fdcfef5ca620b0dbef3790897293e8dfb3586b48c2d1594c94635bf678990",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-elementary-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/el_web_6.mp3"
+    },
+    "official/high-intermediate/01": {
+      "bytes": 91192,
+      "checksum": "ddaa09aedbdee28c6dfb7b8ddbd57c67a3c4f15606f0b72174b7ec11911fa33f",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/geptscoreremark/hitranslation.pdf"
+    },
+    "official/high-intermediate/02": {
+      "bytes": 113645,
+      "checksum": "22e6d073a85e1365682229256823c52491fef7a3aaef9bb86418a060dfde53e4",
+      "file_type": "question",
+      "local_checksum": "ddaa09aedbdee28c6dfb7b8ddbd57c67a3c4f15606f0b72174b7ec11911fa33f",
+      "local_status": "retained_under_wrong_identity_with_wrong_bytes",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/geptscoreremark/hicomposition.pdf"
+    },
+    "official/high-intermediate/03": {
+      "bytes": 173242376,
+      "checksum": "5906b2dac625da771ae0f9128f1bc0c307686a439335928fb13ca5305c3946ce",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/WebFile/GEPTCBTPracticeTest.zip"
+    },
+    "official/high-intermediate/04": {
+      "bytes": 1096160,
+      "checksum": "35e78c27b6d8abad9529adbf8cebe3bdcd65b9689e404f9034ea2dc6a3f53d7d",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/Exam_Intro/ETSampleTest.pdf"
+    },
+    "official/high-intermediate/05": {
+      "bytes": 118963,
+      "checksum": "7cef7f4328d42f9b7c826e384a5cfddd061684e20af91feeea7775d8ca532e7c",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_1.mp3"
+    },
+    "official/high-intermediate/06": {
+      "bytes": 684190,
+      "checksum": "919f3bb498922ce76d634cecd5a026c6092a7381a2f78690ac18678739b127ad",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_2_new.mp3"
+    },
+    "official/high-intermediate/07": {
+      "bytes": 710482,
+      "checksum": "6b14d4d4fb317bc0ab62a34a8a86040cd4d291deca2d89af11028aad94781cea",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_3_new.mp3"
+    },
+    "official/high-intermediate/08": {
+      "bytes": 261352,
+      "checksum": "817b1813094d665fac2423e3e01f2c47be525cd7c2040e8f67bf813a6832dab6",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_4_new.mp3"
+    },
+    "official/high-intermediate/09": {
+      "bytes": 836786,
+      "checksum": "763237a53c0988d36d5092fc5535ae8063e6e6eafc6a943f3db949fca6c3cf4a",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_5_new.mp3"
+    },
+    "official/high-intermediate/10": {
+      "bytes": 294295,
+      "checksum": "dffaf7c5965e3cbb6a157de50dd18d6125a127c8f0c061ac07f6c5fecae64eb8",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_6_new.mp3"
+    },
+    "official/high-intermediate/11": {
+      "bytes": 151251,
+      "checksum": "fbb36f66568b9e968e4f1713569d286272102bfdfd6133835e9dbeb76cad4126",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_5.mp3"
+    },
+    "official/high-intermediate/12": {
+      "bytes": 127114,
+      "checksum": "b30a4832a83a0f14395d76b8f41dbdb310b079cd757a8530051a3d2463790538",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-high-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/hi_web_6.mp3"
+    },
+    "official/intermediate/01": {
+      "bytes": 83251,
+      "checksum": "d1eaa8c18e694e28fd524d160aa9d196266750ce1ec9c57ab25b1399ab09826a",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/geptscoreremark/itranslation.pdf"
+    },
+    "official/intermediate/02": {
+      "bytes": 121365,
+      "checksum": "186f71557e7dc17c4b91ff005c8697c222bfe6de3efb01ad902c905f1a2f733a",
+      "file_type": "question",
+      "local_checksum": "d1eaa8c18e694e28fd524d160aa9d196266750ce1ec9c57ab25b1399ab09826a",
+      "local_status": "retained_under_wrong_identity_with_wrong_bytes",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/geptscoreremark/icomposition.pdf"
+    },
+    "official/intermediate/03": {
+      "bytes": 173242376,
+      "checksum": "5906b2dac625da771ae0f9128f1bc0c307686a439335928fb13ca5305c3946ce",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/WebFile/GEPTCBTPracticeTest.zip"
+    },
+    "official/intermediate/04": {
+      "bytes": 1096160,
+      "checksum": "35e78c27b6d8abad9529adbf8cebe3bdcd65b9689e404f9034ea2dc6a3f53d7d",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/Exam_Intro/ETSampleTest.pdf"
+    },
+    "official/intermediate/05": {
+      "bytes": 365350,
+      "checksum": "07220dffc1065dfa3fc250df73403e4e93bbf54bdfd496261769e1d715a5b694",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/record1.mp3"
+    },
+    "official/intermediate/06": {
+      "bytes": 157834,
+      "checksum": "5d627d2c7428ab6319a1e0dd94fdc393b57634afcbcc13b1fefa58d3808a29f1",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/record2.mp3"
+    },
+    "official/intermediate/07": {
+      "bytes": 717751,
+      "checksum": "a92b12aeb7790a75c98126c976f606974f4834b8e136a6372b23a29336fcfe57",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/record3_new.mp3"
+    },
+    "official/intermediate/08": {
+      "bytes": 668344,
+      "checksum": "f84544c26331585a8ffbacdd9fa1afca9f224ca9da4178d1c3d95eea9106dfb5",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/record4.mp3"
+    },
+    "official/intermediate/09": {
+      "bytes": 618721,
+      "checksum": "5f8b8dfecab72fe20a49ae0798693f10ca821dd9dee62058b8512a44c2271cd6",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/record5.mp3"
+    },
+    "official/intermediate/10": {
+      "bytes": 181971,
+      "checksum": "e0462083a4d9bfa43c25086943bd71f4eca1c020b72f69aa5540d24f42a515fb",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/N52.mp3"
+    },
+    "official/intermediate/11": {
+      "bytes": 208929,
+      "checksum": "f3a5ee3ceb02ce79aab911a9e830bc0ddf2787e46c83b4bb79cda9a6bfb51431",
+      "file_type": "listening_audio",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-intermediate-2022",
+      "url": "https://www.gept.org.tw/2022/realplayer/N57.mp3"
+    },
+    "official/superior/01": {
+      "bytes": 314910,
+      "checksum": "817b654025178cf06c2ec8dc431e586c13c9ca5cb32734c015eac313f38afbbc",
+      "file_type": "question",
+      "local_status": "retained_under_wrong_identity",
+      "source_exam_id": "gept-cert-superior-2022",
+      "url": "https://www.gept.org.tw/download/pretest/doc/%E5%84%AA%E7%B4%9A%E6%B8%AC%E9%A9%97%E5%AF%AB%E4%BD%9C%E9%83%A8%E5%88%86%E8%A9%A6%E9%A1%8C%E8%88%87%E4%BD%9C%E7%AD%94%E8%AA%AA%E6%98%8E.pdf"
+    },
+    "official/superior/02": {
+      "bytes": 174906,
+      "checksum": "e2e651c7a5f6961c4a7e8ef8b179e07dafe007c9e51f97b129d958a05e93167c",
+      "file_type": "question",
+      "local_checksum": "817b654025178cf06c2ec8dc431e586c13c9ca5cb32734c015eac313f38afbbc",
+      "local_status": "retained_under_wrong_identity_with_wrong_bytes",
+      "source_exam_id": "gept-cert-superior-2022",
+      "url": "https://www.gept.org.tw/download/pretest/doc/%E5%84%AA%E7%B4%9A%E6%B8%AC%E9%A9%97%E5%8F%A3%E8%AA%AA%E9%83%A8%E5%88%86%E8%A9%A6%E9%A1%8C%E8%88%87%E4%BD%9C%E7%AD%94%E8%AA%AA%E6%98%8E.pdf"
+    }
+  },
+  "probe_policy": {
+    "adapter_gap": {
+      "generic_label_collision_count": 3,
+      "retained_event_model": "one synthetic gept-cert-materials event",
+      "retained_year": 2026,
+      "role_gap": "All direct PDFs and ZIPs are labeled question even when they are writing samples, speaking instructions, software, or installation documentation.",
+      "root_cause": "The retained snapshot predates the level/year event split, and subject codes derived from repeated generic link labels collapse distinct URLs onto the same storage key.",
+      "source_event_model": "one event per proficiency level",
+      "source_year": 2022
+    },
+    "captured_at": "2026-08-01",
+    "coverage_status": "partial",
+    "declared_scope": "Every direct PDF/ZIP link and every MP3 reached through playAudio on the five current official GEPT level-introduction pages. The removed 2009 pretest index is recorded as a separate historical blocker; iPrep browser exercises are outside the direct-download archive boundary.",
+    "legal_and_technical": {
+      "access_control_bypassed": false,
+      "current_lttc_disclaimer": "Current LTTC terms prohibit reproduction, reposting, distribution, alteration, broadcasting, or publication without consent or authorization.",
+      "current_lttc_disclaimer_url": "https://www.lttc.ntu.edu.tw/tw/disclaimer",
+      "historical_page_statement": "The removed 2009 page stated that the Ministry of Education authorized publication and allowed unlimited free non-profit download.",
+      "redistribution_status": "operator_or_legal_review_required",
+      "robots_status": "unknown because https://www.gept.org.tw/robots.txt returns the same 404 HTML rather than a robots policy"
+    },
+    "listed_file_types": {
+      "listening_audio": 22,
+      "question": 12
+    },
+    "live_verification": {
+      "http_200_unique_urls": 32,
+      "payloads_checked": 32,
+      "source_bytes_matching_retained_record": 31,
+      "source_bytes_not_matching_retained_record": 3,
+      "standard_tls_verification": true
+    },
+    "official_event_count": 5,
+    "official_listed_file_count": 34,
+    "official_listing_urls": [
+      "https://www.gept.org.tw/Exam_Intro/t01_introduction.asp",
+      "https://www.gept.org.tw/Exam_Intro/t02_introduction.asp",
+      "https://www.gept.org.tw/Exam_Intro/t03_introduction.asp",
+      "https://www.gept.org.tw/Exam_Intro/t04_introduction.asp",
+      "https://www.gept.org.tw/Exam_Intro/t05_introduction.asp"
+    ],
+    "official_unique_url_bytes": 183174255,
+    "official_unique_url_count": 32,
+    "publication_risk": {
+      "manifest_agreement_warning": "Raw, normalized, bundle, frontend, and release layers inherited the same synthetic 2026 identity and therefore cannot prove source correctness.",
+      "published_bundle_count": 5,
+      "published_file_records": 34,
+      "release_status": "blocked_pending_identity_role_payload_migration_historical_scope_and_legal_decision",
+      "wrong_event_or_year_records": 34,
+      "wrong_payload_records": 3
+    },
+    "removed_historical_archive": {
+      "archive_url": "https://www.gept.org.tw/Exam_Intro/download.asp",
+      "current_page_result": "The archive index and all five level pages return the same HTTP 404 IIS response; official search-index evidence retained the listing labels, but the complete direct-asset denominator cannot currently be enumerated from a live official page.",
+      "entries_by_level": {
+        "advanced": 16,
+        "elementary": 30,
+        "high-intermediate": 30,
+        "intermediate": 30,
+        "superior": 2
+      },
+      "level_page_urls": [
+        "https://www.gept.org.tw/Exam_Intro/down01.asp",
+        "https://www.gept.org.tw/Exam_Intro/down02.asp",
+        "https://www.gept.org.tw/Exam_Intro/down03.asp",
+        "https://www.gept.org.tw/Exam_Intro/down04.asp",
+        "https://www.gept.org.tw/Exam_Intro/down05.asp"
+      ],
+      "listed_entry_count": 108,
+      "page_date": "2009-07",
+      "scope_warning": "The 34-record current-material denominator is not historical completeness. The old page also states that these pilot items differ from current formal examinations.",
+      "status": "blocked_removed_listing"
+    },
+    "retained_local_state": {
+      "local_only_events": [
+        [
+          "gept-cert-materials",
+          2026
+        ]
+      ],
+      "mirror_bytes": 715025582,
+      "mirror_files": 68,
+      "normalized_records": 34,
+      "raw_event_pages": 1,
+      "referenced_storage_keys": 31,
+      "retained_event": [
+        "gept-cert-materials",
+        2026
+      ],
+      "review_records": 0,
+      "source_only_events": [
+        [
+          "gept-cert-advanced-2022",
+          2022
+        ],
+        [
+          "gept-cert-elementary-2022",
+          2022
+        ],
+        [
+          "gept-cert-high-intermediate-2022",
+          2022
+        ],
+        [
+          "gept-cert-intermediate-2022",
+          2022
+        ],
+        [
+          "gept-cert-superior-2022",
+          2022
+        ]
+      ],
+      "sync_failures": 0,
+      "unreferenced_evidence": "All 34 source-correct ROC 111 per-level mirrors plus three distinct ROC 115 files lost to storage-key collisions remain preserved for a reviewed migration.",
+      "unreferenced_mirror_bytes": 357922707,
+      "unreferenced_mirror_files": 37
+    }
+  },
+  "provider_id": "gept_cert",
+  "schema_version": 1,
+  "years": {
+    "2022": {
+      "exam_codes": [
+        "gept-cert-advanced-2022",
+        "gept-cert-elementary-2022",
+        "gept-cert-high-intermediate-2022",
+        "gept-cert-intermediate-2022",
+        "gept-cert-superior-2022"
+      ],
+      "listed_asset_count": 34,
+      "official_event_count": 5,
+      "unique_url_count": 32,
+      "year_ad": 2022,
+      "year_roc": 111
+    }
   }
 }

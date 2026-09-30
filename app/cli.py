@@ -10,6 +10,11 @@ from functools import partial
 from pathlib import Path
 from typing import Any, cast
 
+from app.archive_audit import (
+    audit_site_archives,
+    isolate_unreferenced_archives,
+    prune_redundant_archives,
+)
 from app.audit import (
     audit_exit_code,
     build_catalog_audit,
@@ -30,6 +35,7 @@ from app.manifest import (
     write_source_manifest,
 )
 from app.migration import migrate_legacy_state
+from app.mirror_repair import repair_mirror_collisions
 from app.models import (
     BundleAsset,
     ExamOption,
@@ -1140,6 +1146,34 @@ def command_audit_history(args: argparse.Namespace) -> int:
     return history_audit_exit_code(report, strict=args.strict)
 
 
+def command_repair_mirror_collisions(args: argparse.Namespace) -> int:
+    report = repair_mirror_collisions(args.repo_root, site_id=args.site_id, apply=args.apply)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print(f"Mirror collision report: {args.output}; {len(report['errors'])} errors", flush=True)
+    return 1 if report["errors"] else 0
+
+
+def command_audit_files(args: argparse.Namespace) -> int:
+    report = audit_site_archives(
+        args.repo_root,
+        site_id=args.site_id,
+        verify_content=args.verify_content or args.prune_redundant or args.isolate_unreferenced,
+    )
+    if args.prune_redundant and not report["errors"]:
+        prune_redundant_archives(args.repo_root, site_id=args.site_id, report=report)
+    if args.isolate_unreferenced and not report["errors"]:
+        isolate_unreferenced_archives(args.repo_root, site_id=args.site_id, report=report)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print(
+        f"Audited {report['archive_count']} archives; {len(report['errors'])} errors; "
+        f"{len(report['unreferenced_archives'])} unreferenced archives. Report: {args.output}",
+        flush=True,
+    )
+    return 1 if report["errors"] else 0
+
+
 def command_audit_catalog(args: argparse.Namespace) -> int:
     report = build_catalog_audit(
         args.repo_root, site_id=args.site_id, include_publication_backlog=True
@@ -1434,6 +1468,36 @@ def build_parser() -> argparse.ArgumentParser:
     )
     audit_parser.add_argument("--strict", action="store_true")
     audit_parser.set_defaults(handler=command_audit_catalog)
+
+    collision_parser = subparsers.add_parser(
+        "repair-mirror-collisions", help="Audit or re-fetch source URLs sharing a mirror locator."
+    )
+    collision_parser.add_argument("--repo-root", type=Path, default=repo_root)
+    collision_parser.add_argument("--site-id", default="default")
+    collision_parser.add_argument("--apply", action="store_true")
+    collision_parser.add_argument(
+        "--output", type=Path, default=repo_root / ".tmp" / "mirror-collisions.json"
+    )
+    collision_parser.set_defaults(handler=command_repair_mirror_collisions)
+
+    files_parser = subparsers.add_parser(
+        "audit-files", help="Verify local ZIP structure, catalog coverage, and optional checksums."
+    )
+    files_parser.add_argument("--repo-root", type=Path, default=repo_root)
+    files_parser.add_argument("--site-id", default="default")
+    files_parser.add_argument("--verify-content", action="store_true")
+    files_parser.add_argument(
+        "--prune-redundant",
+        action="store_true",
+        help="Verify all content, then remove only extras fully covered by active archives.",
+    )
+    files_parser.add_argument("--output", type=Path, default=repo_root / ".tmp" / "file-audit.json")
+    files_parser.add_argument(
+        "--isolate-unreferenced",
+        action="store_true",
+        help="Move obsolete archives to the site's recovery directory after verification.",
+    )
+    files_parser.set_defaults(handler=command_audit_files)
 
     history_audit_parser = subparsers.add_parser(
         "history-audit",

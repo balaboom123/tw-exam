@@ -15,6 +15,7 @@ from typing import Any
 
 from app.bundler import _bundle_asset_name, _legacy_asset_names
 from app.classification import ExamIdentity, classify_normalized_paper, identity_fields
+from app.mirror_repair import colliding_mirror_records
 from app.models import BundleAsset, NormalizedCatalog
 from app.normalizer import (
     _derive_canonical,
@@ -346,6 +347,14 @@ def build_catalog_audit(
             1 for report in provider_reports if report["paper_records"] or report["raw_exam_pages"]
         ),
         "paper_records_scanned": len(all_papers),
+        "mirror_locator_collisions": [
+            {
+                "provider_id": group[0].provider_id,
+                "storage_key": group[0].storage_key,
+                "source_urls": sorted({paper.download_url_source for paper in group}),
+            }
+            for group in colliding_mirror_records(all_papers)
+        ],
         "records_with_identity": records_with_identity,
         "records_needing_review": review_records,
         "review_queue_entries": len(all_review_items),
@@ -420,6 +429,8 @@ def write_catalog_audit(report: dict[str, Any], output: Path) -> None:
 def audit_exit_code(report: dict[str, Any], *, strict: bool) -> int:
     if not strict:
         return 0
+    if report.get("mirror_locator_collisions"):
+        return 1
     return (
         1
         if (

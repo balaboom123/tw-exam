@@ -1,150 +1,44 @@
 {
-  "schema_version": 1,
-  "provider_id": "tii_cert",
-  "probe_policy": {
-    "captured_at": "2026-08-01",
-    "coverage_status": "partial",
-    "declared_scope": "Every dated question/answer entry currently listed on TII message pages 1, 58785, and 58786. Other official exam families are reviewed as explicit source-family boundaries; the AML download-center history ZIP must be enumerated before historical completeness can be assessed.",
-    "official_listing_urls": [
-      "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "https://edu.tii.org.tw/exam/users/exam_message/58785",
-      "https://edu.tii.org.tw/exam/users/exam_message/58786"
-    ],
-    "official_paper_family_count": 3,
-    "official_event_count": 10,
-    "official_listed_file_count": 24,
-    "direct_url_evidence_count": 8,
-    "direct_urls_not_enumerated": 16,
-    "source_family_review": {
-      "navigation_url": "https://edu.tii.org.tw/exam/users/apply_exam/0",
-      "reviewed_family_count": 7,
-      "investment_insurance": "current paper listing represented",
-      "financial_market_common_knowledge_and_ethics": "active exam; no current indexed TII historical-paper listing established; provider ownership/delegation remains a scope decision",
-      "policyholder_service": "active exam; current message page contains schedule, brochure, forms, and textbook corrections but no historical-paper row",
-      "property_insurance_actuarial": "officially discontinued from 2020; current message page contains application/closure material but no historical-paper row",
-      "aml": "current paper listing represented; separate history ZIP remains unresolved",
-      "sustainability": "current paper listing represented",
-      "employment_service": "official navigation labels this accepted commissioned testing; no TII paper-listing denominator established"
-    },
-    "historical_archive_blocker": {
-      "listing_url": "https://edu.tii.org.tw/home/mpage/downloadfiles",
-      "listed_label": "保發中心-防制洗錢測驗歷屆試題",
-      "format": "ZIP",
-      "declared_size": "1.89 MB",
-      "status": "blocked_by_tls_chain",
-      "impact": "archive contents and historical year range are unknown, so the 10-event/24-entry message-page denominator is not historical completeness"
-    },
-    "legal_and_technical": {
-      "tls_status": "blocked_no_verification_bypass",
-      "curl_result": "exit 60: SSL certificate problem: unable to get local issuer certificate",
-      "openssl_result": "verify error 20: unable to get local issuer certificate for the presented *.tii.org.tw leaf",
-      "live_asset_verification": "not performed; no verify=False, curl -k, guessed answer URL, or other trust bypass was used",
-      "robots_status": "unknown because the same TLS verification failure prevents a trustworthy fetch",
-      "rights_evidence": "TII pages display a copyright notice; no exam-PDF republication license was found",
-      "redistribution_status": "operator_or_legal_review_required"
-    },
-    "adapter_gap": {
-      "current_discovery_surface": "exam-intro pages rather than historical message pages",
-      "root_cause": "The parser takes the first page-wide ROC year/round match, accepts every message_download anchor, labels every non-answer anchor as a question, and keeps only the first URL per role.",
-      "collapses_multiple_sections_and_events": true,
-      "brochure_schedule_form_contamination_possible": true,
-      "current_wrong_public_file": "https://edu.tii.org.tw/exam/users/message_download/665",
-      "current_wrong_public_file_identity": "ROC 115 annual investment-insurance examination brochure, revised 2026-06-08, published as question",
-      "configured_intro_family_count": 4,
-      "official_navigation_family_count": 7
-    },
-    "retained_local_state": {
-      "raw_event_pages": 3,
-      "normalized_records": 5,
-      "retained_mirror_files": 5,
-      "mirrors_present_and_checksum_valid": 5,
-      "current_listed_files_under_correct_identity": 4,
-      "current_local_files_not_in_paper_listing": 1,
-      "official_listed_files_source_only": 20,
-      "source_only_events": [
+  "exams": {
+    "tii-cert-aml-2025-2": {
+      "accepted_asset_count": 2,
+      "category_slug": "aml",
+      "discovered_at": "2026-08-01",
+      "event_date": "2025-06-07",
+      "event_label": "114年6月7日 防制洗錢與打擊資恐專業人員測驗",
+      "file_keys": [
+        "official/aml/2025-06-07/main-question.pdf",
+        "official/aml/2025-06-07/main-answer.pdf"
+      ],
+      "local_event_refs": [
         [
-          "tii-cert-aml-2026-2",
-          2026
-        ],
-        [
-          "tii-cert-investment-insurance-2025-09-14",
+          "tii-cert-aml-2025-2",
           2025
-        ],
-        [
-          "tii-cert-sustainability-2024-06-22",
-          2024
-        ],
-        [
-          "tii-cert-sustainability-2024-08-17",
-          2024
-        ],
-        [
-          "tii-cert-sustainability-2025-02-22",
-          2025
-        ],
-        [
-          "tii-cert-sustainability-2025-06-07",
-          2025
-        ],
-        [
-          "tii-cert-sustainability-2026-1",
-          2026
         ]
       ],
-      "local_only_events": [],
-      "wrong_local_asset": {
-        "url": "https://edu.tii.org.tw/exam/users/message_download/665",
-        "bytes": 769250,
-        "checksum": "afee3c3198da056988759eaf803e64f70fef77ec0b575763585d6fd7e6cedd28",
-        "first_page_identity": "115年度 投資型保險商品業務員資格測驗 應試簡章; 2026-06-08 revised V2"
-      }
-    },
-    "publication_risk": {
-      "published_bundle_count": 3,
-      "published_file_records": 5,
-      "published_correct_paper_files": 4,
-      "published_non_paper_files_as_question": 1,
-      "manifest_agreement_warning": "Raw, normalized, bundle, frontend, and release layers agree because they inherited the same intro-page parser output; that agreement does not detect the brochure or 20 missing listed files.",
-      "release_status": "blocked_pending_tls_valid_discovery_historical_zip_reconciliation_content_migration_and_legal_decision"
-    }
-  },
-  "years": {
-    "2024": {
-      "exam_codes": [
-        "tii-cert-sustainability-2024-06-22",
-        "tii-cert-sustainability-2024-08-17"
-      ],
-      "official_event_count": 2,
-      "listed_asset_count": 4,
-      "year_ad": 2024,
-      "year_roc": 113
-    },
-    "2025": {
-      "exam_codes": [
-        "tii-cert-aml-2025-2",
-        "tii-cert-investment-insurance-2025-09-14",
-        "tii-cert-sustainability-2025-02-22",
-        "tii-cert-sustainability-2025-06-07"
-      ],
-      "official_event_count": 4,
-      "listed_asset_count": 10,
+      "source_exam_id": "tii-cert-aml-2025-2",
+      "source_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
       "year_ad": 2025,
+      "year_basis": "explicit ROC date in the official message-page listing",
       "year_roc": 114
     },
-    "2026": {
-      "exam_codes": [
-        "tii-cert-aml-2026-2",
-        "tii-cert-investment-insurance-2026-1",
-        "tii-cert-sustainability-2026-1",
-        "tii-cert-sustainability-2026-3"
+    "tii-cert-aml-2026-2": {
+      "accepted_asset_count": 2,
+      "category_slug": "aml",
+      "discovered_at": "2026-08-01",
+      "event_date": "2026-06-28",
+      "event_label": "115年6月28日 防制洗錢與打擊資恐專業人員測驗",
+      "file_keys": [
+        "official/aml/2026-06-28/main-question.pdf",
+        "official/aml/2026-06-28/main-answer.pdf"
       ],
-      "official_event_count": 4,
-      "listed_asset_count": 10,
+      "local_event_refs": [],
+      "source_exam_id": "tii-cert-aml-2026-2",
+      "source_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
       "year_ad": 2026,
+      "year_basis": "explicit ROC date in the official message-page listing",
       "year_roc": 115
-    }
-  },
-  "exams": {
+    },
     "tii-cert-investment-insurance-2025-09-14": {
       "accepted_asset_count": 4,
       "category_slug": "investment-insurance",
@@ -184,45 +78,6 @@
       ],
       "source_exam_id": "tii-cert-investment-insurance-2026-1",
       "source_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "year_ad": 2026,
-      "year_basis": "explicit ROC date in the official message-page listing",
-      "year_roc": 115
-    },
-    "tii-cert-aml-2025-2": {
-      "accepted_asset_count": 2,
-      "category_slug": "aml",
-      "discovered_at": "2026-08-01",
-      "event_date": "2025-06-07",
-      "event_label": "114年6月7日 防制洗錢與打擊資恐專業人員測驗",
-      "file_keys": [
-        "official/aml/2025-06-07/main-question.pdf",
-        "official/aml/2025-06-07/main-answer.pdf"
-      ],
-      "local_event_refs": [
-        [
-          "tii-cert-aml-2025-2",
-          2025
-        ]
-      ],
-      "source_exam_id": "tii-cert-aml-2025-2",
-      "source_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
-      "year_ad": 2025,
-      "year_basis": "explicit ROC date in the official message-page listing",
-      "year_roc": 114
-    },
-    "tii-cert-aml-2026-2": {
-      "accepted_asset_count": 2,
-      "category_slug": "aml",
-      "discovered_at": "2026-08-01",
-      "event_date": "2026-06-28",
-      "event_label": "115年6月28日 防制洗錢與打擊資恐專業人員測驗",
-      "file_keys": [
-        "official/aml/2026-06-28/main-question.pdf",
-        "official/aml/2026-06-28/main-answer.pdf"
-      ],
-      "local_event_refs": [],
-      "source_exam_id": "tii-cert-aml-2026-2",
-      "source_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
       "year_ad": 2026,
       "year_basis": "explicit ROC date in the official message-page listing",
       "year_roc": 115
@@ -336,357 +191,502 @@
     }
   },
   "files": {
-    "official/investment-insurance/2025-09-14/section-1-question.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
-      "category_slug": "investment-insurance",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "question",
-      "section": "第一節",
-      "listed_label": "114年9月14日-1.投資型保險商品業務員資格測驗─試題(第一節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2025-09-14/section-1-answer.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
-      "category_slug": "investment-insurance",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "answer",
-      "section": "第一節",
-      "listed_label": "114年9月14日-1.投資型保險商品業務員資格測驗─解答(第一節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2025-09-14/section-2-question.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
-      "category_slug": "investment-insurance",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "question",
-      "section": "第二節",
-      "listed_label": "114年9月14日-2.投資型保險商品業務員資格測驗─試題(第二節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2025-09-14/section-2-answer.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
-      "category_slug": "investment-insurance",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "answer",
-      "section": "第二節",
-      "listed_label": "114年9月14日-2.投資型保險商品業務員資格測驗─解答(第二節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2026-01-11/section-1-question.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2026-1",
-      "category_slug": "investment-insurance",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "question",
-      "section": "第一節",
-      "listed_label": "115年1月11日-1.投資型保險商品業務員資格測驗─試題(第一節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/668",
-      "direct_url_evidence": "official indexed result",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2026-01-11/section-1-answer.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2026-1",
-      "category_slug": "investment-insurance",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "answer",
-      "section": "第一節",
-      "listed_label": "115年1月11日-1.投資型保險商品業務員資格測驗─解答(第一節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2026-01-11/section-2-question.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2026-1",
-      "category_slug": "investment-insurance",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "question",
-      "section": "第二節",
-      "listed_label": "115年1月11日-2.投資型保險商品業務員資格測驗─試題(第二節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/670",
-      "direct_url_evidence": "official indexed result",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/investment-insurance/2026-01-11/section-2-answer.pdf": {
-      "source_exam_id": "tii-cert-investment-insurance-2026-1",
-      "category_slug": "investment-insurance",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "answer",
-      "section": "第二節",
-      "listed_label": "115年1月11日-2.投資型保險商品業務員資格測驗─解答(第二節)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/aml/2025-06-07/main-question.pdf": {
-      "source_exam_id": "tii-cert-aml-2025-2",
-      "category_slug": "aml",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "question",
-      "section": "main",
-      "listed_label": "114年6月7日-1.試題 ─ 防制洗錢與打擊資恐法令及實務",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
-      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/640",
-      "direct_url_evidence": "retained source URL and official indexed listing",
-      "status": "retained_under_correct_identity",
-      "live_verification_status": "blocked_by_tls_chain",
-      "local_bytes": 579716,
-      "local_checksum": "6ef7a7216bff9a271588e4ed172cf7851b555e1b8c487e5848de0f45ba3618a5",
-      "local_storage_key": "providers/tii_cert/114/tii-cert-aml-2025-2/aml/main/question.pdf",
-      "retained_checksum_valid": true
-    },
     "official/aml/2025-06-07/main-answer.pdf": {
-      "source_exam_id": "tii-cert-aml-2025-2",
       "category_slug": "aml",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "answer",
-      "section": "main",
-      "listed_label": "114年6月7日-2.解答 ─ 防制洗錢與打擊資恐法令及實務(114/6/30修正)",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
       "direct_url": "https://edu.tii.org.tw/exam/users/message_download/641",
       "direct_url_evidence": "retained source URL and official indexed listing",
-      "status": "retained_under_correct_identity",
+      "file_type": "answer",
+      "listed_label": "114年6月7日-2.解答 ─ 防制洗錢與打擊資恐法令及實務(114/6/30修正)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
       "live_verification_status": "blocked_by_tls_chain",
       "local_bytes": 65449,
       "local_checksum": "ddd85a1c0663ed73bb64db76b9fdd49227b1df502ad2b3d93f5b27e4e74f6b66",
       "local_storage_key": "providers/tii_cert/114/tii-cert-aml-2025-2/aml/main/answer.pdf",
-      "retained_checksum_valid": true
-    },
-    "official/aml/2026-06-28/main-question.pdf": {
-      "source_exam_id": "tii-cert-aml-2026-2",
-      "category_slug": "aml",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "question",
+      "retained_checksum_valid": true,
       "section": "main",
-      "listed_label": "115年6月28日-1.試題 ─ 防制洗錢與打擊資恐法令及實務",
+      "source_exam_id": "tii-cert-aml-2025-2",
+      "status": "retained_under_correct_identity",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/aml/2025-06-07/main-question.pdf": {
+      "category_slug": "aml",
+      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/640",
+      "direct_url_evidence": "retained source URL and official indexed listing",
+      "file_type": "question",
+      "listed_label": "114年6月7日-1.試題 ─ 防制洗錢與打擊資恐法令及實務",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
-      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/674",
-      "direct_url_evidence": "official indexed result",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
+      "live_verification_status": "blocked_by_tls_chain",
+      "local_bytes": 579716,
+      "local_checksum": "6ef7a7216bff9a271588e4ed172cf7851b555e1b8c487e5848de0f45ba3618a5",
+      "local_storage_key": "providers/tii_cert/114/tii-cert-aml-2025-2/aml/main/question.pdf",
+      "retained_checksum_valid": true,
+      "section": "main",
+      "source_exam_id": "tii-cert-aml-2025-2",
+      "status": "retained_under_correct_identity",
+      "year_ad": 2025,
+      "year_roc": 114
     },
     "official/aml/2026-06-28/main-answer.pdf": {
-      "source_exam_id": "tii-cert-aml-2026-2",
       "category_slug": "aml",
-      "year_ad": 2026,
-      "year_roc": 115,
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
       "file_type": "answer",
-      "section": "main",
       "listed_label": "115年6月28日-2.解答 ─ 防制洗錢與打擊資恐法令及實務",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/sustainability/2024-06-22/main-question.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2024-06-22",
-      "category_slug": "sustainability",
-      "year_ad": 2024,
-      "year_roc": 113,
-      "file_type": "question",
+      "live_verification_status": "blocked_by_tls_chain",
       "section": "main",
-      "listed_label": "113年6月22日-1.永續發展基礎能力測驗─試題",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "source_exam_id": "tii-cert-aml-2026-2",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/aml/2026-06-28/main-question.pdf": {
+      "category_slug": "aml",
+      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/674",
+      "direct_url_evidence": "official indexed result",
+      "file_type": "question",
+      "listed_label": "115年6月28日-1.試題 ─ 防制洗錢與打擊資恐法令及實務",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58785",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-aml-2026-2",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/investment-insurance/2025-09-14/section-1-answer.pdf": {
+      "category_slug": "investment-insurance",
       "direct_url": null,
       "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "answer",
+      "listed_label": "114年9月14日-1.投資型保險商品業務員資格測驗─解答(第一節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第一節",
+      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
       "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/investment-insurance/2025-09-14/section-1-question.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "question",
+      "listed_label": "114年9月14日-1.投資型保險商品業務員資格測驗─試題(第一節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第一節",
+      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
+      "status": "source_only",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/investment-insurance/2025-09-14/section-2-answer.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "answer",
+      "listed_label": "114年9月14日-2.投資型保險商品業務員資格測驗─解答(第二節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第二節",
+      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
+      "status": "source_only",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/investment-insurance/2025-09-14/section-2-question.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "question",
+      "listed_label": "114年9月14日-2.投資型保險商品業務員資格測驗─試題(第二節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第二節",
+      "source_exam_id": "tii-cert-investment-insurance-2025-09-14",
+      "status": "source_only",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/investment-insurance/2026-01-11/section-1-answer.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "answer",
+      "listed_label": "115年1月11日-1.投資型保險商品業務員資格測驗─解答(第一節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第一節",
+      "source_exam_id": "tii-cert-investment-insurance-2026-1",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/investment-insurance/2026-01-11/section-1-question.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/668",
+      "direct_url_evidence": "official indexed result",
+      "file_type": "question",
+      "listed_label": "115年1月11日-1.投資型保險商品業務員資格測驗─試題(第一節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第一節",
+      "source_exam_id": "tii-cert-investment-insurance-2026-1",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/investment-insurance/2026-01-11/section-2-answer.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "answer",
+      "listed_label": "115年1月11日-2.投資型保險商品業務員資格測驗─解答(第二節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第二節",
+      "source_exam_id": "tii-cert-investment-insurance-2026-1",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/investment-insurance/2026-01-11/section-2-question.pdf": {
+      "category_slug": "investment-insurance",
+      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/670",
+      "direct_url_evidence": "official indexed result",
+      "file_type": "question",
+      "listed_label": "115年1月11日-2.投資型保險商品業務員資格測驗─試題(第二節)",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "第二節",
+      "source_exam_id": "tii-cert-investment-insurance-2026-1",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
     },
     "official/sustainability/2024-06-22/main-answer.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2024-06-22",
       "category_slug": "sustainability",
-      "year_ad": 2024,
-      "year_roc": 113,
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
       "file_type": "answer",
-      "section": "main",
       "listed_label": "113年6月22日-2.永續發展基礎能力測驗─解答(113.7.8修正)",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/sustainability/2024-08-17/main-question.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2024-08-17",
-      "category_slug": "sustainability",
-      "year_ad": 2024,
-      "year_roc": 113,
-      "file_type": "question",
+      "live_verification_status": "blocked_by_tls_chain",
       "section": "main",
-      "listed_label": "113年8月17日-1.永續發展基礎能力測驗─試題",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "source_exam_id": "tii-cert-sustainability-2024-06-22",
+      "status": "source_only",
+      "year_ad": 2024,
+      "year_roc": 113
+    },
+    "official/sustainability/2024-06-22/main-question.pdf": {
+      "category_slug": "sustainability",
       "direct_url": null,
       "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "question",
+      "listed_label": "113年6月22日-1.永續發展基礎能力測驗─試題",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2024-06-22",
       "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
+      "year_ad": 2024,
+      "year_roc": 113
     },
     "official/sustainability/2024-08-17/main-answer.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2024-08-17",
       "category_slug": "sustainability",
-      "year_ad": 2024,
-      "year_roc": 113,
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
       "file_type": "answer",
-      "section": "main",
       "listed_label": "113年8月17日-2.永續發展基礎能力測驗─解答(113.9.2修正)",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/sustainability/2025-02-22/main-question.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2025-02-22",
-      "category_slug": "sustainability",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "question",
+      "live_verification_status": "blocked_by_tls_chain",
       "section": "main",
-      "listed_label": "114年2月22日-1.永續發展基礎能力測驗─試題",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "source_exam_id": "tii-cert-sustainability-2024-08-17",
+      "status": "source_only",
+      "year_ad": 2024,
+      "year_roc": 113
+    },
+    "official/sustainability/2024-08-17/main-question.pdf": {
+      "category_slug": "sustainability",
       "direct_url": null,
       "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "question",
+      "listed_label": "113年8月17日-1.永續發展基礎能力測驗─試題",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2024-08-17",
       "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
+      "year_ad": 2024,
+      "year_roc": 113
     },
     "official/sustainability/2025-02-22/main-answer.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2025-02-22",
       "category_slug": "sustainability",
-      "year_ad": 2025,
-      "year_roc": 114,
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
       "file_type": "answer",
-      "section": "main",
       "listed_label": "114年2月22日-2.永續發展基礎能力測驗─解答(114.3.13修正)",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
-      "direct_url": null,
-      "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/sustainability/2025-06-07/main-question.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2025-06-07",
-      "category_slug": "sustainability",
-      "year_ad": 2025,
-      "year_roc": 114,
-      "file_type": "question",
+      "live_verification_status": "blocked_by_tls_chain",
       "section": "main",
-      "listed_label": "114年6月7日-1.永續發展基礎能力測驗─試題",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "source_exam_id": "tii-cert-sustainability-2025-02-22",
+      "status": "source_only",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/sustainability/2025-02-22/main-question.pdf": {
+      "category_slug": "sustainability",
       "direct_url": null,
       "direct_url_evidence": "not enumerated because normal TLS verification fails",
+      "file_type": "question",
+      "listed_label": "114年2月22日-1.永續發展基礎能力測驗─試題",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2025-02-22",
       "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
+      "year_ad": 2025,
+      "year_roc": 114
     },
     "official/sustainability/2025-06-07/main-answer.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2025-06-07",
       "category_slug": "sustainability",
-      "year_ad": 2025,
-      "year_roc": 114,
+      "direct_url": null,
+      "direct_url_evidence": "not enumerated because normal TLS verification fails",
       "file_type": "answer",
-      "section": "main",
       "listed_label": "114年6月7日-2.永續發展基礎能力測驗─解答",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2025-06-07",
+      "status": "source_only",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "official/sustainability/2025-06-07/main-question.pdf": {
+      "category_slug": "sustainability",
       "direct_url": null,
       "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/sustainability/2026-01-24/main-question.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2026-1",
-      "category_slug": "sustainability",
-      "year_ad": 2026,
-      "year_roc": 115,
       "file_type": "question",
-      "section": "main",
-      "listed_label": "115年1月24日-1.永續發展基礎能力測驗─試題",
+      "listed_label": "114年6月7日-1.永續發展基礎能力測驗─試題",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
-      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/666",
-      "direct_url_evidence": "official indexed result",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2025-06-07",
       "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
+      "year_ad": 2025,
+      "year_roc": 114
     },
     "official/sustainability/2026-01-24/main-answer.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2026-1",
       "category_slug": "sustainability",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "answer",
-      "section": "main",
-      "listed_label": "115年1月24日-2.永續發展基礎能力測驗─解答",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
       "direct_url": null,
       "direct_url_evidence": "not enumerated because normal TLS verification fails",
-      "status": "source_only",
-      "live_verification_status": "blocked_by_tls_chain"
-    },
-    "official/sustainability/2026-06-06/main-question.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2026-3",
-      "category_slug": "sustainability",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "question",
-      "section": "main",
-      "listed_label": "115年6月6日-1.永續發展基礎能力測驗─試題",
+      "file_type": "answer",
+      "listed_label": "115年1月24日-2.永續發展基礎能力測驗─解答",
       "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
-      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/672",
-      "direct_url_evidence": "retained source URL and official indexed listing",
-      "status": "retained_under_correct_identity",
       "live_verification_status": "blocked_by_tls_chain",
-      "local_bytes": 677770,
-      "local_checksum": "673eab4fdf7ce8ab8ea5ebdffe848ae99ddbf173b28a5aa34ca216b087915ae1",
-      "local_storage_key": "providers/tii_cert/115/tii-cert-sustainability-2026-3/sustainability/main/question.pdf",
-      "retained_checksum_valid": true
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2026-1",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/sustainability/2026-01-24/main-question.pdf": {
+      "category_slug": "sustainability",
+      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/666",
+      "direct_url_evidence": "official indexed result",
+      "file_type": "question",
+      "listed_label": "115年1月24日-1.永續發展基礎能力測驗─試題",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "live_verification_status": "blocked_by_tls_chain",
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2026-1",
+      "status": "source_only",
+      "year_ad": 2026,
+      "year_roc": 115
     },
     "official/sustainability/2026-06-06/main-answer.pdf": {
-      "source_exam_id": "tii-cert-sustainability-2026-3",
       "category_slug": "sustainability",
-      "year_ad": 2026,
-      "year_roc": 115,
-      "file_type": "answer",
-      "section": "main",
-      "listed_label": "115年6月6日-2.永續發展基礎能力測驗─解答",
-      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
       "direct_url": "https://edu.tii.org.tw/exam/users/message_download/673",
       "direct_url_evidence": "retained source URL and official indexed listing",
-      "status": "retained_under_correct_identity",
+      "file_type": "answer",
+      "listed_label": "115年6月6日-2.永續發展基礎能力測驗─解答",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
       "live_verification_status": "blocked_by_tls_chain",
       "local_bytes": 105809,
       "local_checksum": "2803701b058dfa455f2c18db0a26fc51d6727da0efadf4f74b7821cfd0d847f8",
       "local_storage_key": "providers/tii_cert/115/tii-cert-sustainability-2026-3/sustainability/main/answer.pdf",
-      "retained_checksum_valid": true
+      "retained_checksum_valid": true,
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2026-3",
+      "status": "retained_under_correct_identity",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "official/sustainability/2026-06-06/main-question.pdf": {
+      "category_slug": "sustainability",
+      "direct_url": "https://edu.tii.org.tw/exam/users/message_download/672",
+      "direct_url_evidence": "retained source URL and official indexed listing",
+      "file_type": "question",
+      "listed_label": "115年6月6日-1.永續發展基礎能力測驗─試題",
+      "listing_url": "https://edu.tii.org.tw/exam/users/exam_message/58786",
+      "live_verification_status": "blocked_by_tls_chain",
+      "local_bytes": 677770,
+      "local_checksum": "673eab4fdf7ce8ab8ea5ebdffe848ae99ddbf173b28a5aa34ca216b087915ae1",
+      "local_storage_key": "providers/tii_cert/115/tii-cert-sustainability-2026-3/sustainability/main/question.pdf",
+      "retained_checksum_valid": true,
+      "section": "main",
+      "source_exam_id": "tii-cert-sustainability-2026-3",
+      "status": "retained_under_correct_identity",
+      "year_ad": 2026,
+      "year_roc": 115
+    }
+  },
+  "probe_policy": {
+    "adapter_gap": {
+      "brochure_schedule_form_contamination_possible": true,
+      "collapses_multiple_sections_and_events": true,
+      "configured_intro_family_count": 4,
+      "current_discovery_surface": "exam-intro pages rather than historical message pages",
+      "current_wrong_public_file": "https://edu.tii.org.tw/exam/users/message_download/665",
+      "current_wrong_public_file_identity": "ROC 115 annual investment-insurance examination brochure, revised 2026-06-08, published as question",
+      "official_navigation_family_count": 7,
+      "root_cause": "The parser takes the first page-wide ROC year/round match, accepts every message_download anchor, labels every non-answer anchor as a question, and keeps only the first URL per role."
+    },
+    "captured_at": "2026-08-01",
+    "coverage_status": "partial",
+    "declared_scope": "Every dated question/answer entry currently listed on TII message pages 1, 58785, and 58786. Other official exam families are reviewed as explicit source-family boundaries; the AML download-center history ZIP must be enumerated before historical completeness can be assessed.",
+    "direct_url_evidence_count": 8,
+    "direct_urls_not_enumerated": 16,
+    "historical_archive_blocker": {
+      "declared_size": "1.89 MB",
+      "format": "ZIP",
+      "impact": "archive contents and historical year range are unknown, so the 10-event/24-entry message-page denominator is not historical completeness",
+      "listed_label": "保發中心-防制洗錢測驗歷屆試題",
+      "listing_url": "https://edu.tii.org.tw/home/mpage/downloadfiles",
+      "status": "blocked_by_tls_chain"
+    },
+    "legal_and_technical": {
+      "curl_result": "exit 60: SSL certificate problem: unable to get local issuer certificate",
+      "live_asset_verification": "not performed; no verify=False, curl -k, guessed answer URL, or other trust bypass was used",
+      "openssl_result": "verify error 20: unable to get local issuer certificate for the presented *.tii.org.tw leaf",
+      "redistribution_status": "operator_or_legal_review_required",
+      "rights_evidence": "TII pages display a copyright notice; no exam-PDF republication license was found",
+      "robots_status": "unknown because the same TLS verification failure prevents a trustworthy fetch",
+      "tls_status": "blocked_no_verification_bypass"
+    },
+    "official_event_count": 10,
+    "official_listed_file_count": 24,
+    "official_listing_urls": [
+      "https://edu.tii.org.tw/exam/users/exam_message/1",
+      "https://edu.tii.org.tw/exam/users/exam_message/58785",
+      "https://edu.tii.org.tw/exam/users/exam_message/58786"
+    ],
+    "official_paper_family_count": 3,
+    "publication_risk": {
+      "manifest_agreement_warning": "Raw, normalized, bundle, frontend, and release layers agree because they inherited the same intro-page parser output; that agreement does not detect the brochure or 20 missing listed files.",
+      "published_bundle_count": 3,
+      "published_correct_paper_files": 4,
+      "published_file_records": 5,
+      "published_non_paper_files_as_question": 1,
+      "release_status": "blocked_pending_tls_valid_discovery_historical_zip_reconciliation_content_migration_and_legal_decision"
+    },
+    "retained_local_state": {
+      "current_listed_files_under_correct_identity": 4,
+      "current_local_files_not_in_paper_listing": 1,
+      "local_only_events": [],
+      "mirrors_present_and_checksum_valid": 5,
+      "normalized_records": 5,
+      "official_listed_files_source_only": 20,
+      "raw_event_pages": 3,
+      "retained_mirror_files": 5,
+      "source_only_events": [
+        [
+          "tii-cert-aml-2026-2",
+          2026
+        ],
+        [
+          "tii-cert-investment-insurance-2025-09-14",
+          2025
+        ],
+        [
+          "tii-cert-sustainability-2024-06-22",
+          2024
+        ],
+        [
+          "tii-cert-sustainability-2024-08-17",
+          2024
+        ],
+        [
+          "tii-cert-sustainability-2025-02-22",
+          2025
+        ],
+        [
+          "tii-cert-sustainability-2025-06-07",
+          2025
+        ],
+        [
+          "tii-cert-sustainability-2026-1",
+          2026
+        ]
+      ],
+      "wrong_local_asset": {
+        "bytes": 769250,
+        "checksum": "afee3c3198da056988759eaf803e64f70fef77ec0b575763585d6fd7e6cedd28",
+        "first_page_identity": "115年度 投資型保險商品業務員資格測驗 應試簡章; 2026-06-08 revised V2",
+        "url": "https://edu.tii.org.tw/exam/users/message_download/665"
+      }
+    },
+    "source_family_review": {
+      "aml": "current paper listing represented; separate history ZIP remains unresolved",
+      "employment_service": "official navigation labels this accepted commissioned testing; no TII paper-listing denominator established",
+      "financial_market_common_knowledge_and_ethics": "active exam; no current indexed TII historical-paper listing established; provider ownership/delegation remains a scope decision",
+      "investment_insurance": "current paper listing represented",
+      "navigation_url": "https://edu.tii.org.tw/exam/users/apply_exam/0",
+      "policyholder_service": "active exam; current message page contains schedule, brochure, forms, and textbook corrections but no historical-paper row",
+      "property_insurance_actuarial": "officially discontinued from 2020; current message page contains application/closure material but no historical-paper row",
+      "reviewed_family_count": 7,
+      "sustainability": "current paper listing represented"
+    }
+  },
+  "provider_id": "tii_cert",
+  "schema_version": 1,
+  "years": {
+    "2024": {
+      "exam_codes": [
+        "tii-cert-sustainability-2024-06-22",
+        "tii-cert-sustainability-2024-08-17"
+      ],
+      "listed_asset_count": 4,
+      "official_event_count": 2,
+      "year_ad": 2024,
+      "year_roc": 113
+    },
+    "2025": {
+      "exam_codes": [
+        "tii-cert-aml-2025-2",
+        "tii-cert-investment-insurance-2025-09-14",
+        "tii-cert-sustainability-2025-02-22",
+        "tii-cert-sustainability-2025-06-07"
+      ],
+      "listed_asset_count": 10,
+      "official_event_count": 4,
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "2026": {
+      "exam_codes": [
+        "tii-cert-aml-2026-2",
+        "tii-cert-investment-insurance-2026-1",
+        "tii-cert-sustainability-2026-1",
+        "tii-cert-sustainability-2026-3"
+      ],
+      "listed_asset_count": 10,
+      "official_event_count": 4,
+      "year_ad": 2026,
+      "year_roc": 115
     }
   }
 }

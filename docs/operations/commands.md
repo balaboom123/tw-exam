@@ -17,6 +17,8 @@ Use `uv run python -m app` for every application command in local documentation.
 | `build-bundles` | Rebuild ZIP bundles from existing local data (no network). | `uv run python -m app build-bundles --help` |
 | `plan-release` | Plan physical release shards from current site inventory without uploading or deleting assets. | `uv run python -m app plan-release --help` |
 | `audit-catalog` | Audit every provider record and current bundle for identity coverage and mixed groups. | `uv run python -m app audit-catalog --help` |
+| `repair-mirror-collisions` | Audit or re-fetch source URLs sharing a mirror locator. | `uv run python -m app repair-mirror-collisions --help` |
+| `audit-files` | Verify local ZIP structure, catalog coverage, and optional checksums. | `uv run python -m app audit-files --help` |
 | `history-audit` | Audit event-level raw, normalized, mirror, publication, and optional official-source coverage. | `uv run python -m app history-audit --help` |
 | `migrate-catalog` | Reclassify all retained provider state into exam-identity-v2 without network access. | `uv run python -m app migrate-catalog --help` |
 | `publish-site` | Aggregate provider outputs and publish one site. | `uv run python -m app publish-site --help` |

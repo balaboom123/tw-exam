@@ -1,58 +1,4 @@
 {
-  "schema_version": 1,
-  "provider_id": "taigi_cert",
-  "probe_policy": {
-    "captured_at": "2026-08-01",
-    "coverage_status": "partial",
-    "declared_scope": "The A, B, and C sample-paper and audio groups on the Ministry of Education Taiwanese-language self-learning resource page. Two general learning resources are explicitly excluded as non-exam material.",
-    "official_listing_urls": [
-      "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
-    ],
-    "official_listed_resource_count": 37,
-    "accepted_exam_resource_count": 35,
-    "excluded_non_exam_resources": [
-      {"label": "學習地圖", "url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_109.pdf"},
-      {"label": "就是各門派比較啦", "url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_110.pdf"}
-    ],
-    "adapter_gap": {
-      "source_year_status": "undated",
-      "retained_year": 2026,
-      "synthetically_dated_events": 3,
-      "root_cause": "The adapter assigns the process date although the official resource groups do not declare an exam or publication year."
-    },
-    "retained_local_state": {
-      "raw_event_pages": 3,
-      "normalized_records": 35,
-      "sync_failures": 0,
-      "source_urls_matching_accepted_listing": 35,
-      "mirror_files": 35,
-      "mirror_bytes": 269789418,
-      "unreferenced_mirror_files": 0
-    },
-    "legal_and_technical": {
-      "robots_url": "https://ttg.moe.edu.tw/robots.txt",
-      "robots_status": "Generic agents are disallowed from the whole site; even named allowed search bots are disallowed from /tmt/src/, which contains the downloadable assets.",
-      "automated_mirroring_status": "blocked_pending_written_permission_or_policy_change",
-      "redistribution_status": "operator_or_legal_review_required",
-      "access_control_bypassed": false
-    },
-    "publication_risk": {
-      "published_bundle_count": 1,
-      "published_file_records": 35,
-      "public_bundle_title": "臺灣台語語言能力認證 A卷",
-      "taxonomy_gap": "The one public A-form bundle contains all A, B, and C records through legacy canonical IDs, obscuring the three source groups.",
-      "wrong_or_unsupported_year_records": 35,
-      "release_status": "blocked_pending_identity_taxonomy_robots_and_redistribution_decisions"
-    }
-  },
-  "years": {
-    "2026": {
-      "exam_codes": ["taigi-cert-a-2026", "taigi-cert-b-2026", "taigi-cert-c-2026"],
-      "listed_asset_count": 35,
-      "year_ad": 2026,
-      "year_basis": "Audit capture year only; the source resources are undated."
-    }
-  },
   "exams": {
     "taigi-cert-a-2026": {
       "accepted_asset_count": 12,
@@ -76,5 +22,69 @@
       "year_basis": "Synthetic capture year; requires migration to a stable undated identity."
     }
   },
-  "files": {}
+  "files": {},
+  "probe_policy": {
+    "accepted_exam_resource_count": 35,
+    "adapter_gap": {
+      "retained_year": 2026,
+      "root_cause": "The adapter assigns the process date although the official resource groups do not declare an exam or publication year.",
+      "source_year_status": "undated",
+      "synthetically_dated_events": 3
+    },
+    "captured_at": "2026-08-01",
+    "coverage_status": "partial",
+    "declared_scope": "The A, B, and C sample-paper and audio groups on the Ministry of Education Taiwanese-language self-learning resource page. Two general learning resources are explicitly excluded as non-exam material.",
+    "excluded_non_exam_resources": [
+      {
+        "label": "學習地圖",
+        "url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_109.pdf"
+      },
+      {
+        "label": "就是各門派比較啦",
+        "url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_110.pdf"
+      }
+    ],
+    "legal_and_technical": {
+      "access_control_bypassed": false,
+      "automated_mirroring_status": "blocked_pending_written_permission_or_policy_change",
+      "redistribution_status": "operator_or_legal_review_required",
+      "robots_status": "Generic agents are disallowed from the whole site; even named allowed search bots are disallowed from /tmt/src/, which contains the downloadable assets.",
+      "robots_url": "https://ttg.moe.edu.tw/robots.txt"
+    },
+    "official_listed_resource_count": 37,
+    "official_listing_urls": [
+      "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+    ],
+    "publication_risk": {
+      "public_bundle_title": "臺灣台語語言能力認證 A卷",
+      "published_bundle_count": 1,
+      "published_file_records": 35,
+      "release_status": "blocked_pending_identity_taxonomy_robots_and_redistribution_decisions",
+      "taxonomy_gap": "The one public A-form bundle contains all A, B, and C records through legacy canonical IDs, obscuring the three source groups.",
+      "wrong_or_unsupported_year_records": 35
+    },
+    "retained_local_state": {
+      "mirror_bytes": 269789418,
+      "mirror_files": 35,
+      "normalized_records": 35,
+      "raw_event_pages": 3,
+      "source_urls_matching_accepted_listing": 35,
+      "sync_failures": 0,
+      "unreferenced_mirror_files": 0
+    }
+  },
+  "provider_id": "taigi_cert",
+  "schema_version": 1,
+  "years": {
+    "2026": {
+      "exam_codes": [
+        "taigi-cert-a-2026",
+        "taigi-cert-b-2026",
+        "taigi-cert-c-2026"
+      ],
+      "listed_asset_count": 35,
+      "year_ad": 2026,
+      "year_basis": "Audit capture year only; the source resources are undated."
+    }
+  }
 }

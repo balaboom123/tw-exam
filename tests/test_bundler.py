@@ -14,7 +14,7 @@ from app.models import NormalizedCatalog, NormalizedPaper
 
 
 ARCHIVE_SCHEMA = Draft202012Validator(json.loads(
-    (Path(__file__).resolve().parents[1] / "schemas/bundle-archive-manifest-v2.schema.json").read_text()
+    (Path(__file__).resolve().parents[1] / "schemas/bundle-archive-manifest-v3.schema.json").read_text()
 ))
 
 
@@ -808,7 +808,7 @@ class BundlerTests(unittest.TestCase):
             self.assertEqual(reused.bundles[0].checksum, bundle.checksum)
             self.assertEqual(path.stat().st_mtime_ns, marker)
 
-    def test_old_full_manifest_reuses_archive_after_provider_only_metadata_changes(self) -> None:
+    def test_old_full_manifest_recovers_payload_into_source_complete_manifest(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
             source = root / "mirror/question.pdf"
@@ -841,9 +841,12 @@ class BundlerTests(unittest.TestCase):
             reused = build_bundles(root / "bundles", root / "mirror", catalog, "")
 
             self.assertEqual(reused.failures, [])
-            self.assertEqual(archive_path.read_bytes(), old_bytes)
-            self.assertEqual(archive_path.stat().st_mtime_ns, marker)
-            self.assertEqual(reused.bundles[0].checksum, hashlib.sha256(old_bytes).hexdigest())
+            self.assertNotEqual(archive_path.read_bytes(), old_bytes)
+            with zipfile.ZipFile(archive_path) as archive:
+                upgraded = json.loads(archive.read("bundle.json"))
+                self.assertEqual(upgraded["manifest_version"], 3)
+                self.assertEqual(upgraded["papers"][0]["download_url_source"], paper.download_url_source)
+                self.assertEqual(archive.read(upgraded["papers"][0]["bundle_entry"]), payload)
 
     def test_manifest_paper_order_does_not_force_rewriting_an_unchanged_archive(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

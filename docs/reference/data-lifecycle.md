@@ -10,6 +10,14 @@ Providers that implement the probe URL model compare year/event HEAD responses a
 
 Sync downloads into `mirror/providers/<provider_id>/`. Mirror locators preserve year, event, category, subject, and file-role distinctions. Valid files are reused; successfully refreshed files replace stale siblings with incorrect extensions. Each retained payload receives a SHA-256 checksum.
 
+When one source page assigns different URLs to the same paper codes, acquisition
+adds a source-URL digest to each mirror locator. Already split locators remain
+split when later listings shrink. Normalization uses each parsed paper's own
+mirror metadata so one source cannot overwrite another source's checksum.
+`repair-mirror-collisions` re-fetches ambiguous retained locators and updates raw
+and normalized references only after every affected URL for a provider succeeds.
+It does not advance whole-event sync receipts for this partial repair.
+
 Legacy mirror fallback validates each candidate once. A valid historical payload
 can replace an invalid scoped copy without another source download, using the
 checksum returned by the mirror writer. Mirror deduplication uses hard links;
@@ -49,7 +57,9 @@ The site publisher owns exclusion. History audit reports quarantined events sepa
 
 The [site configuration](../../app/site_registry.py) selects eligible providers and bundles. The [bundler](../../app/bundler.py) reads normalized papers and validated mirror files, reuses matching unchanged single-part archives, and verifies ZIP CRC for entries whose mirror files are absent before reuse. Deterministic entry timestamps and permissions stabilize rebuilt bytes; completed archive checksums are streamed from files.
 
-New archive manifests retain paper keys, checksums, and entry names. Older full-record manifests remain readable and may be reused when projected content agrees. Already compressed media are stored without a second compression pass; manifest text remains compressed.
+New archive manifests retain year- and source-URL-aware paper keys, checksums,
+and entry names. Earlier full-record and compact manifests remain readable for
+recovery but are rebuilt into the current manifest version. Already compressed media are stored without a second compression pass; manifest text remains compressed.
 
 Publication also checks a reusable local ZIP against its retained published archive checksum. A differing local archive is rebuilt; mirrored files and entries recovered from an older ZIP must match their recorded paper checksums. Rebuilds hash mirrored bytes as they are copied and stage the new archive separately, preserving the previous ZIP when a mirror checksum or I/O operation fails. Restore a verified mirror or download before retrying a checksum failure.
 

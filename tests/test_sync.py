@@ -944,3 +944,47 @@ class SyncExamPagesTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_distinct_urls_with_reused_codes_have_independent_mirrors(tmp_path):
+    class CollidingClient(QuestionOnlyClient):
+        def fetch_exam_page(self, exam_code, year_ad):
+            page = super().fetch_exam_page(exam_code, year_ad)
+            from copy import deepcopy
+            first = page.papers[0]
+            second = deepcopy(first)
+            second.files = {'question': 'https://example.test/different.pdf'}
+            page.papers = [first] if getattr(self, 'only_first', False) else [first, second]
+            return page
+
+        def download_file(self, url):
+            self.downloaded_urls.append(url)
+            return DownloadedFile(data=b'%PDF-1.7 ' + url.encode(),
+                                  content_type='application/pdf', file_name='paper.pdf')
+
+    client = CollidingClient()
+    store = MirrorStore(tmp_path)
+    pages, catalog, failures = sync_exam_pages(
+        client, [('115030', 2026)], store, [], '', download_attachments=False,
+    )
+    assert not failures
+    assert len(catalog.papers) == 2
+    assert len({p.storage_key for p in catalog.papers}) == 2
+    assert len({p.checksum for p in catalog.papers}) == 2
+    for paper in catalog.papers:
+        assert (tmp_path / paper.storage_key).read_bytes() == b'%PDF-1.7 ' + paper.download_url_source.encode()
+
+    # A later listing with only one surviving URL must not reuse the old,
+    # ambiguous unsuffixed mirror again.
+    first = catalog.papers[0]
+    legacy_key = first.storage_key.split('--source-')[0] + '.pdf'
+    store.write_bytes(legacy_key, b'%PDF-1.7 wrong old payload')
+    client.only_first = True
+    client.downloaded_urls.clear()
+    _, refreshed, failures = sync_exam_pages(
+        client, [('115030', 2026)], store, [], '', download_attachments=False,
+    )
+    assert not failures
+    assert not client.downloaded_urls
+    assert refreshed.papers[0].storage_key == first.storage_key
+    assert refreshed.papers[0].checksum == first.checksum

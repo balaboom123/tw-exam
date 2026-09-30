@@ -1,79 +1,221 @@
 {
-  "schema_version": 1,
-  "provider_id": "tqc_cert",
+  "exams": {
+    "tqc-cert-samples-2015": {
+      "source_exam_id": "tqc-cert-samples-2015",
+      "year_ad": 2015
+    },
+    "tqc-cert-samples-2016": {
+      "source_exam_id": "tqc-cert-samples-2016",
+      "year_ad": 2016
+    },
+    "tqc-cert-samples-2017": {
+      "source_exam_id": "tqc-cert-samples-2017",
+      "year_ad": 2017
+    },
+    "tqc-cert-samples-2018": {
+      "source_exam_id": "tqc-cert-samples-2018",
+      "year_ad": 2018
+    },
+    "tqc-cert-samples-2019": {
+      "source_exam_id": "tqc-cert-samples-2019",
+      "year_ad": 2019
+    },
+    "tqc-cert-samples-2020": {
+      "source_exam_id": "tqc-cert-samples-2020",
+      "year_ad": 2020
+    },
+    "tqc-cert-samples-2021": {
+      "source_exam_id": "tqc-cert-samples-2021",
+      "year_ad": 2021
+    },
+    "tqc-cert-samples-2022": {
+      "source_exam_id": "tqc-cert-samples-2022",
+      "year_ad": 2022
+    },
+    "tqc-cert-samples-2023": {
+      "source_exam_id": "tqc-cert-samples-2023",
+      "year_ad": 2023
+    },
+    "tqc-cert-samples-2025": {
+      "source_exam_id": "tqc-cert-samples-2025",
+      "year_ad": 2025
+    },
+    "tqc-cert-samples-2026": {
+      "source_exam_id": "tqc-cert-samples-2026",
+      "year_ad": 2026
+    }
+  },
+  "files": {},
   "probe_policy": {
     "captured_at": "2026-08-01",
     "coverage_status": "partial",
     "declared_scope": "All 44 PDF rows across the four current pages of the official TQC sample-paper listing. TQC+ is a separate product family and is outside this provider unless explicitly approved.",
-    "official_listing_urls": [
-      "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
-    ],
-    "official_page_count": 4,
-    "official_event_count": 11,
-    "official_listed_file_count": 44,
-    "live_payload_reconciliation": {
-      "payloads_checked": 44,
-      "matching_retained_payloads": 35,
-      "wrong_retained_payloads": 9,
-      "root_cause": "Five groups reuse generic input-method or Linux labels; storage keys derived from those labels collapse distinct official URLs.",
-      "mismatches": [
-        {"year_ad": 2015, "label": "Linux系統管理", "url": "http://www.tqc.org.tw/user/Example/9E7AFB2D-FCED-4FB2-857A-75F4F1A5C7C4.pdf", "bytes": 468885, "sha256": "30189c205db0e651d0da086e93e5987df72ec30d366163916e18a183f27b7f47"},
-        {"year_ad": 2016, "label": "數字輸入", "url": "http://www.tqc.org.tw/user/Example/BE0B3258-7965-47AE-BE7B-659F4A372DFA.pdf", "bytes": 138860, "sha256": "902838d278a25d407dc13c4f0a82221c52a020e41b2b10e9c903b51abefbdf02"},
-        {"year_ad": 2016, "label": "英文輸入", "url": "http://www.tqc.org.tw/user/Example/200F8A0A-D854-460D-9C3C-4B6BA2B6E05B.pdf", "bytes": 102708, "sha256": "099618c42a44cccf938979379070d013407fca20b38a00f6c5ba033860157e45"},
-        {"year_ad": 2021, "label": "英文輸入", "url": "http://www.tqc.org.tw/user/Example/2E1958CB-3761-4394-A716-1FD7E672E3AB.pdf", "bytes": 171239, "sha256": "3e5ea9de86175abe6b81ada5cf21c16667c492db69e2b01e446898d82415d08f"},
-        {"year_ad": 2021, "label": "數字輸入", "url": "http://www.tqc.org.tw/user/Example/53A02EA3-2258-40AA-98FA-D007E775904D.pdf", "bytes": 172854, "sha256": "f615b9946d320f5605123a916be73e979202746d8135879d0d46c9e69f93cb1a"},
-        {"year_ad": 2022, "label": "英文輸入", "url": "http://www.tqc.org.tw/user/Example/6C55AF67-1AB7-4EF1-9DC9-F49E4FB79007.pdf", "bytes": 118903, "sha256": "116860aba6254fa94500a96b0b1af707d101992043fea306df61e5f4b280cc1d"},
-        {"year_ad": 2022, "label": "數字輸入", "url": "http://www.tqc.org.tw/user/Example/0373C03E-0678-4BB1-AACC-B7A63E494D6C.pdf", "bytes": 156872, "sha256": "a1b7cb3298b67b243ed790347eab1bf85ca95cd5fd0ba858f0112ebf7451e84a"},
-        {"year_ad": 2023, "label": "英文輸入", "url": "http://www.tqc.org.tw/user/Example/12335E28-A98C-4557-9019-0CDF4BCA4D95.pdf", "bytes": 135957, "sha256": "33cf043fda11484fb81ed61528fd1eb9a198a4585f09ca366e2a38755f65dca2"},
-        {"year_ad": 2023, "label": "數字輸入", "url": "http://www.tqc.org.tw/user/Example/162AE180-F003-459F-8236-97FDB62EDC2D.pdf", "bytes": 126342, "sha256": "a72393d267a6c3c2cd01685dd8c5e7bdd8a57981b275daf58a81790ce14fed0d"}
-      ]
-    },
-    "retained_local_state": {
-      "raw_event_pages": 11,
-      "normalized_records": 44,
-      "sync_failures": 0,
-      "source_urls_matching_current_listing": 44,
-      "mirror_files": 45,
-      "mirror_bytes": 31542072,
-      "unreferenced_mirror_files": 10,
-      "unreferenced_mirror_bytes": 5315538
-    },
     "legal_and_technical": {
       "redistribution_status": "operator_or_legal_review_required",
       "restriction": "The listing describes the PDFs as candidate reference samples; broader CSF pages prohibit reposting/excerpting without authorization. No sample-paper republication grant was established.",
       "robots_status": "The wildcard robots policy disallows /TQC/ but does not explicitly disallow the listing path /TQCNet/."
     },
+    "live_payload_reconciliation": {
+      "matching_retained_payloads": 35,
+      "mismatches": [
+        {
+          "bytes": 468885,
+          "label": "Linux系統管理",
+          "sha256": "30189c205db0e651d0da086e93e5987df72ec30d366163916e18a183f27b7f47",
+          "url": "http://www.tqc.org.tw/user/Example/9E7AFB2D-FCED-4FB2-857A-75F4F1A5C7C4.pdf",
+          "year_ad": 2015
+        },
+        {
+          "bytes": 138860,
+          "label": "數字輸入",
+          "sha256": "902838d278a25d407dc13c4f0a82221c52a020e41b2b10e9c903b51abefbdf02",
+          "url": "http://www.tqc.org.tw/user/Example/BE0B3258-7965-47AE-BE7B-659F4A372DFA.pdf",
+          "year_ad": 2016
+        },
+        {
+          "bytes": 102708,
+          "label": "英文輸入",
+          "sha256": "099618c42a44cccf938979379070d013407fca20b38a00f6c5ba033860157e45",
+          "url": "http://www.tqc.org.tw/user/Example/200F8A0A-D854-460D-9C3C-4B6BA2B6E05B.pdf",
+          "year_ad": 2016
+        },
+        {
+          "bytes": 171239,
+          "label": "英文輸入",
+          "sha256": "3e5ea9de86175abe6b81ada5cf21c16667c492db69e2b01e446898d82415d08f",
+          "url": "http://www.tqc.org.tw/user/Example/2E1958CB-3761-4394-A716-1FD7E672E3AB.pdf",
+          "year_ad": 2021
+        },
+        {
+          "bytes": 172854,
+          "label": "數字輸入",
+          "sha256": "f615b9946d320f5605123a916be73e979202746d8135879d0d46c9e69f93cb1a",
+          "url": "http://www.tqc.org.tw/user/Example/53A02EA3-2258-40AA-98FA-D007E775904D.pdf",
+          "year_ad": 2021
+        },
+        {
+          "bytes": 118903,
+          "label": "英文輸入",
+          "sha256": "116860aba6254fa94500a96b0b1af707d101992043fea306df61e5f4b280cc1d",
+          "url": "http://www.tqc.org.tw/user/Example/6C55AF67-1AB7-4EF1-9DC9-F49E4FB79007.pdf",
+          "year_ad": 2022
+        },
+        {
+          "bytes": 156872,
+          "label": "數字輸入",
+          "sha256": "a1b7cb3298b67b243ed790347eab1bf85ca95cd5fd0ba858f0112ebf7451e84a",
+          "url": "http://www.tqc.org.tw/user/Example/0373C03E-0678-4BB1-AACC-B7A63E494D6C.pdf",
+          "year_ad": 2022
+        },
+        {
+          "bytes": 135957,
+          "label": "英文輸入",
+          "sha256": "33cf043fda11484fb81ed61528fd1eb9a198a4585f09ca366e2a38755f65dca2",
+          "url": "http://www.tqc.org.tw/user/Example/12335E28-A98C-4557-9019-0CDF4BCA4D95.pdf",
+          "year_ad": 2023
+        },
+        {
+          "bytes": 126342,
+          "label": "數字輸入",
+          "sha256": "a72393d267a6c3c2cd01685dd8c5e7bdd8a57981b275daf58a81790ce14fed0d",
+          "url": "http://www.tqc.org.tw/user/Example/162AE180-F003-459F-8236-97FDB62EDC2D.pdf",
+          "year_ad": 2023
+        }
+      ],
+      "payloads_checked": 44,
+      "root_cause": "Five groups reuse generic input-method or Linux labels; storage keys derived from those labels collapse distinct official URLs.",
+      "wrong_retained_payloads": 9
+    },
+    "official_event_count": 11,
+    "official_listed_file_count": 44,
+    "official_listing_urls": [
+      "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+    ],
+    "official_page_count": 4,
     "publication_risk": {
       "published_file_records": 44,
-      "wrong_payload_records": 9,
-      "release_status": "blocked_pending_collision_proof_storage_migration_and_redistribution_decision"
+      "release_status": "blocked_pending_collision_proof_storage_migration_and_redistribution_decision",
+      "wrong_payload_records": 9
+    },
+    "retained_local_state": {
+      "mirror_bytes": 31542072,
+      "mirror_files": 45,
+      "normalized_records": 44,
+      "raw_event_pages": 11,
+      "source_urls_matching_current_listing": 44,
+      "sync_failures": 0,
+      "unreferenced_mirror_bytes": 5315538,
+      "unreferenced_mirror_files": 10
     }
   },
+  "provider_id": "tqc_cert",
+  "schema_version": 1,
   "years": {
-    "2015": {"exam_codes": ["tqc-cert-samples-2015"], "year_ad": 2015},
-    "2016": {"exam_codes": ["tqc-cert-samples-2016"], "year_ad": 2016},
-    "2017": {"exam_codes": ["tqc-cert-samples-2017"], "year_ad": 2017},
-    "2018": {"exam_codes": ["tqc-cert-samples-2018"], "year_ad": 2018},
-    "2019": {"exam_codes": ["tqc-cert-samples-2019"], "year_ad": 2019},
-    "2020": {"exam_codes": ["tqc-cert-samples-2020"], "year_ad": 2020},
-    "2021": {"exam_codes": ["tqc-cert-samples-2021"], "year_ad": 2021},
-    "2022": {"exam_codes": ["tqc-cert-samples-2022"], "year_ad": 2022},
-    "2023": {"exam_codes": ["tqc-cert-samples-2023"], "year_ad": 2023},
-    "2025": {"exam_codes": ["tqc-cert-samples-2025"], "year_ad": 2025},
-    "2026": {"exam_codes": ["tqc-cert-samples-2026"], "year_ad": 2026}
-  },
-  "exams": {
-    "tqc-cert-samples-2015": {"source_exam_id": "tqc-cert-samples-2015", "year_ad": 2015},
-    "tqc-cert-samples-2016": {"source_exam_id": "tqc-cert-samples-2016", "year_ad": 2016},
-    "tqc-cert-samples-2017": {"source_exam_id": "tqc-cert-samples-2017", "year_ad": 2017},
-    "tqc-cert-samples-2018": {"source_exam_id": "tqc-cert-samples-2018", "year_ad": 2018},
-    "tqc-cert-samples-2019": {"source_exam_id": "tqc-cert-samples-2019", "year_ad": 2019},
-    "tqc-cert-samples-2020": {"source_exam_id": "tqc-cert-samples-2020", "year_ad": 2020},
-    "tqc-cert-samples-2021": {"source_exam_id": "tqc-cert-samples-2021", "year_ad": 2021},
-    "tqc-cert-samples-2022": {"source_exam_id": "tqc-cert-samples-2022", "year_ad": 2022},
-    "tqc-cert-samples-2023": {"source_exam_id": "tqc-cert-samples-2023", "year_ad": 2023},
-    "tqc-cert-samples-2025": {"source_exam_id": "tqc-cert-samples-2025", "year_ad": 2025},
-    "tqc-cert-samples-2026": {"source_exam_id": "tqc-cert-samples-2026", "year_ad": 2026}
-  },
-  "files": {}
+    "2015": {
+      "exam_codes": [
+        "tqc-cert-samples-2015"
+      ],
+      "year_ad": 2015
+    },
+    "2016": {
+      "exam_codes": [
+        "tqc-cert-samples-2016"
+      ],
+      "year_ad": 2016
+    },
+    "2017": {
+      "exam_codes": [
+        "tqc-cert-samples-2017"
+      ],
+      "year_ad": 2017
+    },
+    "2018": {
+      "exam_codes": [
+        "tqc-cert-samples-2018"
+      ],
+      "year_ad": 2018
+    },
+    "2019": {
+      "exam_codes": [
+        "tqc-cert-samples-2019"
+      ],
+      "year_ad": 2019
+    },
+    "2020": {
+      "exam_codes": [
+        "tqc-cert-samples-2020"
+      ],
+      "year_ad": 2020
+    },
+    "2021": {
+      "exam_codes": [
+        "tqc-cert-samples-2021"
+      ],
+      "year_ad": 2021
+    },
+    "2022": {
+      "exam_codes": [
+        "tqc-cert-samples-2022"
+      ],
+      "year_ad": 2022
+    },
+    "2023": {
+      "exam_codes": [
+        "tqc-cert-samples-2023"
+      ],
+      "year_ad": 2023
+    },
+    "2025": {
+      "exam_codes": [
+        "tqc-cert-samples-2025"
+      ],
+      "year_ad": 2025
+    },
+    "2026": {
+      "exam_codes": [
+        "tqc-cert-samples-2026"
+      ],
+      "year_ad": 2026
+    }
+  }
 }

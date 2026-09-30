@@ -1,68 +1,4 @@
 {
-  "schema_version": 1,
-  "provider_id": "tocfl_cert",
-  "probe_policy": {
-    "captured_at": "2026-08-01",
-    "coverage_status": "partial",
-    "declared_scope": "Every direct reference and downloadable mock-test asset on the official reference-download and mock-test pages. This excludes browser-only tests and is not an archive of every administered TOCFL sitting.",
-    "official_listing_urls": [
-      "https://tocfl.edu.tw/tocfl/index.php/exam/download",
-      "https://tocfl.edu.tw/tocfl/index.php/exam/test/page/1?pressBtn=%28%E9%A1%8C%E5%BA%AB%29"
-    ],
-    "official_reference_asset_count": 3,
-    "official_mock_asset_count": 92,
-    "official_unique_url_count": 95,
-    "mock_page_statement": "The official page says the 2,138-question bank was updated in October 2025 and that the rolling question-bank model began in 2024.",
-    "adapter_gap": {
-      "source_identity": ["tocfl-cert-mock-current", 2025],
-      "retained_identity": ["tocfl-cert-2026", 2026],
-      "wrong_event_or_year_records": 92,
-      "root_cause": "The adapter assigns the process date to an undated rolling mock bank. Capture year 2026 is not an official resource year."
-    },
-    "retained_local_state": {
-      "raw_event_pages": 3,
-      "normalized_records": 95,
-      "sync_failures": 0,
-      "source_urls_matching_current_listing": 95,
-      "mirror_files": 190,
-      "mirror_bytes": 4402208094,
-      "unreferenced_mirror_files": 95,
-      "unreferenced_mirror_bytes": 2201104047,
-      "source_only_events": [["tocfl-cert-mock-current", 2025]],
-      "local_only_events": [["tocfl-cert-2026", 2026]]
-    },
-    "legal_and_technical": {
-      "redistribution_status": "operator_or_legal_review_required",
-      "restriction": "The mock page states that the materials are TOCFL copyrighted, for learning use, and not for commercial use; the footer reserves rights. No blanket GitHub redistribution grant was established.",
-      "robots_status": "No machine-readable robots policy was found at the canonical host."
-    },
-    "publication_risk": {
-      "published_file_records": 95,
-      "wrong_event_or_year_records": 92,
-      "manifest_agreement_warning": "URL agreement propagated the runtime year through raw, normalized, bundle, frontend, and release layers.",
-      "release_status": "blocked_pending_stable_identity_and_redistribution_decision"
-    }
-  },
-  "years": {
-    "2022": {
-      "exam_codes": ["tocfl-cert-2022"],
-      "listed_asset_count": 2,
-      "year_ad": 2022,
-      "year_roc": 111
-    },
-    "2024": {
-      "exam_codes": ["tocfl-cert-2024"],
-      "listed_asset_count": 1,
-      "year_ad": 2024,
-      "year_roc": 113
-    },
-    "2025": {
-      "exam_codes": ["tocfl-cert-mock-current"],
-      "listed_asset_count": 92,
-      "year_ad": 2025,
-      "year_roc": 114
-    }
-  },
   "exams": {
     "tocfl-cert-2022": {
       "accepted_asset_count": 2,
@@ -86,5 +22,91 @@
       "year_basis": "Stable rolling-bank identity anchored only to the official page's October 2025 update statement; not an administered-exam year."
     }
   },
-  "files": {}
+  "files": {},
+  "probe_policy": {
+    "adapter_gap": {
+      "retained_identity": [
+        "tocfl-cert-2026",
+        2026
+      ],
+      "root_cause": "The adapter assigns the process date to an undated rolling mock bank. Capture year 2026 is not an official resource year.",
+      "source_identity": [
+        "tocfl-cert-mock-current",
+        2025
+      ],
+      "wrong_event_or_year_records": 92
+    },
+    "captured_at": "2026-08-01",
+    "coverage_status": "partial",
+    "declared_scope": "Every direct reference and downloadable mock-test asset on the official reference-download and mock-test pages. This excludes browser-only tests and is not an archive of every administered TOCFL sitting.",
+    "legal_and_technical": {
+      "redistribution_status": "operator_or_legal_review_required",
+      "restriction": "The mock page states that the materials are TOCFL copyrighted, for learning use, and not for commercial use; the footer reserves rights. No blanket GitHub redistribution grant was established.",
+      "robots_status": "No machine-readable robots policy was found at the canonical host."
+    },
+    "mock_page_statement": "The official page says the 2,138-question bank was updated in October 2025 and that the rolling question-bank model began in 2024.",
+    "official_listing_urls": [
+      "https://tocfl.edu.tw/tocfl/index.php/exam/download",
+      "https://tocfl.edu.tw/tocfl/index.php/exam/test/page/1?pressBtn=%28%E9%A1%8C%E5%BA%AB%29"
+    ],
+    "official_mock_asset_count": 92,
+    "official_reference_asset_count": 3,
+    "official_unique_url_count": 95,
+    "publication_risk": {
+      "manifest_agreement_warning": "URL agreement propagated the runtime year through raw, normalized, bundle, frontend, and release layers.",
+      "published_file_records": 95,
+      "release_status": "blocked_pending_stable_identity_and_redistribution_decision",
+      "wrong_event_or_year_records": 92
+    },
+    "retained_local_state": {
+      "local_only_events": [
+        [
+          "tocfl-cert-2026",
+          2026
+        ]
+      ],
+      "mirror_bytes": 4402208094,
+      "mirror_files": 190,
+      "normalized_records": 95,
+      "raw_event_pages": 3,
+      "source_only_events": [
+        [
+          "tocfl-cert-mock-current",
+          2025
+        ]
+      ],
+      "source_urls_matching_current_listing": 95,
+      "sync_failures": 0,
+      "unreferenced_mirror_bytes": 2201104047,
+      "unreferenced_mirror_files": 95
+    }
+  },
+  "provider_id": "tocfl_cert",
+  "schema_version": 1,
+  "years": {
+    "2022": {
+      "exam_codes": [
+        "tocfl-cert-2022"
+      ],
+      "listed_asset_count": 2,
+      "year_ad": 2022,
+      "year_roc": 111
+    },
+    "2024": {
+      "exam_codes": [
+        "tocfl-cert-2024"
+      ],
+      "listed_asset_count": 1,
+      "year_ad": 2024,
+      "year_roc": 113
+    },
+    "2025": {
+      "exam_codes": [
+        "tocfl-cert-mock-current"
+      ],
+      "listed_asset_count": 92,
+      "year_ad": 2025,
+      "year_roc": 114
+    }
+  }
 }
