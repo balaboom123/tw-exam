@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 import sys
@@ -13,6 +14,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
+from app.classification import TRACK_TITLED_PROVIDERS
 from app.coverage_exceptions import failure_exception_for, load_coverage_exceptions
 from app.paths import provider_paths
 from app.publisher import load_site_catalog, load_site_provider_indexes
@@ -22,7 +24,10 @@ from app.site_registry import get_site_config
 from app.source_inventory import validate_source_inventory
 from app.state import load_provider_failures
 
-GENERIC_SUBJECT_PREFIXES = ("wdasec-skill-", "ceec-gsat-", "ceec-ast-", "tcte-tve-")
+GENERIC_SUBJECT_PREFIXES = tuple(
+    sorted(f"{provider.replace('_', '-')}-" for provider in TRACK_TITLED_PROVIDERS)
+)
+_INTERNAL_ID_IN_TITLE = re.compile(r"stage-\d|[a-z]{3,}-[a-z0-9]{2,}")
 
 
 def fail(message: str) -> None:
@@ -95,6 +100,15 @@ def validate_distinct_track_titles(rows):
     ambiguous = [key[2] for key, tracks in tracks_by_title.items() if len(tracks) > 1]
     if ambiguous:
         fail("different subject/occupation tracks share a public title: " + ", ".join(ambiguous))
+
+
+def validate_readable_titles(rows):
+    leaked = [row["name"] for row in rows if _INTERNAL_ID_IN_TITLE.search(row["name"])]
+    if leaked:
+        fail(
+            f"{len(leaked)} public titles expose internal identifiers: "
+            + ", ".join(leaked[:5])
+        )
 
 
 def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
@@ -209,6 +223,7 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
         fail("frontend feed and site publication logical bundle sets differ")
 
     validate_distinct_track_titles(feed_rows)
+    validate_readable_titles(feed_rows)
     return len(site_rows), len(feed_rows), len(release_rows)
 
 

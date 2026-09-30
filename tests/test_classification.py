@@ -19,6 +19,29 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_public_titles_use_source_labels_not_internal_ids(self) -> None:
+        group = classify("一般行政（兩岸組一）", "115年公務人員高等考試三級", source="high-group-1")
+        elective = classify("外交領事人員（選試日文）", "115年公務人員特種考試外交領事人員考試", source="diplomatic-115")
+        staged = classify("律師", "115年專門職業及技術人員高等考試律師考試第二試", source="lawyer-115")
+
+        self.assertIn("cross-strait-group-1", group.variant_ids)
+        self.assertIn("cross-strait-group-1", group.bundle_id)
+        self.assertTrue(group.bundle_name.endswith("｜兩岸組一"), group.bundle_name)
+        self.assertTrue(any(v.startswith("elective-") for v in elective.variant_ids))
+        self.assertIn("選試日文", elective.bundle_name)
+        self.assertEqual(staged.stage_id, "stage-2")
+        self.assertIn("stage-2", staged.bundle_id)
+        self.assertTrue(staged.bundle_name.endswith("｜第二試"), staged.bundle_name)
+        for identity in (group, elective, staged):
+            self.assertNotRegex(identity.bundle_name, r"stage-\d|[a-z]{3,}-[a-z0-9]{2,}")
+
+    def test_overlapping_variant_wording_appears_once(self) -> None:
+        broadcast = classify("新聞廣播（選試日文、國語與閩南語播音）", "115年公務人員普通考試", source="ordinary-115")
+
+        self.assertEqual(len(broadcast.variant_ids), 2)
+        self.assertTrue(broadcast.bundle_name.endswith("｜選試日文、國語與閩南語播音"), broadcast.bundle_name)
+        self.assertEqual(broadcast.bundle_name.count("選試"), 1)
+
     def test_whitespace_skill_subject_uses_its_recorded_subject_code(self) -> None:
         blank = classify("甲級", "技能檢定", provider="wdasec_skill", canonical="skill", subject="")
         whitespace = classify("甲級", "技能檢定", provider="wdasec_skill", canonical="skill", subject=" \t\u3000")

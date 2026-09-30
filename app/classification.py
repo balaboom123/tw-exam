@@ -231,26 +231,36 @@ def _parenthetical_values(text: str) -> list[str]:
     return [normalize_text(value) for value in re.findall(r"[（(]([^）)]*)[）)]", text)]
 
 
-def _variant_ids(category: str, exam_name: str) -> tuple[str, ...]:
+_STAGE_LABELS = {"stage-1": "第一試", "stage-2": "第二試", "stage-3": "第三試", "pretest": "預試"}
+# Providers whose public title appends the track label; validate_publication
+# derives its bundle-id prefixes from this set.
+TRACK_TITLED_PROVIDERS = frozenset({"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill"})
+
+
+def _variants(category: str, exam_name: str) -> tuple[tuple[str, str], ...]:
+    """Variant ids with the source wording that produced each one."""
     text = normalize_text(f"{category} {exam_name}")
-    values: list[str] = []
+    found: dict[str, str] = {}
     for value in _parenthetical_values(text):
         if re.search(r"一般組", value):
-            values.append("general-group")
+            found.setdefault("general-group", "一般組")
         match = re.search(r"兩岸組\s*([一二三1-3])", value)
         if match:
             number = {"一": "1", "二": "2", "三": "3"}.get(match.group(1), match.group(1))
-            values.append(f"cross-strait-group-{number}")
+            found.setdefault(f"cross-strait-group-{number}", f"兩岸組{'一二三'[int(number) - 1]}")
         match = re.search(r"選試\s*(.+)", value)
         if match:
-            values.append(f"elective-{_slug(match.group(1), prefix='language')}")
+            found.setdefault(
+                f"elective-{_slug(match.group(1), prefix='language')}", f"選試{match.group(1)}"
+            )
         if any(token in value for token in ("國防部", "退輔會", "海委會")):
-            values.append(f"destination-{_slug(value, prefix='destination')}")
+            found.setdefault(f"destination-{_slug(value, prefix='destination')}", value)
         if "錄取分發區" in value:
-            values.append(f"distribution-{_slug(value.replace('錄取分發區', ''), prefix='region')}")
-    direct_language = re.findall(r"選試\s*([一-龥A-Za-z]+)", text)
-    values.extend(f"elective-{_slug(language, prefix='language')}" for language in direct_language)
-    return tuple(dict.fromkeys(sorted(values)))
+            region = value.replace("錄取分發區", "")
+            found.setdefault(f"distribution-{_slug(region, prefix='region')}", value)
+    for language in re.findall(r"選試\s*([一-龥A-Za-z]+)", text):
+        found.setdefault(f"elective-{_slug(language, prefix='language')}", f"選試{language}")
+    return tuple(sorted(found.items()))
 
 
 def _stage_id(category: str, exam_name: str) -> str:
@@ -888,7 +898,8 @@ def _classify_paper_uncached(
         source_exam_id,
         exam_name,
     )
-    variants = _variant_ids(category, exam_name)
+    variant_pairs = _variants(category, exam_name)
+    variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
     if not source_exam_id:
         confidence = "review"
@@ -910,17 +921,25 @@ def _classify_paper_uncached(
         track_display = _display(track_label, canonical_name)
         level_display = _LEVEL_LABELS.get(level_id, level_label)
         bundle_name = f"{series_label}｜{level_display}｜{track_display}"
-        if variants:
-            bundle_name += f"｜{'、'.join(variants)}"
+        # The track text often already carries the wording (e.g. a region), and
+        # two patterns can match one phrase; keep only the longest wording.
+        candidates = [label for _variant_id, label in variant_pairs if label not in bundle_name]
+        labels = [
+            label
+            for label in dict.fromkeys(candidates)
+            if not any(label != other and label in other for other in candidates)
+        ]
+        if labels:
+            bundle_name += f"｜{'、'.join(labels)}"
         if stage_id != NOT_APPLICABLE:
-            bundle_name += f"｜{stage_id}"
+            bundle_name += f"｜{_STAGE_LABELS[stage_id]}"
     else:
         bundle_name = _display(canonical_name, track_label)
         if level_id not in {NOT_APPLICABLE, "unknown"}:
             bundle_name = f"{bundle_name}｜{level_label}"
         # These providers publish separate subject/occupation tracks under a
         # shared legacy canonical name. Surface the identity discriminator.
-        if provider_id in {"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill"}:
+        if provider_id in TRACK_TITLED_PROVIDERS:
             label = track_label
             if provider_id in {"ceec_gsat", "ceec_ast"}:
                 label = re.sub(r"^(?:分科測驗|學科能力測驗)\s*[-－]\s*", "", label)
