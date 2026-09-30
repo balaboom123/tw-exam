@@ -728,13 +728,16 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("schedule:", workflow)
         self.assertIn("cron:", workflow)
 
-    def test_pages_deploy_ignores_failed_upstream_syncs(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "deploy-pages.yml").read_text(encoding="utf-8")
-
-        self.assertIn(
-            "if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}",
-            workflow,
+    def test_pages_deploy_runs_after_partially_failed_callers(self) -> None:
+        # One failed matrix leg must not hold back the legs that published:
+        # every push a caller made already passed the commit guard.
+        workflow = _workflow(
+            (REPO_ROOT / ".github" / "workflows" / "deploy-pages.yml").read_text(encoding="utf-8")
         )
+        condition = workflow["jobs"]["deploy"]["if"]
+        self.assertIn("github.event_name != 'workflow_run'", condition)
+        self.assertIn("github.event.workflow_run.conclusion != 'cancelled'", condition)
+        self.assertNotIn("== 'success'", condition)
 
     def test_shared_publisher_gates_generated_data_before_commit(self) -> None:
         # Bot-authored pushes do not start push CI, so every generated-data

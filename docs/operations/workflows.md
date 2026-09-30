@@ -38,10 +38,10 @@ diagnose it, but that state is not committed to `main`. A provider workflow
 that publishes site bundles commits provider and site state together only after
 its release upload succeeds. The failed Actions run and, for scheduled
 workflows, its single workflow-health issue retain the operational evidence
-while the last deployable provider state stays checked in. Pages ignores failed upstream
-workflow runs; a successful sync or the daily Pages backstop rebuilds and
-deploys the current site feed. CI and the generated-state commit guard own
-the Python and catalog gates.
+while the last deployable provider state stays checked in. Pages deploys after
+completed sync runs, including runs with failed matrix legs; cancelled runs are
+skipped. The daily Pages backstop also rebuilds and deploys the current site
+feed. CI and the generated-state commit guard own the Python and catalog gates.
 
 ## Health reporting
 

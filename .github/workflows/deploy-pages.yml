@@ -45,7 +45,8 @@ concurrency:
 
 jobs:
   deploy:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    # Deploy current main after completed callers, including callers with failed matrix legs.
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion != 'cancelled' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
