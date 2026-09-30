@@ -23,7 +23,17 @@ case $# in
 esac
 
 cd "$(git rev-parse --show-toplevel)"
-export GITHUB_REPOSITORY="${GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner --jq .nameWithOwner)}"
+if [[ -z "${GITHUB_REPOSITORY:-}" ]]; then
+  if ! GITHUB_REPOSITORY="$(gh repo view --json nameWithOwner --jq .nameWithOwner)"; then
+    echo "Unable to determine GITHUB_REPOSITORY with gh." >&2
+    exit 1
+  fi
+fi
+if [[ -z "$GITHUB_REPOSITORY" ]]; then
+  echo "GITHUB_REPOSITORY must not be empty." >&2
+  exit 1
+fi
+export GITHUB_REPOSITORY
 
 uv run --frozen python -m app migrate-catalog --repo-root . --site-id default
 uv run --frozen python -m app publish-site --repo-root . --site-id default \
