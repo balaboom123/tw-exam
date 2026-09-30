@@ -563,8 +563,9 @@ def test_save_prunes_only_after_the_pointer_is_committed():
     assert source.index('"PATCH"') < source.index("prune_generations(")
 
 
-def test_save_warns_and_returns_pointer_when_post_pointer_asset_listing_fails(
-    packed, tmp_path, monkeypatch, capsys
+@pytest.mark.parametrize("failure", ["listing", "malformed", "delete"])
+def test_save_warns_and_returns_pointer_when_post_pointer_pruning_fails(
+    packed, tmp_path, monkeypatch, capsys, failure
 ):
     root, source = packed
     pointer = {
@@ -583,7 +584,11 @@ def test_save_warns_and_returns_pointer_when_post_pointer_asset_listing_fails(
         nonlocal calls
         calls += 1
         if calls == 3:
-            raise subprocess.CalledProcessError(1, ["gh", "api", "assets"])
+            if failure == "malformed":
+                raise json.JSONDecodeError("invalid assets response", "{", 0)
+            if failure == "listing":
+                raise subprocess.CalledProcessError(1, ["gh", "api", "assets"])
+            return [{"id": 77, "name": "snapshot-old.json"}]
         return list(uploaded.values())
 
     monkeypatch.setattr(mirror, "assets", list_assets)
@@ -597,6 +602,8 @@ def test_save_warns_and_returns_pointer_when_post_pointer_asset_listing_fails(
         if args[:3] == ("api", "--method", "PATCH"):
             patches.append(json.loads(Path(args[-1]).read_text()))
             return ""
+        if args[:3] == ("api", "--method", "DELETE"):
+            raise subprocess.CalledProcessError(1, ["gh", *args])
         pytest.fail(f"Unexpected operation: {args}")
 
     monkeypatch.setattr(mirror, "gh", gh)
@@ -604,7 +611,11 @@ def test_save_warns_and_returns_pointer_when_post_pointer_asset_listing_fails(
 
     assert result["generation"] == "new"
     assert patches and json.loads(remote["body"])["generation"] == "pilot-1"
-    assert "Could not list snapshot assets for pruning" in capsys.readouterr().err
+    warning = capsys.readouterr().err
+    if failure == "delete":
+        assert "Could not prune snapshot-old.json" in warning
+    else:
+        assert "Could not list snapshot assets for pruning" in warning
 
 
 def test_changed_mirror_between_probe_and_upload_preserves_pointer(packed, tmp_path, monkeypatch):

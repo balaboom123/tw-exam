@@ -479,7 +479,7 @@ def prune_generations(repository: str, release_id: int, keep: set[str]) -> list[
     keep = {checked_generation(generation) for generation in keep}
     try:
         inventory = assets(repository, release_id)
-    except subprocess.CalledProcessError as exc:
+    except (subprocess.CalledProcessError, json.JSONDecodeError) as exc:
         print(f"Could not list snapshot assets for pruning: {exc}", file=sys.stderr)
         return []
 
