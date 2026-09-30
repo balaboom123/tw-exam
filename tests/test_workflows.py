@@ -874,6 +874,129 @@ def _load_health_script():
 class WorkflowHealthTest(unittest.TestCase):
     # sync-incremental failed on 2026-07-13, 07-20, 07-27 and 08-03 without
     # anything reacting, while 86% of the published catalog went stale.
+    def test_orphaned_issues_for_removed_workflows_are_closed_across_pages(self) -> None:
+        module = _load_health_script()
+        first = [{"number": 49, "title": "Workflow health: sync-ceec-gsat"}]
+        first.extend({"number": i, "title": "Other issue"} for i in range(100, 199))
+        second = [
+            {"number": 73, "title": "Workflow health: sync-admissions"},
+            {"number": 80, "title": "Site shows a wrong year"},
+            {"number": 81, "title": "Workflow health: old", "pull_request": {}},
+        ]
+        with mock.patch.object(module, "_close") as close_mock:
+            def pages(path, *args):
+                if "page=2" in args:
+                    close_mock.assert_not_called()
+                    return second
+                return first
+
+            with mock.patch.object(module, "_gh_api", side_effect=pages) as api:
+                closed = module.close_orphaned_issues("o/r", {"Workflow health: sync-admissions"})
+
+        self.assertEqual(closed, 1)
+        self.assertEqual(close_mock.call_args.args[:2], ("o/r", 49))
+        self.assertIn("page=2", api.call_args_list[1].args)
+
+    def test_housekeeping_preserves_non_workflow_issue_titles(self) -> None:
+        module = _load_health_script()
+        module.NON_WORKFLOW_ISSUES = ("source-drift",)
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[]), \
+                mock.patch.object(module, "close_orphaned_issues", return_value=0) as cleanup:
+            self.assertEqual(module.housekeeping(), 0)
+        live = cleanup.call_args.args[1]
+        self.assertIn("Workflow health: sync-admissions", live)
+        self.assertIn("Workflow health: source-drift", live)
+        self.assertEqual(cleanup.call_args.args[0], "o/r")
+
+    def test_daily_command_runs_housekeeping(self) -> None:
+        module = _load_health_script()
+        with mock.patch.object(module, "daily", return_value=0) as daily, \
+                mock.patch.object(module, "housekeeping", return_value=0) as housekeeping:
+            self.assertEqual(module.main(["daily", "--max-age-days", "14"]), 0)
+        daily.assert_called_once_with(14)
+        housekeeping.assert_called_once_with()
+
+    def test_staleness_graces_new_workflow_and_closes_only_staleness(self) -> None:
+        module = _load_health_script()
+        created = (datetime.now(timezone.utc) - timedelta(days=2)).isoformat()
+        workflows = [{"id": 1, "name": "sync-certifications", "interval_days": 7, "created_at": created}]
+        for body, should_close in (
+            ("`sync-certifications` has no successful run within the last 14 days", True),
+            ("`sync-certifications` concluded **failure**.", False),
+            ("`sync-certifications` exceeded 3 times its recent median", False),
+        ):
+            with self.subTest(body=body):
+                existing = {"number": 42, "body": body}
+                with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                        mock.patch.object(module, "_scheduled_workflows", return_value=workflows), \
+                        mock.patch.object(module, "_last_success", return_value=None), \
+                        mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                        mock.patch.object(module, "_close") as close_mock, \
+                        mock.patch.object(module, "_create_issue") as create_mock:
+                    module.stale(14)
+                self.assertEqual(close_mock.call_count, int(should_close))
+                create_mock.assert_not_called()
+
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=workflows), \
+                mock.patch.object(module, "_last_success", return_value=None), \
+                mock.patch.object(module, "_open_health_issue", return_value=None), \
+                mock.patch.object(module, "_create_issue") as create_mock:
+            module.stale(14)
+        create_mock.assert_not_called()
+
+    def test_failed_matrix_legs_are_named_and_paginated(self) -> None:
+        module = _load_health_script()
+        jobs = [{"name": f"ok-{i}", "conclusion": "success"} for i in range(99)]
+        jobs.append({"name": "teacher_recruit_tainan / sync", "conclusion": "failure"})
+        with mock.patch.object(module, "_gh_api", side_effect=[
+            {"jobs": jobs}, {"jobs": [{"name": "teacher_recruit_kaohsiung / sync", "conclusion": "timed_out"}]}
+        ]) as api:
+            names = module.failed_job_names("o/r", {"id": 5})
+        self.assertEqual(names, ["teacher_recruit_tainan / sync", "teacher_recruit_kaohsiung / sync"])
+        self.assertIn("page=2", api.call_args_list[1].args)
+        self.assertEqual(module.failed_job_names("o/r", {"conclusion": "failure"}), [])
+
+    def test_existing_failure_body_updates_when_failed_legs_change(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "sync-education", "timeout_minutes": 120}
+        run = {"id": 5, "status": "completed", "conclusion": "failure", "html_url": "https://example/run/5"}
+        existing = {"number": 42, "body": "`sync-education` concluded **failure**.\n\nRun: https://example/run/5"}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                mock.patch.object(module, "_gh_api", return_value={"jobs": [
+                    {"name": "teacher_recruit_tainan / teacher_recruit_tainan sync", "conclusion": "failure"},
+                    {"name": "hce_cmu / hce_cmu sync", "conclusion": "success"},
+                ]}), \
+                mock.patch.object(module, "_replace_issue_body") as replace_mock:
+            module.audit_latest()
+
+        replace_mock.assert_called_once()
+        self.assertIn("- `teacher_recruit_tainan / teacher_recruit_tainan sync`", replace_mock.call_args.args[2])
+        self.assertNotIn("hce_cmu", replace_mock.call_args.args[2])
+
+    def test_new_failure_issue_names_failed_matrix_leg(self) -> None:
+        module = _load_health_script()
+        workflow = {"id": 1, "name": "sync-education", "timeout_minutes": 120}
+        run = {"id": 5, "status": "completed", "conclusion": "failure", "html_url": "https://example/run/5"}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
+                mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_open_health_issue", return_value=None), \
+                mock.patch.object(module, "_gh_api", return_value={"jobs": [
+                    {"name": "teacher_recruit_tainan / teacher_recruit_tainan sync", "conclusion": "failure"},
+                    {"name": "hce_cmu / hce_cmu sync", "conclusion": "success"},
+                ]}), \
+                mock.patch.object(module, "_create_issue") as create_mock:
+            module.audit_latest()
+
+        body = create_mock.call_args.args[2]
+        self.assertIn("- `teacher_recruit_tainan / teacher_recruit_tainan sync`", body)
+        self.assertNotIn("hce_cmu", body)
+
     def _scheduled_workflow_names(self) -> list[str]:
         names = []
         for path in sorted((REPO_ROOT / ".github" / "workflows").glob("*.yml")):

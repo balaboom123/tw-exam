@@ -26,6 +26,9 @@ HEALTH_LABEL = "workflow-health"
 # A short cancellation may be intentional deploy supersession. The daily audit
 # reports cancellation only when its elapsed runtime reaches the job timeout.
 UNHEALTHY_CONCLUSIONS = ("failure", "timed_out")
+# Health issues that do not belong to a scheduled workflow and must survive
+# orphan cleanup.
+NON_WORKFLOW_ISSUES: tuple[str, ...] = ()
 
 
 def _repository() -> str:
@@ -126,6 +129,52 @@ def _close(repository: str, number: int, body: str) -> None:
     )
 
 
+def close_orphaned_issues(repository: str, live_titles: set[str]) -> int:
+    """Close health issues whose workflow no longer has a schedule in this tree."""
+    prefix = _issue_title("")
+    orphaned = []
+    page = 1
+    while True:
+        issues = _gh_api(
+            f"repos/{repository}/issues", "-X", "GET",
+            "-f", "state=open", "-f", f"labels={HEALTH_LABEL}",
+            "-f", "per_page=100", "-f", f"page={page}",
+        ) or []
+        for issue in issues:
+            title = str(issue.get("title", ""))
+            if "pull_request" in issue or not title.startswith(prefix) or title in live_titles:
+                continue
+            orphaned.append(issue)
+        if len(issues) < 100:
+            break
+        page += 1
+    for issue in orphaned:
+        name = str(issue["title"]).removeprefix(prefix)
+        _close(repository, issue["number"], f"`{name}` no longer exists as a scheduled workflow.")
+    return len(orphaned)
+
+
+def failed_job_names(repository: str, run: dict) -> list[str]:
+    if "id" not in run:
+        return []
+    names = []
+    page = 1
+    while True:
+        payload = _gh_api(
+            f"repos/{repository}/actions/runs/{run['id']}/jobs",
+            "-X", "GET", "-f", "per_page=100", "-f", f"page={page}",
+        )
+        jobs = payload.get("jobs", []) if isinstance(payload, dict) else []
+        names.extend(
+            job["name"] for job in jobs
+            if job.get("conclusion") in ("failure", "timed_out", "cancelled")
+            and job.get("name")
+        )
+        if len(jobs) < 100:
+            return names
+        page += 1
+
+
 def _is_staleness_issue(issue: dict) -> bool:
     return "has no successful" in str(issue.get("body", ""))
 
@@ -199,6 +248,22 @@ def _scheduled_workflow_paths() -> dict[str, int]:
         if "\n  schedule:\n" in text:
             paths[f".github/workflows/{path.name}"] = _interval_days(text)
     return paths
+
+
+def _scheduled_workflow_names() -> set[str]:
+    """Read names from scheduled files, including workflows disabled in GitHub."""
+    names = set()
+    for relative_path in _scheduled_workflow_paths():
+        path = WORKFLOWS_DIR / Path(relative_path).name
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.startswith("name:"):
+                name = line.partition(":")[2].strip().strip("\"'")
+                if name:
+                    names.add(name)
+                    break
+        else:
+            raise ValueError(f"scheduled workflow has no top-level name: {path}")
+    return names
 
 
 def _scheduled_workflows(repository: str) -> list[dict]:
@@ -357,11 +422,13 @@ def audit_latest() -> int:
         if conclusion not in (*UNHEALTHY_CONCLUSIONS, "cancelled"):
             continue
         unhealthy += 1
-        body = f"`{name}` concluded **{conclusion}**.\n\nRun: {run.get('html_url', '')}"
+        legs = failed_job_names(repository, run)
+        detail = ("\n\nFailed jobs:\n" + "\n".join(f"- `{leg}`" for leg in legs)) if legs else ""
+        body = f"`{name}` concluded **{conclusion}**.{detail}\n\nRun: {run.get('html_url', '')}"
         if existing is None:
             _create_issue(repository, name, body)
             print(f"opened health issue for {name} ({conclusion})")
-        elif _is_staleness_issue(existing) or _is_slow_issue(existing):
+        elif existing.get("body") != body:
             # A recent success can resolve staleness even when a newer run
             # failed. Keep that current failure visible to the stale pass.
             _replace_issue_body(repository, existing["number"], body)
@@ -399,6 +466,17 @@ def stale(max_age_days: int) -> int:
         # one costs little: the latest-run audit reports outright failures
         # daily, and this pass catches schedules that stop firing at all.
         window = max(max_age_days, 2 * workflow["interval_days"])
+        created = datetime.fromisoformat(
+            str(workflow.get("created_at", "1970-01-01T00:00:00+00:00")).replace("Z", "+00:00")
+        )
+        if created > now - timedelta(days=window):
+            existing = _open_health_issue(repository, name)
+            if existing is not None and _is_staleness_issue(existing):
+                _close(repository, existing["number"],
+                       f"`{name}` is still inside its {window}-day first-run window.")
+                print(f"closed premature staleness issue #{existing['number']} for {name}")
+            print(f"{name} is younger than its {window}-day window; skipping staleness")
+            continue
         last = _last_success(repository, workflow["id"])
         if last is not None and last >= now - timedelta(days=window):
             existing = _open_health_issue(repository, name)
@@ -429,6 +507,15 @@ def stale(max_age_days: int) -> int:
     return 0
 
 
+def housekeeping() -> int:
+    repository = _repository()
+    live = {_issue_title(name) for name in _scheduled_workflow_names()}
+    live.update(_issue_title(name) for name in NON_WORKFLOW_ISSUES)
+    closed = close_orphaned_issues(repository, live)
+    print(f"closed {closed} issue(s) for workflows that no longer exist")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -447,7 +534,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "report":
         return report(args.workflow, args.conclusion, args.run_url)
     if args.command == "daily":
-        return daily(args.max_age_days)
+        result = daily(args.max_age_days)
+        housekeeping()
+        return result
     return stale(args.max_age_days)
 
 

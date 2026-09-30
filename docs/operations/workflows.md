@@ -51,7 +51,9 @@ that lasted at least the workflow's largest configured timeout, including matrix
 superseded Pages deployments are ignored. A later success closes a failure
 issue; repeated failures do not add notification comments. A new failure replaces
 an older staleness or slow-run explanation in the same issue, so clearing
-staleness cannot hide a newer failed run.
+staleness cannot hide a newer failed run. Failure issues list failed job names,
+including provider matrix legs, and refresh their body when the latest failed
+run changes.
 
 A successful run also raises an issue when its duration exceeds three times
 the median of at least three prior successful runs (up to ten are checked).
@@ -63,6 +65,11 @@ accepts a successful full manual rerun on `main` as recovery. Provider-only
 pilots that skip other sync jobs do not clear whole-workflow health or enter
 its timing baseline. Branch experiments are excluded. This also detects
 workflows that stop completing their full provider scope.
+New workflows get their full staleness window before a missing success is
+reported. The daily audit closes a premature staleness issue during that
+window, while retaining any failure or slow-run issue. It also closes health
+issues for workflows whose schedule has been removed from the checked-in
+workflow files; disabled workflows with a schedule remain covered.
 
 Manual diagnosis uses:
 
