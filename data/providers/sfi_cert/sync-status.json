@@ -1,0 +1,21 @@
+{
+  "events": {
+    "sfi-cert-aml-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-aml-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-corporate-internal-control-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-corporate-internal-control-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-futures-dealer-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-futures-dealer-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-securities-analyst-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-securities-analyst-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-securities-dealer-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-securities-dealer-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-senior-securities-dealer-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-senior-securities-dealer-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-sitca-2026-1": "2026-09-30T11:15:46Z",
+    "sfi-cert-sitca-2026-2": "2026-09-30T11:15:46Z",
+    "sfi-cert-sustainability-2026-2": "2026-09-30T11:15:46Z"
+  },
+  "provider_id": "sfi_cert",
+  "schema_version": 1
+}
