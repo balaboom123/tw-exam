@@ -182,7 +182,6 @@ TRANSPORT_EXCEPTIONS = {
 }
 # Not migrated yet; remove one entry per migration commit.
 PENDING_TRANSPORT_MIGRATIONS = {
-    "hakka_cert/client.py",
     "moea_recruit/client.py",
     "taipower_recruit/client.py",
     "taisugar_recruit/client.py",
