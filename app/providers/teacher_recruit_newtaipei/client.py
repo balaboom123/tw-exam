@@ -7,10 +7,10 @@ from dataclasses import dataclass
 from email.message import Message
 from pathlib import Path
 from urllib.parse import quote, unquote, unquote_plus, urlparse, urlsplit, urlunsplit
-from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 LIST_API_URL = (
     "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/temopn_newtea_list"
@@ -198,16 +198,14 @@ class NewTaipeiTeacherRecruitClient:
     def __init__(self) -> None:
         self._notice_cache: list[NewTaipeiNotice] | None = None
         self._exam_notice_cache: dict[str, NewTaipeiNotice] | None = None
+        self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _fetch_json(self, url: str) -> object:
-        request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=60) as response:
-            return json.loads(response.read().decode("utf-8-sig"))
+        return json.loads(self.http.get_text(_request_url(url), encoding="utf-8-sig"))
 
     def _fetch_bytes(self, url: str) -> tuple[bytes, Message]:
-        request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=120) as response:
-            return response.read(), response.headers
+        data, headers, _status = self.http._request(_request_url(url), timeout=120)
+        return data, headers
 
     def _notices(self) -> list[NewTaipeiNotice]:
         if self._notice_cache is None:
@@ -295,19 +293,15 @@ class NewTaipeiTeacherRecruitClient:
 
     def head(self, url: str) -> ResponseMetadata:
         download_url = self._token_download_url(url)
-        request = Request(
-            _request_url(download_url), headers={"User-Agent": USER_AGENT}, method="HEAD"
+        metadata = self.http.head(_request_url(download_url))
+        return ResponseMetadata(
+            url=url,
+            status=metadata.status,
+            content_length=metadata.content_length,
+            content_type=metadata.content_type,
+            content_disposition=metadata.content_disposition,
+            cache_control=metadata.cache_control,
         )
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
 
     def download_file(self, url: str) -> DownloadedFile:
         download_url = self._token_download_url(url)
