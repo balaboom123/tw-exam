@@ -185,7 +185,6 @@ PENDING_TRANSPORT_MIGRATIONS = {
     "moea_recruit/client.py",
     "taipower_recruit/client.py",
     "taisugar_recruit/client.py",
-    "teacher_recruit_central_alliance/client.py",
 }
 
 

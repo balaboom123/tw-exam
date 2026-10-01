@@ -16,10 +16,10 @@ from urllib.parse import (
     urlsplit,
     urlunsplit,
 )
-from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 BASE_URL = "https://qa115-tse-cl.twrecruit.com.tw"
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-central-alliance-mirror/1.0)"
@@ -154,6 +154,7 @@ class CentralAllianceRecruitClient:
     ) -> None:
         self.subject_html_by_level = subject_html_by_level or {}
         self.final_html_by_level = final_html_by_level or {}
+        self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _subject_url(self, level_code: str) -> str:
         return f"{BASE_URL}/Subject/news.php?cate={LEVELS[level_code][1]}"
@@ -162,10 +163,7 @@ class CentralAllianceRecruitClient:
         return f"{BASE_URL}/Ans2/news.php?cate={LEVELS[level_code][1]}"
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=60) as response:
-            raw: bytes = response.read()
-        return raw.decode("utf-8-sig", "replace")
+        return self.http.get_text(_request_url(url), encoding="utf-8-sig")
 
     def _subject_html(self, level_code: str) -> str:
         if level_code not in self.subject_html_by_level:
@@ -244,25 +242,17 @@ class CentralAllianceRecruitClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_request_url(url), headers={"User-Agent": USER_AGENT}, method="HEAD")
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(_request_url(url))
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(_request_url(url), headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=120) as response:
-            content_disposition = response.headers.get("Content-Disposition", "")
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=_filename_from_content_disposition(content_disposition)
-                or Path(unquote(urlparse(url).path)).name,
-            )
+        data, headers, _status = self.http._request(_request_url(url), timeout=120)
+        content_disposition = headers.get("Content-Disposition", "")
+        file_name = (
+            _filename_from_content_disposition(content_disposition)
+            or Path(unquote(urlparse(url).path)).name
+        )
+        return DownloadedFile(
+            data=data,
+            content_type=headers.get("Content-Type", "application/octet-stream"),
+            file_name=file_name,
+        )
