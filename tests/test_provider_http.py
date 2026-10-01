@@ -14,6 +14,9 @@ from app.providers.special_admission.client import SpecialAdmissionClient
 from app.providers.tabf_cert.client import TabfCertClient
 from app.providers.taisugar_recruit.client import TaisugarRecruitClient
 from app.providers.tcte_tve.client import TcteTveClient
+from app.providers.teacher_recruit_kaohsiung.client import KaohsiungTeacherRecruitClient
+from app.providers.teacher_recruit_tainan.client import TainanTeacherRecruitClient
+from app.providers.teacher_recruit_taoyuan_elementary.client import TaoyuanElementaryRecruitClient
 from app.providers.tocfl_cert.client import TocflCertClient
 from app.providers.tqc_cert.client import TqcCertClient
 from app.providers.twc_recruit.client import TwcRecruitClient
@@ -38,6 +41,21 @@ class Response:
 
 
 class ProviderHttpTests(unittest.TestCase):
+    def test_loop_decoders_strip_utf8_bom_and_preserve_big5_fallback(self) -> None:
+        for client_type in (
+            TainanTeacherRecruitClient,
+            TaoyuanElementaryRecruitClient,
+            KaohsiungTeacherRecruitClient,
+        ):
+            with self.subTest(client=client_type.__name__):
+                client = client_type()
+                for raw in (b"\xef\xbb\xbfhello", "測試".encode("big5")):
+                    with patch("app.providers.http.urlopen", return_value=Response(raw)):
+                        self.assertEqual(
+                            client._fetch_text("https://example.test/page"),
+                            "hello" if raw.startswith(b"\xef\xbb\xbf") else "測試",
+                        )
+
     def test_tqc_form_post_decodes_unlabelled_big5(self) -> None:
         with patch(
             "app.providers.http.urlopen",

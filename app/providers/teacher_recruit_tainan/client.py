@@ -128,7 +128,7 @@ class TainanTeacherRecruitClient:
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _fetch_text(self, url: str) -> str:
-        return self.http.get_text(_request_url(url))
+        return self.http.get_text(_request_url(url)).removeprefix("\ufeff")
 
     def _listing(self) -> str:
         if self._listing_html is None:
