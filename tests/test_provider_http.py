@@ -184,7 +184,6 @@ TRANSPORT_EXCEPTIONS = {
 PENDING_TRANSPORT_MIGRATIONS = {
     "hakka_cert/client.py",
     "moea_recruit/client.py",
-    "taigi_cert/client.py",
     "taipower_recruit/client.py",
     "taisugar_recruit/client.py",
     "teacher_recruit_central_alliance/client.py",
