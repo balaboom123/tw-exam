@@ -187,7 +187,6 @@ PENDING_TRANSPORT_MIGRATIONS = {
     "taisugar_recruit/client.py",
     "teacher_recruit_central_alliance/client.py",
     "teacher_recruit_kaohsiung/client.py",
-    "teacher_recruit_taipei_junior/client.py",
     "teacher_recruit_taoyuan_elementary/client.py",
 }
 
