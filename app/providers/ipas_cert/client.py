@@ -4,10 +4,10 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse, urlsplit, urlunsplit
-from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 USER_AGENT = "Mozilla/5.0 (compatible; ipas-cert-mirror/1.0)"
 CANONICAL_CATEGORY = "iPAS產業人才能力鑑定官方下載"
@@ -93,13 +93,14 @@ def parse_pdf_downloads(html: str, *, cert_code: str = "") -> list[IpasDownload]
 
 class IpasCertClient:
     provider_id = "ipas_cert"
+
+    def __init__(self) -> None:
+        self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
+
     HOME_URL = "https://www.ipas.org.tw/"
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=60) as response:
-            body: bytes = response.read()
-            return body.decode("utf-8", "replace")
+        return self.http.get_text(_quote_url_for_request(url), encoding="utf-8")
 
     def _downloads(self, cert_code: str) -> list[IpasDownload]:
         downloads: list[IpasDownload] = []
@@ -159,25 +160,7 @@ class IpasCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(
-            _quote_url_for_request(url), headers={"User-Agent": USER_AGENT}, method="HEAD"
-        )
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(_quote_url_for_request(url))
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(_quote_url_for_request(url), headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=120) as response:
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=Path(unquote(urlparse(url).path)).name,
-            )
+        return self.http.download(_quote_url_for_request(url), content_disposition_name=False)
