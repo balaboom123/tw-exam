@@ -12,8 +12,10 @@ from app.providers.post_recruit.client import PostRecruitClient
 from app.providers.sfi_cert.client import SfiCertClient
 from app.providers.special_admission.client import SpecialAdmissionClient
 from app.providers.tabf_cert.client import TabfCertClient
+from app.providers.taisugar_recruit.client import TaisugarRecruitClient
 from app.providers.tcte_tve.client import TcteTveClient
 from app.providers.tocfl_cert.client import TocflCertClient
+from app.providers.tqc_cert.client import TqcCertClient
 from app.providers.twc_recruit.client import TwcRecruitClient
 
 
@@ -36,6 +38,22 @@ class Response:
 
 
 class ProviderHttpTests(unittest.TestCase):
+    def test_tqc_form_post_decodes_unlabelled_big5(self) -> None:
+        with patch(
+            "app.providers.tqc_cert.client.urlopen",
+            return_value=Response("測試".encode("big5")),
+        ) as open_url:
+            self.assertEqual(TqcCertClient()._fetch_text("https://example.test/form", {"k": "v"}), "測試")
+        self.assertEqual(open_url.call_args.args[0].get_method(), "POST")
+
+    def test_taisugar_form_post_decodes_unlabelled_big5(self) -> None:
+        with patch(
+            "app.providers.taisugar_recruit.client.urlopen",
+            return_value=Response("測試".encode("big5")),
+        ) as open_url:
+            self.assertEqual(TaisugarRecruitClient()._post_listing_page({}, 2), "測試")
+        self.assertEqual(open_url.call_args.args[0].get_method(), "POST")
+
     def test_default_headers_are_sent_with_every_request(self) -> None:
         client = Http(
             "sample", user_agent="Browser/1.0", headers={"Referer": "https://example.test/"},
