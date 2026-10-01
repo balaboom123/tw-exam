@@ -16,10 +16,10 @@ from urllib.parse import (
     urlsplit,
     urlunsplit,
 )
-from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 BASE_URL = "https://www.taipower.com.tw/"
 DOWNLOAD_URL = "https://www.taipower.com.tw/2289/2544/2554/2557/"
@@ -31,7 +31,6 @@ USER_AGENT = (
     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 )
 REQUEST_HEADERS = {
-    "User-Agent": USER_AGENT,
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7",
     "Referer": BASE_URL,
@@ -247,39 +246,18 @@ class TaipowerRecruitClient:
     def __init__(self) -> None:
         self._cached_entries: list[TaipowerRecruitEntry] | None = None
         self._event_urls: dict[tuple[str, int], str] = {}
+        self.http = Http(
+            self.provider_id, max_attempts=1, user_agent=USER_AGENT, headers=REQUEST_HEADERS
+        )
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(_quote_url_for_request(url), headers=REQUEST_HEADERS)
-        with urlopen(request, timeout=60) as response:
-            raw: bytes = response.read()
-            for encoding in ("utf-8", "big5", "cp950"):
-                try:
-                    return raw.decode(encoding)
-                except (UnicodeDecodeError, LookupError):
-                    continue
-            return raw.decode("utf-8", "replace")
+        return self.http.get_text(_quote_url_for_request(url))
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(_quote_url_for_request(url), headers=REQUEST_HEADERS, method="HEAD")
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(_quote_url_for_request(url))
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(_quote_url_for_request(url), headers=REQUEST_HEADERS)
-        with urlopen(request, timeout=120) as response:
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=Path(unquote(urlparse(url).path)).name,
-            )
+        return self.http.download(_quote_url_for_request(url), content_disposition_name=False)
 
     def _iter_entries(self) -> list[TaipowerRecruitEntry]:
         if self._cached_entries is not None:
