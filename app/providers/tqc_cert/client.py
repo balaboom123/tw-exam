@@ -4,12 +4,11 @@ import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from pathlib import Path
-from urllib.parse import unquote, urlencode, urljoin, urlparse
-from urllib.request import Request, urlopen
+from urllib.parse import urlencode, urljoin, urlparse
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 BASE_URL = "https://www.tqc.org.tw/TQCNet/"
 EXAM_PAPER_URL = urljoin(BASE_URL, "ExamPaper.aspx")
@@ -164,15 +163,13 @@ class TqcCertClient:
 
     def __init__(self) -> None:
         self._cached_entries: list[TqcExamPaper] | None = None
+        self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _fetch_text(self, url: str, form: dict[str, str] | None = None) -> str:
         data = urlencode(form).encode("utf-8") if form is not None else None
-        headers = {"User-Agent": USER_AGENT}
-        if data is not None:
-            headers["Content-Type"] = "application/x-www-form-urlencoded"
-        request = Request(url, data=data, headers=headers)
-        with urlopen(request, timeout=60) as response:
-            raw: bytes = response.read()
+        raw, _headers, _status = self.http._request(
+            url, method="POST" if data is not None else "GET", data=data
+        )
         for encoding in ("utf-8", "big5", "cp950"):
             try:
                 return raw.decode(encoding)
@@ -247,23 +244,7 @@ class TqcCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(url)
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=120) as response:
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=Path(unquote(urlparse(url).path)).name,
-            )
+        return self.http.download(url, content_disposition_name=False)

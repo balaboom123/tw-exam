@@ -40,7 +40,7 @@ class Response:
 class ProviderHttpTests(unittest.TestCase):
     def test_tqc_form_post_decodes_unlabelled_big5(self) -> None:
         with patch(
-            "app.providers.tqc_cert.client.urlopen",
+            "app.providers.http.urlopen",
             return_value=Response("測試".encode("big5")),
         ) as open_url:
             self.assertEqual(TqcCertClient()._fetch_text("https://example.test/form", {"k": "v"}), "測試")
@@ -194,7 +194,6 @@ PENDING_TRANSPORT_MIGRATIONS = {
     "teacher_recruit_taipei_elementary/client.py",
     "teacher_recruit_taipei_junior/client.py",
     "teacher_recruit_taoyuan_elementary/client.py",
-    "tqc_cert/client.py",
 }
 
 
