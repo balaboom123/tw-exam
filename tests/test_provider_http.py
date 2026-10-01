@@ -176,7 +176,6 @@ PENDING_TRANSPORT_MIGRATIONS = {
     "teacher_recruit_taipei_elementary/client.py",
     "teacher_recruit_taipei_junior/client.py",
     "teacher_recruit_taoyuan_elementary/client.py",
-    "tii_cert/client.py",
     "tqc_cert/client.py",
 }
 
