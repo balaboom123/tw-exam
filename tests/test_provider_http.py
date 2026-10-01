@@ -48,6 +48,14 @@ class Response:
 
 
 class ProviderHttpTests(unittest.TestCase):
+    def test_newtaipei_json_rejects_invalid_utf8(self) -> None:
+        with patch(
+            "app.providers.http.urlopen",
+            return_value=Response(b'{"title": "\xff"}'),
+        ):
+            with self.assertRaises(UnicodeDecodeError):
+                NewTaipeiTeacherRecruitClient()._fetch_json("https://example.test/api")
+
     def test_source_filename_decoding_survives_shared_download(self) -> None:
         url = "https://example.test/files/download"
         for client_type in (CpcRecruitClient, TiiCertClient):

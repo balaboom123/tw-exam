@@ -201,7 +201,8 @@ class NewTaipeiTeacherRecruitClient:
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     def _fetch_json(self, url: str) -> object:
-        return json.loads(self.http.get_text(_request_url(url), encoding="utf-8-sig"))
+        raw, _headers, _status = self.http._request(_request_url(url))
+        return json.loads(raw.decode("utf-8-sig"))
 
     def _fetch_bytes(self, url: str) -> tuple[bytes, Message]:
         data, headers, _status = self.http._request(_request_url(url), timeout=120)
