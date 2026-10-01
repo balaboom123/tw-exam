@@ -101,6 +101,7 @@ class Http:
         min_interval: float = 0.0,
         max_attempts: int = 3,
         user_agent: str | None = None,
+        headers: dict[str, str] | None = None,
     ) -> None:
         if min_interval < 0 or max_attempts < 1:
             raise ValueError("min_interval must be nonnegative and max_attempts must be positive")
@@ -108,6 +109,7 @@ class Http:
             user_agent or f"Mozilla/5.0 (compatible; {provider_id.replace('_', '-')}-mirror/1.0)"
         )
         self.ssl_context = ssl_context
+        self.headers = dict(headers or {})
         self.min_interval = min_interval
         self.max_attempts = max_attempts
         self._lock = Lock()
@@ -140,7 +142,7 @@ class Http:
         data: bytes | None = None,
         timeout: int = 60,
     ) -> tuple[bytes, Message, int]:
-        headers = {"User-Agent": self.user_agent}
+        headers = {**self.headers, "User-Agent": self.user_agent}
         if data is not None:
             headers["Content-Type"] = "application/x-www-form-urlencoded"
         for attempt in range(self.max_attempts):

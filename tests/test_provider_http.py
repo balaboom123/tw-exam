@@ -34,6 +34,23 @@ class Response:
 
 
 class ProviderHttpTests(unittest.TestCase):
+    def test_default_headers_are_sent_with_every_request(self) -> None:
+        client = Http(
+            "sample", user_agent="Browser/1.0", headers={"Referer": "https://example.test/"},
+            max_attempts=1,
+        )
+        with patch("app.providers.http.urlopen", return_value=Response(b"ok")) as open_url:
+            client.get_text("https://example.test/a")
+            client.post_form("https://example.test/b", {"k": "v"})
+        for call in open_url.call_args_list:
+            request = call.args[0]
+            self.assertEqual(request.get_header("Referer"), "https://example.test/")
+            self.assertEqual(request.get_header("User-agent"), "Browser/1.0")
+        self.assertEqual(
+            open_url.call_args_list[1].args[0].get_header("Content-type"),
+            "application/x-www-form-urlencoded",
+        )
+
     def test_migrated_clients_preserve_request_methods_headers_and_filenames(self) -> None:
         url = "https://example.test/files/question%20paper.pdf"
         for client_type in (
