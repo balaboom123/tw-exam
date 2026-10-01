@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -38,6 +39,7 @@ class QuarantineEntry:
     reason: str
     evidence_path: str
     spec_path: str
+    review_by: str
 
 
 def quarantine_path(repo_root: Path) -> Path:
@@ -61,6 +63,13 @@ def _parse_entry(value: Any, *, path: Path, repo_root: Path) -> QuarantineEntry:
     reason = _require_text(value.get("reason"), "reason", path=path)
     evidence_path = _require_text(value.get("evidence_path"), "evidence_path", path=path)
     spec_path = _require_text(value.get("spec_path"), "spec_path", path=path)
+    review_by = _require_text(value.get("review_by"), "review_by", path=path)
+    try:
+        parsed_review_by = date.fromisoformat(review_by)
+    except ValueError as exc:
+        raise ValueError(f"{path}: review_by must be YYYY-MM-DD for {provider_id}") from exc
+    if parsed_review_by.isoformat() != review_by:
+        raise ValueError(f"{path}: review_by must be YYYY-MM-DD for {provider_id}")
     # A quarantine entry withholds public data, so it must stay attached to
     # reviewable evidence; a stale pointer would leave the withholding
     # unexplained after the referenced file is moved or removed.
@@ -74,6 +83,7 @@ def _parse_entry(value: Any, *, path: Path, repo_root: Path) -> QuarantineEntry:
         reason=reason,
         evidence_path=evidence_path,
         spec_path=spec_path,
+        review_by=review_by,
     )
 
 

@@ -16,11 +16,15 @@ import json
 import os
 import subprocess
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from statistics import median
 
 WORKFLOWS_DIR = Path(__file__).resolve().parents[1] / "workflows"
+QUARANTINE_PATH = (
+    Path(__file__).resolve().parents[2] / "catalog" / "mappings" / "publication-quarantine.json"
+)
+QUARANTINE_ISSUE = "quarantine-review"
 SELF_WORKFLOW = "workflow-health.yml"
 HEALTH_LABEL = "workflow-health"
 # A short cancellation may be intentional deploy supersession. The daily audit
@@ -28,7 +32,7 @@ HEALTH_LABEL = "workflow-health"
 UNHEALTHY_CONCLUSIONS = ("failure", "timed_out")
 # Health issues that do not belong to a scheduled workflow and must survive
 # orphan cleanup.
-NON_WORKFLOW_ISSUES: tuple[str, ...] = ()
+NON_WORKFLOW_ISSUES: tuple[str, ...] = (QUARANTINE_ISSUE,)
 
 
 def _repository() -> str:
@@ -507,12 +511,43 @@ def stale(max_age_days: int) -> int:
     return 0
 
 
+def overdue_quarantine_reviews(today: date, path: Path = QUARANTINE_PATH) -> list[str]:
+    document = json.loads(path.read_text(encoding="utf-8"))
+    return sorted(
+        entry["provider_id"]
+        for entry in document.get("quarantine", [])
+        if date.fromisoformat(entry["review_by"]) < today
+    )
+
+
+def quarantine_reviews() -> int:
+    repository = _repository()
+    overdue = overdue_quarantine_reviews(datetime.now(timezone.utc).date())
+    existing = _open_health_issue(repository, QUARANTINE_ISSUE)
+    if not overdue:
+        if existing is not None:
+            _close(repository, existing["number"], "No quarantine review is overdue.")
+        return 0
+    body = (
+        "Quarantine reviews are overdue for: "
+        + ", ".join(f"`{provider}`" for provider in overdue)
+        + ".\n\nRe-check each entry's evidence, then remove the entry or set a new "
+        "`review_by` in `catalog/mappings/publication-quarantine.json`."
+    )
+    if existing is None:
+        _create_issue(repository, QUARANTINE_ISSUE, body)
+    elif existing.get("body") != body:
+        _replace_issue_body(repository, existing["number"], body)
+    return 0
+
+
 def housekeeping() -> int:
     repository = _repository()
     live = {_issue_title(name) for name in _scheduled_workflow_names()}
     live.update(_issue_title(name) for name in NON_WORKFLOW_ISSUES)
     closed = close_orphaned_issues(repository, live)
     print(f"closed {closed} issue(s) for workflows that no longer exist")
+    quarantine_reviews()
     return 0
 
 

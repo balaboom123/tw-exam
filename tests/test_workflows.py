@@ -6,7 +6,7 @@ import shlex
 import tempfile
 import tomllib
 import unittest
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
 
@@ -902,12 +902,60 @@ class WorkflowHealthTest(unittest.TestCase):
         module.NON_WORKFLOW_ISSUES = ("source-drift",)
         with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
                 mock.patch.object(module, "_scheduled_workflows", return_value=[]), \
+                mock.patch.object(module, "quarantine_reviews", return_value=0), \
                 mock.patch.object(module, "close_orphaned_issues", return_value=0) as cleanup:
             self.assertEqual(module.housekeeping(), 0)
         live = cleanup.call_args.args[1]
         self.assertIn("Workflow health: sync-admissions", live)
         self.assertIn("Workflow health: source-drift", live)
         self.assertEqual(cleanup.call_args.args[0], "o/r")
+
+    def test_overdue_quarantine_reviews_open_one_issue(self) -> None:
+        module = _load_health_script()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "quarantine.json"
+            path.write_text(json.dumps({"quarantine": [
+                {"provider_id": "gept_cert", "review_by": "2026-10-15"},
+                {"provider_id": "tii_cert", "review_by": "2026-11-01"},
+            ]}), encoding="utf-8")
+            self.assertEqual(module.overdue_quarantine_reviews(date(2026, 10, 15), path), [])
+            self.assertEqual(module.overdue_quarantine_reviews(date(2026, 10, 16), path), ["gept_cert"])
+
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "overdue_quarantine_reviews", return_value=["gept_cert"]), \
+                mock.patch.object(module, "_open_health_issue", return_value=None), \
+                mock.patch.object(module, "_create_issue") as create_mock:
+            self.assertEqual(module.quarantine_reviews(), 0)
+        self.assertEqual(create_mock.call_args.args[1], "quarantine-review")
+        self.assertIn("`gept_cert`", create_mock.call_args.args[2])
+
+    def test_quarantine_review_issue_updates_and_closes(self) -> None:
+        module = _load_health_script()
+        existing = {"number": 90, "body": "old"}
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "overdue_quarantine_reviews", return_value=["gept_cert"]), \
+                mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                mock.patch.object(module, "_replace_issue_body") as update_mock:
+            self.assertEqual(module.quarantine_reviews(), 0)
+        self.assertIn("`gept_cert`", update_mock.call_args.args[2])
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "overdue_quarantine_reviews", return_value=[]), \
+                mock.patch.object(module, "_open_health_issue", return_value=existing), \
+                mock.patch.object(module, "_close") as close_mock:
+            self.assertEqual(module.quarantine_reviews(), 0)
+        self.assertEqual(close_mock.call_args.args[:2], ("o/r", 90))
+
+    def test_quarantine_review_issue_survives_orphan_cleanup(self) -> None:
+        module = _load_health_script()
+        self.assertIn("quarantine-review", module.NON_WORKFLOW_ISSUES)
+        issues = [{"number": 90, "title": "Workflow health: quarantine-review"}]
+        with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                mock.patch.object(module, "_scheduled_workflows", return_value=[]), \
+                mock.patch.object(module, "_gh_api", return_value=issues), \
+                mock.patch.object(module, "quarantine_reviews", return_value=0), \
+                mock.patch.object(module, "_close") as close_mock:
+            module.housekeeping()
+        close_mock.assert_not_called()
 
     def test_daily_command_runs_housekeeping(self) -> None:
         module = _load_health_script()

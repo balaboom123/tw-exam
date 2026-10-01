@@ -28,6 +28,7 @@ def _entry(provider_id: str = "sfi_cert", **overrides) -> dict:
         "reason": "Every published file is assigned to the wrong official event.",
         "evidence_path": "evidence.json",
         "spec_path": "spec.md",
+        "review_by": "2026-11-01",
     }
     entry.update(overrides)
     return entry
@@ -424,6 +425,40 @@ class RepositoryQuarantineTests(unittest.TestCase):
             with self.subTest(provider_id=provider_id):
                 self.assertTrue(local_evidence_exists(ROOT, entry.evidence_path))
                 self.assertTrue(local_evidence_exists(ROOT, entry.spec_path))
+
+    def test_every_committed_quarantine_entry_has_a_review_date(self) -> None:
+        entries = load_quarantine(ROOT, site_id="default")
+        expected = {
+            "cpc_recruit": "2026-11-01",
+            "gept_cert": "2026-10-15",
+            "hakka_cert": "2026-12-01",
+            "ipas_cert": "2026-11-01",
+            "moea_recruit": "2026-11-01",
+            "sfi_cert": "2026-11-01",
+            "tabf_cert": "2026-11-01",
+            "taigi_cert": "2026-11-01",
+            "tii_cert": "2026-11-01",
+            "tocfl_cert": "2026-12-01",
+            "tqc_cert": "2026-11-01",
+            "twc_recruit": "2026-11-01",
+        }
+        self.assertEqual({provider: entry.review_by for provider, entry in entries.items()}, expected)
+
+
+def test_review_by_is_required_and_must_be_a_literal_date(tmp_path):
+    import pytest
+
+    missing = _entry()
+    del missing["review_by"]
+    _write(tmp_path, [missing])
+    with pytest.raises(ValueError, match="review_by"):
+        load_quarantine(tmp_path, site_id="default")
+    for invalid in ("next month", "20261101", "2026-W44-7", "2026-02-30"):
+        _write(tmp_path, [_entry(review_by=invalid)])
+        with pytest.raises(ValueError, match="review_by"):
+            load_quarantine(tmp_path, site_id="default")
+    _write(tmp_path, [_entry(review_by="2026-11-01")])
+    assert load_quarantine(tmp_path, site_id="default")["sfi_cert"].review_by == "2026-11-01"
 
 
 if __name__ == "__main__":
