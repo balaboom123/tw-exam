@@ -200,7 +200,6 @@ TRANSPORT_EXCEPTIONS = {
 }
 # Not migrated yet; remove one entry per migration commit.
 PENDING_TRANSPORT_MIGRATIONS = {
-    "moea_recruit/client.py",
     "taipower_recruit/client.py",
     "taisugar_recruit/client.py",
 }
