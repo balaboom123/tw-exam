@@ -164,7 +164,6 @@ TRANSPORT_EXCEPTIONS = {
 }
 # Not migrated yet; remove one entry per migration commit.
 PENDING_TRANSPORT_MIGRATIONS = {
-    "ceec_ast/client.py",
     "cpc_recruit/client.py",
     "gept_cert/client.py",
     "hakka_cert/client.py",
