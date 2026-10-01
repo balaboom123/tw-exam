@@ -7,16 +7,15 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import (
     parse_qs,
-    unquote,
     urlencode,
     urljoin,
     urlparse,
     urlsplit,
 )
-from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 BASE_URL = "https://www.taisugar.com.tw/"
 LISTING_URL = "https://www.taisugar.com.tw/chinese/News_Index.aspx?p=3&n=10080"
@@ -326,6 +325,12 @@ class TaisugarRecruitClient:
     def __init__(self) -> None:
         self._cached_items: list[TaisugarNewsItem] | None = None
         self._event_urls: dict[tuple[str, int], str] = {}
+        self.http = Http(
+            self.provider_id,
+            max_attempts=1,
+            user_agent=USER_AGENT,
+            headers={"Referer": LISTING_URL},
+        )
 
     @staticmethod
     def _decode_html(raw: bytes) -> str:
@@ -337,9 +342,7 @@ class TaisugarRecruitClient:
         return raw.decode("utf-8", "replace")
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=60) as response:
-            return self._decode_html(response.read())
+        return self.http.get_text(url)
 
     @staticmethod
     def _detail_id(detail_url: str) -> str:
@@ -363,39 +366,16 @@ class TaisugarRecruitClient:
         fields = dict(form_fields)
         fields[_PAGER_SELECT_NAME] = str(page)
         fields[_PAGER_SUBMIT_NAME] = "前往"
-        request = Request(
-            LISTING_URL,
-            data=urlencode(fields).encode(),
-            headers={
-                "User-Agent": USER_AGENT,
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Referer": LISTING_URL,
-            },
+        raw, _headers, _status = self.http._request(
+            LISTING_URL, method="POST", data=urlencode(fields).encode()
         )
-        with urlopen(request, timeout=60) as response:
-            return self._decode_html(response.read())
+        return self._decode_html(raw)
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
-        with urlopen(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(url)
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(request, timeout=120) as response:
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=Path(unquote(urlparse(url).path)).name,
-            )
+        return self.http.download(url, content_disposition_name=False)
 
     def _iter_listing_items(self) -> list[TaisugarNewsItem]:
         """Fetch every ASP.NET listing page and return worker-paper items."""

@@ -66,7 +66,7 @@ class ProviderHttpTests(unittest.TestCase):
 
     def test_taisugar_form_post_decodes_unlabelled_big5(self) -> None:
         with patch(
-            "app.providers.taisugar_recruit.client.urlopen",
+            "app.providers.http.urlopen",
             return_value=Response("測試".encode("big5")),
         ) as open_url:
             self.assertEqual(TaisugarRecruitClient()._post_listing_page({}, 2), "測試")
@@ -200,7 +200,6 @@ TRANSPORT_EXCEPTIONS = {
 }
 # Not migrated yet; remove one entry per migration commit.
 PENDING_TRANSPORT_MIGRATIONS = {
-    "taisugar_recruit/client.py",
 }
 
 
