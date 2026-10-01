@@ -1,6 +1,8 @@
 import ssl
+import re
 import unittest
 from email.message import Message
+from pathlib import Path
 from urllib.error import HTTPError
 from unittest.mock import Mock, patch
 
@@ -149,3 +151,47 @@ class ProviderHttpTests(unittest.TestCase):
             self.assertEqual(client.get_text("https://example.test"), "ok")
         self.assertEqual(opener.open.call_count, 2)
         sleep.assert_called_once_with(0.5)
+
+
+# Modules that keep their own network code, with the reason. Everything else
+# under app/providers must go through app.providers.http.Http.
+TRANSPORT_EXCEPTIONS = {
+    "hce_archive.py": "own filename fallback and per-config crawl delay",
+    "moex/client.py": "pinned TWCA context with bespoke charset and filename parsing",
+    "rcpet_cap/client.py": "Google Drive confirmation flow reads the redirected URL",
+    "teacher_qual/client.py": "a fresh cookie session per listing request",
+    "wdasec_skill/client.py": "ASP.NET view-state session with strict decoding",
+}
+# Not migrated yet; remove one entry per migration commit.
+PENDING_TRANSPORT_MIGRATIONS = {
+    "ceec_ast/client.py",
+    "cpc_recruit/client.py",
+    "gept_cert/client.py",
+    "hakka_cert/client.py",
+    "ipas_cert/client.py",
+    "jlpt_cert/client.py",
+    "moea_recruit/client.py",
+    "taigi_cert/client.py",
+    "taipower_recruit/client.py",
+    "taisugar_recruit/client.py",
+    "teacher_recruit_central_alliance/client.py",
+    "teacher_recruit_kaohsiung/client.py",
+    "teacher_recruit_newtaipei/client.py",
+    "teacher_recruit_tainan/client.py",
+    "teacher_recruit_taipei_elementary/client.py",
+    "teacher_recruit_taipei_junior/client.py",
+    "teacher_recruit_taoyuan_elementary/client.py",
+    "tii_cert/client.py",
+    "tqc_cert/client.py",
+}
+
+
+def test_only_listed_modules_open_network_connections_themselves():
+    providers = Path(__file__).resolve().parents[1] / "app" / "providers"
+    direct = sorted(
+        path.relative_to(providers).as_posix()
+        for path in providers.rglob("*.py")
+        if path.name != "http.py"
+        and re.search(r"\burlopen\b|\bbuild_opener\b", path.read_text(encoding="utf-8"))
+    )
+    assert direct == sorted({*TRANSPORT_EXCEPTIONS, *PENDING_TRANSPORT_MIGRATIONS})
