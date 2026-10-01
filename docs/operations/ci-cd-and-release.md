@@ -8,6 +8,12 @@ The fast Python job enforces Ruff lint and formatting rules and strict mypy chec
 
 The workflow file is the owner of exact CI commands. This document explains why the gates exist and does not duplicate an exhaustive command list.
 
+The monthly archive verification workflow derives its release shards from the
+committed site asset inventory, downloads each shard, and reads every ZIP entry
+to check it against the catalog. A failed shard is reported through workflow
+health monitoring. This complements the fast metadata gates; local cleanup
+still requires a complete content audit of the active archive set.
+
 ## Frontend build assets
 
 Use Node 22.18 or newer: build projections share the frontend provenance validator through native TypeScript loading. CI and Netlify previews use Node 22.

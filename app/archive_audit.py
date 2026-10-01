@@ -81,12 +81,26 @@ def inspect_archive(path: Path, *, verify_content: bool) -> dict[str, Any]:
 
 
 def audit_site_archives(
-    repo_root: Path, *, site_id: str, verify_content: bool = False
+    repo_root: Path,
+    *,
+    site_id: str,
+    verify_content: bool = False,
+    release_tag: str | None = None,
 ) -> dict[str, Any]:
     site = site_paths(repo_root, site_id)
-    bundles = load_site_bundles(site)
-    if not bundles:
+    all_bundles = load_site_bundles(site)
+    if not all_bundles:
         raise ValueError("Cannot audit an empty publication inventory")
+    bundles = [
+        bundle for bundle in all_bundles if release_tag is None or bundle.release_tag == release_tag
+    ]
+    if not bundles:
+        raise ValueError(f"No archives are assigned to release {release_tag}")
+    outside = {
+        bundle.bundle_id or bundle.canonical_id
+        for bundle in all_bundles
+        if release_tag is not None and bundle.release_tag != release_tag
+    }
     catalog, _ = load_site_catalog(repo_root, site_id=site_id)
     expected: dict[str, dict[PaperKey, str]] = defaultdict(dict)
     for paper in catalog.papers:
@@ -133,13 +147,23 @@ def audit_site_archives(
         except (OSError, ValueError, KeyError, TypeError, zipfile.BadZipFile) as exc:
             errors.append({"asset": bundle.asset_name, "error": str(exc)})
     for key in {bundle.bundle_id or bundle.canonical_id for bundle in bundles}:
-        if observed[key] != expected[key]:
+        # A multipart group may span shards. Every observed record must still
+        # match the catalog; only completeness waits for all parts.
+        if any(
+            expected[key].get(paper_key) != checksum
+            for paper_key, checksum in observed[key].items()
+        ) or (key not in outside and observed[key] != expected[key]):
             errors.append({"asset": key, "error": "source records/checksums differ from catalog"})
     active = {bundle.asset_name for bundle in bundles}
     active.update(name for bundle in bundles for name in bundle.legacy_asset_names)
-    extras = sorted(path.name for path in site.bundle_dir.glob("*.zip") if path.name not in active)
+    extras = (
+        []
+        if release_tag is not None
+        else sorted(path.name for path in site.bundle_dir.glob("*.zip") if path.name not in active)
+    )
     return {
         "site_id": site_id,
+        "release_tag": release_tag,
         "verified_content": verify_content,
         "archive_count": len(bundles),
         "file_count": file_count,
@@ -152,7 +176,12 @@ def audit_site_archives(
 
 def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str, Any]) -> None:
     """Remove only verified extras whose complete source records remain active."""
-    if report["site_id"] != site_id or not report["verified_content"] or report["errors"]:
+    if (
+        report["site_id"] != site_id
+        or report.get("release_tag") is not None
+        or not report["verified_content"]
+        or report["errors"]
+    ):
         raise ValueError("Cleanup requires a successful full content audit of this site")
     site = site_paths(repo_root, site_id)
     bundles = load_site_bundles(site)
@@ -194,7 +223,12 @@ def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str,
 
 def isolate_unreferenced_archives(repo_root: Path, *, site_id: str, report: dict[str, Any]) -> None:
     """Move obsolete or suspect archives out of the builder's active input set."""
-    if report["site_id"] != site_id or not report["verified_content"] or report["errors"]:
+    if (
+        report["site_id"] != site_id
+        or report.get("release_tag") is not None
+        or not report["verified_content"]
+        or report["errors"]
+    ):
         raise ValueError("Isolation requires a successful full content audit of this site")
     site = site_paths(repo_root, site_id)
     recovery = site.bundle_dir / "recovery"

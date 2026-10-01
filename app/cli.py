@@ -1155,11 +1155,19 @@ def command_repair_mirror_collisions(args: argparse.Namespace) -> int:
 
 
 def command_audit_files(args: argparse.Namespace) -> int:
-    report = audit_site_archives(
-        args.repo_root,
-        site_id=args.site_id,
-        verify_content=args.verify_content or args.prune_redundant or args.isolate_unreferenced,
-    )
+    if args.release_tag is not None and (args.prune_redundant or args.isolate_unreferenced):
+        print("--release-tag audits one shard and cannot clean up local archives", flush=True)
+        return 2
+    try:
+        report = audit_site_archives(
+            args.repo_root,
+            site_id=args.site_id,
+            verify_content=args.verify_content or args.prune_redundant or args.isolate_unreferenced,
+            release_tag=args.release_tag,
+        )
+    except ValueError as exc:
+        print(str(exc), flush=True)
+        return 1
     if args.prune_redundant and not report["errors"]:
         prune_redundant_archives(args.repo_root, site_id=args.site_id, report=report)
     if args.isolate_unreferenced and not report["errors"]:
@@ -1486,6 +1494,11 @@ def build_parser() -> argparse.ArgumentParser:
     files_parser.add_argument("--repo-root", type=Path, default=repo_root)
     files_parser.add_argument("--site-id", default="default")
     files_parser.add_argument("--verify-content", action="store_true")
+    files_parser.add_argument(
+        "--release-tag",
+        default=None,
+        help="Audit only the archives assigned to this release shard.",
+    )
     files_parser.add_argument(
         "--prune-redundant",
         action="store_true",

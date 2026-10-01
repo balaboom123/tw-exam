@@ -1,0 +1,76 @@
+name: verify-archives
+
+# Monthly byte-level check of every hosted ZIP against the committed catalog.
+on:
+  schedule:
+    - cron: "40 7 2 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-archives
+  cancel-in-progress: false
+
+jobs:
+  shards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      tags: ${{ steps.list.outputs.tags }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: List release shards
+        id: list
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+
+          with open("data/sites/default/release-assets.json", encoding="utf-8") as stream:
+              assets = json.load(stream)["assets"]
+          print("tags=" + json.dumps(sorted({asset["release_tag"] for asset in assets})))
+          PY
+
+  verify:
+    needs: shards
+    name: ${{ matrix.tag }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        tag: ${{ fromJSON(needs.shards.outputs.tags) }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Download shard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p bundles/sites/default
+          gh release download "${{ matrix.tag }}" --repo "${{ github.repository }}" --pattern '*.zip' --dir bundles/sites/default
+      - name: Verify archive contents against the catalog
+        run: python -m app audit-files --site-id default --verify-content --release-tag "${{ matrix.tag }}" --output .tmp/file-audit.json
+      - name: Summarize
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+
+          path = Path(".tmp/file-audit.json")
+          if not path.is_file():
+              print("### No audit report was written")
+              raise SystemExit
+          report = json.loads(path.read_text(encoding="utf-8"))
+          print(f"### {report['release_tag']}")
+          print(f"- Archives: {report['archive_count']}")
+          print(f"- Files: {report['file_count']}")
+          print(f"- Errors: {len(report['errors'])}")
+          for error in report["errors"][:20]:
+              print(f"  - `{error['asset']}`: {error['error']}")
+          PY

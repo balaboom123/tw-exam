@@ -57,6 +57,13 @@ all changed assets before committing/deploying the matching site inventory.
 This check requires the gitignored archives; metadata-only CI cannot substitute
 for it. Run it before uploading changed release assets.
 
+To inspect one hosted release shard after downloading its ZIPs, add
+`--release-tag TAG` to the command above. The scoped report checks every
+observed source key and checksum against the catalog. When a multipart bundle
+spans shards, it defers only the complete-record check until a full audit.
+Scoped audits ignore other local ZIPs and cannot be combined with either
+cleanup option. An unknown or empty tag fails rather than auditing all shards.
+
 To remove verified redundant local ZIPs after the active set passes:
 
 ```bash

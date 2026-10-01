@@ -2,6 +2,7 @@ import hashlib
 import json
 import zipfile
 from dataclasses import replace
+from types import SimpleNamespace
 
 import pytest
 
@@ -9,6 +10,101 @@ from app.archive_audit import inspect_archive, portable_archive_name
 from app.bundler import _resolve_arcnames, build_bundles
 from app.models import NormalizedCatalog
 from tests.test_bundler import make_paper
+
+
+def _scoped_fixture(monkeypatch, tmp_path):
+    from app import archive_audit
+
+    def bundle(name, tag):
+        return SimpleNamespace(bundle_id="shared", canonical_id="shared", canonical_name="shared",
+                               asset_name=f"{name}.zip", file_count=1, years=[115],
+                               part_index=1 if name == "a" else 2, part_count=2,
+                               checksum="c", release_tag=tag, legacy_asset_names=[])
+
+    def paper(name):
+        return SimpleNamespace(bundle_id="shared", canonical_id="shared", checksum=name * 64,
+                               storage_key=f"{name}.pdf", download_url_source=f"https://x.test/{name}",
+                               year_roc=115, source_exam_id=name, category_code="c",
+                               subject_code="s", file_type="question")
+
+    def manifest(name, *, checksum=None, source=None):
+        return {"bundle_id": "shared", "canonical_name": "shared", "file_count": 1,
+                "years": [115], "part_index": 1, "part_count": 2,
+                "papers": [{"year_roc": 115, "source_exam_id": source or name,
+                            "category_code": "c", "subject_code": "s", "file_type": "question",
+                            "download_url_source": f"https://x.test/{source or name}",
+                            "checksum": checksum or name * 64, "bundle_entry": f"115/{name}.pdf"}]}
+
+    inspected = []
+    manifests = {"a": manifest("a"), "b": manifest("b")}
+
+    def inspect(path, *, verify_content):
+        inspected.append(path.name)
+        return manifests[path.stem]
+
+    monkeypatch.setattr(archive_audit, "site_paths", lambda root, site_id: SimpleNamespace(bundle_dir=tmp_path))
+    monkeypatch.setattr(archive_audit, "load_site_bundles",
+                        lambda site: [bundle("a", "v2-001"), bundle("b", "v2-002")])
+    monkeypatch.setattr(archive_audit, "load_site_catalog",
+                        lambda root, site_id: (SimpleNamespace(papers=[paper("a"), paper("b")]), []))
+    monkeypatch.setattr(archive_audit, "inspect_archive", inspect)
+    return archive_audit, manifests, inspected
+
+
+def test_scoped_audit_accepts_incomplete_multipart_group(monkeypatch, tmp_path):
+    audit, _, inspected = _scoped_fixture(monkeypatch, tmp_path)
+    report = audit.audit_site_archives(tmp_path, site_id="default", release_tag="v2-001")
+    assert inspected == ["a.zip"]
+    assert report["errors"] == []
+    assert report["archive_count"] == 1
+    assert report["release_tag"] == "v2-001"
+    assert report["unreferenced_archives"] == []
+
+
+@pytest.mark.parametrize("mutation", ["source", "checksum"])
+def test_scoped_audit_rejects_unexpected_source_or_checksum(monkeypatch, tmp_path, mutation):
+    audit, manifests, _ = _scoped_fixture(monkeypatch, tmp_path)
+    manifests["a"]["papers"][0]["source_exam_id" if mutation == "source" else "checksum"] = "bad"
+    report = audit.audit_site_archives(tmp_path, site_id="default", release_tag="v2-001")
+    assert any("source records/checksums differ from catalog" in row["error"]
+               for row in report["errors"])
+
+
+@pytest.mark.parametrize("tag", ["", "v2-999"])
+def test_scoped_audit_rejects_unknown_or_empty_tag(monkeypatch, tmp_path, tag):
+    audit, _, _ = _scoped_fixture(monkeypatch, tmp_path)
+    with pytest.raises(ValueError):
+        audit.audit_site_archives(tmp_path, site_id="default", release_tag=tag)
+
+
+@pytest.mark.parametrize("cleanup", ["prune_redundant_archives", "isolate_unreferenced_archives"])
+def test_cleanup_api_refuses_scoped_report(monkeypatch, tmp_path, cleanup):
+    from app import archive_audit
+    report = {"site_id": "default", "verified_content": True, "errors": [],
+              "release_tag": "v2-001", "unreferenced_archives": []}
+    with pytest.raises(ValueError, match="full content audit"):
+        getattr(archive_audit, cleanup)(tmp_path, site_id="default", report=report)
+
+
+@pytest.mark.parametrize("flag", ["--prune-redundant", "--isolate-unreferenced"])
+def test_cli_refuses_scoped_cleanup_before_audit(monkeypatch, tmp_path, flag, capsys):
+    from app import cli
+    monkeypatch.setattr(cli, "audit_site_archives",
+                        lambda *args, **kwargs: pytest.fail("audit must not run"))
+    args = cli.build_parser().parse_args(
+        ["audit-files", "--repo-root", str(tmp_path), "--release-tag", "v2-001", flag])
+    assert args.handler(args) == 2
+    assert "cannot clean up" in capsys.readouterr().out
+
+
+def test_cli_reports_unknown_scoped_release(monkeypatch, tmp_path, capsys):
+    from app import cli
+    monkeypatch.setattr(cli, "audit_site_archives",
+                        lambda *args, **kwargs: (_ for _ in ()).throw(ValueError("unknown shard")))
+    args = cli.build_parser().parse_args(
+        ["audit-files", "--repo-root", str(tmp_path), "--release-tag", "v2-999"])
+    assert args.handler(args) == 1
+    assert "unknown shard" in capsys.readouterr().out
 
 
 def test_shared_payload_preserves_source_records_and_multipart_recovery(tmp_path):

@@ -93,6 +93,25 @@ def _app_step(workflow: dict, command: str) -> tuple[dict, object]:
     return next((step, args) for step, args in _app_steps(workflow) if args.command == command)
 
 
+class ArchiveVerificationWorkflowTests(unittest.TestCase):
+    def test_every_shard_is_downloaded_and_verified_on_a_schedule(self) -> None:
+        path = REPO_ROOT / ".github" / "workflows" / "verify-archives.yml"
+        text = path.read_text(encoding="utf-8")
+        workflow = _workflow(text)
+        self.assertIn("\n  schedule:\n", text)
+        self.assertEqual(workflow["permissions"], {"contents": "read"})
+        verify = workflow["jobs"]["verify"]
+        self.assertFalse(verify["strategy"]["fail-fast"])
+        self.assertEqual(verify["strategy"]["matrix"]["tag"],
+                         "${{ fromJSON(needs.shards.outputs.tags) }}")
+        runs = " ".join(step.get("run", "") for step in verify["steps"])
+        self.assertIn("gh release download", runs)
+        self.assertIn("audit-files", runs)
+        self.assertIn("--verify-content", runs)
+        self.assertIn("--release-tag", runs)
+        self.assertNotIn("commit-and-push", text)
+
+
 class WorkflowTests(unittest.TestCase):
     def test_incremental_workflow_fails_fast_when_release_is_incomplete_on_hosted_ci(self) -> None:
         workflow = _workflow((REPO_ROOT / ".github/workflows/sync-incremental.yml").read_text())
