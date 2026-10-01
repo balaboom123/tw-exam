@@ -2483,3 +2483,14 @@ class SyncManifestRefreshTests(unittest.TestCase):
             )
 
         self.assertIsNone(manifest)
+
+
+def test_legacy_state_migration_is_gone_but_reclassification_remains():
+    import pytest
+
+    from app.cli import build_parser
+
+    parser = build_parser()
+    with pytest.raises(SystemExit):
+        parser.parse_args(["migrate-legacy-state"])
+    assert parser.parse_args(["migrate-catalog"]).site_id == "default"

@@ -34,7 +34,6 @@ from app.manifest import (
     source_manifest_from_data,
     write_source_manifest,
 )
-from app.migration import migrate_legacy_state
 from app.mirror_repair import repair_mirror_collisions
 from app.models import (
     BundleAsset,
@@ -1270,17 +1269,6 @@ def command_publish_site(args: argparse.Namespace) -> int:
     return 0
 
 
-def command_migrate_legacy_state(args: argparse.Namespace) -> int:
-    report = migrate_legacy_state(
-        args.repo_root,
-        provider_id=args.provider,
-        site_id=args.site_id,
-        mode=args.mode,
-    )
-    print(report.output, flush=True)
-    return report.exit_code
-
-
 def command_review_queue(args: argparse.Namespace) -> int:
     try:
         get_provider(args.provider)
@@ -1564,18 +1552,6 @@ def build_parser() -> argparse.ArgumentParser:
     )
     publish_site_parser.set_defaults(handler=command_publish_site)
 
-    migrate_parser = subparsers.add_parser(
-        "migrate-legacy-state",
-        help=(
-            "Promote legacy root-level provider/site "
-            "state into scoped paths without network access."
-        ),
-    )
-    migrate_parser.add_argument("--repo-root", type=Path, default=repo_root)
-    migrate_parser.add_argument("--provider", default="moex")
-    migrate_parser.add_argument("--site-id", default="default")
-    migrate_parser.add_argument("--mode", choices=("dry-run", "move", "verify"), default="dry-run")
-    migrate_parser.set_defaults(handler=command_migrate_legacy_state)
     review_parser = subparsers.add_parser(
         "review-queue",
         help="Expand one provider's review records without loading papers.",
