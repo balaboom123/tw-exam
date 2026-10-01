@@ -1,0 +1,16 @@
+{
+  "events": {
+    "hakka-cert-advanced-2026": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2018": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2019": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2020": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2021": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2022": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2023": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2024": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2025": "2026-09-30T11:24:01Z",
+    "hakka-cert-basic-elementary-2026": "2026-09-30T11:24:01Z"
+  },
+  "provider_id": "hakka_cert",
+  "schema_version": 1
+}
