@@ -91,6 +91,16 @@ only after the content audit passes, and leaves the commit to you.
 
 The frontend feed also projects reviewed source names/links and successful event sync receipts. Republish after updating source attribution or completing a sync. For an attribution-only refresh, an empty affected-ID publish plan preserves existing bundles and refreshes site metadata without rebuilding ZIPs. To roll back these optional v2 fields, regenerate the frontend feed with the previous publisher; release bytes and assignments need no changes. Older data with no receipts displays an unrecorded sync date until a successful sync establishes one.
 
+## When something fails
+
+| What you see | Meaning | Action |
+| --- | --- | --- |
+| Health issue "`<caller>` concluded failure" listing a `<provider> sync` job | The source may be unreachable or its layout may have changed | Open the job log. A transient fetch or download error may clear on the next schedule. "drops below the reviewed source inventory floor" or zero discovered events means the adapter needs investigation. |
+| Health issue for `verify-archives` | A shard download or archive content check failed | Read the failed job log. For a confirmed ZIP/catalog mismatch, run `scripts/republish.sh`, then rerun the failed shard. Retry a failed download before republishing. |
+| Health issue "quarantine-review" | A quarantine entry passed its `review_by` date | Re-check the entry's evidence; remove the entry or set a new date in `catalog/mappings/publication-quarantine.json`. |
+| Health issue "no successful run within the last N days" | A schedule stopped firing or every run fails | Re-enable the workflow if disabled, then dispatch it by hand. [GitHub disables public-repository schedules after 60 days without activity](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). |
+| CI fails with "public titles expose internal identifiers" | A new variant or stage has no readable label | Add the wording in `_variants` or `_STAGE_LABELS` in `app/classification.py`, then run `scripts/republish.sh`. |
+
 ## Verify the repository
 
 ```bash
