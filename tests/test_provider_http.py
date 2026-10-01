@@ -1,5 +1,6 @@
-import ssl
+import base64
 import re
+import ssl
 import unittest
 from email.message import Message
 from pathlib import Path
@@ -7,6 +8,7 @@ from urllib.error import HTTPError
 from unittest.mock import Mock, patch
 
 from app.providers.ceec_gsat.client import CeecGsatClient
+from app.providers.cpc_recruit.client import CpcRecruitClient
 from app.providers.http import Http, ad, links, roc
 from app.providers.post_recruit.client import PostRecruitClient
 from app.providers.sfi_cert.client import SfiCertClient
@@ -14,9 +16,14 @@ from app.providers.special_admission.client import SpecialAdmissionClient
 from app.providers.tabf_cert.client import TabfCertClient
 from app.providers.taisugar_recruit.client import TaisugarRecruitClient
 from app.providers.tcte_tve.client import TcteTveClient
+from app.providers.teacher_recruit_central_alliance.client import CentralAllianceRecruitClient
 from app.providers.teacher_recruit_kaohsiung.client import KaohsiungTeacherRecruitClient
+from app.providers.teacher_recruit_newtaipei.client import NewTaipeiTeacherRecruitClient
 from app.providers.teacher_recruit_tainan.client import TainanTeacherRecruitClient
+from app.providers.teacher_recruit_taipei_elementary.client import TaipeiElementaryRecruitClient
+from app.providers.teacher_recruit_taipei_junior.client import TaipeiJuniorRecruitClient
 from app.providers.teacher_recruit_taoyuan_elementary.client import TaoyuanElementaryRecruitClient
+from app.providers.tii_cert.client import TiiCertClient
 from app.providers.tocfl_cert.client import TocflCertClient
 from app.providers.tqc_cert.client import TqcCertClient
 from app.providers.twc_recruit.client import TwcRecruitClient
@@ -41,6 +48,46 @@ class Response:
 
 
 class ProviderHttpTests(unittest.TestCase):
+    def test_source_filename_decoding_survives_shared_download(self) -> None:
+        url = "https://example.test/files/download"
+        for client_type in (CpcRecruitClient, TiiCertClient):
+            with self.subTest(client=client_type.__name__):
+                response = Response(b"pdf", headers={
+                    "Content-Disposition": 'attachment; filename="paper%20%26amp%3B%20answer.pdf"',
+                })
+                with patch("app.providers.http.urlopen", return_value=response):
+                    self.assertEqual(client_type().download_file(url).file_name, "paper & answer.pdf")
+
+        for client_type in (
+            TaoyuanElementaryRecruitClient,
+            KaohsiungTeacherRecruitClient,
+            CentralAllianceRecruitClient,
+        ):
+            with self.subTest(client=client_type.__name__):
+                response = Response(b"pdf", headers={
+                    "Content-Disposition": "attachment; filename*=UTF-8''paper%2520+key.pdf",
+                })
+                with patch("app.providers.http.urlopen", return_value=response):
+                    self.assertEqual(client_type().download_file(url).file_name, "paper%20 key.pdf")
+
+        client = NewTaipeiTeacherRecruitClient()
+        client._fetch_json = lambda _url: [{"token": "token"}]  # type: ignore[method-assign]
+        response = Response(b"pdf", headers={
+            "Content-Disposition": 'attachment; filename="paper+%2520.pdf"',
+        })
+        with patch("app.providers.http.urlopen", return_value=response):
+            self.assertEqual(client.download_file(url).file_name, "paper %20.pdf")
+
+        encoded = base64.urlsafe_b64encode("試題.pdf".encode()).decode().rstrip("=")
+        taipei_url = f"https://www-ws.gov.taipei/Download.ashx?n={encoded}"
+        for client_type in (TaipeiElementaryRecruitClient, TaipeiJuniorRecruitClient):
+            with self.subTest(client=client_type.__name__):
+                response = Response(b"pdf", headers={
+                    "Content-Disposition": 'attachment; filename="wrong.pdf"',
+                })
+                with patch("app.providers.http.urlopen", return_value=response):
+                    self.assertEqual(client_type().download_file(taipei_url).file_name, "試題.pdf")
+
     def test_loop_decoders_strip_utf8_bom_and_preserve_big5_fallback(self) -> None:
         for client_type in (
             TainanTeacherRecruitClient,
@@ -198,11 +245,6 @@ TRANSPORT_EXCEPTIONS = {
     "teacher_qual/client.py": "a fresh cookie session per listing request",
     "wdasec_skill/client.py": "ASP.NET view-state session with strict decoding",
 }
-# Not migrated yet; remove one entry per migration commit.
-PENDING_TRANSPORT_MIGRATIONS = {
-}
-
-
 def test_only_listed_modules_open_network_connections_themselves():
     providers = Path(__file__).resolve().parents[1] / "app" / "providers"
     direct = sorted(
@@ -211,4 +253,4 @@ def test_only_listed_modules_open_network_connections_themselves():
         if path.name != "http.py"
         and re.search(r"\burlopen\b|\bbuild_opener\b", path.read_text(encoding="utf-8"))
     )
-    assert direct == sorted({*TRANSPORT_EXCEPTIONS, *PENDING_TRANSPORT_MIGRATIONS})
+    assert direct == sorted(TRANSPORT_EXCEPTIONS)
