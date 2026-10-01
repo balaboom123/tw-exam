@@ -26,6 +26,7 @@ on:
       - sync-education
       - sync-employment
       - sync-full
+      - sync-hakka-cert
       - sync-incremental
       - sync-taisugar-recruit
       - sync-teacher-recruit-central-alliance

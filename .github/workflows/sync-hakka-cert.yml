@@ -1,0 +1,20 @@
+name: sync-hakka-cert
+
+on:
+  # Manual while the Hakka audio terms are unresolved. This workflow writes no
+  # public mirror snapshot; an existing working cache may still be restored.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    uses: ./.github/workflows/_sync-provider.yml
+    with:
+      provider_id: hakka_cert
+      cache_prefix: hakka-cert
+      timeout_minutes: 360
+      publish: false
+      prune_orphaned_mirror: true
+      durable_snapshot: false

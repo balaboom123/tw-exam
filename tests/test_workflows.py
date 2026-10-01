@@ -1454,7 +1454,9 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
                     if provider == "hakka_cert":
                         self.assertEqual(row["timeout_minutes"], 360)
         self.assertEqual(scheduled_slots, 4)
-        self.assertEqual(manual_providers, {"taisugar_recruit", "teacher_recruit_central_alliance"})
+        self.assertEqual(
+            manual_providers, {"hakka_cert", "taisugar_recruit", "teacher_recruit_central_alliance"}
+        )
         self.assertEqual(len(providers), len(set(providers)), "A provider has multiple sync owners")
         self.assertEqual(set(providers), set(_PROVIDER_FACTORIES))
 
@@ -1587,3 +1589,32 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
                         count += 1
                         self.assertIn("GH_TOKEN", step.get("env", {}))
         self.assertGreaterEqual(count, 3)
+
+
+class HakkaPrivateMirrorTests(unittest.TestCase):
+    def test_hakka_is_manual_only_and_never_writes_a_public_snapshot(self) -> None:
+        workflows = REPO_ROOT / ".github" / "workflows"
+        manual = _workflow((workflows / "sync-hakka-cert.yml").read_text(encoding="utf-8"))
+        self.assertEqual(set(manual["on"]), {"workflow_dispatch"})
+        inputs = manual["jobs"]["sync"]["with"]
+        self.assertEqual(inputs["provider_id"], "hakka_cert")
+        self.assertIs(inputs["publish"], False)
+        self.assertIs(inputs["durable_snapshot"], False)
+
+        weekly = _workflow((workflows / "sync-certifications.yml").read_text(encoding="utf-8"))
+        rows = weekly["jobs"]["sync"]["strategy"]["matrix"]["include"]
+        self.assertNotIn("hakka_cert", {row["provider_id"] for row in rows})
+
+        reusable = _workflow((workflows / "_sync-provider.yml").read_text(encoding="utf-8"))
+        declared = reusable["on"]["workflow_call"]["inputs"]["durable_snapshot"]
+        self.assertEqual(declared["type"], "boolean")
+        self.assertIs(declared["default"], True)
+        save = next(
+            step for step in reusable["jobs"]["sync"]["steps"] if step.get("id") == "durable"
+        )
+        self.assertIn("inputs.durable_snapshot", save["if"])
+
+    def test_data_license_states_the_mirror_and_audio_policy(self) -> None:
+        text = (REPO_ROOT / "DATA-LICENSE.md").read_text(encoding="utf-8")
+        for needle in ("mirror-<provider_id>", "transport backups", "Audio", "第 9 條"):
+            self.assertIn(needle, text)

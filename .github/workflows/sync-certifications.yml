@@ -21,11 +21,6 @@ jobs:
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
-          - provider_id: hakka_cert
-            cache_prefix: hakka-cert
-            timeout_minutes: 360
-            publish: false
-            prune_orphaned_mirror: true
           - provider_id: ipas_cert
             cache_prefix: ipas-cert
             timeout_minutes: 30

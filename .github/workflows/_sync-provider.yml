@@ -21,6 +21,10 @@ on:
       prune_orphaned_mirror:
         type: boolean
         default: false
+      durable_snapshot:
+        # false keeps a provider's mirror out of public Release storage.
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -118,7 +122,7 @@ jobs:
 
       - name: Save durable public mirror snapshot
         id: durable
-        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && inputs.durable_snapshot }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/mirror_snapshots.py save --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
