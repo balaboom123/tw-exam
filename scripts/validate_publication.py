@@ -14,7 +14,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
-from app.classification import TRACK_TITLED_PROVIDERS
+from app.classification import NOT_APPLICABLE, STAGE_IDS, TRACK_TITLED_PROVIDERS
 from app.coverage_exceptions import failure_exception_for, load_coverage_exceptions
 from app.paths import provider_paths
 from app.publisher import load_site_catalog, load_site_provider_indexes
@@ -27,7 +27,6 @@ from app.state import load_provider_failures
 GENERIC_SUBJECT_PREFIXES = tuple(
     sorted(f"{provider.replace('_', '-')}-" for provider in TRACK_TITLED_PROVIDERS)
 )
-_INTERNAL_ID_IN_TITLE = re.compile(r"stage-\d|[a-z]{3,}-[a-z0-9]{2,}")
 
 
 def fail(message: str) -> None:
@@ -103,7 +102,19 @@ def validate_distinct_track_titles(rows):
 
 
 def validate_readable_titles(rows):
-    leaked = [row["name"] for row in rows if _INTERNAL_ID_IN_TITLE.search(row["name"])]
+    # Source-derived variants come from the feed's identity facets. Internal
+    # labels appear as title/variant components; natural source English (even
+    # "English pretest" or cross-platform) is valid within a readable label.
+    identifiers = set(STAGE_IDS)
+    for row in rows:
+        identifiers.update(row.get("variantIds", []))
+        if stage_id := row.get("stageId"):
+            identifiers.add(stage_id)
+    identifiers.discard(NOT_APPLICABLE)
+    leaked = [
+        row["name"] for row in rows
+        if any(part.strip() in identifiers for part in re.split(r"[｜、]", row["name"]))
+    ]
     if leaked:
         fail(
             f"{len(leaked)} public titles expose internal identifiers: "

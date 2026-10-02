@@ -1419,6 +1419,92 @@ class WorkflowHealthTest(unittest.TestCase):
         self.assertNotIn(".github/workflows/sync-full.yml", scheduled)
         self.assertNotIn(".github/workflows/ci.yml", scheduled)
 
+    def test_scheduled_discovery_includes_disabled_but_excludes_removed_and_manual(self) -> None:
+        module = _load_health_script()
+        scheduled_path = ".github/workflows/sync-admissions.yml"
+        payload = {"workflows": [
+            {"id": i, "name": state, "path": scheduled_path, "state": state}
+            for i, state in enumerate(("active", "disabled_inactivity", "disabled_manually", "deleted"))
+        ] + [
+            {"id": 5, "name": "removed", "path": ".github/workflows/removed.yml", "state": "disabled_manually"},
+            {"id": 6, "name": "manual", "path": ".github/workflows/sync-full.yml", "state": "disabled_inactivity"},
+        ]}
+        with mock.patch.object(module, "_gh_api", return_value=payload):
+            workflows = module._scheduled_workflows("o/r")
+        self.assertEqual([w["name"] for w in workflows],
+                         ["active", "disabled_inactivity", "disabled_manually"])
+        self.assertTrue(all(w["interval_days"] == 7 for w in workflows))
+
+    def test_disabled_schedule_issue_creates_retains_and_recovers_after_reenable(self) -> None:
+        for state in ("disabled_inactivity", "disabled_manually"):
+            with self.subTest(state=state):
+                module = _load_health_script()
+                workflow = {"id": 1, "name": "sync-admissions", "state": state,
+                            "path": ".github/workflows/sync-admissions.yml",
+                            "created_at": "2020-01-01T00:00:00Z"}
+                issue = {}
+                previous_success = (None if state == "disabled_inactivity"
+                                    else datetime.now(timezone.utc) - timedelta(days=30))
+
+                def create(repository, name, body):
+                    issue.update(number=42, title=module._issue_title(name), body=body)
+
+                with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                        mock.patch.object(module, "_gh_api", return_value={"workflows": [workflow]}), \
+                        mock.patch.object(module, "_latest_run", return_value={"conclusion": "success"}) as latest, \
+                        mock.patch.object(module, "_last_success", return_value=previous_success) as last, \
+                        mock.patch.object(module, "_open_health_issue", side_effect=lambda *args: issue or None), \
+                        mock.patch.object(module, "_create_issue", side_effect=create) as create_mock, \
+                        mock.patch.object(module, "_replace_issue_body") as replace_mock, \
+                        mock.patch.object(module, "_slow_run", return_value=None), \
+                        mock.patch.object(module, "_close") as close_mock:
+                    module.daily(14)
+                    create_mock.assert_called_once()
+                    self.assertIn(f"`{state}`", issue["body"])
+                    self.assertIn("Re-enable", issue["body"])
+                    self.assertIn("full manual run on `main`", issue["body"])
+                    module.daily(14)
+                    create_mock.assert_called_once()
+                    close_mock.assert_not_called()
+                    latest.assert_not_called()
+                    replace_mock.assert_not_called()
+                    # Recovery requires a recent full-scope success; it also
+                    # survives the active latest-run audit until stale closes it.
+                    workflow["state"] = "active"
+                    last.return_value = datetime.now(timezone.utc)
+                    module.daily(14)
+                    close_mock.assert_called_once()
+                    self.assertEqual(close_mock.call_args.args[:2], ("o/r", 42))
+                    issue["body"] = "`sync-admissions` concluded **failure**."
+                    workflow["state"] = state
+                    # Neither recent recovery nor staleness may overwrite or
+                    # close a separate failure explanation for a disabled run.
+                    module.daily(14)
+                    last.return_value = previous_success
+                    module.daily(14)
+                    close_mock.assert_called_once()
+                    create_mock.assert_called_once()
+                    replace_mock.assert_not_called()
+
+    def test_new_disabled_schedule_retains_grace_and_failure_issues(self) -> None:
+        for state in ("disabled_inactivity", "disabled_manually"):
+            with self.subTest(state=state):
+                module = _load_health_script()
+                workflow = {"id": 1, "name": "sync-admissions", "state": state,
+                            "path": ".github/workflows/sync-admissions.yml",
+                            "created_at": datetime.now(timezone.utc).isoformat()}
+                with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
+                        mock.patch.object(module, "_gh_api", return_value={"workflows": [workflow]}), \
+                        mock.patch.object(module, "_last_success") as last, \
+                        mock.patch.object(module, "_open_health_issue", return_value={
+                            "number": 42, "body": "`sync-admissions` concluded **failure**."}), \
+                        mock.patch.object(module, "_create_issue") as create_mock, \
+                        mock.patch.object(module, "_close") as close_mock:
+                    module.stale(14)
+                create_mock.assert_not_called()
+                close_mock.assert_not_called()
+                last.assert_not_called()
+
     def test_staleness_window_follows_each_workflow_cadence(self) -> None:
         module = _load_health_script()
 

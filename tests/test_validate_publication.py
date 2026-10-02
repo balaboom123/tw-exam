@@ -46,14 +46,36 @@ def test_subject_tracks_must_have_distinct_public_titles():
     validate_distinct_track_titles(rows)
 
 
-def test_readable_title_gate_rejects_internal_ids():
+def test_readable_title_gate_rejects_all_emitted_variant_and_stage_ids():
     import pytest
+    from app.classification import classify_paper
     from scripts.validate_publication import validate_readable_titles
-    for name in ("高等考試｜三等／高考三級｜政風｜stage-2",
-                 "警察特考｜三等｜外事警察人員｜elective-language-c20d34fdc5ae",
-                 "高等考試｜一等｜一般行政｜cross-strait-group-1"):
-        with pytest.raises(ValueError, match="internal identifiers"):
-            validate_readable_titles([{"name": name}])
+
+    # Exercise each real source pattern through its owner, including hashed
+    # variants, rather than inventing another ID taxonomy for the validator.
+    for category in (
+        "一般行政（一般組）", "一般行政（兩岸組一）", "一般行政（兩岸組二）",
+        "一般行政（兩岸組三）", "外交領事人員（選試日文）",
+        "一般行政（國防部）", "一般行政（臺北錄取分發區）",
+    ):
+        identity = classify_paper(
+            provider_id="moex", source_exam_id="115-test", year_ad=2026,
+            category_raw=category, exam_name_raw="115年公務人員高等考試三級",
+            canonical_id="general-administration", canonical_name="一般行政",
+        )
+        assert identity.variant_ids, category
+        readable = {"name": identity.bundle_name, "variantIds": list(identity.variant_ids),
+                    "stageId": identity.stage_id}
+        validate_readable_titles([readable])
+        for identifier in identity.variant_ids:
+            for leaked in (identifier, f"考試｜{identifier}", f"考試｜一般組、{identifier}"):
+                with pytest.raises(ValueError, match="public titles expose internal identifiers"):
+                    # IDs belong to the whole feed, not just the offending row.
+                    validate_readable_titles([readable, {"name": leaked}])
+
+    for identifier in ("stage-1", "stage-2", "stage-3", "pretest"):
+        with pytest.raises(ValueError, match="public titles expose internal identifiers"):
+            validate_readable_titles([{"name": f"考試｜{identifier}"}])
 
 
 def test_readable_title_gate_accepts_latin_subject_names():
@@ -63,6 +85,10 @@ def test_readable_title_gate_accepts_latin_subject_names():
         {"name": "全國技術士技能檢定｜乙級｜銑床─CNC銑床"},
         {"name": "全國技術士技能檢定｜乙級｜視覺傳達設計─平面設計PC"},
         {"name": "高等考試｜三等／高考三級｜政風｜選試日文｜第二試"},
+        {"name": "Computer-based Test"},
+        {"name": "跨平台 cross-platform 程式設計"},
+        {"name": "English pretest"},
+        {"name": "Pretesting and stage-1-based teaching"},
     ])
 
 

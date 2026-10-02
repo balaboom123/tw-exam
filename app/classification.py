@@ -232,6 +232,7 @@ def _parenthetical_values(text: str) -> list[str]:
 
 
 _STAGE_LABELS = {"stage-1": "第一試", "stage-2": "第二試", "stage-3": "第三試", "pretest": "預試"}
+STAGE_IDS = frozenset(_STAGE_LABELS)
 # Providers whose public title appends the track label; validate_publication
 # derives its bundle-id prefixes from this set.
 TRACK_TITLED_PROVIDERS = frozenset({"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill"})

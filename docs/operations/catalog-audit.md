@@ -59,8 +59,11 @@ for it. Run it before uploading changed release assets.
 
 To inspect one hosted release shard after downloading its ZIPs, add
 `--release-tag TAG` to the command above. The scoped report checks every
-observed source key and checksum against the catalog. When a multipart bundle
-spans shards, it defers only the complete-record check until a full audit.
+observed source key and checksum against the catalog and verifies the bytes
+inside that shard. When a logical multipart bundle spans shards, separate
+scoped audits cannot prove global source-record conservation or detect records
+duplicated across shards. Run the full-site audit with all site archives
+available to prove complete coverage without cross-shard duplicates.
 Scoped audits ignore other local ZIPs and cannot be combined with either
 cleanup option. An unknown or empty tag fails rather than auditing all shards.
 

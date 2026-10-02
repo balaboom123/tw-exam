@@ -50,7 +50,7 @@ feed. CI and the generated-state commit guard own the Python and catalog gates.
 
 ## Health reporting
 
-`workflow-health` runs once daily. It inspects each scheduled workflow's
+`workflow-health` runs once daily. It inspects each active scheduled workflow's
 latest run and keeps one labelled issue for a failure, timeout, or cancellation
 that lasted at least the workflow's largest configured timeout, including matrix budgets. Short cancellations from
 superseded Pages deployments are ignored. A later success closes a failure
@@ -74,7 +74,9 @@ New workflows get their full staleness window before a missing success is
 reported. The daily audit closes a premature staleness issue during that
 window, while retaining any failure or slow-run issue. It also closes health
 issues for workflows whose schedule has been removed from the checked-in
-workflow files; disabled workflows with a schedule remain covered.
+workflow files. Checked-in scheduled workflows disabled by inactivity or by
+hand remain staleness candidates; their issues include the GitHub state and
+instructions to re-enable the workflow and dispatch a full manual run.
 
 Manual diagnosis uses:
 

@@ -279,7 +279,8 @@ def _scheduled_workflows(repository: str) -> list[dict]:
         {**w, "interval_days": scheduled[w["path"]],
          "timeout_minutes": _workflow_timeout_minutes(WORKFLOWS_DIR / Path(w["path"]).name)}
         for w in workflows
-        if w.get("state") == "active" and w.get("path") in scheduled
+        if w.get("state") in ("active", "disabled_inactivity", "disabled_manually")
+        and w.get("path") in scheduled
     ]
 
 
@@ -387,6 +388,10 @@ def audit_latest() -> int:
     repository = _repository()
     unhealthy = 0
     for workflow in _scheduled_workflows(repository):
+        # Retain disabled schedules' staleness issues even if their last run
+        # succeeded before the schedule stopped firing.
+        if workflow.get("state", "active") != "active":
+            continue
         name = workflow["name"]
         run = _latest_run(repository, workflow["id"])
         if run is None or run.get("status") not in (None, "completed"):
@@ -499,6 +504,12 @@ def stale(max_age_days: int) -> int:
             f"(last success: {age}).\n\n"
             "A scheduled sync that stops succeeding silently leaves the published catalog stale."
         )
+        state = workflow.get("state", "active")
+        if state != "active":
+            body += (
+                f"\n\nGitHub workflow state: `{state}`. Re-enable this workflow in "
+                "Actions, then dispatch a full manual run on `main` to recover."
+            )
         existing = _open_health_issue(repository, name)
         if existing is None:
             _create_issue(repository, name, body)
