@@ -1,0 +1,11 @@
+{
+  "events": {
+    "cpc-recruit-100": "2026-10-03T10:28:50Z",
+    "cpc-recruit-101": "2026-10-03T10:28:50Z",
+    "cpc-recruit-102": "2026-10-03T10:28:50Z",
+    "cpc-recruit-108": "2026-10-03T10:28:50Z",
+    "cpc-recruit-98": "2026-10-03T10:28:50Z"
+  },
+  "provider_id": "cpc_recruit",
+  "schema_version": 1
+}
