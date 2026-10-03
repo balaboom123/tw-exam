@@ -1,0 +1,21 @@
+{
+  "events": {
+    "special-admission-102": "2026-10-03T09:21:59Z",
+    "special-admission-103": "2026-10-03T09:21:59Z",
+    "special-admission-104": "2026-10-03T09:21:59Z",
+    "special-admission-105": "2026-10-03T09:21:59Z",
+    "special-admission-106": "2026-10-03T09:21:59Z",
+    "special-admission-107": "2026-10-03T09:21:59Z",
+    "special-admission-108": "2026-10-03T09:21:59Z",
+    "special-admission-109": "2026-10-03T09:21:59Z",
+    "special-admission-110": "2026-10-03T09:21:59Z",
+    "special-admission-111": "2026-10-03T09:21:59Z",
+    "special-admission-112": "2026-10-03T09:21:59Z",
+    "special-admission-113": "2026-10-03T09:21:59Z",
+    "special-admission-114": "2026-10-03T09:21:59Z",
+    "special-admission-115": "2026-10-03T09:21:59Z",
+    "special-admission-116": "2026-10-03T09:21:59Z"
+  },
+  "provider_id": "special_admission",
+  "schema_version": 1
+}
