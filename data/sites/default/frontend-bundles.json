@@ -1614,7 +1614,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-education-administration",
@@ -1690,7 +1690,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-electronic-engineering",
@@ -1765,7 +1765,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-general-administration",
@@ -1841,7 +1841,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-household-registration",
@@ -1881,7 +1881,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-land-administration",
@@ -1958,7 +1958,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-personnel-administration",
@@ -2035,7 +2035,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-tax-administration",
@@ -2107,7 +2107,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-27b47de3a8d4",
@@ -2224,7 +2224,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-5cd0e2166979",
@@ -2355,7 +2355,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-a539b9a4b248",
@@ -2487,7 +2487,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-bfbba09f4bfb",
@@ -2596,7 +2596,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-ccaf264aa848",
@@ -2716,7 +2716,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-e191505babe5",
@@ -2792,7 +2792,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-e8446c8a3463",
@@ -2856,7 +2856,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-ed71756f98b5",
@@ -2925,7 +2925,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-elementary-elementary-track-f48ed7e7383d",
@@ -3860,6 +3860,7 @@
       "id": "moex-civil-high-grade-1-track-4fe3c4ad869f",
       "name": "高等考試｜一等／高考一級｜衛生技術",
       "years": [
+        115,
         114,
         107,
         105,
@@ -3868,7 +3869,7 @@
         97,
         91
       ],
-      "fileCount": 28,
+      "fileCount": 30,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-1-track-4fe3c4ad869f--da9d20fa9a2c.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -3881,10 +3882,10 @@
       "examSubclass": "公職／公務人員",
       "searchAliases": [
         "公共衛生學研究（包括食品衛生）",
+        "策略規劃與問題解決(依類科命題)",
         "策略規劃與問題解決（依類科命題）",
         "英文",
         "公共衛生學研究(包括食品衛生)",
-        "策略規劃與問題解決(依類科命題)",
         "策略規劃與問題解決",
         "儀器分析",
         "微生物學與免疫學",
@@ -3896,14 +3897,14 @@
         "中華民國憲法",
         "國文（論文、公文與閱讀測驗)",
         "高考一級_衛生技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "102",
+        "115年公務人員高等考試一級暨二級考試",
+        "101",
         "0501",
         "0502",
+        "114年公務人員高等考試一級暨二級考試",
+        "102",
         "107年公務人員高等考試一級暨二級考試",
-        "105",
-        "0101",
-        "0801"
+        "105"
       ],
       "sources": [
         {
@@ -3911,7 +3912,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-1-track-50522c45a399",
@@ -5296,6 +5297,7 @@
       "id": "moex-civil-high-grade-2-civil-engineering",
       "name": "高等考試｜二等／高考二級｜土木工程",
       "years": [
+        115,
         114,
         113,
         112,
@@ -5313,7 +5315,7 @@
         84,
         83
       ],
-      "fileCount": 113,
+      "fileCount": 119,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-civil-engineering--93fc626103a5.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -5356,7 +5358,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-cultural-administration-elective-language-0217721cff55-general-group",
@@ -5469,12 +5471,13 @@
       "id": "moex-civil-high-grade-2-cultural-administration-elective-language-1f767b834ae1-general-group",
       "name": "高等考試｜二等／高考二級｜文化行政｜選試義大利文、一般組",
       "years": [
+        115,
         114,
         113,
         109,
         108
       ],
-      "fileCount": 26,
+      "fileCount": 32,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/moex-civil-high-grade-2-cultural-administration-elective-language-1f767b834ae1-general-group--de7390e36ef0.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -5491,28 +5494,28 @@
       "searchAliases": [
         "憲法與英文",
         "國文（作文）",
-        "義大利文（包括作文、翻譯與應用文）",
+        "義大利文(包括作文、翻譯與應用文)",
         "文化政策與文化研究",
         "文化行政與藝術管理",
         "藝術理論與藝術史",
+        "義大利文（包括作文、翻譯與應用文）",
         "國文（作文、公文與測驗）",
-        "義大利文(包括作文、翻譯與應用文)",
         "高考二級_文化行政(一般組)(選試義大利文)",
-        "114年公務人員高等考試一級暨二級考試",
-        "204",
+        "115年公務人員高等考試一級暨二級考試",
+        "203",
         "0101",
         "0102",
-        "0105",
+        "0103",
         "0301",
         "0302",
         "0303",
+        "114年公務人員高等考試一級暨二級考試",
+        "204",
+        "0105",
         "113年公務人員高等考試一級暨二級考試",
         "205",
         "109年公務人員高等考試一級暨二級考試",
-        "0103",
-        "0106",
-        "108年公務人員高等考試一級暨二級考試",
-        "207"
+        "0106"
       ],
       "sources": [
         {
@@ -5520,7 +5523,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-cultural-administration-elective-language-2f0ccdf33145-general-group",
@@ -5803,6 +5806,7 @@
       "id": "moex-civil-high-grade-2-education-administration-general-group",
       "name": "高等考試｜二等／高考二級｜教育行政｜一般組",
       "years": [
+        115,
         111,
         110,
         109,
@@ -5813,7 +5817,7 @@
         104,
         103
       ],
-      "fileCount": 63,
+      "fileCount": 69,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-education-administration-general-group--1b80299260db.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -5828,36 +5832,37 @@
       "examSubclass": "公職／公務人員",
       "searchAliases": [
         "憲法與英文",
-        "國文(作文、公文與測驗)",
-        "教育行政學研究(包括主要教育法規)",
+        "國文（作文）",
+        "教育行政學研究（包括主要教育法規）",
         "教育哲學",
         "教育計畫與評鑑研究",
         "教育史與比較教育",
+        "國文(作文、公文與測驗)",
+        "教育行政學研究(包括主要教育法規)",
         "國文（作文、公文與測驗）",
-        "教育行政學研究（包括主要教育法規）",
-        "高考二級_教育行政(一般組)",
-        "111年公務人員高等考試一級暨二級考試",
-        "206",
+        "高考二級_教育行政（一般組）",
+        "115年公務人員高等考試一級暨二級考試",
+        "204",
+        "0101",
         "0102",
-        "0103",
         "0304",
         "0305",
         "0306",
         "0307",
+        "高考二級_教育行政(一般組)",
+        "111年公務人員高等考試一級暨二級考試",
+        "206",
+        "0103",
         "110年公務人員高等考試一級暨二級考試",
-        "204",
-        "109年公務人員高等考試一級暨二級考試",
-        "205",
-        "108年公務人員高等考試一級暨二級考試",
-        "208",
-        "107年公務人員高等考試一級暨二級考試"
+        "109年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-electronic-engineering",
@@ -5978,6 +5983,7 @@
       "id": "moex-civil-high-grade-2-general-administration-cross-strait-group-1",
       "name": "高等考試｜二等／高考二級｜一般行政｜兩岸組一",
       "years": [
+        115,
         114,
         113,
         111,
@@ -5991,7 +5997,7 @@
         102,
         100
       ],
-      "fileCount": 82,
+      "fileCount": 88,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-general-administration-cross-strait-group-1--e795fa293abb.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6014,21 +6020,21 @@
         "國文(作文、公文與測驗)",
         "大陸政策與兩岸關係(包括兩岸關係相關法律及其施行細則、兩岸關係的國際因素、兩岸政策與協商)",
         "國文（作文、公文與測驗）",
+        "高考二級_一般行政（兩岸組一）",
+        "115年公務人員高等考試一級暨二級考試",
+        "202",
+        "0101",
+        "0102",
+        "0202",
+        "0203",
+        "0206",
+        "0207",
         "高考二級_一般行政(兩岸組一)",
         "114年公務人員高等考試一級暨二級考試",
         "201",
-        "0101",
-        "0102",
         "0204",
-        "0206",
-        "0207",
         "0208",
-        "113年公務人員高等考試一級暨二級考試",
-        "0202",
-        "0203",
-        "0205",
-        "111年公務人員高等考試一級暨二級考試",
-        "202"
+        "113年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
@@ -6036,12 +6042,13 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-general-administration-general-group",
       "name": "高等考試｜二等／高考二級｜一般行政｜一般組",
       "years": [
+        115,
         111,
         109,
         106,
@@ -6051,7 +6058,7 @@
         102,
         100
       ],
-      "fileCount": 56,
+      "fileCount": 62,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-general-administration-general-group--e0993bd465cf.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6066,41 +6073,43 @@
       "examSubclass": "公職／公務人員",
       "searchAliases": [
         "憲法與英文",
-        "國文(作文、公文與測驗)",
+        "國文（作文）",
         "行政法研究",
         "行政學研究",
         "公共政策研究",
         "民法總則與刑法總則研究",
+        "國文(作文、公文與測驗)",
         "國文（作文、公文與測驗）",
-        "高考二級_一般行政(一般組)",
-        "111年公務人員高等考試一級暨二級考試",
+        "高考二級_一般行政（一般組）",
+        "115年公務人員高等考試一級暨二級考試",
         "201",
+        "0101",
         "0102",
-        "0103",
         "0202",
         "0203",
         "0204",
         "0205",
+        "高考二級_一般行政(一般組)",
+        "111年公務人員高等考試一級暨二級考試",
+        "0103",
         "109年公務人員高等考試一級暨二級考試",
         "106年公務人員高等考試一級暨二級考試",
         "0402",
-        "0403",
-        "105年公務人員高等考試一級暨二級考試",
-        "0201",
-        "0501",
-        "0502"
+        "0403"
       ],
       "sources": [
         {
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-information-processing",
       "name": "高等考試｜二等／高考二級｜資訊處理",
       "years": [
+        115,
         114,
         113,
         112,
@@ -6116,7 +6125,7 @@
         100,
         83
       ],
-      "fileCount": 99,
+      "fileCount": 105,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-information-processing--d332f742fc18.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6145,13 +6154,13 @@
         "國文",
         "資料處理",
         "高考二級_資訊處理",
-        "114年公務人員高等考試一級暨二級考試",
-        "226",
+        "115年公務人員高等考試一級暨二級考試",
+        "227",
         "0101",
         "0102",
-        "1109",
-        "1110",
-        "1111"
+        "1005",
+        "1006",
+        "1007"
       ],
       "sources": [
         {
@@ -6159,7 +6168,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-land-administration",
@@ -6216,6 +6225,7 @@
       "id": "moex-civil-high-grade-2-mechanical-engineering",
       "name": "高等考試｜二等／高考二級｜機械工程",
       "years": [
+        115,
         114,
         113,
         112,
@@ -6230,7 +6240,7 @@
         84,
         83
       ],
-      "fileCount": 93,
+      "fileCount": 99,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-mechanical-engineering--49d7ad1ba77b.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6260,12 +6270,12 @@
         "機械材料",
         "國父遺教及中華民國憲法",
         "高考二級_機械工程",
-        "114年公務人員高等考試一級暨二級考試",
-        "227",
+        "115年公務人員高等考試一級暨二級考試",
+        "228",
         "0101",
         "0102",
-        "1205",
-        "1206"
+        "1105",
+        "1106"
       ],
       "sources": [
         {
@@ -6273,7 +6283,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-personnel-administration",
@@ -6440,6 +6450,7 @@
       "id": "moex-civil-high-grade-2-track-08caf7ed1850",
       "name": "高等考試｜二等／高考二級｜電力工程",
       "years": [
+        115,
         114,
         113,
         112,
@@ -6455,7 +6466,7 @@
         102,
         84
       ],
-      "fileCount": 99,
+      "fileCount": 105,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-08caf7ed1850--0a46a1816942.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6482,15 +6493,15 @@
         "電子學",
         "電路學",
         "高考二級_電力工程",
-        "114年公務人員高等考試一級暨二級考試",
-        "224",
+        "115年公務人員高等考試一級暨二級考試",
+        "226",
         "0101",
         "0102",
-        "1101",
-        "1102",
-        "1103",
-        "1104",
-        "113年公務人員高等考試一級暨二級考試"
+        "1001",
+        "1002",
+        "1003",
+        "1004",
+        "114年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
@@ -6498,7 +6509,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-0c8490c0cc20",
@@ -6669,6 +6680,7 @@
       "id": "moex-civil-high-grade-2-track-193a0dc9f3ca",
       "name": "高等考試｜二等／高考二級｜水利工程",
       "years": [
+        115,
         114,
         113,
         107,
@@ -6679,7 +6691,7 @@
         84,
         83
       ],
-      "fileCount": 67,
+      "fileCount": 73,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-193a0dc9f3ca--05f11d4c79d8.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6711,8 +6723,8 @@
         "工程管理與施工",
         "國父遺教及中華民國憲法",
         "高考二級_水利工程",
-        "114年公務人員高等考試一級暨二級考試",
-        "219",
+        "115年公務人員高等考試一級暨二級考試",
+        "220",
         "0101",
         "0102"
       ],
@@ -6722,7 +6734,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-1a40d0a879ef",
@@ -6884,10 +6896,11 @@
       "id": "moex-civil-high-grade-2-track-29d09c34e0d7",
       "name": "高等考試｜二等／高考二級｜醫學工程",
       "years": [
+        115,
         104,
         102
       ],
-      "fileCount": 14,
+      "fileCount": 20,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-009/moex-civil-high-grade-2-track-29d09c34e0d7--362239b8db41.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -6900,33 +6913,37 @@
       "examSubclass": "公職／公務人員",
       "searchAliases": [
         "憲法與英文",
-        "國文（作文、公文與測驗）",
+        "國文（作文）",
         "工程數學",
         "生理學",
         "醫療儀器設計與應用",
         "生醫材料",
+        "國文（作文、公文與測驗）",
         "高考二級_醫學工程",
+        "115年公務人員高等考試一級暨二級考試",
+        "224",
+        "0101",
+        "0102",
+        "0515",
+        "0516",
+        "0517",
+        "0518",
         "104年公務人員高等考試一級暨二級考試",
         "227",
-        "0102",
         "0103",
         "1405",
         "1406",
         "1407",
         "1408",
-        "102年公務人員高等考試一級暨二級考試",
-        "234",
-        "0809",
-        "1310",
-        "1311",
-        "1312"
+        "102年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-2a9fc2f389d7",
@@ -6983,13 +7000,14 @@
       "id": "moex-civil-high-grade-2-track-2f97f246a3f6",
       "name": "高等考試｜二等／高考二級｜生物多樣性",
       "years": [
+        115,
         114,
         112,
         105,
         102,
         100
       ],
-      "fileCount": 34,
+      "fileCount": 40,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-2f97f246a3f6--a33707a9221f.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7003,28 +7021,28 @@
       "searchAliases": [
         "憲法與英文",
         "國文（作文）",
+        "生態學研究",
         "系統分類學研究",
         "生物多樣性科學研究",
-        "生態學研究",
         "生物統計學研究",
         "國文（作文、公文與測驗）",
         "高考二級_生物多樣性",
-        "114年公務人員高等考試一級暨二級考試",
-        "217",
+        "115年公務人員高等考試一級暨二級考試",
+        "218",
         "0101",
         "0102",
         "0805",
         "0806",
         "0807",
         "0808",
+        "114年公務人員高等考試一級暨二級考試",
+        "217",
         "112年公務人員高等考試一級暨二級考試",
         "0714",
         "0715",
         "0716",
         "0717",
-        "105年公務人員高等考試一級暨二級考試",
-        "220",
-        "0103"
+        "105年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
@@ -7032,12 +7050,13 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-30e2deef61ee",
       "name": "高等考試｜二等／高考二級｜土壤肥料",
       "years": [
+        115,
         112,
         110,
         108,
@@ -7047,7 +7066,7 @@
         102,
         100
       ],
-      "fileCount": 56,
+      "fileCount": 62,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-30e2deef61ee--9eda9c604dd5.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7060,41 +7079,43 @@
       "examSubclass": "公職／公務人員",
       "searchAliases": [
         "憲法與英文",
-        "國文（作文、公文與測驗）",
+        "國文（作文）",
         "高等土壤學",
         "土壤肥力與植物營養研究",
         "土壤資源調查與利用規劃研究",
         "土壤微生物與土壤生態研究",
+        "國文（作文、公文與測驗）",
         "高考二級_土壤肥料",
-        "112年公務人員高等考試一級暨二級考試",
-        "210",
+        "115年公務人員高等考試一級暨二級考試",
+        "212",
         "0101",
         "0102",
         "0605",
         "0606",
         "0607",
         "0608",
+        "112年公務人員高等考試一級暨二級考試",
+        "210",
         "110年公務人員高等考試一級暨二級考試",
         "211",
         "0103",
         "0601",
         "0602",
-        "0603",
-        "0604",
-        "108年公務人員高等考試一級暨二級考試",
-        "213"
+        "0603"
       ],
       "sources": [
         {
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-31992f60c272",
       "name": "高等考試｜二等／高考二級｜都市計畫技術",
       "years": [
+        115,
         114,
         110,
         109,
@@ -7104,7 +7125,7 @@
         84,
         83
       ],
-      "fileCount": 63,
+      "fileCount": 69,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-31992f60c272--9e7416f33ee6.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7136,8 +7157,8 @@
         "測量學",
         "國父遺教及中華民國憲法",
         "高考二級_都市計畫技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "221",
+        "115年公務人員高等考試一級暨二級考試",
+        "222",
         "0101",
         "0102"
       ],
@@ -7147,18 +7168,19 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-330b5ead5ace",
       "name": "高等考試｜二等／高考二級｜環境工程",
       "years": [
+        115,
         114,
         113,
         108,
         84
       ],
-      "fileCount": 28,
+      "fileCount": 34,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/moex-civil-high-grade-2-track-330b5ead5ace--8432a6438c6d.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7185,15 +7207,15 @@
         "流體力學",
         "環境品質規劃與管理",
         "高考二級_環境工程",
-        "114年公務人員高等考試一級暨二級考試",
-        "220",
+        "115年公務人員高等考試一級暨二級考試",
+        "221",
         "0101",
         "0102",
-        "0905",
-        "0906",
-        "0907",
-        "0908",
-        "113年公務人員高等考試一級暨二級考試"
+        "0909",
+        "0910",
+        "0911",
+        "0912",
+        "114年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
@@ -7201,12 +7223,13 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-3392aef11175",
       "name": "高等考試｜二等／高考二級｜食品衛生行政",
       "years": [
+        115,
         114,
         113,
         112,
@@ -7220,7 +7243,7 @@
         102,
         100
       ],
-      "fileCount": 82,
+      "fileCount": 88,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-3392aef11175--d06bfe5fc845.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7236,26 +7259,26 @@
         "國文（作文）",
         "食品科學與加工學研究",
         "食品安全與衛生法規研究",
-        "食品風險管理研究（包括餐飲及食品工廠管理）",
+        "食品風險管理研究(包括餐飲及食品工廠管理)",
         "食品營養及膳食療養學研究",
+        "食品風險管理研究（包括餐飲及食品工廠管理）",
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
-        "食品風險管理研究(包括餐飲及食品工廠管理)",
         "高考二級_食品衛生行政",
-        "114年公務人員高等考試一級暨二級考試",
-        "208",
+        "115年公務人員高等考試一級暨二級考試",
+        "209",
         "0101",
         "0102",
+        "0507",
+        "0508",
+        "0509",
+        "0510",
+        "114年公務人員高等考試一級暨二級考試",
+        "208",
         "0503",
         "0504",
         "0505",
-        "0506",
-        "113年公務人員高等考試一級暨二級考試",
-        "212",
-        "0507",
-        "0508",
-        "112年公務人員高等考試一級暨二級考試",
-        "207"
+        "0506"
       ],
       "sources": [
         {
@@ -7263,12 +7286,13 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-34b6ff43b5af",
       "name": "高等考試｜二等／高考二級｜史料編纂",
       "years": [
+        115,
         114,
         113,
         112,
@@ -7278,7 +7302,7 @@
         100,
         92
       ],
-      "fileCount": 54,
+      "fileCount": 60,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-34b6ff43b5af--7bf9f522e638.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7292,28 +7316,28 @@
       "searchAliases": [
         "憲法與英文",
         "國文（作文）",
-        "中華民國史研究（包括臺灣史研究）",
+        "中華民國史研究(包括臺灣史研究)",
         "世界近代史研究",
         "史學方法研究",
         "圖書檔案管理研究",
+        "中華民國史研究（包括臺灣史研究）",
         "國文（作文、公文與測驗）",
-        "中華民國史研究(包括臺灣史研究)",
         "本國近代史研究",
         "西洋近代史研究",
         "檔案文獻學",
         "中華民國憲法",
         "國文(論文、公文與閱讀測驗)",
         "高考二級_史料編纂",
-        "114年公務人員高等考試一級暨二級考試",
+        "115年公務人員高等考試一級暨二級考試",
         "205",
         "0101",
         "0102",
-        "0304",
-        "0305",
-        "0306",
-        "0307",
-        "113年公務人員高等考試一級暨二級考試",
-        "206"
+        "0308",
+        "0309",
+        "0310",
+        "0311",
+        "114年公務人員高等考試一級暨二級考試",
+        "0304"
       ],
       "sources": [
         {
@@ -7321,7 +7345,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-3508b2b8d0f9",
@@ -7378,6 +7402,7 @@
       "id": "moex-civil-high-grade-2-track-3578820dc334",
       "name": "高等考試｜二等／高考二級｜水產資源",
       "years": [
+        115,
         114,
         112,
         110,
@@ -7387,7 +7412,7 @@
         105,
         104
       ],
-      "fileCount": 55,
+      "fileCount": 61,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-3578820dc334--75763298bd2c.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7402,27 +7427,27 @@
         "憲法與英文",
         "國文（作文）",
         "海洋生態學特論",
-        "水產資源學特論",
         "漁業技術研究",
+        "水產資源學特論",
         "生物統計學研究",
         "國文（作文、公文與測驗）",
         "高考二級_水產資源",
-        "114年公務人員高等考試一級暨二級考試",
-        "215",
+        "115年公務人員高等考試一級暨二級考試",
+        "216",
         "0101",
         "0102",
-        "0709",
         "0710",
         "0711",
         "0712",
+        "0713",
+        "114年公務人員高等考試一級暨二級考試",
+        "215",
+        "0709",
         "112年公務人員高等考試一級暨二級考試",
         "214",
         "0702",
         "0704",
-        "0707",
-        "0717",
-        "110年公務人員高等考試一級暨二級考試",
-        "0103"
+        "0707"
       ],
       "sources": [
         {
@@ -7430,7 +7455,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-3d8bdafb27c0",
@@ -7751,6 +7776,7 @@
       "id": "moex-civil-high-grade-2-track-4fe3c4ad869f",
       "name": "高等考試｜二等／高考二級｜衛生技術",
       "years": [
+        115,
         114,
         111,
         107,
@@ -7760,7 +7786,7 @@
         92,
         83
       ],
-      "fileCount": 57,
+      "fileCount": 63,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-4fe3c4ad869f--9919a49bc7bc.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7791,8 +7817,8 @@
         "國父遺教及中華民國憲法",
         "國文",
         "高考二級_衛生技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "222",
+        "115年公務人員高等考試一級暨二級考試",
+        "223",
         "0101",
         "0102",
         "0511"
@@ -7803,7 +7829,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-64dcb95f665a",
@@ -7858,6 +7884,7 @@
       "id": "moex-civil-high-grade-2-track-6610f2d4ac0c",
       "name": "高等考試｜二等／高考二級｜交通技術",
       "years": [
+        115,
         114,
         109,
         108,
@@ -7865,7 +7892,7 @@
         105,
         104
       ],
-      "fileCount": 41,
+      "fileCount": 47,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-6610f2d4ac0c--f2373ab97978.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7885,22 +7912,22 @@
         "運輸安全",
         "國文（作文、公文與測驗）",
         "高考二級_交通技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "223",
+        "115年公務人員高等考試一級暨二級考試",
+        "225",
         "0101",
         "0102",
         "0405",
         "0406",
         "0407",
         "0408",
+        "114年公務人員高等考試一級暨二級考試",
+        "223",
         "109年公務人員高等考試一級暨二級考試",
         "219",
         "0103",
         "1101",
         "1102",
-        "1103",
-        "1104",
-        "108年公務人員高等考試一級暨二級考試"
+        "1103"
       ],
       "sources": [
         {
@@ -7908,19 +7935,20 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-6c67b6e1c4ad",
       "name": "高等考試｜二等／高考二級｜動物技術",
       "years": [
+        115,
         114,
         113,
         112,
         111,
         110
       ],
-      "fileCount": 33,
+      "fileCount": 39,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-6c67b6e1c4ad--8b345969c292.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -7941,21 +7969,21 @@
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
         "高考二級_動物技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "216",
+        "115年公務人員高等考試一級暨二級考試",
+        "217",
         "0101",
         "0102",
         "0801",
         "0802",
         "0803",
         "0804",
+        "114年公務人員高等考試一級暨二級考試",
+        "216",
         "113年公務人員高等考試一級暨二級考試",
         "220",
         "0709",
         "0710",
-        "0711",
-        "0712",
-        "112年公務人員高等考試一級暨二級考試"
+        "0711"
       ],
       "sources": [
         {
@@ -7963,7 +7991,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-6d8cbfc19d6c",
@@ -8281,11 +8309,12 @@
       "id": "moex-civil-high-grade-2-track-810cf5e87a79-general-group",
       "name": "高等考試｜二等／高考二級｜漁業行政｜一般組",
       "years": [
+        115,
         113,
         109,
         103
       ],
-      "fileCount": 20,
+      "fileCount": 26,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/moex-civil-high-grade-2-track-810cf5e87a79-general-group--4cd3612e148a.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -8303,33 +8332,34 @@
         "國文（作文）",
         "英文（包括作文、翻譯與應用文）",
         "國際公法與國際關係研究",
-        "水產綜論",
         "漁業法規研究（包括漁業法、漁港法、漁會法及其施行細則）",
+        "水產綜論",
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
         "英文(包括作文、翻譯與應用文)",
-        "高考二級_漁業行政(一般組)",
-        "113年公務人員高等考試一級暨二級考試",
-        "210",
+        "高考二級_漁業行政（一般組）",
+        "115年公務人員高等考試一級暨二級考試",
+        "207",
         "0101",
         "0102",
-        "0106",
+        "0104",
         "0212",
         "0701",
         "0702",
+        "高考二級_漁業行政(一般組)",
+        "113年公務人員高等考試一級暨二級考試",
+        "210",
+        "0106",
         "109年公務人員高等考試一級暨二級考試",
-        "208",
-        "0103",
-        "0107",
-        "0209",
-        "103年公務人員高等考試一級暨二級考試"
+        "208"
       ],
       "sources": [
         {
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-832457175658",
@@ -8501,13 +8531,14 @@
       "id": "moex-civil-high-grade-2-track-89a49042933b-general-group",
       "name": "高等考試｜二等／高考二級｜衛生行政｜一般組",
       "years": [
+        115,
         113,
         112,
         110,
         109,
         105
       ],
-      "fileCount": 34,
+      "fileCount": 40,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-89a49042933b-general-group--6b13df25b5af.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -8525,33 +8556,34 @@
         "國文（作文）",
         "醫務管理學與衛生法規與倫理研究",
         "衛生行政學研究（包括食品藥物衛生）",
-        "流行病學與生物統計學研究",
         "環境衛生學研究（包括職業衛生）",
+        "流行病學與生物統計學研究",
         "國文（作文、公文與測驗）",
         "衛生行政學研究(包括食品藥物衛生)",
         "環境衛生學研究(包括職業衛生)",
         "高考二級_衛生行政(一般組)",
-        "113年公務人員高等考試一級暨二級考試",
-        "211",
+        "115年公務人員高等考試一級暨二級考試",
+        "208",
         "0101",
         "0102",
-        "0501",
-        "0502",
         "0503",
         "0504",
+        "0505",
+        "0506",
+        "113年公務人員高等考試一級暨二級考試",
+        "211",
+        "0501",
+        "0502",
         "112年公務人員高等考試一級暨二級考試",
-        "206",
-        "110年公務人員高等考試一級暨二級考試",
-        "210",
-        "0103",
-        "109年公務人員高等考試一級暨二級考試"
+        "206"
       ],
       "sources": [
         {
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-934e06056bb7",
@@ -8967,6 +8999,7 @@
       "id": "moex-civil-high-grade-2-track-a941921e8b12",
       "name": "高等考試｜二等／高考二級｜水產技術",
       "years": [
+        115,
         114,
         112,
         111,
@@ -8978,7 +9011,7 @@
         102,
         100
       ],
-      "fileCount": 69,
+      "fileCount": 75,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-a941921e8b12--e908fed11468.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -8992,28 +9025,28 @@
       "searchAliases": [
         "憲法與英文",
         "國文（作文）",
+        "水產綜論",
         "海洋生態學",
         "水產資源學",
         "高等魚類生理學",
-        "水產綜論",
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
         "高考二級_水產技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "213",
+        "115年公務人員高等考試一級暨二級考試",
+        "214",
         "0101",
         "0102",
-        "0701",
         "0702",
         "0703",
         "0704",
-        "112年公務人員高等考試一級暨二級考試",
         "0705",
+        "114年公務人員高等考試一級暨二級考試",
+        "213",
+        "0701",
+        "112年公務人員高等考試一級暨二級考試",
         "0706",
         "111年公務人員高等考試一級暨二級考試",
-        "215",
-        "0103",
-        "108年公務人員高等考試一級暨二級考試"
+        "215"
       ],
       "sources": [
         {
@@ -9021,7 +9054,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-a96270378dfc-elective-language-348ea84c6046",
@@ -9081,6 +9114,7 @@
       "id": "moex-civil-high-grade-2-track-b16d7a61e802",
       "name": "高等考試｜二等／高考二級｜農業技術",
       "years": [
+        115,
         114,
         113,
         112,
@@ -9095,7 +9129,7 @@
         100,
         99
       ],
-      "fileCount": 89,
+      "fileCount": 95,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-b16d7a61e802--8a0b4b9e9816.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -9116,21 +9150,21 @@
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
         "高考二級_農業技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "209",
+        "115年公務人員高等考試一級暨二級考試",
+        "210",
         "0101",
         "0102",
         "0601",
         "0602",
         "0603",
         "0604",
+        "114年公務人員高等考試一級暨二級考試",
+        "209",
         "113年公務人員高等考試一級暨二級考試",
         "213",
         "112年公務人員高等考試一級暨二級考試",
         "208",
-        "111年公務人員高等考試一級暨二級考試",
-        "212",
-        "0103"
+        "111年公務人員高等考試一級暨二級考試"
       ],
       "sources": [
         {
@@ -9138,7 +9172,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-b29c6cc1e77d",
@@ -9246,6 +9280,7 @@
       "id": "moex-civil-high-grade-2-track-bcce732c7e0f",
       "name": "高等考試｜二等／高考二級｜養殖技術",
       "years": [
+        115,
         114,
         113,
         111,
@@ -9256,7 +9291,7 @@
         106,
         105
       ],
-      "fileCount": 61,
+      "fileCount": 67,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-bcce732c7e0f--3588c054c640.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -9277,21 +9312,21 @@
         "國文(作文、公文與測驗)",
         "國文（作文、公文與測驗）",
         "高考二級_養殖技術",
-        "114年公務人員高等考試一級暨二級考試",
-        "214",
+        "115年公務人員高等考試一級暨二級考試",
+        "215",
         "0101",
         "0102",
-        "0705",
         "0706",
         "0707",
         "0708",
+        "0709",
+        "114年公務人員高等考試一級暨二級考試",
+        "214",
+        "0705",
         "113年公務人員高等考試一級暨二級考試",
         "218",
         "0703",
-        "0704",
-        "111年公務人員高等考試一級暨二級考試",
-        "216",
-        "0103"
+        "0704"
       ],
       "sources": [
         {
@@ -9299,7 +9334,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-bd17d3779f8b",
@@ -9407,6 +9442,7 @@
       "id": "moex-civil-high-grade-2-track-bfbba09f4bfb",
       "name": "高等考試｜二等／高考二級｜金融保險",
       "years": [
+        115,
         113,
         112,
         111,
@@ -9420,7 +9456,7 @@
         92,
         84
       ],
-      "fileCount": 85,
+      "fileCount": 91,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-bfbba09f4bfb--2e43b6a8d4e9.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -9436,11 +9472,11 @@
         "國文（作文）",
         "經濟學研究",
         "貨幣銀行學研究",
-        "金融保險法規（包括銀行法、證券交易法、保險法等法律及其相關法規）",
+        "金融保險法規(包括銀行法、證券交易法、保險法等法律及其相關法規)",
         "財務管理研究",
+        "金融保險法規（包括銀行法、證券交易法、保險法等法律及其相關法規）",
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
-        "金融保險法規(包括銀行法、證券交易法、保險法等法律及其相關法規)",
         "金融保險法規(包括銀行法、證券交易法、保險法及其相關法規)",
         "中華民國憲法",
         "國文(論文、公文與閱讀測驗)",
@@ -9452,8 +9488,8 @@
         "貨幣銀行學",
         "財務管理",
         "高考二級_金融保險",
-        "113年公務人員高等考試一級暨二級考試",
-        "207",
+        "115年公務人員高等考試一級暨二級考試",
+        "206",
         "0101",
         "0102"
       ],
@@ -9462,7 +9498,8 @@
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-c2d702e262da",
@@ -9880,6 +9917,7 @@
       "id": "moex-civil-high-grade-2-track-dfa306b8a5c2",
       "name": "高等考試｜二等／高考二級｜園藝",
       "years": [
+        115,
         113,
         112,
         111,
@@ -9891,7 +9929,7 @@
         84,
         83
       ],
-      "fileCount": 73,
+      "fileCount": 79,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-dfa306b8a5c2--71ced2bf3efb.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -9924,8 +9962,8 @@
         "國父遺教及中華民國憲法",
         "農業概論",
         "高考二級_園藝",
-        "113年公務人員高等考試一級暨二級考試",
-        "216",
+        "115年公務人員高等考試一級暨二級考試",
+        "213",
         "0101"
       ],
       "sources": [
@@ -9933,7 +9971,8 @@
           "name": "考選部",
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
-      ]
+      ],
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-e05ac09dd8f3",
@@ -10521,6 +10560,7 @@
       "id": "moex-civil-high-grade-2-track-ff8a6a84449e",
       "name": "高等考試｜二等／高考二級｜農業機械",
       "years": [
+        115,
         114,
         113,
         112,
@@ -10531,7 +10571,7 @@
         102,
         86
       ],
-      "fileCount": 60,
+      "fileCount": 66,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-civil-high-grade-2-track-ff8a6a84449e--ad3718c61806.zip",
       "domainId": "civil-service",
       "examFamilyId": "civil-service-exam",
@@ -10557,16 +10597,16 @@
         "中華民國憲法",
         "國文",
         "高考二級_農業機械",
-        "114年公務人員高等考試一級暨二級考試",
-        "210",
+        "115年公務人員高等考試一級暨二級考試",
+        "211",
         "0101",
         "0102",
-        "1201",
-        "1202",
-        "1203",
-        "1204",
-        "113年公務人員高等考試一級暨二級考試",
-        "214"
+        "1101",
+        "1102",
+        "1103",
+        "1104",
+        "114年公務人員高等考試一級暨二級考試",
+        "210"
       ],
       "sources": [
         {
@@ -10574,7 +10614,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-2-track-ffa3f669e8fe",
@@ -10748,7 +10788,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-audit",
@@ -10803,7 +10843,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-civil-engineering",
@@ -10876,7 +10916,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-civil-engineering-stage-1",
@@ -11061,7 +11101,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-cultural-administration-stage-1",
@@ -11244,7 +11284,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-education-administration-stage-1",
@@ -11430,7 +11470,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-electronic-engineering-stage-1",
@@ -11617,7 +11657,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-general-administration-stage-1",
@@ -11798,7 +11838,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-information-processing",
@@ -11869,7 +11909,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-land-administration",
@@ -11941,7 +11981,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-land-administration-stage-1",
@@ -12126,7 +12166,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-mechanical-engineering-stage-1",
@@ -12313,7 +12353,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-personnel-administration-stage-1",
@@ -12499,7 +12539,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-tax-administration-stage-1",
@@ -12683,7 +12723,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-062ea13e1719-stage-1",
@@ -12853,7 +12893,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-08caf7ed1850-stage-1",
@@ -13036,7 +13076,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-0ca23d1e8554-stage-1",
@@ -13193,7 +13233,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-12e694359274",
@@ -13266,7 +13306,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-12e694359274-stage-1",
@@ -13439,7 +13479,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-193a0dc9f3ca",
@@ -13512,7 +13552,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-193a0dc9f3ca-elective-language-062a6fcb3c86-stage-2",
@@ -13789,7 +13829,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-1983957d8d0d-elective-language-ff0926b18df0",
@@ -13859,7 +13899,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-1983957d8d0d-stage-1",
@@ -14100,7 +14140,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-1a40d0a879ef",
@@ -14164,7 +14204,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-1a40d0a879ef-stage-1",
@@ -14400,7 +14440,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-1d21df21112d-stage-1",
@@ -14957,7 +14997,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-29d09c34e0d7",
@@ -15360,7 +15400,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-2f97f246a3f6",
@@ -15464,7 +15504,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-31992f60c272",
@@ -15536,7 +15576,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-31992f60c272-stage-1",
@@ -15721,7 +15761,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-330b5ead5ace-stage-1",
@@ -16431,7 +16471,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-3aabe528afae-stage-1",
@@ -16793,7 +16833,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-3e45c8079a92",
@@ -17079,7 +17119,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-4321489c2fd8-stage-1",
@@ -17365,7 +17405,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-447b9c32f6d9-stage-1",
@@ -17653,7 +17693,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-4ce28f2295c8-stage-1",
@@ -17991,7 +18031,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-4fe3c4ad869f-stage-1",
@@ -18222,7 +18262,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-5370a4b8ed02-stage-1",
@@ -18442,7 +18482,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-5c751575a1f2",
@@ -18723,7 +18763,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-61a53223e1c7-stage-1",
@@ -18898,7 +18938,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-6371e35f2af0",
@@ -19026,7 +19066,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-6610f2d4ac0c",
@@ -19097,7 +19137,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-66ea073d24ae",
@@ -19153,7 +19193,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-6840b7e09549-elective-language-f8f1574d0f07-stage-2",
@@ -19569,7 +19609,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-6d8cbfc19d6c",
@@ -19781,7 +19821,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-6f03abc056fe-stage-1",
@@ -20264,7 +20304,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-7d5792430a62-stage-1",
@@ -20443,7 +20483,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-7eb6667edca9-stage-1",
@@ -20684,7 +20724,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-832457175658-stage-1",
@@ -21035,7 +21075,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-89a49042933b-stage-1",
@@ -21215,7 +21255,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-8de80029043e-stage-1",
@@ -21380,7 +21420,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-93d79eca1516-stage-1",
@@ -21732,7 +21772,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-958a43f4c2c4-stage-1",
@@ -22010,7 +22050,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-9c200fe1150d-elective-language-ffb5f47363d4",
@@ -22717,7 +22757,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-a8cd1a9dd30e",
@@ -23033,7 +23073,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-af1dc8428728",
@@ -23099,7 +23139,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-af9fdd137dea",
@@ -23170,7 +23210,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-b0debbb63887",
@@ -23237,7 +23277,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-b16d7a61e802",
@@ -23308,7 +23348,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-b2882f399a34",
@@ -23512,7 +23552,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-b29c6cc1e77d-stage-1",
@@ -23680,7 +23720,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-b377964beea0-stage-1",
@@ -23921,7 +23961,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-b66aeb0a0a30",
@@ -24097,7 +24137,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-baab7749a15b",
@@ -24220,7 +24260,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-beb8f56ae090",
@@ -24293,7 +24333,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-beb8f56ae090-stage-1",
@@ -24478,7 +24518,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-bfbba09f4bfb-stage-1",
@@ -24660,7 +24700,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-c2d702e262da",
@@ -25060,7 +25100,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-c77fd5a43778",
@@ -25122,7 +25162,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-c7fe95341c2d",
@@ -25195,7 +25235,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-c7fe95341c2d-stage-1",
@@ -25377,7 +25417,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-cf12ed7bcc9b-stage-1",
@@ -26292,7 +26332,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d182d0d5da26-elective-language-ea4a698285bb",
@@ -26352,7 +26392,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d182d0d5da26-elective-language-f85f3bd46633",
@@ -26470,7 +26510,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d44405cc7ae7",
@@ -26542,7 +26582,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d44405cc7ae7-stage-1",
@@ -26787,7 +26827,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d83fc6837c9b-stage-1",
@@ -26969,7 +27009,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d853e7a21e90-stage-1",
@@ -27208,7 +27248,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-d98d34d6b2e2-stage-1",
@@ -27528,7 +27568,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-dfa306b8a5c2-stage-1",
@@ -27820,7 +27860,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-e51f442d629d",
@@ -28041,7 +28081,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-e79c8f509da9-stage-1",
@@ -28275,7 +28315,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-e8446c8a3463-stage-1",
@@ -28454,7 +28494,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-ebed1da0b0b7",
@@ -28525,7 +28565,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-ebed1da0b0b7-stage-1",
@@ -28857,7 +28897,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-ed71756f98b5-elective-language-348ea84c6046",
@@ -29636,7 +29676,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-f60e8a16f8d6",
@@ -29691,7 +29731,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-fa49c203c6c9-elective-language-056c69935025",
@@ -29751,7 +29791,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-fa49c203c6c9-elective-language-056c69935025-stage-1",
@@ -30060,7 +30100,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-fa49c203c6c9-elective-language-348ea84c6046-stage-1",
@@ -30387,7 +30427,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-fa49c203c6c9-elective-language-cb25397603c9-stage-1",
@@ -30555,7 +30595,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-fccd0778d29a",
@@ -30622,7 +30662,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-fccd0778d29a-stage-1",
@@ -30785,7 +30825,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-high-grade-3-track-feadecc34cbf",
@@ -31250,7 +31290,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-civil-engineering",
@@ -31323,7 +31363,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-civil-engineering-stage-1",
@@ -31503,7 +31543,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-cultural-administration-stage-1",
@@ -31681,7 +31721,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-education-administration-stage-1",
@@ -31864,7 +31904,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-electronic-engineering-stage-1",
@@ -32048,7 +32088,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-general-administration-stage-1",
@@ -32229,7 +32269,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-information-processing",
@@ -32302,7 +32342,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-information-processing-stage-1",
@@ -32486,7 +32526,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-land-administration-stage-1",
@@ -32672,7 +32712,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-mechanical-engineering-stage-1",
@@ -32858,7 +32898,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-personnel-administration-stage-1",
@@ -33042,7 +33082,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-tax-administration-stage-1",
@@ -33220,7 +33260,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-062ea13e1719",
@@ -33431,7 +33471,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-08caf7ed1850-stage-1",
@@ -33832,7 +33872,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-16bcab5c30e6",
@@ -33955,7 +33995,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-193a0dc9f3ca-stage-1",
@@ -34121,7 +34161,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-1983957d8d0d-stage-1",
@@ -34542,7 +34582,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-2a70451b056c",
@@ -34662,7 +34702,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-31992f60c272",
@@ -34733,7 +34773,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-31992f60c272-stage-1",
@@ -34912,7 +34952,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-330b5ead5ace-stage-1",
@@ -35446,7 +35486,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-447b9c32f6d9-stage-1",
@@ -35619,7 +35659,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-4657d12695e7-stage-1",
@@ -35873,7 +35913,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-4e380a1aa7d4",
@@ -36212,7 +36252,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-4fe3c4ad869f-stage-1",
@@ -36322,7 +36362,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-59293c5a1f22",
@@ -36486,7 +36526,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-5cd0e2166979",
@@ -36757,7 +36797,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-6371e35f2af0",
@@ -36880,7 +36920,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-6610f2d4ac0c-stage-1",
@@ -37151,7 +37191,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-6f03abc056fe",
@@ -37206,7 +37246,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-7004e46e762e-stage-1",
@@ -37540,7 +37580,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-7d5792430a62-stage-1",
@@ -37723,7 +37763,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-7eb6667edca9-stage-1",
@@ -37955,7 +37995,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-832457175658-stage-1",
@@ -38299,7 +38339,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-89a49042933b-stage-1",
@@ -38470,7 +38510,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-93d79eca1516",
@@ -38543,7 +38583,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-93d79eca1516-stage-1",
@@ -38889,7 +38929,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-9c200fe1150d-elective-language-ffb5f47363d4",
@@ -38944,7 +38984,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-9de5adfec653-stage-1",
@@ -39465,7 +39505,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-a8cd1a9dd30e",
@@ -39686,7 +39726,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-af9fdd137dea",
@@ -39748,7 +39788,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-b0debbb63887",
@@ -39867,7 +39907,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-b426992a067b",
@@ -40091,7 +40131,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-baab7749a15b",
@@ -40364,7 +40404,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-beb8f56ae090",
@@ -40437,7 +40477,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-beb8f56ae090-stage-1",
@@ -40620,7 +40660,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-bfbba09f4bfb-stage-1",
@@ -40797,7 +40837,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-c2d702e262da",
@@ -40923,7 +40963,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-c7fe95341c2d-stage-1",
@@ -41311,7 +41351,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-d182d0d5da26-stage-1",
@@ -41487,7 +41527,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-d83fc6837c9b",
@@ -41554,7 +41594,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-d853e7a21e90",
@@ -41623,7 +41663,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-d853e7a21e90-stage-1",
@@ -41884,7 +41924,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-dfa306b8a5c2-stage-1",
@@ -42145,7 +42185,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-e51f442d629d-stage-1",
@@ -42589,7 +42629,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-e8446c8a3463-stage-1",
@@ -42767,7 +42807,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-ebed1da0b0b7-stage-1",
@@ -42927,7 +42967,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-ed71756f98b5-stage-1",
@@ -43410,7 +43450,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-fa49c203c6c9-elective-language-348ea84c6046",
@@ -43592,7 +43632,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-civil-ordinary-ordinary-track-fe760beea427-stage-1",
@@ -97064,7 +97104,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-combined-ordinary-track-da8ba2953358",
@@ -97427,7 +97467,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-dietitian",
@@ -97493,7 +97533,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-lawyer",
@@ -97870,7 +97910,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-lawyer-stage-2",
@@ -97989,7 +98029,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-40064aa74cef",
@@ -98058,7 +98098,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-4bfc0fe9ae3d",
@@ -98127,7 +98167,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-540e2cf9a014",
@@ -98196,7 +98236,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-56c994dfc25d",
@@ -98258,7 +98298,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-5bfb7d1fbfc8",
@@ -98320,7 +98360,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-683552bb7317",
@@ -98386,7 +98426,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-89569bb29706",
@@ -98455,7 +98495,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-8abf6b49368e",
@@ -98524,7 +98564,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-8f6203b413b5",
@@ -98709,7 +98749,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-d2badaec0825",
@@ -98778,7 +98818,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-e63d629dce6a",
@@ -98847,7 +98887,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-patent-attorney-elective-language-eeeead74b286",
@@ -98914,7 +98954,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-social-worker",
@@ -98990,7 +99030,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-066339cf4516",
@@ -99054,7 +99094,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-0c52fcbadb75",
@@ -99114,7 +99154,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-1074f009b315",
@@ -99306,7 +99346,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-18cfe1aaa4d4",
@@ -99372,7 +99412,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-1a4b7577f8c3",
@@ -99571,7 +99611,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-2aaf63c6a147",
@@ -99758,7 +99798,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-30f9d36613c1",
@@ -99823,7 +99863,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-33d23378bdfc",
@@ -100062,7 +100102,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-3e7af1c8af08",
@@ -100138,7 +100178,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-41d295529445",
@@ -100202,7 +100242,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-47ea5df46149",
@@ -100409,7 +100449,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-55f5b66c801a",
@@ -100862,7 +100902,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-74b850dc0c04",
@@ -101052,7 +101092,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-76c5e812caa2",
@@ -101102,7 +101142,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-7c193ce1622d",
@@ -101473,7 +101513,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-8bf6ae364d38",
@@ -102112,7 +102152,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-aae5c742c2df",
@@ -102248,7 +102288,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-afca445da66b",
@@ -102379,7 +102419,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-b0ca20f451e7",
@@ -102610,7 +102650,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-b66a2c73d928",
@@ -103073,7 +103113,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-cbba729d67c6",
@@ -103330,7 +103370,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-da8ba2953358",
@@ -103445,7 +103485,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-db7cc99d8ae7",
@@ -103508,7 +103548,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-dc37d740d459",
@@ -103574,7 +103614,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-e70a1b18458c",
@@ -103642,7 +103682,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-e9133ea8bfdf",
@@ -103885,7 +103925,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-high-professional-high-track-f74516e0ba71",
@@ -110379,7 +110419,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-combined-track-16441b9a84bc",
@@ -110704,7 +110744,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-combined-track-51498db31815",
@@ -110987,7 +111027,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-combined-track-97c484b11f27",
@@ -111524,7 +111564,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-combined-track-d4f61c07ae25",
@@ -113148,7 +113188,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-2071c307cc75",
@@ -113213,7 +113253,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-51498db31815",
@@ -113278,7 +113318,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-878c96a2c897",
@@ -113343,7 +113383,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-a567f6d1491f",
@@ -113408,7 +113448,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-b3bc912bd269",
@@ -113473,7 +113513,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-d463509763b9",
@@ -113538,7 +113578,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-d96270850973",
@@ -113647,7 +113687,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-ordinary-track-ee5787d99cb3",
@@ -113712,7 +113752,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-professional-special-professional-high-track-b02813f14327",
@@ -116133,7 +116173,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-coast-guard-grade-3-track-35c8e3001b6a",
@@ -116258,7 +116298,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-coast-guard-grade-3-track-91363ff5f8f7",
@@ -116312,7 +116352,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-coast-guard-grade-4-track-35c8e3001b6a",
@@ -116418,7 +116458,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-coast-guard-grade-4-track-91363ff5f8f7",
@@ -116473,7 +116513,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-coast-guard-grade-5-track-abf734168756",
@@ -116514,7 +116554,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-coast-guard-police-senior-track-1728419d9c10",
@@ -117310,7 +117350,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-mechanical-engineering",
@@ -117435,7 +117475,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-personnel-administration",
@@ -117608,7 +117648,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-tax-administration-elective-language-ffb5f47363d4",
@@ -117657,7 +117697,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-001ec94c9af5",
@@ -117887,7 +117927,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-19c070298a1d",
@@ -118119,7 +118159,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-281bda5933d1-elective-language-ffb5f47363d4",
@@ -118174,7 +118214,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-59293c5a1f22",
@@ -118298,7 +118338,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-626ce8ae7d3e",
@@ -118469,7 +118509,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-66ea073d24ae",
@@ -118696,7 +118736,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-7f52080fde7f",
@@ -118914,7 +118954,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-93d79eca1516",
@@ -119179,7 +119219,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-cedaea304cbc",
@@ -119301,7 +119341,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-3-track-d0c2d23b23c4",
@@ -119523,7 +119563,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-general-administration-elective-language-ffb5f47363d4",
@@ -119574,7 +119614,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-information-processing",
@@ -119695,7 +119735,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-mechanical-engineering",
@@ -119817,7 +119857,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-tax-administration",
@@ -119986,7 +120026,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-track-59293c5a1f22",
@@ -120107,7 +120147,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-track-6a8ac1004c52",
@@ -120278,7 +120318,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-track-8c593bf70bb8",
@@ -120443,7 +120483,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-track-c8e069573159",
@@ -120551,7 +120591,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-4-track-d0c2d23b23c4",
@@ -120710,7 +120750,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-grade-5-track-1d6aa847ddc2",
@@ -120777,7 +120817,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-customs-recommended-rank-track-145d36af1aaa",
@@ -121871,7 +121911,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-14b9b2822a9b",
@@ -122031,7 +122071,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-20691a8edede",
@@ -122243,7 +122283,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-3159a45d74ac",
@@ -122457,7 +122497,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-4a1d08ac767d",
@@ -122609,7 +122649,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-57aa18d59df5",
@@ -122829,7 +122869,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-60d10c48fb9f",
@@ -122925,7 +122965,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-6f5860280168",
@@ -122972,7 +123012,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-71dcac02e2e2",
@@ -123390,7 +123430,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-a92b421c2786",
@@ -124131,7 +124171,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-cede010978c4",
@@ -124399,7 +124439,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-d96956b609a3",
@@ -124445,7 +124485,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-e2baf5052145",
@@ -124549,7 +124589,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-3-track-e999661885ff",
@@ -125082,7 +125122,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-diplomatic-grade-4-track-e4b8a91848a8",
@@ -127199,7 +127239,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-electronic-engineering",
@@ -127257,7 +127297,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-general-administration",
@@ -127333,7 +127373,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-household-registration",
@@ -127447,7 +127487,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-land-administration",
@@ -127514,7 +127554,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-mechanical-engineering",
@@ -127577,7 +127617,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-personnel-administration",
@@ -127711,7 +127751,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-08caf7ed1850",
@@ -127825,7 +127865,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-193a0dc9f3ca",
@@ -127891,7 +127931,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-1d21df21112d",
@@ -128267,7 +128307,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-bfbba09f4bfb",
@@ -128494,7 +128534,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-dfa306b8a5c2",
@@ -128551,7 +128591,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-e191505babe5",
@@ -128612,7 +128652,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-3-track-e8446c8a3463",
@@ -128951,7 +128991,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-cultural-administration",
@@ -129074,7 +129114,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-electronic-engineering",
@@ -129141,7 +129181,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-general-administration",
@@ -129217,7 +129257,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-household-registration",
@@ -129279,7 +129319,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-information-processing",
@@ -129347,7 +129387,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-land-administration",
@@ -129415,7 +129455,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-mechanical-engineering",
@@ -129479,7 +129519,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-personnel-administration",
@@ -129611,7 +129651,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-08caf7ed1850",
@@ -129714,7 +129754,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-447b9c32f6d9",
@@ -129769,7 +129809,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-4fe3c4ad869f",
@@ -130116,7 +130156,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-964c7856fb97",
@@ -130224,7 +130264,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-bfbba09f4bfb",
@@ -130403,7 +130443,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-d182d0d5da26",
@@ -130687,7 +130727,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-4-track-e8446c8a3463",
@@ -131151,7 +131191,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-5-household-registration",
@@ -131215,7 +131255,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-5-land-administration",
@@ -131288,7 +131328,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-5-personnel-administration",
@@ -131418,7 +131458,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-5-track-4868e8bd15b9",
@@ -131478,7 +131518,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-5-track-57fc47b2b289",
@@ -131549,7 +131589,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-disability-grade-5-track-5cd0e2166979",
@@ -131945,7 +131985,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-immigration-grade-2-track-44bb07b07c2f",
@@ -132008,7 +132048,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-immigration-grade-3-track-44bb07b07c2f-elective-language-0217721cff55",
@@ -132754,7 +132794,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-immigration-recommended-rank-track-44bb07b07c2f",
@@ -133042,7 +133082,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-cultural-administration",
@@ -133235,7 +133275,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-land-administration",
@@ -133309,7 +133349,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-mechanical-engineering",
@@ -133425,7 +133465,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-tax-administration",
@@ -133499,7 +133539,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-08caf7ed1850",
@@ -133726,7 +133766,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-1a40d0a879ef",
@@ -134231,7 +134271,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-6d8cbfc19d6c",
@@ -134499,7 +134539,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-93d79eca1516",
@@ -134569,7 +134609,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-94f9fe3907dd",
@@ -134734,7 +134774,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-a539b9a4b248",
@@ -134850,7 +134890,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-aa00c94be34f",
@@ -134921,7 +134961,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-b0bf19f94459",
@@ -135039,7 +135079,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-b16d7a61e802-distribution-region-91e25f4ddc6f",
@@ -135329,7 +135369,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-ca4b45044b31-distribution-region-28354a177c73",
@@ -135496,7 +135536,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-df51841e13ae-distribution-region-fcb76fabe62f",
@@ -135671,7 +135711,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-3-track-ebed1da0b0b7",
@@ -135841,7 +135881,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-civil-engineering",
@@ -135911,7 +135951,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-civil-engineering-distribution-region-91e25f4ddc6f",
@@ -136080,7 +136120,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-education-administration",
@@ -136142,7 +136182,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-electronic-engineering",
@@ -136205,7 +136245,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-general-administration",
@@ -136281,7 +136321,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-land-administration",
@@ -136348,7 +136388,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-mechanical-engineering",
@@ -136537,7 +136577,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-16bcab5c30e6",
@@ -136926,7 +136966,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-964c7856fb97",
@@ -137156,7 +137196,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-b16d7a61e802",
@@ -137227,7 +137267,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-b62b212f947c",
@@ -137419,7 +137459,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-ca4b45044b31-distribution-region-28354a177c73",
@@ -137631,7 +137671,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-e4b8a91848a8",
@@ -137904,7 +137944,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-4-track-fe760beea427",
@@ -138191,7 +138231,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-5-household-registration",
@@ -138698,7 +138738,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-grade-5-track-e8446c8a3463",
@@ -138862,7 +138902,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-indigenous-recommended-rank-track-aa00c94be34f",
@@ -140460,7 +140500,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-057ec3fcc6e7-stage-2",
@@ -140578,7 +140618,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-0e03ad8f16d1",
@@ -140631,7 +140671,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-1cad1b7c293b",
@@ -140748,7 +140788,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-286da123324e",
@@ -140807,7 +140847,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-30100290d4e0",
@@ -140874,7 +140914,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-3159a45d74ac",
@@ -140937,7 +140977,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-3ba81e0e2cbc",
@@ -140990,7 +141030,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-40b6bfcf899c",
@@ -141043,7 +141083,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-4a1d08ac767d",
@@ -141106,7 +141146,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-535dddcc0285",
@@ -141341,7 +141381,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-68f002c9e004",
@@ -141715,7 +141755,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-85beb7580dee",
@@ -141768,7 +141808,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-8a809b0f3f8d-elective-language-348ea84c6046",
@@ -141889,7 +141929,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-a114353c051b",
@@ -141956,7 +141996,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-a272549550bd",
@@ -142082,7 +142122,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-a8efdc0e1bb3-elective-language-0ebfea3a15dc-stage-2",
@@ -142377,7 +142417,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b29c6cc1e77d",
@@ -142443,7 +142483,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-0217721cff55",
@@ -142565,7 +142605,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-2dca33dc64da",
@@ -142627,7 +142667,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-2f0ccdf33145",
@@ -142689,7 +142729,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-348ea84c6046",
@@ -142754,7 +142794,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-4ce5ef09ac88",
@@ -142811,7 +142851,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-bad2ea77ca32",
@@ -142874,7 +142914,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-cb25397603c9",
@@ -142939,7 +142979,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b3029bde9a40-elective-language-ffb5f47363d4",
@@ -143000,7 +143040,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-b86ee295ec4a",
@@ -143058,7 +143098,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-bf0f36e4cdb6",
@@ -143516,7 +143556,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-d685444c8d7d",
@@ -143582,7 +143622,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-d8ae696690c3",
@@ -143632,7 +143672,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-e05ac09dd8f3",
@@ -143751,7 +143791,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-e05ac09dd8f3-elective-language-e63bcb35fcdc",
@@ -143816,7 +143856,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-e30b2d33b82e-elective-language-348ea84c6046",
@@ -144042,7 +144082,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-f1b20b71cea5-elective-language-348ea84c6046",
@@ -144163,7 +144203,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-3-track-f5044bbe4b88",
@@ -144357,7 +144397,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-4-track-1c93d41e649e",
@@ -144423,7 +144463,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-4-track-4a1d08ac767d",
@@ -144548,7 +144588,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-4-track-6de0ec1dfdb3",
@@ -144845,7 +144885,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-4-track-e28b60c048aa",
@@ -144911,7 +144951,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-4-track-f2e9fc2d53d2",
@@ -145021,7 +145061,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-5-track-1132fda467e8",
@@ -145135,7 +145175,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-5-track-57fc47b2b289",
@@ -145204,7 +145244,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-judicial-grade-5-track-99034de0f1e6",
@@ -165447,7 +165487,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-2-track-240a2ab5b7a4",
@@ -165947,7 +165987,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-09c4088d60d2",
@@ -166153,7 +166193,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-4e0b3a2240fd",
@@ -166205,7 +166245,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-662e4ce803bf",
@@ -166414,7 +166454,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-7ad6f2989cf2",
@@ -166463,7 +166503,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-7f52080fde7f",
@@ -166585,7 +166625,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-8a493d75cf90",
@@ -166637,7 +166677,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-8a809b0f3f8d-elective-language-348ea84c6046",
@@ -166688,7 +166728,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-8f347e025609",
@@ -166871,7 +166911,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-9697579b1b6b",
@@ -167076,7 +167116,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-ad227f97f216",
@@ -167128,7 +167168,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-be4f57dc708d",
@@ -167263,7 +167303,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-c06cc991dbb2-elective-language-ffb5f47363d4",
@@ -167438,7 +167478,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-d54f587c62ac",
@@ -167734,7 +167774,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-e30b2d33b82e-elective-language-348ea84c6046",
@@ -167792,7 +167832,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-e53110ee9e6b",
@@ -167844,7 +167884,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-f1b20b71cea5-elective-language-348ea84c6046",
@@ -167902,7 +167942,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-fabff51160d6",
@@ -167954,7 +167994,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-3-track-fe33b90f1b6c",
@@ -168006,7 +168046,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-4-track-0359a835ba83",
@@ -168351,7 +168391,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-4-track-8f347e025609",
@@ -168479,7 +168519,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-4-track-a05ef9e7eff2",
@@ -168531,7 +168571,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-4-track-a48933883521",
@@ -168583,7 +168623,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-4-track-be4f57dc708d",
@@ -168713,7 +168753,7 @@
           "url": "https://wwwq.moex.gov.tw/exam/"
         }
       ],
-      "updated": "2026-10-01T11:05:50Z"
+      "updated": "2026-10-05T10:38:30Z"
     },
     {
       "id": "moex-special-police-grade-5-track-99034de0f1e6",
