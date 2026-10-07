@@ -124,8 +124,8 @@ _SERIES_LABELS = {
     "special-aviation": "民航特考",
     "special-maritime": "航海／船員特考",
     "special-investigation": "調查局調查人員特考",
-    "civil-qualification": "公務人員檢定考試",
-    "professional-qualification": "專技檢定考試",
+    "eligibility-qualification": "應考資格檢定考試",
+    "chinese-medicine-eligibility": "中醫師檢定考試",
     "special-military-transfer": "國軍軍官轉任考試",
     "special-retired-military": "退除役軍人轉任考試",
     "professional-high": "專技高考",
@@ -154,9 +154,9 @@ _SERIES_LABELS = {
 }
 
 _LEVEL_LABELS = {
-    "grade-1": "一等／高考一級",
-    "grade-2": "二等／高考二級",
-    "grade-3": "三等／高考三級",
+    "grade-1": "一等",
+    "grade-2": "二等",
+    "grade-3": "三等",
     "grade-4": "四等",
     "grade-5": "五等",
     "ordinary": "普通／普考",
@@ -440,10 +440,89 @@ def _moex_transport_series(category: str, exam_name: str) -> str | None:
 
 
 @lru_cache(maxsize=8192)
+def _moex_eligibility_programme(category: str, exam_name: str) -> str | None:
+    """Resolve the historical eligibility tests without consuming cohosted exams."""
+    if re.search(r"高等檢定|普通檢定", category):
+        return "eligibility-qualification"
+    if "中醫師檢定" in category:
+        return "chinese-medicine-eligibility"
+    if "檢定" not in exam_name:
+        return None
+    if re.fullmatch(r"中醫師(?:考試)?", category) and "中醫師檢定" in exam_name:
+        # An explicit cohosted 中醫師 licensing examination would still need
+        # question-header evidence to distinguish it from the eligibility test.
+        remainder = exam_name.replace("中醫師檢定", "")
+        if "中醫師" not in remainder:
+            return "chinese-medicine-eligibility"
+    if any(marker in exam_name for marker in ("專門職業及技術人員", "專技", "公務人員")):
+        return None
+    if re.fullmatch(r"中醫師(?:考試)?", category):
+        return "chinese-medicine-eligibility"
+    return "eligibility-qualification"
+
+
+def _moex_native_level_label(series_id: str, level_id: str, fallback: str) -> str:
+    if series_id == "civil-high":
+        return {"grade-1": "一級", "grade-2": "二級", "grade-3": "三級"}.get(level_id, fallback)
+    return _LEVEL_LABELS.get(level_id, fallback)
+
+
+@lru_cache(maxsize=8192)
 def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
     professional = f"{cat} {event}"
+    eligibility = _moex_eligibility_programme(cat, event)
+    if eligibility == "chinese-medicine-eligibility":
+        return (
+            NOT_APPLICABLE,
+            _LEVEL_LABELS[NOT_APPLICABLE],
+            "high",
+            "ungraded Chinese-medicine eligibility test",
+        )
+    if eligibility == "eligibility-qualification":
+        for pattern, level_id in (
+            (r"^高等(?:檢定)?(?:_|考試|$)", "qualification-high"),
+            (r"^普通(?:檢定)?(?:_|考試|$)", "qualification-ordinary"),
+        ):
+            if re.search(pattern, cat):
+                return (
+                    level_id,
+                    _LEVEL_LABELS[level_id],
+                    "high",
+                    f"explicit eligibility-test level: {cat}",
+                )
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            f"eligibility-test level missing from category: {cat}",
+        )
+    legacy_level = re.match(r"^(高等|普通|普)_", cat)
+    if legacy_level is not None:
+        is_professional = "專門職業及技術人員" in event or "專技" in event
+        is_civil = "公務人員" in event
+        if is_professional and not is_civil:
+            level_id = "professional-high" if legacy_level[1] == "高等" else "professional-ordinary"
+            return (
+                level_id,
+                _LEVEL_LABELS[level_id],
+                "high",
+                f"native professional level in category: {cat}",
+            )
+        if is_civil and not is_professional and legacy_level[1] in {"普通", "普"}:
+            return (
+                "ordinary",
+                _LEVEL_LABELS["ordinary"],
+                "high",
+                f"native civil ordinary level in category: {cat}",
+            )
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            f"legacy level requires programme evidence: {cat}; {event}",
+        )
     if _moex_transport_series(cat, event) is not None:
         for pattern, level_id in (
             (r"高員(?:三|3)級", "transport-senior-3"),
@@ -482,18 +561,25 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
             "promotion-official-rank",
             "升等／職等",
         ),
-        (r"高考?\s*一級|高等一級|一級考試|一等考試|一等_|^一等", "grade-1", "一等／高考一級"),
-        (r"高等檢定", "qualification-high", "高等檢定"),
-        (r"高等_", "grade-3", "三等／高考三級"),
-        (r"普通檢定", "qualification-ordinary", "普通檢定"),
-        (r"普通_", "ordinary", "普通／普考"),
-        (r"中醫師檢定|中醫師考試", "qualification-professional", "專業檢定"),
-        (r"中醫師考試", "qualification-professional", "專業檢定"),
-        (r"高考?\s*二級|高等二級|二級考試|二等考試|二等_", "grade-2", "二等／高考二級"),
         (
-            r"高考?\s*三級|高3|三級考試|三等考試|三等_|司法三等|3等|三等",
+            r"高考?\s*一級|高等一級|^[一1]級(?=考試|_|$)|[（(]一級[）)]"
+            r"|一級考試|一等考試|一等_|^一等",
+            "grade-1",
+            "一等",
+        ),
+        (r"高等檢定", "qualification-high", "高等檢定"),
+        (r"普通檢定", "qualification-ordinary", "普通檢定"),
+        (
+            r"高考?\s*二級|高等二級|^[二2]級(?=考試|_|$)|[（(]二級[）)]"
+            r"|二級考試|二等考試|二等_",
+            "grade-2",
+            "二等",
+        ),
+        (
+            r"高考?\s*三級|^高[三3]_|高3|^[三3]級(?=考試|_|$)|[（(]三級[）)]"
+            r"|三級考試|三等考試|三等_|司法三等|3等|三等",
             "grade-3",
-            "三等／高考三級",
+            "三等",
         ),
         (r"二等考試|二等_|2等|二等", "grade-2", "二等"),
         (r"四等考試|四等_|4等|四等", "grade-4", "四等"),
@@ -526,6 +612,29 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     for pattern, level_id, label in professional_patterns:
         if re.search(pattern, cat):
             return level_id, label, "high", f"explicit professional category marker: {cat}"
+    civil_high = re.search(
+        r"公務人員高等考試[一二三]級(?:考試)?(?:(?:暨|及|、)[一二三]級(?:考試)?)*", event
+    )
+    if civil_high is not None:
+        native_grades = set(re.findall(r"([一二三])級", civil_high[0]))
+        if re.search(r"[（(]高考[）)]", cat) and native_grades == {"三"}:
+            return "grade-3", "三級", "high", f"native civil high category marker: {cat}"
+        if len(native_grades) > 1 or "普通考試" in event:
+            return (
+                "unknown",
+                _LEVEL_LABELS["unknown"],
+                "review",
+                f"combined civil high event has no category grade: {cat}",
+            )
+    if "中醫師檢定" in event and any(
+        marker in event for marker in ("專技", "專門職業及技術人員", "檢覈")
+    ):
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            f"cohosted eligibility and professional event needs category evidence: {cat}",
+        )
     event_patterns = (
         (r"晉升士級", "promotion-worker-rank", "士級"),
         (r"專技(?:人員)?檢覈|檢覈筆試|檢覈", "professional-screening", "專技檢覈"),
@@ -544,12 +653,10 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
             "combined",
             "合併／制度待審核",
         ),
-        (r"中醫師檢定", "qualification-professional", "專業檢定"),
-        (r"檢定考試|檢定", "qualification-ordinary", "普通檢定"),
         (r"公務人員初等考試", "elementary", "初等／初考"),
-        (r"公務人員高等考試一級", "grade-1", "一等／高考一級"),
-        (r"公務人員高等考試二級", "grade-2", "二等／高考二級"),
-        (r"公務人員高等考試三級", "grade-3", "三等／高考三級"),
+        (r"公務人員高等考試一級", "grade-1", "一等"),
+        (r"公務人員高等考試二級", "grade-2", "二等"),
+        (r"公務人員高等考試三級", "grade-3", "三等"),
         (r"公務人員普通考試", "ordinary", "普通／普考"),
     )
     matching = [
@@ -766,6 +873,9 @@ def _moex_series(
 ) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
+    eligibility = _moex_eligibility_programme(cat, event)
+    if eligibility is not None:
+        return "qualification", "exam-eligibility", eligibility, _SERIES_LABELS[eligibility]
     promotion_series = _moex_promotion_series(cat, event, level_id)
     if promotion_series is not None:
         return (
@@ -806,6 +916,12 @@ def _moex_series(
     )
     for marker, series_id, label in category_first:
         if marker in cat:
+            if marker == "司法" and not re.search(
+                r"司法官|司法事務官|司法(?:人員)?(?:特考|考試|[一二三四五甲乙丙丁]等|_)|^司法$", cat
+            ):
+                # 司法行政 is an occupation in civil high examinations.
+                # Occupation wording cannot select the judicial programme.
+                continue
             if marker == "警察" and "一般警察" in event:
                 # Some historical rows put the programme between the grade
                 # and occupation, such as 三等考試_警察特考_行政警察人員.
@@ -861,12 +977,13 @@ def _moex_series(
         ("專門職業及技術人員", "professional-combined", "專技綜合／歷史制度"),
         ("檢覈", "professional-screening", "專技檢覈／檢覈筆試"),
         ("檢核", "professional-screening", "專技檢覈／檢覈筆試"),
-        ("中醫師檢定", "professional-qualification", "專技檢定考試"),
-        ("檢定", "civil-qualification", "公務人員檢定考試"),
+        ("公務人員高等考試", "civil-high", _SERIES_LABELS["civil-high"]),
         ("特種考試", "special-other", "其他特種考試"),
     )
     for marker, series_id, label in event_rules:
         if marker in event:
+            if series_id == "civil-high" and level_id in {"ordinary", "elementary"}:
+                continue
             if series_id == "special-national-security" and any(
                 other in event for other in ("任用資格", "軍法官", "政風人員")
             ):
@@ -1090,14 +1207,19 @@ def _classify_paper_uncached(
             source_exam_id, year_ad, category_code, category_raw, exam_name_raw
         )
         if reviewed is not None:
-            if (
-                not reviewed.series_id.startswith("special-")
-                or reviewed.series_id not in _SERIES_LABELS
-            ):
-                raise ValueError(f"Invalid MOEX special programme in {reviewed.fact_id}")
+            if reviewed.series_id not in _SERIES_LABELS:
+                raise ValueError(f"Invalid MOEX programme in {reviewed.fact_id}")
             if reviewed.level_id not in _LEVEL_LABELS:
                 raise ValueError(f"Invalid MOEX native grade in {reviewed.fact_id}")
-            domain_id, family_id = "civil-service", "civil-service-exam"
+            if reviewed.series_id in {"eligibility-qualification", "chinese-medicine-eligibility"}:
+                domain_id, family_id = "qualification", "exam-eligibility"
+            elif reviewed.series_id in {
+                "civil-high",
+                "civil-ordinary",
+            } or reviewed.series_id.startswith("special-"):
+                domain_id, family_id = "civil-service", "civil-service-exam"
+            else:
+                raise ValueError(f"Unsupported MOEX reviewed programme in {reviewed.fact_id}")
             series_id, series_label = reviewed.series_id, _SERIES_LABELS[reviewed.series_id]
             level_id, level_label = reviewed.level_id, _LEVEL_LABELS[reviewed.level_id]
             confidence = "high"
@@ -1141,6 +1263,10 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "moex" and series_id == "civil-high" and year_ad < 1996:
+        # The 1996 reform replaced a two-level civil high system with three
+        # levels. Equal native numerals across that change are not equal exams.
+        variant_pairs = (*variant_pairs, ("civil-high-pre-1996", "85年改制前"))
     if provider_id == "taigi_cert":
         form = _taigi_form(normalize_text(f"{category} {subject_name_raw}"))
         if form is not None:
@@ -1182,8 +1308,8 @@ def _classify_paper_uncached(
     bundle_id = "-".join(_ascii_slug(part, prefix="concept") for part in parts if part)
     if provider_id == "moex":
         track_display = _display(track_label, canonical_name)
-        level_display = _LEVEL_LABELS.get(level_id, level_label)
-        bundle_name = f"{series_label}｜{level_display}｜{track_display}"
+        level_label = _moex_native_level_label(series_id, level_id, level_label)
+        bundle_name = f"{series_label}｜{level_label}｜{track_display}"
         # The track text often already carries the wording (e.g. a region), and
         # two patterns can match one phrase; keep only the longest wording.
         candidates = [label for _variant_id, label in variant_pairs if label not in bundle_name]
@@ -1346,6 +1472,9 @@ def public_facets(identity: ExamIdentity) -> dict[str, str]:
         exam_subclass = "公職／公務人員"
     elif identity.domain_id == "professional":
         exam_class = "專技人員考試"
+        exam_subclass = identity.series_label
+    elif identity.domain_id == "qualification":
+        exam_class = "應考資格檢定"
         exam_subclass = identity.series_label
     elif identity.domain_id == "admissions":
         exam_class = "升學測驗"

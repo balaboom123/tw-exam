@@ -57,6 +57,27 @@ The classifier returns an immutable ExamIdentity containing:
 
 A provider may use not-applicable. It must not be forced into MOEX grades when its official system has no equivalent.
 
+MOEX grade labels preserve the programme's native wording. Civil high
+examinations use 級; special examinations use 等. Legal equivalence does not
+rename a special grade or make its papers interchangeable with civil high
+papers. The [civil-service implementing rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016730)
+also document the 1996 change from two civil high levels to three. The classifier
+preserves the recorded grade numeral and separates pre-reform civil high papers
+with a historical-system variant instead of grouping them with today's same
+numeral. An Arabic grade in a category is authoritative; the first grade named
+in a combined event is not. An occupation such as 司法行政 does not select the
+judicial programme.
+
+Historical high and ordinary eligibility tests belong to the examination
+eligibility family, alongside the distinct ungraded Chinese-medicine eligibility
+programme. The [historical eligibility rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1424&media=print)
+describe their purpose as obtaining eligibility to enter another examination.
+They are not civil-service appointments or professional licensing examinations.
+A shared event title mentioning 中醫師 does not change an administrative
+eligibility paper into a Chinese-medicine paper. Missing category levels require
+review or an exact checksum-anchored question-header fact. Cohosted professional
+papers retain their own programme and native level.
+
 Historical MOEX listings may omit a programme heading or grade even when the
 official question header supplies it. Reviewed catalog facts match the exact
 event, year, native category code, category wording and event title. Native codes

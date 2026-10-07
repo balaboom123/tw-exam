@@ -5,6 +5,446 @@
   "owner": "catalog maintainers",
   "facts": [
     {
+      "id": "moex-089080-category-009",
+      "source_exam_id": "089080",
+      "year_ad": 2000,
+      "category_code": "009",
+      "category_raw": "財務行政類",
+      "exam_name_raw": "089年高等檢定、中醫檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=089080&c=009&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "e940be99ac4f19f8bd4d204146566c4850e4df76198bac0d46dfddbe7c754bd5",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-089080-category-010",
+      "source_exam_id": "089080",
+      "year_ad": 2000,
+      "category_code": "010",
+      "category_raw": "法務類",
+      "exam_name_raw": "089年高等檢定、中醫檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=089080&c=010&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "45e0448760c0b73fd69d0a628efe3055f5dafe5985dc9c626fc2dda9c56c7166",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-090070-category-001",
+      "source_exam_id": "090070",
+      "year_ad": 2001,
+      "category_code": "001",
+      "category_raw": "財務行政類",
+      "exam_name_raw": "090年高等檢定、中醫檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=090070&c=001&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "5c6eab33a3acc6267368d54955238b082cca5befaf8af6516198d2a8bb6e12ba",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-090070-category-002",
+      "source_exam_id": "090070",
+      "year_ad": 2001,
+      "category_code": "002",
+      "category_raw": "法務類",
+      "exam_name_raw": "090年高等檢定、中醫檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=090070&c=002&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "3553e22323dc3cb7b2874c631ce796b4d431482cfc31fe2c138bfb211ba274af",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-101",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "101",
+      "category_raw": "公職獸醫師",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-1",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=101&s=1003&q=1",
+          "subject_code": "1003",
+          "checksum": "040550645372fc8229da2407eef6b727cbcf24d2514bc5e874c871631f1e6f50",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 一級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-102",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "102",
+      "category_raw": "醫學工程",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-1",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=102&s=1003&q=1",
+          "subject_code": "1003",
+          "checksum": "d1a119ca28d33b486dd880e4842ef072ef5e38d9cfcb4056476d493f4edb2283",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 一級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-201",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "201",
+      "category_raw": "一般民政",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=201&s=5001&q=1",
+          "subject_code": "5001",
+          "checksum": "c693d90c8cd763819f7496127c720e489c1a50b3719c8777b311ae1c7faad671",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-202",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "202",
+      "category_raw": "人事行政",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=202&s=5001&q=1",
+          "subject_code": "5001",
+          "checksum": "783eebb5bec39c83bf9aa2dbc7fb2a4bff05a52599cb7781f7c1d5692ed80034",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-203",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "203",
+      "category_raw": "史料編纂",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=203&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "7a393645c1b44aa167297bfddc6a4e93f203ac4a27ec9c79f4b3248677156d8e",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-204",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "204",
+      "category_raw": "圖書資訊管理",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=204&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "ab8d403340483c3d26d41ea82b77bd0e7e57d9ef3c84cba197f5e29bc912f789",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-205",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "205",
+      "category_raw": "博物管理",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=205&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "4b9872ff888739b7b7fee877212ed0bd13582b2e6ccd4c84a8b88d3c9316a7c8",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-206",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "206",
+      "category_raw": "統計",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=206&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "accab0196f4e309c0e816f81d004e533339f7013960d6d03e163eaadb071d533",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-207",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "207",
+      "category_raw": "經濟分析",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=207&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f4e60d0a9c59fd9352dc2be407ac3668706abb7cc1ab599cb2471e3f456c4921",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-208",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "208",
+      "category_raw": "國際貿易",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=208&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "75a5f11e0a67472f7dfa59b0cdb2d178cfdb81d4276099b76f5984b2f476d72c",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-209",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "209",
+      "category_raw": "環保行政",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=209&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "bad7ae73ce261434857366b9d103160bc305137d81b164fc61fa03bdabc60cca",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-210",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "210",
+      "category_raw": "生物資源動物組",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=210&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "9a3678bf3c53d9cd15163b351e6929f27d42619715ddde525576132d61d4e8c2",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-211",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "211",
+      "category_raw": "電力工程",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=211&s=1002&q=1",
+          "subject_code": "1002",
+          "checksum": "9b2fe7d2abb83d258faab7912639b6a0172d1e002dfc03f165cbc7b361ddb8e4",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-212",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "212",
+      "category_raw": "電子工程",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=212&s=1002&q=1",
+          "subject_code": "1002",
+          "checksum": "409844dee62633ba4491e9deac7c4e6f1afedc8b5cf02058778230194a69af6d",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-213",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "213",
+      "category_raw": "生物檢定",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=213&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "04357c1e1cafd2c464e210ea37e480f60cdfee6f525d1226842771b2c35391c4",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091010-category-214",
+      "source_exam_id": "091010",
+      "year_ad": 2002,
+      "category_code": "214",
+      "category_raw": "衛生技術",
+      "exam_name_raw": "091年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091010&c=214&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "035ff1858ee7a766eeac364b51d56af331abced687df69e42074e9efe64eeb93",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-091070-category-101",
+      "source_exam_id": "091070",
+      "year_ad": 2002,
+      "category_code": "101",
+      "category_raw": "財務行政類",
+      "exam_name_raw": "091年高等檢定考試、中醫師檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091070&c=101&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "24d28aedc9f121e0b5755ed2cad8ebe58464e3cf4964c19854556668e1ba5ff2",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-091070-category-102",
+      "source_exam_id": "091070",
+      "year_ad": 2002,
+      "category_code": "102",
+      "category_raw": "法務類",
+      "exam_name_raw": "091年高等檢定考試、中醫師檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091070&c=102&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "cca21f054c9683e3ed0315ee38d2c96575f95e811dfe0b28c07d1fed0579ad60",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
       "id": "moex-091240-category-301",
       "source_exam_id": "091240",
       "year_ad": 2002,
@@ -145,6 +585,86 @@
       ]
     },
     {
+      "id": "moex-092073-category-101",
+      "source_exam_id": "092073",
+      "year_ad": 2003,
+      "category_code": "101",
+      "category_raw": "財務行政類",
+      "exam_name_raw": "092年高等檢定考試、中醫師檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092073&c=101&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "71d48a96f432b462f3326688605914f38d48bf79caddc58450e3ac466ab46a23",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-092073-category-102",
+      "source_exam_id": "092073",
+      "year_ad": 2003,
+      "category_code": "102",
+      "category_raw": "法務類",
+      "exam_name_raw": "092年高等檢定考試、中醫師檢定考試",
+      "series_id": "eligibility-qualification",
+      "level_id": "qualification-high",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092073&c=102&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "a9e1d50750f7c3e466f93d35c6605c5295e28eff675e0797ffb1b1aa15210374",
+          "observation": "The official title states 高等檢定考試; this is an eligibility test, not a civil-service high examination."
+        }
+      ]
+    },
+    {
+      "id": "moex-092190-category-328",
+      "source_exam_id": "092190",
+      "year_ad": 2003,
+      "category_code": "328",
+      "category_raw": "植物病蟲害(選試植物病原學、植物病害防治學)",
+      "exam_name_raw": "092年公務人員高等考試三級考試暨普通考試第二試",
+      "series_id": "civil-high",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092190&c=328&s=6001&q=1",
+          "subject_code": "6001",
+          "checksum": "95e480cb4bd2fd37364ede605a3bfaa8e049c186a6bb6a8d452e0d803abfc55b",
+          "observation": "Official question title states 公務人員高等考試三級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-092190-category-329",
+      "source_exam_id": "092190",
+      "year_ad": 2003,
+      "category_code": "329",
+      "category_raw": "植物病蟲害(選試昆蟲分類學、昆蟲生態學)",
+      "exam_name_raw": "092年公務人員高等考試三級考試暨普通考試第二試",
+      "series_id": "civil-high",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092190&c=329&s=6001&q=0",
+          "subject_code": "6001",
+          "checksum": "5b029fdf87003ea2db46f33836e88f7a452bad30eb9ba82761f942252f356abd",
+          "observation": "Official question title states 公務人員高等考試三級考試."
+        }
+      ]
+    },
+    {
       "id": "moex-092261-category-101",
       "source_exam_id": "092261",
       "year_ad": 2003,
@@ -261,6 +781,86 @@
           "subject_code": "c051",
           "checksum": "6fc0f1c41a40c03c1d8546203e52da733ac96ccf186567bd53dc7d93d1d272e2",
           "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093030-category-093",
+      "source_exam_id": "093030",
+      "year_ad": 2004,
+      "category_code": "093",
+      "category_raw": "中醫師",
+      "exam_name_raw": "093年中醫師檢定、第一次專技醫事人員、營養師、獸醫人員暨醫師、牙醫師檢覈、國軍上校軍官外職停役轉任公務人員檢覈筆試 、分階段考試",
+      "series_id": "chinese-medicine-eligibility",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093030&c=093&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "4190c7421baa7af7f5359b970f60a8181289de78fb19d6277bfb706811d7f1b7",
+          "observation": "The official title states 中醫師檢定考試; this is the ungraded Chinese-medicine eligibility test, distinct from the cohosted professional examinations."
+        }
+      ]
+    },
+    {
+      "id": "moex-093110-category-330",
+      "source_exam_id": "093110",
+      "year_ad": 2004,
+      "category_code": "330",
+      "category_raw": "食品（選試營養學）",
+      "exam_name_raw": "093年公務人員高等考試三級考試暨普通考試第二試",
+      "series_id": "civil-high",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093110&c=330&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "a533bf5a468f5c9f0ce36d3442a206d122d84e123acfabe3cc1b5f48452e829a",
+          "observation": "Official question title states 公務人員高等考試三級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-093110-category-332",
+      "source_exam_id": "093110",
+      "year_ad": 2004,
+      "category_code": "332",
+      "category_raw": "植物病蟲害",
+      "exam_name_raw": "093年公務人員高等考試三級考試暨普通考試第二試",
+      "series_id": "civil-high",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093110&c=332&s=5001&q=1",
+          "subject_code": "5001",
+          "checksum": "aaefd982256c274f0a677f843f1efbdf9c9f53d9516c1092b02c8633a6be9165",
+          "observation": "Official question title states 公務人員高等考試三級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-093110-category-344",
+      "source_exam_id": "093110",
+      "year_ad": 2004,
+      "category_code": "344",
+      "category_raw": "水利工程（選試渠道水力學）",
+      "exam_name_raw": "093年公務人員高等考試三級考試暨普通考試第二試",
+      "series_id": "civil-high",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093110&c=344&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "3e8f81d06a7fac7213135a22565bf983a13177a5b9b210b8bbaaa558eef25be5",
+          "observation": "Official question title states 公務人員高等考試三級考試."
         }
       ]
     },
@@ -401,6 +1001,326 @@
           "subject_code": "c021",
           "checksum": "bb88df28353f5705d659accae6e0f416063d59264fd9553affe25c42d02f3233",
           "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-094060-category-303",
+      "source_exam_id": "094060",
+      "year_ad": 2005,
+      "category_code": "303",
+      "category_raw": "僑務行政（選試西班牙文）",
+      "exam_name_raw": "094年公務人員高等考試三級考試暨普通考試第一試",
+      "series_id": "civil-high",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094060&c=303&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "ea815d23b57b6776b728e5a7176e06065a1086096cb046a42df8e590200e9fa4",
+          "observation": "Official question title states 公務人員高等考試三級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094060-category-411",
+      "source_exam_id": "094060",
+      "year_ad": 2005,
+      "category_code": "411",
+      "category_raw": "博物管理（選試本國文化史概要）",
+      "exam_name_raw": "094年公務人員高等考試三級考試暨普通考試第一試",
+      "series_id": "civil-ordinary",
+      "level_id": "ordinary",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094060&c=411&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "3f1447821f0f93619a9057e128698ff062f3d6b3fd5c4bf773018a2f782bf0f6",
+          "observation": "Official question title states 公務人員普通考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094060-category-430",
+      "source_exam_id": "094060",
+      "year_ad": 2005,
+      "category_code": "430",
+      "category_raw": "都市計畫技術（選試土地使用及公共設施計劃概要）",
+      "exam_name_raw": "094年公務人員高等考試三級考試暨普通考試第一試",
+      "series_id": "civil-ordinary",
+      "level_id": "ordinary",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094060&c=430&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "789f74d00ebac800520092daab3b1d67fec6b8753e6211641e661a144e3a978c",
+          "observation": "Official question title states 公務人員普通考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094060-category-442",
+      "source_exam_id": "094060",
+      "year_ad": 2005,
+      "category_code": "442",
+      "category_raw": "氣象（選試大氣測計學概要）",
+      "exam_name_raw": "094年公務人員高等考試三級考試暨普通考試第一試",
+      "series_id": "civil-ordinary",
+      "level_id": "ordinary",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094060&c=442&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "b4eb9984312da407e3ec21a251f50a314b59eb4c0e93502172d24ec41d227d32",
+          "observation": "Official question title states 公務人員普通考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-101",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "101",
+      "category_raw": "人事行政",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=101&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "164a10a86081b22beb3453685ba832295bcd666d485391ba012b15fd3ab8f3ca",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-201",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "201",
+      "category_raw": "教育行政",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=201&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "d846a30b611f6c627a9c97615893025344833e3b45b629e3aabf940d29888e8c",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-202",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "202",
+      "category_raw": "博物管理（選試藝術史研究、英文）",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=202&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "18d620df0208c98f2570eb894f12d4abc63e30ef1e44101c94fa895bb03a7173",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-203",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "203",
+      "category_raw": "史料編纂",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=203&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "8ea5c64b0ac0adb18fd1cd6d286dbacb1f0c49c3f63787543bfad9e19e31453c",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-204",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "204",
+      "category_raw": "植物病蟲害（選試昆蟲生態學、害蟲管理學）",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=204&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "59adfe055939501e5da23d153c2e96106259676e6d17df04ba9ad02e072e2a05",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-205",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "205",
+      "category_raw": "電子工程（選試積體電路技術、電子元件）",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=205&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "1adc3c33e2659e29250b6d0f0d2d88cbb2d2580e311cdef6f5f7c2de88bb0ad5",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-206",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "206",
+      "category_raw": "電子工程（選試數位信號處理、數位系統設計）",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=206&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "2a678e8103276546ea087ac29be8b99b5dbfc98d8c2620908faa3b3a4d366578",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-208",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "208",
+      "category_raw": "光電工程",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=208&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "255eef0598a7a473a153abc6e1b41602bb1b009310791ff0529ebdb521920906",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-209",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "209",
+      "category_raw": "資訊（選試資訊管理）",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=209&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "b56d6c82048f35ccb7603622a35ab5f3631dc19bf9b03248b33e64e2d1924c26",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-094180-category-210",
+      "source_exam_id": "094180",
+      "year_ad": 2005,
+      "category_code": "210",
+      "category_raw": "測量",
+      "exam_name_raw": "094年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=094180&c=210&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "98910320027a3c5f4020348a1530cb51a51afcc86e6287159470f4d3520cd188",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-096100-category-408",
+      "source_exam_id": "096100",
+      "year_ad": 2007,
+      "category_code": "408",
+      "category_raw": "新聞廣播（選試英文、國語播音與閩南語播音）",
+      "exam_name_raw": "096年公務人員高等考試三級考試暨普通考試",
+      "series_id": "civil-ordinary",
+      "level_id": "ordinary",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question title because this combined high/ordinary source category omits its native level. Occupation, source-code numbering and event title order do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=096100&c=408&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "a9747f96bc35b480b9a29c23c5a0416e085da7ba8ed44295e5584f5d29a9fe1e",
+          "observation": "Official question title states 公務人員普通考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-096200-category-207",
+      "source_exam_id": "096200",
+      "year_ad": 2007,
+      "category_code": "207",
+      "category_raw": "博物館管理（選試日文）",
+      "exam_name_raw": "096年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=096200&c=207&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "5f5b88b74638fa6f49087668be60927b0dd713fa5a885ae8bb996800c6aba9ab",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
         }
       ]
     },
@@ -921,6 +1841,586 @@
           "subject_code": "c32",
           "checksum": "afd605597fb58cdaa05694ab5de80160e5a8ce3e211e84ce70d6181ddb153f06",
           "observation": "Official question header states 五等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-201",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "201",
+      "category_raw": "一般行政(一般組)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=201&s=500&q=1",
+          "subject_code": "500",
+          "checksum": "35d8f70a04e07a488d595dbfc98d0c6531931267b58f39c929a03ce5518af019",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-202",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "202",
+      "category_raw": "一般行政(兩岸組一)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=202&s=600&q=1",
+          "subject_code": "600",
+          "checksum": "388af7765539e74ad6731c455506754f9120e483fc4f3aa6cfa16f68861be0ad",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-203",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "203",
+      "category_raw": "人事行政",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=203&s=500&q=1",
+          "subject_code": "500",
+          "checksum": "7a23f1cd3b5e1514bbfba80a4b08e116c0a6824b0b034eabe9d76ecf61a2fb28",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-204",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "204",
+      "category_raw": "戶政(兩岸組)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=204&s=400&q=1",
+          "subject_code": "400",
+          "checksum": "4e03c1b6162a954da1a2e9ae50164785e8d52f4a43f061d5f926a4860e1aa378",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-205",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "205",
+      "category_raw": "教育行政(兩岸組)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=205&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "efe53339aeb6d76746c45192bb23566d6039c9e2371363f4e9b168885877ceba",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-206",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "206",
+      "category_raw": "金融保險",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=206&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "5eeed9a51e7320a6c9703ec21429719ba469fdd9a42c8ab141193553150fd248",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-207",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "207",
+      "category_raw": "會計",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=207&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "f91f567995cda0737ccc329bf723377efb87d7214ae059b6ff34e51b5827cd3c",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-208",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "208",
+      "category_raw": "法制",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=208&s=400&q=1",
+          "subject_code": "400",
+          "checksum": "0a99de83480c93db32fc2c07252f549caa6515c0b7c1724916f8ff774d5bd44a",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-209",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "209",
+      "category_raw": "國際經貿法律",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=209&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "8476e2c7f4ac25fc32b1b87271ed5ca65bdb99c07452e39e3ece5acd3c87202d",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-210",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "210",
+      "category_raw": "經建行政(兩岸組一)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=210&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "a5f77de7a712268e5486aeac819d5819c1bc80d7ff3620b03d5ee50faff9a992",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-211",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "211",
+      "category_raw": "農業行政(兩岸組)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=211&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "dccf65b042b0cb142cfb1d6bb74b6638aa02b8a99125fa128ac0ae35821bcb8e",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-212",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "212",
+      "category_raw": "衛生行政(兩岸組)",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=212&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "598d6f3c264ef0a6e9fa696441036f1f3b03e7789e90e4dc35b4572c36b43a38",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-213",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "213",
+      "category_raw": "食品衛生行政",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=213&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "2688c2297cadc67f429eea1a4764fc927774b9e41e30485f0f6bd80c09ab5c33",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-214",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "214",
+      "category_raw": "博物館管理（選試英文）",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=214&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "4c5cb0a968e44a19ef6d5a6801b6a2011aaea6b8785e9b5faed927e492837f0f",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-215",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "215",
+      "category_raw": "史料編纂",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=215&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "ffdfd2902232f7d31026e5dbc620abd3671595464f5da3cb2fe9907b8d7d9076",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-217",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "217",
+      "category_raw": "農村規劃",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=217&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "3b6d1903bc471616b01a38365c5529afb59b29e639f1447ca23d39052eaee441",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-218",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "218",
+      "category_raw": "農業機械",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=218&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "c2033b603f96598998fa58aadb925a213ffcabebc024646f56ea7bd56b645e43",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-219",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "219",
+      "category_raw": "土壤肥料",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=219&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "fc38de86d81c19a2d71d915eb9d254535592e5c89ac2ddf2e518f6284de43006",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-220",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "220",
+      "category_raw": "園藝",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=220&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "19863b21809f28dc46ae76425268324e36a8dd71bb249133e3344bff76c7fdcd",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-221",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "221",
+      "category_raw": "植物病蟲害防治",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=221&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "419af4a268d7fcae7f8088d493c77bdb92a76e84f1f93a78ca4f71363af74330",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-222",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "222",
+      "category_raw": "土木工程",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=222&s=500&q=1",
+          "subject_code": "500",
+          "checksum": "ee196d263358899b34ab9e8c66f8c1640708bcdc66e99f7de9d1b0c4a5fe2ffa",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-223",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "223",
+      "category_raw": "結構工程",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=223&s=500&q=1",
+          "subject_code": "500",
+          "checksum": "5ae57a1aa846a4c1759a7c86f844aa61197a803f797618873d2e2a01fdad55de",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-224",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "224",
+      "category_raw": "水利工程",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=224&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "1e68ab241f202a0ab29b9aed6152a57f0e2a0cff04a631f16860bc190da3b19a",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-225",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "225",
+      "category_raw": "機械工程",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=225&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "fd49e2817c0d8f199e482006c8643a845039e31d40fec273ef2b9672551c9309",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-226",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "226",
+      "category_raw": "電力工程",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=226&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "6adcea0065bf3b37f847e73f105f30f141f8517f2a0d6a82ba8f4662b0f7335e",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-227",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "227",
+      "category_raw": "電子工程",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=227&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "3d3341d032199ec6bb901001a50d2cbd9b8b257e960642aa6e18bf85359c1946",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-228",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "228",
+      "category_raw": "資訊處理",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=228&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "f9b6f31877056eeff56977ca52428550c556db036075e194738de9f162ebf9d1",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-229",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "229",
+      "category_raw": "測量製圖",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=229&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "2fcb20b372b6792e82adfc2a0c3f18a28ee5fbdbe574946a1ce361c975c042ef",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
+        }
+      ]
+    },
+    {
+      "id": "moex-099180-category-230",
+      "source_exam_id": "099180",
+      "year_ad": 2010,
+      "category_code": "230",
+      "category_raw": "藥事",
+      "exam_name_raw": "099年公務人員高等考試一級暨二級考試",
+      "series_id": "civil-high",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "Manually reviewed the checksum-verified official question header because the historical category omits its native grade or eligibility level. Event title order and numeric source codes do not determine classification.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099180&c=230&s=300&q=1",
+          "subject_code": "300",
+          "checksum": "1b0d6aabc76fd8f64f62b86026a91249b83601e3879b58850b7a68641b1760bb",
+          "observation": "The official header identifies 公務人員高等考試 and explicitly states 二級考試."
         }
       ]
     },
