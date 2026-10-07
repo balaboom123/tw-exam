@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/provider-index-v3.schema.json",
+  "title": "Provider index v3 distinguishing reviewed dates, undated material, legacy records and review holds",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provider_id",
+    "source_files",
+    "bundle_ids",
+    "canonical_ids",
+    "raw_events",
+    "papers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 3
+    },
+    "provider_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bundle_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_files": {
+      "type": "object",
+      "required": [
+        "exams",
+        "papers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "exams": {
+          "$ref": "#/$defs/fileSizes"
+        },
+        "papers": {
+          "$ref": "#/$defs/fileSizes"
+        }
+      }
+    },
+    "raw_events": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          {
+            "anyOf": [
+              {
+                "$ref": "source-material-v1.schema.json#/$defs/kind"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          {
+            "anyOf": [
+              {
+                "$ref": "source-material-v1.schema.json#/$defs/date/properties/basis"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "minItems": 15,
+        "maxItems": 15
+      }
+    }
+  },
+  "$defs": {
+    "fileSizes": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[^/]+\\.json$"
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

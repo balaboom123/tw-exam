@@ -155,6 +155,16 @@ Keep any subsequently retained revision journal and recovery blobs as evidence
 when rolling back. Do not pair newer fact-bearing records with an older index
 or publish them through an older archive reader.
 
+Before public material migration, also save the site's bundle inventory, feed,
+release inventory and verified ZIPs as one baseline. Preserve current public
+URLs when identity remains correct. Rebuild through the publisher, then run a
+full-site content and conservation audit across every multipart group and shard.
+Compare the physical asset delta and verify hosted replacements before pruning.
+The upgraded readers accept legacy and reviewed records together; older readers
+require restoring the matching code, site metadata and archives. Keep newer
+source evidence and recovery bytes separately when rolling back. A material/date
+migration does not lift any source restriction.
+
 Inspect the emitted audit report before changing mappings. Fix executable taxonomy or provider normalization at its owner, then reclassify retained state and republish:
 
 ```bash

@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
-from app.source_material import SourceMaterial, source_material
+from app.source_material import MaterialSummary, SourceMaterial, material_summary, source_material
 
 
 @dataclass
@@ -182,6 +182,16 @@ class BundleAsset:
     part_index: int = 1
     part_count: int = 1
     part_label: str = ""
+    source_material: MaterialSummary | None = None
+
+    def __post_init__(self) -> None:
+        self.source_material = material_summary(self.source_material)
+        if type(self.schema_version) is not int or self.schema_version not in {1, 2, 3}:
+            raise ValueError("Unsupported bundle version")
+        if (self.schema_version == 3) != (self.source_material is not None):
+            raise ValueError("Reviewed source material requires bundle v3")
+        if self.source_material is not None and self.years != self.source_material.years:
+            raise ValueError("Bundle years differ from reviewed material dates")
 
 
 @dataclass

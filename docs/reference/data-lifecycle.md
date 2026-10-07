@@ -84,8 +84,9 @@ The site publisher owns exclusion. History audit reports quarantined events sepa
 
 Reviewed material facts can be acquired before they are publishable. Their
 normalized v3 records preserve native source keys and storage partitions while
-recording official dates separately. The bundler rejects such records until
-the public consumers support their dates and material kinds. Existing
+recording official dates separately. Reviewed facts pass the coordinated archive,
+index, site and frontend contracts; unresolved or partially migrated bundle
+history is rejected before archive mutation. Existing
 quarantine is applied before site aggregation, so a withheld provider's fact
 migration does not change unrelated publication. Acquisition does not lift
 a source hold.

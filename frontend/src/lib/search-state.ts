@@ -1,8 +1,9 @@
 export type ShareableSortKey = "name" | "files-desc" | "years-desc"
+export type PublicationYearFilter = number | "undated" | null
 
 export interface SearchState {
   query: string
-  year: number | null
+  year: PublicationYearFilter
   examClass: string | null
   subclass: string | null
   sort: ShareableSortKey
@@ -29,11 +30,18 @@ function sortKey(value: string | null): ShareableSortKey {
   return "name"
 }
 
+function publicationYear(value: string | null): PublicationYearFilter {
+  if (value === "undated") return value
+  if (!value || !/^-?\d+$/.test(value)) return null
+  const parsed = Number(value)
+  return Number.isSafeInteger(parsed) ? parsed : null
+}
+
 export function readSearchState(search: string): SearchState {
   const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search)
   return {
     query: params.get("q")?.trim() ?? DEFAULT_STATE.query,
-    year: positiveInteger(params.get("year")),
+    year: publicationYear(params.get("year")),
     examClass: params.get("class")?.trim() || null,
     subclass: params.get("subclass")?.trim() || null,
     sort: sortKey(params.get("sort")),

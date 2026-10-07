@@ -13,16 +13,18 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
+from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes, validate_public_materials
 from app.classification import NOT_APPLICABLE, STAGE_IDS, TRACK_TITLED_PROVIDERS
 from app.coverage_exceptions import failure_exception_for, load_coverage_exceptions
 from app.paths import provider_paths
+from app.models import to_plain_data
 from app.publisher import load_site_catalog, load_site_provider_indexes
-from app.provider_index import PAPER_BUNDLE_ID, PAPER_CANONICAL_ID, PAPER_SOURCE_EXAM_ID
+from app.provider_index import PAPER_BUNDLE_ID, PAPER_CANONICAL_ID, PAPER_SOURCE_EXAM_ID, indexed_material_summaries
 from app.provenance import project_provenance
 from app.site_registry import get_site_config
 from app.source_inventory import validate_source_inventory
 from app.source_revisions import load_source_revisions
+from app.source_material import MaterialSummary, material_summary
 from app.state import load_provider_failures
 
 GENERIC_SUBJECT_PREFIXES = tuple(
@@ -131,12 +133,15 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     release = load_json(site_dir / "release-assets.json", repo_root=repo_root)
 
     for label, payload in (("site", site), ("frontend", feed), ("release", release)):
-        if payload.get("schema_version") != 2:
-            fail(f"{label} payload is not schema_version 2")
+        versions = {2} if label == "release" else {2, 3}
+        if type(payload.get("schema_version")) is not int or payload["schema_version"] not in versions:
+            fail(f"{label} payload has an unsupported schema_version")
         if payload.get("catalog_version") != "exam-identity-v2":
             fail(f"{label} payload is missing catalog_version exam-identity-v2")
         if payload.get("site_id") != "default":
             fail(f"{label} payload is not for the default site")
+    if site["schema_version"] != feed["schema_version"]:
+        fail("site and frontend feed versions differ")
 
     site_rows = site.get("bundles")
     feed_rows = feed.get("bundles")
@@ -146,6 +151,7 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
 
     site_asset_names = []
     site_bundle_ids = set()
+    site_parts = defaultdict(list)
     for index, row in enumerate(site_rows):
         prefix = f"site bundle {index}"
         required = ("bundle_id", "canonical_name", "years", "file_count", "asset_name", "release_tag", "download_url", "checksum", "classification_confidence")
@@ -156,9 +162,17 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
         if not isinstance(bundle_id, str) or not bundle_id:
             fail(f"{prefix} has an invalid bundle_id")
         site_bundle_ids.add(bundle_id)
-        if not isinstance(row["years"], list) or not row["years"]:
+        site_parts[bundle_id].append(row)
+        summary = material_summary(row.get("source_material"))
+        if type(row.get("schema_version")) is not int or row["schema_version"] != (3 if summary is not None else 2):
+            fail(f"{prefix} has an invalid material record version")
+        if summary is not None and site["schema_version"] != 3:
+            fail(f"{prefix} requires site inventory v3")
+        if summary is not None and row["years"] != summary.years:
+            fail(f"{prefix} years differ from reviewed material dates")
+        if not isinstance(row["years"], list) or any(type(year) is not int for year in row["years"]) or (not row["years"] and summary is None):
             fail(f"{prefix} has no years")
-        if not isinstance(row["file_count"], int) or row["file_count"] < 1:
+        if type(row["file_count"]) is not int or row["file_count"] < 1:
             fail(f"{prefix} has an invalid file_count")
         if row["classification_confidence"] not in {"high", "medium"}:
             fail(f"{prefix} is not launch-safe: confidence={row['classification_confidence']}")
@@ -205,7 +219,9 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
         catalog, _ = load_site_catalog(repo_root, site_id="default")
         for paper in catalog.papers:
             events_by_bundle[paper.bundle_id or paper.canonical_id].add((paper.provider_id, paper.source_exam_id))
+        expected_materials = validate_public_materials(catalog.papers)
     else:
+        expected_materials = indexed_material_summaries(indexes)
         for provider in indexes:
             for paper in provider["papers"]:
                 bundle_id = provider["bundle_ids"][paper[PAPER_BUNDLE_ID]] or provider["canonical_ids"][paper[PAPER_CANONICAL_ID]]
@@ -226,6 +242,19 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
         feed_ids.append(bundle_id)
         if bundle_id not in site_bundle_ids:
             fail(f"{prefix} is not present in site publication")
+        parts = site_parts[bundle_id]
+        summaries = [material_summary(part.get("source_material")) for part in parts]
+        reviewed = [summary for summary in summaries if summary is not None]
+        if reviewed and len(reviewed) != len(parts):
+            fail(f"{prefix} mixes legacy and reviewed material parts")
+        summary = MaterialSummary.combine(reviewed) if reviewed else None
+        if summary != expected_materials.get(bundle_id):
+            fail(f"{prefix} material facts differ from retained provider evidence")
+        if row.get("sourceMaterial") != to_plain_data(summary):
+            fail(f"{prefix} material facts differ from site publication")
+        years = sorted({year for part in parts for year in part["years"]}, reverse=True)
+        if row["years"] != years or row["fileCount"] != sum(part["file_count"] for part in parts):
+            fail(f"{prefix} years or file count differ from site publication")
         if not isinstance(row["searchAliases"], list) or not row["searchAliases"]:
             fail(f"{prefix} has no search aliases")
         if bundle_id.startswith(GENERIC_SUBJECT_PREFIXES) and not row.get("subjectLabels"):

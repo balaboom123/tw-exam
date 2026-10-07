@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/bundle-v3.schema.json",
+  "title": "Site bundle v3 with reviewed material and dates",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "canonical_id",
+    "canonical_name",
+    "years",
+    "file_count",
+    "storage_key",
+    "asset_name",
+    "release_tag",
+    "domain_id",
+    "exam_family_id",
+    "exam_series_id",
+    "level_id",
+    "track_id",
+    "variant_ids",
+    "stage_id",
+    "source_material"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 3
+    },
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_name": {
+      "type": "string"
+    },
+    "years": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "file_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "storage_key": {
+      "type": "string"
+    },
+    "asset_name": {
+      "type": "string",
+      "pattern": "\\.zip$"
+    },
+    "release_tag": {
+      "type": "string",
+      "minLength": 1
+    },
+    "download_url": {
+      "type": "string"
+    },
+    "checksum": {
+      "type": "string"
+    },
+    "legacy_asset_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "domain_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exam_family_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exam_series_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "level_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "track_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bundle_policy_id": {
+      "type": "string"
+    },
+    "classification_confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "review",
+        ""
+      ]
+    },
+    "classification_reason": {
+      "type": "string"
+    },
+    "exam_class": {
+      "type": "string"
+    },
+    "exam_subclass": {
+      "type": "string"
+    },
+    "search_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "subject_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "legacy_canonical_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "part_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "part_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "part_label": {
+      "type": "string"
+    },
+    "source_material": {
+      "$ref": "source-material-v1.schema.json#/$defs/summary"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,7 +1,9 @@
 import { createHash } from "node:crypto"
 import { readFile } from "node:fs/promises"
 import { isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
+import { parseCompactFeed } from "../src/lib/public-feed.ts"
 import type { CompactBundle, CompactFeed } from "../src/lib/public-feed.ts"
+import { isMaterialSummary, materialDateLabels, materialLabel, materialMatchesYears } from "../src/lib/source-material.ts"
 
 export interface PublicData {
   feed: CompactFeed
@@ -46,6 +48,7 @@ export function buildPublicData(source: unknown): { feed: CompactFeed; searchInd
   if (!isRecord(source) || !Array.isArray(source.bundles) || source.bundles.length === 0) {
     throw new TypeError("Expected a nonempty site frontend bundle feed")
   }
+  if (source.schema_version !== 2 && source.schema_version !== 3) throw new TypeError("Unsupported site frontend feed version")
 
   const bundles: CompactBundle[] = []
   const searchIndex: string[] = []
@@ -83,6 +86,12 @@ export function buildPublicData(source: unknown): { feed: CompactFeed; searchInd
       asset: location.asset,
     }
     if (subjectLabels.length) bundle.subjectLabels = subjectLabels
+    if (item.sourceMaterial !== undefined) {
+      if (source.schema_version !== 3 || !isMaterialSummary(item.sourceMaterial) || !materialMatchesYears(item.sourceMaterial, item.years)) {
+        throw new TypeError(`Invalid material facts for bundle ${item.id}`)
+      }
+      bundle.sourceMaterial = item.sourceMaterial
+    }
     if (item.sources !== undefined) {
       if (!Array.isArray(item.sources) || !item.sources.length || !item.sources.every(isBundleSource)) {
         throw new TypeError(`Invalid provenance sources for bundle ${item.id}`)
@@ -108,9 +117,12 @@ export function buildPublicData(source: unknown): { feed: CompactFeed; searchInd
     }
     bundles.push(bundle)
     classes.add(item.examClass)
-    searchIndex.push([item.name, ...searchAliases, ...subjectLabels, item.examClass, item.examSubclass].join(" ").toLowerCase())
+    const materialText = bundle.sourceMaterial ? [materialLabel(bundle.sourceMaterial), ...materialDateLabels(bundle.sourceMaterial)] : []
+    searchIndex.push([item.name, ...searchAliases, ...subjectLabels, item.examClass, item.examSubclass, ...materialText].join(" ").toLowerCase())
   }
-  return { feed: { v: 2, repo, classes: [...classes], bundles }, searchIndex }
+  const feed: CompactFeed = { v: source.schema_version, repo, classes: [...classes], bundles }
+  parseCompactFeed(feed)
+  return { feed, searchIndex }
 }
 
 function hashedName(prefix: string, source: string): string {

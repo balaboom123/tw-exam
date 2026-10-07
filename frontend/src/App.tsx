@@ -16,6 +16,8 @@ import { CategoryFilter } from "@/components/category-filter"
 import { Footer } from "@/components/footer"
 import { hasSocialAccess, withSocialAccess } from "@/lib/social-gate"
 import { orderExamClasses, orderExamSubclasses } from "@/lib/exam-categories"
+import { matchesPublicationYear } from "@/lib/source-material"
+import type { PublicationYearFilter } from "@/lib/search-state"
 import { buildSearchQuery, readSearchState } from "@/lib/search-state"
 import { orderBundles, selectOrderedBundles } from "@/lib/bundle-order"
 import type { Bundle } from "@/types"
@@ -27,7 +29,7 @@ function App() {
   const [query, setQuery] = useState(initialSearchState.query)
   const debouncedQuery = useDebouncedValue(query, 200)
   const { bundles, searchIndex, loading, error, searchLoading, searchError, retrySearch } = useBundles(debouncedQuery)
-  const [selectedYear, setSelectedYear] = useState<number | null>(initialSearchState.year)
+  const [selectedYear, setSelectedYear] = useState<PublicationYearFilter>(initialSearchState.year)
   const [selectedClass, setSelectedClass] = useState<string | null>(initialSearchState.examClass)
   const [selectedSubclass, setSelectedSubclass] = useState<string | null>(initialSearchState.subclass)
   const [sortKey, setSortKey] = useState<SortKey>(initialSearchState.sort)
@@ -98,7 +100,7 @@ function App() {
       result = result.filter((bundle, index) => (searchIndex?.[index] ?? bundle.name.toLowerCase()).includes(q))
     }
     if (selectedYear !== null) {
-      result = result.filter((b) => b.years.includes(selectedYear))
+      result = result.filter((b) => matchesPublicationYear(b, selectedYear))
     }
     return result
   }, [bundles, searchIndex, debouncedQuery, selectedYear])
@@ -158,7 +160,7 @@ function App() {
     setPage(1)
   }
 
-  function handleYearChange(year: number | null) {
+  function handleYearChange(year: PublicationYearFilter) {
     setSelectedYear(year)
     setPage(1)
   }
@@ -235,7 +237,7 @@ function App() {
     )
   }
 
-  const hasFilters = Boolean(query.trim() || selectedClass || selectedSubclass || selectedYear)
+  const hasFilters = Boolean(query.trim() || selectedClass || selectedSubclass || selectedYear !== null)
 
   return (
     <div className="flex min-h-[100dvh] flex-col">
@@ -307,9 +309,9 @@ function App() {
               )}
               <div className="year-control">
                 <label htmlFor="exam-year">考試年度</label>
-                <YearFilter years={allYears} selected={selectedYear} onSelect={handleYearChange} />
+                <YearFilter years={allYears} selected={selectedYear} hasUndated={bundles.some((bundle) => matchesPublicationYear(bundle, "undated"))} onSelect={handleYearChange} />
               </div>
-              <p id="year-download-note" className={selectedYear ? "year-note" : "sr-only"}>ZIP 包含該類科收錄的所有年度。</p>
+              <p id="year-download-note" className={selectedYear !== null ? "year-note" : "sr-only"}>ZIP 包含這個項目的全部資料。</p>
             </div>
           </aside>
 

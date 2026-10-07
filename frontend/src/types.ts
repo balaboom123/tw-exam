@@ -1,3 +1,5 @@
+import type { MaterialSummary } from "./lib/source-material.ts"
+
 export interface BundlePart {
   label: string
   url: string
@@ -21,4 +23,5 @@ export interface Bundle {
   subjectLabels?: string[]
   sources?: BundleSource[]
   updated?: string
+  sourceMaterial?: MaterialSummary
 }

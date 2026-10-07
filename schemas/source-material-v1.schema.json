@@ -57,7 +57,14 @@
           }
         }
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "x-display-labels": {
+        "exam_year": "考試年份",
+        "edition_year": "版次年份",
+        "publication_year": "出版年份",
+        "undated": "未標示年份",
+        "unknown": "年份待確認"
+      }
     },
     "kind": {
       "enum": [
@@ -150,6 +157,77 @@
                 "properties": {
                   "basis": {
                     "const": "exam_year"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "const": "administered"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "kind",
+        "dates"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "kind": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/kind"
+            },
+            {
+              "not": {
+                "const": "unknown"
+              }
+            }
+          ]
+        },
+        "dates": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/date"
+              },
+              {
+                "properties": {
+                  "basis": {
+                    "not": {
+                      "const": "unknown"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "dates": {
+                "contains": {
+                  "properties": {
+                    "basis": {
+                      "const": "exam_year"
+                    }
                   }
                 }
               }

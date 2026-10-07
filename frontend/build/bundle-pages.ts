@@ -1,5 +1,6 @@
 import { formatSyncDate, isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
 import type { CompactBundle } from "../src/lib/public-feed.ts"
+import { isMaterialSummary, materialDateLabels, materialLabel, materialMatchesYears } from "../src/lib/source-material.ts"
 
 const safeSegment = /^[A-Za-z0-9._-]+$/
 
@@ -40,6 +41,9 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
     throw new TypeError(`Invalid provenance sources for bundle ${bundle.id}`)
   }
   if (bundle.updated && !isSyncTimestamp(bundle.updated)) throw new TypeError(`Invalid sync timestamp for bundle ${bundle.id}`)
+  if (bundle.sourceMaterial && (!isMaterialSummary(bundle.sourceMaterial) || !materialMatchesYears(bundle.sourceMaterial, bundle.years))) {
+    throw new TypeError(`Invalid material facts for bundle ${bundle.id}`)
+  }
   const canonical = new URL(`b/${bundle.id}.html`, root).href
   const categoryQuery = new URLSearchParams({ class: bundle.examClass, subclass: bundle.examSubclass })
   const categoryUrl = `../?${categoryQuery}`
@@ -49,8 +53,10 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
   const downloadButtons = parts.map((part, index) =>
     `<a class="button download" href="${escapeHtml(joinUrl)}" data-zip="${escapeHtml(downloads[index])}">加入後下載 ${escapeHtml("label" in part ? part.label : "ZIP")}</a>`,
   ).join("")
-  const title = `${bundle.name} 歷屆試題 ZIP 下載 | tw-exam`
-  const description = `${bundle.name}歷屆試題，收錄民國 ${bundle.years.join("、")} 年，共 ${bundle.fileCount} 份檔案。`
+  const title = bundle.sourceMaterial ? `${bundle.name} ZIP 下載 | tw-exam` : `${bundle.name} 歷屆試題 ZIP 下載 | tw-exam`
+  const description = bundle.sourceMaterial
+    ? `${bundle.name}，${materialLabel(bundle.sourceMaterial)}；${materialDateLabels(bundle.sourceMaterial).join("；")}，共 ${bundle.fileCount} 份檔案。`
+    : `${bundle.name}歷屆試題，收錄民國 ${bundle.years.join("、")} 年，共 ${bundle.fileCount} 份檔案。`
   const structuredData = [
     {
       "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -69,7 +75,9 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
       })),
     },
   ]
-  const yearItems = bundle.years.map((year) => `<li>民國 ${escapeHtml(year)} 年</li>`).join("")
+  const yearItems = bundle.sourceMaterial
+    ? materialDateLabels(bundle.sourceMaterial).map((label) => `<li>${escapeHtml(label)}</li>`).join("")
+    : bundle.years.map((year) => `<li>民國 ${escapeHtml(year)} 年</li>`).join("")
   const subjectItems = (bundle.subjectLabels ?? []).map((subject) => `<li>${escapeHtml(subject)}</li>`).join("")
   const cssUrl = "../assets/bundle-pages.css"
   const sources = (bundle.sources ?? []).map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>`).join("、")
@@ -86,7 +94,7 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
 <p class="eyebrow">${escapeHtml(bundle.examClass)} · ${escapeHtml(bundle.examSubclass)}</p><h1>${escapeHtml(bundle.name)}</h1>
 <p class="meta">${escapeHtml(description)}</p>
 ${sources ? `<p class="meta">來源：${sources}</p>` : ""}<p class="meta">${syncDate}</p>
-<h2>收錄年度</h2><ul>${yearItems}</ul>
+<h2>${bundle.sourceMaterial ? "收錄年份" : "收錄年度"}</h2><ul>${yearItems}</ul>
 ${subjectItems ? `<h2>科目</h2><ul class="subjects">${subjectItems}</ul>` : ""}
 <div class="actions">${downloadButtons}
 <a class="button secondary" href="${escapeHtml(categoryUrl)}">瀏覽同類試題</a></div>

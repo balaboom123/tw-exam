@@ -12,7 +12,7 @@ from collections.abc import Iterable
 from typing import Any, cast
 
 from app.paths import ProviderPaths
-from app.source_material import source_material
+from app.source_material import MaterialSummary, SourceDate, material_label, source_material
 
 INDEX_SCHEMA_VERSION = 1
 PAPER_FIELDS = (
@@ -36,6 +36,9 @@ PAPER_STORAGE_KEY = 8
 PAPER_CODE = 9
 PAPER_LEGACY_CANDIDATE = len(PAPER_FIELDS)
 PAPER_SOURCE_YEAR_ROC = len(PAPER_FIELDS) + 1
+PAPER_MATERIAL_KIND = len(PAPER_FIELDS) + 2
+PAPER_DATE_BASIS = len(PAPER_FIELDS) + 3
+PAPER_MATERIAL_REVIEW = len(PAPER_FIELDS) + 4
 _PAPER_DEFAULTS: dict[str, Any] = {
     "source_exam_id": "",
     "category_code": "",
@@ -56,9 +59,53 @@ def paper_index_canonical_id(index: dict[str, Any], row: list[Any]) -> str:
 
 
 def paper_index_source_year_roc(index: dict[str, Any], row: list[Any]) -> int | None:
-    if index["schema_version"] == 2:
+    if index["schema_version"] in {2, 3}:
         return cast(int | None, row[PAPER_SOURCE_YEAR_ROC])
     return None
+
+
+def paper_index_public_year_roc(index: dict[str, Any], row: list[Any]) -> int | None:
+    version = index["schema_version"]
+    if version == 1:
+        return cast(int, row[PAPER_YEAR_ROC])
+    if version == 2:
+        year = paper_index_source_year_roc(index, row)
+        if year is None:
+            raise ValueError(
+                "Rebuild provider index v2 before publishing undated or legacy material"
+            )
+        return year
+    if row[PAPER_MATERIAL_REVIEW]:
+        raise ValueError("Unresolved source material cannot be published")
+    if row[PAPER_MATERIAL_KIND] is None:
+        return cast(int, row[PAPER_YEAR_ROC])
+    return paper_index_source_year_roc(index, row)
+
+
+def indexed_material_summaries(indexes: Iterable[dict[str, Any]]) -> dict[str, MaterialSummary]:
+    kinds: dict[str, set[str | None]] = {}
+    dates: dict[str, set[SourceDate]] = {}
+    for index in indexes:
+        if index["schema_version"] == 2:
+            raise ValueError("Rebuild index v2 before projecting public material summaries")
+        for row in index["papers"]:
+            key = paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
+            kind = row[PAPER_MATERIAL_KIND] if index["schema_version"] == 3 else None
+            kinds.setdefault(key, set()).add(kind)
+            if kind is not None:
+                year = paper_index_public_year_roc(index, row)
+                dates.setdefault(key, set()).add(
+                    SourceDate(row[PAPER_DATE_BASIS], year + 1911 if year is not None else None)
+                )
+    summaries = {}
+    for key, material_kinds in kinds.items():
+        if len(material_kinds) != 1:
+            raise ValueError("Migrate the complete bundle history before publishing material facts")
+        kind = next(iter(material_kinds))
+        if kind is not None:
+            ordered = tuple(sorted(dates[key], key=lambda date: (date.basis, -(date.year_ad or 0))))
+            summaries[key] = MaterialSummary(kind, ordered)
+    return summaries
 
 
 def _field(record: Any, name: str, default: Any = _MISSING) -> Any:
@@ -107,9 +154,9 @@ def _append_papers(index: dict[str, Any], records: Iterable[Any]) -> None:
     for paper in records:
         material = source_material(_field(paper, "source_material", None))
         if material is not None and index["schema_version"] == 1:
-            index["schema_version"] = 2
+            index["schema_version"] = 3
             for previous in index["papers"]:
-                previous.append(None)
+                previous.extend([None, None, None, False])
         row = [_field(paper, name, _PAPER_DEFAULTS.get(name, _MISSING)) for name in PAPER_FIELDS]
         for position, table_name, positions in (
             (PAPER_BUNDLE_ID, "bundle_ids", bundle_ids),
@@ -121,8 +168,12 @@ def _append_papers(index: dict[str, Any], records: Iterable[Any]) -> None:
                 index[table_name].append(value)
             row[position] = positions[value]
         row.append(_legacy_candidate(paper))
-        if index["schema_version"] == 2:
-            row.append(material.date.year_roc if material is not None else None)
+        if index["schema_version"] == 3:
+            row.extend(
+                [material.date.year_roc, material.kind, material.date.basis, material.needs_review]
+                if material is not None
+                else [None, None, None, False]
+            )
         index["papers"].append(row)
 
 
@@ -187,7 +238,7 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
     if (
         not isinstance(index, dict)
         or type(index.get("schema_version")) is not int
-        or index["schema_version"] not in {1, 2}
+        or index["schema_version"] not in {1, 2, 3}
     ):
         raise ValueError(f"unsupported provider index schema: {provider.index_path}")
     if index.get("provider_id") != provider.provider_id:
@@ -212,7 +263,7 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
         raise ValueError(f"provider index raw event row is invalid: {provider.index_path}")
     if any(
         not isinstance(row, list)
-        or len(row) != len(PAPER_FIELDS) + (2 if index["schema_version"] == 2 else 1)
+        or len(row) != {1: 11, 2: 12, 3: 15}[index["schema_version"]]
         or any(not isinstance(row[position], str) for position in (0, 1, 2, 3, 7, 8, 9))
         or isinstance(row[PAPER_YEAR_ROC], bool)
         or not isinstance(row[PAPER_YEAR_ROC], int)
@@ -227,13 +278,42 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
         )
         or not isinstance(row[PAPER_LEGACY_CANDIDATE], bool)
         or (
-            index["schema_version"] == 2
+            index["schema_version"] in {2, 3}
             and row[PAPER_SOURCE_YEAR_ROC] is not None
             and type(row[PAPER_SOURCE_YEAR_ROC]) is not int
         )
         for row in index["papers"]
     ):
         raise ValueError(f"provider index paper row is invalid: {provider.index_path}")
+    if index["schema_version"] == 3:
+        for row in index["papers"]:
+            kind, basis, review = (
+                row[PAPER_MATERIAL_KIND],
+                row[PAPER_DATE_BASIS],
+                row[PAPER_MATERIAL_REVIEW],
+            )
+            if type(review) is not bool:
+                raise ValueError(
+                    f"provider index material review flag is invalid: {provider.index_path}"
+                )
+            if kind is None:
+                if basis is not None or row[PAPER_SOURCE_YEAR_ROC] is not None or review:
+                    raise ValueError(
+                        f"provider index legacy material row is invalid: {provider.index_path}"
+                    )
+                continue
+            material_label(kind)
+            year = row[PAPER_SOURCE_YEAR_ROC]
+            SourceDate(basis, year + 1911 if year is not None else None)
+            if (kind == "unknown" or basis == "unknown") and not review:
+                raise ValueError(
+                    f"provider index unresolved material has no review flag: {provider.index_path}"
+                )
+            if basis == "exam_year" and kind != "administered":
+                raise ValueError(
+                    "provider index non-administered material claims an exam year: "
+                    f"{provider.index_path}"
+                )
     if index.get("source_files") != _source_file_sizes(provider):
         return None
     return index

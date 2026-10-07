@@ -12,8 +12,9 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from app.bundler import WINDOWS_RESERVED_NAMES, PaperKey, _paper_bundle_key
+from app.bundler import WINDOWS_RESERVED_NAMES, PaperKey, _manifest_digest, _paper_bundle_key
 from app.mirror_repair import colliding_mirror_records
+from app.models import to_plain_data
 from app.paths import site_paths
 from app.publisher import load_site_catalog
 from app.state import load_site_bundles
@@ -44,8 +45,10 @@ def inspect_archive(path: Path, *, verify_content: bool) -> dict[str, Any]:
         if not isinstance(manifest, dict):
             raise ValueError("archive manifest must be an object")
         version = manifest.get("manifest_version", 1)
-        if type(version) is not int or version not in (1, 2, 3):
+        if type(version) is not int or version not in (1, 2, 3, 4):
             raise ValueError("unsupported archive manifest version")
+        if version == 4 and _manifest_digest(manifest) is None:
+            raise ValueError("invalid reviewed material archive manifest")
         papers = manifest["papers"]
         if not isinstance(papers, list) or any(not isinstance(paper, dict) for paper in papers):
             raise ValueError("archive papers must be source record objects")
@@ -53,7 +56,7 @@ def inspect_archive(path: Path, *, verify_content: bool) -> dict[str, Any]:
         keys: set[PaperKey] = set()
         for paper in papers:
             key = _paper_bundle_key(paper)
-            if key in keys and version == 3:
+            if key in keys and version in {3, 4}:
                 raise ValueError("duplicate source paper key")
             keys.add(key)
             name, checksum = paper["bundle_entry"], paper["checksum"]
@@ -103,8 +106,12 @@ def audit_site_archives(
     }
     catalog, _ = load_site_catalog(repo_root, site_id=site_id)
     expected: dict[str, dict[PaperKey, str]] = defaultdict(dict)
+    expected_material: dict[str, dict[PaperKey, Any]] = defaultdict(dict)
     for paper in catalog.papers:
         expected[paper.bundle_id or paper.canonical_id][_paper_bundle_key(paper)] = paper.checksum
+        expected_material[paper.bundle_id or paper.canonical_id][_paper_bundle_key(paper)] = (
+            to_plain_data(getattr(paper, "source_material", None))
+        )
     observed: dict[str, dict[PaperKey, str]] = defaultdict(dict)
     collisions = colliding_mirror_records(catalog.papers)
     errors: list[dict[str, str]] = [
@@ -127,6 +134,7 @@ def audit_site_archives(
                 ("canonical_name", bundle.canonical_name),
                 ("file_count", bundle.file_count),
                 ("years", bundle.years),
+                ("source_material", to_plain_data(getattr(bundle, "source_material", None))),
                 ("part_index", bundle.part_index),
                 ("part_count", bundle.part_count),
             ):
@@ -134,6 +142,8 @@ def audit_site_archives(
                     raise ValueError(f"archive {field} differs from site inventory")
             for paper in manifest["papers"]:
                 paper_key = _paper_bundle_key(paper)
+                if paper.get("source_material") != expected_material[key].get(paper_key):
+                    raise ValueError("archive source material facts differ from provider evidence")
                 if paper_key in observed[key]:
                     raise ValueError("source paper repeated across multipart archives")
                 observed[key][paper_key] = paper["checksum"]
@@ -186,10 +196,15 @@ def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str,
     site = site_paths(repo_root, site_id)
     bundles = load_site_bundles(site)
     retained: set[tuple[PaperKey, str]] = set()
+    retained_facts: set[tuple[PaperKey, str, str]] = set()
     for bundle in bundles:
         manifest = inspect_archive(site.bundle_dir / bundle.asset_name, verify_content=False)
         retained.update(
             (_paper_bundle_key(paper), paper["checksum"]) for paper in manifest["papers"]
+        )
+        retained_facts.update(
+            (_paper_bundle_key(paper), paper["checksum"], _material_evidence_key(paper))
+            for paper in manifest["papers"]
         )
     removed: list[str] = []
     preserved: list[dict[str, str]] = []
@@ -207,6 +222,12 @@ def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str,
                 redundant = all((key[:-1], checksum) in covered for key, checksum in records)
             else:
                 redundant = records <= retained
+            if manifest.get("manifest_version", 1) == 4:
+                redundant = redundant and all(
+                    (_paper_bundle_key(paper), paper["checksum"], _material_evidence_key(paper))
+                    in retained_facts
+                    for paper in manifest["papers"]
+                )
             if not records or not redundant:
                 raise ValueError("contains source records not covered by active archives")
             # Check coverage before the expensive read, but never delete a
@@ -219,6 +240,10 @@ def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str,
     report["removed_redundant_archives"] = removed
     report["preserved_unreferenced_archives"] = preserved
     report["unreferenced_archives"] = [row["asset"] for row in preserved]
+
+
+def _material_evidence_key(paper: dict[str, Any]) -> str:
+    return json.dumps(paper.get("source_material"), sort_keys=True, ensure_ascii=False)
 
 
 def isolate_unreferenced_archives(repo_root: Path, *, site_id: str, report: dict[str, Any]) -> None:

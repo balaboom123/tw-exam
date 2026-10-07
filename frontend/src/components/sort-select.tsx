@@ -12,7 +12,7 @@ export function SortSelect({ value, onChange }: SortSelectProps) {
       <select id="exam-sort" value={value} onChange={(event) => onChange(event.target.value as SortKey)}>
         <option value="name">名稱</option>
         <option value="files-desc">檔案數最多</option>
-        <option value="years-desc">年度數最多</option>
+        <option value="years-desc">年份數最多</option>
       </select>
     </div>
   )

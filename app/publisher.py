@@ -22,7 +22,11 @@ from app.models import (
 from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, SitePaths, provider_paths, site_paths
 from app.provenance import add_frontend_provenance
-from app.provider_index import build_provider_index, load_provider_index, write_provider_index
+from app.provider_index import (
+    build_provider_index,
+    load_provider_index,
+    write_provider_index,
+)
 from app.publication_quarantine import quarantined_provider_ids
 from app.release_tags import (
     RELEASE_SAFETY_TARGET,
@@ -32,6 +36,7 @@ from app.release_tags import (
 )
 from app.review_queue import encode_review_queue
 from app.site_registry import get_site_config
+from app.source_material import MaterialSummary
 from app.source_revisions import retain_superseded_sources
 from app.state import filter_catalog_by_canonical_ids, load_provider_state, load_site_bundles
 
@@ -214,13 +219,16 @@ def write_site_state(
     frontend_bundles: list[dict[str, Any]],
 ) -> None:
     site.data_dir.mkdir(parents=True, exist_ok=True)
-    schema_version = 2 if any(_structured_bundle(bundle) for bundle in bundles) else 1
+    release_version = 2 if any(_structured_bundle(bundle) for bundle in bundles) else 1
+    schema_version = (
+        3 if any(bundle.source_material is not None for bundle in bundles) else release_version
+    )
     bundles_payload = {
         "schema_version": schema_version,
         "site_id": site.site_id,
         "bundles": [_site_bundle_record(bundle) for bundle in bundles],
     }
-    if schema_version == 2:
+    if schema_version >= 2:
         bundles_payload["catalog_version"] = "exam-identity-v2"
     site.bundles_path.write_text(
         json.dumps(
@@ -231,11 +239,11 @@ def write_site_state(
         encoding="utf-8",
     )
     release_payload = {
-        "schema_version": schema_version,
+        "schema_version": release_version,
         "site_id": site.site_id,
         "assets": [_release_asset_record(bundle) for bundle in bundles],
     }
-    if schema_version == 2:
+    if release_version == 2:
         release_payload["catalog_version"] = "exam-identity-v2"
     site.release_assets_path.write_text(
         json.dumps(
@@ -250,7 +258,7 @@ def write_site_state(
         "site_id": site.site_id,
         "bundles": frontend_bundles,
     }
-    if schema_version == 2:
+    if schema_version >= 2:
         frontend_payload["catalog_version"] = "exam-identity-v2"
     site.frontend_bundles_path.write_text(
         json.dumps(
@@ -316,6 +324,16 @@ def apply_bundle_download_urls(
             "fileCount": sum(part.file_count for part in bundle_parts),
             "url": bundle.download_url,
         }
+        summaries = [
+            part.source_material for part in bundle_parts if part.source_material is not None
+        ]
+        if summaries:
+            if len(summaries) != len(bundle_parts):
+                raise ValueError("Multipart publication cannot mix legacy and reviewed material")
+            summary = MaterialSummary.combine(summaries)
+            if summary.years != years:
+                raise ValueError("Frontend years differ from reviewed material dates")
+            frontend["sourceMaterial"] = to_plain_data(summary)
         if len(bundle_parts) > 1:
             frontend["parts"] = [
                 {
@@ -430,6 +448,8 @@ def load_site_provider_indexes(repo_root: Path, *, site_id: str) -> list[dict[st
         index = load_provider_index(provider)
         if index is None:
             return None
+        if index["schema_version"] == 2:
+            return None  # V2 has no material kind/date basis for a public projection.
         indexes.append(index)
     return indexes
 

@@ -56,9 +56,11 @@ def load_site_bundles(site: SitePaths) -> list[BundleAsset]:
     payload = json.loads(site.bundles_path.read_text(encoding="utf-8"))
     if isinstance(payload, dict):
         schema_version = payload.get("schema_version")
-        if schema_version is not None and schema_version not in {1, 2}:
+        if schema_version is not None and (
+            type(schema_version) is not int or schema_version not in {1, 2, 3}
+        ):
             raise ValueError(f"Unsupported site bundles schema_version: {schema_version}")
-        if schema_version == 2 and payload.get("catalog_version") != "exam-identity-v2":
+        if schema_version in {2, 3} and payload.get("catalog_version") != "exam-identity-v2":
             # A v2 wrapper must identify the taxonomy version.
             raise ValueError("Unsupported site bundles schema_version: missing catalog_version")
         payload_site_id = payload.get("site_id")
@@ -66,7 +68,19 @@ def load_site_bundles(site: SitePaths) -> list[BundleAsset]:
             raise ValueError(
                 f"Site bundles site_id mismatch: expected {site.site_id}, got {payload_site_id}"
             )
-    bundles = payload.get("bundles", payload)
+    bundles = payload.get("bundles", payload) if isinstance(payload, dict) else payload
+    if (
+        isinstance(payload, dict)
+        and payload.get("schema_version") == 3
+        and not any(bundle.get("source_material") is not None for bundle in bundles)
+    ):
+        raise ValueError("Unsupported site bundles schema_version: v3 requires reviewed material")
+    if (
+        isinstance(payload, dict)
+        and payload.get("schema_version") != 3
+        and any(bundle.get("source_material") is not None for bundle in bundles)
+    ):
+        raise ValueError("Reviewed source material requires site bundle inventory v3")
     return [BundleAsset(**bundle) for bundle in bundles]
 
 

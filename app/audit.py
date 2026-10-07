@@ -10,10 +10,11 @@ from __future__ import annotations
 import json
 from collections import Counter, defaultdict
 from collections.abc import Iterable
+from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
-from app.bundler import _bundle_asset_name, _legacy_asset_names
+from app.bundler import _bundle_asset_name, _legacy_asset_names, public_bundle_ids
 from app.classification import ExamIdentity, classify_normalized_paper, identity_fields
 from app.mirror_repair import colliding_mirror_records
 from app.models import BundleAsset, NormalizedCatalog
@@ -34,6 +35,7 @@ from app.release_tags import (
     validate_release_capacity,
 )
 from app.site_registry import get_site_config
+from app.source_material import publication_years, summarize_papers
 from app.state import load_provider_state, load_site_bundles
 
 
@@ -251,40 +253,44 @@ def build_catalog_audit(
         identity = identities_by_paper[id(paper)]
         group = planned_groups.setdefault(
             identity.bundle_id,
-            {"years": set(), "canonical_ids": set(), "provider_ids": set(), "identity": identity},
+            {"papers": [], "identity": identity},
         )
-        group["years"].add(paper.year_roc)
-        group["canonical_ids"].add(paper.canonical_id)
-        group["provider_ids"].add(paper.provider_id)
+        group["papers"].append(replace(paper, bundle_id=identity.bundle_id))
 
-    def required_years(paper_group: dict[str, Any]) -> int:
-        minimum = site_config.public_min_years
-        for canonical_id in paper_group["canonical_ids"]:
-            for prefix, prefix_minimum in (
-                site_config.public_min_years_by_canonical_prefix or {}
-            ).items():
-                if canonical_id.startswith(prefix):
-                    minimum = min(minimum, prefix_minimum)
-        return minimum
-
-    public_planned_groups = [
-        group for group in planned_groups.values() if len(group["years"]) >= required_years(group)
-    ]
+    public_planned_groups = []
+    material_review_groups = []
+    for bundle_id, group in planned_groups.items():
+        # The inventory includes withheld and unresolved source history. Keep
+        # it in the audit, but exclude unresolved facts from publication plans.
+        try:
+            eligible = public_bundle_ids(
+                NormalizedCatalog(group["papers"], []),
+                min_years=site_config.public_min_years,
+                min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
+            )
+        except ValueError as exc:
+            material_review_groups.append({"bundle_id": bundle_id, "reason": str(exc)})
+            continue
+        if bundle_id in eligible:
+            public_planned_groups.append(group)
     planned_bundle_count = len(public_planned_groups)
     release_target = min(max(site_config.release_shard_size, 1), RELEASE_SAFETY_TARGET)
     planned_assets = []
     for group in public_planned_groups:
         identity = group["identity"]
+        summary = summarize_papers(group["papers"])
         asset_name = _bundle_asset_name(identity.bundle_id, structured=True)
         planned_assets.append(
             BundleAsset(
                 canonical_id=identity.bundle_id,
                 canonical_name=identity.bundle_name,
-                years=sorted(group["years"], reverse=True),
+                years=publication_years(group["papers"]),
                 file_count=0,
                 storage_key=f"bundles/{asset_name}",
                 asset_name=asset_name,
                 bundle_id=identity.bundle_id,
+                schema_version=3 if summary is not None else 2,
+                source_material=summary,
                 legacy_asset_names=_legacy_asset_names(
                     identity.bundle_id, identity.bundle_name, asset_name, []
                 ),
@@ -379,6 +385,7 @@ def build_catalog_audit(
         "release_asset_limit": GITHUB_RELEASE_ASSET_LIMIT,
         "release_safety_target": RELEASE_SAFETY_TARGET,
         "planned_bundle_count": planned_bundle_count,
+        "material_review_groups": material_review_groups,
         "planned_release_shards": planned_release_shards,
         "planned_release_shard_target": release_target,
         "planned_release_asset_counts": dict(sorted(planned_release_asset_counts.items())),
@@ -474,31 +481,26 @@ def _publication_backlog_from_classified(
 ) -> dict[str, Any]:
     site_config = get_site_config(site_id)
     groups: dict[str, dict[str, Any]] = {}
+    planning_papers = []
     for paper, identity in classified_papers:
         group = groups.setdefault(
             identity.bundle_id,
-            {"years": set(), "canonical_ids": set(), "provider_ids": set(), "record_count": 0},
+            {"provider_ids": set(), "record_count": 0},
         )
-        group["years"].add(paper.year_roc)
-        group["canonical_ids"].add(paper.canonical_id)
+        planning_papers.append(replace(paper, bundle_id=identity.bundle_id))
         group["provider_ids"].add(paper.provider_id)
         group["record_count"] += 1
 
-    def required_years(group: dict[str, Any]) -> int:
-        minimum = site_config.public_min_years
-        for canonical_id in group["canonical_ids"]:
-            for prefix, prefix_minimum in (
-                site_config.public_min_years_by_canonical_prefix or {}
-            ).items():
-                if canonical_id.startswith(prefix):
-                    minimum = min(minimum, prefix_minimum)
-        return minimum
-
+    eligible = public_bundle_ids(
+        NormalizedCatalog(planning_papers, []),
+        min_years=site_config.public_min_years,
+        min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
+    )
     published = {bundle.bundle_id or bundle.canonical_id for bundle in current_bundles}
     outstanding = {
         bundle_id: group
         for bundle_id, group in groups.items()
-        if len(group["years"]) >= required_years(group) and bundle_id not in published
+        if bundle_id in eligible and bundle_id not in published
     }
     by_provider: Counter[str] = Counter()
     for group in outstanding.values():

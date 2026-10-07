@@ -61,13 +61,24 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
 
     site_dir = repo_root / "data" / "sites" / "default"
     bundles = _read_json(site_dir / "bundles.json")
-    if not isinstance(bundles, dict) or bundles.get("schema_version") != 2 or not isinstance(bundles.get("bundles"), list):
-        raise ValueError("data/sites/default/bundles.json: expected a v2 bundle inventory")
+    if not isinstance(bundles, dict) or type(bundles.get("schema_version")) is not int or bundles["schema_version"] not in {2, 3} or not isinstance(bundles.get("bundles"), list):
+        raise ValueError("data/sites/default/bundles.json: expected a supported bundle inventory")
     for index, bundle in enumerate(bundles["bundles"]):
-        _validate(schemas["bundle-v2.schema.json"], bundle, f"data/sites/default/bundles.json.bundles[{index}]")
+        version = bundle.get("schema_version")
+        if type(version) is not int or version not in {2, 3}:
+            raise ValueError(f"Unsupported site bundle record version: {index}")
+        if version == 3 and bundles["schema_version"] != 3:
+            raise ValueError("Reviewed source material requires site bundle inventory v3")
+        _validate(schemas[f"bundle-v{version}.schema.json"], bundle, f"data/sites/default/bundles.json.bundles[{index}]")
+
+    frontend_path = site_dir / "frontend-bundles.json"
+    frontend = _read_json(frontend_path)
+    version = frontend.get("schema_version")
+    if type(version) is not int or version not in {2, 3}:
+        raise ValueError("Unsupported frontend feed version")
+    _validate(schemas[f"frontend-bundle-feed-v{version}.schema.json"], frontend, str(frontend_path.relative_to(repo_root)))
 
     artifacts = (
-        (site_dir / "frontend-bundles.json", "frontend-bundle-feed-v2.schema.json"),
         (site_dir / "release-assets.json", "release-assets-v2.schema.json"),
         (repo_root / "catalog" / "source-inventory.json", "source-inventory.schema.json"),
         (moex_evidence_path(repo_root), "moex-category-identity-v1.schema.json"),

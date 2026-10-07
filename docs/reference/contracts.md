@@ -13,14 +13,14 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Superseded source references and payloads | [Revision schema](../../schemas/provider-source-revisions-v1.schema.json), [retention owner](../../app/source_revisions.py) | `data/providers/<provider_id>/source-revisions.json`, `mirror/providers/<provider_id>/recovery/source-revisions/` |
 | Material nature and official date evidence | [Material schema](../../schemas/source-material-v1.schema.json), [fact model](../../app/source_material.py) | Provider raw events/papers and normalized records |
 | Normalized papers | [V3 facts contract](../../schemas/normalized-paper-v3.schema.json), [V2 compatibility contract](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
-| Derived provider index | [V2 dated index](../../schemas/provider-index-v2.schema.json), [V1 compatibility index](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
+| Derived provider index | [V3 material/date index](../../schemas/provider-index-v3.schema.json), [V2 compatibility index](../../schemas/provider-index-v2.schema.json), [V1 compatibility index](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
 | Reviewed source scope and evidence | [Inventory schema](../../schemas/source-inventory.schema.json), [inventory validator](../../app/source_inventory.py) | `catalog/source-inventory.json` |
 | Coverage exceptions | [Exception schema](../../schemas/source-coverage-exceptions.schema.json), [matcher](../../app/coverage_exceptions.py) | `catalog/source-coverage/` |
 | Publication quarantine | [Quarantine loader](../../app/publication_quarantine.py) | `catalog/mappings/publication-quarantine.json` |
-| Site bundles | [Bundle schema](../../schemas/bundle-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/bundles.json` |
-| Embedded archive manifest | [Manifest schema](../../schemas/bundle-archive-manifest-v3.schema.json), [bundler](../../app/bundler.py) | `bundle.json` inside ZIPs |
+| Site bundles | [V3 material bundle](../../schemas/bundle-v3.schema.json), [V2 compatibility bundle](../../schemas/bundle-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/bundles.json` |
+| Embedded archive manifest | [V4 material manifest](../../schemas/bundle-archive-manifest-v4.schema.json), [V3 compatibility manifest](../../schemas/bundle-archive-manifest-v3.schema.json), [bundler](../../app/bundler.py) | `bundle.json` inside ZIPs |
 | Release assets and plans | [Asset schema](../../schemas/release-assets-v2.schema.json), [plan schema](../../schemas/release-plan-v2.schema.json), [shard policy](../../app/release_tags.py) | `data/sites/<site_id>/` |
-| Site frontend feed | [Feed schema](../../schemas/frontend-bundle-feed-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/frontend-bundles.json` |
+| Site frontend feed | [V3 material feed](../../schemas/frontend-bundle-feed-v3.schema.json), [V2 compatibility feed](../../schemas/frontend-bundle-feed-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/frontend-bundles.json` |
 
 ## Ownership and versioning
 
@@ -41,20 +41,24 @@ material/date evidence requires a reason and a review disposition.
 The source date states whether a year belongs to an administered examination,
 an edition, or a publication. Undated and unknown dates carry no year. Existing
 `year_ad`/`year_roc` partitions and source keys remain traceability fields and
-must not substitute for these facts. V2 indexes keep the partition year and
+must not substitute for these facts. V3 indexes keep the partition year and
 the reviewed date year in separate columns; legacy records have no reviewed
 date value. V1/v2 records without facts retain their original serialized shape.
 
-The current public feed and archive contracts do not yet support these facts.
-The bundler explicitly rejects fact-bearing catalogs until archive, recovery,
-publication, audit and frontend consumers are migrated together. Site
-publication checks the complete selected site catalog before preserving
-unaffected bundles during a partial update, using the same guard.
-Provider acquisition, retained history and existing source holds continue independently.
-Do not remove that guard or lift a hold merely because ingestion now retains
-correct dates. Older application versions cannot read normalized v3 records;
-rollback requires restoring the matching provider-state baseline and index,
-while preserving revision journals and recovery bytes.
+Reviewed material uses bundle v3, archive manifest v4, and site/feed v3. Legacy
+bundles keep their v2 records, paths, years and public URLs; a mixed site uses a
+v3 envelope. Release inventories and identity taxonomy remain v2. The complete
+site catalog is validated before a partial update selects affected bundles:
+unresolved facts, mixed material kinds, and partially migrated logical bundle
+history fail before any archive mutation. Provider acquisition and source holds
+remain independent; correct dates alone do not authorize publication.
+
+V3 indexes distinguish legacy rows, reviewed dates, explicitly undated material,
+and review holds. V2 indexes remain readable for recovery, but publication falls
+back to full records until they are rebuilt because a nullable date alone cannot
+establish material kind or date basis. Older application versions cannot read
+normalized v3 records; rollback requires the matching provider-state baseline
+and index, preserving revision journals and recovery bytes.
 
 ## Source evidence and traceability
 
@@ -114,11 +118,22 @@ checksums and extensions match. `file_count` counts physical payloads, excluding
 years, and roles remain separate. Multipart construction keeps all references to
 a shared entry in the same part. ZIP paths must be relative, unique even on
 case-insensitive filesystems, and portable to Windows and UTF-8 filesystems.
- Readers can recover entries from rich v1 and compact v2 manifests. Publication
-rebuilds them into v3 before reuse so source references are unambiguous. The v2
-schema remains available for historical readers. Identity and site-feed schema
-versions stay at 2. Rollback requires the earlier code and matching site inventory,
-plus the previously released archives; never pair old checksums with rebuilt ZIPs.
+Readers recover entries from manifest v1 through v4. Legacy publication rebuilds
+older manifests into v3; reviewed material uses v4, retaining each native source
+key and full material evidence. Reviewed ZIP roots use the official date basis:
+ROC exam years, `edition-<Gregorian year>`, `published-<Gregorian year>`, or
+`undated`. Storage/acquisition years stay in source keys rather than becoming
+public dates. Equivalent payload sharing uses the reviewed date folder, subject,
+role, extension and checksum, while retaining every source reference and its
+evidence. Cleanup preserves archives containing unique material evidence.
+
+Eligibility, planning, validation and recovery use the shared publication date
+policy. Explicitly undated resources satisfy a minimum of one year, but never
+inflate a multi-year requirement. Frontend filters use reviewed ROC years or the
+explicit undated choice; labels and landing pages distinguish material kind,
+edition, publication and exam dates. Signed ROC years preserve earlier Gregorian
+history. Rollback requires the earlier code, matching site inventory and released
+archives; never pair old checksums with rebuilt ZIPs.
 
 ## Release and compatibility rules
 

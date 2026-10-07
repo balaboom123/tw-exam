@@ -19,15 +19,27 @@ from app.models import (
     NormalizedPaper,
     SyncFailure,
     file_type_label,
+    to_plain_data,
 )
 from app.normalizer import hashed_fallback_canonical_id, legacy_fallback_canonical_id
 from app.provider_index import (
     PAPER_LEGACY_CANDIDATE,
-    PAPER_YEAR_ROC,
+    PAPER_MATERIAL_KIND,
     paper_index_bundle_id,
     paper_index_canonical_id,
+    paper_index_public_year_roc,
 )
 from app.publication_metadata import derive_public_metadata, file_subject_label
+from app.source_material import (
+    MaterialSummary,
+    material_summary,
+    publication_year_roc,
+    publication_years,
+    source_date_folder,
+    source_material,
+    summarize_materials,
+    summarize_papers,
+)
 
 PaperKey = tuple[int, str, str, str, str, str]
 
@@ -92,7 +104,7 @@ def _bundle_compression(arcname: str) -> int:
 
 
 def _manifest_paper(paper: NormalizedPaper, arcname: str) -> dict[str, Any]:
-    return {
+    record = {
         "year_roc": paper.year_roc,
         "download_url_source": paper.download_url_source,
         "source_exam_id": paper.source_exam_id,
@@ -102,6 +114,9 @@ def _manifest_paper(paper: NormalizedPaper, arcname: str) -> dict[str, Any]:
         "checksum": paper.checksum,
         "bundle_entry": arcname,
     }
+    if paper.source_material is not None:
+        record["source_material"] = to_plain_data(paper.source_material)
+    return record
 
 
 def _bundle_entry_info(arcname: str, *, compress_type: int) -> zipfile.ZipInfo:
@@ -152,7 +167,12 @@ def _bundle_arcname(paper: NormalizedPaper) -> str:
         digest = hashlib.sha256(file_name.encode("utf-8")).hexdigest()[:12]
         file_name = file_name.encode("utf-8")[:150].decode("utf-8", errors="ignore")
         file_name = f"{file_name}_{digest}"
-    return f"{paper.year_roc}/{file_name}{suffix}"
+    folder = (
+        source_date_folder(paper.source_material)
+        if paper.source_material is not None
+        else str(paper.year_roc)
+    )
+    return f"{folder}/{file_name}{suffix}"
 
 
 def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
@@ -190,12 +210,14 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
     # Retain every source record in the manifest, but store an identical
     # subject/year/role payload only once. Never merge revised answers,
     # different years, different subjects, or records without real hashes.
-    payloads: dict[tuple[int, str, str, str, str], str] = {}
+    payloads: dict[tuple[str, str, str, str, str], str] = {}
     for index, paper in enumerate(ordered):
         if not re.fullmatch(r"[0-9a-f]{64}", paper.checksum):
             continue
         key = (
-            paper.year_roc,
+            source_date_folder(paper.source_material)
+            if paper.source_material is not None
+            else str(paper.year_roc),
             paper.file_type,
             file_subject_label(paper.subject_name_raw),
             Path(paper.storage_key).suffix.lower(),
@@ -393,11 +415,19 @@ def _split_bundle_archive(
                 part_manifest["part_label"] = f"第 {part_index}/{part_count} 部分"
                 part_manifest["file_count"] = len(group)
                 part_manifest["years"] = sorted(
-                    {paper.year_roc for paper, _arcname in group}, reverse=True
+                    {
+                        year
+                        for paper, _arcname in group
+                        if (year := publication_year_roc(paper)) is not None
+                    },
+                    reverse=True,
                 )
                 part_manifest["papers"] = [
                     _manifest_paper(paper, arcname) for paper, arcname in group_papers
                 ]
+                summary = summarize_papers(paper for paper, _arcname in group_papers)
+                if summary is not None:
+                    part_manifest["source_material"] = to_plain_data(summary)
                 destination.writestr(
                     _bundle_entry_info("bundle.json", compress_type=zipfile.ZIP_DEFLATED),
                     json.dumps(part_manifest, ensure_ascii=False, indent=2),
@@ -495,7 +525,7 @@ def _load_existing_entries_by_canonical(
                 if not isinstance(manifest, dict):
                     continue
                 version = manifest.get("manifest_version", 1)
-                if type(version) is not int or version not in (1, 2, 3):
+                if type(version) is not int or version not in (1, 2, 3, 4):
                     continue
                 canonical_id = manifest.get("bundle_id") or manifest.get("canonical_id")
                 if not canonical_id:
@@ -594,10 +624,19 @@ def public_bundle_ids(
             min_years=min_years,
             min_years_by_canonical_prefix=min_years_by_canonical_prefix,
         )
-        if len({paper.year_roc for paper in papers}) < required_years:
+        summary = summarize_papers(papers)
+        if not _enough_public_years(
+            publication_years(papers),
+            required_years,
+            undated=summary is not None and any(date.basis == "undated" for date in summary.dates),
+        ):
             continue
         public_ids.add(canonical_id)
     return public_ids
+
+
+def _enough_public_years(years: Iterable[int], required: int, *, undated: bool = False) -> bool:
+    return len(set(years)) >= required or (required == 1 and undated)
 
 
 @dataclass(slots=True)
@@ -607,6 +646,9 @@ class _IndexedBundleGroup:
     legacy_candidate: bool
     years: set[int] = field(default_factory=set)
     canonical_ids: set[str] = field(default_factory=set)
+    material_modes: set[bool] = field(default_factory=set)
+    material_kinds: set[str] = field(default_factory=set)
+    undated: bool = False
 
 
 def public_bundle_ids_from_indexes(
@@ -628,11 +670,25 @@ def public_bundle_ids_from_indexes(
                     legacy_hint=canonical_id,
                     legacy_candidate=row[PAPER_LEGACY_CANDIDATE],
                 )
-            group.years.add(row[PAPER_YEAR_ROC])
+            year = paper_index_public_year_roc(index, row)
+            if year is None:
+                group.undated = True
+            else:
+                group.years.add(year)
+            has_material = index["schema_version"] == 2 or (
+                index["schema_version"] == 3 and row[PAPER_MATERIAL_KIND] is not None
+            )
+            group.material_modes.add(has_material)
+            if index["schema_version"] == 3 and has_material:
+                group.material_kinds.add(row[PAPER_MATERIAL_KIND])
             group.canonical_ids.add(canonical_id)
 
     public_ids: set[str] = set()
     for bundle_id, group in grouped.items():
+        if len(group.material_modes) > 1:
+            raise ValueError("Migrate the complete bundle history before publishing material facts")
+        if len(group.material_kinds) > 1:
+            raise ValueError("A publication bundle cannot mix material kinds")
         required_years = _required_years_for_hints(
             bundle_id,
             group.provider_hint,
@@ -640,7 +696,7 @@ def public_bundle_ids_from_indexes(
             min_years=min_years,
             min_years_by_canonical_prefix=min_years_by_canonical_prefix,
         )
-        if len(group.years) < required_years:
+        if not _enough_public_years(group.years, required_years, undated=group.undated):
             continue
         public_ids.add(
             group.legacy_hint
@@ -689,11 +745,16 @@ def _bundle_manifest_data(
             "classification_reason": exemplar.classification_reason,
             "exam_class": exemplar.exam_class,
             "exam_subclass": exemplar.exam_subclass,
-            "years": sorted({paper.year_roc for paper in included_papers}, reverse=True),
+            "years": publication_years(included_papers),
             "file_count": len(set(bundle_entries_by_paper_key.values())),
             "papers": manifest_papers,
         }
     manifest["manifest_version"] = 3
+    summary = summarize_papers(included_papers)
+    if summary is not None:
+        manifest.update(
+            schema_version=3, manifest_version=4, source_material=to_plain_data(summary)
+        )
     return manifest
 
 
@@ -722,7 +783,7 @@ def _manifest_digest(manifest: dict[str, Any]) -> bytes | None:
     v2 source keys cannot distinguish multiple URLs with the same codes.
     """
     version = manifest.get("manifest_version", 1)
-    if type(version) is not int or version not in (1, 2, 3):
+    if type(version) is not int or version not in (1, 2, 3, 4):
         return None
     papers = manifest.get("papers")
     if not isinstance(papers, list) or any(not isinstance(paper, dict) for paper in papers):
@@ -736,14 +797,36 @@ def _manifest_digest(manifest: dict[str, Any]) -> bytes | None:
         "bundle_entry",
         "download_url_source",
     )
-    if version == 3 and any(
-        set(paper) != {*fields, "year_roc"} or type(paper.get("year_roc")) is not int
-        for paper in papers
+    required = {*fields, "year_roc"}
+    if version == 4:
+        required.add("source_material")
+    if version in {3, 4} and any(
+        set(paper) != required or type(paper.get("year_roc")) is not int for paper in papers
     ):
         return None
     rows = [{key: paper.get(key, "") for key in fields} for paper in papers]
     if any(not isinstance(value, str) for row in rows for value in row.values()):
         return None
+    if version == 4:
+        try:
+            summary = material_summary(manifest.get("source_material"))
+            materials = [source_material(paper["source_material"]) for paper in papers]
+            if summary is None or any(material is None for material in materials):
+                return None
+            reviewed = [material for material in materials if material is not None]
+            if (
+                summarize_materials(reviewed) != summary
+                or manifest.get("years") != summary.years
+                or type(manifest.get("schema_version")) is not int
+                or manifest.get("schema_version") != 3
+            ):
+                return None
+            for row, paper, material in zip(rows, papers, reviewed, strict=True):
+                if paper["bundle_entry"].split("/", 1)[0] != source_date_folder(material):
+                    return None
+                row["source_material"] = to_plain_data(material)
+        except (TypeError, ValueError, KeyError):
+            return None
     projected = {
         **manifest,
         "manifest_version": version,
@@ -808,12 +891,23 @@ def _can_reuse_bundle(
     return True
 
 
-def validate_public_materials(papers: Iterable[NormalizedPaper]) -> None:
-    if any(paper.source_material is not None for paper in papers):
-        raise ValueError(
-            "Reviewed source material publication requires the archive and frontend migration. "
-            "Keep these provider records withheld until those readers are upgraded."
-        )
+def validate_public_materials(
+    papers: Iterable[NormalizedPaper],
+) -> dict[str, MaterialSummary]:
+    """Validate the complete public population before any archive mutation.
+
+    Reviewed facts use versioned archive, index, site and frontend readers.
+    Unresolved evidence or partially migrated logical history stays blocked.
+    Source restrictions are still enforced by the site's provider selection.
+    """
+    grouped: dict[str, list[NormalizedPaper]] = {}
+    for paper in papers:
+        grouped.setdefault(paper.bundle_id or paper.canonical_id, []).append(paper)
+    return {
+        key: summary
+        for key, records in grouped.items()
+        if (summary := summarize_papers(records)) is not None
+    }
 
 
 def build_bundles(
@@ -848,11 +942,13 @@ def build_bundles(
     for group_index, (canonical_id, papers) in enumerate(sorted(grouped.items()), 1):
         # Official track labels can change over time (e.g. 統測 群/類).
         # Choose the latest retained label independent of catalog load order.
-        latest = max(papers, key=lambda paper: (paper.year_roc, paper.source_exam_id))
+        latest = max(
+            papers, key=lambda paper: (publication_year_roc(paper) or 0, paper.source_exam_id)
+        )
         canonical_name = latest.bundle_name or latest.canonical_name
         # Naming follows the record's identity contract, independent of the
         # display label's language. Direct v1 callers retain their URL names.
-        structured = papers[0].schema_version == 2 or bool(papers[0].bundle_id)
+        structured = papers[0].schema_version in {2, 3} or bool(papers[0].bundle_id)
         public_bundle_id = canonical_id
         required_years = _required_years_for_group(
             canonical_id,
@@ -860,12 +956,12 @@ def build_bundles(
             min_years=min_years,
             min_years_by_canonical_prefix=min_years_by_canonical_prefix,
         )
-        if required_years > 1:
-            distinct_years = {p.year_roc for p in papers}
-            if len(distinct_years) < required_years:
-                if on_progress:
-                    on_progress(group_index, total_groups, f"[skipped] {canonical_name}", 0)
-                continue
+        summary = summarize_papers(papers)
+        undated = summary is not None and any(date.basis == "undated" for date in summary.dates)
+        if not _enough_public_years(publication_years(papers), required_years, undated=undated):
+            if on_progress:
+                on_progress(group_index, total_groups, f"[skipped] {canonical_name}", 0)
+            continue
         asset_name = _bundle_asset_name(public_bundle_id, structured=structured)
         compatibility_ids = (
             list(canonical_aliases.get(canonical_id, [])) if canonical_aliases else []
@@ -898,7 +994,7 @@ def build_bundles(
         ordered = sorted(
             papers,
             key=lambda item: (
-                -item.year_roc,
+                -(publication_year_roc(item) or 0),
                 item.source_exam_id,
                 item.category_code,
                 item.subject_code,
@@ -1111,7 +1207,8 @@ def build_bundles(
             else:
                 with part_path.open("rb") as part_file:
                     part_digest = hashlib.file_digest(part_file, "sha256").hexdigest()
-            part_years = sorted({paper.year_roc for paper in part_papers}, reverse=True)
+            part_years = publication_years(part_papers)
+            part_summary = summarize_papers(part_papers)
             bundle_assets.append(
                 BundleAsset(
                     canonical_id=legacy_ids[0] if legacy_ids else canonical_id,
@@ -1129,7 +1226,8 @@ def build_bundles(
                     download_url="",
                     checksum=part_digest,
                     legacy_asset_names=[] if split_bundle else legacy_asset_names,
-                    schema_version=2 if structured else 1,
+                    schema_version=3 if part_summary is not None else (2 if structured else 1),
+                    source_material=part_summary,
                     bundle_id="" if not structured else canonical_id,
                     catalog_version="" if not structured else exemplar.catalog_version,
                     domain_id="" if not structured else exemplar.domain_id,

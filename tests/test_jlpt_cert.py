@@ -141,7 +141,7 @@ def test_retained_workbooks_have_official_edition_facts_and_remain_withheld() ->
         assert not paper.source_material.needs_review
         assert "material-practice-collection" in paper.variant_ids
     index = load_provider_index(provider)
-    assert index["schema_version"] == 2
+    assert index["schema_version"] == 3
     assert Counter(paper_index_source_year_roc(index, row) for row in index["papers"]) == {101: 58, 107: 58}
     assert "jlpt_cert" in quarantined_provider_ids(root, site_id="default")
 

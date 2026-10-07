@@ -4,6 +4,7 @@ import { formatYearRange, siteHref } from "@/lib/utils"
 import type { Bundle } from "@/types"
 import { formatSyncDate } from "@/lib/provenance"
 import { withSocialAccess } from "@/lib/social-gate"
+import { materialDateLabels, materialLabel } from "@/lib/source-material"
 
 export function BundleRow({
   bundle,
@@ -25,7 +26,8 @@ export function BundleRow({
           </a>
         </h3>
         <p className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-600">
-          <span>民國 {formatYearRange(bundle.years)}</span><span>{bundle.fileCount.toLocaleString()} 份試題</span>
+          <span>{bundle.sourceMaterial ? materialDateLabels(bundle.sourceMaterial).join("；") : `民國 ${formatYearRange(bundle.years)}`}</span>
+          <span>{bundle.fileCount.toLocaleString()} {bundle.sourceMaterial ? "份檔案" : "份試題"}</span>
         </p>
         <details className="bundle-details" onToggle={(event) => setDetailsOpen(event.currentTarget.open)}>
           <summary>科目、來源與收錄年度</summary>
@@ -36,7 +38,7 @@ export function BundleRow({
               <span key={source.url}>{index > 0 ? "、" : ""}<a href={source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-ink-950">{source.name}</a></span>
             ))}</p> : null}
             <p>{bundle.updated ? <>最近成功同步：<time dateTime={bundle.updated}>{formatSyncDate(bundle.updated)}</time></> : "同步日期未記錄"}</p>
-            <p>收錄年度（民國）：{bundle.years.join("、")}</p>
+            {bundle.sourceMaterial ? <p>{materialLabel(bundle.sourceMaterial)}；{materialDateLabels(bundle.sourceMaterial).join("；")}</p> : <p>收錄年度（民國）：{bundle.years.join("、")}</p>}
           </div>}
         </details>
       </div>

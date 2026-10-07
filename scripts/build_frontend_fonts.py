@@ -38,6 +38,9 @@ def public_characters() -> set[int]:
         catalog_texts.extend(item.get("subjectLabels", []))
         source_texts.update(source["name"] for source in item.get("sources", []))
     ui_texts = []
+    material = json.loads((ROOT / "schemas/source-material-v1.schema.json").read_text(encoding="utf-8"))
+    for definition in ("kind", "date"):
+        ui_texts.extend(material["$defs"][definition]["x-display-labels"].values())
     for source in FRONTEND.glob("*.html"):
         ui_texts.append(source.read_text(encoding="utf-8"))
     for source in (FRONTEND / "src").rglob("*"):

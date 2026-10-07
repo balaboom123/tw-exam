@@ -92,7 +92,7 @@ def test_edition_facts_survive_normalization_and_state_round_trip() -> None:
         persisted = json.loads((provider.papers_dir / "2026.json").read_text())
         VALIDATOR.validate(persisted[0]["source_material"])
         index = load_provider_index(provider)
-        assert index["schema_version"] == 2
+        assert index["schema_version"] == 3
         assert index["papers"][0][PAPER_YEAR_ROC] == 115
         assert paper_index_source_year_roc(index, index["papers"][0]) == 101
 
@@ -142,11 +142,18 @@ def test_legacy_records_keep_their_serialized_fields_and_version() -> None:
         NormalizedPaper(**{**to_plain_data(paper), "source_material": asdict(workbook_material())})
 
 
-def test_publication_requires_upgraded_archive_and_frontend_readers() -> None:
-    catalog = normalize(workbook_page())
+def unresolved_catalog():
+    page = workbook_page()
+    page.source_material = replace(page.source_material, date=SourceDate("unknown", None),
+                                   review_reason="Official date evidence is missing")
+    return normalize(page)
+
+
+def test_publication_rejects_unresolved_material_before_creating_archives() -> None:
+    catalog = unresolved_catalog()
     with TemporaryDirectory() as temporary:
         root = Path(temporary)
-        with pytest.raises(ValueError, match="archive and frontend migration"):
+        with pytest.raises(ValueError, match="reviewed evidence"):
             build_bundles(
                 mirror_dir=root / "mirror", bundle_dir=root / "bundles", normalized=catalog,
                 min_years=1, bundle_base_url="",
@@ -154,10 +161,10 @@ def test_publication_requires_upgraded_archive_and_frontend_readers() -> None:
         assert not (root / "bundles").exists()
 
 
-def test_partial_publication_cannot_preserve_unsupported_material_records(tmp_path) -> None:
-    catalog = normalize(workbook_page())
+def test_partial_publication_cannot_preserve_unresolved_material_records(tmp_path) -> None:
+    catalog = unresolved_catalog()
     with patch("app.publisher.load_site_catalog", return_value=(catalog, [])):
-        with pytest.raises(ValueError, match="archive and frontend migration"):
+        with pytest.raises(ValueError, match="reviewed evidence"):
             publish_site(
                 tmp_path, site_id="default", repository="owner/repository",
                 affected_canonical_ids={"unrelated-bundle"},
@@ -172,7 +179,7 @@ def test_mixed_index_does_not_infer_dates_for_legacy_records() -> None:
     with TemporaryDirectory() as temporary:
         provider = provider_paths(Path(temporary), "jlpt_cert")
         index = build_provider_index(provider, [], [legacy, reviewed, legacy])
-        assert index["schema_version"] == 2
+        assert index["schema_version"] == 3
         assert [paper_index_source_year_roc(index, row) for row in index["papers"]] == [None, 101, None]
         assert [row[PAPER_YEAR_ROC] for row in index["papers"]] == [115, 115, 115]
 
