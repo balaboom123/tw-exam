@@ -202,6 +202,7 @@ FILE_TYPE_LABELS = {
     "answer_table": "答案表",
     "accessible_bundle": "無障礙題本",
     "listening_audio": "聽力音檔",
+    "listening_transcript": "聽力逐字稿",
 }
 
 

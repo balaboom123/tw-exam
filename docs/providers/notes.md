@@ -48,6 +48,10 @@ Treat each official iPAS examination family as its own source boundary. Regulati
 
 Use official JLPT sample-question sets as samples, preserving their source role. They must not be presented as a complete year-by-year archive or assigned unsupported event years.
 
+The workbook's 聴解スクリプト files are listening transcripts. They are distinct
+from question papers and listening audio; correcting a retained role preserves
+the earlier source reference and verified payload in the provider revision journal.
+
 The [official workbook page](https://www.jlpt.jp/samples/sampleindex.html)
 identifies the retained years as publication editions assembled from earlier
 test questions. It separately restricts reproduction of attributed N1/N2 text

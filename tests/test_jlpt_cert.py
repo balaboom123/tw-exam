@@ -1,6 +1,10 @@
 """Tests for the jlpt_cert provider."""
 
+import json
 import unittest
+from pathlib import Path
+
+import pytest
 
 from app.providers.jlpt_cert.client import JlptCertClient, parse_downloads
 
@@ -36,7 +40,7 @@ class JlptCertParserTests(unittest.TestCase):
         self.assertEqual(downloads[2].file_type, "listening_audio")
         self.assertEqual(downloads[4].year_ad, 2012)
         self.assertTrue(downloads[4].url.endswith("/samples/sample2017/mp3/N2Q2.mp3"))
-        self.assertEqual(downloads[5].file_type, "question_alt")
+        self.assertEqual(downloads[5].file_type, "listening_transcript")
 
 
 class JlptCertClientTests(unittest.TestCase):
@@ -54,7 +58,41 @@ class JlptCertClientTests(unittest.TestCase):
         self.assertEqual(len(page.papers), 3)
         self.assertIn("question", page.papers[0].files)
         self.assertIn("listening_audio", page.papers[1].files)
+        self.assertIn("listening_transcript", page.papers[2].files)
         self.assertEqual(len({paper.subject_code for paper in page.papers}), len(page.papers))
+
+
+@pytest.mark.repo_data
+def test_retained_workbook_transcripts_keep_retired_roles_and_source_context() -> None:
+    root = Path(__file__).resolve().parents[1]
+    provider = root / "data/providers/jlpt_cert"
+    papers = [
+        paper
+        for path in sorted((provider / "papers").glob("*.json"))
+        for paper in json.loads(path.read_text(encoding="utf-8"))
+    ]
+    transcripts = [paper for paper in papers if paper["file_type"] == "listening_transcript"]
+    assert {(paper["year_roc"], paper["level_id"]) for paper in transcripts} == {
+        (year, f"n{level}") for year in (101, 107) for level in range(1, 6)
+    }
+    assert not any(paper["file_type"] == "question_alt" for paper in papers)
+    journal = json.loads((provider / "source-revisions.json").read_text(encoding="utf-8"))
+    retired = {
+        (entry["source_record"]["year_roc"], entry["source_record"]["level_id"]): entry
+        for entry in journal["revisions"]
+        if entry["source_record"]["file_type"] == "question_alt"
+    }
+    for current in transcripts:
+        entry = retired[(current["year_roc"], current["level_id"])]
+        previous = entry["source_record"]
+        for field in (
+            "provider_id", "source_exam_id", "category_code", "subject_code",
+            "download_url_source", "checksum", "bundle_id",
+        ):
+            assert previous[field] == current[field]
+        assert entry["record_type"] == "paper"
+        assert entry["reason"] == "source_reference_retired"
+        assert entry["blob_storage_key"].startswith("providers/jlpt_cert/recovery/source-revisions/")
 
 
 if __name__ == "__main__":

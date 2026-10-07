@@ -77,6 +77,33 @@ class CliParserCleanupTests(unittest.TestCase):
 
 class CliCommandTests(unittest.TestCase):
 
+    def test_sync_does_not_advance_manifest_when_provider_retention_fails(self) -> None:
+        class EmptyClient:
+            provider_id = "moex"
+
+            def discover_exams(self, year_ad):
+                return []
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = root / 'data/requested-manifest.json'
+            write_source_manifest(manifest, SourceManifest(provider_id='moex'))
+            before = manifest.read_bytes()
+            args = build_parser().parse_args([
+                'sync-full', '--provider', 'moex', '--years', '2026',
+                '--data-dir', str(root / 'data'), '--mirror-dir', str(root / 'mirror'),
+                '--manifest', str(manifest), '--write-manifest',
+            ])
+            with patch('app.cli.sync_exam_pages', return_value=([], NormalizedCatalog([], []), [])), \
+                 patch('app.cli.probe_latest') as probe, \
+                 patch('app.cli.write_provider_state', side_effect=ValueError('source retention failed')):
+                probe.return_value.updated_manifest = SourceManifest(
+                    provider_id='moex', files={'new': {'marker': 'newly probed evidence'}},
+                )
+                with self.assertRaisesRegex(ValueError, 'source retention failed'):
+                    command_sync(args, client=EmptyClient())
+            self.assertEqual(manifest.read_bytes(), before)
+
     def test_sync_incremental_years_flag_is_a_window_size(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["sync-incremental", "--years", "3"])

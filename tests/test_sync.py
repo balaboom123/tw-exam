@@ -33,6 +33,14 @@ def corrupt_zip_payload() -> bytes:
 
 
 class ZipPayloadValidationTests(unittest.TestCase):
+    def test_transcript_is_a_document_role_and_cannot_accept_audio(self) -> None:
+        self.assertEqual(
+            _validated_extension("listening_transcript", b"%PDF-1.7 transcript", "application/pdf", "script.pdf"),
+            ".pdf",
+        )
+        with self.assertRaisesRegex(RuntimeError, "does not match expected"):
+            _validated_extension("listening_transcript", b"ID3audio", "audio/mpeg", "audio.mp3")
+
     def test_truncated_and_crc_corrupt_containers_are_rejected_for_all_zip_formats(self) -> None:
         for extension in (".zip", ".docx", ".xlsx", ".ods"):
             for data in (b"PK\x03\x04truncated download", corrupt_zip_payload()):

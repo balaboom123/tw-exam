@@ -111,7 +111,7 @@ def _file_type(part_code: str, url: str) -> str:
     if part_code == "sheet":
         return "answer_sheet"
     if part_code == "script":
-        return "question_alt"
+        return "listening_transcript"
     return "question"
 
 

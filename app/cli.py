@@ -1014,9 +1014,10 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             canonical_aliases=canonical_aliases,
         )
     provider_manifest = None
+    manifest_output = None
     if getattr(args, "write_manifest", False) and not failures:
-        manifest_path = _resolve_sync_manifest_path(args, provider_id)
-        manifest = load_source_manifest(manifest_path, provider_id=provider_id)
+        manifest_output = _resolve_sync_manifest_path(args, provider_id)
+        manifest = load_source_manifest(manifest_output, provider_id=provider_id)
         result = probe_latest(
             client=provider,
             manifest=manifest,
@@ -1024,7 +1025,6 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             now=datetime.now().astimezone().isoformat(),
         )
         provider_manifest = result.updated_manifest
-        write_source_manifest(manifest_path, provider_manifest)
     if provider_manifest is None:
         # Keep the discovery snapshot in step with the events this sync just
         # persisted, in the same commit, so a newly announced exam year cannot
@@ -1038,6 +1038,11 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         failures=provider_failures,
         manifest=provider_manifest,
     )
+    # A rejected provider write must not advance an explicitly requested
+    # manifest either. The scoped writer already saves its owning manifest.
+    if manifest_output is not None and manifest_output != provider_state.source_manifest_path:
+        assert provider_manifest is not None
+        write_source_manifest(manifest_output, provider_manifest)
     record_successful_sync(provider_state, refreshed_raw_pages, sync_failures)
     if failures:
         _print_failures(failures)

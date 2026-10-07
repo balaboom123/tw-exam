@@ -45,6 +45,7 @@ EXPECTED_EXTENSIONS = {
     "question": (".pdf", ".doc", ".zip", ".rar", ".docx", ".xls", ".xlsx", ".ods"),
     "question_answer": (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ods", ".zip", ".rar"),
     "question_alt": (".pdf", ".docx", ".doc", ".xls", ".xlsx", ".ods", ".zip", ".rar"),
+    "listening_transcript": (".pdf", ".docx", ".doc"),
     "answer": (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ods", ".zip", ".rar"),
     "answer_sheet": (".pdf",),
     "corrected_answer": (".pdf", ".doc", ".zip"),

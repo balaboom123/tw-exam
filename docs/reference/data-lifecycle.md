@@ -48,7 +48,9 @@ attachment references in the provider source revision journal. It requires the
 checksum-verified earlier payload or its already retained recovery blob before
 retiring a verified reference. A missing or mismatched earlier payload stops
 the state write and requires restoration. Unverified references retain metadata
-only. Current publication continues to use the current catalog; retired roles,
+only. An explicitly requested discovery manifest is written after the provider
+state succeeds, so a rejected retention write cannot advance that manifest.
+Current publication continues to use the current catalog; retired roles,
 URLs and older bytes are not republished automatically. Strict history audits
 with mirror checking verify every journal blob as well as current references.
 
