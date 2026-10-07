@@ -85,6 +85,30 @@ and [promotion rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=943&id=
 rechecked on 2026-10-07. Legal grade equivalence with 高考、普考 or 初考 does
 not change the recruitment programme or grade identity.
 
+Police recruitment, general-police recruitment, national-security intelligence
+recruitment, and Investigation Bureau recruitment are separate programmes.
+The [police rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016741) and
+[general-police rules](https://law.exam.gov.tw/LawContent.aspx?id=FL031745)
+have separate eligibility and subject tables; equal grades and occupations do
+not make their papers interchangeable. National-security intelligence follows
+[its own rules](https://law.exam.gov.tw/LawContentSource.aspx?id=FL016782),
+and Investigation Bureau recruitment follows
+[different rules](https://law.exam.gov.tw/NewsContent.aspx?id=51141&media=print).
+These sources were checked on 2026-10-07.
+
+An explicit programme marker in the category takes priority over a co-hosted
+event title. Historical programme headings between the grade and occupation
+remain evidence, such as `三等考試_警察特考_行政警察人員`. An occupation alone
+does not distinguish the two police programmes; an unmarked category in their
+combined event remains in review. Unmarked national-security categories in an
+event that also hosts civil-staff qualification must likewise remain unresolved.
+The named graded security programmes use `unknown` with review when their
+official grade is missing, rather than declaring the dimension inapplicable.
+The occupation heading word `類別` after `人員` does not create another track;
+for example, `行政警察人員類別` and `行政警察人員` share the same track.
+Removing that heading word preserves the following group, so `航海組` and
+`輪機組` remain different tracks. Raw source wording is retained unchanged.
+
 ## Bundle purity
 
 The default bundle policy groups papers only when these values match:

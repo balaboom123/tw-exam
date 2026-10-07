@@ -445,7 +445,7 @@
       ],
       "source_name": "台灣中油股份有限公司",
       "status": "partial",
-      "status_reason": "Partial: 5/5 packages on the static doctoral-paper page are manifest-backed and byte-verified, but the broader contracted source family is not enumerable and the current 14-event/17-record local publication still contains 12 recruitment brochures misclassified as question papers."
+      "status_reason": "Partial: 5/5 packages on the static doctoral-paper page were manifest-backed and byte-verified; the broader contracted source family is not enumerable, and retained history contains 12 recruitment brochures mislabeled as questions. Publication remains withheld pending a reviewed data migration."
     },
     {
       "available_years": {
@@ -487,7 +487,7 @@
       ],
       "source_name": "語言訓練測驗中心",
       "status": "partial",
-      "status_reason": "Partial; current source has 5 level events and 34 records in 2022, while local/public state has one synthetic 2026 event with all 34 records under wrong identity and 3 wrong payloads; the 108-entry historical listing is removed"
+      "status_reason": "Partial: the current declared source contains proficiency-level practice materials, while retained history includes unsupported process-year identities and unresolved source-to-payload alignment. Publication remains withheld pending source-role, event-identity, and redistribution review."
     },
     {
       "available_years": {
@@ -732,7 +732,7 @@
       "provider_id": "ipas_cert",
       "restrictions": [
         "The official home page links 16 certification families, but the adapter covers only ISE/OIA/AIAP/AIOT and omits 120 PDFs, including 34 paper-like files.",
-        "Forty-six of the 62 retained PDFs are briefs, rules, forms, study guides, or scope references published as questions; event years are process-date identities.",
+        "The earlier retained sample contained 46 briefs, rules, forms, study guides, or scope references mislabeled as questions; event years were process-date identities. Publication is withheld pending reconciliation of source roles and events.",
         "No blanket redistribution license was established, and the robots endpoint disconnected during audit."
       ],
       "source_name": "經濟部產業人才能力鑑定推動網",
@@ -829,13 +829,13 @@
       "provider_id": "moea_recruit",
       "restrictions": [
         "The 21 official year tabs currently enumerate 515 subject groups and 1,486 unique public PDF URLs; pagination is fail-closed, but the assets are listing-verified rather than byte-reconciled.",
-        "All 370 retained MOEA records are Taipower new-hire or training-class material: their source-URL and checksum sets exactly duplicate taipower_recruit, and the generated MOEA bundle still publishes them.",
-        "Five official MOEA events are absent locally and five local events are absent from the official MOEA manifest; replacement or quarantine requires a reviewed destructive provider-state and publication migration.",
+        "All 370 retained MOEA records are Taipower new-hire or training-class material: their source-URL and checksum sets exactly duplicate taipower_recruit. The duplicate MOEA identity is withheld by the publication quarantine.",
+        "The reviewed MOEA source manifest and contaminated retained event set differ. The publication quarantine isolates the incorrect identity while its evidence is retained for a reviewed provider-state replacement.",
         "Taipower's open-data declaration permits attributed reuse within Taipower-owned rights with exclusions; it does not independently prove ownership of every exam item. No machine-readable robots policy was found."
       ],
       "source_name": "經濟部所屬事業機構新進職員甄試",
       "status": "partial",
-      "status_reason": "Partial / contaminated publication: official listing discovery covers 21 events, 515 subject groups, and 1,486 unique URLs, but none is represented by correct retained MOEA data; all 370 current records duplicate Taipower hiring material."
+      "status_reason": "Partial / contaminated retained identity: reviewed official listing discovery covers 21 events, 515 subject groups, and 1,486 unique URLs, but none is represented by correct retained MOEA data. All 370 retained records duplicate Taipower hiring material and the MOEA identity is withheld from publication."
     },
     {
       "available_years": {
@@ -964,12 +964,12 @@
       "provider_id": "sfi_cert",
       "restrictions": [
         "Download/01 and Download/02 are mutable slots; the row label and PDF heading are required for event identity.",
-        "All 30 retained/public files are currently attached to the wrong official certification or event identity; 20 additional official URLs are not retained.",
+        "The earlier retained sample contained 30 files attached to incorrect official certification or event identities and omitted 20 official URLs. Retained state remains withheld until source identity is reconciled.",
         "SFI or other rights holders claim intellectual-property rights in site files/content; no exam-PDF republication license was found."
       ],
       "source_name": "證券暨期貨市場發展基金會",
       "status": "partial",
-      "status_reason": "Partial and release-blocking: the exact 25-event/50-file rolling snapshot has 13 source-only events, 3 local-only synthetic events, and all 30 retained/public files under wrong identity."
+      "status_reason": "Partial / retained identity unresolved: the reviewed 25-event/50-file rolling source snapshot has source-only and synthetic local events. Publication is withheld until retained papers agree with their official certification and event identities."
     },
     {
       "available_years": {
@@ -1053,12 +1053,12 @@
       "provider_id": "tabf_cert",
       "restrictions": [
         "The official rolling page currently exposes 19 category rows, 50 PHID events, and 127 public PDFs; FIT editions 1–2 are an explicit retained-reference exception, not current-year events.",
-        "Current state duplicates 47 PHIDs across 2025 and 2026, flattens 13 of 19 official category rows, omits current PHID 431, retains stale PHIDs 449 and 456, and projects 211 wrong or stale records into eight public bundles.",
+        "The earlier retained sample duplicated 47 PHIDs across 2025 and 2026, flattened 13 of 19 official category rows, omitted PHID 431, and retained stale PHIDs 449 and 456. These identity defects remain under publication quarantine until a reviewed historical migration reconciles them.",
         "The asset host robots policy disallows /BEExam, and no exam-PDF republication license was found; automated mirroring and republication require an approved policy/legal decision."
       ],
       "source_name": "台灣金融研訓院",
       "status": "partial",
-      "status_reason": "Partial / identity-contaminated publication: exact current discovery covers 50 events and 127 files, but only 16 corrected event IDs overlap local state and 211 normalized/public records are wrong or stale."
+      "status_reason": "Partial / retained identity contamination: reviewed discovery covers 50 events and 127 files, but retained records include duplicated PHIDs, flattened categories, and stale events. Publication is withheld pending corrected category/event identities and redistribution review."
     },
     {
       "available_years": {
@@ -1090,12 +1090,12 @@
       "provider_id": "taigi_cert",
       "restrictions": [
         "All 35 retained A/B/C URLs are current, but the source is undated and all records use an unsupported synthetic 2026 year.",
-        "The public A-form bundle merges A, B, and C records, obscuring source taxonomy.",
+        "The retained A-form identity merges A, B, and C records, obscuring source taxonomy; publication is withheld until forms and proficiency levels are modeled correctly.",
         "Official robots rules disallow generic crawling and the /tmt/src/ asset path; no explicit redistribution grant was found."
       ],
       "source_name": "教育部臺灣台語語言能力認證考試",
       "status": "partial",
-      "status_reason": "Partial / exact current A/B/C URLs retained, but source dates are unknown, public taxonomy is merged, and robots/licensing block refresh and release; local coverage: synthetic 2026; 3 → 35"
+      "status_reason": "Partial / exact A/B/C sample-source URLs retained, but dates are unknown, paper forms are merged, and robots/licensing constrain refresh and redistribution. Publication is withheld pending source-role, form, proficiency-level, and event-identity review."
     },
     {
       "available_years": {
@@ -1597,7 +1597,7 @@
       "provider_id": "tii_cert",
       "restrictions": [
         "The three official message pages currently list 10 dated events and 24 question/answer entries across 2024–2026; only four listed papers are retained under correct identity and 20 are source-only.",
-        "The fifth retained/public file is a ROC 115 investment-insurance annual brochure misclassified as a question.",
+        "The fifth retained file is a ROC 115 investment-insurance annual brochure misclassified as a question; publication is withheld pending source-role reconciliation.",
         "The AML page links a separate historical ZIP whose contents and year range remain unenumerated.",
         "Normal HTTPS verification fails with an incomplete issuer chain; no trust bypass was used, so live byte/URL/robots verification remains blocked.",
         "TII displays a copyright notice and no exam-PDF republication grant was found; redistribution requires operator/legal review."
@@ -1686,7 +1686,7 @@
       "provider_id": "tqc_cert",
       "restrictions": [
         "The four-page source is a sample-paper listing rather than a complete sitting archive; TQC+ remains a separate unapproved family.",
-        "Nine of 44 public records point to wrong bytes because five generic-label groups collide on storage keys.",
+        "The earlier retained sample contained nine records with incorrect source-to-payload alignment caused by generic-label storage collisions. Publication remains withheld pending byte reconciliation; URL-specific storage prevents new locator collisions.",
         "No sample-paper republication grant was established; broader CSF pages prohibit reposting/excerpting without authorization."
       ],
       "source_name": "中華民國電腦技能基金會",
@@ -1734,13 +1734,13 @@
       "provider_id": "twc_recruit",
       "restrictions": [
         "The canonical archive omits ROC 109 and 113 and exposes no enumerable official pre-ROC-103 namespace; third-party copies are not accepted as sources.",
-        "All ten live ZIPs match retained mirrors, but official SHA pages disagree with actual bytes for ROC 107, 110, and 114; the ROC 107 ZIP has one corrupt member.",
+        "The earlier live-byte comparison found all ten source ZIPs matched retained mirrors, but official SHA pages disagreed for ROC 107, 110, and 114. A read-only container recheck on 2026-10-07 confirmed the retained ROC 107 ZIP has one CRC-corrupt member; the source bytes are preserved and publication remains withheld.",
         "The ROC 115 contractor paper route redirects to applicant login even though a public news item announces the papers.",
         "Taiwan Water's open-data declaration uses Taiwan Government Data Open License 1.0 with attribution and stated caveats; robots.txt contains contradictory wildcard Allow and Disallow groups."
       ],
       "source_name": "台灣自來水股份有限公司",
       "status": "partial",
-      "status_reason": "Complete bounded discovery of the current canonical archive and current contractor evidence, but partial usability/access: 10/10 public ZIPs are retained and published, ROC 107 is internally corrupt, three official SHA records disagree, and ROC 115 papers are login-gated"
+      "status_reason": "Complete bounded discovery of the declared canonical archive and current contractor evidence, with partial usability/access: ten public source ZIPs are retained; ROC 107 is internally corrupt, three reviewed official SHA records disagree, and ROC 115 papers are login-gated. The corrupt source material remains withheld from publication."
     },
     {
       "available_years": {

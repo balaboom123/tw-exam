@@ -56,6 +56,13 @@ jobs:
           python -m app probe-latest --provider moex --years 2 --manifest data/providers/moex/source-manifest.json --write-manifest --output .tmp/source-probe.json
           echo "should_sync=$(jq -r '.should_sync' .tmp/source-probe.json)" >> "$GITHUB_OUTPUT"
 
+      - name: Require persistent inputs for stale asset recovery
+        if: steps.probe.outputs.should_sync != 'true' && steps.release_state.outputs.stale_required == 'true'
+        run: |
+          echo "Hosted bundle bytes differ from the publication inventory, but there is no source change to rebuild them."
+          echo "This runner restores mirror files, not publication ZIPs. Run bash scripts/republish.sh on a machine with persistent verified mirrors and archives, then rerun this workflow."
+          exit 1
+
       - name: Commit source manifest
         if: steps.probe.outputs.should_sync != 'true'
         run: >-
@@ -103,10 +110,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/release_assets.py ensure
 
-      # Also runs with no source change to repair assets whose published bytes
-      # no longer hash to the checksum the site catalog serves.
       - name: Upload downloadable bundles
-        if: steps.probe.outputs.should_sync == 'true' || steps.release_state.outputs.stale_required == 'true'
+        if: steps.probe.outputs.should_sync == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/release_assets.py upload

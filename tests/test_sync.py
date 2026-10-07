@@ -1,8 +1,10 @@
 import tempfile
 import hashlib
+import io
 import threading
 import time
 import unittest
+import zipfile
 from pathlib import Path
 from urllib.error import HTTPError
 from unittest.mock import patch
@@ -13,7 +15,52 @@ from app.providers.base import SourceProvider
 from app.providers.moex.provider import MoexProvider
 from app.providers.registry import get_provider
 from app.storage import MirrorStore
-from app.sync import _existing_mirrored, retry_network, sync_exam_pages
+from app.sync import _existing_mirrored, _validated_extension, retry_network, sync_exam_pages
+
+
+def zip_payload(name: str = "paper.pdf", content: bytes = b"%PDF-1.7 source paper") -> bytes:
+    stream = io.BytesIO()
+    with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_STORED) as archive:
+        archive.writestr(name, content)
+    return stream.getvalue()
+
+
+def corrupt_zip_payload() -> bytes:
+    content = b"%PDF-1.7 source paper"
+    data = bytearray(zip_payload(content=content))
+    data[data.index(content)] ^= 1
+    return bytes(data)
+
+
+class ZipPayloadValidationTests(unittest.TestCase):
+    def test_truncated_and_crc_corrupt_containers_are_rejected_for_all_zip_formats(self) -> None:
+        for extension in (".zip", ".docx", ".xlsx", ".ods"):
+            for data in (b"PK\x03\x04truncated download", corrupt_zip_payload()):
+                with self.subTest(extension=extension, data=data):
+                    with self.assertRaisesRegex(RuntimeError, "Invalid ZIP container"):
+                        _validated_extension("question", data, "", f"paper{extension}")
+
+    def test_corrupt_mirror_is_not_reused_or_discarded(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            key = "providers/rcpet_cap/115/cap-115/115/listening/question.zip"
+            corrupt = corrupt_zip_payload()
+            store.write_bytes(key, corrupt)
+
+            self.assertIsNone(_existing_mirrored(store, key.removesuffix(".zip"), "question"))
+            self.assertEqual((store.root / key).read_bytes(), corrupt)
+
+    def test_valid_containers_keep_the_advertised_format_and_are_reused(self) -> None:
+        for extension in (".zip", ".docx", ".xlsx", ".ods"):
+            with self.subTest(extension=extension), tempfile.TemporaryDirectory() as temporary:
+                data = zip_payload()
+                self.assertEqual(_validated_extension("question", data, "", f"paper{extension}"), extension)
+                store = MirrorStore(Path(temporary))
+                prefix = "providers/rcpet_cap/115/cap-115/115/listening/question"
+                stored = store.write_bytes(prefix + extension, data)
+                reused = _existing_mirrored(store, prefix, "question")
+                self.assertIsNotNone(reused)
+                self.assertEqual(reused.checksum, stored.checksum)
 
 
 class MirrorFallbackTests(unittest.TestCase):
@@ -300,7 +347,7 @@ class QuestionAltDocxClient:
         self.downloaded_urls.append(url)
         if url.endswith(".docx"):
             return DownloadedFile(
-                data=b"PK\x03\x04docx payload",
+                data=zip_payload("word/document.xml", b"<document/>"),
                 content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 file_name=Path(url).name,
             )
@@ -445,7 +492,7 @@ class TocflMockAssetClient:
     def download_file(self, url: str) -> DownloadedFile:
         self.downloaded_urls.append(url)
         if url.endswith(".xlsx"):
-            return DownloadedFile(data=b"PK\x03\x04xlsx payload", content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", file_name=Path(url).name)
+            return DownloadedFile(data=zip_payload("xl/workbook.xml", b"<workbook/>"), content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", file_name=Path(url).name)
         return DownloadedFile(data=b"Rar!\x1a\x07\x00archive payload", content_type="application/octet-stream", file_name=Path(url).name)
 
 
@@ -479,7 +526,7 @@ class AnswerArchiveClient:
 
     def download_file(self, url: str) -> DownloadedFile:
         self.downloaded_urls.append(url)
-        return DownloadedFile(data=b"PK\x03\x04zip payload", content_type="application/zip", file_name=Path(url).name)
+        return DownloadedFile(data=zip_payload(), content_type="application/zip", file_name=Path(url).name)
 
 
 class TcteHistoricalAssetClient:
@@ -842,7 +889,7 @@ class SyncExamPagesTests(unittest.TestCase):
             mirror_root = Path(tmp_dir)
             client = QuestionArchiveClient(
                 url="https://drive.google.com/uc?id=demo&export=download",
-                data=b"PK\x03\x04zip payload",
+                data=zip_payload(),
                 content_type="application/octet-stream",
                 file_name="uc",
             )
@@ -863,6 +910,30 @@ class SyncExamPagesTests(unittest.TestCase):
             "providers/rcpet_cap/115/cap-115/115/english-listening/question.zip",
         )
         self.assertEqual(failures, [])
+
+    def test_corrupt_zip_download_records_failure_and_preserves_retained_evidence(self) -> None:
+        corrupt = corrupt_zip_payload()
+        client = QuestionArchiveClient(
+            url="https://example.test/listening.zip", data=corrupt,
+            content_type="application/zip", file_name="listening.zip",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            key = "providers/rcpet_cap/115/cap-115/115/english-listening/question.zip"
+            store.write_bytes(key, corrupt)
+            pages, normalized, failures = sync_exam_pages(
+                client=client, exam_codes=[("cap-115", 2026)], mirror_store=store,
+                alias_rules=[], mirror_base_url="",
+            )
+            self.assertEqual((store.root / key).read_bytes(), corrupt)
+
+        self.assertEqual(client.downloaded_urls, ["https://example.test/listening.zip"])
+        self.assertEqual(pages[0].papers[0].mirror_files, {})
+        self.assertEqual(normalized.papers, [])
+        self.assertEqual(len(failures), 1)
+        self.assertEqual(failures[0].stage, "download")
+        self.assertIn("Invalid ZIP container", failures[0].message)
+        self.assertIn("CRC", failures[0].message)
 
     def test_sync_exam_pages_accepts_question_rar_payloads(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

@@ -624,14 +624,31 @@ class WorkflowTests(unittest.TestCase):
 
         run_mock.assert_not_called()
 
-    def test_incremental_sync_repairs_stale_release_bytes_without_a_source_change(self) -> None:
-        workflow = (REPO_ROOT / ".github" / "workflows" / "sync-incremental.yml").read_text(encoding="utf-8")
-        upload_condition = next(
-            line for line in workflow.splitlines()
-            if "if:" in line and "stale_required" in line
-        )
-        self.assertIn("steps.release_state.outputs.stale_required == 'true'", upload_condition)
-        self.assertIn("steps.probe.outputs.should_sync == 'true'", upload_condition)
+    def test_no_change_stale_assets_require_verified_persistent_recovery_inputs(self) -> None:
+        workflow = _workflow((REPO_ROOT / ".github/workflows/sync-incremental.yml").read_text())
+        steps = workflow['jobs']['sync']['steps']
+        recovery = next(step for step in steps if 'persistent inputs' in step.get('name', ''))
+        probe = next(step for step in steps if step.get('id') == 'probe')
+        commit = next(step for step in steps if step.get('name') == 'Commit source manifest')
+        upload = next(step for step in steps if step.get('name') == 'Upload downloadable bundles')
+        self.assertEqual(recovery['if'], "steps.probe.outputs.should_sync != 'true' && steps.release_state.outputs.stale_required == 'true'")
+        self.assertLess(steps.index(probe), steps.index(recovery))
+        self.assertLess(steps.index(recovery), steps.index(commit))
+        self.assertIn('bash scripts/republish.sh', recovery['run'])
+        self.assertIn('exit 1', recovery['run'])
+        self.assertEqual(upload['if'], "steps.probe.outputs.should_sync == 'true'")
+
+        # A cold runner cannot repair a stale remote asset by calling upload:
+        # its mirror cache contains no ZIP. Preserve the upload checksum gate.
+        module = _load_release_script()
+        with tempfile.TemporaryDirectory() as temporary:
+            asset = {'asset_name': 'paper.zip', 'release_tag': 'bundles',
+                     'storage_key': str(Path(temporary) / 'paper.zip'), 'checksum': _EMPTY_ZIP_DIGEST}
+            with mock.patch.object(module, '_local_assets', return_value=[asset]), \
+                    mock.patch.object(module, '_release_zip_digests', return_value={'paper.zip': 'stale'}), \
+                    mock.patch.object(module.subprocess, 'run') as run_mock:
+                self.assertEqual(module.upload(), 1)
+        run_mock.assert_not_called()
 
     def test_workflows_no_longer_install_or_use_ghostscript(self) -> None:
         workflows_dir = REPO_ROOT / ".github" / "workflows"

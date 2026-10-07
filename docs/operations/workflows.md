@@ -24,6 +24,10 @@ Hakka runs by manual dispatch only (`sync-hakka-cert`) and writes no public
 snapshot or new warm-cache entry. The mirror backup operation rejects public
 Hakka saves before packing files, writing cache outputs, or calling GitHub;
 another caller cannot bypass that restriction by enabling its backup input.
+The MOEX incremental workflow reports stale hosted bytes with no source changes
+as a persistent-input recovery duty. Its cold runner has no publication ZIPs
+to upload; the [recovery procedure](recovery.md#scenario-4-publication-or-release-coverage-differs)
+uses the audited local republication operation.
 `verify-archives` downloads every release
 shard on the 2nd of each month and checks each ZIP's contents against the
 catalog.

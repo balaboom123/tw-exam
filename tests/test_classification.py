@@ -19,6 +19,84 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_police_programmes_do_not_merge_matching_levels_and_tracks(self) -> None:
+        event = "115年公務人員特種考試警察人員考試、一般警察人員考試、國家安全情報人員考試"
+        police = classify("警察人員考試三等考試_行政警察人員", event)
+        general = classify("一般警察人員考試三等考試_行政警察人員", event)
+        self.assertEqual(police.exam_series_id, "special-police")
+        self.assertEqual(general.exam_series_id, "special-general-police")
+        self.assertEqual(police.level_id, general.level_id)
+        self.assertEqual(police.track_id, general.track_id)
+        self.assertNotEqual(police.bundle_id, general.bundle_id)
+        self.assertTrue(police.bundle_name.startswith("警察人員特考｜"))
+        self.assertTrue(general.bundle_name.startswith("一般警察人員特考｜"))
+
+    def test_general_police_only_event_can_resolve_unmarked_category(self) -> None:
+        identity = classify("三等考試_行政警察人員", "公務人員特種考試一般警察人員考試")
+        # An explicit programme heading or unambiguous event is required; a
+        # police occupation alone cannot override the general-police event.
+        self.assertEqual(identity.exam_series_id, "special-general-police")
+
+    def test_unmarked_category_in_combined_police_event_is_review_isolated(self) -> None:
+        event = "101年公務人員特種考試警察人員考試、一般警察人員考試、交通事業鐵路人員考試"
+        identity = classify("三等考試_行政管理人員", event, source="101080")
+        self.assertEqual(identity.exam_series_id, "moex-unknown")
+        self.assertEqual(identity.confidence, "review")
+        self.assertIn("event-101080", identity.bundle_id)
+        self.assertIn("official programme cannot be resolved", identity.reason)
+
+    def test_national_security_programme_does_not_inherit_cohosted_police_identity(self) -> None:
+        event = "112年公務人員特種考試警察人員考試、一般警察人員考試、國家安全局國家安全情報人員考試"
+        national = classify("國家安全情報人員考試三等考試_資訊組", event)
+        police = classify("警察人員考試三等考試_資訊組", event)
+        investigation = classify("三等考試_資訊組", "公務人員特種考試法務部調查局調查人員考試")
+        self.assertEqual(national.exam_series_id, "special-national-security")
+        self.assertEqual(investigation.exam_series_id, "special-investigation")
+        self.assertEqual(len({national.bundle_id, police.bundle_id, investigation.bundle_id}), 3)
+
+    def test_historical_national_security_uses_its_recorded_grade(self) -> None:
+        identity = classify("乙等_情報科技組", "083年特種考試國家安全局國家安全情報人員考試", source="083160")
+        self.assertEqual(identity.exam_series_id, "special-national-security")
+        self.assertEqual(identity.level_id, "grade-b")
+
+    def test_explicit_graded_security_programme_without_grade_requires_review(self) -> None:
+        for category, event, series in (
+            ("國家安全情報人員資訊組", "國家安全局國家安全情報人員考試", "special-national-security"),
+            ("調查人員調查工作組", "國家安全情報人員及法務部調查局調查人員考試", "special-investigation"),
+        ):
+            with self.subTest(series=series):
+                identity = classify(category, event)
+                self.assertEqual(identity.exam_series_id, series)
+                self.assertEqual(identity.level_id, "unknown")
+                self.assertEqual(identity.confidence, "review")
+
+    def test_mid_category_police_programme_heading_is_preserved(self) -> None:
+        event = "100年公務人員特種考試一般警察人員考試、警察人員考試、交通事業鐵路人員考試"
+        regular = classify("三等考試_警察特考_行政警察人員", event)
+        general = classify("三等考試_一般警察人員_行政警察人員", event)
+        self.assertEqual(regular.exam_series_id, "special-police")
+        self.assertEqual(general.exam_series_id, "special-general-police")
+        self.assertNotEqual(regular.bundle_id, general.bundle_id)
+
+    def test_security_cohosted_qualification_is_not_intelligence_recruitment(self) -> None:
+        event = "083年特種考試國家安全局國家安全情報人員考試、國家安全會議暨國家安全局現職文職人員任用資格考試"
+        identity = classify("簡任行政", event, source="083130")
+        self.assertEqual(identity.exam_series_id, "moex-unknown")
+        self.assertEqual(identity.confidence, "review")
+
+    def test_personnel_category_boilerplate_does_not_fragment_tracks(self) -> None:
+        event = "公務人員特種考試警察人員考試、一般警察人員考試"
+        for programme in ("警察人員", "一般警察人員"):
+            for track in ("行政警察人員", "水上警察人員輪機組", "刑事警察人員數位鑑識組"):
+                with self.subTest(programme=programme, track=track):
+                    old = classify(f"{programme}考試三等考試_{track}", event, source="113060")
+                    recent = classify(f"{programme}考試三等考試_{track.replace('人員', '人員類別')}", event, source="115060")
+                    self.assertEqual(old.bundle_id, recent.bundle_id)
+                    self.assertEqual(old.bundle_name, recent.bundle_name)
+        navigation = classify("一般警察人員考試四等考試_水上警察人員類別航海組", event)
+        engineering = classify("一般警察人員考試四等考試_水上警察人員類別輪機組", event)
+        self.assertNotEqual(navigation.track_id, engineering.track_id)
+
     def test_railway_recruitment_grades_do_not_borrow_cohosted_police_identity(self) -> None:
         event = "公務人員特種考試警察人員、一般警察人員及特種考試交通事業鐵路人員考試"
         for marker, level in (("高員三級", "transport-senior-3"), ("員級", "transport-employee"), ("佐級", "transport-associate")):

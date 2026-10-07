@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import random
 import re
 import time
+import zipfile
+import zlib
 from collections.abc import Callable
 from concurrent.futures import Future, ThreadPoolExecutor
 from dataclasses import dataclass, replace
@@ -51,6 +54,7 @@ EXPECTED_EXTENSIONS = {
     "listening_audio": (".mp3", ".zip", ".rar"),
 }
 ZIP_SIGNATURES = (b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08")
+ZIP_EXTENSIONS = frozenset({".zip", ".docx", ".xlsx", ".ods"})
 DOC_SIGNATURE = b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1"
 RAR_SIGNATURES = (b"Rar!\x1a\x07\x00", b"Rar!\x1a\x07\x01\x00")
 MP3_FRAME_SYNC_PREFIXES = (b"\xff\xfb", b"\xff\xf3", b"\xff\xf2")
@@ -110,7 +114,7 @@ def _matches_expected_binary(data: bytes, expected_extension: str) -> bool:
         return head.startswith(b"%PDF")
     if expected_extension == ".doc":
         return head.startswith(DOC_SIGNATURE)
-    if expected_extension in {".zip", ".docx", ".xlsx", ".ods"}:
+    if expected_extension in ZIP_EXTENSIONS:
         return any(head.startswith(signature) for signature in ZIP_SIGNATURES)
     if expected_extension == ".xls":
         return head.startswith(DOC_SIGNATURE)
@@ -129,6 +133,26 @@ def _matches_expected_binary(data: bytes, expected_extension: str) -> bool:
     return False
 
 
+def _validate_zip_payload(source: bytes | Path) -> None:
+    """Check the container and every entry before accepting or reusing its bytes."""
+    archive_source = io.BytesIO(source) if isinstance(source, bytes) else source
+    try:
+        with zipfile.ZipFile(archive_source) as archive:
+            bad_entry = archive.testzip()
+            if bad_entry is not None:
+                raise RuntimeError(f"CRC mismatch in ZIP entry {bad_entry!r}")
+    except (
+        zipfile.BadZipFile,
+        OSError,
+        RuntimeError,
+        ValueError,
+        EOFError,
+        NotImplementedError,
+        zlib.error,
+    ) as exc:
+        raise RuntimeError(f"Invalid ZIP container: {exc}") from exc
+
+
 def _validated_extension(file_type: str, data: bytes, content_type: str, file_name: str) -> str:
     expected_extensions = _expected_extensions(file_type)
     resolved_extension = _extension_for(content_type, file_name).lower()
@@ -140,13 +164,17 @@ def _validated_extension(file_type: str, data: bytes, content_type: str, file_na
             f"Downloaded HTML placeholder instead of {joined_extensions} for {file_type}"
         )
     if expected_extensions:
-        if resolved_extension in expected_extensions and _matches_expected_binary(
-            data, resolved_extension
-        ):
-            return resolved_extension
-        for expected_extension in expected_extensions:
-            if _matches_expected_binary(data, expected_extension):
-                return expected_extension
+        # Prefer a supported source filename/MIME extension, then detect other
+        # supported formats. A matching signature must still pass content checks.
+        candidates = dict.fromkeys((resolved_extension, *expected_extensions))
+        for extension in candidates:
+            if extension not in expected_extensions or not _matches_expected_binary(
+                data, extension
+            ):
+                continue
+            if extension in ZIP_EXTENSIONS:
+                _validate_zip_payload(data)
+            return extension
         joined_extensions = " or ".join(expected_extensions)
         raise RuntimeError(
             f"Downloaded file does not match expected {joined_extensions} payload for {file_type}"
@@ -160,7 +188,14 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     if not expected_extensions or actual_extension not in expected_extensions:
         return False
     with path.open("rb") as stream:
-        return _matches_expected_binary(stream.read(8), actual_extension)
+        if not _matches_expected_binary(stream.read(8), actual_extension):
+            return False
+    if actual_extension in ZIP_EXTENSIONS:
+        try:
+            _validate_zip_payload(path)
+        except RuntimeError:
+            return False
+    return True
 
 
 Result = TypeVar("Result")

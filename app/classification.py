@@ -99,7 +99,9 @@ _SERIES_LABELS = {
     "special-disability": "身心障礙特考",
     "special-customs": "關務特考",
     "special-diplomatic": "外交／國際特考",
-    "special-police": "警察／一般警察特考",
+    "special-police": "警察人員特考",
+    "special-general-police": "一般警察人員特考",
+    "special-national-security": "國家安全情報人員特考",
     "special-railway": "鐵路人員特考",
     "special-highway": "公路人員特考",
     "special-port": "港務人員特考",
@@ -109,7 +111,7 @@ _SERIES_LABELS = {
     "special-other": "其他特種考試",
     "special-aviation": "民航特考",
     "special-maritime": "航海／船員特考",
-    "special-investigation": "調查／情報特考",
+    "special-investigation": "調查局調查人員特考",
     "civil-qualification": "公務人員檢定考試",
     "professional-qualification": "專技檢定考試",
     "special-military-transfer": "國軍軍官轉任考試",
@@ -299,6 +301,9 @@ def _clean_moex_track(category: str, canonical_name: str) -> str:
     )
     value = re.sub(r"^(?:一級|二級|三級|三等|四等|五等|1等|2等|3等|4等|5等)考試", "", value)
     value = re.sub(r"(?:類科|科別)$", "", value)
+    # Recent official police rows insert 類別 after 人員, sometimes before a
+    # group name. It is heading boilerplate; the following group stays intact.
+    value = value.replace("人員類別", "人員")
     value = re.sub(
         r"[（(](?:三等|四等|五等|高考|普考|初考|一般組|兩岸組[一二三]|高員級|高級員|員級|佐級|八職等|十二職等)[）)]",
         "",
@@ -679,8 +684,12 @@ def _moex_series(
         ("關務", "special-customs", "關務特考"),
         ("外交", "special-diplomatic", "外交／國際特考"),
         ("國際經濟商務", "special-diplomatic", "外交／國際特考"),
-        ("警察", "special-police", "警察／一般警察特考"),
-        ("一般警察", "special-police", "警察／一般警察特考"),
+        # The specific programme must precede its substring. The two police
+        # programmes have different eligibility rules and paper sets.
+        ("一般警察", "special-general-police", _SERIES_LABELS["special-general-police"]),
+        ("警察", "special-police", _SERIES_LABELS["special-police"]),
+        ("國家安全情報", "special-national-security", _SERIES_LABELS["special-national-security"]),
+        ("調查人員", "special-investigation", _SERIES_LABELS["special-investigation"]),
         ("司法", "special-judicial", "司法特考"),
         ("海岸巡防", "special-coast-guard", "海巡特考"),
         ("海巡", "special-coast-guard", "海巡特考"),
@@ -691,6 +700,14 @@ def _moex_series(
     )
     for marker, series_id, label in category_first:
         if marker in cat:
+            if marker == "警察" and "一般警察" in event:
+                # Some historical rows put the programme between the grade
+                # and occupation, such as 三等考試_警察特考_行政警察人員.
+                heading = cat.rsplit("_", 1)[0] if "_" in cat else cat
+                if not re.search(r"警察(?:人員)?(?:考試|特考|[二三四]等)|特種警察", heading):
+                    # An occupation such as 行政警察 occurs in both programmes.
+                    # It cannot stand in for an official programme heading.
+                    continue
             return "civil-service", "civil-service-exam", series_id, label
     if (
         "升官等" in cat
@@ -707,6 +724,10 @@ def _moex_series(
             "civil-promotion",
             _SERIES_LABELS["civil-promotion"],
         )
+    if "一般警察" in event and "警察" in event.replace("一般警察", ""):
+        # A shared source event is not enough to assign an unmarked category
+        # to either police programme. Preserve it in event-specific review.
+        return "civil-service", "civil-service-exam", "moex-unknown", _SERIES_LABELS["moex-unknown"]
     event_rules = (
         ("原住民族", "special-indigenous", "原住民族特考"),
         ("原住民", "special-indigenous", "原住民族特考"),
@@ -726,9 +747,11 @@ def _moex_series(
         ("保險從業", "professional-special", "專技特考"),
         ("中醫師考試", "professional-combined", "專技綜合／歷史制度"),
         ("航海人員", "special-maritime", "航海／船員特考"),
-        ("特種考試警察", "special-police", "警察／一般警察特考"),
+        ("一般警察", "special-general-police", _SERIES_LABELS["special-general-police"]),
+        ("特種考試警察", "special-police", _SERIES_LABELS["special-police"]),
         ("司法人員", "special-judicial", "司法特考"),
-        ("調查局調查人員", "special-investigation", "調查／情報特考"),
+        ("調查局調查人員", "special-investigation", _SERIES_LABELS["special-investigation"]),
+        ("國家安全情報", "special-national-security", _SERIES_LABELS["special-national-security"]),
         ("專門職業及技術人員", "professional-combined", "專技綜合／歷史制度"),
         ("檢覈", "professional-screening", "專技檢覈／檢覈筆試"),
         ("檢核", "professional-screening", "專技檢覈／檢覈筆試"),
@@ -738,6 +761,15 @@ def _moex_series(
     )
     for marker, series_id, label in event_rules:
         if marker in event:
+            if series_id == "special-national-security" and any(
+                other in event for other in ("任用資格", "軍法官", "政風人員")
+            ):
+                return (
+                    "civil-service",
+                    "civil-service-exam",
+                    "moex-unknown",
+                    _SERIES_LABELS["moex-unknown"],
+                )
             if series_id == "professional-combined" and level_id.startswith("professional"):
                 series_id = level_id
                 label = _SERIES_LABELS.get(series_id, _SERIES_LABELS["professional-combined"])
@@ -946,6 +978,15 @@ def _classify_paper_uncached(
         domain_id, family_id, series_id, series_label = _moex_series(
             category, exam_name, level_id, canonical_id
         )
+        if (
+            series_id
+            in {"special-general-police", "special-national-security", "special-investigation"}
+            and level_id == NOT_APPLICABLE
+        ):
+            level_id = "unknown"
+            level_label = _LEVEL_LABELS[level_id]
+            confidence = "review"
+            reason = f"{series_label}: missing official grade evidence in record"
     else:
         level_id, level_label, confidence, reason = _non_moex_level(
             provider_id, category, canonical_id, subject_name_raw
@@ -974,6 +1015,7 @@ def _classify_paper_uncached(
         confidence = "review"
     if provider_id == "moex" and series_id == "moex-unknown":
         confidence = "review"
+        reason = f"official programme cannot be resolved from category and event; {reason}"
     parts = [provider_id, series_id, level_id, track_id, *variants]
     if stage_id != NOT_APPLICABLE:
         parts.append(stage_id)

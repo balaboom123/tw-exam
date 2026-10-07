@@ -137,6 +137,14 @@ Do not weaken bundle-purity checks or introduce prose-only classification except
 4. Upload missing expected assets before pruning unexpected ones.
 5. Never collapse shards or move assets between tags manually; shard assignment is deterministic executable policy.
 
+If the incremental probe finds no source change but hosted ZIP digests are
+stale, the workflow fails before committing its manifest and identifies the
+required recovery. The runner's mirror cache contains source files, not the
+publication ZIPs needed by the upload operation. On a machine with persistent
+verified mirrors and archives, run `bash scripts/republish.sh`; it rebuilds and
+audits the site, uploads replacements, and verifies hosted coverage before
+pruning. Review and commit any regenerated state, then rerun the workflow.
+
 When a targeted sync makes a previously unpublished bundle meet the site's
 minimum-year policy, there is no release ZIP containing its retained older
 papers. With `--download-affected-bundles`, targeted, incremental, and full sync
