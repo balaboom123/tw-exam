@@ -1,9 +1,9 @@
 {
   "events": {
-    "ipas-cert-aiap-2026": "2026-09-30T11:14:01Z",
-    "ipas-cert-aiot-2026": "2026-09-30T11:14:01Z",
-    "ipas-cert-ise-2026": "2026-09-30T11:14:01Z",
-    "ipas-cert-oia-2026": "2026-09-30T11:14:01Z"
+    "ipas-cert-aiap-2026": "2026-10-07T11:52:17Z",
+    "ipas-cert-aiot-2026": "2026-10-07T11:52:17Z",
+    "ipas-cert-ise-2026": "2026-10-07T11:52:17Z",
+    "ipas-cert-oia-2026": "2026-10-07T11:52:17Z"
   },
   "provider_id": "ipas_cert",
   "schema_version": 1
