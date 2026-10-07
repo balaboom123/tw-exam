@@ -56,6 +56,35 @@ The classifier returns an immutable ExamIdentity containing:
 
 A provider may use not-applicable. It must not be forced into MOEX grades when its official system has no equivalent.
 
+Missing evidence for a level-based programme is `unknown` with a review
+disposition, rather than `not-applicable`. GEPT uses its own proficiency levels
+([official introduction](https://www.gept.org.tw/Exam_Intro/t01_introduction.asp));
+JLPT uses N1–N5
+([official levels](https://www.jlpt.jp/about/levelsummary.html)); skill
+certification distinguishes 甲級、乙級、丙級 and 單一級
+([official reference announcement](https://www.wdasec.gov.tw/News_Content.aspx?n=25D08F3407C71E8F&s=5A79A08661B15374&sms=1BE761BDBCE7C913)).
+The classifier keeps records with absent or unsupported markers isolated by
+event until the source level is resolved. These official references were
+rechecked on 2026-10-07.
+
+Transport recruitment and transport promotion have different meanings. Railway,
+highway, and port recruitment remain separate programmes even when one source
+event also hosts police, aviation, or patent-exam papers. Recruitment uses the
+recorded 高員三級、員級、佐級 grade; 高員三級 is not 員級晉高員級.
+An explicit transport programme in the category takes priority over other
+programmes in the event title. Historical categories containing only a transport
+grade can use the event when it identifies exactly one transport programme.
+Multiple possible programmes remain in review. Promotion evidence retains the
+promotion identity and its transition grade.
+
+This boundary follows the official
+[railway category listing](https://www.moex.gov.tw/other/105040/query.html),
+[historical recruitment rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=588&media=print),
+[port paper header](https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?c=505&code=096270&q=1&s=3011&t=Q),
+and [promotion rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=943&id=FL016765),
+rechecked on 2026-10-07. Legal grade equivalence with 高考、普考 or 初考 does
+not change the recruitment programme or grade identity.
+
 ## Bundle purity
 
 The default bundle policy groups papers only when these values match:
@@ -99,11 +128,11 @@ V2 is additive and reversible:
 - the v1 reader remains available;
 - v2 publication can be rebuilt without deleting v1 assets.
 
-The default-site draft retires unpublished alias metadata under the
-[proposed alias decision](../decisions/ADR-2026-09-27-unused-v2-release-aliases.md).
-Activation requires explicit acceptance and a fresh remote inventory showing no
-hosted alias on any active v2 Release. Historical readers and download fallback
-remain available.
+The default site omits unpublished alias metadata under the
+[accepted alias decision](../decisions/ADR-2026-09-27-unused-v2-release-aliases.md).
+Its primary-only policy is owned by `app/site_registry.py`. Historical readers
+and download fallback remain available; another site's declared compatibility
+assets still consume physical release slots.
 
 A taxonomy or mapping change requires full historical reclassification, because old records can change bundle identity even when no new source page was fetched.
 

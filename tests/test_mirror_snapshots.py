@@ -19,6 +19,34 @@ spec.loader.exec_module(mirror)
 PROVIDER = "ceec_ast"
 
 
+def test_hakka_public_save_is_rejected_before_packing_or_remote_operations(tmp_path, monkeypatch):
+    def unexpected(*args, **kwargs):
+        pytest.fail("A restricted provider reached public backup work")
+
+    monkeypatch.setattr(mirror, "pack", unexpected)
+    monkeypatch.setattr(mirror, "gh", unexpected)
+    with pytest.raises(ValueError, match="Public mirror backups are disabled for hakka_cert"):
+        mirror.save(tmp_path, "owner/repo", "hakka_cert", "restricted")
+    assert not (tmp_path / ".tmp").exists()
+
+
+def test_hakka_public_save_cli_checks_policy_before_cache_outputs(tmp_path, monkeypatch, capsys):
+    def unexpected(*args, **kwargs):
+        pytest.fail("A restricted provider reached backup or cache work")
+
+    output = tmp_path / "output"
+    monkeypatch.setenv("GITHUB_OUTPUT", str(output))
+    monkeypatch.setattr(mirror, "cacheable", unexpected)
+    monkeypatch.setattr(mirror, "save", unexpected)
+    monkeypatch.setattr(sys, "argv", [
+        "mirror_snapshots.py", "save", "--repo-root", str(tmp_path),
+        "--repository", "owner/repo", "--provider", "hakka_cert",
+    ])
+    assert mirror.main() == 1
+    assert "Public mirror backups are disabled for hakka_cert" in capsys.readouterr().err
+    assert not output.exists()
+
+
 @pytest.fixture
 def packed(tmp_path):
     root = tmp_path / "source"

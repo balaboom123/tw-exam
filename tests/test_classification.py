@@ -19,6 +19,79 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_railway_recruitment_grades_do_not_borrow_cohosted_police_identity(self) -> None:
+        event = "公務人員特種考試警察人員、一般警察人員及特種考試交通事業鐵路人員考試"
+        for marker, level in (("高員三級", "transport-senior-3"), ("員級", "transport-employee"), ("佐級", "transport-associate")):
+            for prefix in ("", "鐵路人員", "交通事業鐵路人員考試"):
+                with self.subTest(marker=marker, prefix=prefix):
+                    identity = classify(f"{prefix}{marker}考試_會計", event)
+                    self.assertEqual(identity.exam_series_id, "special-railway")
+                    self.assertEqual(identity.level_id, level)
+                    self.assertEqual(identity.bundle_name, f"鐵路人員特考｜{marker}｜會計")
+                    self.assertEqual(identity.confidence, "high")
+        historic = classify("高員3級_會計", event, source="098110")
+        current = classify("鐵路人員考試高員三級_會計", event, source="112070")
+        self.assertEqual(historic.bundle_id, current.bundle_id)
+        police = classify("警察三等考試_會計", event)
+        self.assertEqual(police.exam_series_id, "special-police")
+        self.assertNotEqual(police.bundle_id, current.bundle_id)
+
+    def test_railway_recruitment_does_not_merge_with_transport_promotion(self) -> None:
+        recruitment = classify("鐵路人員高員三級_會計", "特種考試交通事業鐵路人員考試")
+        promotion = classify("交通事業鐵路人員員級晉高員_會計", "交通事業鐵路、公路、港務人員升資考試")
+        self.assertEqual(recruitment.level_id, "transport-senior-3")
+        self.assertEqual(promotion.exam_series_id, "civil-promotion")
+        self.assertEqual(promotion.level_id, "promotion-employee-to-senior")
+        self.assertNotEqual(recruitment.bundle_id, promotion.bundle_id)
+
+    def test_cohosted_highway_and_railway_recruitment_remain_separate(self) -> None:
+        event = "097年特種考試交通事業鐵路人員考試、97年特種考試交通事業公路人員考試"
+        railway = classify("鐵路人員考試員級_土木工程", event)
+        highway = classify("公路人員考試員級_土木工程", event)
+        unresolved = classify("員級_土木工程", event)
+        self.assertEqual(railway.exam_series_id, "special-railway")
+        self.assertEqual(highway.exam_series_id, "special-highway")
+        self.assertEqual(railway.level_id, "transport-employee")
+        self.assertEqual(highway.level_id, "transport-employee")
+        self.assertNotEqual(railway.bundle_id, highway.bundle_id)
+        self.assertEqual(unresolved.confidence, "review")
+
+    def test_explicit_railway_programme_with_missing_grade_requires_review(self) -> None:
+        identity = classify("鐵路人員考試_會計", "警察人員及交通事業鐵路人員考試")
+        self.assertEqual(identity.exam_series_id, "special-railway")
+        self.assertEqual(identity.level_id, "unknown")
+        self.assertEqual(identity.confidence, "review")
+
+    def test_port_recruitment_grade_is_distinct_from_cohosted_patent_exam(self) -> None:
+        event = "096年公務人員特種考試經濟部專利商標審查人員考試及96年特種考試交通事業港務人員考試"
+        port = classify("輪機技術(佐級)", event, source="096270")
+        patent = classify("生物技術(二等)", event, source="096270")
+        self.assertEqual(port.exam_series_id, "special-port")
+        self.assertEqual(port.level_id, "transport-associate")
+        self.assertEqual(port.bundle_name, "港務人員特考｜佐級｜輪機技術")
+        self.assertNotEqual(port.bundle_id, patent.bundle_id)
+
+    def test_missing_level_evidence_is_reviewed_for_level_based_programmes(self) -> None:
+        for provider in ("gept_cert", "jlpt_cert", "wdasec_skill"):
+            with self.subTest(provider=provider):
+                first = classify(
+                    "官方試題", "官方測驗", provider=provider,
+                    canonical="unresolved-level", subject="閱讀", source="event-first",
+                )
+                second = classify(
+                    "官方試題", "官方測驗", provider=provider,
+                    canonical="unresolved-level", subject="閱讀", source="event-second",
+                )
+                self.assertEqual(first.level_id, "unknown")
+                self.assertEqual(first.confidence, "review")
+                self.assertIn("missing official level", first.reason)
+                self.assertNotEqual(first.bundle_id, second.bundle_id)
+
+    def test_jlpt_out_of_range_level_is_unresolved(self) -> None:
+        identity = classify("N6", "JLPT", provider="jlpt_cert", canonical="jlpt", subject="N6")
+        self.assertEqual(identity.level_id, "unknown")
+        self.assertEqual(identity.confidence, "review")
+
     def test_public_titles_use_source_labels_not_internal_ids(self) -> None:
         group = classify("一般行政（兩岸組一）", "115年公務人員高等考試三級", source="high-group-1")
         elective = classify("外交領事人員（選試日文）", "115年公務人員特種考試外交領事人員考試", source="diplomatic-115")

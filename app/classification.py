@@ -100,6 +100,9 @@ _SERIES_LABELS = {
     "special-customs": "關務特考",
     "special-diplomatic": "外交／國際特考",
     "special-police": "警察／一般警察特考",
+    "special-railway": "鐵路人員特考",
+    "special-highway": "公路人員特考",
+    "special-port": "港務人員特考",
     "special-judicial": "司法特考",
     "special-coast-guard": "海巡特考",
     "special-immigration": "移民特考",
@@ -116,6 +119,7 @@ _SERIES_LABELS = {
     "professional-special": "專技特考",
     "professional-combined": "專技綜合／歷史制度",
     "professional-screening": "專技檢覈／檢覈筆試",
+    "moex-unknown": "MOEX待審核考試",
     "teacher-qualification": "教師資格考試",
     "teacher-recruitment": "教師甄試",
     "language-gept": "全民英檢",
@@ -157,6 +161,9 @@ _LEVEL_LABELS = {
     "promotion-associate-rank": "佐級",
     "promotion-employee-rank": "員級",
     "promotion-senior-rank": "高員級",
+    "transport-senior-3": "高員三級",
+    "transport-employee": "員級",
+    "transport-associate": "佐級",
     "grade-d": "丁等",
     "qualification-high": "高等檢定",
     "qualification-ordinary": "普通檢定",
@@ -384,14 +391,58 @@ def _track_details(
     return _slug(value or source_exam_id, prefix="track"), value or source_exam_id
 
 
+def _moex_transport_series(category: str, exam_name: str) -> str | None:
+    """Resolve transport recruitment independently of a co-hosted programme.
+
+    Historical listings sometimes retain only the transport grade in the
+    category. That identifies railway recruitment only when the event has
+    one transport programme. Explicit promotion evidence takes precedence.
+    """
+    if re.search(r"升資|升等|升官等|晉升士級|(?:員|佐|士)(?:級)?晉", f"{category} {exam_name}"):
+        return None
+    heading = category.split("_", 1)[0]
+    programmes = (
+        ("鐵路人員", "special-railway"),
+        ("公路人員", "special-highway"),
+        ("港務人員", "special-port"),
+    )
+    explicit = [series for marker, series in programmes if marker in heading]
+    if explicit:
+        return explicit[0] if len(explicit) == 1 else "moex-unknown"
+    if not re.search(r"高員(?:三|3)級|員級|佐級", heading):
+        return None
+    event_series = [series for marker, series in programmes if marker in exam_name]
+    if len(event_series) > 1:
+        return "moex-unknown"
+    return event_series[0] if event_series else None
+
+
 @lru_cache(maxsize=8192)
 def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
     professional = f"{cat} {event}"
+    if _moex_transport_series(cat, event) is not None:
+        for pattern, level_id in (
+            (r"高員(?:三|3)級", "transport-senior-3"),
+            (r"員級", "transport-employee"),
+            (r"佐級", "transport-associate"),
+        ):
+            if re.search(pattern, cat.split("_", 1)[0]):
+                return (
+                    level_id,
+                    _LEVEL_LABELS[level_id],
+                    "high",
+                    f"explicit transport recruitment grade: {cat}",
+                )
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            f"transport recruitment category has no official grade: {cat}",
+        )
     explicit_patterns = (
         (r"高等暨普通|高等、普通", "combined", "合併／制度待審核"),
-        (r"高員三級|高員3級", "promotion-employee-to-senior", "員級晉高員級"),
         (r"員級晉高員|員級高員|員晉高員", "promotion-employee-to-senior", "員級晉高員級"),
         (r"佐級晉員|佐晉員", "promotion-associate-to-employee", "佐級晉員級"),
         (r"士級晉佐|士晉佐", "promotion-worker-to-associate", "士級晉佐級"),
@@ -590,11 +641,14 @@ def _non_moex_level(
         ):
             if marker in text:
                 return level_id, marker, "high", f"skill certification level marker: {marker}"
+    if provider_id in {"gept_cert", "jlpt_cert", "wdasec_skill"}:
+        # These programmes have official levels. An absent or unsupported
+        # marker is missing evidence, not proof that the dimension is absent.
         return (
-            NOT_APPLICABLE,
-            _LEVEL_LABELS[NOT_APPLICABLE],
-            "medium",
-            "skill provider has no level marker in record",
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            f"{provider_id}: missing official level evidence in record",
         )
     return (
         NOT_APPLICABLE,
@@ -609,6 +663,14 @@ def _moex_series(
 ) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
+    transport_series = _moex_transport_series(cat, event)
+    if transport_series is not None:
+        return (
+            "civil-service",
+            "civil-service-exam",
+            transport_series,
+            _SERIES_LABELS[transport_series],
+        )
     category_first = (
         ("原住民族", "special-indigenous", "原住民族特考"),
         ("原住民", "special-indigenous", "原住民族特考"),

@@ -560,8 +560,16 @@ def restore(
     return result
 
 
-def save(root: Path, repository: str, provider: str, generation: str) -> dict:
+def validate_public_backup_provider(provider: str) -> None:
     get_provider(provider)
+    # The manual Hakka workflow also disables backup work. Enforce its source
+    # restriction here so another caller cannot create a public audio backup.
+    if provider == "hakka_cert":
+        raise ValueError("Public mirror backups are disabled for hakka_cert; retain its local mirror")
+
+
+def save(root: Path, repository: str, provider: str, generation: str) -> dict:
+    validate_public_backup_provider(provider)
     checked_generation(generation)
     root.joinpath(".tmp").mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="mirror-upload-", dir=root / ".tmp") as temporary:
@@ -802,7 +810,7 @@ def main() -> int:
         parser.error("--repository owner/repo is required")
     try:
         if args.command == "save":
-            get_provider(args.provider)
+            validate_public_backup_provider(args.provider)
             if output := os.environ.get("GITHUB_OUTPUT"):
                 with open(output, "a", encoding="utf-8") as stream:
                     stream.write(

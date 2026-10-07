@@ -21,7 +21,10 @@ Publication jobs and the MOEX writers share a queued concurrency group. Each wri
 Artifact and cache names are carried as sync outputs so a publication-only retry uses the original inputs. Public `mirror-<provider_id>` prereleases provide durable provider recovery while Actions cache remains a warm layer. A cache miss during sync restores the latest verified snapshot; an absent Release permits source bootstrap. An exact cache miss during publication restores only the generation and manifest checksum saved by that sync. Missing or corrupt durable inputs stop publication. Attempted syncs save their mirror even when source acquisition fails; the backup helper keeps the current and previous generation and deletes older assets after the pointer is committed. Sync jobs have write permission for backup uploads. Pages reacts to caller completion, with its existing concurrency control and daily backstop.
 
 Hakka runs by manual dispatch only (`sync-hakka-cert`) and writes no public
-snapshot or new warm-cache entry. `verify-archives` downloads every release
+snapshot or new warm-cache entry. The mirror backup operation rejects public
+Hakka saves before packing files, writing cache outputs, or calling GitHub;
+another caller cannot bypass that restriction by enabling its backup input.
+`verify-archives` downloads every release
 shard on the 2nd of each month and checks each ZIP's contents against the
 catalog.
 
