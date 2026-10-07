@@ -31,7 +31,7 @@ class MirrorStoreTests(unittest.TestCase):
             self.assertEqual(entries[stored.checksum]['storage_key'], 'target.pdf')
             self.assertEqual((root / 'unrelated.pdf').read_bytes(), b'unrelated')
 
-    def test_prune_rehomes_shared_payload_and_later_overwrite_clears_old_checksum(self) -> None:
+    def test_prune_rehomes_shared_payload_and_overwrite_retains_previous_revision(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
             store = MirrorStore(root)
@@ -46,7 +46,10 @@ class MirrorStoreTests(unittest.TestCase):
             updated = store.write_bytes(active.storage_key, b'updated', overwrite=True)
             store.flush_dedupe_index()
             entries = json.loads(store.dedupe_index_path.read_text())['entries']
-            self.assertEqual(set(entries), {updated.checksum})
+            self.assertEqual(set(entries), {updated.checksum, orphan.checksum})
+            retained = root / entries[orphan.checksum]['storage_key']
+            self.assertIn('recovery/source-revisions', retained.as_posix())
+            self.assertEqual(retained.read_bytes(), b'shared')
             self.assertEqual(active.path.read_bytes(), b'updated')
 
     def test_dedupe_rebuild_supports_later_canonical_overwrite(self) -> None:

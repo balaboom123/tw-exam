@@ -633,6 +633,7 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
         alias_rules=aliases,
         mirror_base_url="",
         download_attachments=args.download_attachments,
+        refresh_files=bool(getattr(args, "refresh_files", False)),
     )
     allow_partial = bool(getattr(args, "allow_partial", False))
     # Targeted sync remains fail-closed by default.  The explicit partial mode
@@ -742,6 +743,7 @@ def command_repair_failures(args: argparse.Namespace, client: SourceProvider | N
         alias_rules=aliases,
         mirror_base_url="",
         download_attachments=not args.skip_attachments,
+        refresh_files=bool(getattr(args, "refresh_files", False)),
     )
     failed_exam_ids = {failure.source_exam_id for failure in sync_failures}
     safe_exam_ids = {
@@ -881,6 +883,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
                 alias_rules=aliases,
                 mirror_base_url="",
                 download_attachments=args.download_attachments,
+                refresh_files=bool(getattr(args, "refresh_files", False)),
             )
         except Exception as exc:
             print(f"Year {year}: failed with unexpected error: {exc}")
@@ -1329,6 +1332,11 @@ def build_parser() -> argparse.ArgumentParser:
     targeted.add_argument("--mirror-base-url", default="")
     targeted.add_argument("--download-attachments", action="store_true", default=False)
     targeted.add_argument(
+        "--refresh-files",
+        action="store_true",
+        help="Re-fetch files and retain superseded source bytes.",
+    )
+    targeted.add_argument(
         "--allow-partial",
         action="store_true",
         default=False,
@@ -1359,6 +1367,11 @@ def build_parser() -> argparse.ArgumentParser:
     repair.add_argument("--source-exam-id", nargs="*", default=None)
     repair.add_argument("--stages", nargs="*", default=["bundle", "download"])
     repair.add_argument("--skip-attachments", action="store_true", default=False)
+    repair.add_argument(
+        "--refresh-files",
+        action="store_true",
+        help="Re-fetch files and retain superseded source bytes.",
+    )
     repair.set_defaults(handler=command_repair_failures)
 
     dedupe_parser = subparsers.add_parser(
@@ -1395,6 +1408,11 @@ def build_parser() -> argparse.ArgumentParser:
         sync.add_argument("--bundle-base-url", default="")
         sync.add_argument("--mirror-base-url", default="")
         sync.add_argument("--download-attachments", action="store_true", default=False)
+        sync.add_argument(
+            "--refresh-files",
+            action="store_true",
+            help="Re-fetch files and retain superseded source bytes.",
+        )
         sync.add_argument("--download-affected-bundles", action="store_true", default=False)
         sync.add_argument(
             "--restore-new-public-files",

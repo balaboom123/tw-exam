@@ -8,7 +8,16 @@ Discovery returns official availability for the selected provider. It is read-on
 
 Providers that implement the probe URL model compare year/event HEAD responses against their own source manifest and fetch pages when those comparisons indicate change. The probe produces an explicit sync decision. Its output and optional manifest remain provider-owned.
 
-Sync downloads into `mirror/providers/<provider_id>/`. Mirror locators preserve year, event, category, subject, and file-role distinctions. Valid files are reused; successfully refreshed files replace stale siblings with incorrect extensions. Each retained payload receives a SHA-256 checksum.
+Sync downloads into `mirror/providers/<provider_id>/`. Mirror locators preserve year, event, category, subject, and file-role distinctions. Valid files are reused unless explicit refresh or provider policy requires acquisition. Successfully refreshed files replace stale siblings with incorrect extensions. Each retained payload receives a SHA-256 checksum. The sync owner fetches a shared source locator once per event, including during refresh.
+
+`--refresh-files` re-fetches selected source files even when a valid local copy
+exists. Providers whose download slots are mutable declare that policy in their
+adapter. Payload validation precedes replacement. The mirror writer copies old
+scoped bytes into its provider's checksum-addressed recovery directory before
+overwriting a file or removing an older extension. These immutable copies are
+excluded from hard-link deduplication and orphan pruning. Current source files
+may still share byte-identical payloads independently of the recovery copies;
+deduplication statistics describe current files.
 
 When one source page assigns different URLs to the same paper codes, acquisition
 adds a source-URL digest to each mirror locator. Already split locators remain
@@ -33,6 +42,15 @@ An unavailable year listing preserves retained provider state, returns failure, 
 Normalization applies reviewed provider aliases and shared identity rules to raw events; unresolved cases enter the provider review queue. Full provider writes also regenerate a compact index. Index readers fall back to source files when an index is missing or its source snapshot is stale; the catalog audit still reclassifies full records. The index must remain rebuildable, and [its check](../../scripts/build_provider_indexes.py) compares complete contents against source files.
 
 Full and incremental sync retain previously acquired events and papers that disappear from current listings, including their source-manifest evidence. Incremental and targeted merging preserve unaffected history. Refreshed names may derive canonical migrations; they must not orphan prior compatibility identities or silently merge distinct official programs.
+
+Before replacing provider state, the scoped writer records superseded paper and
+attachment references in the provider source revision journal. It requires the
+checksum-verified earlier payload or its already retained recovery blob before
+retiring a verified reference. A missing or mismatched earlier payload stops
+the state write and requires restoration. Unverified references retain metadata
+only. Current publication continues to use the current catalog; retired roles,
+URLs and older bytes are not republished automatically. Strict history audits
+with mirror checking verify every journal blob as well as current references.
 
 Successful full, incremental, targeted, and repair syncs record a UTC receipt for each completely refreshed event. Failed and unrefreshed events keep their previous receipt. Discovery, catalog migration, and bundle builds do not advance dates. Retained state may lack receipts; never backfill them from discovery or file modification time.
 

@@ -17,6 +17,8 @@ if str(ROOT) not in sys.path:
 from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
 from app.moex_identity_evidence import moex_evidence_path, validate_moex_category_evidence
+from app.paths import provider_paths
+from app.source_revisions import load_source_revisions, revision_journal_path
 
 
 def _read_json(path: Path) -> Any:
@@ -62,6 +64,11 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validated_providers = 0
     providers_without_papers: list[str] = []
     for provider_id in get_site_config("default").provider_ids:
+        provider = provider_paths(repo_root, provider_id)
+        revision_path = revision_journal_path(provider)
+        if revision_path.exists():
+            _validate(schemas["provider-source-revisions-v1.schema.json"], _read_json(revision_path), str(revision_path.relative_to(repo_root)))
+            load_source_revisions(provider)
         review_path = repo_root / "data/providers" / provider_id / "review-queue.json"
         if review_path.exists():
             payload = _read_json(review_path)

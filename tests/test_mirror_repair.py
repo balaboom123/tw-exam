@@ -10,6 +10,8 @@ from app.paths import provider_paths
 from app.providers.base import DownloadedFile
 from app.publisher import write_provider_state
 from app.state import load_provider_state
+from app.source_revisions import load_source_revisions
+from app.storage import MirrorStore
 from tests.test_bundler import make_paper
 
 
@@ -29,6 +31,7 @@ def test_repair_refetches_each_url_and_preserves_state_on_failure(tmp_path, monk
         for p in (paper, other)
     ])]
     paths = provider_paths(tmp_path, 'moex')
+    MirrorStore(tmp_path / 'mirror').write_bytes(paper.storage_key, b'%PDF old')
     write_provider_state(paths, pages, NormalizedCatalog([paper, other], []), [], [], None)
     before = (paths.papers_dir / '2026.json').read_bytes()
 
@@ -54,6 +57,13 @@ def test_repair_refetches_each_url_and_preserves_state_on_failure(tmp_path, monk
         assert not report['errors']
         assert not colliding_mirror_records(catalog.papers)
         assert len({p.checksum for p in catalog.papers}) == 2
+        revisions = load_source_revisions(paths)
+        assert len(revisions) == 2
+        assert {entry['source_record']['download_url_source'] for entry in revisions} == {
+            paper.download_url_source, other.download_url_source,
+        }
+        for entry in revisions:
+            assert (tmp_path / 'mirror' / entry['blob_storage_key']).read_bytes() == b'%PDF old'
         for actual, source in zip(catalog.papers, raw[0].papers):
             assert source.mirror_files['question']['storage_key'] == actual.storage_key
             assert (tmp_path / 'mirror' / actual.storage_key).read_bytes().endswith(actual.download_url_source.encode())

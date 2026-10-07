@@ -50,7 +50,8 @@ def _paper(
         source_exam_id=source_exam_id,
         subject_code="0101",
         storage_key=f"providers/{provider_id}/{year_roc}/{source_exam_id}/101/0101/question.pdf",
-        checksum=f"{provider_id}-{canonical_id}-{year_roc}",
+        # These state-only fixtures have no verified mirror payload.
+        checksum="",
     )
 
 
@@ -117,6 +118,7 @@ class CliCommandTests(unittest.TestCase):
             args = build_parser().parse_args(
                 [
                     "sync-incremental",
+                    "--refresh-files",
                     "--years",
                     "1",
                     "--provider",
@@ -135,6 +137,13 @@ class CliCommandTests(unittest.TestCase):
             self.assertEqual(command_sync(args, client=SelectiveClient()), 0)
 
         self.assertEqual(sync_exam_pages_mock.call_args.kwargs["exam_codes"], [("115040", 2026)])
+        self.assertTrue(sync_exam_pages_mock.call_args.kwargs["refresh_files"])
+
+    def test_parser_accepts_refresh_files_for_every_sync_entry_point(self) -> None:
+        parser = build_parser()
+        for command in ("sync-full", "sync-incremental", "sync-targeted", "repair-failures"):
+            arguments = [command, "--refresh-files"]
+            self.assertTrue(parser.parse_args(arguments).refresh_files)
 
     def test_parser_accepts_provider_and_site_for_sync_commands(self) -> None:
         parser = build_parser()

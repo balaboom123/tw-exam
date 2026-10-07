@@ -1,4 +1,5 @@
 import gzip
+import hashlib
 import importlib.util
 import io
 import json
@@ -9,6 +10,9 @@ import tarfile
 from pathlib import Path
 
 import pytest
+
+from app.storage import MirrorStore
+from app.source_revisions import revision_blob_key
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
@@ -87,6 +91,25 @@ def test_chunked_roundtrip_preserves_payloads_and_provider_ownership(packed, tmp
     assert payload["payload_bytes"] == 4096
     assert payload["unpacked_bytes"] == 8192
     assert (restored / "hardlink.pdf").samefile(restored / "111/數學.pdf")
+
+
+def test_durable_roundtrip_preserves_independent_revision_bytes(tmp_path):
+    source = tmp_path / 'source'
+    store = MirrorStore(source / 'mirror')
+    key = f'providers/{PROVIDER}/111/question.pdf'
+    original = b'%PDF-1.7 old source revision'
+    store.write_bytes(key, original)
+    store.write_bytes(key, b'%PDF-1.7 current source revision', overwrite=True)
+    blob_key = revision_blob_key(PROVIDER, hashlib.sha256(original).hexdigest(), '.pdf')
+    manifest = mirror.pack(source, PROVIDER, 'with-revisions', tmp_path / 'snapshot', chunk_bytes=257)
+    restored = tmp_path / 'restored'
+    mirror.unpack(restored, PROVIDER, manifest, 'with-revisions')
+    blob = restored / 'mirror' / blob_key
+    current = restored / 'mirror' / key
+    assert blob.read_bytes() == original
+    assert not blob.samefile(current)
+    current.write_bytes(b'recovered current file later changes')
+    assert blob.read_bytes() == original
 
 
 def test_corrupt_chunk_fails_before_installing_any_files(packed, tmp_path):

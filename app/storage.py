@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
 from app.models import NormalizedCatalog, SourceExamPage, StoredFile
+from app.source_revisions import REVISION_DIRECTORY, is_revision_blob_key, preserve_mirror_payload
 
 DEDUPE_INDEX_FILE = ".mirror-dedupe-index.json"
 
@@ -177,6 +178,14 @@ class MirrorStore:
     def _register_checksum(self, checksum: str, size: int, storage_key: str) -> None:
         index = self._load_dedupe_index()
         entry = index.get(checksum)
+        if (
+            entry is not None
+            and is_revision_blob_key(str(entry.get("storage_key", "")))
+            and not is_revision_blob_key(storage_key)
+        ):
+            # Prefer a current independent copy for future hard-link sharing.
+            self._discard_checksum(checksum)
+            entry = None
         if entry is None:
             index[checksum] = {"storage_key": storage_key, "size": size}
             self._checksums_by_path.setdefault(storage_key, set()).add(checksum)
@@ -200,6 +209,10 @@ class MirrorStore:
             self._discard_checksum(checksum)
             return None
         path = self.root / Path(storage_key)
+        # Historical recovery bytes remain independent copies. A current
+        # locator must not become a hard link to an immutable revision blob.
+        if is_revision_blob_key(storage_key):
+            return None
         if path.is_file() and path.stat().st_size == size and self._checksum_path(path) == checksum:
             return path
         self._discard_checksum(checksum)
@@ -238,11 +251,17 @@ class MirrorStore:
     def delete_matching_except(self, storage_key_prefix: str, keep_storage_key: str) -> None:
         keep_path = self.root / Path(keep_storage_key)
         removed_storage_keys: set[str] = set()
+        retained_payloads = []
         for candidate in dict.fromkeys(self._candidate_paths(storage_key_prefix)):
             if candidate != keep_path:
+                retained = preserve_mirror_payload(self.root, self._storage_key_for_path(candidate))
+                if retained is not None:
+                    retained_payloads.append(retained)
                 removed_storage_keys.add(self._storage_key_for_path(candidate))
                 candidate.unlink(missing_ok=True)
         self._discard_index_paths(removed_storage_keys)
+        for revision_key, checksum, size in retained_payloads:
+            self._register_checksum(checksum, size, revision_key)
 
     def write_bytes(self, storage_key: str, data: bytes, *, overwrite: bool = False) -> StoredFile:
         self._ensure_dedupe_index()
@@ -254,7 +273,15 @@ class MirrorStore:
 
         checksum = hashlib.sha256(data).hexdigest()
         size = len(data)
+        retained = None
+        if not created:
+            if self._checksum_path(path) == checksum:
+                return self._stored_file_for_path(path, created=False, checksum=checksum, size=size)
+            retained = preserve_mirror_payload(self.root, storage_key)
         self._discard_index_paths({storage_key})
+        if retained is not None:
+            revision_key, revision_checksum, revision_size = retained
+            self._register_checksum(revision_checksum, revision_size, revision_key)
         canonical_path = self._canonical_path(checksum, size)
         if canonical_path is None:
             temporary_path = path.with_name(f".{path.name}.write-{uuid.uuid4().hex}")
@@ -272,7 +299,10 @@ class MirrorStore:
         )
 
     def deduplicate_existing(self, *, apply: bool = False) -> MirrorDedupeResult:
-        paths = self._payload_paths()
+        all_paths = self._payload_paths()
+        paths = [
+            path for path in all_paths if not is_revision_blob_key(self._storage_key_for_path(path))
+        ]
         payloads: dict[tuple[int, str], list[Path]] = {}
         for path in paths:
             size = path.stat().st_size
@@ -303,6 +333,16 @@ class MirrorStore:
                 if apply:
                     self._replace_with_hard_link(canonical_path, duplicate_path)
 
+        for path in all_paths:
+            if is_revision_blob_key(self._storage_key_for_path(path)):
+                checksum = self._checksum_path(path)
+                rebuilt_index.setdefault(
+                    checksum,
+                    {
+                        "storage_key": self._storage_key_for_path(path),
+                        "size": path.stat().st_size,
+                    },
+                )
         if apply:
             self._set_dedupe_index(rebuilt_index)
             self._index_dirty = True
@@ -372,7 +412,12 @@ class MirrorStore:
                 f"no referenced storage keys were found."
             )
         provider_root = self.root / "providers" / provider_id
-        paths = [path for path in self._payload_paths() if path.is_relative_to(provider_root)]
+        revision_root = provider_root / REVISION_DIRECTORY
+        paths = [
+            path
+            for path in self._payload_paths()
+            if path.is_relative_to(provider_root) and not path.is_relative_to(revision_root)
+        ]
         files_by_key = {self._storage_key_for_path(path): path for path in paths}
         missing_references = references - files_by_key.keys()
         if missing_references:

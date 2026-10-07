@@ -32,6 +32,7 @@ from app.release_tags import (
 )
 from app.review_queue import encode_review_queue
 from app.site_registry import get_site_config
+from app.source_revisions import retain_superseded_sources
 from app.state import filter_catalog_by_canonical_ids, load_provider_state, load_site_bundles
 
 T = TypeVar("T")
@@ -117,6 +118,10 @@ def write_provider_state(
     failures: list[SyncFailure],
     manifest: SourceManifest | None,
 ) -> None:
+    previous_pages, previous_catalog, _previous_failures = load_provider_state(provider)
+    retain_superseded_sources(
+        provider, previous_pages, previous_catalog.papers, raw_pages, normalized.papers
+    )
     provider.data_dir.mkdir(parents=True, exist_ok=True)
     _write_split_by_year(provider.exams_dir, raw_pages, lambda page: page.year_ad)
     _write_split_by_year(

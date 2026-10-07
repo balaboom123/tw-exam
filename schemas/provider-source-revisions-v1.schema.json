@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/provider-source-revisions-v1.schema.json",
+  "title": "Provider source revision recovery journal",
+  "type": "object",
+  "required": ["schema_version", "provider_id", "revisions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider_id": {"type": "string", "minLength": 1},
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "record_type", "source_record", "blob_storage_key", "retained_at", "reason"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "record_type": {"enum": ["paper", "attachment"]},
+          "source_record": {
+            "type": "object",
+            "required": ["provider_id", "year_roc", "source_exam_id", "file_type", "download_url_source", "checksum", "storage_key"],
+            "properties": {
+              "provider_id": {"type": "string", "minLength": 1},
+              "year_roc": {"type": "integer"},
+              "source_exam_id": {"type": "string"},
+              "file_type": {"type": "string"},
+              "download_url_source": {"type": "string"},
+              "checksum": {"type": "string", "pattern": "^(?:[0-9a-f]{64})?$"},
+              "storage_key": {"type": "string"}
+            },
+            "additionalProperties": true
+          },
+          "blob_storage_key": {"type": ["string", "null"]},
+          "retained_at": {"type": "string", "format": "date-time"},
+          "reason": {"enum": ["payload_replaced", "source_reference_retired"]}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

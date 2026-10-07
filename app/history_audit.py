@@ -36,6 +36,7 @@ from app.provider_index import (
 from app.providers.registry import get_provider
 from app.publication_quarantine import quarantined_provider_ids
 from app.site_registry import get_site_config
+from app.source_revisions import audit_source_revisions
 from app.state import load_provider_failures, load_provider_state, load_site_bundles
 
 
@@ -156,6 +157,9 @@ def build_history_coverage_audit(
 
     for provider_id in selected_provider_ids:
         provider = provider_paths(repo_root, provider_id)
+        revision_audit = audit_source_revisions(provider, verify_mirror=check_mirror)
+        if revision_audit["errors"]:
+            status_counts["source_revision_download_gap"] += len(revision_audit["errors"])
         index = load_provider_index(provider)
         if index is None:
             raw_pages, catalog, failures = load_provider_state(provider)
@@ -319,6 +323,7 @@ def build_history_coverage_audit(
                 "orphan_coverage_exceptions": orphan_coverage_exceptions,
                 "events": events,
                 "source_probe": source_probe,
+                "source_revisions": revision_audit,
             }
         )
 
@@ -387,6 +392,7 @@ def history_audit_exit_code(report: dict[str, Any], *, strict: bool) -> int:
                 "coverage_exception_conflict",
                 "coverage_exception_orphan",
                 "parser_gap",
+                "source_revision_download_gap",
             )
         )
     )

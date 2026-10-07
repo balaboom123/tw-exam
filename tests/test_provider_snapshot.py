@@ -1,9 +1,14 @@
 import importlib.util
 import json
 import subprocess
+import shutil
 from pathlib import Path
 
 import pytest
+
+from app.models import NormalizedPaper
+from app.paths import provider_paths
+from app.source_revisions import retain_superseded_sources, revision_journal_path
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location(
@@ -94,3 +99,35 @@ def test_provider_only_snapshot_removes_a_stale_publication_plan(snapshot_reposi
     stale.write_text('stale plan from another sync')
     snapshot_module.apply_snapshot(root, artifact, 'ceec_ast', base)
     assert not stale.exists()
+
+
+@pytest.mark.parametrize('disposition', ['deleted', 'rewritten', 'preserved'])
+def test_snapshot_preserves_earlier_revision_journal(snapshot_repository, disposition):
+    root, artifact, _base = snapshot_repository
+    provider = provider_paths(root, 'ceec_ast')
+    old = NormalizedPaper(
+        provider_id='ceec_ast', canonical_id='ast', canonical_name='分科測驗',
+        year_roc=115, exam_name_raw='分科測驗', category_raw='物理', subject_name_raw='物理',
+        paper_code='physics-question', file_type='question',
+        download_url_source='https://example.test/physics.pdf', source_exam_id='115-ast',
+    )
+    retain_superseded_sources(provider, [], [old], [], [])
+    journal = revision_journal_path(provider)
+    original = journal.read_bytes()
+    git(root, 'add', 'data')
+    git(root, 'commit', '-qm', 'retain earlier source reference')
+    base = git(root, 'rev-parse', 'HEAD')
+    if disposition != 'deleted':
+        target = revision_journal_path(provider_paths(artifact, 'ceec_ast'))
+        shutil.copyfile(journal, target)
+        if disposition == 'rewritten':
+            payload = json.loads(target.read_text())
+            payload['revisions'][0]['retained_at'] = '2026-10-07T00:00:00+00:00'
+            target.write_text(json.dumps(payload))
+    if disposition == 'preserved':
+        snapshot_module.apply_snapshot(root, artifact, 'ceec_ast', base)
+    else:
+        with pytest.raises(ValueError, match='would lose source revision'):
+            snapshot_module.apply_snapshot(root, artifact, 'ceec_ast', base)
+        assert json.loads((provider.data_dir / 'index.json').read_text()) == {'papers': ['original']}
+    assert journal.read_bytes() == original

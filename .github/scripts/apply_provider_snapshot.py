@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from app.providers.registry import get_provider
+from app.paths import provider_paths
+from app.source_revisions import validate_revision_conservation
 
 
 def apply_snapshot(
@@ -40,6 +42,9 @@ def apply_snapshot(
             f"Provider {provider_id} changed after this sync started, or its baseline is unavailable; "
             "rerun the caller against current main"
         )
+    validate_revision_conservation(
+        provider_paths(repo_root, provider_id), provider_paths(snapshot, provider_id)
+    )
     destination = repo_root / provider_path
     if destination.exists():
         shutil.rmtree(destination)

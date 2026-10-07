@@ -7,6 +7,8 @@ from app.providers.sfi_cert.client import SfiCertClient
 
 class SfiCertProvider(SourceProvider):
     provider_id = "sfi_cert"
+    # PHID download slots can serve revised material without changing URLs.
+    refresh_files_on_sync = True
 
     def __init__(self, client: SfiCertClient | None = None) -> None:
         self.client = client or SfiCertClient()

@@ -14,6 +14,30 @@ Preserve retained provider state and evidence first. Use the smallest repair tha
 
 For a matrix caller, identify the provider from the failed job name and its sync summary. Provider snapshots retain failure evidence in the run's artifacts; the mirror cache and durable backup preserve downloaded payloads. If publication reports that the provider changed after sync started, rerun the caller against current `main`. A publication-only retry reuses its original artifact and exact mirror cache, recovering that sync's pinned durable generation if the cache was evicted. If the artifact or durable generation is unavailable, run a fresh sync.
 
+When an official URL serves corrected bytes, add `--refresh-files` to the
+appropriate sync or repair command. Mutable-slot adapters already request file
+refresh. Restore the previous checksum-verified payload before refreshing if
+the provider writer reports that its earlier revision cannot be retained.
+Use the provider's matching durable generation or an earlier verified source
+archive; downloading today's bytes from the same URL does not recover its
+earlier version.
+
+`data/providers/<provider_id>/source-revisions.json` records superseded source
+references. Its `blob_storage_key` points to an immutable file under that
+provider's mirror recovery directory. Preserve this journal together with its
+blobs through state transfers, backup, and rollback. Routine mirror pruning
+and deduplication preserve the blobs, including copies saved by an interrupted
+sync before the journal was written. Diagnose unjournaled recovery files before
+any manual deletion. Recovery blobs follow the provider's existing backup
+policy; they do not authorize public backup or site publication. Hakka's public
+mirror backup prohibition still applies.
+
+After recovery, run `history-audit --strict` with its default mirror checking
+to verify the retained revisions. `--skip-mirror-check` reports metadata only
+and cannot establish that earlier bytes remain recoverable. Restore a current
+reference from a recovery blob only after checking its recorded checksum and
+source context; never select a blob by URL alone.
+
 ## Durable provider mirror backup
 
 `.github/scripts/mirror_snapshots.py` stores provider payloads in public prereleases

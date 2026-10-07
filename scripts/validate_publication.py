@@ -22,6 +22,7 @@ from app.provider_index import PAPER_BUNDLE_ID, PAPER_CANONICAL_ID, PAPER_SOURCE
 from app.provenance import project_provenance
 from app.site_registry import get_site_config
 from app.source_inventory import validate_source_inventory
+from app.source_revisions import load_source_revisions
 from app.state import load_provider_failures
 
 GENERIC_SUBJECT_PREFIXES = tuple(
@@ -47,6 +48,7 @@ def validate_provider_site_coverage(site_bundle_ids: set[str], *, repo_root: Pat
         provider = provider_paths(repo_root, provider_id)
         if not provider.data_dir.exists():
             continue
+        load_source_revisions(provider)
         provider_failures = load_provider_failures(provider)
         exceptions = load_coverage_exceptions(repo_root, provider_id)
         unresolved_failures.extend(

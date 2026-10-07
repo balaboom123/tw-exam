@@ -10,6 +10,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Raw events, review entries, failures, aliases | [Models](../../app/models.py), [state](../../app/state.py) | `data/providers/<provider_id>/` |
 | Compact review ledger | [Review schema](../../schemas/review-queue-v2.schema.json), [codec](../../app/review_queue.py) | `data/providers/<provider_id>/review-queue.json` |
 | Successful event sync receipts | [Sync status schema](../../schemas/provider-sync-status-v1.schema.json), [provenance](../../app/provenance.py) | `data/providers/<provider_id>/sync-status.json` |
+| Superseded source references and payloads | [Revision schema](../../schemas/provider-source-revisions-v1.schema.json), [retention owner](../../app/source_revisions.py) | `data/providers/<provider_id>/source-revisions.json`, `mirror/providers/<provider_id>/recovery/source-revisions/` |
 | Normalized papers | [Normalized-paper schema](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
 | Derived provider index | [Index schema](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
 | Reviewed source scope and evidence | [Inventory schema](../../schemas/source-inventory.schema.json), [inventory validator](../../app/source_inventory.py) | `catalog/source-inventory.json` |
@@ -46,6 +47,18 @@ filenames through the record version; ASCII labels do not select a separate
 classification or publication path.
 
 Scoped provider writers omit the optional legacy `download_url_bundle` field; current download URLs belong to site publication state. Readers retain compatibility with earlier provider records and default an absent field to an empty string. The legacy root-layout writer remains available for migration consumers.
+
+The source revision journal preserves an earlier normalized paper or attachment
+when its source reference is retired or its payload checksum changes. Its key
+includes the provider, native event, year, category, subject, file role, source
+URL, and checksum. Classification changes alone do not create source revisions.
+The journal retains original source fields and independently copied,
+checksum-addressed bytes; it is recovery evidence outside the current site feed.
+An earlier revision must not satisfy a current download merely because its URL
+matches. Records without a verified checksum retain metadata with no claimed
+payload. `retained_at` is the UTC retention time, not an examination or edition
+date. Readers reject unsupported versions, mismatched ownership, duplicate ids,
+and inconsistent source keys or blob locators.
 
 Review queues contain unresolved normalization work and remain provider-scoped unless a site explicitly owns cross-provider canonicalization. Failure rows use the shared model and retain enough event, file, URL, and stage information for machine-readable triage and recovery.
 

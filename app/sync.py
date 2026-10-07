@@ -318,7 +318,9 @@ def sync_exam_pages(
     alias_rules: list[AliasRule],
     mirror_base_url: str,
     download_attachments: bool = True,
+    refresh_files: bool = False,
 ) -> tuple[list[SourceExamPage], NormalizedCatalog, list[SyncFailure]]:
+    refresh_files = refresh_files or bool(getattr(client, "refresh_files_on_sync", False))
     raw_pages: list[SourceExamPage] = []
     normalized_papers = []
     review_queue = []
@@ -386,10 +388,11 @@ def sync_exam_pages(
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             for start in range(0, len(requests), max_workers):
                 batch: list[tuple[_MirrorRequest, StoredFile | Future[tuple[bytes, str]]]] = []
+                pending_by_prefix: dict[str, Future[tuple[bytes, str]]] = {}
                 for request in requests[start : start + max_workers]:
                     try:
                         stored = stored_by_prefix.get(request.prefix)
-                        if stored is None:
+                        if stored is None and not refresh_files:
                             stored = _existing_mirrored(
                                 mirror_store, request.prefix, request.file_type
                             )
@@ -397,17 +400,16 @@ def sync_exam_pages(
                             stored_by_prefix[request.prefix] = stored
                             batch.append((request, stored))
                         else:
-                            batch.append(
-                                (
-                                    request,
-                                    executor.submit(
-                                        _download_validated,
-                                        client,
-                                        request.file_type,
-                                        request.url,
-                                    ),
+                            pending = pending_by_prefix.get(request.prefix)
+                            if pending is None:
+                                pending = executor.submit(
+                                    _download_validated,
+                                    client,
+                                    request.file_type,
+                                    request.url,
                                 )
-                            )
+                                pending_by_prefix[request.prefix] = pending
+                            batch.append((request, pending))
                     except Exception as exc:
                         failures.append(
                             SyncFailure(

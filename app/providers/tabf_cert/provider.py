@@ -7,6 +7,8 @@ from app.providers.tabf_cert.client import TabfCertClient
 
 class TabfCertProvider(SourceProvider):
     provider_id = "tabf_cert"
+    # The official material slots are mutable; local presence is not freshness.
+    refresh_files_on_sync = True
 
     def __init__(self, client: TabfCertClient | None = None) -> None:
         self.client = client or TabfCertClient()
