@@ -17,6 +17,8 @@ from dataclasses import asdict, dataclass
 from functools import lru_cache
 from typing import Any
 
+from app.moex_identity_evidence import resolve_moex_category_identity
+
 IDENTITY_SCHEMA_VERSION = 2
 CATALOG_VERSION = "exam-identity-v2"
 BUNDLE_POLICY_ID = "default-bundle-policy-v2"
@@ -194,9 +196,9 @@ _LEVEL_LABELS = {
     "basic-elementary": "基礎級暨初級",
     "intermediate-high-intermediate": "中級暨中高級",
     "advanced": "高級",
-    "paper-a": "A卷",
-    "paper-b": "B卷",
-    "paper-c": "C卷",
+    "cefr-a1-a2": "A1 基礎級／A2 初級",
+    "cefr-b1-b2": "B1 中級／B2 中高級",
+    "cefr-c1-c2": "C1 高級／C2 專業級",
     "single": "單一級",
     "class-a": "甲級",
     "class-b": "乙級",
@@ -296,11 +298,15 @@ def _stage_id(category: str, exam_name: str) -> str:
 
 
 @lru_cache(maxsize=8192)
-def _clean_moex_track(category: str, canonical_name: str) -> str:
+def _clean_moex_track(category: str, canonical_name: str, series_id: str = "") -> str:
     value = normalize_text(category or canonical_name)
     if "_" in value:
         value = value.split("_")[-1]
     value = re.sub(r"^\d+(?:年|\s+)", "", value)
+    if series_id == "special-national-security":
+        value = re.sub(r"^(?:國家安全局)?國家安全情報人員(?:考試)?", "", value)
+    elif series_id == "special-investigation":
+        value = re.sub(r"^(?:法務部調查局調查人員|調查局調查人員|調查人員)(?:考試)?", "", value)
     value = re.sub(r"^(?:專門職業及技術人員|專技)(?:高等|普通|特種)?考試", "", value)
     value = re.sub(r"^(?:高等|普通|初等|特種)考試", "", value)
     value = re.sub(
@@ -339,6 +345,7 @@ def _track_details(
     subject_code: str,
     source_exam_id: str,
     exam_name: str,
+    series_id: str = "",
 ) -> tuple[str, str]:
     if provider_id == "wdasec_skill":
         value = normalize_text(subject_name) or normalize_text(subject_code)
@@ -397,7 +404,7 @@ def _track_details(
     if provider_id in {"hce_cmu", "hce_tcu", "hce_nsysu", "hce_nthu"}:
         return _slug(canonical_id, prefix="hce"), _display(canonical_name, canonical_id)
     if provider_id == "moex":
-        value = _clean_moex_track(category, canonical_name)
+        value = _clean_moex_track(category, canonical_name, series_id)
         return _slug(value, prefix="track"), value
     value = (
         normalize_text(category) or normalize_text(canonical_name) or normalize_text(subject_name)
@@ -603,6 +610,16 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     )
 
 
+def _taigi_form(text: str) -> str | None:
+    # A/B/C are paper forms covering pairs of official proficiency levels.
+    # Conflicting form markers cannot select one of those bands.
+    matches = re.findall(
+        r"(?<![A-Za-z0-9])([ABC])\s*卷|卷\s*([ABC])(?![A-Za-z0-9])", text, re.IGNORECASE
+    )
+    forms = {first.upper() or second.upper() for first, second in matches}
+    return next(iter(forms)) if len(forms) == 1 else None
+
+
 def _non_moex_level(
     provider_id: str, category: str, canonical_id: str, subject_name: str
 ) -> tuple[str, str, str, str]:
@@ -637,14 +654,14 @@ def _non_moex_level(
                     f"Hakka provider mapping: {level_id}",
                 )
     if provider_id == "taigi_cert":
-        match = re.search(r"(?:卷|[-_])([ABC])\b", text, re.IGNORECASE)
-        if match:
-            level_id = f"paper-{match.group(1).lower()}"
+        form = _taigi_form(text)
+        if form is not None:
+            level_id = {"A": "cefr-a1-a2", "B": "cefr-b1-b2", "C": "cefr-c1-c2"}[form]
             return (
                 level_id,
                 _LEVEL_LABELS[level_id],
                 "high",
-                f"Taiwanese language paper marker: {match.group(1).upper()}卷",
+                f"official Taiwanese proficiency band for {form}卷",
             )
     if provider_id == "wdasec_skill":
         for marker, level_id in (
@@ -655,7 +672,7 @@ def _non_moex_level(
         ):
             if marker in text:
                 return level_id, marker, "high", f"skill certification level marker: {marker}"
-    if provider_id in {"gept_cert", "jlpt_cert", "wdasec_skill"}:
+    if provider_id in {"gept_cert", "jlpt_cert", "wdasec_skill", "taigi_cert"}:
         # These programmes have official levels. An absent or unsupported
         # marker is missing evidence, not proof that the dimension is absent.
         return (
@@ -1057,6 +1074,7 @@ def _classify_paper_uncached(
     canonical_name: str,
     subject_name_raw: str = "",
     subject_code: str = "",
+    category_code: str = "",
 ) -> ExamIdentity:
     provider_id = normalize_text(provider_id) or "unknown-provider"
     category = normalize_text(category_raw)
@@ -1066,6 +1084,22 @@ def _classify_paper_uncached(
         domain_id, family_id, series_id, series_label = _moex_series(
             category, exam_name, level_id, canonical_id
         )
+        reviewed = resolve_moex_category_identity(
+            source_exam_id, year_ad, category_code, category_raw, exam_name_raw
+        )
+        if reviewed is not None:
+            if (
+                not reviewed.series_id.startswith("special-")
+                or reviewed.series_id not in _SERIES_LABELS
+            ):
+                raise ValueError(f"Invalid MOEX special programme in {reviewed.fact_id}")
+            if reviewed.level_id not in _LEVEL_LABELS:
+                raise ValueError(f"Invalid MOEX native grade in {reviewed.fact_id}")
+            domain_id, family_id = "civil-service", "civil-service-exam"
+            series_id, series_label = reviewed.series_id, _SERIES_LABELS[reviewed.series_id]
+            level_id, level_label = reviewed.level_id, _LEVEL_LABELS[reviewed.level_id]
+            confidence = "high"
+            reason = f"reviewed official question headers: {reviewed.fact_id}"
         if series_id in {series for _marker, series in _TRANSPORT_PROMOTION_SERIES}:
             # Historical listings sometimes abbreviate the destination rank.
             # The transport-promotion rules and retained official headers use
@@ -1102,8 +1136,13 @@ def _classify_paper_uncached(
         subject_code,
         source_exam_id,
         exam_name,
+        series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "taigi_cert":
+        form = _taigi_form(normalize_text(f"{category} {subject_name_raw}"))
+        if form is not None:
+            variant_pairs = (*variant_pairs, (f"paper-form-{form.lower()}", f"{form}卷"))
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
     if not source_exam_id:
@@ -1153,6 +1192,10 @@ def _classify_paper_uncached(
                 label = re.sub(r"\s*(?:甲級|乙級|丙級|單一級)\s*$", "", label)
             if label and label != bundle_name:
                 bundle_name = f"{bundle_name}｜{label}"
+        if provider_id == "taigi_cert":
+            for _variant, form_label in variant_pairs:
+                if form_label not in bundle_name:
+                    bundle_name += f"｜{form_label}"
     return ExamIdentity(
         provider_id=provider_id,
         domain_id=domain_id,
@@ -1204,6 +1247,7 @@ def _classify_moex_record(
     exam_name_raw: str,
     canonical_id: str,
     canonical_name: str,
+    category_code: str,
 ) -> ExamIdentity:
     # MOEX classification depends on the event and category, not the paper's
     # subject. Hundreds of papers can therefore share one immutable identity.
@@ -1215,6 +1259,7 @@ def _classify_moex_record(
         exam_name_raw=exam_name_raw,
         canonical_id=canonical_id,
         canonical_name=canonical_name,
+        category_code=category_code,
     )
 
 
@@ -1229,6 +1274,7 @@ def classify_paper(
     canonical_name: str,
     subject_name_raw: str = "",
     subject_code: str = "",
+    category_code: str = "",
 ) -> ExamIdentity:
     if provider_id == "moex":
         return _classify_moex_record(
@@ -1238,6 +1284,7 @@ def classify_paper(
             exam_name_raw,
             canonical_id,
             canonical_name,
+            category_code,
         )
     return _classify_paper_uncached(
         provider_id=provider_id,
@@ -1249,6 +1296,7 @@ def classify_paper(
         canonical_name=canonical_name,
         subject_name_raw=subject_name_raw,
         subject_code=subject_code,
+        category_code=category_code,
     )
 
 
@@ -1263,6 +1311,7 @@ def classify_normalized_paper(paper: Any) -> ExamIdentity:
         canonical_name=getattr(paper, "canonical_name", ""),
         subject_name_raw=getattr(paper, "subject_name_raw", ""),
         subject_code=getattr(paper, "subject_code", ""),
+        category_code=getattr(paper, "category_code", ""),
     )
 
 

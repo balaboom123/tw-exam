@@ -19,6 +19,39 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_taigi_forms_expose_native_proficiency_bands_and_separate_variants(self) -> None:
+        identities = []
+        for form, level in (("A", "cefr-a1-a2"), ("B", "cefr-b1-b2"), ("C", "cefr-c1-c2")):
+            with self.subTest(form=form):
+                identity = classify(f"臺灣台語官方試題範例_{form}卷", "官方範例", provider="taigi_cert")
+                self.assertEqual(identity.level_id, level)
+                self.assertEqual(identity.variant_ids, (f"paper-form-{form.lower()}",))
+                self.assertEqual(identity.confidence, "high")
+                self.assertIn(f"{form}卷", identity.bundle_name)
+                self.assertNotIn("paper-", identity.level_id)
+                identities.append(identity.bundle_id)
+        self.assertEqual(len(set(identities)), 3)
+        for category, subject in (("官方範例", ""), ("D卷", ""), ("A卷", "B卷音檔")):
+            with self.subTest(category=category, subject=subject):
+                identity = classify(category, "官方範例", provider="taigi_cert", subject=subject)
+                self.assertEqual(identity.level_id, "unknown")
+                self.assertEqual(identity.confidence, "review")
+                self.assertEqual(identity.variant_ids, ())
+
+    def test_security_programme_heading_is_not_a_second_track(self) -> None:
+        for programme, event, track in (
+            ("國家安全情報人員", "國家安全局國家安全情報人員考試", "資訊組"),
+            ("調查人員", "法務部調查局調查人員考試", "調查工作組"),
+        ):
+            with self.subTest(programme=programme):
+                historical = classify(f"{programme}考試三等考試{track}（選試英文）", event)
+                current = classify(f"三等考試_{track}（選試英文）", event)
+                self.assertEqual(historical.bundle_id, current.bundle_id)
+                self.assertEqual(historical.bundle_name, current.bundle_name)
+                self.assertEqual(historical.variant_ids, current.variant_ids)
+                other = classify(f"三等考試_{track}（選試日文）", event)
+                self.assertNotEqual(current.bundle_id, other.bundle_id)
+
     def test_police_programmes_do_not_merge_matching_levels_and_tracks(self) -> None:
         event = "115年公務人員特種考試警察人員考試、一般警察人員考試、國家安全情報人員考試"
         police = classify("警察人員考試三等考試_行政警察人員", event)

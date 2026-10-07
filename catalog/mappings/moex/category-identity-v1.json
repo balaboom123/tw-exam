@@ -1,0 +1,1248 @@
+{
+  "schema_version": 1,
+  "catalog_version": "exam-identity-v2",
+  "provider_id": "moex",
+  "owner": "catalog maintainers",
+  "facts": [
+    {
+      "id": "moex-091240-category-301",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "301",
+      "category_raw": "調查工作組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=301&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "d6b3004841015f107c3fe1e52b8cfa1df27720cf368519f86f8c01269ddc9fe3",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-091240-category-305",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "305",
+      "category_raw": "法律實務組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=305&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "d6b3004841015f107c3fe1e52b8cfa1df27720cf368519f86f8c01269ddc9fe3",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-091240-category-307",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "307",
+      "category_raw": "財經實務組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=307&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "d6b3004841015f107c3fe1e52b8cfa1df27720cf368519f86f8c01269ddc9fe3",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-091240-category-308",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "308",
+      "category_raw": "化學鑑識組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=308&s=c121&q=1",
+          "subject_code": "c121",
+          "checksum": "187b59ee8c6cf60c0d547664cb510c8b91f1e3961e0913875978d84779140123",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-091240-category-309",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "309",
+      "category_raw": "醫學鑑識組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=309&s=c121&q=1",
+          "subject_code": "c121",
+          "checksum": "187b59ee8c6cf60c0d547664cb510c8b91f1e3961e0913875978d84779140123",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-091240-category-310",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "310",
+      "category_raw": "電子科學組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=310&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "d6b3004841015f107c3fe1e52b8cfa1df27720cf368519f86f8c01269ddc9fe3",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-091240-category-311",
+      "source_exam_id": "091240",
+      "year_ad": 2002,
+      "category_code": "311",
+      "category_raw": "資訊科學組",
+      "exam_name_raw": "091年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=091240&c=311&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "d6b3004841015f107c3fe1e52b8cfa1df27720cf368519f86f8c01269ddc9fe3",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-092261-category-101",
+      "source_exam_id": "092261",
+      "year_ad": 2003,
+      "category_code": "101",
+      "category_raw": "政經組",
+      "exam_name_raw": "092年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092261&c=101&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "2fb057a9c6ece18041d5cebae76cae29005783d7494266a2fa95bd0231f358ef",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-092261-category-103",
+      "source_exam_id": "092261",
+      "year_ad": 2003,
+      "category_code": "103",
+      "category_raw": "社會組",
+      "exam_name_raw": "092年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092261&c=103&s=c041&q=1",
+          "subject_code": "c041",
+          "checksum": "fec4b9f4d068dd2a98665de9c1f36312ca33364dbfe0ae8827c390bb488b45ed",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-092261-category-105",
+      "source_exam_id": "092261",
+      "year_ad": 2003,
+      "category_code": "105",
+      "category_raw": "國際組",
+      "exam_name_raw": "092年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092261&c=105&s=c061&q=1",
+          "subject_code": "c061",
+          "checksum": "2fb057a9c6ece18041d5cebae76cae29005783d7494266a2fa95bd0231f358ef",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-092261-category-106",
+      "source_exam_id": "092261",
+      "year_ad": 2003,
+      "category_code": "106",
+      "category_raw": "資訊組",
+      "exam_name_raw": "092年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092261&c=106&s=c051&q=1",
+          "subject_code": "c051",
+          "checksum": "6fc0f1c41a40c03c1d8546203e52da733ac96ccf186567bd53dc7d93d1d272e2",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-092261-category-108",
+      "source_exam_id": "092261",
+      "year_ad": 2003,
+      "category_code": "108",
+      "category_raw": "電子組",
+      "exam_name_raw": "092年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092261&c=108&s=c051&q=1",
+          "subject_code": "c051",
+          "checksum": "6fc0f1c41a40c03c1d8546203e52da733ac96ccf186567bd53dc7d93d1d272e2",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-092261-category-109",
+      "source_exam_id": "092261",
+      "year_ad": 2003,
+      "category_code": "109",
+      "category_raw": "數理組",
+      "exam_name_raw": "092年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=092261&c=109&s=c051&q=1",
+          "subject_code": "c051",
+          "checksum": "6fc0f1c41a40c03c1d8546203e52da733ac96ccf186567bd53dc7d93d1d272e2",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-101",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "101",
+      "category_raw": "調查工作組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=101&s=c021&q=1",
+          "subject_code": "c021",
+          "checksum": "bb88df28353f5705d659accae6e0f416063d59264fd9553affe25c42d02f3233",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-106",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "106",
+      "category_raw": "法律實務組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=106&s=c021&q=1",
+          "subject_code": "c021",
+          "checksum": "bb88df28353f5705d659accae6e0f416063d59264fd9553affe25c42d02f3233",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-107",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "107",
+      "category_raw": "財經實務組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=107&s=c021&q=1",
+          "subject_code": "c021",
+          "checksum": "bb88df28353f5705d659accae6e0f416063d59264fd9553affe25c42d02f3233",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-108",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "108",
+      "category_raw": "化學鑑識組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=108&s=c041&q=1",
+          "subject_code": "c041",
+          "checksum": "2d4bb1a64323b8ac5847e985b802fe2d36a67e1db951a33c908b0035ff8b15e8",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-109",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "109",
+      "category_raw": "醫學鑑識組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=109&s=c041&q=1",
+          "subject_code": "c041",
+          "checksum": "2d4bb1a64323b8ac5847e985b802fe2d36a67e1db951a33c908b0035ff8b15e8",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-110",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "110",
+      "category_raw": "電子科學組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=110&s=c021&q=1",
+          "subject_code": "c021",
+          "checksum": "bb88df28353f5705d659accae6e0f416063d59264fd9553affe25c42d02f3233",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-093150-category-111",
+      "source_exam_id": "093150",
+      "year_ad": 2004,
+      "category_code": "111",
+      "category_raw": "資訊科學組",
+      "exam_name_raw": "093年公務人員特種考試法務部調查局調查人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093150&c=111&s=c021&q=1",
+          "subject_code": "c021",
+          "checksum": "bb88df28353f5705d659accae6e0f416063d59264fd9553affe25c42d02f3233",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-097190-category-501",
+      "source_exam_id": "097190",
+      "year_ad": 2008,
+      "category_code": "501",
+      "category_raw": "國家安全情報人員政經組",
+      "exam_name_raw": "097年公務人員特種考試外交領事人員外交行政人員及國際新聞人員考試、97年公務人員特種考試國際經濟商務人員考試 、97年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=097190&c=501&s=c031&q=1",
+          "subject_code": "c031",
+          "checksum": "02d5a562a2ddf3ac891ab1578db5c01ac7568dd554882f179247a9d9b7ce44d7",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-097190-category-502",
+      "source_exam_id": "097190",
+      "year_ad": 2008,
+      "category_code": "502",
+      "category_raw": "國家安全情報人員資訊組",
+      "exam_name_raw": "097年公務人員特種考試外交領事人員外交行政人員及國際新聞人員考試、97年公務人員特種考試國際經濟商務人員考試 、97年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=097190&c=502&s=c041&q=1",
+          "subject_code": "c041",
+          "checksum": "bba9fde88a3e663b3f27f3e39a04912e1c818a8e4ffde92e67e56b649a9043ed",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-097190-category-503",
+      "source_exam_id": "097190",
+      "year_ad": 2008,
+      "category_code": "503",
+      "category_raw": "國家安全情報人員數理組",
+      "exam_name_raw": "097年公務人員特種考試外交領事人員外交行政人員及國際新聞人員考試、97年公務人員特種考試國際經濟商務人員考試 、97年公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=097190&c=503&s=c041&q=1",
+          "subject_code": "c041",
+          "checksum": "bba9fde88a3e663b3f27f3e39a04912e1c818a8e4ffde92e67e56b649a9043ed",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-401",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "401",
+      "category_raw": "調查人員考試調查工作組（選試英文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=401&s=c22&q=1",
+          "subject_code": "c22",
+          "checksum": "d03ec3559b13d0ef442487f051219d383ec305421ccd4669f4064ed26acfb6ea",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-402",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "402",
+      "category_raw": "調查人員考試調查工作組(選試西班牙文)",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=402&s=c23&q=1",
+          "subject_code": "c23",
+          "checksum": "c65392f3419b4d38c37027e75896e2f48e7a8ac00ad57568ee5aa20728ff4546",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-403",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "403",
+      "category_raw": "調查人員考試調查工作組（選試法文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=403&s=c22&q=1",
+          "subject_code": "c22",
+          "checksum": "d03ec3559b13d0ef442487f051219d383ec305421ccd4669f4064ed26acfb6ea",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-404",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "404",
+      "category_raw": "調查人員考試法律實務組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=404&s=c18&q=1",
+          "subject_code": "c18",
+          "checksum": "a7ee80322e28ab0e829309778bf3b6f76f3e42eee0d38a4b6f3093081597d13d",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-405",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "405",
+      "category_raw": "調查人員考試財經實務組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=405&s=c18&q=1",
+          "subject_code": "c18",
+          "checksum": "a7ee80322e28ab0e829309778bf3b6f76f3e42eee0d38a4b6f3093081597d13d",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-406",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "406",
+      "category_raw": "調查人員考試化學鑑識組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=406&s=c25&q=1",
+          "subject_code": "c25",
+          "checksum": "8fd0769a82f4c06e192a35af4b00b16f9bbd9c827a6282a049fd35165fe8f229",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-407",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "407",
+      "category_raw": "調查人員考試醫學鑑識組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=407&s=c25&q=1",
+          "subject_code": "c25",
+          "checksum": "8fd0769a82f4c06e192a35af4b00b16f9bbd9c827a6282a049fd35165fe8f229",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-408",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "408",
+      "category_raw": "調查人員考試電子科學組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=408&s=c26&q=1",
+          "subject_code": "c26",
+          "checksum": "c5e6a92ccd262485d739e9371d03550cd356caeda429a3a9c4ad5b4e7a9a08a0",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-409",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "409",
+      "category_raw": "調查人員考試資訊科學組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-investigation",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=409&s=c18&q=1",
+          "subject_code": "c18",
+          "checksum": "a7ee80322e28ab0e829309778bf3b6f76f3e42eee0d38a4b6f3093081597d13d",
+          "observation": "Official question header states 三等 and identifies 法務部調查局調查人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-501",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "501",
+      "category_raw": "國家安全情報人員考試政經組（選試英文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=501&s=c21&q=1",
+          "subject_code": "c21",
+          "checksum": "cc0d01b201a391317adbf3ed863698cf1cb23562796868b0ba363fb206509344",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-502",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "502",
+      "category_raw": "國家安全情報人員考試社會組(選試英文)",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=502&s=c27&q=1",
+          "subject_code": "c27",
+          "checksum": "8395a629d95f64373845e2af0c1ce2d6fd958ca53caa02ddd4f27b5f0f823523",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-503",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "503",
+      "category_raw": "國家安全情報人員考試社會組（選試日文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=503&s=c28&q=1",
+          "subject_code": "c28",
+          "checksum": "306a7ad5c6aae3d6fecf9e304948253997f09fc05794df112687f6b00b67bfbe",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-504",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "504",
+      "category_raw": "國家安全情報人員考試國際組（選試英文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=504&s=c30&q=1",
+          "subject_code": "c30",
+          "checksum": "ac435783e984cce049e3d5add1c1209f63c40908254fc839b1580cc609166d55",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-505",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "505",
+      "category_raw": "國家安全情報人員考試國際組（選試阿拉伯文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=505&s=c30&q=1",
+          "subject_code": "c30",
+          "checksum": "ac435783e984cce049e3d5add1c1209f63c40908254fc839b1580cc609166d55",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-506",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "506",
+      "category_raw": "國家安全情報人員考試國際組（選試日文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=506&s=c30&q=1",
+          "subject_code": "c30",
+          "checksum": "ac435783e984cce049e3d5add1c1209f63c40908254fc839b1580cc609166d55",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-507",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "507",
+      "category_raw": "國家安全情報人員考試國際組（選試西班牙文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=507&s=c30&q=1",
+          "subject_code": "c30",
+          "checksum": "ac435783e984cce049e3d5add1c1209f63c40908254fc839b1580cc609166d55",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-508",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "508",
+      "category_raw": "國家安全情報人員考試資訊組（選試英文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=508&s=c26&q=1",
+          "subject_code": "c26",
+          "checksum": "c5e6a92ccd262485d739e9371d03550cd356caeda429a3a9c4ad5b4e7a9a08a0",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-509",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "509",
+      "category_raw": "國家安全情報人員考試電子組（選試英文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=509&s=c26&q=1",
+          "subject_code": "c26",
+          "checksum": "c5e6a92ccd262485d739e9371d03550cd356caeda429a3a9c4ad5b4e7a9a08a0",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-510",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "510",
+      "category_raw": "國家安全情報人員考試數理組（選試英文）",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=510&s=c20&q=1",
+          "subject_code": "c20",
+          "checksum": "5c9030927cc4b642f221a1fe768f88491ddb3900c6e33b87f25c3a424040d1c1",
+          "observation": "Official question header states 三等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-601",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "601",
+      "category_raw": "國家安全情報人員考試行政組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-5",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=601&s=c32&q=1",
+          "subject_code": "c32",
+          "checksum": "afd605597fb58cdaa05694ab5de80160e5a8ce3e211e84ce70d6181ddb153f06",
+          "observation": "Official question header states 五等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-602",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "602",
+      "category_raw": "國家安全情報人員考試社會組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-5",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=602&s=c32&q=1",
+          "subject_code": "c32",
+          "checksum": "afd605597fb58cdaa05694ab5de80160e5a8ce3e211e84ce70d6181ddb153f06",
+          "observation": "Official question header states 五等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-603",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "603",
+      "category_raw": "國家安全情報人員考試資訊組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-5",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=603&s=c32&q=1",
+          "subject_code": "c32",
+          "checksum": "afd605597fb58cdaa05694ab5de80160e5a8ce3e211e84ce70d6181ddb153f06",
+          "observation": "Official question header states 五等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-099170-category-604",
+      "source_exam_id": "099170",
+      "year_ad": 2010,
+      "category_code": "604",
+      "category_raw": "國家安全情報人員考試電子組",
+      "exam_name_raw": "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+      "series_id": "special-national-security",
+      "level_id": "grade-5",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=099170&c=604&s=c32&q=1",
+          "subject_code": "c32",
+          "checksum": "afd605597fb58cdaa05694ab5de80160e5a8ce3e211e84ce70d6181ddb153f06",
+          "observation": "Official question header states 五等 and identifies 國家安全局國家安全情報人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-100110-category-201",
+      "source_exam_id": "100110",
+      "year_ad": 2011,
+      "category_code": "201",
+      "category_raw": "二等考試_刑事警察人員數位鑑識組",
+      "exam_name_raw": "100年公務人員特種考試一般警察人員考試、100年公務人員特種考試警察人員考試、100年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=100110&c=201&s=1311&q=1",
+          "subject_code": "1311",
+          "checksum": "f54e9a841c5ebdd303bb08455c781685ceca66e55861fc713af9fa79d772b5ad",
+          "observation": "Official question header states 二等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-100110-category-202",
+      "source_exam_id": "100110",
+      "year_ad": 2011,
+      "category_code": "202",
+      "category_raw": "二等考試_刑事警察人員電子監察組",
+      "exam_name_raw": "100年公務人員特種考試一般警察人員考試、100年公務人員特種考試警察人員考試、100年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=100110&c=202&s=2002&q=1",
+          "subject_code": "2002",
+          "checksum": "c6bb1cc48c2913f7f86041f66fcd2591defec00a40b5f7aa75e4de26a7ddf084",
+          "observation": "Official question header states 二等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-100110-category-203",
+      "source_exam_id": "100110",
+      "year_ad": 2011,
+      "category_code": "203",
+      "category_raw": "二等考試_刑事警察人員犯罪分析組",
+      "exam_name_raw": "100年公務人員特種考試一般警察人員考試、100年公務人員特種考試警察人員考試、100年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=100110&c=203&s=1314&q=1",
+          "subject_code": "1314",
+          "checksum": "65b7b88e7e80f57c9c1e7f8745c0ca392f35899f3228958a79db6fa1de596d98",
+          "observation": "Official question header states 二等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-201",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "201",
+      "category_raw": "二等考試_刑事警察人員數位鑑識組",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=201&s=1505&q=1",
+          "subject_code": "1505",
+          "checksum": "937c5dad2bfde60dac7ece6356d6ea8dace0ccc76b95a21cb189d19b710972a0",
+          "observation": "Official question header states 二等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-202",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "202",
+      "category_raw": "二等考試_刑事警察人員電子監察組",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=202&s=2201&q=1",
+          "subject_code": "2201",
+          "checksum": "10437cc9f9b9ae863cfaf8fe111005b30fef022fe26b45f0527edb66e0b6ae87",
+          "observation": "Official question header states 二等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-301",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "301",
+      "category_raw": "三等考試_行政警察人員",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=301&s=0801&q=1",
+          "subject_code": "0801",
+          "checksum": "8774040895b061cf2ac6cb5cbc4b77eff0dfd388c05302b0939d89bb27d5cd7b",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-302",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "302",
+      "category_raw": "三等考試_外事警察人員(選試英語)",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=302&s=1408&q=1",
+          "subject_code": "1408",
+          "checksum": "28bf8cf2223442b8e573f8cefaa8cc9b44565f501926a4bb565fee26833ff961",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-303",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "303",
+      "category_raw": "三等考試_外事警察人員(選試日語)",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=303&s=1408&q=1",
+          "subject_code": "1408",
+          "checksum": "28bf8cf2223442b8e573f8cefaa8cc9b44565f501926a4bb565fee26833ff961",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-304",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "304",
+      "category_raw": "三等考試_犯罪防治人員預防組",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=304&s=1004&q=1",
+          "subject_code": "1004",
+          "checksum": "418a520b61588ccc6877e25801f4793adf5ba473a41696ab504c63a48de87443",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-305",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "305",
+      "category_raw": "三等考試_警察資訊管理人員",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=305&s=1515&q=1",
+          "subject_code": "1515",
+          "checksum": "085358b354f03e7b9cde9c5a151f1c8be5f32000413be61453d9f8fa96e196b9",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-306",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "306",
+      "category_raw": "三等考試_警察法制人員",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=306&s=0801&q=1",
+          "subject_code": "0801",
+          "checksum": "8774040895b061cf2ac6cb5cbc4b77eff0dfd388c05302b0939d89bb27d5cd7b",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-307",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "307",
+      "category_raw": "三等考試_行政管理人員",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-3",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=307&s=1113&q=1",
+          "subject_code": "1113",
+          "checksum": "49a522a3e71317e713599a8cb409f4a714012a3f918ab7a0b02c96dae58be371",
+          "observation": "Official question header states 三等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-401",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "401",
+      "category_raw": "四等考試_行政警察人員",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-4",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=401&s=0803&q=1",
+          "subject_code": "0803",
+          "checksum": "aac48f722bcb1be5bf7f295965b06f5192b62b1df29114b01e4892988cf15208",
+          "observation": "Official question header states 四等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-402",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "402",
+      "category_raw": "四等考試_消防警察人員",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-4",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=402&s=1606&q=1",
+          "subject_code": "1606",
+          "checksum": "06daaa2a6a69b9706d2661a71349ceee2760b4abccf14e7a6320d25f3b063046",
+          "observation": "Official question header states 四等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-403",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "403",
+      "category_raw": "四等考試_水上警察人員輪機組",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-4",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=403&s=0902&q=1",
+          "subject_code": "0902",
+          "checksum": "04f55754a0af6a544ff27bfb9ddfedf15f47cffb3103bc1f19465b8cbb512e7d",
+          "observation": "Official question header states 四等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    },
+    {
+      "id": "moex-101080-category-404",
+      "source_exam_id": "101080",
+      "year_ad": 2012,
+      "category_code": "404",
+      "category_raw": "四等考試_水上警察人員航海組",
+      "exam_name_raw": "101年公務人員特種考試警察人員考試、101年公務人員特種考試一般警察人員考試、101年特種考試交通事業鐵路人員考試",
+      "series_id": "special-general-police",
+      "level_id": "grade-4",
+      "reviewed_at": "2026-10-07",
+      "reason": "The historical listing omits the programme heading or grade. This exact event/category is corroborated by its retained official question header; occupation, numeric codes and co-host order do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=101080&c=404&s=0904&q=1",
+          "subject_code": "0904",
+          "checksum": "fc4ae3adcca6cff0428fafc1954006947c4509a4bd3e64ce955fa4511f2bc60f",
+          "observation": "Official question header states 四等 and identifies 一般警察人員考試; the original native category identifies this programme/track when the paper is shared."
+        }
+      ]
+    }
+  ]
+}

@@ -25,6 +25,7 @@ The v2 rule is catalog-wide:
 | --- | --- |
 | Shared concepts and labels | catalog/taxonomy/exam-identity-v2.json |
 | MOEX level and promotion rules | app/classification.py |
+| Reviewed exact historical MOEX category facts | catalog/mappings/moex/category-identity-v1.json |
 | Provider membership and publication policy | app/site_registry.py and catalog/mappings/publication-quarantine.json |
 | Deterministic identity resolution | app/classification.py |
 | Normalized paper contract | schemas/normalized-paper-v2.schema.json |
@@ -45,7 +46,7 @@ The classifier returns an immutable ExamIdentity containing:
 - domain_id: broad domain such as civil service, admissions, certification, employment, or professional qualification;
 - exam_family_id: stable family within the domain;
 - exam_series_id: named official program, such as high, ordinary, elementary, local, promotion, or a provider-specific certification;
-- level_id: official grade, proficiency band, qualification class, form, or explicit not-applicable;
+- level_id: official grade, proficiency band, qualification class, or explicit not-applicable;
 - track_id: subject, 類科, profession, or qualification track;
 - variant_ids: content-changing group, language choice, population/destination group, or form;
 - stage_id: first/second/third/pretest stage when papers differ;
@@ -55,6 +56,22 @@ The classifier returns an immutable ExamIdentity containing:
 - confidence and reason: explainability and review state.
 
 A provider may use not-applicable. It must not be forced into MOEX grades when its official system has no equivalent.
+
+Historical MOEX listings may omit a programme heading or grade even when the
+official question header supplies it. Reviewed catalog facts match the exact
+event, year, native category code, category wording and event title. Native codes
+identify that source context; they are not grade numbering rules. The classifier
+uses an approved fact before applying missing-evidence review. A changed context
+does not inherit the decision. The schema gate checks retained question URLs,
+roles and checksums against every fact. Header extraction is evidence for manual
+review and must never automatically approve a mapping. Unreadable or conflicting
+headers remain unresolved.
+
+Once national-security or Investigation Bureau programme identity is resolved,
+its explicit heading is removed from the track label. A historical programme
+prefix and a current grade/track separator must not create different identities
+for the same programme, grade and group. Language choices remain content-changing
+variants; occupation words alone do not select a programme.
 
 Missing evidence for a level-based programme is `unknown` with a review
 disposition, rather than `not-applicable`. GEPT uses its own proficiency levels
@@ -66,6 +83,14 @@ certification distinguishes 甲級、乙級、丙級 and 單一級
 The classifier keeps records with absent or unsupported markers isolated by
 event until the source level is resolved. These official references were
 rechecked on 2026-10-07.
+
+Taiwanese-language A/B/C papers each cover two native proficiency levels, as
+defined by the [official test introduction](https://ttg.moe.edu.tw/tmt/view.php?page=questionBase),
+rechecked on 2026-10-07. Classification retains the proficiency band as the level
+and the paper form as a separate content-changing variant. An absent or
+conflicting form remains in review; it does not mean that proficiency is
+inapplicable. Resolving this dimension does not establish a date or turn sample
+material into administered exam papers.
 
 Transport recruitment and transport promotion have different meanings. Railway,
 highway, and port recruitment remain separate programmes even when one source

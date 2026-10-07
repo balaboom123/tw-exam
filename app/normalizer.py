@@ -355,6 +355,7 @@ def normalize_papers(
                 canonical_name=canonical_name,
                 subject_name_raw=paper.subject_name_raw,
                 subject_code=paper.subject_code,
+                category_code=paper.category_code,
             )
             fields = identity_fields(identity)
         if needs_review or (identity is not None and identity.confidence == "review"):
@@ -477,6 +478,7 @@ def renormalize_catalog(
                 canonical_name=canonical_name,
                 subject_name_raw=paper.subject_name_raw,
                 subject_code=paper.subject_code,
+                category_code=paper.category_code,
             )
             fields = identity_fields(identity)
         paper = replace(paper, canonical_id=canonical_id, canonical_name=canonical_name, **fields)

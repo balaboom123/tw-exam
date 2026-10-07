@@ -21,6 +21,18 @@ The history audit reconciles raw events, normalized records, mirror payloads, pu
 
 ## Reviewed source scope
 
+Historical MOEX category decisions live in the reviewed catalog, separately
+from generated records. Add a decision only after manually checking the official
+programme and grade in a retained question header. Bind its exact source context,
+question URL and SHA-256; use the schema gate to check that the anchor remains in
+retained history. Changed wording, a missing anchor or revised bytes require a
+fresh evidence review. Then run the full migration and publication sequence
+below. Keep unresolved headers in the provider review queue.
+
+```bash
+uv run python scripts/validate_schemas.py
+```
+
 ```bash
 uv run python scripts/validate_source_inventory.py
 ```

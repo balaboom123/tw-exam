@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/moex-category-identity-v1.schema.json",
+  "title": "Reviewed historical MOEX category identity facts",
+  "type": "object",
+  "required": ["schema_version", "catalog_version", "provider_id", "owner", "facts"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "catalog_version": {"const": "exam-identity-v2"},
+    "provider_id": {"const": "moex"},
+    "owner": {"type": "string", "minLength": 1},
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "source_exam_id", "year_ad", "category_code", "category_raw", "exam_name_raw", "series_id", "level_id", "reviewed_at", "reason", "evidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "source_exam_id": {"type": "string", "pattern": "^[0-9]{6}$"},
+          "year_ad": {"type": "integer", "minimum": 1912, "maximum": 2100},
+          "category_code": {"type": "string", "minLength": 1},
+          "category_raw": {"type": "string", "minLength": 1},
+          "exam_name_raw": {"type": "string", "minLength": 1},
+          "series_id": {"type": "string", "minLength": 1},
+          "level_id": {"type": "string", "minLength": 1},
+          "reviewed_at": {"type": "string", "format": "date"},
+          "reason": {"type": "string", "minLength": 1},
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["source_url", "subject_code", "checksum", "observation"],
+              "properties": {
+                "source_url": {"type": "string", "format": "uri", "pattern": "^https://wwwq\\.moex\\.gov\\.tw/exam/wHandExamQandA_File\\.ashx\\?"},
+                "subject_code": {"type": "string", "minLength": 1},
+                "checksum": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                "observation": {"type": "string", "minLength": 1}
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

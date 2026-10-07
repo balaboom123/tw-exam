@@ -1085,17 +1085,18 @@
         2026
       ],
       "official_source_urls": [
-        "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+        "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+        "https://ttg.moe.edu.tw/tmt/view.php?page=questionBase"
       ],
       "provider_id": "taigi_cert",
       "restrictions": [
         "All 35 retained A/B/C URLs are current, but the source is undated and all records use an unsupported synthetic 2026 year.",
-        "The retained A-form identity merges A, B, and C records, obscuring source taxonomy; publication is withheld until forms and proficiency levels are modeled correctly.",
+        "The classifier now separates the three paper forms from their native paired proficiency bands. Publication remains withheld because undated sample material still uses synthetic event years and source-material roles require a reviewed migration.",
         "Official robots rules disallow generic crawling and the /tmt/src/ asset path; no explicit redistribution grant was found."
       ],
       "source_name": "教育部臺灣台語語言能力認證考試",
       "status": "partial",
-      "status_reason": "Partial / exact A/B/C sample-source URLs retained, but dates are unknown, paper forms are merged, and robots/licensing constrain refresh and redistribution. Publication is withheld pending source-role, form, proficiency-level, and event-identity review."
+      "status_reason": "Partial / exact A/B/C sample-source URLs retained and form/proficiency-band identities corrected, but dates are unknown and robots/licensing constrain refresh and redistribution. Publication remains withheld pending source-material roles and event/date review."
     },
     {
       "available_years": {
@@ -1604,7 +1605,7 @@
       ],
       "source_name": "保險事業發展中心",
       "status": "partial",
-      "status_reason": "Partial; current listing evidence covers 10 events and 24 entries across 2024–2026, but 20 files are absent, one brochure is publicly misclassified, normal TLS verification fails, and the AML history ZIP denominator is unresolved"
+      "status_reason": "Partial; current listing evidence covers 10 events and 24 entries across 2024–2026, but 20 files are absent, one retained brochure is mislabeled as a question, normal TLS verification fails, and the AML history ZIP denominator is unresolved. Publication remains withheld pending a reviewed data migration."
     },
     {
       "available_years": {

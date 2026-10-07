@@ -136294,14 +136294,16 @@
         106,
         104,
         103,
-        102
+        102,
+        101,
+        100
       ],
-      "file_count": 70,
+      "file_count": 84,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-2-track-240a2ab5b7a4--19bb204c92fa.zip",
       "asset_name": "moex-special-general-police-grade-2-track-240a2ab5b7a4--19bb204c92fa.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-2-track-240a2ab5b7a4--19bb204c92fa.zip",
-      "checksum": "f9b69362d1157779b8a56271c9df73e47272729c0380d9a1181807fa7a5110d9",
+      "checksum": "01a3be740f7585d30d1038d471a74735ff888778c3a0ff66b4206848d82f8dcb",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-2-track-240a2ab5b7a4",
       "catalog_version": "exam-identity-v2",
@@ -136356,14 +136358,16 @@
         105,
         104,
         103,
-        102
+        102,
+        101,
+        100
       ],
-      "file_count": 35,
+      "file_count": 49,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-2-track-6392d17d476a--207d1f0f7ce8.zip",
       "asset_name": "moex-special-general-police-grade-2-track-6392d17d476a--207d1f0f7ce8.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-2-track-6392d17d476a--207d1f0f7ce8.zip",
-      "checksum": "81fcc0c5d3517d43b43bbcff7911ba72168e2fe512c9a86e6cf4b27cb47c2cfa",
+      "checksum": "87bdc04fd29376db8b3bb6a126978fe739e6b07c932e8dbd5c8695ca9b0b1cdf",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-2-track-6392d17d476a",
       "catalog_version": "exam-identity-v2",
@@ -136419,14 +136423,15 @@
         107,
         106,
         104,
-        103
+        103,
+        100
       ],
-      "file_count": 42,
+      "file_count": 49,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-2-track-f45cfee345c4--00f0607c58d9.zip",
       "asset_name": "moex-special-general-police-grade-2-track-f45cfee345c4--00f0607c58d9.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-2-track-f45cfee345c4--00f0607c58d9.zip",
-      "checksum": "bebdf320372b481a3e0a1c610f46e17994f22a94098a2f093c066a18dcb4aac3",
+      "checksum": "347623b4711a7014908c06dea10890c3f843d370176c5ae1882ae1b885fcf3cb",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-2-track-f45cfee345c4",
       "catalog_version": "exam-identity-v2",
@@ -136491,14 +136496,15 @@
         104,
         103,
         102,
+        101,
         100
       ],
-      "file_count": 137,
+      "file_count": 146,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-662e4ce803bf--a9453af3d283.zip",
       "asset_name": "moex-special-general-police-grade-3-track-662e4ce803bf--a9453af3d283.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-662e4ce803bf--a9453af3d283.zip",
-      "checksum": "979181d16fd8bd3b975b51316618f797cfaa487abf4600da50069737958acd1c",
+      "checksum": "1af5d1db3ce974b4b18238810f1b54c1a7129ad4a911bef952f2bea4471e5c61",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-662e4ce803bf",
       "catalog_version": "exam-identity-v2",
@@ -136561,14 +136567,15 @@
         106,
         105,
         104,
+        101,
         100
       ],
-      "file_count": 119,
+      "file_count": 128,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-6d33cce84fee--d5c89a3b1107.zip",
       "asset_name": "moex-special-general-police-grade-3-track-6d33cce84fee--d5c89a3b1107.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-6d33cce84fee--d5c89a3b1107.zip",
-      "checksum": "4f5f4a2d4a976104acbcf46edf6c6963d14f6cdb11bf5f307f84a384d1d0a26c",
+      "checksum": "b01c2f5c0e789a8cfb0c6b794370952dc32da1d6dbe7b8a82c75bc377bd35d18",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-6d33cce84fee",
       "catalog_version": "exam-identity-v2",
@@ -136633,14 +136640,15 @@
         104,
         103,
         102,
+        101,
         100
       ],
-      "file_count": 171,
+      "file_count": 182,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-8f347e025609--ef83a3c943db.zip",
       "asset_name": "moex-special-general-police-grade-3-track-8f347e025609--ef83a3c943db.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-8f347e025609--ef83a3c943db.zip",
-      "checksum": "248f47791be9701a5fa55f7cf5f8fea09eb107f687f6fa8a1e2f8b4bb09427a6",
+      "checksum": "9472a072623899480269b6eabade5ed35110498284e2821888e0b77e89925336",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-8f347e025609",
       "catalog_version": "exam-identity-v2",
@@ -136775,14 +136783,15 @@
         105,
         104,
         103,
-        102
+        102,
+        101
       ],
-      "file_count": 142,
+      "file_count": 152,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-c0784b4ff620--ce5c6347ec81.zip",
       "asset_name": "moex-special-general-police-grade-3-track-c0784b4ff620--ce5c6347ec81.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-c0784b4ff620--ce5c6347ec81.zip",
-      "checksum": "ad2043e5e305df1a12f15df58a522da43d8729aa46056d3108a4fb8cfe7addb3",
+      "checksum": "fd6fd50b119bfc08d5b703d36cbac74cfa07678311b04ba159406bac7370606e",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-c0784b4ff620",
       "catalog_version": "exam-identity-v2",
@@ -136839,14 +136848,15 @@
         106,
         104,
         102,
+        101,
         100
       ],
-      "file_count": 59,
+      "file_count": 67,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-57b8fc274f10--3ea2c3c0e92b.zip",
       "asset_name": "moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-57b8fc274f10--3ea2c3c0e92b.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-57b8fc274f10--3ea2c3c0e92b.zip",
-      "checksum": "d3955e65c7e42fc3f46e5a8d5a29ca22dafef1e18c543b6518fb362f49d95606",
+      "checksum": "ce292cdf5560887a2170da9ff23606a1093864130f5b6a597a464f70035e3409",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-57b8fc274f10",
       "catalog_version": "exam-identity-v2",
@@ -136899,14 +136909,15 @@
       "years": [
         105,
         102,
+        101,
         100
       ],
-      "file_count": 25,
+      "file_count": 33,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-c20d34fdc5ae--78f51f9f554d.zip",
       "asset_name": "moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-c20d34fdc5ae--78f51f9f554d.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-c20d34fdc5ae--78f51f9f554d.zip",
-      "checksum": "106216c112c514b6ec236e0c07bd0b4919397c598609c41a2fe54bcbd06cc972",
+      "checksum": "745ee2740a30f2378108c1d59dadcf0354728731ced5bb14040809228d8b504b",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-d54f587c62ac-elective-language-c20d34fdc5ae",
       "catalog_version": "exam-identity-v2",
@@ -136971,14 +136982,15 @@
         104,
         103,
         102,
+        101,
         100
       ],
-      "file_count": 137,
+      "file_count": 146,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-3-track-da9c87f2992d--fe0779c90ea1.zip",
       "asset_name": "moex-special-general-police-grade-3-track-da9c87f2992d--fe0779c90ea1.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-3-track-da9c87f2992d--fe0779c90ea1.zip",
-      "checksum": "54e6c06f10987d97b26d5e564c8a99f1c73f81b1b81ffac31c44769066ef3117",
+      "checksum": "c194341a66912d46394e716279f1e446a15eea71f80ff652267ab07369661b27",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-3-track-da9c87f2992d",
       "catalog_version": "exam-identity-v2",
@@ -137039,14 +137051,15 @@
         108,
         107,
         106,
-        105
+        105,
+        101
       ],
-      "file_count": 117,
+      "file_count": 128,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-4-track-86e873734bad--28018b60d18f.zip",
       "asset_name": "moex-special-general-police-grade-4-track-86e873734bad--28018b60d18f.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-4-track-86e873734bad--28018b60d18f.zip",
-      "checksum": "ef8c230755dfcf033caf3c0da850e2f5fc640a5211a1b8cc6660379208e17221",
+      "checksum": "784d82dca0b85def4a9b52bdeb585f3728841938e0bb7e00a5c1ef58487edc4b",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-4-track-86e873734bad",
       "catalog_version": "exam-identity-v2",
@@ -137076,6 +137089,7 @@
         "海巡法規概要（包括國家安全法、臺灣地區與大陸地區人民關係條例、海岸巡防法、海岸巡防機關器械使用條例、海關緝私條例、中華民國領海及鄰接區法、懲治走私條例、中華民國專屬經濟海域及大陸礁層法、海洋污染防治法、公務人員行政中立法）",
         "法學知識（中華民國憲法概要、法學緒論）",
         "海巡法規概要(包括國家安全法、臺灣地區與大陸地區人民關係條例、海岸巡防法、海岸巡防機關器械使用條例、海關緝私條例、中華民國領海及鄰接區法、懲治走私條例、中華民國專屬經濟海域及大陸礁層法、海洋污染防治法、公務人員行政中立法)",
+        "海巡法規概要（包括國家安全法、臺灣地區與大陸地區人民關係條例、海岸巡防法、海岸巡防機關器械使用條例、海關緝私條例、中華民國領海及鄰接區法、懲治走私條例、中華民國專屬經濟海域及大陸礁層法、海洋污染防治法",
         "一般警察人員考試四等考試_水上警察人員類別航海組",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
         "444",
@@ -137085,8 +137099,7 @@
         "0703",
         "1601",
         "1602",
-        "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
-        "404"
+        "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試"
       ],
       "subject_labels": [],
       "legacy_canonical_ids": [
@@ -137108,14 +137121,15 @@
         106,
         105,
         104,
+        101,
         100
       ],
-      "file_count": 128,
+      "file_count": 139,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-4-track-88bf1e16d2c9--f8482ddfe9bd.zip",
       "asset_name": "moex-special-general-police-grade-4-track-88bf1e16d2c9--f8482ddfe9bd.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-4-track-88bf1e16d2c9--f8482ddfe9bd.zip",
-      "checksum": "829420025136c092e8e472646889e3c404a571de642a27d1474d8ff65f1e6f03",
+      "checksum": "9915f4488d53aa80d95a442ac1d005e05bc06654cd479642079b479ca0fa62f0",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-4-track-88bf1e16d2c9",
       "catalog_version": "exam-identity-v2",
@@ -137146,6 +137160,7 @@
         "法學知識（中華民國憲法概要、法學緒論）",
         "輪機工程概要（包括推進裝置、輔機與輪機英文）",
         "海巡法規概要(包括國家安全法、臺灣地區與大陸地區人民關係條例、海岸巡防法、海岸巡防機關器械使用條例、海關緝私條例、中華民國領海及鄰接區法、懲治走私條例、中華民國專屬經濟海域及大陸礁層法、海洋污染防治法、公務人員行政中立法)",
+        "海巡法規概要（包括國家安全法、臺灣地區與大陸地區人民關係條例、海岸巡防法、海岸巡防機關器械使用條例、海關緝私條例、中華民國領海及鄰接區法、懲治走私條例、中華民國專屬經濟海域及大陸礁層法、海洋污染防治法",
         "海巡法規概要（包括國家安全法、臺灣地區與大陸地區人民關係條例、海岸巡防法、海岸巡防機關器械使用條例、海關緝私條例、中華民國領海及鄰接區法、懲治走私條例、中華民國專屬經濟海域及大陸礁層法、海洋污染防治法、公務人員行政中立法)",
         "一般警察人員考試四等考試_水上警察人員類別輪機組",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
@@ -137154,8 +137169,7 @@
         "0203",
         "0506",
         "0703",
-        "1604",
-        "1605"
+        "1604"
       ],
       "subject_labels": [],
       "legacy_canonical_ids": [
@@ -137180,14 +137194,15 @@
         104,
         103,
         102,
+        101,
         100
       ],
-      "file_count": 195,
+      "file_count": 208,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-4-track-8f347e025609--94664169e59f.zip",
       "asset_name": "moex-special-general-police-grade-4-track-8f347e025609--94664169e59f.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-4-track-8f347e025609--94664169e59f.zip",
-      "checksum": "7d25b3adef3bab3322245da92a93a5031492b839b35be102e55ee7b94ea8b317",
+      "checksum": "d2f11191fa8075176c2210341656bdd0474920a1e5de478e5e2eb91fa4139e94",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-4-track-8f347e025609",
       "catalog_version": "exam-identity-v2",
@@ -137252,14 +137267,15 @@
         104,
         103,
         102,
+        101,
         100
       ],
-      "file_count": 187,
+      "file_count": 197,
       "storage_key": "bundles/sites/default/moex-special-general-police-grade-4-track-be4f57dc708d--729d865cc9df.zip",
       "asset_name": "moex-special-general-police-grade-4-track-be4f57dc708d--729d865cc9df.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-general-police-grade-4-track-be4f57dc708d--729d865cc9df.zip",
-      "checksum": "43608c14282dd9deaa4be377d5afaa2a56d5546b66bb0d68fdee338e1994656a",
+      "checksum": "51388a6f96ef99eab5ea00bf30c14edc632cd60661797c11f09e4ba530323301",
       "schema_version": 2,
       "bundle_id": "moex-special-general-police-grade-4-track-be4f57dc708d",
       "catalog_version": "exam-identity-v2",
@@ -144775,14 +144791,18 @@
         113,
         107,
         102,
-        101
+        101,
+        99,
+        93,
+        92,
+        91
       ],
-      "file_count": 32,
+      "file_count": 65,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-24744d32f458--03f7852e1dc1.zip",
       "asset_name": "moex-special-investigation-grade-3-track-24744d32f458--03f7852e1dc1.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-24744d32f458--03f7852e1dc1.zip",
-      "checksum": "cd36efda83374e5236c786195681f94d7f6fdfcc32f7bce64a82168ffc3f0ab7",
+      "checksum": "8c3373243753c2126a64f4afd9ad4d12a6a3dac9558d3b02bc5a82d14b799fd9",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-24744d32f458",
       "catalog_version": "exam-identity-v2",
@@ -144809,39 +144829,46 @@
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
         "電子電路學",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "計算機概論",
+        "英文",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "中華民國憲法",
+        "國文（論文、公文與閱讀測驗）",
         "調查人員三等考試_電子科學組",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "414",
         "0101",
         "0310",
-        "1003",
-        "1101",
-        "1102",
-        "1103",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "411",
-        "0102",
-        "0416",
-        "1210"
+        "1003"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-a8e84dba4d3b26fe",
+        "canonical-f1c0e992ceb36695"
+      ]
     },
     {
-      "canonical_id": "canonical-3159a45d74ac1194",
+      "canonical_id": "canonical-2008ec41c7fec392",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜醫學鑑識組",
       "years": [
         113,
         107,
         102,
-        101
+        101,
+        99,
+        93,
+        92,
+        91
       ],
-      "file_count": 32,
+      "file_count": 64,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-3159a45d74ac--a6d3813e1c7d.zip",
       "asset_name": "moex-special-investigation-grade-3-track-3159a45d74ac--a6d3813e1c7d.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-3159a45d74ac--a6d3813e1c7d.zip",
-      "checksum": "64e01b554dd38a2523fa510d8e96343f3910b0ca4cd6016a223768e3c65b2d3c",
+      "checksum": "6828c7eb112b9bd8150c9c60a74514b678185ef6b8b8123b70f11bbb1547c930",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-3159a45d74ac",
       "catalog_version": "exam-identity-v2",
@@ -144867,6 +144894,13 @@
         "國文（作文、公文與測驗）",
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "生物學",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "中華民國憲法",
+        "國文（論文、公文與閱讀測驗）",
         "調查人員三等考試_醫學鑑識組",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "413",
@@ -144874,33 +144908,33 @@
         "0310",
         "1401",
         "1403",
-        "1404",
-        "1405",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "410",
-        "0102",
-        "0416",
-        "1605",
-        "1606"
+        "1404"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-3159a45d74ac1194",
+        "canonical-4ebc394f9bca5504"
+      ]
     },
     {
-      "canonical_id": "canonical-4a1d08ac767d8845",
+      "canonical_id": "canonical-0265366c39b4d7a3",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜財經實務組",
       "years": [
         113,
         107,
         102,
-        101
+        101,
+        99,
+        93,
+        92,
+        91
       ],
-      "file_count": 32,
+      "file_count": 64,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-4a1d08ac767d--7925650dd952.zip",
       "asset_name": "moex-special-investigation-grade-3-track-4a1d08ac767d--7925650dd952.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-4a1d08ac767d--7925650dd952.zip",
-      "checksum": "43ec8c6529896f827f40d24819080846b97c5a42f66cd730de918545b084708e",
+      "checksum": "411802cb7e5e655b0c8c27f686b4cdb7a9e4a67286ab40da989e3a718dda8506",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-4a1d08ac767d",
       "catalog_version": "exam-identity-v2",
@@ -144928,38 +144962,45 @@
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
         "稅務法規",
         "貨幣銀行學",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "財務會計",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "中華民國憲法",
+        "國文（論文、公文與閱讀測驗）",
         "調查人員三等考試_財經實務組",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "411",
         "0101",
         "0310",
-        "0420",
-        "0901",
-        "0902",
-        "0905",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "408",
-        "0102",
-        "0416"
+        "0420"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-4a1d08ac767d8845",
+        "canonical-cfd1b730791e3889"
+      ]
     },
     {
-      "canonical_id": "canonical-a75ba3f43ea80d37",
+      "canonical_id": "canonical-8c6fe241887430af",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜法律實務組",
       "years": [
         113,
         107,
         102,
-        101
+        101,
+        99,
+        93,
+        92,
+        91
       ],
-      "file_count": 32,
+      "file_count": 64,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-a75ba3f43ea8--89fc7466d67f.zip",
       "asset_name": "moex-special-investigation-grade-3-track-a75ba3f43ea8--89fc7466d67f.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-a75ba3f43ea8--89fc7466d67f.zip",
-      "checksum": "47e565a5ac6290460ab81127bad3fcbe286fc6350ba9273f00a51c9dd640ec84",
+      "checksum": "aa81b6568cf0e9fb94fbd5be86682495fa09bf0c2bf666eaa904e62ea029a7a5",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-a75ba3f43ea8",
       "catalog_version": "exam-identity-v2",
@@ -144985,6 +145026,12 @@
         "國文（作文、公文與測驗）",
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "中華民國憲法",
+        "國文（論文、公文與閱讀測驗）",
         "調查人員三等考試_法律實務組",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "410",
@@ -144993,30 +145040,88 @@
         "0310",
         "0417",
         "0502",
-        "0510",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "407",
-        "0102",
-        "0403",
-        "0416",
-        "0515"
+        "0510"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-8e04a9987500aa89",
+        "canonical-a75ba3f43ea80d37"
+      ]
     },
     {
-      "canonical_id": "canonical-b3029bde9a408395",
+      "canonical_id": "canonical-708db3ee183f0316",
+      "canonical_name": "調查局調查人員特考｜三等／高考三級｜調查工作組",
+      "years": [
+        93,
+        92,
+        91
+      ],
+      "file_count": 33,
+      "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-b3029bde9a40--1c74e45a639a.zip",
+      "asset_name": "moex-special-investigation-grade-3-track-b3029bde9a40--1c74e45a639a.zip",
+      "release_tag": "default-bundles-v2-001",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-b3029bde9a40--1c74e45a639a.zip",
+      "checksum": "ce301912ca66fde74e76848c338242afaf9ca82ede28bc9b32c0d12c96d4f982",
+      "schema_version": 2,
+      "bundle_id": "moex-special-investigation-grade-3-track-b3029bde9a40",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "civil-service",
+      "exam_family_id": "civil-service-exam",
+      "exam_series_id": "special-investigation",
+      "level_id": "grade-3",
+      "track_id": "track-b3029bde9a40",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "reviewed official question headers: moex-093150-category-101",
+      "exam_class": "公職考試",
+      "exam_subclass": "公職／公務人員",
+      "search_aliases": [
+        "經濟學",
+        "英文",
+        "西班牙文",
+        "德文",
+        "阿拉伯文",
+        "刑法總則",
+        "政治學",
+        "國文（作文、公文與測驗）",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "法文",
+        "中華民國憲法",
+        "日文",
+        "國文（論文、公文與閱讀測驗）",
+        "調查工作組",
+        "093年公務人員特種考試法務部調查局調查人員考試",
+        "101",
+        "3001",
+        "4011",
+        "4021",
+        "4031",
+        "4041",
+        "5001",
+        "6001"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [
+        "canonical-b3029bde9a408395"
+      ]
+    },
+    {
+      "canonical_id": "canonical-018a5385a51d68e3",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜調查工作組｜選試法文",
       "years": [
         113,
-        107
+        107,
+        99
       ],
-      "file_count": 16,
+      "file_count": 24,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-056c69935025--5cbbb346e090.zip",
       "asset_name": "moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-056c69935025--5cbbb346e090.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-056c69935025--5cbbb346e090.zip",
-      "checksum": "c3b537c45eb5c95a383c00bd7ea0fe47753e45e5e174798c161ee421ba7b1286",
+      "checksum": "fc78885d585d52d4d61c4d1f19242f6c1834351e80e4028c6393980772e8e805",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-056c69935025",
       "catalog_version": "exam-identity-v2",
@@ -145043,6 +145148,9 @@
         "社會學",
         "國文（作文、公文與測驗）",
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "刑法總則",
         "調查人員三等考試_調查工作組（選試法文）",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "406",
@@ -145055,13 +145163,12 @@
         "調查人員三等考試_調查工作組(選試法文)",
         "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
         "405",
-        "0102",
-        "0209",
-        "0301",
-        "0416"
+        "0102"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-b3029bde9a408395"
+      ]
     },
     {
       "canonical_id": "canonical-b3029bde9a408395",
@@ -145185,20 +145292,21 @@
       "legacy_canonical_ids": []
     },
     {
-      "canonical_id": "canonical-b3029bde9a408395",
+      "canonical_id": "canonical-018a5385a51d68e3",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜調查工作組｜選試英文",
       "years": [
         113,
         107,
         102,
-        101
+        101,
+        99
       ],
-      "file_count": 36,
+      "file_count": 45,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-348ea84c6046--09533d1b8053.zip",
       "asset_name": "moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-348ea84c6046--09533d1b8053.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-348ea84c6046--09533d1b8053.zip",
-      "checksum": "7147253354cb5cbdbfcc7d78c19ba29c339e00c3899053dd4363c596c01918f6",
+      "checksum": "ed27aefa245fa3aa67f347de9ac2dca79b4427c21e2f46e2c98b821a80e22dc4",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-348ea84c6046",
       "catalog_version": "exam-identity-v2",
@@ -145227,6 +145335,9 @@
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
         "刑法總則",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "外國文（英 文）",
         "調查人員三等考試_調查工作組（選試英文）",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "401",
@@ -145237,13 +145348,12 @@
         "0501",
         "0801",
         "調查人員三等考試_調查工作組(選試英文)",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "0102",
-        "0301",
-        "0416"
+        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-b3029bde9a408395"
+      ]
     },
     {
       "canonical_id": "canonical-b3029bde9a408395",
@@ -145365,18 +145475,19 @@
       "legacy_canonical_ids": []
     },
     {
-      "canonical_id": "canonical-b3029bde9a408395",
+      "canonical_id": "canonical-018a5385a51d68e3",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜調查工作組｜選試西班牙文",
       "years": [
         113,
-        107
+        107,
+        99
       ],
-      "file_count": 16,
+      "file_count": 24,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-cb25397603c9--bfde09fccd9f.zip",
       "asset_name": "moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-cb25397603c9--bfde09fccd9f.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-cb25397603c9--bfde09fccd9f.zip",
-      "checksum": "d9be67aa67f3c5fe2167b80b7648d05fde091289d697c665c0e5b467e155771e",
+      "checksum": "de6c2df9f45aebf460fc42ec80183c685c1d24f922741625b26b0f5a3311b413",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-b3029bde9a40-elective-language-cb25397603c9",
       "catalog_version": "exam-identity-v2",
@@ -145403,6 +145514,9 @@
         "社會學",
         "國文（作文、公文與測驗）",
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "刑法總則",
         "調查人員三等考試_調查工作組（選試西班牙文）",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "404",
@@ -145415,13 +145529,12 @@
         "調查人員三等考試_調查工作組(選試西班牙文)",
         "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
         "403",
-        "0102",
-        "0207",
-        "0301",
-        "0416"
+        "0102"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-b3029bde9a408395"
+      ]
     },
     {
       "canonical_id": "canonical-b3029bde9a408395",
@@ -145483,20 +145596,24 @@
       "legacy_canonical_ids": []
     },
     {
-      "canonical_id": "canonical-d6481d656f56da78",
+      "canonical_id": "canonical-7238695432744f69",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜化學鑑識組",
       "years": [
         113,
         107,
         102,
-        101
+        101,
+        99,
+        93,
+        92,
+        91
       ],
-      "file_count": 32,
+      "file_count": 64,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-d6481d656f56--376aafb95c0c.zip",
       "asset_name": "moex-special-investigation-grade-3-track-d6481d656f56--376aafb95c0c.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-d6481d656f56--376aafb95c0c.zip",
-      "checksum": "ebc1793b1ed28e1875f8699bed78d6448b9a44525abee92632769207bd60bf04",
+      "checksum": "e70422297c5a65aa2687c3fb51f74d952392b1f1a6ffa48e1265b7e35fd65206",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-d6481d656f56",
       "catalog_version": "exam-identity-v2",
@@ -145522,6 +145639,12 @@
         "國文（作文、公文與測驗）",
         "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "中華民國憲法",
+        "國文（論文、公文與閱讀測驗）",
         "調查人員三等考試_化學鑑識組",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "412",
@@ -145530,16 +145653,13 @@
         "1402",
         "1403",
         "1404",
-        "1406",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "409",
-        "0102",
-        "0416",
-        "1604",
-        "1605"
+        "1406"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-d6481d656f56da78",
+        "canonical-fcf31926a04444eb"
+      ]
     },
     {
       "canonical_id": "canonical-e999661885ffdf72",
@@ -145601,20 +145721,24 @@
       "legacy_canonical_ids": []
     },
     {
-      "canonical_id": "canonical-f2e9fc2d53d26eb3",
+      "canonical_id": "canonical-44cded3bb0bdd3d3",
       "canonical_name": "調查局調查人員特考｜三等／高考三級｜資訊科學組",
       "years": [
         113,
         107,
         102,
-        101
+        101,
+        99,
+        93,
+        92,
+        91
       ],
-      "file_count": 32,
+      "file_count": 64,
       "storage_key": "bundles/sites/default/moex-special-investigation-grade-3-track-f2e9fc2d53d2--7fb8575b29b5.zip",
       "asset_name": "moex-special-investigation-grade-3-track-f2e9fc2d53d2--7fb8575b29b5.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-investigation-grade-3-track-f2e9fc2d53d2--7fb8575b29b5.zip",
-      "checksum": "703dd4b5013c97ba58ce5955c756424cff0c2bd42ea709721c393adc75a8d4b8",
+      "checksum": "c0a709a0db598d9bbf2b083252c9fd8ef0861d31308f4c274e42b897fc8443f0",
       "schema_version": 2,
       "bundle_id": "moex-special-investigation-grade-3-track-f2e9fc2d53d2",
       "catalog_version": "exam-identity-v2",
@@ -145643,21 +145767,24 @@
         "法學知識與英文（包括中華民國憲法、法學緒論、英文）",
         "資料庫運用",
         "系統程式",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "中華民國憲法試題更正",
+        "國文(論文、公文與閱讀測驗)",
+        "中華民國憲法",
+        "國文（論文、公文與閱讀測驗）",
         "調查人員三等考試_資訊科學組",
         "113年公務人員特種考試司法人員考試、113年公務人員特種考試法務部調查局調查人員考試、113年公務人員特種考試海岸巡防人員考試、113年未具擬任職務任用資格取得法官遴選資格考試",
         "415",
         "0101",
         "0310",
-        "1002",
-        "1006",
-        "1007",
-        "1009",
-        "107年公務人員特種考試司法人員考試、107年公務人員特種考試法務部調查局調查人員考試、107年公務人員特種考試國家安全局國家安全情報人員考試、107年公務人員特種考試海岸巡防人員考試、107年公務人員特種考試移民行政人員考試",
-        "412",
-        "0102"
+        "1002"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-694ab759c69537eb",
+        "canonical-f2e9fc2d53d26eb3"
+      ]
     },
     {
       "canonical_id": "canonical-b3029bde9a408395",
@@ -167461,6 +167588,64 @@
       "legacy_canonical_ids": []
     },
     {
+      "canonical_id": "canonical-54cd542fad166b9e",
+      "canonical_name": "國家安全情報人員特考｜三等／高考三級｜政經組",
+      "years": [
+        97,
+        92
+      ],
+      "file_count": 17,
+      "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-790b86e46b25--1062ae7a86e9.zip",
+      "asset_name": "moex-special-national-security-grade-3-track-790b86e46b25--1062ae7a86e9.zip",
+      "release_tag": "default-bundles-v2-001",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-790b86e46b25--1062ae7a86e9.zip",
+      "checksum": "60f9057d58a3c8a00bf75284aa010ca6e877855b8fa74b1709f5c0d9ec4ab56d",
+      "schema_version": 2,
+      "bundle_id": "moex-special-national-security-grade-3-track-790b86e46b25",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "civil-service",
+      "exam_family_id": "civil-service-exam",
+      "exam_series_id": "special-national-security",
+      "level_id": "grade-3",
+      "track_id": "track-790b86e46b25",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "reviewed official question headers: moex-097190-category-501",
+      "exam_class": "公職考試",
+      "exam_subclass": "公職／公務人員",
+      "search_aliases": [
+        "經濟學",
+        "統計學",
+        "政治學",
+        "國文(作文、公文與測驗)",
+        "法學知識與英文(包括中華民國憲法、法學緒論、英文)",
+        "英文",
+        "中華民國憲法",
+        "中國大陸研究",
+        "國文（作文、公文與測驗）",
+        "國家安全情報人員政經組",
+        "097年公務人員特種考試外交領事人員外交行政人員及國際新聞人員考試、97年公務人員特種考試國際經濟商務人員考試 、97年公務人員特種考試國家安全局國家安全情報人員考試",
+        "501",
+        "2001",
+        "3001",
+        "5001",
+        "c011",
+        "c021",
+        "c031",
+        "政經組",
+        "092年公務人員特種考試國家安全局國家安全情報人員考試",
+        "101",
+        "c041",
+        "c061"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [
+        "canonical-790b86e46b25bd51"
+      ]
+    },
+    {
       "canonical_id": "canonical-790b86e46b25bd51",
       "canonical_name": "國家安全情報人員特考｜三等／高考三級｜政經組｜選試英文",
       "years": [
@@ -167470,14 +167655,15 @@
         112,
         111,
         110,
-        107
+        107,
+        99
       ],
-      "file_count": 63,
+      "file_count": 72,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-790b86e46b25-elective-language-348ea84c6046--bfcb367834a8.zip",
       "asset_name": "moex-special-national-security-grade-3-track-790b86e46b25-elective-language-348ea84c6046--bfcb367834a8.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-790b86e46b25-elective-language-348ea84c6046--bfcb367834a8.zip",
-      "checksum": "173d36d1b61c213af6c8ca85b8bbe414ce55d0436ca7f060350fbabb1c89ef5c",
+      "checksum": "b124fc353e56454c2cedd10d659b8c202052c9de6bb3fc776f00ca66e83762f5",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-3-track-790b86e46b25-elective-language-348ea84c6046",
       "catalog_version": "exam-identity-v2",
@@ -167505,6 +167691,10 @@
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
         "外國文（英文）",
+        "行政學",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "外國文（英 文）",
         "國家安全情報人員考試三等考試_政經組(選試英文)",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
         "501",
@@ -167515,14 +167705,70 @@
         "0504",
         "1215",
         "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
-        "351",
-        "0212",
-        "0301",
-        "1316",
-        "1602"
+        "351"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-82883cde5a2f2064"
+      ]
+    },
+    {
+      "canonical_id": "canonical-8a809b0f3f8d3fb6",
+      "canonical_name": "國家安全情報人員特考｜三等／高考三級｜數理組",
+      "years": [
+        97,
+        92
+      ],
+      "file_count": 17,
+      "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-8a809b0f3f8d--49bb88718ec8.zip",
+      "asset_name": "moex-special-national-security-grade-3-track-8a809b0f3f8d--49bb88718ec8.zip",
+      "release_tag": "default-bundles-v2-001",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-8a809b0f3f8d--49bb88718ec8.zip",
+      "checksum": "584aab695d75171327286bc959112810192bbf5747c69e7cac91beb657e9de2d",
+      "schema_version": 2,
+      "bundle_id": "moex-special-national-security-grade-3-track-8a809b0f3f8d",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "civil-service",
+      "exam_family_id": "civil-service-exam",
+      "exam_series_id": "special-national-security",
+      "level_id": "grade-3",
+      "track_id": "track-8a809b0f3f8d",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "reviewed official question headers: moex-097190-category-503",
+      "exam_class": "公職考試",
+      "exam_subclass": "公職／公務人員",
+      "search_aliases": [
+        "微積分",
+        "機率統計",
+        "國文(作文、公文與測驗)",
+        "法學知識與英文(包括中華民國憲法、法學緒論、英文)",
+        "英文",
+        "計算機概論",
+        "初等數論",
+        "中華民國憲法",
+        "國文（作文、公文與測驗）",
+        "國家安全情報人員數理組",
+        "097年公務人員特種考試外交領事人員外交行政人員及國際新聞人員考試、97年公務人員特種考試國際經濟商務人員考試 、97年公務人員特種考試國家安全局國家安全情報人員考試",
+        "503",
+        "2001",
+        "5001",
+        "c011",
+        "c021",
+        "c031",
+        "c041",
+        "數理組",
+        "092年公務人員特種考試國家安全局國家安全情報人員考試",
+        "109",
+        "3001",
+        "c051"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [
+        "canonical-a63702dd82e565a8"
+      ]
     },
     {
       "canonical_id": "canonical-8a809b0f3f8d3fb6",
@@ -167530,14 +167776,15 @@
       "years": [
         115,
         114,
-        107
+        107,
+        99
       ],
-      "file_count": 27,
+      "file_count": 36,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-8a809b0f3f8d-elective-language-348ea84c6046--fc693a6dcfe3.zip",
       "asset_name": "moex-special-national-security-grade-3-track-8a809b0f3f8d-elective-language-348ea84c6046--fc693a6dcfe3.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-8a809b0f3f8d-elective-language-348ea84c6046--fc693a6dcfe3.zip",
-      "checksum": "7f46015f18dc256aabd0db0f49fc6f83810d42d14f88766faf6c8f5dbd964e88",
+      "checksum": "913adb0ebf3fa750c49fe32edc4cc67b64742ea2f933760000c5be1dbb339def",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-3-track-8a809b0f3f8d-elective-language-348ea84c6046",
       "catalog_version": "exam-identity-v2",
@@ -167564,6 +167811,10 @@
         "機率統計",
         "國文（作文、公文與測驗）",
         "外國文（英文）",
+        "數 論",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "外國文（英 文）",
         "國家安全情報人員考試三等考試_數理組(選試英文)",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
         "506",
@@ -167575,14 +167826,73 @@
         "1405",
         "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
         "356",
-        "0212",
-        "1417",
-        "1418",
-        "1419",
-        "國家安全情報人員三等考試_數理組(選試英文)"
+        "0212"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-a008b45ec3dbc2e2"
+      ]
+    },
+    {
+      "canonical_id": "canonical-c06cc991dbb248eb",
+      "canonical_name": "國家安全情報人員特考｜三等／高考三級｜國際組｜選試阿拉伯文",
+      "years": [
+        112,
+        99
+      ],
+      "file_count": 16,
+      "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-2dca33dc64da--f9ffd99ad34c.zip",
+      "asset_name": "moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-2dca33dc64da--f9ffd99ad34c.zip",
+      "release_tag": "default-bundles-v2-001",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-2dca33dc64da--f9ffd99ad34c.zip",
+      "checksum": "af3178da2fbb99ef95c097fae3bb90dbd25964472448e24905a1219de31bbef5",
+      "schema_version": 2,
+      "bundle_id": "moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-2dca33dc64da",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "civil-service",
+      "exam_family_id": "civil-service-exam",
+      "exam_series_id": "special-national-security",
+      "level_id": "grade-3",
+      "track_id": "track-c06cc991dbb2",
+      "variant_ids": [
+        "elective-language-2dca33dc64da"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "explicit category marker: 國家安全情報人員考試三等考試_國際組(選試阿拉伯文)",
+      "exam_class": "公職考試",
+      "exam_subclass": "公職／公務人員",
+      "search_aliases": [
+        "國文(作文與測驗)",
+        "外國文(阿拉伯文)",
+        "綜合法政知識與英文(包括中華民國憲法、法學緒論、兩岸關係、英文)",
+        "國際關係",
+        "中國大陸研究",
+        "國際經濟學(含國際經貿組織)",
+        "外國文（阿拉伯文）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "國際公法",
+        "國際政治",
+        "國家安全情報人員考試三等考試_國際組(選試阿拉伯文)",
+        "112年公務人員特種考試警察人員考試、112年公務人員特種考試一般警察人員考試、112年公務人員特種考試國家安全局國家安全情報人員考試、112年特種考試交通事業鐵路人員考試、112年特種考試退除役軍人轉任公務人員考試",
+        "354",
+        "0101",
+        "0212",
+        "0604",
+        "1501",
+        "1512",
+        "2003",
+        "國家安全情報人員考試國際組（選試阿拉伯文）",
+        "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+        "505",
+        "400"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [
+        "canonical-edc05b6a58134d21"
+      ]
     },
     {
       "canonical_id": "canonical-c06cc991dbb248eb",
@@ -167593,14 +167903,15 @@
         113,
         112,
         111,
-        107
+        107,
+        99
       ],
-      "file_count": 54,
+      "file_count": 63,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-348ea84c6046--3e2d10aa9dc8.zip",
       "asset_name": "moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-348ea84c6046--3e2d10aa9dc8.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-348ea84c6046--3e2d10aa9dc8.zip",
-      "checksum": "7d3c9947cbd7ac0daa430a082ff3196bd244f4b48b6ed723223b931c434d7758",
+      "checksum": "74c5cfa9535e1af40bda6110d87d6bae7badc3c2af52f907e4d3536610fb471f",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-348ea84c6046",
       "catalog_version": "exam-identity-v2",
@@ -167627,6 +167938,11 @@
         "中國大陸研究",
         "國文（作文、公文與測驗）",
         "外國文（英文）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "外國文（英 文）",
+        "國際公法",
+        "國際政治",
         "國家安全情報人員考試三等考試_國際組(選試英文)",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
         "503",
@@ -167637,15 +167953,12 @@
         "1214",
         "1215",
         "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
-        "353",
-        "0212",
-        "1315",
-        "1316",
-        "1603",
-        "113年公務人員特種考試警察人員考試、113年公務人員特種考試一般警察人員考試、113年公務人員特種考試國家安全局國家安全情報人員考試、113年公務人員特種考試移民行政人員考試"
+        "353"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-edc05b6a58134d21"
+      ]
     },
     {
       "canonical_id": "canonical-c06cc991dbb248eb",
@@ -167654,14 +167967,15 @@
         112,
         111,
         110,
-        107
+        107,
+        99
       ],
-      "file_count": 32,
+      "file_count": 40,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-ffb5f47363d4--bd4d13b86d81.zip",
       "asset_name": "moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-ffb5f47363d4--bd4d13b86d81.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-ffb5f47363d4--bd4d13b86d81.zip",
-      "checksum": "8e45e7d48f98943b54a931e017c9eb8943f604385315c4e8175aa7461ad7f39a",
+      "checksum": "9ccd7a6c6d54095a54d10ce4f7e43756ee277d8ec9d691b4cff85e6ad49ca108",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-3-track-c06cc991dbb2-elective-language-ffb5f47363d4",
       "catalog_version": "exam-identity-v2",
@@ -167689,6 +168003,10 @@
         "國文（作文、公文與測驗）",
         "外國文（日文）",
         "國文(作文、公文與測驗)",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "國際公法",
+        "國際政治",
         "國家安全情報人員考試三等考試_國際組(選試日文)",
         "112年公務人員特種考試警察人員考試、112年公務人員特種考試一般警察人員考試、112年公務人員特種考試國家安全局國家安全情報人員考試、112年特種考試交通事業鐵路人員考試、112年特種考試退除役軍人轉任公務人員考試",
         "355",
@@ -167699,31 +168017,30 @@
         "1512",
         "2003",
         "111年公務人員特種考試警察人員考試、111年公務人員特種考試一般警察人員考試、111年公務人員特種考試國家安全局國家安全情報人員考試、111年特種考試交通事業鐵路人員考試",
-        "354",
-        "0212",
-        "1401",
-        "1412",
-        "1902"
+        "354"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-edc05b6a58134d21"
+      ]
     },
     {
-      "canonical_id": "canonical-c99f7a8d443618be",
+      "canonical_id": "canonical-6469094f9e66c071",
       "canonical_name": "國家安全情報人員特考｜三等／高考三級｜電子組｜選試英文",
       "years": [
         115,
         114,
         112,
         111,
-        107
+        107,
+        99
       ],
-      "file_count": 50,
+      "file_count": 60,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-c99f7a8d4436-elective-language-348ea84c6046--99a8615d3a0c.zip",
       "asset_name": "moex-special-national-security-grade-3-track-c99f7a8d4436-elective-language-348ea84c6046--99a8615d3a0c.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-c99f7a8d4436-elective-language-348ea84c6046--99a8615d3a0c.zip",
-      "checksum": "72e1cadb91fc7b7bd4c88cb39c423712b31feabb783c97f114f7cc35a37070d7",
+      "checksum": "a4341a9dffe52034682a6cc5e1843d57f946fac0142aa4949ca91c6e7f76b59c",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-3-track-c99f7a8d4436-elective-language-348ea84c6046",
       "catalog_version": "exam-identity-v2",
@@ -167750,6 +168067,9 @@
         "通訊系統",
         "國文（作文、公文與測驗）",
         "外國文（英文）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "外國文（英 文）",
         "國家安全情報人員考試三等考試_電子組(選試英文)",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
         "505",
@@ -167762,13 +168082,12 @@
         "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
         "355",
         "0212",
-        "1406",
-        "1415",
-        "1416",
-        "112年公務人員特種考試警察人員考試、112年公務人員特種考試一般警察人員考試、112年公務人員特種考試國家安全局國家安全情報人員考試、112年特種考試交通事業鐵路人員考試、112年特種考試退除役軍人轉任公務人員考試"
+        "1406"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-c99f7a8d443618be"
+      ]
     },
     {
       "canonical_id": "canonical-e30b2d33b82e9905",
@@ -167835,7 +168154,65 @@
       "legacy_canonical_ids": []
     },
     {
-      "canonical_id": "canonical-f1b20b71cea53474",
+      "canonical_id": "canonical-616c439508081eec",
+      "canonical_name": "國家安全情報人員特考｜三等／高考三級｜資訊組",
+      "years": [
+        97,
+        92
+      ],
+      "file_count": 17,
+      "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-f1b20b71cea5--cdc3344fd917.zip",
+      "asset_name": "moex-special-national-security-grade-3-track-f1b20b71cea5--cdc3344fd917.zip",
+      "release_tag": "default-bundles-v2-001",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-f1b20b71cea5--cdc3344fd917.zip",
+      "checksum": "d1887fe619b3d6025bda9096129b04dd2ff1e9f2ec7c5cb45f8c32092acc81aa",
+      "schema_version": 2,
+      "bundle_id": "moex-special-national-security-grade-3-track-f1b20b71cea5",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "civil-service",
+      "exam_family_id": "civil-service-exam",
+      "exam_series_id": "special-national-security",
+      "level_id": "grade-3",
+      "track_id": "track-f1b20b71cea5",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "reviewed official question headers: moex-097190-category-502",
+      "exam_class": "公職考試",
+      "exam_subclass": "公職／公務人員",
+      "search_aliases": [
+        "資料庫應用",
+        "系統程式(包括作業系統)",
+        "國文(作文、公文與測驗)",
+        "法學知識與英文(包括中華民國憲法、法學緒論、英文)",
+        "英文",
+        "計算機概論",
+        "系統程式（包括作業系統）",
+        "中華民國憲法",
+        "國文（作文、公文與測驗）",
+        "國家安全情報人員資訊組",
+        "097年公務人員特種考試外交領事人員外交行政人員及國際新聞人員考試、97年公務人員特種考試國際經濟商務人員考試 、97年公務人員特種考試國家安全局國家安全情報人員考試",
+        "502",
+        "2001",
+        "5001",
+        "c011",
+        "c021",
+        "c031",
+        "c041",
+        "資訊組",
+        "092年公務人員特種考試國家安全局國家安全情報人員考試",
+        "106",
+        "3001",
+        "c051"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [
+        "canonical-f1b20b71cea53474"
+      ]
+    },
+    {
+      "canonical_id": "canonical-315f522791c1bb30",
       "canonical_name": "國家安全情報人員特考｜三等／高考三級｜資訊組｜選試英文",
       "years": [
         115,
@@ -167844,14 +168221,15 @@
         112,
         111,
         110,
-        107
+        107,
+        99
       ],
-      "file_count": 63,
+      "file_count": 72,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-3-track-f1b20b71cea5-elective-language-348ea84c6046--dd75b35658be.zip",
       "asset_name": "moex-special-national-security-grade-3-track-f1b20b71cea5-elective-language-348ea84c6046--dd75b35658be.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-3-track-f1b20b71cea5-elective-language-348ea84c6046--dd75b35658be.zip",
-      "checksum": "0dd52f3f3d565f619ab053a1e0918da51f869d7b75048d3a7384099158368164",
+      "checksum": "556870152b9b6d95b2f6c0edbceccb3a10f8ed090bf888a5457e33d1bf500954",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-3-track-f1b20b71cea5-elective-language-348ea84c6046",
       "catalog_version": "exam-identity-v2",
@@ -167879,6 +168257,10 @@
         "國文（作文、公文與測驗）",
         "國文(作文、公文與測驗)",
         "外國文（英文）",
+        "系統程式（包括作業系統）",
+        "國文（作文、公 文與測驗）",
+        "法學知識與英文(包括中華民 國憲法、法學緒論、英文)",
+        "外國文（英 文）",
         "國家安全情報人員考試三等考試_資訊組(選試英文)",
         "115年公務人員特種考試警察人員考試、115年公務人員特種考試一般警察人員考試、115年公務人員特種考試國家安全局國家安全情報人員考試、115年公務人員特種考試移民行政人員考試",
         "504",
@@ -167889,29 +168271,83 @@
         "1307",
         "1315",
         "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
-        "354",
-        "0212",
-        "1403",
-        "1406",
-        "1413"
+        "354"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-f1b20b71cea53474"
+      ]
     },
     {
-      "canonical_id": "canonical-99034de0f1e6c4f0",
+      "canonical_id": "canonical-1132fda467e86fed",
+      "canonical_name": "國家安全情報人員特考｜五等｜社會組",
+      "years": [
+        114,
+        99
+      ],
+      "file_count": 16,
+      "storage_key": "bundles/sites/default/moex-special-national-security-grade-5-track-1132fda467e8--cbbcea827aa3.zip",
+      "asset_name": "moex-special-national-security-grade-5-track-1132fda467e8--cbbcea827aa3.zip",
+      "release_tag": "default-bundles-v2-001",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-5-track-1132fda467e8--cbbcea827aa3.zip",
+      "checksum": "edec317a12daaa3a3ed29c991ea086ce427cbd9c286262f6eb008fb5a812a9ad",
+      "schema_version": 2,
+      "bundle_id": "moex-special-national-security-grade-5-track-1132fda467e8",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "civil-service",
+      "exam_family_id": "civil-service-exam",
+      "exam_series_id": "special-national-security",
+      "level_id": "grade-5",
+      "track_id": "track-1132fda467e8",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "explicit category marker: 國家安全情報人員考試五等考試_社會組",
+      "exam_class": "公職考試",
+      "exam_subclass": "公職／公務人員",
+      "search_aliases": [
+        "國文",
+        "公民與英文",
+        "政治學大意",
+        "社會學大意",
+        "社會學大意試題更正",
+        "國文(包括公文格式用語)",
+        "國家安全情報人員考試五等考試_社會組",
+        "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
+        "952",
+        "0104",
+        "0205",
+        "0303",
+        "0808",
+        "國家安全情報人員考試社會組",
+        "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+        "602",
+        "300",
+        "400",
+        "c31",
+        "c32"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [
+        "canonical-5877a2ac666e1ebd"
+      ]
+    },
+    {
+      "canonical_id": "canonical-69d07667fc8ae602",
       "canonical_name": "國家安全情報人員特考｜五等｜行政組",
       "years": [
         114,
         112,
-        110
+        110,
+        99
       ],
-      "file_count": 27,
+      "file_count": 35,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-5-track-99034de0f1e6--2bd611f68bd2.zip",
       "asset_name": "moex-special-national-security-grade-5-track-99034de0f1e6--2bd611f68bd2.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-5-track-99034de0f1e6--2bd611f68bd2.zip",
-      "checksum": "77390ea8208884614ec2cb3006e5d1d6ba497dcaef9f8cfe48af265f4506db1b",
+      "checksum": "843b46289205d7de6f44c7b5da8ff4a32a808776996e00f47202e2e1d4657938",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-5-track-99034de0f1e6",
       "catalog_version": "exam-identity-v2",
@@ -167947,24 +168383,31 @@
         "0607",
         "國家安全情報人員五等考試_行政組",
         "110年公務人員特種考試警察人員考試、110年公務人員特種考試一般警察人員考試、110年公務人員特種考試國家安全局國家安全情報人員考試、110年特種考試交通事業鐵路人員考試、110年特種考試退除役軍人轉任公務人員考試",
-        "0608"
+        "0608",
+        "國家安全情報人員考試行政組",
+        "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+        "601",
+        "300"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-99034de0f1e6c4f0"
+      ]
     },
     {
-      "canonical_id": "canonical-c99f7a8d443618be",
+      "canonical_id": "canonical-6469094f9e66c071",
       "canonical_name": "國家安全情報人員特考｜五等｜電子組",
       "years": [
         112,
-        110
+        110,
+        99
       ],
-      "file_count": 18,
+      "file_count": 26,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-5-track-c99f7a8d4436--4fd126c0f530.zip",
       "asset_name": "moex-special-national-security-grade-5-track-c99f7a8d4436--4fd126c0f530.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-5-track-c99f7a8d4436--4fd126c0f530.zip",
-      "checksum": "01a57a6241eb652852d09c4742afa698bd9e4d0745355432c847e644e41c3b58",
+      "checksum": "c044dc348f2e1e6e50cc67b7b612f9a9ee15f9d9ca701ed548191ed7175a7f77",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-5-track-c99f7a8d4436",
       "catalog_version": "exam-identity-v2",
@@ -167986,6 +168429,7 @@
         "電子學大意",
         "基本電學大意",
         "國文(包括公文格式用語)",
+        "電子學大意試題更正",
         "國家安全情報人員考試五等考試_電子組",
         "112年公務人員特種考試警察人員考試、112年公務人員特種考試一般警察人員考試、112年公務人員特種考試國家安全局國家安全情報人員考試、112年特種考試交通事業鐵路人員考試、112年特種考試退除役軍人轉任公務人員考試",
         "953",
@@ -167997,25 +168441,34 @@
         "110年公務人員特種考試警察人員考試、110年公務人員特種考試一般警察人員考試、110年公務人員特種考試國家安全局國家安全情報人員考試、110年特種考試交通事業鐵路人員考試、110年特種考試退除役軍人轉任公務人員考試",
         "0104",
         "0205",
-        "2109"
+        "2109",
+        "國家安全情報人員考試電子組",
+        "099年公務人員特種考試外交領事人員及國際新聞人員考試、公務人員特種考試國際經濟商務人員考試、公務人員特種考試法務部調查局調查人員考試及公務人員特種考試國家安全局國家安全情報人員考試",
+        "604",
+        "300",
+        "400",
+        "c31"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-c99f7a8d443618be"
+      ]
     },
     {
-      "canonical_id": "canonical-f1b20b71cea53474",
+      "canonical_id": "canonical-315f522791c1bb30",
       "canonical_name": "國家安全情報人員特考｜五等｜資訊組",
       "years": [
         114,
         112,
-        110
+        110,
+        99
       ],
-      "file_count": 28,
+      "file_count": 36,
       "storage_key": "bundles/sites/default/moex-special-national-security-grade-5-track-f1b20b71cea5--ae61810f5991.zip",
       "asset_name": "moex-special-national-security-grade-5-track-f1b20b71cea5--ae61810f5991.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-special-national-security-grade-5-track-f1b20b71cea5--ae61810f5991.zip",
-      "checksum": "43b6bda204a67976e7730f5d8f9b33773dcc02d8660f94d4a12602517f665f22",
+      "checksum": "7fa23ef438df8bc93868f9a1d2154ae115a10b642ab1f5d3b0bb23a6f48857cd",
       "schema_version": 2,
       "bundle_id": "moex-special-national-security-grade-5-track-f1b20b71cea5",
       "catalog_version": "exam-identity-v2",
@@ -168037,6 +168490,7 @@
         "資料處理大意",
         "計算機大意",
         "國文(包括公文格式用語)",
+        "計算機大意試題更正",
         "國家安全情報人員考試五等考試_資訊組",
         "114年公務人員特種考試警察人員考試、114年公務人員特種考試一般警察人員考試、114年公務人員特種考試國家安全局國家安全情報人員考試、114年公務人員特種考試移民行政人員考試、114年特種考試退除役軍人轉任公務人員考試",
         "953",
@@ -168053,10 +168507,13 @@
         "國家安全情報人員五等考試_資訊組",
         "110年公務人員特種考試警察人員考試、110年公務人員特種考試一般警察人員考試、110年公務人員特種考試國家安全局國家安全情報人員考試、110年特種考試交通事業鐵路人員考試、110年特種考試退除役軍人轉任公務人員考試",
         "1605",
-        "1609"
+        "1609",
+        "國家安全情報人員考試資訊組"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [
+        "canonical-f1b20b71cea53474"
+      ]
     },
     {
       "canonical_id": "canonical-061b0d7f6511011c",
