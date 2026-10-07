@@ -94,6 +94,15 @@ _SERIES_LABELS = {
     "civil-ordinary": "普通考試",
     "civil-elementary": "初等考試",
     "civil-promotion": "升官等／升等考試",
+    "promotion-police": "警察人員升官等考試",
+    "promotion-customs": "關務人員升官等考試",
+    "promotion-railway": "鐵路人員升資考試",
+    "promotion-highway": "公路人員升資考試",
+    "promotion-port": "港務人員升資考試",
+    "promotion-postal": "郵政人員升資考試",
+    "promotion-telecommunications": "電信人員升資考試",
+    "promotion-water-transport": "水運人員升資考試",
+    "promotion-aviation": "民航人員升資考試",
     "special-local-government": "地方特考",
     "special-indigenous": "原住民族特考",
     "special-disability": "身心障礙特考",
@@ -170,7 +179,7 @@ _LEVEL_LABELS = {
     "qualification-high": "高等檢定",
     "qualification-ordinary": "普通檢定",
     "qualification-professional": "專業檢定",
-    "police-commissioned": "警監／警正",
+    "police-commissioned": "警監",
     "police-senior": "警正",
     "police-associate": "警佐",
     "professional-high": "專技高考",
@@ -448,14 +457,14 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
         )
     explicit_patterns = (
         (r"高等暨普通|高等、普通", "combined", "合併／制度待審核"),
-        (r"員級晉高員|員級高員|員晉高員", "promotion-employee-to-senior", "員級晉高員級"),
-        (r"佐級晉員|佐晉員", "promotion-associate-to-employee", "佐級晉員級"),
-        (r"士級晉佐|士晉佐", "promotion-worker-to-associate", "士級晉佐級"),
+        (r"員級\s*晉高員|員級高員|員晉高員", "promotion-employee-to-senior", "員級晉高員級"),
+        (r"佐級\s*晉員|佐晉員", "promotion-associate-to-employee", "佐級晉員級"),
+        (r"士級\s*晉佐|士晉佐", "promotion-worker-to-associate", "士級晉佐級"),
         (r"高員級|高級員", "promotion-senior-rank", "高員級"),
         (r"一級(?:漁航員|輪機員|船員)", "maritime-rank-1", "一級船員"),
         (r"二級(?:漁航員|輪機員|船員)", "maritime-rank-2", "二級船員"),
         (r"三級(?:漁航員|輪機員|船員)", "maritime-rank-3", "三級船員"),
-        (r"警監", "police-commissioned", "警監／警正"),
+        (r"警監", "police-commissioned", "警監"),
         (r"警正", "police-senior", "警正"),
         (r"警佐", "police-associate", "警佐"),
         (r"員級", "promotion-employee-rank", "員級"),
@@ -663,11 +672,90 @@ def _non_moex_level(
     )
 
 
+_TRANSPORT_PROMOTION_SERIES = (
+    ("鐵路", "promotion-railway"),
+    ("公路", "promotion-highway"),
+    ("港務", "promotion-port"),
+    ("郵政", "promotion-postal"),
+    ("電信", "promotion-telecommunications"),
+    ("水運", "promotion-water-transport"),
+    ("民航", "promotion-aviation"),
+)
+
+
+def _moex_promotion_series(category: str, exam_name: str, level_id: str) -> str | None:
+    """Resolve promotion purpose before interpreting an occupation as recruitment.
+
+    Each transport sector has its own paper table. A rank transition alone
+    cannot identify the sector in a shared event. Civil and customs promotion
+    likewise share rank labels, so an unmarked co-hosted category stays review.
+    """
+    if not re.search(r"升官等|升等|升資|晉升士級", f"{category} {exam_name}"):
+        return None
+    heading = category.rsplit("_", 1)[0] if "_" in category else category
+    if "公務人員升官等" in heading or re.search(r"公務(?:簡|薦|委)任", heading):
+        return "civil-promotion"
+    if re.search(r"警察人員升官等|警察(?:人員)?警(?:監|正|佐)", heading):
+        return "promotion-police"
+    if level_id.startswith("police-"):
+        return "promotion-police" if "警察" in exam_name else "moex-unknown"
+
+    if level_id.startswith("promotion-") and level_id != "promotion-official-rank":
+        # Older listings put the sector after the rank, alongside the track:
+        # 員級晉高員級_電信人員業務類報務. Keep that source evidence too.
+        explicit = [
+            series
+            for marker, series in _TRANSPORT_PROMOTION_SERIES
+            if f"{marker}人員" in category
+            or f"交通事業{marker}" in heading
+            or re.search(rf"{marker}\s*(?:業務類|技術類|總局|士級|佐級|員級|高員級)", heading)
+            or re.search(rf"(?:[-－]|[（(])(?:臺灣)?{marker}(?:總局|公司)?[）)]?$", category)
+        ]
+        if re.search(r"[（(](?:基隆|臺中|台中|高雄|花蓮)港[）)]$", category):
+            explicit.append("promotion-port")
+        explicit = list(dict.fromkeys(explicit))
+        if explicit:
+            return explicit[0] if len(explicit) == 1 else "moex-unknown"
+        candidates = [
+            series for marker, series in _TRANSPORT_PROMOTION_SERIES if marker in exam_name
+        ]
+        if candidates:
+            return candidates[0] if len(candidates) == 1 else "moex-unknown"
+
+    if "關務" in category:
+        return "promotion-customs"
+    civil_ranks = {"recommended-rank", "delegated-rank", "appointed-rank"}
+    if level_id in civil_ranks:
+        if "關務" in exam_name:
+            if "公務人員" in exam_name:
+                return "moex-unknown"
+            return "promotion-customs"
+        if "公務人員" in exam_name:
+            return "civil-promotion"
+    if "警察人員升官等" in exam_name and not any(
+        marker in exam_name for marker in ("公務人員", "交通事業", "升資")
+    ):
+        return "promotion-police"
+    if "警察人員升官等" in exam_name and any(
+        marker in category for marker in ("警察人員", "消防人員", "海岸巡防人員")
+    ):
+        return "promotion-police"
+    return None
+
+
 def _moex_series(
     category: str, exam_name: str, level_id: str, canonical_id: str
 ) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
+    promotion_series = _moex_promotion_series(cat, event, level_id)
+    if promotion_series is not None:
+        return (
+            "civil-service",
+            "civil-service-exam" if promotion_series == "moex-unknown" else "civil-promotion",
+            promotion_series,
+            _SERIES_LABELS[promotion_series],
+        )
     transport_series = _moex_transport_series(cat, event)
     if transport_series is not None:
         return (
@@ -978,6 +1066,19 @@ def _classify_paper_uncached(
         domain_id, family_id, series_id, series_label = _moex_series(
             category, exam_name, level_id, canonical_id
         )
+        if series_id in {series for _marker, series in _TRANSPORT_PROMOTION_SERIES}:
+            # Historical listings sometimes abbreviate the destination rank.
+            # The transport-promotion rules and retained official headers use
+            # the complete transition, not an additional examination grade.
+            transition = {
+                "promotion-senior-rank": "promotion-employee-to-senior",
+                "promotion-employee-rank": "promotion-associate-to-employee",
+                "promotion-associate-rank": "promotion-worker-to-associate",
+            }.get(level_id)
+            if transition is not None:
+                level_id = transition
+                level_label = _LEVEL_LABELS[level_id]
+                reason = f"official transport promotion destination rank: {category}"
         if (
             series_id
             in {"special-general-police", "special-national-security", "special-investigation"}

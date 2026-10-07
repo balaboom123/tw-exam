@@ -118,9 +118,97 @@ class ExamIdentityClassificationTests(unittest.TestCase):
         recruitment = classify("鐵路人員高員三級_會計", "特種考試交通事業鐵路人員考試")
         promotion = classify("交通事業鐵路人員員級晉高員_會計", "交通事業鐵路、公路、港務人員升資考試")
         self.assertEqual(recruitment.level_id, "transport-senior-3")
-        self.assertEqual(promotion.exam_series_id, "civil-promotion")
+        self.assertEqual(promotion.exam_series_id, "promotion-railway")
         self.assertEqual(promotion.level_id, "promotion-employee-to-senior")
         self.assertNotEqual(recruitment.bundle_id, promotion.bundle_id)
+
+    def test_promotion_programme_precedes_a_recruitment_occupation_marker(self) -> None:
+        for occupation in ("司法行政", "警察行政", "海巡行政", "移民行政", "外交事務", "原住民族行政"):
+            with self.subTest(occupation=occupation):
+                promoted = classify(f"公務人員升官等公務薦任_{occupation}", "公務人員、關務人員升官等考試")
+                self.assertEqual(promoted.exam_series_id, "civil-promotion")
+                self.assertEqual(promoted.exam_family_id, "civil-promotion")
+                self.assertEqual(promoted.level_id, "recommended-rank")
+
+    def test_police_promotion_is_separate_from_recruitment_and_civil_promotion(self) -> None:
+        event = "111年警察人員升官等考試、交通事業郵政、公路人員升資考試"
+        promoted = classify("警察人員警正_行政警察人員", event)
+        recruited = classify("警察人員考試三等考試_行政警察人員", "警察人員特種考試")
+        civil = classify("公務人員升官等公務薦任_警察行政", "公務人員升官等考試")
+        self.assertEqual(promoted.exam_series_id, "promotion-police")
+        self.assertEqual(promoted.level_id, "police-senior")
+        self.assertTrue(promoted.bundle_name.startswith("警察人員升官等考試｜警正｜"))
+        self.assertEqual(len({promoted.bundle_id, recruited.bundle_id, civil.bundle_id}), 3)
+        commissioned = classify("警監_行政警察人員", "警察人員升官等考試")
+        self.assertEqual(commissioned.level_label, "警監")
+        self.assertNotEqual(commissioned.bundle_id, promoted.bundle_id)
+
+    def test_transport_promotion_sectors_do_not_merge_equal_ranks_and_tracks(self) -> None:
+        event = "交通事業鐵路、公路、港務、郵政人員升資考試"
+        bundles = set()
+        for sector, series in (("鐵路", "railway"), ("公路", "highway"), ("港務", "port"), ("郵政", "postal")):
+            with self.subTest(sector=sector):
+                identity = classify(f"交通事業{sector}人員佐級晉員級_業務類", event)
+                self.assertEqual(identity.exam_series_id, f"promotion-{series}")
+                self.assertEqual(identity.level_id, "promotion-associate-to-employee")
+                bundles.add(identity.bundle_id)
+        self.assertEqual(len(bundles), 4)
+        unknown = classify("佐級晉員級_業務類", event)
+        self.assertEqual(unknown.confidence, "review")
+        self.assertEqual(unknown.exam_series_id, "moex-unknown")
+
+    def test_historical_transport_sector_after_rank_remains_evidence(self) -> None:
+        identity = classify("員級晉高員級_電信人員業務類報務", "082年交通事業電信、水運、民航人員升資考試")
+        self.assertEqual(identity.exam_series_id, "promotion-telecommunications")
+        self.assertEqual(identity.confidence, "high")
+        spaced = classify("員級 晉高員級_鐵路人員技術類", "交通事業鐵路人員升資考試")
+        compact = classify("員級晉高員級_鐵路人員技術類", "交通事業鐵路人員升資考試")
+        self.assertEqual(spaced.level_id, "promotion-employee-to-senior")
+        self.assertEqual(spaced.bundle_id, compact.bundle_id)
+
+    def test_customs_and_civil_promotion_do_not_share_rank_identity(self) -> None:
+        event = "公務人員升官等考試、關務人員升官等考試"
+        civil = classify("公務薦任_技術類", event)
+        customs = classify("關務薦任_技術類", event)
+        unknown = classify("薦任_技術類", event)
+        self.assertEqual(civil.exam_series_id, "civil-promotion")
+        self.assertEqual(customs.exam_series_id, "promotion-customs")
+        self.assertEqual(civil.level_id, customs.level_id)
+        self.assertNotEqual(civil.bundle_id, customs.bundle_id)
+        self.assertEqual(unknown.exam_series_id, "moex-unknown")
+        self.assertEqual(unknown.confidence, "review")
+        historical = classify("簡任升等_關務", "087年關務人員升等考試")
+        self.assertEqual(historical.exam_series_id, "promotion-customs")
+
+    def test_transport_promotion_destination_rank_preserves_official_transition(self) -> None:
+        # ROC 93 official telecommunications headers spell out the transition
+        # where the source category abbreviates its destination rank.
+        for marker, transition in (("高級員", "employee-to-senior"), ("員級", "associate-to-employee"), ("佐級", "worker-to-associate")):
+            with self.subTest(marker=marker):
+                identity = classify(f"物料({marker})", "093年交通事業電信人員升資考試", source="093280")
+                self.assertEqual(identity.exam_series_id, "promotion-telecommunications")
+                self.assertEqual(identity.level_id, f"promotion-{transition}")
+                self.assertEqual(identity.confidence, "high")
+        recruited = classify("佐級_物料", "交通事業鐵路人員特種考試")
+        self.assertEqual(recruited.level_id, "transport-associate")
+
+    def test_transport_technical_topic_does_not_change_promotion_sector(self) -> None:
+        for track in ("技術類電信機務", "技術類電信線務"):
+            with self.subTest(track=track):
+                port = classify(f"士級晉佐級_{track}", "083年交通事業港務人員升資考試", source="083280")
+                self.assertEqual(port.exam_series_id, "promotion-port")
+        railway = classify("佐級晉員級_公路工程", "交通事業鐵路人員升資考試")
+        self.assertEqual(railway.exam_series_id, "promotion-railway")
+
+    def test_transport_promotion_sector_suffix_is_distinct_from_a_technical_topic(self) -> None:
+        event = "交通事業鐵路、公路、港務人員升資考試"
+        for suffix, series in (("-公路", "highway"), ("(公路總局)", "highway"), ("(鐵路)", "railway"), ("-臺灣港務公司", "port"), ("(基隆港)", "port")):
+            with self.subTest(suffix=suffix):
+                identity = classify(f"佐級晉員級_業務類{suffix}", event)
+                self.assertEqual(identity.exam_series_id, f"promotion-{series}")
+        topic = classify("佐級晉員級_技術類(選試鐵路工程概要)", event)
+        self.assertEqual(topic.exam_series_id, "moex-unknown")
+        self.assertEqual(topic.confidence, "review")
 
     def test_cohosted_highway_and_railway_recruitment_remain_separate(self) -> None:
         event = "097年特種考試交通事業鐵路人員考試、97年特種考試交通事業公路人員考試"
@@ -264,7 +352,7 @@ class ExamIdentityClassificationTests(unittest.TestCase):
             source="082040",
         )
 
-        self.assertEqual(worker_promotion.exam_series_id, "civil-promotion")
+        self.assertEqual(worker_promotion.exam_series_id, "promotion-railway")
         self.assertEqual(worker_promotion.level_id, "promotion-worker-rank")
         self.assertEqual(worker_promotion.confidence, "medium")
         self.assertIn("source event marker", worker_promotion.reason)

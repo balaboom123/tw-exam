@@ -109,6 +109,32 @@ for example, `行政警察人員類別` and `行政警察人員` share the same 
 Removing that heading word preserves the following group, so `航海組` and
 `輪機組` remain different tracks. Raw source wording is retained unchanged.
 
+Promotion purpose takes priority over occupation words. For example,
+`公務人員升官等公務薦任_司法行政` is civil-service promotion, and
+`警察人員警正_行政警察人員` in a police-promotion event is police promotion.
+Neither is a recruitment examination. Police and customs promotion have
+separate programme identities, following the official
+[police-promotion rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016771)
+and [customs-promotion rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016781).
+Police promotion preserves the distinct 警監 and 警正 ranks.
+
+Transport promotion preserves its sector as well as its rank transition:
+railway, highway, port, and postal papers have separate subject tables under the
+[transport-promotion rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016765).
+Retained telecommunications, water-transport, and aviation promotion also keep
+their source sector, as documented in the Exam Yuan's
+[historical account](https://ws.exam.gov.tw/Download.ashx?n=MDExMjE2MzEzMjYucGRm&u=LzAwMS9VcGxvYWQvMS9yZWxmaWxlLzkzMTkvMjE4MTMvMWE2NWRiNjktMWQ1ZC00ZDAyLTgwZGEtYjllMzc2Yjc2MTMwLnBkZg%3D%3D).
+Sector evidence may precede or follow the rank in the raw category. A category
+without sector evidence in a shared transport event remains in review; likewise,
+an unmarked rank in a combined civil/customs promotion event cannot identify
+the programme. Historical transport-promotion categories that abbreviate the
+destination as 高員級、員級、佐級 use the corresponding full transition:
+員級晉高員級、佐級晉員級、士級晉佐級. For example, the retained
+[ROC 93 telecommunications paper](https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093280&c=311&s=c381&q=1)
+states 士級晉佐級 for the source category `物料(佐級)`. These references were
+rechecked on 2026-10-07. Original wording,
+source keys, roles, URLs, and checksums remain unchanged by reclassification.
+
 ## Bundle purity
 
 The default bundle policy groups papers only when these values match:
