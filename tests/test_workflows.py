@@ -1762,6 +1762,21 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
 
 
 class HakkaPrivateMirrorTests(unittest.TestCase):
+    def test_jlpt_keeps_acquisition_without_site_or_public_backup_publication(self) -> None:
+        from app.providers.registry import get_provider
+        weekly = _workflow((REPO_ROOT / '.github/workflows/sync-certifications.yml').read_text())
+        job = weekly['jobs']['sync']
+        self.assertEqual(job['with']['durable_snapshot'], '${{ matrix.durable_snapshot }}')
+        rows = job['strategy']['matrix']['include']
+        for row in rows:
+            with self.subTest(provider=row['provider_id']):
+                allowed = getattr(get_provider(row['provider_id']), 'public_mirror_backup_allowed', True)
+                self.assertIs(row['durable_snapshot'], allowed)
+        jlpt = next(row for row in rows if row['provider_id'] == 'jlpt_cert')
+        self.assertIs(jlpt['publish'], False)
+        self.assertIs(jlpt['durable_snapshot'], False)
+        self.assertIn('schedule', weekly['on'])
+
     def test_hakka_is_manual_only_and_never_writes_a_public_snapshot(self) -> None:
         workflows = REPO_ROOT / ".github" / "workflows"
         manual = _workflow((workflows / "sync-hakka-cert.yml").read_text(encoding="utf-8"))

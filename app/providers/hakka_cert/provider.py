@@ -7,6 +7,7 @@ from app.providers.hakka_cert.client import HakkaCertClient
 
 class HakkaCertProvider(SourceProvider):
     provider_id = "hakka_cert"
+    public_mirror_backup_allowed = False
 
     def __init__(self, client: HakkaCertClient | None = None) -> None:
         self.client = client or HakkaCertClient()

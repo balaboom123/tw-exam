@@ -7,9 +7,9 @@ and history audit obligations; only ``load_site_catalog`` drops it.  That
 separation is deliberate: an unpublished provider must still be measured,
 otherwise quarantine would silently shrink the completeness denominator.
 
-Entries describe what the repository currently *publishes* incorrectly.  An
-incomplete or blocked upstream source is not a quarantine reason; that belongs
-in ``catalog/source-coverage`` via ``app.coverage_exceptions``.
+Entries describe a defective projection or a documented restriction on its
+redistribution. An incomplete or blocked acquisition source is not a quarantine
+reason; that belongs in ``catalog/source-coverage`` via ``app.coverage_exceptions``.
 """
 
 from __future__ import annotations
@@ -28,6 +28,7 @@ _ALLOWED_STATUSES = {
     "corrupt_payload",
     "non_paper_role",
     "duplicate_source_identity",
+    "redistribution_unresolved",
 }
 
 
@@ -95,6 +96,8 @@ def load_quarantine(repo_root: Path, *, site_id: str) -> dict[str, QuarantineEnt
     document = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(document, dict):
         raise ValueError(f"{path}: quarantine document must be an object")
+    if type(document.get("schema_version")) is not int or document["schema_version"] != 1:
+        raise ValueError(f"{path}: unsupported quarantine schema version")
     raw_entries = document.get("quarantine", [])
     if not isinstance(raw_entries, list):
         raise ValueError(f"{path}: quarantine must be a list")

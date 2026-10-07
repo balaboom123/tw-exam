@@ -27,3 +27,12 @@ While the Hakka proficiency provider's audio terms remain unresolved, its sync
 runs by manual dispatch, writes no public mirror backup, and stays withheld
 from the site. An existing working cache may still be restored, so a run is
 not guaranteed to fetch every source file again.
+
+JLPT's retained official workbooks include third-party text and listening audio
+that its [workbook notice](https://www.jlpt.jp/samples/sampleindex.html) and
+[site policy](https://www.jlpt.jp/policy.html) restrict separately. Its source
+inventory records a redistribution hold. The adapter therefore prohibits
+public mirror backup creation, and the certification workflow retains
+acquisition without publishing site ZIPs or public backup snapshots. Recovery
+requires the retained working mirror or a verified local snapshot while that
+hold remains unresolved.

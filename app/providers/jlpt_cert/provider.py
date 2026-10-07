@@ -7,6 +7,7 @@ from app.providers.jlpt_cert.client import JlptCertClient
 
 class JlptCertProvider(SourceProvider):
     provider_id = "jlpt_cert"
+    public_mirror_backup_allowed = False
 
     def __init__(self, client: JlptCertClient | None = None) -> None:
         self.client = client or JlptCertClient()

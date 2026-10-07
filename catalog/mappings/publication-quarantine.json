@@ -2,7 +2,7 @@
   "schema_version": 1,
   "catalog_version": "exam-identity-v2",
   "owner": "catalog maintainers",
-  "policy": "A quarantined provider stays registered, synced, mirrored, and audited; only its public site projection is withheld. Quarantine never deletes provider state or mirrored bytes, so lifting an entry is a one-line revert plus a republish. An entry is justified by a defect in what the repository currently publishes - wrong identity, wrong payload, or non-paper role - not by an incomplete source, which is tracked in catalog/source-coverage instead.",
+  "policy": "A quarantined provider stays registered, synced, mirrored, and audited; only its public site projection is withheld. Quarantine never deletes provider state or mirrored bytes. Lifting an entry requires resolving its recorded defect or redistribution restriction and republishing. An entry is justified by a defective public projection or documented redistribution restriction, not by incomplete acquisition, which is tracked in catalog/source-coverage instead.",
   "recorded_at": "2026-08-02",
   "quarantine": [
     {
@@ -42,6 +42,15 @@
       "review_by": "2026-11-01"
     },
     {
+      "provider_id": "jlpt_cert",
+      "site_id": "default",
+      "status": "redistribution_unresolved",
+      "reason": "The public ZIPs redistribute the 2012/2018 official practice workbooks, including all N1–N5 listening audio and N1/N2 passages covered by the official third-party reproduction restriction. The source inventory already records that redistribution is withheld; no permission covering this archive was established. Workbook edition years are also presented through the administered-exam year contract.",
+      "evidence_path": "catalog/source-inventory.json",
+      "spec_path": "docs/providers/notes.md#jlpt_cert",
+      "review_by": "2026-11-01"
+    },
+    {
       "provider_id": "moea_recruit",
       "site_id": "default",
       "status": "duplicate_source_identity",
@@ -72,7 +81,7 @@
       "provider_id": "taigi_cert",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "All 35 records carry a synthetic 2026 identity for undated source material, and one public bundle merges the official A, B, and C paper forms into a single form.",
+      "reason": "All 35 retained records carry a synthetic 2026 event/year identity for undated source material. The A/B/C paper forms and their paired proficiency bands are now classified separately, but material nature, date evidence, and redistribution constraints remain unresolved.",
       "evidence_path": "data/providers/taigi_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#taigi_cert",
       "review_by": "2026-11-01"

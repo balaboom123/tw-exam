@@ -29,8 +29,8 @@ blobs through state transfers, backup, and rollback. Routine mirror pruning
 and deduplication preserve the blobs, including copies saved by an interrupted
 sync before the journal was written. Diagnose unjournaled recovery files before
 any manual deletion. Recovery blobs follow the provider's existing backup
-policy; they do not authorize public backup or site publication. Hakka's public
-mirror backup prohibition still applies.
+policy; they do not authorize public backup or site publication. The mirror
+backup helper checks the adapter's permission before packing or remote work.
 
 After recovery, run `history-audit --strict` with its default mirror checking
 to verify the retained revisions. `--skip-mirror-check` reports metadata only
@@ -45,6 +45,8 @@ named `mirror-<provider_id>` in the source repository. These archives are recove
 inputs, separate from site release shards and the publication inventory. Public
 storage includes retained provider files even when their site projection is
 quarantined. It does not change quarantine or authorize site publication.
+Adapters with a public backup prohibition cannot use `save`; retain verified
+local mirrors and use the workflow's cache-only mode instead.
 
 With an authenticated `gh` CLI, save one provider's local mirror:
 

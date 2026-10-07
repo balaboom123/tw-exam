@@ -17,51 +17,61 @@ jobs:
       matrix:
         include:
           - provider_id: gept_cert
+            durable_snapshot: true
             cache_prefix: gept-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: ipas_cert
+            durable_snapshot: true
             cache_prefix: ipas-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: jlpt_cert
+            durable_snapshot: false
             cache_prefix: jlpt-cert
             timeout_minutes: 30
-            publish: true
+            publish: false
             prune_orphaned_mirror: false
           - provider_id: sfi_cert
+            durable_snapshot: true
             cache_prefix: sfi-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: tabf_cert
+            durable_snapshot: true
             cache_prefix: tabf-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: taigi_cert
+            durable_snapshot: true
             cache_prefix: taigi-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: tii_cert
+            durable_snapshot: true
             cache_prefix: tii-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: tocfl_cert
+            durable_snapshot: true
             cache_prefix: tocfl-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: tqc_cert
+            durable_snapshot: true
             cache_prefix: tqc-cert
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
           - provider_id: wdasec_skill
+            durable_snapshot: true
             cache_prefix: wdasec-skill
             timeout_minutes: 120
             publish: true
@@ -72,4 +82,5 @@ jobs:
       cache_prefix: ${{ matrix.cache_prefix }}
       timeout_minutes: ${{ matrix.timeout_minutes }}
       publish: ${{ matrix.publish }}
+      durable_snapshot: ${{ matrix.durable_snapshot }}
       prune_orphaned_mirror: ${{ matrix.prune_orphaned_mirror }}

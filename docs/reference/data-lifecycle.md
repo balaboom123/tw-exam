@@ -67,6 +67,13 @@ Source-coverage evidence belongs in `catalog/source-coverage/`. Event exceptions
 
 Quarantine belongs in `catalog/mappings/publication-quarantine.json` and withholds a defective site projection. It does not change source acquisition denominators: registered providers continue discovery, sync, mirroring, normalization, and audits. Source-coverage exceptions explain acquisition blockers; quarantine explains withheld publication.
 
+A documented redistribution restriction can also withhold the site's ZIP
+projection. This is distinct from an unavailable download: an acquired file
+may be retained for evidence without being eligible for republication. A
+source's private-study permission does not automatically cover a public ZIP
+archive containing third-party material. The quarantine entry records the
+publication disposition and links to reviewed source evidence.
+
 Each quarantine entry requires a reason, source evidence, and a resolvable maintained note section. Required providers cannot be quarantined; the site publisher fails closed rather than bypassing its required-state guard. Quarantine must not delete retained provider state, mirrors, or bundle archives.
 
 The site publisher owns exclusion. History audit reports quarantined events separately from minimum-year exclusions and unexplained publication gaps. Lifting a reviewed entry requires republishing. Removing a projection leaves previously uploaded assets directly downloadable until Release reconciliation/pruning completes.

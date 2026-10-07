@@ -561,11 +561,11 @@ def restore(
 
 
 def validate_public_backup_provider(provider: str) -> None:
-    get_provider(provider)
-    # The manual Hakka workflow also disables backup work. Enforce its source
-    # restriction here so another caller cannot create a public audio backup.
-    if provider == "hakka_cert":
-        raise ValueError("Public mirror backups are disabled for hakka_cert; retain its local mirror")
+    client = get_provider(provider)
+    # Enforce adapter-owned source restrictions before packing or remote work,
+    # even when an operator bypasses the workflow's backup input.
+    if not getattr(client, "public_mirror_backup_allowed", True):
+        raise ValueError(f"Public mirror backups are disabled for {provider}; retain its local mirror")
 
 
 def save(root: Path, repository: str, provider: str, generation: str) -> dict:

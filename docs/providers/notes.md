@@ -48,6 +48,17 @@ Treat each official iPAS examination family as its own source boundary. Regulati
 
 Use official JLPT sample-question sets as samples, preserving their source role. They must not be presented as a complete year-by-year archive or assigned unsupported event years.
 
+The [official workbook page](https://www.jlpt.jp/samples/sampleindex.html)
+identifies the retained years as publication editions assembled from earlier
+test questions. It separately restricts reproduction of attributed N1/N2 text
+and all N1–N5 listening audio. The [official policy](https://www.jlpt.jp/policy.html)
+permits specified uses with attribution but requires separate permission for
+the third-party material. These pages were rechecked on 2026-10-07. The source
+inventory's recorded redistribution hold applies to the site's ZIPs; the
+publication quarantine enforces that hold while preserving source history.
+Restoring publication requires evidence covering the included material and a
+projection that distinguishes workbook editions from administered events.
+
 ## `moea_recruit`
 
 A MOEA recruitment provider must be supported by MOEA-owned recruitment identity and source material. Taipower records cannot stand in for MOEA records even when the subject matter or filenames look compatible.
