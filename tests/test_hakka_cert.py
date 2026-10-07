@@ -1,6 +1,10 @@
 """Tests for the hakka_cert provider."""
 
+import json
 import unittest
+from pathlib import Path
+
+import pytest
 
 from app.providers.hakka_cert.client import HakkaCertClient, parse_downloads
 
@@ -29,6 +33,20 @@ PAGED_INTERMEDIATE_HTML = """
 
 
 class HakkaCertParserTests(unittest.TestCase):
+    def test_archive_container_does_not_turn_question_packages_into_audio(self) -> None:
+        html = """
+        <a href="/hakka/files/downloads/129.zip">107 年度客語能力認證初級題庫及樣卷 ( 四縣腔 ) 下載</a>
+        <a href="/hakka/files/downloads/791.zip">高級-口說測驗試題範例-四縣</a>
+        <a href="/hakka/files/downloads/481.rar">高級-書寫測驗試題範例-四縣</a>
+        <a href="/hakka/files/downloads/353.zip">112 年度客語能力認證基礎級暨初級題庫音檔 ( 四縣腔 ) 下載</a>
+        <a href="/hakka/files/downloads/200.pdf">聽力測驗試題範例</a>
+        <a href="/hakka/files/downloads/201.mp3">聽力測驗試題範例</a>
+        """
+        self.assertEqual(
+            [download.file_type for download in parse_downloads(html)],
+            ["question", "question", "question", "listening_audio", "question", "listening_audio"],
+        )
+
     def test_parse_downloads_keeps_public_pdf_assets_once_with_dialect_code(self) -> None:
         downloads = parse_downloads(DOWNLOAD_HTML)
 
@@ -129,6 +147,34 @@ class HakkaCertClientTests(unittest.TestCase):
         client.fetch_exam_page("hakka-cert-basic-elementary-2026", 2026)
 
         self.assertEqual(len(calls), 3)
+
+
+@pytest.mark.repo_data
+def test_retained_question_packages_keep_prior_audio_role_references() -> None:
+    provider = Path(__file__).resolve().parents[1] / "data/providers/hakka_cert"
+    papers = [
+        paper
+        for path in (provider / "papers").glob("*.json")
+        for paper in json.loads(path.read_text(encoding="utf-8"))
+    ]
+    current = {paper["download_url_source"]: paper for paper in papers}
+    journal = json.loads((provider / "source-revisions.json").read_text(encoding="utf-8"))
+    retired = [
+        entry for entry in journal["revisions"]
+        if entry["source_record"]["file_type"] == "listening_audio"
+        and entry["reason"] == "source_reference_retired"
+    ]
+    assert len(retired) == 15
+    for entry in retired:
+        previous = entry["source_record"]
+        corrected = current[previous["download_url_source"]]
+        assert corrected["file_type"] == "question"
+        for field in (
+            "provider_id", "year_roc", "source_exam_id", "category_code",
+            "subject_code", "subject_name_raw", "checksum", "bundle_id",
+        ):
+            assert previous[field] == corrected[field]
+        assert entry["blob_storage_key"].startswith("providers/hakka_cert/recovery/source-revisions/")
 
 
 if __name__ == "__main__":

@@ -32,7 +32,7 @@ SUPPORTED_DOWNLOAD_SUFFIXES = (
     ".ods",
 )
 EXAM_ASSET_LABEL_TOKENS = ("題庫", "試題", "答案")
-AUDIO_SUFFIXES = (".zip", ".rar", ".mp3")
+AUDIO_SUFFIXES = (".mp3",)
 
 
 @dataclass(frozen=True)
@@ -122,9 +122,9 @@ def _year_from_label(label: str) -> int:
 def _file_type_for_download(path_lower: str, label: str) -> str:
     if "答案" in label:
         return "answer"
-    if path_lower.endswith(AUDIO_SUFFIXES) or any(
-        token in label for token in ("音檔", "聽力", "聽測")
-    ):
+    # ZIP/RAR describes the container, not its role. The official question
+    # packages include both PDF-only banks and mixed PDF/audio samples.
+    if path_lower.endswith(AUDIO_SUFFIXES) or "音檔" in label:
         return "listening_audio"
     return "question"
 

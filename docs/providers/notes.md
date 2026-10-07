@@ -24,6 +24,13 @@ Use official GEPT paper material only when level and event identity are supporte
 
 Use official Hakka proficiency assessment material while keeping examination papers distinct from audiovisual practice resources. Redistribution limits on audiovisual works are publication constraints, not permission to relabel or omit retained evidence.
 
+The official downloadable question banks and sample-paper packages can contain
+PDFs alone or PDFs with accompanying audio. A ZIP or RAR suffix does not make
+a package an audio file. Preserve the original package, use its source label
+to distinguish question packages from explicitly labeled 音檔, and inspect
+the contents before changing the packaging. The retained archives and current
+official listing were checked on 2026-10-07.
+
 ## `hce_cmu`
 
 This provider covers official CMU post-baccalaureate medicine entrance papers reached from the university admission archive. General admission notices and forms are not paper records.
