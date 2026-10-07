@@ -82,6 +82,14 @@ The site publisher owns exclusion. History audit reports quarantined events sepa
 
 ## Build and publish
 
+Reviewed material facts can be acquired before they are publishable. Their
+normalized v3 records preserve native source keys and storage partitions while
+recording official dates separately. The bundler rejects such records until
+the public consumers support their dates and material kinds. Existing
+quarantine is applied before site aggregation, so a withheld provider's fact
+migration does not change unrelated publication. Acquisition does not lift
+a source hold.
+
 The [site configuration](../../app/site_registry.py) selects eligible providers and bundles. The [bundler](../../app/bundler.py) reads normalized papers and validated mirror files, reuses matching unchanged single-part archives, and verifies ZIP CRC for entries whose mirror files are absent before reuse. Deterministic entry timestamps and permissions stabilize rebuilt bytes; completed archive checksums are streamed from files.
 
 New archive manifests retain year- and source-URL-aware paper keys, checksums,

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/normalized-paper-v3.schema.json",
+  "title": "Normalized paper v3 with reviewed material and date facts",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "provider_id",
+    "canonical_id",
+    "canonical_name",
+    "year_roc",
+    "exam_name_raw",
+    "category_raw",
+    "paper_code",
+    "file_type",
+    "bundle_id",
+    "domain_id",
+    "exam_family_id",
+    "exam_series_id",
+    "level_id",
+    "track_id",
+    "variant_ids",
+    "stage_id",
+    "exam_event_id",
+    "classification_confidence",
+    "classification_reason",
+    "source_material"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 3
+    },
+    "catalog_version": {
+      "const": "exam-identity-v2"
+    },
+    "provider_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_name": {
+      "type": "string"
+    },
+    "year_roc": {
+      "type": "integer"
+    },
+    "exam_name_raw": {
+      "type": "string"
+    },
+    "category_raw": {
+      "type": "string"
+    },
+    "subject_name_raw": {
+      "type": "string"
+    },
+    "paper_code": {
+      "type": "string"
+    },
+    "file_type": {
+      "type": "string"
+    },
+    "source_exam_id": {
+      "type": "string"
+    },
+    "download_url_bundle": {
+      "type": "string",
+      "deprecated": true,
+      "description": "Legacy site-derived URL. Scoped provider writers omit it; site state owns current downloads."
+    },
+    "bundle_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exam_family_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exam_series_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "level_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "track_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exam_event_id": {
+      "type": "string"
+    },
+    "bundle_policy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "classification_confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "review"
+      ]
+    },
+    "classification_reason": {
+      "type": "string"
+    },
+    "exam_class": {
+      "type": "string"
+    },
+    "exam_subclass": {
+      "type": "string"
+    },
+    "source_material": {
+      "$ref": "source-material-v1.schema.json#/$defs/material"
+    }
+  },
+  "additionalProperties": true
+}

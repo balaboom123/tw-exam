@@ -11,8 +11,9 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Compact review ledger | [Review schema](../../schemas/review-queue-v2.schema.json), [codec](../../app/review_queue.py) | `data/providers/<provider_id>/review-queue.json` |
 | Successful event sync receipts | [Sync status schema](../../schemas/provider-sync-status-v1.schema.json), [provenance](../../app/provenance.py) | `data/providers/<provider_id>/sync-status.json` |
 | Superseded source references and payloads | [Revision schema](../../schemas/provider-source-revisions-v1.schema.json), [retention owner](../../app/source_revisions.py) | `data/providers/<provider_id>/source-revisions.json`, `mirror/providers/<provider_id>/recovery/source-revisions/` |
-| Normalized papers | [Normalized-paper schema](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
-| Derived provider index | [Index schema](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
+| Material nature and official date evidence | [Material schema](../../schemas/source-material-v1.schema.json), [fact model](../../app/source_material.py) | Provider raw events/papers and normalized records |
+| Normalized papers | [V3 facts contract](../../schemas/normalized-paper-v3.schema.json), [V2 compatibility contract](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
+| Derived provider index | [V2 dated index](../../schemas/provider-index-v2.schema.json), [V1 compatibility index](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
 | Reviewed source scope and evidence | [Inventory schema](../../schemas/source-inventory.schema.json), [inventory validator](../../app/source_inventory.py) | `catalog/source-inventory.json` |
 | Coverage exceptions | [Exception schema](../../schemas/source-coverage-exceptions.schema.json), [matcher](../../app/coverage_exceptions.py) | `catalog/source-coverage/` |
 | Publication quarantine | [Quarantine loader](../../app/publication_quarantine.py) | `catalog/mappings/publication-quarantine.json` |
@@ -28,6 +29,32 @@ Every persisted contract has one owner. Provider ingestion state and site public
 Public-facing contracts must be versioned, with integer schema versions. A breaking contract change requires a version increment, migration and rollback paths, affected-consumer analysis, tests, and operator procedure updates. An additive change may retain its version when all consumers safely handle unknown fields. Critical readers must reject unsupported versions and provider ownership mismatches. Converting current year-scoped provider arrays to a versioned envelope is a migration, not a documentation-only change.
 
 Raw events preserve enough official-source detail to rebuild normalized records. They must not depend on site publication choices. Normalized records are source-agnostic; provider-specific parser fields require a reviewed shared-contract change before entering those records.
+
+Reviewed `source_material` facts distinguish material nature from file role.
+The schema owns their vocabulary; questions, answers, corrections, audio and
+transcripts remain roles of their containing material. A raw event can provide
+shared facts, with an explicit paper or attachment override for supporting
+reference material. Normalization retains the selected facts in v3 records;
+non-administered kinds are separate identity variants. Unknown or conflicting
+material/date evidence requires a reason and a review disposition.
+
+The source date states whether a year belongs to an administered examination,
+an edition, or a publication. Undated and unknown dates carry no year. Existing
+`year_ad`/`year_roc` partitions and source keys remain traceability fields and
+must not substitute for these facts. V2 indexes keep the partition year and
+the reviewed date year in separate columns; legacy records have no reviewed
+date value. V1/v2 records without facts retain their original serialized shape.
+
+The current public feed and archive contracts do not yet support these facts.
+The bundler explicitly rejects fact-bearing catalogs until archive, recovery,
+publication, audit and frontend consumers are migrated together. Site
+publication checks the complete selected site catalog before preserving
+unaffected bundles during a partial update, using the same guard.
+Provider acquisition, retained history and existing source holds continue independently.
+Do not remove that guard or lift a hold merely because ingestion now retains
+correct dates. Older application versions cannot read normalized v3 records;
+rollback requires restoring the matching provider-state baseline and index,
+while preserving revision journals and recovery bytes.
 
 ## Source evidence and traceability
 

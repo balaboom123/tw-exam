@@ -10,6 +10,7 @@ from pathlib import Path
 
 from app.classification import classify_paper, identity_fields
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
+from app.source_material import SourceMaterial
 
 KNOWN_CANONICAL_IDS = {
     "護理師": "nurse",
@@ -333,11 +334,13 @@ def normalize_papers(
     mirror_base_url: str,
     mirror_metadata: dict[tuple[str, str, str], dict[str, str]],
     provider_id: str = "",
+    source_material: SourceMaterial | None = None,
 ) -> NormalizedCatalog:
     year_roc = year_ad - 1911
     normalized_papers: list[NormalizedPaper] = []
     review_queue: list[ReviewItem] = []
     for paper in papers:
+        material = paper.source_material or source_material
         raw_category = paper.category_raw or exam_name_raw
         canonical_id, canonical_name, candidate, needs_review = _derive_canonical(
             source_exam_id, raw_category, exam_name_raw, year_ad, alias_rules
@@ -356,8 +359,11 @@ def normalize_papers(
                 subject_name_raw=paper.subject_name_raw,
                 subject_code=paper.subject_code,
                 category_code=paper.category_code,
+                source_material=material,
             )
             fields = identity_fields(identity)
+        if material is not None:
+            fields["schema_version"] = 3
         if needs_review or (identity is not None and identity.confidence == "review"):
             review_queue.append(
                 ReviewItem(
@@ -403,6 +409,7 @@ def normalize_papers(
                     storage_key=storage_key,
                     checksum=metadata.get("checksum", ""),
                     provider_id=provider_id,
+                    source_material=material,
                     **fields,
                 )
             )
@@ -479,8 +486,11 @@ def renormalize_catalog(
                 subject_name_raw=paper.subject_name_raw,
                 subject_code=paper.subject_code,
                 category_code=paper.category_code,
+                source_material=paper.source_material,
             )
             fields = identity_fields(identity)
+        if paper.source_material is not None:
+            fields["schema_version"] = 3
         paper = replace(paper, canonical_id=canonical_id, canonical_name=canonical_name, **fields)
         if collect_reviews and (
             needs_review or (identity is not None and identity.confidence == "review")

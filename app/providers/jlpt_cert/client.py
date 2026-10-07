@@ -10,6 +10,7 @@ from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.source_material import SourceDate, SourceMaterial
 
 DOWNLOAD_URL = "https://www.jlpt.jp/e/samples/sampleindex.html"
 USER_AGENT = "Mozilla/5.0 (compatible; jlpt-cert-mirror/1.0)"
@@ -155,12 +156,17 @@ class JlptCertClient:
 
     def __init__(self) -> None:
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
+        self._downloads_cache: tuple[JlptDownload, ...] | None = None
 
     def _fetch_text(self, url: str) -> str:
         return self.http.get_text(_quote_url_for_request(url), encoding="utf-8")
 
     def _downloads(self) -> list[JlptDownload]:
-        return parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
+        if self._downloads_cache is None:
+            self._downloads_cache = tuple(
+                parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
+            )
+        return list(self._downloads_cache)
 
     def discover_available_years(self) -> list[int]:
         return sorted({download.year_ad for download in self._downloads()}, reverse=True)
@@ -179,6 +185,8 @@ class JlptCertClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         downloads = [download for download in self._downloads() if download.year_ad == year_ad]
+        if not downloads or exam_code != _exam_code(year_ad):
+            raise ValueError("Requested JLPT workbook edition is not in the official listing")
         papers = [
             ParsedPaper(
                 category_raw=f"{CANONICAL_CATEGORY}_{download.level_code.upper()}",
@@ -197,6 +205,12 @@ class JlptCertClient:
             attachments=[],
             papers=papers,
             provider_id=self.provider_id,
+            source_material=SourceMaterial(
+                kind="practice_collection",
+                date=SourceDate("edition_year", year_ad),
+                evidence_url=DOWNLOAD_URL,
+                evidence_label=f"JLPT Official Practice Workbook (published {year_ad})",
+            ),
         )
 
     def head(self, url: str) -> ResponseMetadata:

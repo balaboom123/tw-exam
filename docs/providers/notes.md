@@ -70,6 +70,11 @@ publication quarantine enforces that hold while preserving source history.
 Restoring publication requires evidence covering the included material and a
 projection that distinguishes workbook editions from administered events.
 
+The adapter records workbook material with `edition_year` facts from the
+listing's edition sections. An audio URL containing another year does not
+override its workbook edition. Discovery and fetching share one listing
+snapshot per client; an absent edition or mismatched event key is rejected.
+
 ## `moea_recruit`
 
 A MOEA recruitment provider must be supported by MOEA-owned recruitment identity and source material. Taipower records cannot stand in for MOEA records even when the subject matter or filenames look compatible.

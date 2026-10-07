@@ -60,6 +60,27 @@ class JlptCertClientTests(unittest.TestCase):
         self.assertIn("listening_audio", page.papers[1].files)
         self.assertIn("listening_transcript", page.papers[2].files)
         self.assertEqual(len({paper.subject_code for paper in page.papers}), len(page.papers))
+        self.assertEqual(page.source_material.kind, "practice_collection")
+        self.assertEqual(page.source_material.date.basis, "edition_year")
+        self.assertEqual(page.source_material.date.year_ad, 2012)
+
+    def test_discovery_and_fetch_share_one_official_listing_snapshot(self) -> None:
+        client = JlptCertClient()
+        calls = []
+
+        def fetch(url):
+            calls.append(url)
+            return SAMPLE_HTML
+
+        client._fetch_text = fetch
+        client.discover_available_years()
+        client.discover_exams(2012)
+        client.fetch_exam_page("jlpt-cert-practice-2012", 2012)
+        self.assertEqual(len(calls), 1)
+        with self.assertRaisesRegex(ValueError, "official listing"):
+            client.fetch_exam_page("jlpt-cert-practice-2027", 2027)
+        with self.assertRaisesRegex(ValueError, "official listing"):
+            client.fetch_exam_page("wrong-programme", 2012)
 
 
 @pytest.mark.repo_data
@@ -87,12 +108,42 @@ def test_retained_workbook_transcripts_keep_retired_roles_and_source_context() -
         previous = entry["source_record"]
         for field in (
             "provider_id", "source_exam_id", "category_code", "subject_code",
-            "download_url_source", "checksum", "bundle_id",
+            "download_url_source", "checksum",
         ):
             assert previous[field] == current[field]
+        assert current["schema_version"] == 3
+        assert current["bundle_id"] == previous["bundle_id"] + "-material-practice-collection"
+        assert current["source_material"]["kind"] == "practice_collection"
         assert entry["record_type"] == "paper"
         assert entry["reason"] == "source_reference_retired"
         assert entry["blob_storage_key"].startswith("providers/jlpt_cert/recovery/source-revisions/")
+
+
+@pytest.mark.repo_data
+def test_retained_workbooks_have_official_edition_facts_and_remain_withheld() -> None:
+    from collections import Counter
+    from app.paths import provider_paths
+    from app.provider_index import load_provider_index, paper_index_source_year_roc
+    from app.publication_quarantine import quarantined_provider_ids
+    from app.state import load_provider_state
+
+    root = Path(__file__).resolve().parents[1]
+    provider = provider_paths(root, "jlpt_cert")
+    pages, catalog, failures = load_provider_state(provider)
+    assert not failures
+    assert {page.source_material.date.year_ad for page in pages} == {2012, 2018}
+    assert Counter(paper.source_material.date.year_ad for paper in catalog.papers) == {2012: 58, 2018: 58}
+    for paper in catalog.papers:
+        assert paper.schema_version == 3
+        assert paper.source_material.kind == "practice_collection"
+        assert paper.source_material.date.basis == "edition_year"
+        assert paper.source_material.date.year_roc == paper.year_roc
+        assert not paper.source_material.needs_review
+        assert "material-practice-collection" in paper.variant_ids
+    index = load_provider_index(provider)
+    assert index["schema_version"] == 2
+    assert Counter(paper_index_source_year_roc(index, row) for row in index["papers"]) == {101: 58, 107: 58}
+    assert "jlpt_cert" in quarantined_provider_ids(root, site_id="default")
 
 
 if __name__ == "__main__":

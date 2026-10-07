@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/provider-index-v2.schema.json",
+  "title": "Provider index v2 with source dates distinct from partition years",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provider_id",
+    "source_files",
+    "bundle_ids",
+    "canonical_ids",
+    "raw_events",
+    "papers"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 2
+    },
+    "provider_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bundle_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_files": {
+      "type": "object",
+      "required": [
+        "exams",
+        "papers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "exams": {
+          "$ref": "#/$defs/fileSizes"
+        },
+        "papers": {
+          "$ref": "#/$defs/fileSizes"
+        }
+      }
+    },
+    "raw_events": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "boolean"
+          }
+        ],
+        "minItems": 3,
+        "maxItems": 3
+      }
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        ],
+        "minItems": 12,
+        "maxItems": 12
+      }
+    }
+  },
+  "$defs": {
+    "fileSizes": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[^/]+\\.json$"
+      },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    }
+  }
+}

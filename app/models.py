@@ -4,6 +4,8 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
+from app.source_material import SourceMaterial, source_material
+
 
 @dataclass
 class ExamOption:
@@ -28,6 +30,10 @@ class ExamAttachment:
     asset_name: str = ""
     checksum: str = ""
     download_url_mirror: str = ""
+    source_material: SourceMaterial | None = None
+
+    def __post_init__(self) -> None:
+        self.source_material = source_material(self.source_material)
 
 
 @dataclass
@@ -38,6 +44,10 @@ class ParsedPaper:
     subject_name_raw: str
     files: dict[str, str]
     mirror_files: dict[str, dict[str, str]] = field(default_factory=dict)
+    source_material: SourceMaterial | None = None
+
+    def __post_init__(self) -> None:
+        self.source_material = source_material(self.source_material)
 
 
 @dataclass
@@ -49,6 +59,10 @@ class SourceExamPage:
     attachments: list[ExamAttachment]
     papers: list[ParsedPaper]
     provider_id: str = ""
+    source_material: SourceMaterial | None = None
+
+    def __post_init__(self) -> None:
+        self.source_material = source_material(self.source_material)
 
 
 @dataclass
@@ -116,6 +130,14 @@ class NormalizedPaper:
     classification_reason: str = ""
     exam_class: str = ""
     exam_subclass: str = ""
+    source_material: SourceMaterial | None = None
+
+    def __post_init__(self) -> None:
+        self.source_material = source_material(self.source_material)
+        if type(self.schema_version) is not int or self.schema_version not in {1, 2, 3}:
+            raise ValueError("Unsupported normalized paper version")
+        if (self.schema_version == 3) != (self.source_material is not None):
+            raise ValueError("Reviewed source material requires normalized paper v3")
 
 
 @dataclass
@@ -215,9 +237,13 @@ def file_type_label(file_type: str) -> str:
 
 def to_plain_data(value: Any) -> Any:
     if hasattr(value, "__dataclass_fields__"):
-        return asdict(value)
+        return to_plain_data(asdict(value))
     if isinstance(value, dict):
-        return {key: to_plain_data(item) for key, item in value.items()}
-    if isinstance(value, list):
+        return {
+            key: to_plain_data(item)
+            for key, item in value.items()
+            if key != "source_material" or item is not None
+        }
+    if isinstance(value, (list, tuple)):
         return [to_plain_data(item) for item in value]
     return value

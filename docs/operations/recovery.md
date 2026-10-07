@@ -145,6 +145,16 @@ Do not delete raw pages, retained failures, or source evidence merely to satisfy
 
 ## Scenario 3: catalog or identity audit fails
 
+A normalized v3 material migration also changes the provider index format.
+Before applying one, preserve that provider's raw events, normalized papers,
+index, manifest, review and failure state, sync receipts and revision journal
+together. Compare native record keys, URLs, roles and checksums after the
+migration; classification metadata alone must not create payload revisions.
+An older reader needs the matching pre-migration provider state and index.
+Keep any subsequently retained revision journal and recovery blobs as evidence
+when rolling back. Do not pair newer fact-bearing records with an older index
+or publish them through an older archive reader.
+
 Inspect the emitted audit report before changing mappings. Fix executable taxonomy or provider normalization at its owner, then reclassify retained state and republish:
 
 ```bash

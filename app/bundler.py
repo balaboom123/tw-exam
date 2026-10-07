@@ -808,6 +808,14 @@ def _can_reuse_bundle(
     return True
 
 
+def validate_public_materials(papers: Iterable[NormalizedPaper]) -> None:
+    if any(paper.source_material is not None for paper in papers):
+        raise ValueError(
+            "Reviewed source material publication requires the archive and frontend migration. "
+            "Keep these provider records withheld until those readers are upgraded."
+        )
+
+
 def build_bundles(
     bundle_dir: Path,
     mirror_dir: Path,
@@ -821,6 +829,7 @@ def build_bundles(
     max_bundle_bytes: int = MAX_BUNDLE_BYTES,
     published_checksums: dict[str, str] | None = None,
 ) -> BundleBuildResult:
+    validate_public_materials(normalized.papers)
     if max_bundle_bytes < 1 or max_bundle_bytes >= 2_147_483_648:
         raise ValueError("max_bundle_bytes must be below GitHub's 2 GiB per-asset limit")
     bundle_dir.mkdir(parents=True, exist_ok=True)

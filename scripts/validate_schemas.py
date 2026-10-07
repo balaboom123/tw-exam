@@ -9,6 +9,8 @@ from typing import Any
 
 from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
+from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT202012
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -18,6 +20,7 @@ from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
 from app.moex_identity_evidence import moex_evidence_path, validate_moex_category_evidence
 from app.paths import provider_paths
+from app.provider_index import load_provider_index
 from app.source_revisions import load_source_revisions, revision_journal_path
 
 
@@ -37,11 +40,24 @@ def _validate(validator: Draft202012Validator, payload: Any, label: str) -> None
 
 def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     schema_dir = repo_root / "schemas"
-    schemas: dict[str, Draft202012Validator] = {}
+    documents: dict[str, dict[str, Any]] = {}
     for path in sorted(schema_dir.glob("*.json")):
         schema = _read_json(path)
         Draft202012Validator.check_schema(schema)
-        schemas[path.name] = Draft202012Validator(schema, format_checker=Draft202012Validator.FORMAT_CHECKER)
+        documents[path.name] = schema
+    registry = Registry().with_resources(
+        (
+            schema.get("$id", f"https://tw-exam.invalid/schemas/{name}"),
+            Resource.from_contents(schema, default_specification=DRAFT202012),
+        )
+        for name, schema in documents.items()
+    )
+    schemas = {
+        name: Draft202012Validator(
+            schema, registry=registry, format_checker=Draft202012Validator.FORMAT_CHECKER,
+        )
+        for name, schema in documents.items()
+    }
 
     site_dir = repo_root / "data" / "sites" / "default"
     bundles = _read_json(site_dir / "bundles.json")
@@ -60,11 +76,13 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
     validate_moex_category_evidence(repo_root)
 
-    paper_validator = schemas["normalized-paper-v2.schema.json"]
     validated_providers = 0
     providers_without_papers: list[str] = []
     for provider_id in get_site_config("default").provider_ids:
         provider = provider_paths(repo_root, provider_id)
+        index = load_provider_index(provider)
+        if index is not None:
+            _validate(schemas[f"provider-index-v{index['schema_version']}.schema.json"], index, str(provider.index_path.relative_to(repo_root)))
         revision_path = revision_journal_path(provider)
         if revision_path.exists():
             _validate(schemas["provider-source-revisions-v1.schema.json"], _read_json(revision_path), str(revision_path.relative_to(repo_root)))
@@ -86,8 +104,23 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         papers = _read_json(latest)
         if not isinstance(papers, list):
             raise ValueError(f"{latest.relative_to(repo_root)}: expected a paper array")
-        for index, paper in enumerate(papers):
-            _validate(paper_validator, paper, f"{latest.relative_to(repo_root)}[{index}]")
+        for path in year_files:
+            records = papers if path == latest else _read_json(path)
+            if not isinstance(records, list):
+                raise ValueError(f"{path.relative_to(repo_root)}: expected a paper array")
+            for index, paper in enumerate(records):
+                version = paper.get("schema_version")
+                if type(version) is not int or version not in {2, 3}:
+                    raise ValueError(f"Unsupported normalized paper version: {path}[{index}]")
+                if version == 2 and paper.get("source_material") is not None:
+                    raise ValueError(f"Reviewed source material requires normalized paper v3: {path}[{index}]")
+                if path == latest or version == 3:
+                    _validate(schemas[f"normalized-paper-v{version}.schema.json"], paper, f"{path.relative_to(repo_root)}[{index}]")
+        for path in provider.exams_dir.glob("*.json"):
+            for page_index, page in enumerate(_read_json(path)):
+                for record in [page, *page.get("papers", []), *page.get("attachments", [])]:
+                    if record.get("source_material") is not None:
+                        _validate(schemas["source-material-v1.schema.json"], record["source_material"], f"{path.relative_to(repo_root)}[{page_index}].source_material")
         validated_providers += 1
 
     return len(schemas), validated_providers, providers_without_papers

@@ -12,6 +12,7 @@ from collections.abc import Iterable
 from typing import Any, cast
 
 from app.paths import ProviderPaths
+from app.source_material import source_material
 
 INDEX_SCHEMA_VERSION = 1
 PAPER_FIELDS = (
@@ -34,6 +35,7 @@ PAPER_CANONICAL_ID = 6
 PAPER_STORAGE_KEY = 8
 PAPER_CODE = 9
 PAPER_LEGACY_CANDIDATE = len(PAPER_FIELDS)
+PAPER_SOURCE_YEAR_ROC = len(PAPER_FIELDS) + 1
 _PAPER_DEFAULTS: dict[str, Any] = {
     "source_exam_id": "",
     "category_code": "",
@@ -51,6 +53,12 @@ def paper_index_bundle_id(index: dict[str, Any], row: list[Any]) -> str:
 
 def paper_index_canonical_id(index: dict[str, Any], row: list[Any]) -> str:
     return cast(str, index["canonical_ids"][row[PAPER_CANONICAL_ID]])
+
+
+def paper_index_source_year_roc(index: dict[str, Any], row: list[Any]) -> int | None:
+    if index["schema_version"] == 2:
+        return cast(int | None, row[PAPER_SOURCE_YEAR_ROC])
+    return None
 
 
 def _field(record: Any, name: str, default: Any = _MISSING) -> Any:
@@ -73,7 +81,7 @@ def _source_file_sizes(provider: ProviderPaths) -> dict[str, dict[str, int]]:
 def _legacy_candidate(paper: Any) -> bool:
     canonical_name = _field(paper, "canonical_name")
     return (
-        _field(paper, "schema_version", 1) != 2
+        _field(paper, "schema_version", 1) not in {2, 3}
         and not _field(paper, "bundle_id", "")
         and not _field(paper, "domain_id", "")
         and not _field(paper, "exam_series_id", "")
@@ -97,6 +105,11 @@ def _append_papers(index: dict[str, Any], records: Iterable[Any]) -> None:
     bundle_ids = {value: position for position, value in enumerate(index["bundle_ids"])}
     canonical_ids = {value: position for position, value in enumerate(index["canonical_ids"])}
     for paper in records:
+        material = source_material(_field(paper, "source_material", None))
+        if material is not None and index["schema_version"] == 1:
+            index["schema_version"] = 2
+            for previous in index["papers"]:
+                previous.append(None)
         row = [_field(paper, name, _PAPER_DEFAULTS.get(name, _MISSING)) for name in PAPER_FIELDS]
         for position, table_name, positions in (
             (PAPER_BUNDLE_ID, "bundle_ids", bundle_ids),
@@ -108,6 +121,8 @@ def _append_papers(index: dict[str, Any], records: Iterable[Any]) -> None:
                 index[table_name].append(value)
             row[position] = positions[value]
         row.append(_legacy_candidate(paper))
+        if index["schema_version"] == 2:
+            row.append(material.date.year_roc if material is not None else None)
         index["papers"].append(row)
 
 
@@ -169,7 +184,11 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
         index = json.loads(provider.index_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise ValueError(f"invalid provider index {provider.index_path}: {exc}") from exc
-    if not isinstance(index, dict) or index.get("schema_version") != INDEX_SCHEMA_VERSION:
+    if (
+        not isinstance(index, dict)
+        or type(index.get("schema_version")) is not int
+        or index["schema_version"] not in {1, 2}
+    ):
         raise ValueError(f"unsupported provider index schema: {provider.index_path}")
     if index.get("provider_id") != provider.provider_id:
         raise ValueError(f"provider index owner mismatch: {provider.index_path}")
@@ -193,7 +212,7 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
         raise ValueError(f"provider index raw event row is invalid: {provider.index_path}")
     if any(
         not isinstance(row, list)
-        or len(row) != len(PAPER_FIELDS) + 1
+        or len(row) != len(PAPER_FIELDS) + (2 if index["schema_version"] == 2 else 1)
         or any(not isinstance(row[position], str) for position in (0, 1, 2, 3, 7, 8, 9))
         or isinstance(row[PAPER_YEAR_ROC], bool)
         or not isinstance(row[PAPER_YEAR_ROC], int)
@@ -207,6 +226,11 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
             )
         )
         or not isinstance(row[PAPER_LEGACY_CANDIDATE], bool)
+        or (
+            index["schema_version"] == 2
+            and row[PAPER_SOURCE_YEAR_ROC] is not None
+            and type(row[PAPER_SOURCE_YEAR_ROC]) is not int
+        )
         for row in index["papers"]
     ):
         raise ValueError(f"provider index paper row is invalid: {provider.index_path}")

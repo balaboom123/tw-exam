@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any, TypeVar, cast
 from urllib.parse import quote
 
-from app.bundler import build_bundles
+from app.bundler import build_bundles, validate_public_materials
 from app.manifest import SourceManifest, write_source_manifest
 from app.models import (
     AliasRule,
@@ -456,6 +456,7 @@ def publish_site(
 ) -> tuple[NormalizedCatalog, list[BundleAsset]]:
     site_config = get_site_config(site_id)
     normalized, _provider_failures = load_site_catalog(repo_root, site_id=site_id)
+    validate_public_materials(normalized.papers)
     site = site_paths(repo_root, site_id)
     if affected_canonical_ids is not None and not site.bundles_path.exists():
         raise ValueError(

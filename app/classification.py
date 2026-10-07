@@ -18,6 +18,7 @@ from functools import lru_cache
 from typing import Any
 
 from app.moex_identity_evidence import resolve_moex_category_identity
+from app.source_material import SourceMaterial, material_label
 
 IDENTITY_SCHEMA_VERSION = 2
 CATALOG_VERSION = "exam-identity-v2"
@@ -1075,6 +1076,7 @@ def _classify_paper_uncached(
     subject_name_raw: str = "",
     subject_code: str = "",
     category_code: str = "",
+    source_material: SourceMaterial | None = None,
 ) -> ExamIdentity:
     provider_id = normalize_text(provider_id) or "unknown-provider"
     category = normalize_text(category_raw)
@@ -1143,6 +1145,14 @@ def _classify_paper_uncached(
         form = _taigi_form(normalize_text(f"{category} {subject_name_raw}"))
         if form is not None:
             variant_pairs = (*variant_pairs, (f"paper-form-{form.lower()}", f"{form}卷"))
+    if source_material is not None and source_material.kind != "administered":
+        variant_pairs = (
+            *variant_pairs,
+            (
+                f"material-{source_material.kind.replace('_', '-')}",
+                material_label(source_material.kind),
+            ),
+        )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
     if not source_exam_id:
@@ -1153,6 +1163,14 @@ def _classify_paper_uncached(
         reason = f"track cannot be resolved; {reason}"
     if level_id == "unknown":
         confidence = "review"
+    if source_material is not None:
+        reason = (
+            f"source material: {source_material.kind}; "
+            f"date basis: {source_material.date.basis}; {reason}"
+        )
+        if source_material.needs_review:
+            confidence = "review"
+            reason = f"{source_material.review_reason}; {reason}"
     if provider_id == "moex" and series_id == "moex-unknown":
         confidence = "review"
         reason = f"official programme cannot be resolved from category and event; {reason}"
@@ -1196,6 +1214,10 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
+    if source_material is not None and source_material.kind != "administered":
+        label = material_label(source_material.kind)
+        if label not in bundle_name:
+            bundle_name += f"｜{label}"
     return ExamIdentity(
         provider_id=provider_id,
         domain_id=domain_id,
@@ -1275,8 +1297,9 @@ def classify_paper(
     subject_name_raw: str = "",
     subject_code: str = "",
     category_code: str = "",
+    source_material: SourceMaterial | None = None,
 ) -> ExamIdentity:
-    if provider_id == "moex":
+    if provider_id == "moex" and source_material is None:
         return _classify_moex_record(
             source_exam_id,
             year_ad,
@@ -1297,6 +1320,7 @@ def classify_paper(
         subject_name_raw=subject_name_raw,
         subject_code=subject_code,
         category_code=category_code,
+        source_material=source_material,
     )
 
 
@@ -1312,6 +1336,7 @@ def classify_normalized_paper(paper: Any) -> ExamIdentity:
         subject_name_raw=getattr(paper, "subject_name_raw", ""),
         subject_code=getattr(paper, "subject_code", ""),
         category_code=getattr(paper, "category_code", ""),
+        source_material=getattr(paper, "source_material", None),
     )
 
 

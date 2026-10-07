@@ -35,8 +35,10 @@ def test_scoped_state_keeps_acquisition_evidence_without_site_url(tmp_path):
     write_provider_state(provider, [], catalog, [], [], None)
     saved = json.loads((provider.papers_dir / "2026.json").read_text())[0]
     assert saved == {
-        key: value for key, value in asdict(record).items() if key != "download_url_bundle"
+        key: value for key, value in asdict(record).items()
+        if key not in {"download_url_bundle", "source_material"}
     }
+    assert "source_material" not in saved
     restored = load_provider_state(provider)[1].papers[0]
     assert restored.download_url_bundle == ""
     assert restored.download_url_source == record.download_url_source

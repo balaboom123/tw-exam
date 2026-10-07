@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/source-material-v1.schema.json",
+  "title": "Reviewed source material and date facts v1",
+  "$ref": "#/$defs/material",
+  "$defs": {
+    "date": {
+      "type": "object",
+      "required": [
+        "basis",
+        "year_ad"
+      ],
+      "properties": {
+        "basis": {
+          "enum": [
+            "exam_year",
+            "edition_year",
+            "publication_year",
+            "undated",
+            "unknown"
+          ]
+        },
+        "year_ad": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1600,
+          "maximum": 9999
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "basis": {
+                "enum": [
+                  "undated",
+                  "unknown"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "year_ad": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "year_ad": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "kind": {
+      "enum": [
+        "administered",
+        "sample",
+        "mock",
+        "question_bank",
+        "practice_collection",
+        "reference",
+        "unknown"
+      ],
+      "x-display-labels": {
+        "administered": "正式試題",
+        "sample": "範例試題",
+        "mock": "模擬試題",
+        "question_bank": "題庫",
+        "practice_collection": "練習問題集",
+        "reference": "參考資料",
+        "unknown": "資料性質待確認"
+      }
+    },
+    "material": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "kind",
+        "date",
+        "evidence_url",
+        "evidence_label",
+        "review_reason"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "kind": {
+          "$ref": "#/$defs/kind"
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "evidence_url": {
+          "type": "string",
+          "pattern": "^https?://[^/]+"
+        },
+        "evidence_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_reason": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "anyOf": [
+              {
+                "properties": {
+                  "kind": {
+                    "const": "unknown"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "date": {
+                    "properties": {
+                      "basis": {
+                        "const": "unknown"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "then": {
+            "properties": {
+              "review_reason": {
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "date": {
+                "properties": {
+                  "basis": {
+                    "const": "exam_year"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "kind": {
+                "const": "administered"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

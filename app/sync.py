@@ -481,6 +481,7 @@ def sync_exam_pages(
                 subject_name_raw=paper.subject_name_raw,
                 files={file_type: paper.files[file_type] for file_type in paper.mirror_files},
                 mirror_files=paper.mirror_files,
+                source_material=paper.source_material,
             )
             for paper in page.papers
             if paper.mirror_files
@@ -495,6 +496,7 @@ def sync_exam_pages(
             mirror_base_url=mirror_base_url,
             mirror_metadata=mirror_metadata,
             provider_id=provider_id,
+            source_material=page.source_material,
         )
         if provider_id:
             for normalized_paper in normalized.papers:

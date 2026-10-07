@@ -13,13 +13,13 @@ import os
 import re
 import shutil
 import uuid
-from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-from app.models import NormalizedPaper, SourceExamPage
+from app.models import NormalizedPaper, SourceExamPage, to_plain_data
 from app.paths import ProviderPaths
+from app.source_material import source_material
 
 REVISION_DIRECTORY = "recovery/source-revisions"
 
@@ -105,17 +105,21 @@ def _source_records(
 ) -> list[tuple[str, dict[str, Any]]]:
     records = []
     for paper in papers:
-        record = asdict(paper)
+        record = to_plain_data(paper)
         record.pop("download_url_bundle", None)
         record["provider_id"] = paper.provider_id or provider_id
         records.append(("paper", record))
     for page in pages:
         for attachment in page.attachments:
+            record = to_plain_data(attachment)
+            material = attachment.source_material or page.source_material
+            if material is not None:
+                record["source_material"] = to_plain_data(material)
             records.append(
                 (
                     "attachment",
                     {
-                        **asdict(attachment),
+                        **record,
                         "provider_id": page.provider_id or provider_id,
                         "year_roc": page.year_roc,
                         "source_exam_id": page.source_exam_id,
@@ -182,6 +186,13 @@ def load_source_revisions(provider: ProviderPaths) -> list[dict[str, Any]]:
         ids.add(revision_id)
         if entry.get("record_type") not in {"paper", "attachment"}:
             raise ValueError(f"Unsupported source revision record type: {path}")
+        material = source_material(entry["source_record"].get("source_material"))
+        if entry["record_type"] == "paper":
+            version = entry["source_record"].get("schema_version", 1)
+            if type(version) is not int or version not in {1, 2, 3}:
+                raise ValueError(f"Unsupported source revision paper version: {path}")
+            if (version == 3) != (material is not None):
+                raise ValueError(f"Source revision material facts require paper v3: {path}")
         if entry.get("reason") not in {"payload_replaced", "source_reference_retired"}:
             raise ValueError(f"Unsupported source revision disposition: {path}")
         try:

@@ -382,6 +382,7 @@ def _load_raw_pages_dir(exams_dir: Path, provider_id: str = "") -> list[SourceEx
                 year_ad=item["year_ad"],
                 year_roc=item["year_roc"],
                 exam_name_raw=item["exam_name_raw"],
+                source_material=item.get("source_material"),
                 attachments=[
                     ExamAttachment(**attachment) for attachment in item.get("attachments", [])
                 ],
@@ -393,6 +394,7 @@ def _load_raw_pages_dir(exams_dir: Path, provider_id: str = "") -> list[SourceEx
                         subject_name_raw=paper["subject_name_raw"],
                         files=paper.get("files", {}),
                         mirror_files=paper.get("mirror_files", {}),
+                        source_material=paper.get("source_material"),
                     )
                     for paper in item.get("papers", [])
                 ],
