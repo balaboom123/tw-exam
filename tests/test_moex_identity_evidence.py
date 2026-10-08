@@ -73,6 +73,44 @@ def test_reader_requires_checksum_bound_official_question_evidence(tmp_path, cha
         read_moex_category_identities(write_catalog(tmp_path, payload))
 
 
+@pytest.mark.parametrize('change', ['unanchored', 'duplicate', 'missing_reason', 'not_array'])
+def test_subject_reviews_require_distinct_native_question_anchors(tmp_path, change):
+    payload = document()
+    fact = payload['facts'][0]
+    review = {'subject_code': '0101', 'reason': 'Native question conflicts with the source category.'}
+    fact['subject_reviews'] = [review]
+    if change == 'unanchored':
+        review['subject_code'] = 'other'
+    elif change == 'duplicate':
+        fact['subject_reviews'].append(copy.deepcopy(review))
+    elif change == 'missing_reason':
+        del review['reason']
+    else:
+        fact['subject_reviews'] = '0101'
+    with pytest.raises(ValueError, match='subject|reason'):
+        read_moex_category_identities(write_catalog(tmp_path, payload))
+
+
+def test_conflicting_subject_isolated_without_poisoning_category_cache():
+    arguments = dict(provider_id='moex', source_exam_id='083300', year_ad=1994,
+        category_raw='一等管輪(加註)', category_code='303',
+        exam_name_raw='083年特種考試第三次航海人員漁船船員船舶電信人員中醫師考試',
+        canonical_id='fixture', canonical_name='fixture')
+    regular = classify_paper(**arguments, subject_code='c091')
+    conflict = classify_paper(**arguments, subject_code='c101')
+    other = classify_paper(**arguments, subject_code='c111')
+    assert regular.bundle_id == other.bundle_id
+    assert regular.confidence == other.confidence == 'high'
+    assert conflict.confidence == 'review'
+    assert conflict.bundle_id.endswith('event-083300')
+    assert conflict.bundle_id != regular.bundle_id
+    assert 'Conflicting candidate-route evidence' in conflict.reason
+    assert classify_paper(**arguments, subject_code='c091') == regular
+    changed = classify_paper(**dict(arguments, category_code='other'), subject_code='c101')
+    assert changed.confidence == 'high'
+    assert changed.bundle_id == regular.bundle_id
+
+
 @pytest.mark.parametrize('change', ['missing', 'context', 'revision', 'wrong_role'])
 def test_evidence_gate_rejects_lost_changed_or_wrong_role_anchors(tmp_path, change):
     payload = document()

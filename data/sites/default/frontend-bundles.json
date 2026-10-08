@@ -80078,6 +80078,2625 @@
       "updated": "2026-10-01T11:05:50Z"
     },
     {
+      "id": "moex-professional-navigation-high-grade-1-deck-officer",
+      "name": "航海人員高考｜一等｜船副",
+      "years": [
+        101,
+        100,
+        99,
+        98
+      ],
+      "fileCount": 94,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-high-grade-1-deck-officer--976d2fdd8a91.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-high",
+      "levelId": "grade-1",
+      "trackId": "deck-officer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員高考",
+      "searchAliases": [
+        "航行安全與氣象",
+        "航海學",
+        "貨物作業",
+        "船舶操作與船上人員管理",
+        "船舶通訊與航海英文",
+        "專技高考_一等船副",
+        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "301",
+        "11",
+        "22",
+        "33",
+        "44",
+        "55",
+        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "一等船副",
+        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100",
+        "200",
+        "300",
+        "400"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-high-grade-1-deck-officer-legacy-case-retake",
+      "name": "航海人員高考｜一等｜船副｜舊案補考",
+      "years": [
+        104,
+        103,
+        102
+      ],
+      "fileCount": 58,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-high-grade-1-deck-officer-legacy-case-retake--634dbac2a4e8.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-high",
+      "levelId": "grade-1",
+      "trackId": "deck-officer",
+      "variantIds": [
+        "legacy-case-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員高考",
+      "searchAliases": [
+        "航海學",
+        "貨物作業",
+        "船舶操作與船上人員管理",
+        "船舶通訊與航海英文",
+        "航行安全與氣象",
+        "專技高考_一等船副",
+        "104年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "301",
+        "22",
+        "33",
+        "44",
+        "55",
+        "高考_一等船副",
+        "104年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "11",
+        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "103年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-high-grade-1-engineer",
+      "name": "航海人員高考｜一等｜管輪",
+      "years": [
+        101,
+        100,
+        99,
+        98
+      ],
+      "fileCount": 90,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-high-grade-1-engineer--1b1ff05fc6df.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-high",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員高考",
+      "searchAliases": [
+        "柴油機",
+        "船用電機與自動控制",
+        "輪機工程（包括推進裝置、輔機與輪機英文）",
+        "輪機保養與維修（包括輪機基本知識）",
+        "輪機管理與安全",
+        "輪機工程(包括推進裝置、輔機與輪機英文)",
+        "輪機保養與維修(包括輪機基本知識)",
+        "專技高考_一等管輪",
+        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "302",
+        "11",
+        "22",
+        "33",
+        "44",
+        "55",
+        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "一等管輪",
+        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100",
+        "200"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-high-grade-1-engineer-engine-endorsement",
+      "name": "航海人員高考｜一等｜管輪｜主機加註",
+      "years": [
+        101,
+        100,
+        99,
+        98
+      ],
+      "fileCount": 36,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-high-grade-1-engineer-engine-endorsement--2caa6a07d404.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-high",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員高考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "專技高考_一等管輪（加註）",
+        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "303",
+        "11",
+        "22",
+        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "一等管輪(加註)",
+        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100",
+        "200",
+        "099年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "一等管輪（加註）",
+        "099年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "099年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "098年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "1001",
+        "2001",
+        "098年第二次專門職業及技術人員高等暨普通考試航海人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-high-grade-1-engineer-legacy-case-retake",
+      "name": "航海人員高考｜一等｜管輪｜舊案補考",
+      "years": [
+        104,
+        103,
+        102
+      ],
+      "fileCount": 56,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-high-grade-1-engineer-legacy-case-retake--bee2dd7402c5.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-high",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [
+        "legacy-case-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員高考",
+      "searchAliases": [
+        "柴油機",
+        "船用電機與自動控制",
+        "輪機工程（包括推進裝置、輔機與輪機英文）",
+        "輪機保養與維修（包括輪機基本知識）",
+        "輪機管理與安全",
+        "專技高考_一等管輪",
+        "104年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "302",
+        "11",
+        "22",
+        "33",
+        "44",
+        "高考_一等管輪",
+        "104年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "55",
+        "103年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-ordinary-grade-2-deck-officer",
+      "name": "航海人員普考｜二等｜船副",
+      "years": [
+        101,
+        100,
+        99,
+        98
+      ],
+      "fileCount": 90,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-ordinary-grade-2-deck-officer--01601487f5b4.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-ordinary",
+      "levelId": "grade-2",
+      "trackId": "deck-officer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員普考",
+      "searchAliases": [
+        "航行安全與氣象概要",
+        "航海學概要",
+        "貨物作業概要",
+        "船舶操作與船上人員管理概要",
+        "船舶通訊與航海英文概要",
+        "專技普考_二等船副",
+        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "401",
+        "11",
+        "22",
+        "33",
+        "44",
+        "55",
+        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "二等船副",
+        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100",
+        "200",
+        "300",
+        "400"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-ordinary-grade-2-deck-officer-legacy-case-retake",
+      "name": "航海人員普考｜二等｜船副｜舊案補考",
+      "years": [
+        103,
+        102
+      ],
+      "fileCount": 36,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-ordinary-grade-2-deck-officer-legacy-case-retake--64e79f22e428.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-ordinary",
+      "levelId": "grade-2",
+      "trackId": "deck-officer",
+      "variantIds": [
+        "legacy-case-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員普考",
+      "searchAliases": [
+        "航行安全與氣象概要",
+        "航海學概要",
+        "貨物作業概要",
+        "船舶操作與船上人員管理概要",
+        "船舶通訊與航海英文概要",
+        "專技普考_二等船副",
+        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "401",
+        "11",
+        "22",
+        "33",
+        "44",
+        "55",
+        "103年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-ordinary-grade-2-engineer",
+      "name": "航海人員普考｜二等｜管輪",
+      "years": [
+        101,
+        100,
+        99,
+        98
+      ],
+      "fileCount": 90,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-ordinary-grade-2-engineer--2eb538dc69bc.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-ordinary",
+      "levelId": "grade-2",
+      "trackId": "engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員普考",
+      "searchAliases": [
+        "柴油機",
+        "船用電機與自動控制概要",
+        "輪機工程概要（包括推進裝置概要、輔機概要與輪機英文）",
+        "輪機保養與維修概要（包括輪機基本知識）",
+        "輪機管理與安全概要",
+        "輪機工程概要(包括推進裝置概要、輔機概要與輪機英文)",
+        "輪機保養與維修概要(包括輪機基本知識)",
+        "專技普考_二等管輪",
+        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "402",
+        "11",
+        "22",
+        "33",
+        "44",
+        "55",
+        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "二等管輪",
+        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100",
+        "200"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-ordinary-grade-2-engineer-engine-endorsement",
+      "name": "航海人員普考｜二等｜管輪｜主機加註",
+      "years": [
+        101,
+        100,
+        99
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-ordinary-grade-2-engineer-engine-endorsement--199e7dbba96c.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-ordinary",
+      "levelId": "grade-2",
+      "trackId": "engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員普考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "專技普考_二等管輪（加註）",
+        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
+        "403",
+        "11",
+        "22",
+        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
+        "二等管輪（加註）",
+        "099年第三次專門職業及技術人員高等暨普通考試航海人員考試",
+        "100"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-ordinary-grade-2-engineer-legacy-case-retake",
+      "name": "航海人員普考｜二等｜管輪｜舊案補考",
+      "years": [
+        104,
+        103,
+        102
+      ],
+      "fileCount": 56,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-ordinary-grade-2-engineer-legacy-case-retake--7b9a45835701.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-ordinary",
+      "levelId": "grade-2",
+      "trackId": "engineer",
+      "variantIds": [
+        "legacy-case-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員普考",
+      "searchAliases": [
+        "柴油機",
+        "船用電機與自動控制概要",
+        "輪機工程概要（包括推進裝置概要、輔機概要與輪機英文）",
+        "輪機保養與維修概要（包括輪機基本知識）",
+        "輪機管理與安全概要",
+        "專技普考_二等管輪",
+        "104年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "402",
+        "11",
+        "22",
+        "33",
+        "44",
+        "普考_二等管輪",
+        "104年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "55",
+        "103年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
+        "102年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-captain",
+      "name": "航海人員特考｜一等｜船長",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 124,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-captain--cad3b32e5de7.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "captain",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海學",
+        "船舶管理與安全",
+        "海洋氣象學與船舶操縱",
+        "航運業務",
+        "航海英文",
+        "海事法規",
+        "船舶操縱",
+        "航海人員一等船長",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "101",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "一等船長",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "001",
+        "090年特種考試第三次航海人員、引水人考試",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-chief-engineer",
+      "name": "航海人員特考｜一等｜輪機長",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 135,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-chief-engineer--4414ae05dcea.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "chief-engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "船用電學與自動控制",
+        "船舶管理與安全",
+        "輪機工程與維修",
+        "輪機英文",
+        "輪機管理",
+        "輪機工程",
+        "柴 油 機",
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "蒸氣推進機組",
+        "航海人員一等輪機長",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "109",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "一等輪機長",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "301",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-chief-engineer-engine-endorsement",
+      "name": "航海人員特考｜一等｜輪機長｜主機加註",
+      "years": [
+        91,
+        90,
+        89,
+        88,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 29,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-chief-engineer-engine-endorsement--af8d7270fe41.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "chief-engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "蒸氣推進機組",
+        "一等輪機長(加註)",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "b09",
+        "2001",
+        "3001",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "179",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "090年特種考試第三次航海人員、引水人考試",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "0201",
+        "0301",
+        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "一等輪機長(加註）",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "108",
+        "a001",
+        "086年特種考試第一次航海人員、驗船師考試",
+        "107",
+        "0001",
+        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-chief-engineer-navy-transfer",
+      "name": "航海人員特考｜一等｜輪機長｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86,
+        84,
+        83
+      ],
+      "fileCount": 24,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-chief-engineer-navy-transfer--f57cdc87a03a.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "chief-engineer",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "輪機英文",
+        "輪機管理",
+        "燃氣渦輪機",
+        "蒸汽推進機組",
+        "一等輪機長(海軍）",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "107",
+        "c101",
+        "c111",
+        "c121",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "2001",
+        "3001",
+        "6001",
+        "a001",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "海軍一等輪機長",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "907",
+        "3002",
+        "一等輪機長(海軍)",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "205"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-chief-engineer-subject-retake",
+      "name": "航海人員特考｜一等｜輪機長｜補考",
+      "years": [
+        84,
+        82
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-chief-engineer-subject-retake--90f6bac4dca0.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "chief-engineer",
+      "variantIds": [
+        "subject-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "船上電學",
+        "輔機",
+        "輪機管理",
+        "一等輪機長(補考)",
+        "084年特種考試第二次航海人員引水人考試",
+        "026",
+        "7001",
+        "082年特種考試第一次航海人員驗船師考試",
+        "107",
+        "5001",
+        "c081"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-chief-mate",
+      "name": "航海人員特考｜一等｜大副",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 155,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-chief-mate--aea4f1808b4e.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "chief-mate",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海學",
+        "船舶管理與安全",
+        "航海英文",
+        "海事法規",
+        "電子航海",
+        "航海人員一等大副",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "102",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "5001",
+        "一等大副",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "002",
+        "090年特種考試第三次航海人員、引水人考試",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-chief-mate-navy-transfer",
+      "name": "航海人員特考｜一等｜大副｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83
+      ],
+      "fileCount": 27,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-chief-mate-navy-transfer--50caf7572891.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "chief-mate",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海英文",
+        "海事法規",
+        "一等大副(海軍）",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "102",
+        "c281",
+        "c291",
+        "c301",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "2001",
+        "3001",
+        "6001",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "海軍一等大副",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "902",
+        "一等大副(海軍)",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "201",
+        "c011",
+        "c021",
+        "c031",
+        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-deck-officer",
+      "name": "航海人員特考｜一等｜船副",
+      "years": [
+        98,
+        97,
+        96,
+        95,
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 356,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-deck-officer--e066d20800db.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "deck-officer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "航行安全與氣象",
+        "航海學",
+        "貨物作業",
+        "船舶操作與船上人員管理",
+        "船舶通訊與航海英文",
+        "船舶管理與安全",
+        "航海儀器",
+        "航行當值與避碰",
+        "國文",
+        "中華民國憲法",
+        "國文（論文與閱讀測驗）",
+        "避碰規則與當值",
+        "船藝",
+        "航海氣象學與海洋學",
+        "避踫規則與當值",
+        "碰撞規則與當值",
+        "國父遺教及中華民國憲法",
+        "國父遺教及中華國憲法",
+        "一等船副",
+        "098年第一次專門職業及技術人員特種考試航海人員考試",
+        "301",
+        "1001",
+        "2001",
+        "3001"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-deck-officer-navy-transfer",
+      "name": "航海人員特考｜一等｜船副｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83
+      ],
+      "fileCount": 26,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-deck-officer-navy-transfer--b4d4154bc574.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "deck-officer",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海英文",
+        "一等船副(海軍)",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "413",
+        "0201",
+        "0301",
+        "海軍一等船副",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "193",
+        "1001",
+        "2001",
+        "一等船副(海軍）",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "103",
+        "3001",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "903",
+        "086年特種考試第一次航海人員、驗船師考試",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "202",
+        "085年特種考試第一次航海人員、驗船師考試",
+        "201",
+        "085年特種考試第二次航海人員、引水人考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-engineer",
+      "name": "航海人員特考｜一等｜管輪",
+      "years": [
+        98,
+        97,
+        96,
+        95,
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 389,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-engineer--0180f3f26f87.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "船用電機與自動控制",
+        "輪機工程(包括推進裝置、輔機與輪機英文)",
+        "輪機保養與維修(包括輪機基本知識)",
+        "輪機管理與安全",
+        "輪機工程（包括推進裝置、輔機與輪機英文）",
+        "輪機保養與維修（包括輪機基本知識）",
+        "輪機工程(包括推進裝置.輔機與輪機英文)",
+        "輪機工程（包括推進裝置、輔機與輪機英文）",
+        "輪機保養與維修（包括輪機基本知識）",
+        "船用電學與自動控制",
+        "船舶管理與安全",
+        "輪機維修",
+        "輔機",
+        "輪機當值與輪機英文",
+        "國文",
+        "中華民國憲法",
+        "國文（論文與閱讀測驗）",
+        "輪機實務與安全",
+        "船用電學",
+        "自動控制",
+        "輪機英文",
+        "蒸汽推進機組",
+        "燃氣渦輪機"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-engineer-engine-endorsement",
+      "name": "航海人員特考｜一等｜管輪｜主機加註",
+      "years": [
+        98,
+        97,
+        96,
+        95,
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 77,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-engineer-engine-endorsement--9834605e7193.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "蒸氣推進機組",
+        "燃氣濄輪機",
+        "蒸汽推進機 組",
+        "柴油機",
+        "一等管輪(加註)",
+        "098年第一次專門職業及技術人員特種考試航海人員考試",
+        "303",
+        "1001",
+        "2001",
+        "098年第二次專門職業及技術人員特種考試航海人員考試",
+        "097年第一次專門職業及技術人員特種考試航海人員考試",
+        "097年第二次專門職業及技術人員特種考試航海人員考試",
+        "097年第三次專門職業及技術人員特種考試航海人員考試",
+        "097年第四次專門職業及技術人員特種考試航海人員考試",
+        "096年第一次專門職業及技術人員特種考試航海人員考試",
+        "096年第二次專門職業及技術人員特種考試航海人員考試",
+        "096年第三次專門職業及技術人員特種考試航海人員考試",
+        "096年第四次專門職業及技術人員特種考試航海人員考試",
+        "095年第一次專門職業及技術人員特種考試航海人員考試",
+        "095年第二次專門職業及技術人員特種考試航海人員考試",
+        "095年第三次專門職業及技術人員特種考試航海人員考試",
+        "095年第四次專門職業及技術人員特種考試航海人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-engineer-navy-transfer",
+      "name": "航海人員特考｜一等｜管輪｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86
+      ],
+      "fileCount": 14,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-engineer-navy-transfer--8d7c2d4ae41b.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "輪機英文",
+        "柴 油 機",
+        "蒸氣推進機組",
+        "燃氣渦輪機",
+        "一等管輪(海軍)",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "623",
+        "c191",
+        "c201",
+        "一等管輪(海軍）",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "019",
+        "c131",
+        "c141",
+        "海軍一等管輪",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "373",
+        "1001",
+        "2001",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "3001",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "909"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-engineer-subject-retake",
+      "name": "航海人員特考｜一等｜管輪｜補考",
+      "years": [
+        83,
+        82
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-engineer-subject-retake--f037650495d4.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "engineer",
+      "variantIds": [
+        "subject-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "船上電學",
+        "自動控制",
+        "燃氣渦輪機",
+        "蒸汽推進機組",
+        "一等管輪(補考)",
+        "083年特種考試第一次航海人員、驗船師考試",
+        "104",
+        "c111",
+        "c121",
+        "c131",
+        "c141",
+        "082年特種考試第一次航海人員驗船師考試",
+        "109",
+        "121"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-first-engineer",
+      "name": "航海人員特考｜一等｜大管輪",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 160,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-first-engineer--b28b3c69c4c7.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "first-engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "船用電學與自動控制",
+        "船舶管理與安全",
+        "輪機工程",
+        "輪機維修",
+        "輪機英文",
+        "輪機實務與安全",
+        "輪機管理",
+        "柴 油 機",
+        "燃氣渦輪機",
+        "蒸汽推進機組",
+        "航海人員一等大管輪",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "110",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "5001",
+        "一等大管輪",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-first-engineer-engine-endorsement",
+      "name": "航海人員特考｜一等｜大管輪｜主機加註",
+      "years": [
+        89,
+        88,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 16,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-first-engineer-engine-endorsement--47cb7d450044.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "first-engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "柴油機",
+        "一等大管輪(加註)",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "170",
+        "0201",
+        "0301",
+        "一等大管輪(加註）",
+        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "b10",
+        "3001",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "522",
+        "0901",
+        "1001",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "018",
+        "9001",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "206",
+        "c151",
+        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
+        "127"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-1-first-engineer-navy-transfer",
+      "name": "航海人員特考｜一等｜大管輪｜海軍轉任",
+      "years": [
+        87,
+        85,
+        84
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-1-first-engineer-navy-transfer--796afdfc7e0c.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-1",
+      "trackId": "first-engineer",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "輪機英文",
+        "輪機管理",
+        "一等大管輪(海軍）",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "108",
+        "2001",
+        "3001",
+        "6001",
+        "一等大管輪(海軍)",
+        "085年特種考試第二次航海人員、引水人考試",
+        "019",
+        "c101",
+        "c111",
+        "c121",
+        "084年特種考試第二次航海人員引水人考試",
+        "021",
+        "084年特種考試第三次航海人員漁船船員船舶電信人員考試",
+        "208",
+        "c091"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-captain",
+      "name": "航海人員特考｜二等｜船長",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 124,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-captain--7c6fb0523f89.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "captain",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海學",
+        "船舶管理與安全",
+        "海洋氣象學與船舶操縱",
+        "航運業務",
+        "航海英文",
+        "海事法規",
+        "船舶操縱",
+        "船運業務",
+        "航海人員二等船長",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "104",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "二等船長",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "004",
+        "090年特種考試第三次航海人員、引水人考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-captain-navy-transfer",
+      "name": "航海人員特考｜二等｜船長｜海軍轉任",
+      "years": [
+        87,
+        86,
+        85
+      ],
+      "fileCount": 15,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-captain-navy-transfer--f656a23a9394.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "captain",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海英文",
+        "海事法規",
+        "二等船長(海軍）",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "104",
+        "2001",
+        "3001",
+        "6001",
+        "二等船長(海軍)",
+        "086年特種考試第一次航海人員、驗船師考試",
+        "c031",
+        "c041",
+        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "203",
+        "c061",
+        "c071",
+        "085年特種考試第一次航海人員、驗船師考試",
+        "202",
+        "1001"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-chief-engineer",
+      "name": "航海人員特考｜二等｜輪機長",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 113,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-chief-engineer--061ef101318a.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "chief-engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "船用電學與自動控制",
+        "船舶管理與安全",
+        "輪機工程與維修",
+        "輪機英文",
+        "輪機管理",
+        "輪機工程",
+        "燃氣渦輪機",
+        "航海人員二等輪機長",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "112",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "二等輪機長",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "a12",
+        "090年特種考試第三次航海人員、引水人考試",
+        "012"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-chief-mate",
+      "name": "航海人員特考｜二等｜大副",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83
+      ],
+      "fileCount": 140,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-chief-mate--ad52506608c5.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "chief-mate",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海學",
+        "船舶管理與安全",
+        "航海英文",
+        "海事法規",
+        "電子航海",
+        "航海人員二等大副",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "105",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "5001",
+        "二等大副",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "005",
+        "090年特種考試第三次航海人員、引水人考試",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-deck-officer",
+      "name": "航海人員特考｜二等｜船副",
+      "years": [
+        98,
+        97,
+        96,
+        95,
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 385,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-deck-officer--13b045f8b8b4.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "deck-officer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "航行安全與氣象概要",
+        "航海學概要",
+        "貨物作業概要",
+        "船舶操作與船上人員管理概要",
+        "船舶通訊與航海英文概要",
+        "船舶管理與安全概要",
+        "航海儀器概要",
+        "航行當值與避碰概要",
+        "國文",
+        "中華民國憲法概要",
+        "國文（論文與閱讀測驗）",
+        "避碰規則與當值",
+        "船舶通訊與航海英文",
+        "航海學",
+        "船藝",
+        "航海儀器",
+        "航海氣象學與海洋學",
+        "本國歷史及地理概要",
+        "避踫規則與當值",
+        "碰撞規則與當值",
+        "碰避規則與當值",
+        "中華民國憲法概要試題更正",
+        "航運業務",
+        "三民主義及憲法概要"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-deck-officer-navy-transfer",
+      "name": "航海人員特考｜二等｜船副｜海軍轉任",
+      "years": [
+        87,
+        86,
+        85,
+        84,
+        83
+      ],
+      "fileCount": 18,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-deck-officer-navy-transfer--6c00eca07789.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "deck-officer",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海英文",
+        "二等船副(海軍）",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "106",
+        "2001",
+        "3001",
+        "海軍二等船副",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "906",
+        "二等船副(海軍)",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "204",
+        "c061",
+        "085年特種考試第一次航海人員、驗船師考試",
+        "203",
+        "1001",
+        "085年特種考試第二次航海人員、引水人考試",
+        "018",
+        "C101",
+        "C111",
+        "084年特種考試第一次航海人員、驗船師考試",
+        "017",
+        "084年特種考試第二次航海人員引水人考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-deck-officer-subject-retake",
+      "name": "航海人員特考｜二等｜船副｜補考",
+      "years": [
+        83,
+        82
+      ],
+      "fileCount": 7,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-deck-officer-subject-retake--c8d3a736dc48.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "deck-officer",
+      "variantIds": [
+        "subject-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業",
+        "航海學",
+        "航海英文",
+        "二等船副(補考)",
+        "083年特種考試第一次航海人員、驗船師考試",
+        "102",
+        "2001",
+        "c051",
+        "082年特種考試第二次航海人員引水人考試",
+        "016",
+        "3001",
+        "c042",
+        "082年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
+        "101",
+        "c172"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-engineer",
+      "name": "航海人員特考｜二等｜管輪",
+      "years": [
+        98,
+        97,
+        96,
+        95,
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 393,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-engineer--72d5bb5ebb84.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "船用電機與自動控制概要",
+        "輪機工程概要(包括推進裝置概要、輔機概要與輪機英文)",
+        "輪機保養與維修概要(包括輪機基本知識)",
+        "輪機管理與安全概要",
+        "輪機工程概要（包括推進裝置概要、輔機概要與輪機英文）",
+        "輪機保養與維修概要（包括輪機基本知識）",
+        "輪機工程概要（包括推進裝置概要、輔機概要與輪機英文）",
+        "輪機保養與維修概要（包括輪機基本知識）",
+        "船用電學與自動控制概要",
+        "船舶管理與安全概要",
+        "輪機維修概要",
+        "輔機概要",
+        "輪機當值與輪機英文概要",
+        "國文",
+        "中華民國憲法概要",
+        "國文（論文與閱讀測驗）",
+        "輪機英文",
+        "輪機實務與安全",
+        "輔機",
+        "船用電學",
+        "自動控制",
+        "本國歷史及地理概要",
+        "柴油機、蒸汽推進機組"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-engineer-engine-endorsement",
+      "name": "航海人員特考｜二等｜管輪｜主機加註",
+      "years": [
+        91,
+        90,
+        82
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-engineer-engine-endorsement--452381ad8d68.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "柴油機",
+        "二等管輪(加註)",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "124",
+        "2001",
+        "3001",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "174",
+        "c091",
+        "082年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
+        "105",
+        "c071"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-engineer-navy-transfer",
+      "name": "航海人員特考｜二等｜管輪｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        82
+      ],
+      "fileCount": 19,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-engineer-navy-transfer--5aedbefd46d0.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "engineer",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "輪機英文",
+        "燃氣渦輪機",
+        "二等管輪(海軍）",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "112",
+        "2001",
+        "c171",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "3001",
+        "二等管輪(海軍)",
+        "086年特種考試第一次航海人員、驗船師考試",
+        "c101",
+        "c111",
+        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
+        "c121",
+        "c131",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "208",
+        "c181",
+        "c191",
+        "085年特種考試第二次航海人員、引水人考試",
+        "021",
+        "c151"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-first-engineer",
+      "name": "航海人員特考｜二等｜大管輪",
+      "years": [
+        92,
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 145,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-first-engineer--cc180e31d7ee.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "first-engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "船用電學與自動控制",
+        "船舶管理與安全",
+        "輪機工程",
+        "輪機維修",
+        "輪機工程",
+        "輪機英文",
+        "輪機實務與安全",
+        "輪機管理",
+        "航海人員二等大管輪",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "113",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "5001",
+        "二等大管輪",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "a13"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-2-first-engineer-engine-endorsement",
+      "name": "航海人員特考｜二等｜大管輪｜主機加註",
+      "years": [
+        88,
+        85
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-2-first-engineer-engine-endorsement--8603a4e9ae14.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-2",
+      "trackId": "first-engineer",
+      "variantIds": [
+        "engine-endorsement"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "蒸汽推進機組",
+        "燃氣渦輪機",
+        "加註二等大管輪",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "492",
+        "6001",
+        "7001",
+        "二等大管輪(加註)",
+        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
+        "129",
+        "9101"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-3-captain",
+      "name": "航海人員特考｜三等｜船長",
+      "years": [
+        92,
+        91,
+        90,
+        89
+      ],
+      "fileCount": 58,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-3-captain--ceb873fb044e.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-3",
+      "trackId": "captain",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業大意",
+        "航海學大意",
+        "船舶管理與安全大意",
+        "船舶通訊大意",
+        "國文",
+        "國文（論文與閱讀測驗）",
+        "航海人員三等船長",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "107",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "三等船長",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "5001",
+        "c032",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "c031",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "007",
+        "090年特種考試第三次航海人員、引水人考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-3-chief-engineer",
+      "name": "航海人員特考｜三等｜輪機長",
+      "years": [
+        92,
+        91,
+        90,
+        89
+      ],
+      "fileCount": 58,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-3-chief-engineer--0d29189bf327.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-3",
+      "trackId": "chief-engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "輪機學大意",
+        "船用電學與自動控制大意",
+        "船舶管理與安全大意",
+        "輪機維修大意",
+        "國文",
+        "國文（論文與閱讀測驗）",
+        "航海人員三等輪機長",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "115",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "三等輪機長",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "5001",
+        "c032",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "c031",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "015",
+        "090年特種考試第三次航海人員、引水人考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-3-deck-officer",
+      "name": "航海人員特考｜三等｜船副",
+      "years": [
+        92,
+        91,
+        90,
+        89
+      ],
+      "fileCount": 58,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-3-deck-officer--fbd0683ec29e.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-3",
+      "trackId": "deck-officer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "貨物作業大意",
+        "航海學大意",
+        "船舶管理與安全大意",
+        "航行當值與避碰大意",
+        "國文",
+        "航行當值與避碰大意",
+        "國文（論文與閱讀測驗）",
+        "航海人員三等船副",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "108",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "三等船副",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "5001",
+        "c042",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "c041",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "008"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-grade-3-engineer",
+      "name": "航海人員特考｜三等｜管輪",
+      "years": [
+        92,
+        91,
+        90,
+        89
+      ],
+      "fileCount": 58,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-grade-3-engineer--65f582e0afba.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "grade-3",
+      "trackId": "engineer",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "輪機學大意",
+        "船用電學與自動控制大意",
+        "船舶管理與安全大意",
+        "輪機維修大意",
+        "國文",
+        "國文（論文與閱讀測驗）",
+        "航海人員三等管輪",
+        "092年專門職業及技術人員特種考試消防設備人員、不動產經紀人、專責報關人員、保險從業人員、航海人員、漁船船員、引水人、驗船師考試",
+        "116",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "三等管輪",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "5001",
+        "c042",
+        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
+        "c041",
+        "091年專門職業及技術人員特種考試第三次航海人員考試",
+        "090年專技特考第一次航海人員、驗船師考試",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "016",
+        "090年特種考試第三次航海人員、引水人考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-maritime-assistant-navigation-driver",
+      "name": "航海人員特考｜副｜駕駛",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 114,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-maritime-assistant-navigation-driver--96d1dc79631c.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "maritime-assistant",
+      "trackId": "navigation-driver",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "避碰規則",
+        "船藝",
+        "航海術",
+        "公民及本國史地大意",
+        "國文",
+        "避踫規則",
+        "公民",
+        "副駕駛",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "132",
+        "0201",
+        "0301",
+        "0501",
+        "c034",
+        "c041",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "014",
+        "2001",
+        "3001",
+        "5001",
+        "c044",
+        "c081",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "502"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-maritime-assistant-navigation-mechanic",
+      "name": "航海人員特考｜副｜司機",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 86,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-navigation-special-maritime-assistant-navigation-mechanic--23323417e7ce.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "maritime-assistant",
+      "trackId": "navigation-mechanic",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "輔機",
+        "輪機實務與安全",
+        "公民及本國史地大意",
+        "國文",
+        "公民",
+        "副司機",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "142",
+        "0201",
+        "0301",
+        "0501",
+        "c034",
+        "c041",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "016",
+        "2001",
+        "3001",
+        "5001",
+        "c044",
+        "c081",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "602",
+        "1001"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-maritime-principal-navigation-driver",
+      "name": "航海人員特考｜正｜駕駛",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 119,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-navigation-special-maritime-principal-navigation-driver--5ef9f4321cc4.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "maritime-principal",
+      "trackId": "navigation-driver",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "避碰規則",
+        "船藝",
+        "航海術",
+        "公民及本國史地大意",
+        "國文",
+        "避踫規則",
+        "公民",
+        "正駕駛",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "131",
+        "0201",
+        "0301",
+        "0501",
+        "c014",
+        "c021",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "013",
+        "3001",
+        "5001",
+        "c034",
+        "c071",
+        "c181",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "501"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-maritime-principal-navigation-driver-navy-transfer",
+      "name": "航海人員特考｜正｜駕駛｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 16,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-navigation-special-maritime-principal-navigation-driver-navy-transfer--1c4237e87d53.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "maritime-principal",
+      "trackId": "navigation-driver",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "避碰規則",
+        "正駕駛(海軍)",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "431",
+        "0201",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "113",
+        "c181",
+        "海軍正駕駛",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "591",
+        "1001",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "2001",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "913",
+        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
+        "c151",
+        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
+        "209",
+        "c211",
+        "084年特種考試第一次航海人員、驗船師考試",
+        "021"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-maritime-principal-navigation-mechanic",
+      "name": "航海人員特考｜正｜司機",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 118,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-navigation-special-maritime-principal-navigation-mechanic--8f73e662e573.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "maritime-principal",
+      "trackId": "navigation-mechanic",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "柴油機",
+        "輔機",
+        "公民及本國史地大意",
+        "國文",
+        "輪機實務與安全",
+        "公民",
+        "正司機",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "141",
+        "0201",
+        "0301",
+        "c014",
+        "c021",
+        "c181",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "015",
+        "2001",
+        "3001",
+        "c034",
+        "c071",
+        "c191",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "601",
+        "1001"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-navigation-special-maritime-principal-navigation-mechanic-navy-transfer",
+      "name": "航海人員特考｜正｜司機｜海軍轉任",
+      "years": [
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 16,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-navigation-special-maritime-principal-navigation-mechanic-navy-transfer--2a2d3ceae34a.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-navigation-special",
+      "levelId": "maritime-principal",
+      "trackId": "navigation-mechanic",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "航海人員特考",
+      "searchAliases": [
+        "輪機實務與安全",
+        "正司機(海軍)",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "441",
+        "c181",
+        "正司機(海軍）",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "115",
+        "c191",
+        "海軍正司機",
+        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "691",
+        "1001",
+        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+        "5001",
+        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
+        "915",
+        "086年特種考試第一次航海人員、驗船師考試",
+        "c161",
+        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
+        "c171",
+        "085年特種考試第二次航海人員、引水人考試",
+        "022"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
       "id": "moex-professional-ordinary-professional-ordinary-track-025c291cd24a",
       "name": "專技普考｜專技普考｜外語導遊人員(德語)",
       "years": [
@@ -87332,1218 +89951,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-grade-1-track-07bc850daf7e",
-      "name": "專技特考｜一等｜一等船長",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 32,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-07bc850daf7e--504e5dfdffe3.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-07bc850daf7e",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "航海學",
-        "貨物作業",
-        "船舶管理與安全",
-        "海洋氣象學與船舶操縱",
-        "航運業務",
-        "航海英文",
-        "海事法規",
-        "船舶操縱",
-        "一等船長",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "101",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "111",
-        "0601",
-        "0701"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-20c47c1302a3",
-      "name": "專技特考｜一等｜一等管輪",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 85,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-20c47c1302a3--9d377c885480.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-20c47c1302a3",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機維修",
-        "輔機",
-        "輪機當值與輪機英文",
-        "國文",
-        "中華民國憲法",
-        "輪機實務與安全",
-        "船用電學",
-        "自動控制",
-        "輪機英文",
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "蒸氣推進機組",
-        "國父遺教及中華民國憲法",
-        "一等管輪",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "111",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "7001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-26616084a54e",
-      "name": "專技特考｜一等｜一等輪機長",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 34,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-26616084a54e--69606c57506e.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-26616084a54e",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程與維修",
-        "輪機英文",
-        "輪機管理",
-        "輪機工程",
-        "燃氣渦輪機",
-        "蒸汽推進機組",
-        "一等輪機長",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "109",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "121",
-        "0601"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-3bf7b8b67ac2",
-      "name": "專技特考｜一等｜一等輪機長(加註)",
-      "years": [
-        90,
-        89,
-        86,
-        85,
-        84,
-        82
-      ],
-      "fileCount": 11,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-3bf7b8b67ac2--b455e5ba9f63.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-3bf7b8b67ac2",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "蒸氣推進機組",
-        "一等輪機長(加註)",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "179",
-        "2001",
-        "3001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0201",
-        "0301",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "107",
-        "0001",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "204",
-        "8001",
-        "9001",
-        "084年特種考試第一次航海人員、驗船師考試",
-        "018",
-        "082年特種考試第一次航海人員驗船師考試",
-        "103",
-        "4001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-7493227ec071",
-      "name": "專技特考｜一等｜一等管輪(加註)",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        84,
-        82
-      ],
-      "fileCount": 11,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-7493227ec071--59efd8ff40cd.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-7493227ec071",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "一等管輪(加註)",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "171",
-        "2001",
-        "3001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0301",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "624",
-        "c211",
-        "c221",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "109",
-        "c081",
-        "c091",
-        "084年特種考試第一次航海人員、驗船師考試",
-        "023",
-        "c061",
-        "c071",
-        "082年特種考試第一次航海人員驗船師考試",
-        "104",
-        "c111"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-9e1635a237ec",
-      "name": "專技特考｜一等｜一等大副",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 40,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-9e1635a237ec--a4e37db243ac.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-9e1635a237ec",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "航海學",
-        "貨物作業",
-        "船舶管理與安全",
-        "航海英文",
-        "海事法規",
-        "電子航海",
-        "一等大副",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "102",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "0501",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "112",
-        "0601",
-        "0701"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-b4992e3d99e8",
-      "name": "專技特考｜一等｜一等大管輪",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 41,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-b4992e3d99e8--9b93729e66bc.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-b4992e3d99e8",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程",
-        "輪機維修",
-        "輪機英文",
-        "輪機實務與安全",
-        "輪機管理",
-        "蒸汽推進機組",
-        "一等大管輪",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "110",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "0501",
-        "088年第一次航海人員、驗船師、船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-d8740f52e3eb",
-      "name": "專技特考｜一等｜一等大管輪(加註)",
-      "years": [
-        89,
-        88,
-        84
-      ],
-      "fileCount": 6,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-d8740f52e3eb--3a377b3154de.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-d8740f52e3eb",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "一等大管輪(加註)",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "170",
-        "0201",
-        "0301",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "522",
-        "0901",
-        "1001",
-        "084年特種考試第一次航海人員、驗船師考試",
-        "019",
-        "9001",
-        "c051"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-da54af6bf2cc",
-      "name": "專技特考｜一等｜一等船副",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 74,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-da54af6bf2cc--1765981f6cbc.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-da54af6bf2cc",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "船舶通訊與航海英文",
-        "貨物作業",
-        "船舶管理與安全",
-        "航海學",
-        "航海儀器",
-        "航行當值與避碰",
-        "國文",
-        "中華民國憲法",
-        "避碰規則與當值",
-        "船藝",
-        "航海氣象學與海洋學",
-        "避踫規則與當值",
-        "碰撞規則與當值",
-        "國父遺教及中華民國憲法",
-        "一等船副",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "103",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "7001",
-        "8001",
-        "c012"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-ed56ac60e848",
-      "name": "專技特考｜一等｜一等管輪(補考)",
-      "years": [
-        83,
-        82
-      ],
-      "fileCount": 5,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-012/moex-professional-special-grade-1-track-ed56ac60e848--15ae1f38023b.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-ed56ac60e848",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "船上電學",
-        "自動控制",
-        "燃氣渦輪機",
-        "蒸汽推進機組",
-        "一等管輪(補考)",
-        "083年特種考試第一次航海人員、驗船師考試",
-        "104",
-        "c111",
-        "c121",
-        "c131",
-        "c141",
-        "082年特種考試第一次航海人員驗船師考試",
-        "109",
-        "121"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-1-track-ef1c936a0bf9",
-      "name": "專技特考｜一等｜一等船副(海軍)",
-      "years": [
-        88,
-        86,
-        85,
-        83
-      ],
-      "fileCount": 8,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-1-track-ef1c936a0bf9--c27dead40dc8.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-ef1c936a0bf9",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "一等船副(海軍)",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "413",
-        "0201",
-        "0301",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "103",
-        "2001",
-        "3001",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "201",
-        "1001",
-        "083年特種考試第一次航海人員、驗船師考試",
-        "101"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-04066b30569b",
-      "name": "專技特考｜二等｜二等船長(海軍)",
-      "years": [
-        86,
-        85
-      ],
-      "fileCount": 6,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-04066b30569b--0d09344f5aff.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-04066b30569b",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "海事法規",
-        "二等船長(海軍)",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "104",
-        "2001",
-        "c031",
-        "c041",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "202",
-        "1001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-0cbc532038fb",
-      "name": "專技特考｜二等｜二等管輪",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 82,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-0cbc532038fb--01f4c77845fa.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-0cbc532038fb",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "船用電學與自動控制概要",
-        "船舶管理與安全概要",
-        "輪機維修概要",
-        "輔機概要",
-        "輪機當值與輪機英文概要",
-        "國文",
-        "中華民國憲法概要",
-        "柴油機",
-        "輪機英文",
-        "輪機實務與安全",
-        "輔機",
-        "船用電學",
-        "自動控制",
-        "本國歷史及地理概要",
-        "燃氣渦輪機",
-        "中華民國憲法",
-        "三民主義及憲法概要",
-        "蒸汽推進機組",
-        "二等管輪",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "114",
-        "2001",
-        "3001",
-        "5001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-118cf2fbc0e4",
-      "name": "專技特考｜二等｜二等大副",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83
-      ],
-      "fileCount": 35,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-118cf2fbc0e4--3ff86d5bb0dd.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-118cf2fbc0e4",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "航海學",
-        "貨物作業",
-        "船舶管理與安全",
-        "航海英文",
-        "海事法規",
-        "電子航海",
-        "二等大副",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "105",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "0501",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "212",
-        "0601",
-        "0701"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-32a1a04310ae",
-      "name": "專技特考｜二等｜二等大管輪",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84
-      ],
-      "fileCount": 30,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-32a1a04310ae--8a35db849f4c.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-32a1a04310ae",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程",
-        "輪機維修",
-        "輪機英文",
-        "輪機實務與安全",
-        "輪機管理",
-        "二等大管輪",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "113",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "0501",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "222"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-770b324cef94",
-      "name": "專技特考｜二等｜二等管輪(海軍)",
-      "years": [
-        86,
-        82
-      ],
-      "fileCount": 4,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-770b324cef94--c763dc81d536.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-770b324cef94",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "輪機英文",
-        "二等管輪(海軍)",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "112",
-        "c101",
-        "c111",
-        "082年特種考試第一次航海人員驗船師考試",
-        "105",
-        "c051",
-        "c061"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-9396051e05eb",
-      "name": "專技特考｜二等｜二等船副(海軍)",
-      "years": [
-        85,
-        84
-      ],
-      "fileCount": 4,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-9396051e05eb--ae34bbcc0e11.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-9396051e05eb",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "二等船副(海軍)",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "203",
-        "1001",
-        "2001",
-        "084年特種考試第一次航海人員、驗船師考試",
-        "017",
-        "3001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-bb7b72815589",
-      "name": "專技特考｜二等｜二等船長",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 32,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-bb7b72815589--f9febd72131c.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-bb7b72815589",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "航海學",
-        "貨物作業",
-        "船舶管理與安全",
-        "海洋氣象學與船舶操縱",
-        "航運業務",
-        "航海英文",
-        "海事法規",
-        "船舶操縱",
-        "二等船長",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "104",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "211",
-        "0601",
-        "0701"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-c06e20b2e21f",
-      "name": "專技特考｜二等｜二等船副",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 80,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-c06e20b2e21f--d1a82190b7b3.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-c06e20b2e21f",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "船舶通訊與航海英文概要",
-        "貨物作業概要",
-        "船舶管理與安全概要",
-        "航海學概要",
-        "航海儀器概要",
-        "航行當值與避碰概要",
-        "國文",
-        "中華民國憲法概要",
-        "避碰規則與當值",
-        "船舶通訊與航海英文",
-        "航海學",
-        "船藝",
-        "航海儀器",
-        "航海氣象學與海洋學",
-        "本國歷史及地理概要",
-        "避踫規則與當值",
-        "碰撞規則與當值",
-        "三民主義及憲法概要",
-        "二等船副",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "106",
-        "1001",
-        "2001",
-        "3001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-e4845573f5c8",
-      "name": "專技特考｜二等｜二等輪機長",
-      "years": [
-        90,
-        89,
-        88,
-        86,
-        85,
-        83,
-        82
-      ],
-      "fileCount": 28,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-grade-2-track-e4845573f5c8--036efaf7d036.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-e4845573f5c8",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程與維修",
-        "輪機英文",
-        "輪機管理",
-        "輪機工程",
-        "二等輪機長",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "112",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0401",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "221",
-        "0601",
-        "0701",
-        "086年特種考試第一次航海人員、驗船師考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-3-track-0bea113d70e7",
-      "name": "專技特考｜三等｜三等船副",
-      "years": [
-        90,
-        89
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-3-track-0bea113d70e7--af37d97011b6.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-3",
-      "trackId": "track-0bea113d70e7",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "航海學大意",
-        "貨物作業大意",
-        "船舶管理與安全大意",
-        "航行當值與避碰大意",
-        "國文",
-        "三等船副",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "108",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c042",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0501"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-3-track-2282fbb7d740",
-      "name": "專技特考｜三等｜三等船長",
-      "years": [
-        90,
-        89
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-3-track-2282fbb7d740--4d1ede9ccbe0.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-3",
-      "trackId": "track-2282fbb7d740",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "航海學大意",
-        "貨物作業大意",
-        "船舶管理與安全大意",
-        "船舶通訊大意",
-        "國文",
-        "三等船長",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "107",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c032",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0501"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-3-track-9d8fd66d976a",
-      "name": "專技特考｜三等｜三等管輪",
-      "years": [
-        90,
-        89
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-3-track-9d8fd66d976a--7c9806305516.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-3",
-      "trackId": "track-9d8fd66d976a",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "輪機學大意",
-        "船用電學與自動控制大意",
-        "船舶管理與安全大意",
-        "輪機維修大意",
-        "國文",
-        "三等管輪",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "116",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c042",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0501"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-3-track-cb576d10e849",
-      "name": "專技特考｜三等｜三等輪機長",
-      "years": [
-        90,
-        89
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-3-track-cb576d10e849--ba46ceb0b70b.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-3",
-      "trackId": "track-cb576d10e849",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "輪機學大意",
-        "船用電學與自動控制大意",
-        "船舶管理與安全大意",
-        "輪機維修大意",
-        "國文",
-        "三等輪機長",
-        "090年專技特考第一次航海人員、驗船師考試",
-        "115",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c032",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "0101",
-        "0201",
-        "0301",
-        "0501"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-ordinary-track-1e63398a1504",
       "name": "專技特考｜普通／普考｜一般保險公證人",
       "years": [
@@ -89465,49 +90872,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-professional-special-track-1ed177c5f03f",
-      "name": "專技特考｜專技特考｜正司機(海軍)",
-      "years": [
-        88,
-        86,
-        84,
-        82
-      ],
-      "fileCount": 4,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-1ed177c5f03f--3b9280612100.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-1ed177c5f03f",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "輪機實務與安全",
-        "正司機(海軍)",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "441",
-        "c181",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "115",
-        "c161",
-        "084年特種考試第一次航海人員、驗船師考試",
-        "022",
-        "111",
-        "082年特種考試第一次航海人員驗船師考試",
-        "106",
-        "5001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-professional-special-track-2071c307cc75",
       "name": "專技特考｜專技特考｜財產保險經紀人",
       "years": [
@@ -89671,48 +91035,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-professional-special-track-42056a163816",
-      "name": "專技特考｜專技特考｜正駕駛(海軍)",
-      "years": [
-        88,
-        84,
-        83
-      ],
-      "fileCount": 4,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-42056a163816--b0c823936b19.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-42056a163816",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "避碰規則",
-        "正駕駛(海軍)",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "431",
-        "0201",
-        "084年特種考試第一次航海人員、驗船師考試",
-        "021",
-        "c091",
-        "083年特種考試第一次航海人員、驗船師考試",
-        "105",
-        "c161",
-        "083年特種考試第三次航海人員漁船船員船舶電信人員中醫師考試",
-        "304",
-        "c131"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-professional-special-track-478ea011b661",
       "name": "專技特考｜專技特考｜消防設備師",
       "years": [
@@ -89821,61 +91143,6 @@
         "806",
         "1001",
         "093年專門職業及技術人員特種考試消防人員、不動產估價師、報關人員、保險人員、船舶電信、漁船船員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-professional-special-track-64e894a25de8",
-      "name": "專技特考｜專技特考｜副駕駛",
-      "years": [
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 37,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-64e894a25de8--9617a07f2a33.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-64e894a25de8",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "避碰規則",
-        "船藝",
-        "航海術",
-        "公民及本國史地大意",
-        "國文",
-        "避踫規則",
-        "公民",
-        "副駕駛",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "132",
-        "0201",
-        "0301",
-        "0501",
-        "c034",
-        "c041",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "014",
-        "2001",
-        "3001",
-        "5001",
-        "c144",
-        "c151",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "114"
       ],
       "sources": [
         {
@@ -90036,61 +91303,6 @@
         "001",
         "1002",
         "2002"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-professional-special-track-9bb45c0d27f6",
-      "name": "專技特考｜專技特考｜正司機",
-      "years": [
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 37,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-9bb45c0d27f6--91d285547895.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-9bb45c0d27f6",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "輔機",
-        "公民及本國史地大意",
-        "國文",
-        "輪機實務與安全",
-        "公民",
-        "正司機",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "141",
-        "0201",
-        "0301",
-        "c014",
-        "c021",
-        "c181",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "015",
-        "2001",
-        "3001",
-        "c124",
-        "c131",
-        "c161",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "115",
-        "1001"
       ],
       "sources": [
         {
@@ -90376,61 +91588,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-professional-special-track-cf40469dd02b",
-      "name": "專技特考｜專技特考｜副司機",
-      "years": [
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 32,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-cf40469dd02b--464dff3f0f08.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-cf40469dd02b",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "柴油機",
-        "輔機",
-        "輪機實務與安全",
-        "公民及本國史地大意",
-        "國文",
-        "公民",
-        "副司機",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "142",
-        "0201",
-        "0301",
-        "0501",
-        "c034",
-        "c041",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "016",
-        "2001",
-        "3001",
-        "5001",
-        "c144",
-        "c151",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "116",
-        "1001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-professional-special-track-d463509763b9",
       "name": "專技特考｜專技特考｜消防設備士",
       "years": [
@@ -90584,61 +91741,6 @@
         "c051",
         "c061",
         "c071"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-professional-special-track-dde5eaa12e4a",
-      "name": "專技特考｜專技特考｜正駕駛",
-      "years": [
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 37,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-dde5eaa12e4a--69a5ca17af24.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-dde5eaa12e4a",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "避碰規則",
-        "船藝",
-        "航海術",
-        "公民及本國史地大意",
-        "國文",
-        "避踫規則",
-        "公民",
-        "正駕駛",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "131",
-        "0201",
-        "0301",
-        "0501",
-        "c014",
-        "c021",
-        "086年特種考試第一次航海人員、驗船師考試",
-        "013",
-        "2001",
-        "3001",
-        "5001",
-        "c124",
-        "c131",
-        "085年特種考試第一次航海人員、驗船師考試",
-        "113"
       ],
       "sources": [
         {
@@ -148136,1261 +149238,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-grade-1-track-07bc850daf7e",
-      "name": "航海／船員特考｜一等｜一等船長",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 84,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-07bc850daf7e--55a089f78579.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-07bc850daf7e",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海學",
-        "船舶管理與安全",
-        "海洋氣象學與船舶操縱",
-        "航運業務",
-        "航海英文",
-        "海事法規",
-        "船舶操縱",
-        "一等船長",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "101",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "001",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "6001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-20c47c1302a3",
-      "name": "航海／船員特考｜一等｜一等管輪",
-      "years": [
-        99,
-        98,
-        97,
-        96,
-        95,
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 318,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-20c47c1302a3--354e86e98a05.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-20c47c1302a3",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電機與自動控制",
-        "輪機工程(包括推進裝置、輔機與輪機英文)",
-        "輪機保養與維修(包括輪機基本知識)",
-        "輪機管理與安全",
-        "輪機工程（包括推進裝置、輔機與輪機英文）",
-        "輪機保養與維修（包括輪機基本知識）",
-        "輪機工程(包括推進裝置.輔機與輪機英文)",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機維修",
-        "輔機",
-        "輪機當值與輪機英文",
-        "國文",
-        "中華民國憲法",
-        "國文（論文與閱讀測驗）",
-        "輪機實務與安全",
-        "船用電學",
-        "自動控制",
-        "輪機英文",
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "柴 油 機",
-        "自動控製"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-26616084a54e",
-      "name": "航海／船員特考｜一等｜一等輪機長",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 93,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-26616084a54e--2a19507946c9.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-26616084a54e",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程與維修",
-        "輪機工程",
-        "輪機英文",
-        "輪機管理",
-        "柴 油 機",
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "蒸氣推進機組",
-        "一等輪機長",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "109",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "301",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "a09",
-        "2002"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-3bf7b8b67ac2",
-      "name": "航海／船員特考｜一等｜一等輪機長(加註)",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 18,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-3bf7b8b67ac2--5c0c99afe98b.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-3bf7b8b67ac2",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "蒸氣推進機組",
-        "一等輪機長(加註)",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "b09",
-        "2001",
-        "3001",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "090年特種考試第三次航海人員、引水人考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "一等輪機長(加註）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "108",
-        "a001",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "107",
-        "9001",
-        "c081",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "210",
-        "141",
-        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
-        "126"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-6016eee7e02a",
-      "name": "航海／船員特考｜一等｜一等大副(海軍)",
-      "years": [
-        88,
-        87,
-        86,
-        85,
-        84
-      ],
-      "fileCount": 21,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-6016eee7e02a--aa9a45791391.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-6016eee7e02a",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "海事法規",
-        "一等大副(海軍）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "102",
-        "c281",
-        "c291",
-        "c301",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "2001",
-        "3001",
-        "6001",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "一等大副(海軍)",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "201",
-        "c011",
-        "c021",
-        "c031",
-        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
-        "124",
-        "c041",
-        "c051"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-7493227ec071",
-      "name": "航海／船員特考｜一等｜一等管輪(加註)",
-      "years": [
-        99,
-        98,
-        97,
-        96,
-        95,
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 70,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-7493227ec071--b012e3026c4a.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-7493227ec071",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "蒸氣推進機組",
-        "燃氣濄輪機",
-        "蒸汽推進機 組",
-        "柴油機",
-        "一等管輪(加註)",
-        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "303",
-        "100",
-        "200",
-        "099年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "一等管輪（加註）",
-        "099年第三次專門職業及技術人員高等暨普通考試航海人員考試",
-        "099年第四次專門職業及技術人員高等暨普通考試航海人員考試",
-        "098年第一次專門職業及技術人員特種考試航海人員考試",
-        "1001",
-        "2001",
-        "098年第二次專門職業及技術人員特種考試航海人員考試",
-        "098年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "098年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "097年第一次專門職業及技術人員特種考試航海人員考試",
-        "097年第二次專門職業及技術人員特種考試航海人員考試",
-        "097年第三次專門職業及技術人員特種考試航海人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-9e1635a237ec",
-      "name": "航海／船員特考｜一等｜一等大副",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 105,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-9e1635a237ec--07969dcc04ed.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-9e1635a237ec",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海學",
-        "船舶管理與安全",
-        "海事法規",
-        "航海英文",
-        "電子航海",
-        "一等大副",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "102",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "002",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "7001",
-        "c281"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-b4992e3d99e8",
-      "name": "航海／船員特考｜一等｜一等大管輪",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 109,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-b4992e3d99e8--37bae5eac0ae.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-b4992e3d99e8",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程",
-        "輪機維修",
-        "輪機英文",
-        "輪機實務與安全",
-        "輪機管理",
-        "柴 油 機",
-        "燃氣渦輪機",
-        "蒸汽推進機組",
-        "一等大管輪",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "110",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "a10",
-        "090年特種考試第三次航海人員、引水人考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-b57697fd0954",
-      "name": "航海／船員特考｜一等｜一等管輪(海軍)",
-      "years": [
-        88,
-        87,
-        86
-      ],
-      "fileCount": 8,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-b57697fd0954--7b434e23b8ee.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-b57697fd0954",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "輪機英文",
-        "柴 油 機",
-        "蒸氣推進機組",
-        "燃氣渦輪機",
-        "一等管輪(海軍）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "019",
-        "c131",
-        "c141",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "2001",
-        "3001",
-        "一等管輪(海軍)",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "109",
-        "c091",
-        "c101",
-        "c111",
-        "c221"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-d3e8d27e2a5e",
-      "name": "航海／船員特考｜一等｜一等輪機長(海軍)",
-      "years": [
-        88,
-        87,
-        86,
-        84
-      ],
-      "fileCount": 16,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-d3e8d27e2a5e--0edd000c9745.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-d3e8d27e2a5e",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "輪機英文",
-        "輪機管理",
-        "燃氣渦輪機",
-        "一等輪機長(海軍）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "107",
-        "c101",
-        "c111",
-        "c121",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "2001",
-        "3001",
-        "6001",
-        "a001",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "一等輪機長(海軍)",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "205",
-        "c131",
-        "084年特種考試第二次航海人員引水人考試",
-        "020"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-d8740f52e3eb",
-      "name": "航海／船員特考｜一等｜一等大管輪(加註)",
-      "years": [
-        89,
-        88,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 9,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-d8740f52e3eb--314b6bf80ec0.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-d8740f52e3eb",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "燃氣渦輪機",
-        "蒸汽推進機組",
-        "柴油機",
-        "一等大管輪(加註）",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "b10",
-        "3001",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "018",
-        "9001",
-        "一等大管輪(加註)",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "206",
-        "c151",
-        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
-        "127",
-        "c231",
-        "084年特種考試第三次航海人員漁船船員船舶電信人員考試",
-        "209",
-        "c091",
-        "083年特種考試第二次航海人員引水人考試",
-        "105",
-        "c111",
-        "082年特種考試第三次航海人員、漁船船員、船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-da54af6bf2cc",
-      "name": "航海／船員特考｜一等｜一等船副",
-      "years": [
-        99,
-        98,
-        97,
-        96,
-        95,
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 288,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-da54af6bf2cc--6e2ea003ea7c.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-da54af6bf2cc",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "航行安全與氣象",
-        "航海學",
-        "貨物作業",
-        "船舶操作與船上人員管理",
-        "船舶通訊與航海英文",
-        "船舶管理與安全",
-        "航海儀器",
-        "航行當值與避碰",
-        "國文",
-        "中華民國憲法",
-        "國文（論文與閱讀測驗）",
-        "避碰規則與當值",
-        "船藝",
-        "航海氣象學與海洋學",
-        "國父遺教及中華民國憲法",
-        "一等船副",
-        "099年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "301",
-        "100",
-        "200",
-        "300",
-        "400",
-        "500",
-        "099年第二次專門職業及技術人員高等暨普通考試航海人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-ef15eb339e2d",
-      "name": "航海／船員特考｜一等｜一等大管輪(海軍)",
-      "years": [
-        87,
-        85,
-        84
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-ef15eb339e2d--d1b81d1fdd88.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-ef15eb339e2d",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "輪機英文",
-        "輪機管理",
-        "一等大管輪(海軍）",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "108",
-        "2001",
-        "3001",
-        "6001",
-        "一等大管輪(海軍)",
-        "085年特種考試第二次航海人員、引水人考試",
-        "019",
-        "c101",
-        "c111",
-        "c121",
-        "084年特種考試第二次航海人員引水人考試",
-        "021",
-        "084年特種考試第三次航海人員漁船船員船舶電信人員考試",
-        "208",
-        "c091"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-ef1c936a0bf9",
-      "name": "航海／船員特考｜一等｜一等船副(海軍)",
-      "years": [
-        87,
-        86,
-        85,
-        84,
-        83
-      ],
-      "fileCount": 14,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-ef1c936a0bf9--1afc01e22a5b.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-ef1c936a0bf9",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "一等船副(海軍）",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "103",
-        "2001",
-        "3001",
-        "一等船副(海軍)",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "202",
-        "085年特種考試第二次航海人員、引水人考試",
-        "017",
-        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
-        "125",
-        "084年特種考試第二次航海人員引水人考試",
-        "018",
-        "084年特種考試第三次航海人員漁船船員船舶電信人員考試",
-        "203",
-        "083年特種考試第二次航海人員引水人考試",
-        "102"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-04066b30569b",
-      "name": "航海／船員特考｜二等｜二等船長(海軍)",
-      "years": [
-        87,
-        86
-      ],
-      "fileCount": 9,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-012/moex-special-maritime-grade-2-track-04066b30569b--e9f41100b046.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-04066b30569b",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "海事法規",
-        "二等船長(海軍）",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "104",
-        "2001",
-        "3001",
-        "6001",
-        "二等船長(海軍)",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "c031",
-        "c041",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "203",
-        "c061",
-        "c071"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-0cbc532038fb",
-      "name": "航海／船員特考｜二等｜二等管輪",
-      "years": [
-        104,
-        103,
-        102,
-        101,
-        100,
-        99,
-        98,
-        97,
-        96,
-        95,
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 441,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-0cbc532038fb--cfbaed4f7a3d.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-0cbc532038fb",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電機與自動控制概要",
-        "輪機工程概要（包括推進裝置概要、輔機概要與輪機英文）",
-        "輪機保養與維修概要（包括輪機基本知識）",
-        "輪機管理與安全概要",
-        "輪機工程概要(包括推進裝置概要、輔機概要與輪機英文)",
-        "輪機保養與維修概要(包括輪機基本知識)",
-        "船用電學與自動控制概要",
-        "船舶管理與安全概要",
-        "輪機維修概要",
-        "輔機概要",
-        "輪機當值與輪機英文概要",
-        "國文",
-        "中華民國憲法概要",
-        "國文（論文與閱讀測驗）",
-        "柴油機、蒸汽推進機組",
-        "輪機實務與安全",
-        "輔機",
-        "船用電學",
-        "自動控制",
-        "本國歷史及地理概要",
-        "輪機英文",
-        "柴油機、蒸氣推進機組",
-        "燃氣渦輪機"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-118cf2fbc0e4",
-      "name": "航海／船員特考｜二等｜二等大副",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83
-      ],
-      "fileCount": 95,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-118cf2fbc0e4--02245e8f41de.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-118cf2fbc0e4",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海學",
-        "船舶管理與安全",
-        "海事法規",
-        "航海英文",
-        "電子航海",
-        "二等大副",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "105",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "005",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "6001",
-        "7001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-32a1a04310ae",
-      "name": "航海／船員特考｜二等｜二等大管輪",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 105,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-32a1a04310ae--dc4e4c1cbc78.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-32a1a04310ae",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程",
-        "輪機維修",
-        "輪機工程",
-        "輪機英文",
-        "輪機實務與安全",
-        "輪機管理",
-        "二等大管輪",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "113",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "5001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "a13",
-        "090年特種考試第三次航海人員、引水人考試",
-        "013",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-770b324cef94",
-      "name": "航海／船員特考｜二等｜二等管輪(海軍)",
-      "years": [
-        88,
-        87,
-        86,
-        85,
-        84
-      ],
-      "fileCount": 15,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-770b324cef94--787b773b325c.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-770b324cef94",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "輪機英文",
-        "燃氣渦輪機",
-        "二等管輪(海軍）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "112",
-        "2001",
-        "c171",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "3001",
-        "二等管輪(海軍)",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "c121",
-        "c131",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "208",
-        "c181",
-        "c191",
-        "085年特種考試第二次航海人員、引水人考試",
-        "021",
-        "c151",
-        "c161",
-        "085年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
-        "130"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-9396051e05eb",
-      "name": "航海／船員特考｜二等｜二等船副(海軍)",
-      "years": [
-        87,
-        86,
-        85,
-        84,
-        83
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-9396051e05eb--f7c505c3c8fc.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-9396051e05eb",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海英文",
-        "二等船副(海軍）",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "106",
-        "2001",
-        "3001",
-        "二等船副(海軍)",
-        "086年特種考試第三次航海人員、漁船船員、第二次船舶電信人員考試",
-        "204",
-        "c061",
-        "085年特種考試第二次航海人員、引水人考試",
-        "018",
-        "C101",
-        "C111",
-        "084年特種考試第二次航海人員引水人考試",
-        "019",
-        "084年特種考試第三次航海人員漁船船員船舶電信人員考試",
-        "206",
-        "083年特種考試第二次航海人員引水人考試",
-        "103"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-bb7b72815589",
-      "name": "航海／船員特考｜二等｜二等船長",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 84,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-bb7b72815589--2fda8ff9663c.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-bb7b72815589",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業",
-        "航海學",
-        "船舶管理與安全",
-        "海洋氣象學與船舶操縱",
-        "航運業務",
-        "航海英文",
-        "海事法規",
-        "船舶操縱",
-        "船運業務",
-        "二等船長",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "104",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "004",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-c06e20b2e21f",
-      "name": "航海／船員特考｜二等｜二等船副",
-      "years": [
-        103,
-        102,
-        101,
-        100,
-        99,
-        98,
-        97,
-        96,
-        95,
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 417,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-c06e20b2e21f--a00bd5e72533.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-c06e20b2e21f",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "航行安全與氣象概要",
-        "航海學概要",
-        "貨物作業概要",
-        "船舶操作與船上人員管理概要",
-        "船舶通訊與航海英文概要",
-        "船舶管理與安全概要",
-        "航海儀器概要",
-        "航行當值與避碰概要",
-        "國文",
-        "中華民國憲法概要",
-        "國文（論文與閱讀測驗）",
-        "避碰規則與當值",
-        "船舶通訊與航海英文",
-        "航海學",
-        "船藝",
-        "航海儀器",
-        "航海氣象學與海洋學",
-        "本國歷史及地理概要",
-        "碰避規則與當值",
-        "中華民國憲法概要試題更正",
-        "航運業務",
-        "三民主義及憲法概要",
-        "專技普考_二等船副",
-        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-grade-2-track-d7a54e2d1e0d",
       "name": "航海／船員特考｜二等｜漁船船員二等船副",
       "years": [
@@ -149428,317 +149275,6 @@
         "020",
         "c022",
         "c114"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-e4845573f5c8",
-      "name": "航海／船員特考｜二等｜二等輪機長",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 77,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-e4845573f5c8--455409f6898c.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-e4845573f5c8",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電學與自動控制",
-        "船舶管理與安全",
-        "輪機工程與維修",
-        "輪機英文",
-        "輪機管理",
-        "輪機工程",
-        "燃氣渦輪機",
-        "二等輪機長",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "112",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "a12",
-        "090年特種考試第三次航海人員、引水人考試",
-        "012",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-ef9908c38d39",
-      "name": "航海／船員特考｜二等｜二等管輪(加註)",
-      "years": [
-        101,
-        100,
-        99,
-        91,
-        82
-      ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-ef9908c38d39--25becafa1ed2.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-ef9908c38d39",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "柴油機",
-        "專技普考_二等管輪（加註）",
-        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "403",
-        "11",
-        "22",
-        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試",
-        "二等管輪（加註）",
-        "099年第三次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100",
-        "二等管輪(加註)",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "124",
-        "2001",
-        "3001",
-        "082年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
-        "105",
-        "c071"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-3-track-0bea113d70e7",
-      "name": "航海／船員特考｜三等｜三等船副",
-      "years": [
-        91,
-        90,
-        89
-      ],
-      "fileCount": 47,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-3-track-0bea113d70e7--dbbe9c1eeba6.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-3",
-      "trackId": "track-0bea113d70e7",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業大意",
-        "航海學大意",
-        "船舶管理與安全大意",
-        "航行當值與避碰大意",
-        "國文",
-        "航行當值與避碰大意",
-        "國文（論文與閱讀測驗）",
-        "氣象學大意",
-        "漁船構造與安全大意",
-        "漁具漁法學大意",
-        "三等船副",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "108",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c042",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "c041",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "008",
-        "090年特種考試第三次航海人員、引水人考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-3-track-2282fbb7d740",
-      "name": "航海／船員特考｜三等｜三等船長",
-      "years": [
-        91,
-        90,
-        89
-      ],
-      "fileCount": 42,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-3-track-2282fbb7d740--9894df79ffef.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-3",
-      "trackId": "track-2282fbb7d740",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "貨物作業大意",
-        "航海學大意",
-        "船舶管理與安全大意",
-        "船舶通訊大意",
-        "國文",
-        "國文（論文與閱讀測驗）",
-        "三等船長",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "107",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c032",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "c031",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "007",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-3-track-9d8fd66d976a",
-      "name": "航海／船員特考｜三等｜三等管輪",
-      "years": [
-        91,
-        90,
-        89
-      ],
-      "fileCount": 42,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-3-track-9d8fd66d976a--b194c65787cb.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-3",
-      "trackId": "track-9d8fd66d976a",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "輪機學大意",
-        "船用電學與自動控制大意",
-        "船舶管理與安全大意",
-        "輪機維修大意",
-        "國文",
-        "國文（論文與閱讀測驗）",
-        "三等管輪",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "116",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c042",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "c041",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "016",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-3-track-cb576d10e849",
-      "name": "航海／船員特考｜三等｜三等輪機長",
-      "years": [
-        91,
-        90,
-        89
-      ],
-      "fileCount": 42,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-3-track-cb576d10e849--75be670ad984.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-3",
-      "trackId": "track-cb576d10e849",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "輪機學大意",
-        "船用電學與自動控制大意",
-        "船舶管理與安全大意",
-        "輪機維修大意",
-        "國文",
-        "國文（論文與閱讀測驗）",
-        "三等輪機長",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "115",
-        "1001",
-        "2001",
-        "3001",
-        "5001",
-        "c032",
-        "091年專門職業及技術人員特種考試第二次航海人員、漁船船員考試",
-        "c031",
-        "091年專門職業及技術人員特種考試第三次航海人員考試",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "015",
-        "090年特種考試第三次航海人員、引水人考試",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
       ],
       "sources": [
         {
@@ -149841,308 +149377,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-professional-high-track-20c47c1302a3",
-      "name": "航海／船員特考｜專技高考｜一等管輪",
-      "years": [
-        104,
-        103,
-        102,
-        101,
-        100
-      ],
-      "fileCount": 116,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-high-track-20c47c1302a3--dfc9044e72cb.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-high",
-      "trackId": "track-20c47c1302a3",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "船用電機與自動控制",
-        "輪機工程（包括推進裝置、輔機與輪機英文）",
-        "輪機保養與維修（包括輪機基本知識）",
-        "輪機管理與安全",
-        "專技高考_一等管輪",
-        "104年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "302",
-        "11",
-        "22",
-        "33",
-        "44",
-        "高考_一等管輪",
-        "104年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "55",
-        "103年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "102年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "102年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-high-track-7493227ec071",
-      "name": "航海／船員特考｜專技高考｜一等管輪(加註)",
-      "years": [
-        101,
-        100
-      ],
-      "fileCount": 24,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-high-track-7493227ec071--10e449165b03.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-high",
-      "trackId": "track-7493227ec071",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "蒸汽推進機組",
-        "燃氣渦輪機",
-        "專技高考_一等管輪（加註）",
-        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "303",
-        "11",
-        "22",
-        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第四次專門職業及技術人員高等暨普通考試航海人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-high-track-da54af6bf2cc",
-      "name": "航海／船員特考｜專技高考｜一等船副",
-      "years": [
-        104,
-        103,
-        102,
-        101,
-        100
-      ],
-      "fileCount": 122,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-high-track-da54af6bf2cc--724f8d966452.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-high",
-      "trackId": "track-da54af6bf2cc",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "航海學",
-        "貨物作業",
-        "船舶操作與船上人員管理",
-        "船舶通訊與航海英文",
-        "航行安全與氣象",
-        "專技高考_一等船副",
-        "104年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "301",
-        "22",
-        "33",
-        "44",
-        "55",
-        "高考_一等船副",
-        "104年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "11",
-        "103年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "103年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "102年第一次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "102年第二次專門職業及技術人員高等暨普通考試航海人員考試【舊案補考】",
-        "101年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "101年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第一次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第二次專門職業及技術人員高等暨普通考試航海人員考試",
-        "100年第三次專門職業及技術人員高等暨普通考試航海人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-1ed177c5f03f",
-      "name": "航海／船員特考｜專技特考｜正司機(海軍)",
-      "years": [
-        88,
-        87,
-        86,
-        85,
-        83,
-        82
-      ],
-      "fileCount": 7,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-1ed177c5f03f--7e98dd5d39ed.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-1ed177c5f03f",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "輪機實務與安全",
-        "正司機(海軍）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "115",
-        "c191",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "5001",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "正司機(海軍)",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "c171",
-        "085年特種考試第二次航海人員、引水人考試",
-        "022",
-        "083年特種考試第二次航海人員引水人考試",
-        "108",
-        "c071",
-        "082年特種考試第二次航海人員引水人考試",
-        "021",
-        "c121"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-42056a163816",
-      "name": "航海／船員特考｜專技特考｜正駕駛(海軍)",
-      "years": [
-        88,
-        87,
-        86,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 7,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-42056a163816--123662088130.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-42056a163816",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "避碰規則",
-        "正駕駛(海軍)",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "113",
-        "c181",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "2001",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "c151",
-        "084年特種考試第二次航海人員引水人考試",
-        "024",
-        "083年特種考試第二次航海人員引水人考試",
-        "107",
-        "c041",
-        "082年特種考試第二次航海人員引水人考試",
-        "020",
-        "c111"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-64e894a25de8",
-      "name": "航海／船員特考｜專技特考｜副駕駛",
-      "years": [
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 46,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-64e894a25de8--50e12cbd1de7.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-64e894a25de8",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "避碰規則",
-        "船藝",
-        "航海術",
-        "公民及本國史地大意",
-        "國文",
-        "公民",
-        "副駕駛",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "014",
-        "2001",
-        "3001",
-        "5001",
-        "c044",
-        "c081",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "5002",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "214",
-        "1004",
-        "4001",
-        "085年特種考試第二次航海人員、引水人考試",
-        "c061",
-        "c082"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-professional-special-track-6ece0ce55e78",
       "name": "航海／船員特考｜專技特考｜甲種一等引水人",
       "years": [
@@ -150173,62 +149407,6 @@
         "014",
         "2011",
         "2021"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-9bb45c0d27f6",
-      "name": "航海／船員特考｜專技特考｜正司機",
-      "years": [
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 46,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-9bb45c0d27f6--3643bbf580e2.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-9bb45c0d27f6",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "輔機",
-        "公民及本國史地大意",
-        "國文",
-        "輪機實務與安全",
-        "公民",
-        "正司機",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "015",
-        "2001",
-        "3001",
-        "c034",
-        "c071",
-        "c191",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "5001",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "215",
-        "c144",
-        "c161",
-        "c171",
-        "085年特種考試第二次航海人員、引水人考試",
-        "c051"
       ],
       "sources": [
         {
@@ -150336,52 +149514,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-professional-special-track-cf40469dd02b",
-      "name": "航海／船員特考｜專技特考｜副司機",
-      "years": [
-        88,
-        87,
-        85
-      ],
-      "fileCount": 25,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-cf40469dd02b--8c7fd86544ee.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-cf40469dd02b",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "柴油機",
-        "輔機",
-        "輪機實務與安全",
-        "公民及本國史地大意",
-        "國文",
-        "副司機",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "016",
-        "2001",
-        "3001",
-        "5001",
-        "c044",
-        "c081",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "085年特種考試第二次航海人員、引水人考試",
-        "c061",
-        "c082"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-professional-special-track-d4f61c07ae25",
       "name": "航海／船員特考｜專技特考｜甲種引水人(高雄港)",
       "years": [
@@ -150425,62 +149557,6 @@
         "043",
         "c012",
         "c094"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-dde5eaa12e4a",
-      "name": "航海／船員特考｜專技特考｜正駕駛",
-      "years": [
-        88,
-        87,
-        86,
-        85,
-        84,
-        83,
-        82
-      ],
-      "fileCount": 47,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-dde5eaa12e4a--07dac63bae09.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-dde5eaa12e4a",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "船藝",
-        "航海術",
-        "公民及本國史地大意",
-        "國文",
-        "避碰規則",
-        "公民",
-        "正駕駛",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "013",
-        "3001",
-        "5001",
-        "c034",
-        "c071",
-        "c181",
-        "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
-        "2001",
-        "5002",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "086年特種考試第二次航海人員、引水人、第一次船舶電信人員考試",
-        "213",
-        "c144",
-        "c151",
-        "c161",
-        "085年特種考試第二次航海人員、引水人考試"
       ],
       "sources": [
         {

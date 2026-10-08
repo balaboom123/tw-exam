@@ -1,4 +1,4 @@
-"""Reviewed exact category facts omitted by historical MOEX listings.
+"""Reviewed exact category facts and conflicting historical MOEX subjects.
 
 The catalog stores decisions, not extracted PDF text or generated paper state.
 Every fact matches the entire retained category context and cites a question
@@ -26,6 +26,12 @@ class MoexQuestionEvidence:
 
 
 @dataclass(frozen=True)
+class MoexSubjectReview:
+    subject_code: str
+    reason: str
+
+
+@dataclass(frozen=True)
 class MoexCategoryIdentity:
     fact_id: str
     source_exam_id: str
@@ -36,6 +42,7 @@ class MoexCategoryIdentity:
     series_id: str
     level_id: str
     evidence: tuple[MoexQuestionEvidence, ...]
+    subject_reviews: tuple[MoexSubjectReview, ...] = ()
 
 
 def moex_evidence_path(repo_root: Path) -> Path:
@@ -100,6 +107,20 @@ def read_moex_category_identities(path: Path) -> tuple[MoexCategoryIdentity, ...
             ):
                 raise ValueError(f"{path}: evidence must identify this official question context")
             evidence.append(MoexQuestionEvidence(source_url, subject_code, checksum))
+        reviews = row.get("subject_reviews", [])
+        if not isinstance(reviews, list):
+            raise ValueError(f"{path}: subject_reviews must be an array")
+        subject_reviews = []
+        reviewed_subjects: set[str] = set()
+        anchored_subjects = {anchor.subject_code for anchor in evidence}
+        for review in reviews:
+            if not isinstance(review, dict):
+                raise ValueError(f"{path}: each subject review must be an object")
+            subject_code = _text(review, "subject_code", path)
+            if subject_code not in anchored_subjects or subject_code in reviewed_subjects:
+                raise ValueError(f"{path}: subject review needs one distinct anchored subject")
+            subject_reviews.append(MoexSubjectReview(subject_code, _text(review, "reason", path)))
+            reviewed_subjects.add(subject_code)
         fact = MoexCategoryIdentity(
             fact_id=_text(row, "id", path),
             source_exam_id=_text(row, "source_exam_id", path),
@@ -110,6 +131,7 @@ def read_moex_category_identities(path: Path) -> tuple[MoexCategoryIdentity, ...
             series_id=_text(row, "series_id", path),
             level_id=_text(row, "level_id", path),
             evidence=tuple(evidence),
+            subject_reviews=tuple(subject_reviews),
         )
         context = (fact.source_exam_id, fact.year_ad, fact.category_code)
         if context in contexts or fact.fact_id in fact_ids:

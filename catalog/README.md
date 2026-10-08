@@ -7,7 +7,7 @@ This directory contains reviewed, versioned domain knowledge used to classify ex
 - taxonomy/exam-identity-v2.json: shared domains, families, series, levels, and policy metadata.
 - mappings/publication-quarantine.json: reviewed provider publication exclusions. Provider membership and minimum-history rules are executable in `app/site_registry.py`; MOEX phrase rules are executable in `app/classification.py`.
 - mappings/<provider>/: provider-specific mappings when shared rules are insufficient.
-- mappings/moex/category-identity-v1.json: reviewed exact historical category facts when a MOEX listing omits programme or grade evidence. Each fact binds the event/year/native category code and original wording to checksum-verified official question evidence.
+- mappings/moex/category-identity-v1.json: reviewed exact historical category facts when a MOEX listing omits programme or grade evidence, or a native question conflicts with its category. Each fact binds the event/year/native category code and original wording to checksum-verified official question evidence. Optional subject reviews isolate the conflicting native subject without changing the other subjects in that category.
 - source-coverage/<provider_id>.json: reviewed evidence for official source events/files that are blocked or intentionally out of scope; these are manual inputs, not generated crawl state.
 - source-inventory.json: reviewed source-scope matrix with status/evidence and exact local-state observations; it is not proof of live source completeness.
 

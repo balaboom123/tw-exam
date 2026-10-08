@@ -25,6 +25,19 @@
           "level_id": {"type": "string", "minLength": 1},
           "reviewed_at": {"type": "string", "format": "date"},
           "reason": {"type": "string", "minLength": 1},
+          "subject_reviews": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["subject_code", "reason"],
+              "properties": {
+                "subject_code": {"type": "string", "minLength": 1},
+                "reason": {"type": "string", "minLength": 1}
+              },
+              "additionalProperties": false
+            }
+          },
           "evidence": {
             "type": "array",
             "minItems": 1,

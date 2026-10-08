@@ -19,6 +19,87 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_navigation_uses_professional_programme_native_grade_and_occupation(self) -> None:
+        event = "082年特種考試第一次航海人員驗船師考試"
+        identities = set()
+        for grade, roles in (("一等", ("船長", "大副", "船副", "輪機長", "大管輪", "管輪")),
+                             ("二等", ("船長", "大副", "船副", "輪機長", "大管輪", "管輪")),
+                             ("三等", ("船長", "船副", "輪機長", "管輪")),
+                             ("正", ("駕駛", "司機")), ("副", ("駕駛", "司機"))):
+            for role in roles:
+                with self.subTest(grade=grade, role=role):
+                    identity = classify(f"{grade}{role}", event)
+                    self.assertEqual(identity.domain_id, "professional")
+                    self.assertEqual(identity.exam_family_id, "professional-exam")
+                    self.assertEqual(identity.exam_series_id, "professional-navigation-special")
+                    self.assertEqual(identity.level_label, grade)
+                    self.assertEqual(identity.track_label, role)
+                    self.assertEqual(identity.confidence, "high")
+                    self.assertEqual(identity.bundle_name, f"航海人員特考｜{grade}｜{role}")
+                    identities.add(identity.bundle_id)
+        self.assertEqual(len(identities), 20)
+
+    def test_navigation_prefixes_unicode_and_route_spellings_do_not_fragment_bundles(self) -> None:
+        event = "092年專門職業及技術人員特種考試不動產經紀人、航海人員、漁船船員考試"
+        for spellings, variants in (
+            (("一等管輪", "航海人員一等管輪", "航海人員_一等管輪"), ()),
+            (("一等管輪(加註)", "一等管輪（加註）", "一等管輪(加註）", "加註一等管輪", "航海人員一等管輪（加註）"), ("engine-endorsement",)),
+            (("海軍一等船副", "一等船副(海軍)", "航海人員_一等船副（海軍）"), ("navy-transfer",)),
+            (("補考二等船副", "二等船副（補考）"), ("subject-retake",)),
+        ):
+            expected = classify(spellings[0], event)
+            for category in spellings:
+                with self.subTest(category=category):
+                    actual = classify(category, event)
+                    self.assertEqual(actual.bundle_id, expected.bundle_id)
+                    self.assertEqual(actual.bundle_name, expected.bundle_name)
+                    self.assertEqual(actual.variant_ids, variants)
+        self.assertEqual(classify("一等大副(海軍補考)", event).variant_ids, ("navy-transfer", "subject-retake"))
+
+    def test_navigation_engine_endorsement_and_naval_routes_keep_separate_papers(self) -> None:
+        event = "088年第一次航海人員、驗船師、船舶電信人員考試"
+        identities = [classify(c, event) for c in ("一等管輪", "一等管輪（加註）", "海軍一等管輪", "一等管輪（補考）")]
+        self.assertEqual(len({i.bundle_id for i in identities}), 4)
+        self.assertIn("主機加註", identities[1].bundle_name)
+        self.assertIn("海軍轉任", identities[2].bundle_name)
+
+    def test_navigation_special_high_ordinary_and_legacy_cases_keep_their_boundaries(self) -> None:
+        special = "098年第二次專門職業及技術人員特種考試航海人員考試"
+        combined = "098年第一次專門職業及技術人員高等暨普通考試航海人員考試"
+        for grade, prefix, series in (("一等", "高考", "professional-navigation-high"), ("二等", "普考", "professional-navigation-ordinary")):
+            for role in ("船副", "管輪"):
+                with self.subTest(grade=grade, role=role):
+                    old = classify(f"{grade}{role}", special)
+                    current = classify(f"{grade}{role}", combined)
+                    explicit = classify(f"專技{prefix}_{grade}{role}", combined)
+                    abbreviated = classify(f"{prefix}_{grade}{role}", combined)
+                    retake = classify(f"{prefix}_{grade}{role}", combined + "【舊案補考】")
+                    self.assertEqual(current.exam_series_id, series)
+                    self.assertEqual(current.level_label, grade)
+                    self.assertEqual(current.bundle_id, explicit.bundle_id)
+                    self.assertEqual(current.bundle_id, abbreviated.bundle_id)
+                    self.assertNotEqual(old.bundle_id, current.bundle_id)
+                    self.assertNotEqual(current.bundle_id, retake.bundle_id)
+                    self.assertEqual(retake.variant_ids, ("legacy-case-retake",))
+                    self.assertIn("舊案補考", retake.bundle_name)
+
+    def test_navigation_does_not_consume_fishing_crew_promotion_or_unsupported_grades(self) -> None:
+        for category, event in (
+            ("漁船船員一等船副", "航海人員、漁船船員考試"),
+            ("一級漁航員", "航海人員、漁船船員考試"),
+            ("一級輪機員", "航海人員、漁船船員考試"),
+            ("一等船副", "航海人員升等考試"),
+            ("一等船副", "航海人員測驗"),
+            ("一等船副", "其他人員考試"),
+            ("三等大副", "航海人員考試"),
+            ("一等駕駛", "航海人員考試"),
+            ("正船副", "航海人員考試"),
+            ("一等船副（加註）", "航海人員考試"),
+            ("專技普考_一等管輪", "高等暨普通考試航海人員考試"),
+        ):
+            with self.subTest(category=category, event=event):
+                self.assertFalse(classify(category, event).exam_series_id.startswith("professional-navigation-"))
+
     def test_ship_radio_uses_native_grades_and_occupations(self) -> None:
         event = "090年專門職業及技術人員特種考試航海人員、船舶電信人員、漁船船員考試"
         bundles = set()

@@ -134,6 +134,9 @@ _SERIES_LABELS = {
     "professional-combined": "專技綜合／歷史制度",
     "professional-screening": "專技檢覈／檢覈筆試",
     "professional-ship-radio": "船舶電信人員特考",
+    "professional-navigation-special": "航海人員特考",
+    "professional-navigation-high": "航海人員高考",
+    "professional-navigation-ordinary": "航海人員普考",
     "moex-unknown": "MOEX待審核考試",
     "teacher-qualification": "教師資格考試",
     "teacher-recruitment": "教師甄試",
@@ -160,6 +163,8 @@ _LEVEL_LABELS = {
     "grade-3": "三等",
     "grade-4": "四等",
     "grade-5": "五等",
+    "maritime-principal": "正",
+    "maritime-assistant": "副",
     "ordinary": "普通／普考",
     "elementary": "初等／初考",
     "recommended-rank": "薦任",
@@ -410,9 +415,9 @@ def _track_details(
     if provider_id in {"hce_cmu", "hce_tcu", "hce_nsysu", "hce_nthu"}:
         return _slug(canonical_id, prefix="hce"), _display(canonical_name, canonical_id)
     if provider_id == "moex":
-        radio = _moex_ship_radio_category(category, exam_name)
-        if radio is not None:
-            return radio.track_id, radio.track_label
+        qualification = _moex_maritime_qualification(category, exam_name)
+        if qualification is not None:
+            return qualification.track_id, qualification.track_label
         value = _clean_moex_track(category, canonical_name, series_id)
         return _slug(value, prefix="track"), value
     value = (
@@ -479,7 +484,8 @@ def _moex_native_level_label(series_id: str, level_id: str, fallback: str) -> st
 
 
 @dataclass(frozen=True)
-class _ShipRadioCategory:
+class _MaritimeQualification:
+    series_id: str
     level_id: str
     level_label: str
     track_id: str
@@ -488,7 +494,7 @@ class _ShipRadioCategory:
 
 
 @lru_cache(maxsize=8192)
-def _moex_ship_radio_category(category: str, exam_name: str) -> _ShipRadioCategory | None:
+def _moex_ship_radio_category(category: str, exam_name: str) -> _MaritimeQualification | None:
     """Resolve native radio qualifications, independently of cohosted exams.
 
     FL016859 distinguishes these grades, occupations and military/retake
@@ -540,7 +546,92 @@ def _moex_ship_radio_category(category: str, exam_name: str) -> _ShipRadioCatego
         variants.append(("navy-transfer", "海軍轉任"))
     if match["retake"] or match["suffix"] == "補考":
         variants.append(("subject-retake", "補考"))
-    return _ShipRadioCategory(level_id, grade, track_id, role, tuple(variants))
+    return _MaritimeQualification(
+        "professional-ship-radio", level_id, grade, track_id, role, tuple(variants)
+    )
+
+
+@lru_cache(maxsize=8192)
+def _moex_navigation_category(category: str, exam_name: str) -> _MaritimeQualification | None:
+    """Resolve navigation qualifications under FL016913, not event-title order.
+
+    Native ship grades and occupations survive the special/high/ordinary
+    programme change. Engine endorsements and naval/retake routes retain
+    their separate subject sets. Fishing-crew qualifications are excluded.
+    """
+    category = re.sub(r"\s+", "", normalize_text(category))
+    event = normalize_text(exam_name)
+    if "航海人員" not in event or "考試" not in event:
+        return None
+    if re.search(r"升資|升等|升官等", event):
+        return None
+    match = re.fullmatch(
+        r"(?P<programme>航海人員_?|(?:專技)?高考_|(?:專技)?普考_)?"
+        r"(?P<prefix>海軍|補考|加註)?(?P<grade>一等|二等|三等|正|副)"
+        r"(?P<role>船長|大副|船副|輪機長|大管輪|管輪|駕駛|司機)"
+        r"(?:\((?P<suffix>海軍補考|海軍|補考|加註)\))?",
+        category,
+    )
+    if match is None:
+        return None
+    grade, role = match["grade"], match["role"]
+    if (grade in {"正", "副"}) != (role in {"駕駛", "司機"}):
+        return None
+    if grade == "三等" and role in {"大副", "大管輪"}:
+        return None
+    route = f"{match['prefix'] or ''}{match['suffix'] or ''}"
+    if "加註" in route and role not in {"輪機長", "大管輪", "管輪"}:
+        return None
+    programme = match["programme"] or ""
+    if "高考" in programme:
+        series = "professional-navigation-high"
+    elif "普考" in programme:
+        series = "professional-navigation-ordinary"
+    elif "高等暨普通考試航海人員" in event:
+        series = {
+            "一等": "professional-navigation-high",
+            "二等": "professional-navigation-ordinary",
+        }.get(grade, "")
+    else:
+        series = "professional-navigation-special"
+    if series != "professional-navigation-special":
+        expected_grade = "一等" if series == "professional-navigation-high" else "二等"
+        if not series or grade != expected_grade or role not in {"船副", "管輪"}:
+            return None
+    level = {
+        "一等": "grade-1",
+        "二等": "grade-2",
+        "三等": "grade-3",
+        "正": "maritime-principal",
+        "副": "maritime-assistant",
+    }[grade]
+    track = {
+        "船長": "captain",
+        "大副": "chief-mate",
+        "船副": "deck-officer",
+        "輪機長": "chief-engineer",
+        "大管輪": "first-engineer",
+        "管輪": "engineer",
+        "駕駛": "navigation-driver",
+        "司機": "navigation-mechanic",
+    }[role]
+    variants = []
+    if "海軍" in route:
+        variants.append(("navy-transfer", "海軍轉任"))
+    if "補考" in route:
+        variants.append(("subject-retake", "補考"))
+    if "加註" in route:
+        variants.append(("engine-endorsement", "主機加註"))
+    if "舊案補考" in event:
+        variants.append(("legacy-case-retake", "舊案補考"))
+    return _MaritimeQualification(series, level, grade, track, role, tuple(variants))
+
+
+@lru_cache(maxsize=8192)
+def _moex_maritime_qualification(category: str, exam_name: str) -> _MaritimeQualification | None:
+    return _moex_ship_radio_category(category, exam_name) or _moex_navigation_category(
+        category, exam_name
+    )
 
 
 @lru_cache(maxsize=8192)
@@ -548,9 +639,17 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     cat = normalize_text(category)
     event = normalize_text(exam_name)
     professional = f"{cat} {event}"
-    radio = _moex_ship_radio_category(cat, event)
-    if radio is not None:
-        return radio.level_id, radio.level_label, "high", f"native ship-radio qualification: {cat}"
+    qualification = _moex_maritime_qualification(cat, event)
+    if qualification is not None:
+        programme = (
+            "ship-radio" if qualification.series_id == "professional-ship-radio" else "navigation"
+        )
+        return (
+            qualification.level_id,
+            qualification.level_label,
+            "high",
+            f"native {programme} qualification: {cat}",
+        )
     eligibility = _moex_eligibility_programme(cat, event)
     if eligibility == "chinese-medicine-eligibility":
         return (
@@ -952,8 +1051,9 @@ def _moex_series(
 ) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
-    if _moex_ship_radio_category(cat, event) is not None:
-        series = "professional-ship-radio"
+    qualification = _moex_maritime_qualification(cat, event)
+    if qualification is not None:
+        series = qualification.series_id
         return "professional", "professional-exam", series, _SERIES_LABELS[series]
     eligibility = _moex_eligibility_programme(cat, event)
     if eligibility is not None:
@@ -1300,12 +1400,22 @@ def _classify_paper_uncached(
                 "civil-ordinary",
             } or reviewed.series_id.startswith("special-"):
                 domain_id, family_id = "civil-service", "civil-service-exam"
+            elif reviewed.series_id in {
+                "professional-navigation-special",
+                "professional-navigation-high",
+                "professional-navigation-ordinary",
+            }:
+                domain_id, family_id = "professional", "professional-exam"
             else:
                 raise ValueError(f"Unsupported MOEX reviewed programme in {reviewed.fact_id}")
             series_id, series_label = reviewed.series_id, _SERIES_LABELS[reviewed.series_id]
             level_id, level_label = reviewed.level_id, _LEVEL_LABELS[reviewed.level_id]
             confidence = "high"
             reason = f"reviewed official question headers: {reviewed.fact_id}"
+            for review in reviewed.subject_reviews:
+                if review.subject_code == subject_code:
+                    confidence = "review"
+                    reason = f"{review.reason}; {reason}"
         if series_id in {series for _marker, series in _TRANSPORT_PROMOTION_SERIES}:
             # Historical listings sometimes abbreviate the destination rank.
             # The transport-promotion rules and retained official headers use
@@ -1346,9 +1456,9 @@ def _classify_paper_uncached(
     )
     variant_pairs = _variants(category, exam_name)
     if provider_id == "moex":
-        radio = _moex_ship_radio_category(category, exam_name)
-        if radio is not None:
-            variant_pairs = (*variant_pairs, *radio.variants)
+        qualification = _moex_maritime_qualification(category, exam_name)
+        if qualification is not None:
+            variant_pairs = (*variant_pairs, *qualification.variants)
     if provider_id == "moex" and series_id == "civil-high" and year_ad < 1996:
         # The 1996 reform replaced a two-level civil high system with three
         # levels. Equal native numerals across that change are not equal exams.
@@ -1482,9 +1592,10 @@ def _classify_moex_record(
     canonical_id: str,
     canonical_name: str,
     category_code: str,
+    subject_code: str = "",
 ) -> ExamIdentity:
-    # MOEX classification depends on the event and category, not the paper's
-    # subject. Hundreds of papers can therefore share one immutable identity.
+    # Most MOEX papers share an event/category identity. Only explicitly
+    # reviewed conflicting subjects add their native locator to this cache.
     return _classify_paper_uncached(
         provider_id="moex",
         source_exam_id=source_exam_id,
@@ -1494,6 +1605,7 @@ def _classify_moex_record(
         canonical_id=canonical_id,
         canonical_name=canonical_name,
         category_code=category_code,
+        subject_code=subject_code,
     )
 
 
@@ -1512,6 +1624,9 @@ def classify_paper(
     source_material: SourceMaterial | None = None,
 ) -> ExamIdentity:
     if provider_id == "moex" and source_material is None:
+        reviewed = resolve_moex_category_identity(
+            source_exam_id, year_ad, category_code, category_raw, exam_name_raw
+        )
         return _classify_moex_record(
             source_exam_id,
             year_ad,
@@ -1520,6 +1635,7 @@ def classify_paper(
             canonical_id,
             canonical_name,
             category_code,
+            subject_code if reviewed is not None and reviewed.subject_reviews else "",
         )
     return _classify_paper_uncached(
         provider_id=provider_id,

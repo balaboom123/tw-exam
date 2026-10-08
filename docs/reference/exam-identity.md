@@ -88,6 +88,13 @@ roles and checksums against every fact. Header extraction is evidence for manual
 review and must never automatically approve a mapping. Unreadable or conflicting
 headers remain unresolved.
 
+A reviewed category can also identify a conflicting native subject. Every such
+subject needs its own official question anchor and review reason in the same
+catalog fact. Only that subject is isolated by event; other subjects retain
+their resolved category identity. Classification caches preserve this boundary,
+and the evidence gate rejects missing or changed question checksums. A conflict
+does not justify guessing another candidate route or deleting the source bytes.
+
 Once national-security or Investigation Bureau programme identity is resolved,
 its explicit heading is removed from the track label. A historical programme
 prefix and a current grade/track separator must not create different identities
@@ -182,6 +189,29 @@ rechecked on 2026-10-07. Original wording,
 source keys, roles, URLs, and checksums remain unchanged by reclassification.
 
 ## Bundle purity
+
+Navigation qualifications belong to professional examination programmes.
+The [historical navigation rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1356&id=FL016913)
+distinguish ship grades, occupations, naval-transfer subject tables and
+endorsements for another type of ship engine. Native 一等、二等、三等 and
+正、副 grades remain separate from their legal equivalence to other examinations.
+Programme prefixes and punctuation do not create new occupations; for example,
+`加註一等管輪` and `航海人員一等管輪（加註）` have the same identity.
+Endorsement archives preserve each recorded engine subject and its file role.
+They remain separate from regular, naval-transfer and explicitly labelled
+subject-retake papers, even when an individual question is shared.
+
+The [ROC 98 revision](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1366&id=FL016913)
+established high and ordinary navigation examinations. Their programme identity
+is resolved from the source heading, while the native ship grade remains 一等
+or 二等; a year-only cutoff would misclassify the special examinations held
+earlier in the same year. The
+[ROC 100 revision](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1367&id=FL016913)
+ended regular MOEX navigation examinations after July 2012 and retained a
+limited period for unfinished cases. Events explicitly marked 舊案補考 keep
+that candidate-route variant. Fishing-crew qualifications are a separate
+programme and do not inherit navigation identity from a shared event title.
+These primary rules and retained boundary headers were checked on 2026-10-08.
 
 Ship-radio qualifications use their own professional programme. The
 [historical ship-radio rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1373&id=FL016859)
