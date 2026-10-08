@@ -19,6 +19,78 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_ship_radio_uses_native_grades_and_occupations(self) -> None:
+        event = "090年專門職業及技術人員特種考試航海人員、船舶電信人員、漁船船員考試"
+        bundles = set()
+        for category, level, track, native in (
+            ("通用級報務員", "radio-general", "radio-telegraphist", "通用級"),
+            ("一等報務員", "grade-1", "radio-telegraphist", "一等"),
+            ("二等報務員", "grade-2", "radio-telegraphist", "二等"),
+            ("特別級報務員", "radio-special", "radio-telegraphist", "特別級"),
+            ("通用級話務員", "radio-general", "radio-telephonist", "通用級"),
+            ("限用級話務員", "radio-limited", "radio-telephonist", "限用級"),
+            ("一等無線電子員", "grade-1", "radio-electronic-operator", "一等"),
+            ("二等無線電子員", "grade-2", "radio-electronic-operator", "二等"),
+            ("普通值機員", "radio-ordinary", "radio-operator", "普通"),
+            ("限用值機員", "radio-limited", "radio-operator", "限用"),
+            ("通用值機員", "radio-general", "radio-operator", "通用"),
+        ):
+            with self.subTest(category=category):
+                identity = classify(category, event)
+                self.assertEqual(identity.domain_id, "professional")
+                self.assertEqual(identity.exam_family_id, "professional-exam")
+                self.assertEqual(identity.exam_series_id, "professional-ship-radio")
+                self.assertEqual(identity.level_id, level)
+                self.assertEqual(identity.level_label, native)
+                self.assertEqual(identity.track_id, track)
+                self.assertEqual(identity.confidence, "high")
+                self.assertIn(f"船舶電信人員特考｜{native}｜", identity.bundle_name)
+                bundles.add(identity.bundle_id)
+        self.assertEqual(len(bundles), 11)
+
+    def test_ship_radio_programme_does_not_inherit_a_cohosted_profession(self) -> None:
+        historical = classify("二等無線電子員", "088年航海人員、驗船師、船舶電信人員考試")
+        later = classify("船舶電信人員二等無線電子員", "095年中醫師、驗船師、船舶電信人員、漁船船員考試暨專技普通考試")
+        self.assertEqual(historical.bundle_id, later.bundle_id)
+        self.assertEqual(later.level_id, "grade-2")
+        self.assertNotIn("ordinary", later.level_id)
+
+    def test_radio_retake_spelling_is_equivalent_but_regular_papers_stay_separate(self) -> None:
+        event = "087年航海人員、船舶電信人員考試"
+        for category in ("補考二等報務員", "二等報務員(補考)", "二等報務員(補考）", "二等報務員（補考）"):
+            with self.subTest(category=category):
+                retake = classify(category, event)
+                expected = classify("二等報務員(補考)", event)
+                regular = classify("二等報務員", event)
+                self.assertEqual(retake.bundle_id, expected.bundle_id)
+                self.assertEqual(retake.variant_ids, ("subject-retake",))
+                self.assertNotEqual(retake.bundle_id, regular.bundle_id)
+                self.assertIn("補考", retake.bundle_name)
+
+    def test_radio_navy_transfer_keeps_its_own_paper_set(self) -> None:
+        event = "088年航海人員、船舶電信人員、漁船船員考試"
+        navy = classify("海軍二等報務員", event)
+        suffix = classify("二等報務員（海軍）", event)
+        regular = classify("二等報務員", event)
+        retake = classify("二等報務員（補考）", event)
+        self.assertEqual(navy.bundle_id, suffix.bundle_id)
+        self.assertEqual(navy.variant_ids, ("navy-transfer",))
+        self.assertIn("海軍轉任", navy.bundle_name)
+        self.assertEqual(len({navy.bundle_id, regular.bundle_id, retake.bundle_id}), 3)
+
+    def test_ship_radio_does_not_consume_other_programmes_or_unsupported_categories(self) -> None:
+        for category, event in (
+            ("漁船船員普通值機員", "091年航海人員、漁船船員考試"),
+            ("漁船船員普通值機員", "船舶電信人員、漁船船員考試"),
+            ("報務員", "船舶電信人員考試"),
+            ("三等報務員", "船舶電信人員考試"),
+            ("特別級話務員", "船舶電信人員考試"),
+            ("通用級報務員", "交通事業電信人員升資考試"),
+            ("一等報務員", "其他人員考試"),
+        ):
+            with self.subTest(category=category, event=event):
+                self.assertNotEqual(classify(category, event).exam_series_id, "professional-ship-radio")
+
     def test_taigi_forms_expose_native_proficiency_bands_and_separate_variants(self) -> None:
         identities = []
         for form, level in (("A", "cefr-a1-a2"), ("B", "cefr-b1-b2"), ("C", "cefr-c1-c2")):

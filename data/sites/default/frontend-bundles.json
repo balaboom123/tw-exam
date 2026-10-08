@@ -85129,6 +85129,710 @@
       ]
     },
     {
+      "id": "moex-professional-ship-radio-grade-1-radio-telegraphist",
+      "name": "船舶電信人員特考｜一等｜報務員",
+      "years": [
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 163,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-grade-1-radio-telegraphist--a39f0067eff3.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "grade-1",
+      "trackId": "radio-telegraphist",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "無線電學",
+        "電話收發",
+        "電碼收報（實地考試）",
+        "國文",
+        "中華民國憲法",
+        "電碼發報",
+        "通信英語",
+        "無線電業務法規",
+        "航海地理",
+        "電碼收報",
+        "英文",
+        "基本電學",
+        "無線電學(含無線電話學)",
+        "國父遺教",
+        "無線電業務法挸",
+        "無線電學(含無線電話學 )",
+        "一等報務員",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "030",
+        "3001",
+        "5001",
+        "8001",
+        "c011",
+        "c051"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-grade-1-radio-telegraphist-subject-retake",
+      "name": "船舶電信人員特考｜一等｜報務員｜補考",
+      "years": [
+        91,
+        90,
+        89,
+        88,
+        87,
+        84
+      ],
+      "fileCount": 22,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-grade-1-radio-telegraphist-subject-retake--5eaef588c460.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "grade-1",
+      "trackId": "radio-telegraphist",
+      "variantIds": [
+        "subject-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "電碼發報",
+        "電碼收報",
+        "電話收發",
+        "無線電業務法規",
+        "航海地理",
+        "英文",
+        "一等報務員(補考)",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "130",
+        "c961",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "b30",
+        "c191",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
+        "c211",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "390",
+        "0901",
+        "1001",
+        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "c201",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "712",
+        "0802"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-grade-2-radio-electronic-operator",
+      "name": "船舶電信人員特考｜二等｜無線電子員",
+      "years": [
+        95,
+        93,
+        91,
+        90,
+        89,
+        88
+      ],
+      "fileCount": 72,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-grade-2-radio-electronic-operator--987f9095606e.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "grade-2",
+      "trackId": "radio-electronic-operator",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "航海地理",
+        "通信英語",
+        "電學、無線電學及電子學",
+        "遇險無線電通信設備",
+        "無線電業務法規",
+        "遇險設備操作及檢修",
+        "國文",
+        "中華民國憲法",
+        "船舶電信人員二等無線電子員",
+        "095年專門職業及技術人員特種考試中醫師、驗船師、船舶電信人員、漁船船員考試、95年第2次專技特種考試呼吸治療師、消防設備人員考試暨95年專技普通考試專責報關人員、保險從業人員考試",
+        "802",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "5001",
+        "6001",
+        "093年專門職業及技術人員特種考試消防人員、不動產估價師、報關人員、保險人員、船舶電信、漁船船員考試",
+        "301",
+        "二等無線電子員",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "236",
+        "8001",
+        "c011"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-grade-2-radio-telegraphist",
+      "name": "船舶電信人員特考｜二等｜報務員",
+      "years": [
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 165,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-grade-2-radio-telegraphist--092e1ce9f349.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "grade-2",
+      "trackId": "radio-telegraphist",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "通信英語",
+        "無線電學概要",
+        "國文",
+        "中華民國憲法概要",
+        "無線電業務法規概要",
+        "電話收發",
+        "電碼收報",
+        "電碼發報",
+        "無線電業務法規",
+        "本國歷史及地理概要",
+        "英文",
+        "航海地理",
+        "基本電學概要",
+        "無線電學概要(含無線電話學)",
+        "中華民國憲法概要試題更正",
+        "無線電學概要 (含無線電話學)",
+        "無線電業務法挸",
+        "無線電學概要(含無線電話學 )",
+        "三民主義",
+        "二等報務員",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "331",
+        "0202",
+        "0601"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-grade-2-radio-telegraphist-navy-transfer",
+      "name": "船舶電信人員特考｜二等｜報務員｜海軍轉任",
+      "years": [
+        90,
+        89,
+        88
+      ],
+      "fileCount": 20,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-grade-2-radio-telegraphist-navy-transfer--2624872981df.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "grade-2",
+      "trackId": "radio-telegraphist",
+      "variantIds": [
+        "navy-transfer"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "英文",
+        "電話收發",
+        "無線電業務法規",
+        "電碼收報",
+        "電碼發報",
+        "二等報務員(海軍)",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "a31",
+        "2002",
+        "5002",
+        "c141",
+        "c151",
+        "c161",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "381",
+        "c081",
+        "c092",
+        "c101",
+        "c111",
+        "c132",
+        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "b31",
+        "2001",
+        "c171"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-grade-2-radio-telegraphist-subject-retake",
+      "name": "船舶電信人員特考｜二等｜報務員｜補考",
+      "years": [
+        91,
+        90,
+        89,
+        88,
+        87,
+        84
+      ],
+      "fileCount": 37,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-grade-2-radio-telegraphist-subject-retake--33cfe2cece9c.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "grade-2",
+      "trackId": "radio-telegraphist",
+      "variantIds": [
+        "subject-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "英文",
+        "電碼收報",
+        "電碼發報（實地考試）",
+        "電碼發報",
+        "航海地理",
+        "基本電學概要",
+        "無線電學概要",
+        "電話收發",
+        "二等報務員(補考)",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "031",
+        "1001",
+        "8001",
+        "9001",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "b31",
+        "c151",
+        "c161",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
+        "7001",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "391",
+        "c101",
+        "c111"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-general-radio-operator",
+      "name": "船舶電信人員特考｜通用｜值機員",
+      "years": [
+        95,
+        93
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-general-radio-operator--b9644a101f3e.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-general",
+      "trackId": "radio-operator",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "通信英語",
+        "遇險無線電通信設備概要",
+        "無線電業務法規概要",
+        "遇險設備操作概要",
+        "船舶電信人員通用值機員",
+        "095年專門職業及技術人員特種考試中醫師、驗船師、船舶電信人員、漁船船員考試、95年第2次專技特種考試呼吸治療師、消防設備人員考試暨95年專技普通考試專責報關人員、保險從業人員考試",
+        "803",
+        "1001",
+        "2001",
+        "3001",
+        "4001",
+        "093年專門職業及技術人員特種考試消防人員、不動產估價師、報關人員、保險人員、船舶電信、漁船船員考試",
+        "302"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-general-radio-telegraphist",
+      "name": "船舶電信人員特考｜通用級｜報務員",
+      "years": [
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        83,
+        82
+      ],
+      "fileCount": 140,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-general-radio-telegraphist--a96ef158767a.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-general",
+      "trackId": "radio-telegraphist",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "無線電業務法規",
+        "通信英語",
+        "無線電學",
+        "電話收發",
+        "電碼收報",
+        "電碼發報",
+        "國文",
+        "中華民國憲法",
+        "航海地理",
+        "基本電學",
+        "英文",
+        "無線電學(含無線電話學)",
+        "國父遺教",
+        "無線電業務法挸",
+        "無線電學(含無線電話學 )",
+        "通用級報務員",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "a29",
+        "1001",
+        "2002",
+        "3001",
+        "5002",
+        "8001",
+        "9001"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-general-radio-telegraphist-subject-retake",
+      "name": "船舶電信人員特考｜通用級｜報務員｜補考",
+      "years": [
+        91,
+        90,
+        89,
+        88,
+        87,
+        84
+      ],
+      "fileCount": 18,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-general-radio-telegraphist-subject-retake--0867c80ca0bc.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-general",
+      "trackId": "radio-telegraphist",
+      "variantIds": [
+        "subject-retake"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "航海地理",
+        "英文",
+        "電話收發",
+        "基本電學",
+        "通用級報務員(補考)",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "029",
+        "c991",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "b29",
+        "c211",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
+        "7001",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "399",
+        "0202",
+        "c071",
+        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "2002",
+        "c261",
+        "088年第一次航海人員、驗船師、船舶電信人員考試",
+        "711",
+        "c102",
+        "c111"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-general-radio-telephonist",
+      "name": "船舶電信人員特考｜通用級｜話務員",
+      "years": [
+        91,
+        90,
+        89,
+        88,
+        87,
+        86,
+        85,
+        84,
+        82
+      ],
+      "fileCount": 83,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-general-radio-telephonist--167a8b26f470.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-general",
+      "trackId": "radio-telephonist",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "無線電業務法規大意",
+        "無線電話學大意",
+        "電話收發（實地考試）",
+        "國文",
+        "通信英語",
+        "電話收發",
+        "無線電業務法規",
+        "英文",
+        "航海地理",
+        "無線電話學概要",
+        "基本電學概要",
+        "公民及本國史地大意",
+        "三民主義",
+        "通用級話務員",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "033",
+        "1001",
+        "3001",
+        "5001",
+        "c031",
+        "c951",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "5002",
+        "c032"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-limited-radio-operator",
+      "name": "船舶電信人員特考｜限用｜值機員",
+      "years": [
+        91,
+        90,
+        88
+      ],
+      "fileCount": 15,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-limited-radio-operator--8ca8a6b16b36.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-limited",
+      "trackId": "radio-operator",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "遇險無線電通信設備大意及無線電業務法規大意",
+        "遇險設備操作大意",
+        "國文",
+        "通信英語",
+        "限用值機員",
+        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
+        "238",
+        "1001",
+        "3001",
+        "c031",
+        "c951",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "038",
+        "c032",
+        "c172",
+        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
+        "302",
+        "2001",
+        "4002",
+        "c261"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-ordinary-radio-operator",
+      "name": "船舶電信人員特考｜普通｜值機員",
+      "years": [
+        90,
+        89,
+        88
+      ],
+      "fileCount": 48,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-ordinary-radio-operator--79a700e9a7b8.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-ordinary",
+      "trackId": "radio-operator",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "通信英語",
+        "遇險設備操作概要",
+        "遇險無線電通信設備概要",
+        "國文",
+        "中華民國憲法概要",
+        "無線電業務法規概要",
+        "普通值機員",
+        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
+        "037",
+        "2002",
+        "3001",
+        "5001",
+        "c022",
+        "c114",
+        "c141",
+        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
+        "1001",
+        "c084",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "337",
+        "0301",
+        "0402",
+        "0501",
+        "0601"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
+      "id": "moex-professional-ship-radio-radio-special-radio-telegraphist",
+      "name": "船舶電信人員特考｜特別級｜報務員",
+      "years": [
+        89,
+        88,
+        82
+      ],
+      "fileCount": 42,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-ship-radio-radio-special-radio-telegraphist--15724847a0cb.zip",
+      "domainId": "professional",
+      "examFamilyId": "professional-exam",
+      "seriesId": "professional-ship-radio",
+      "levelId": "radio-special",
+      "trackId": "radio-telegraphist",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "專技人員考試",
+      "examSubclass": "船舶電信人員特考",
+      "searchAliases": [
+        "電話收發",
+        "無線電學大意",
+        "國文",
+        "電碼收報",
+        "電碼發報",
+        "無線電業務法規大意",
+        "通信英語",
+        "無線電業務法規",
+        "英文",
+        "無線電學概要(含無線電話學)",
+        "基本電學概要",
+        "三民主義",
+        "航海地理",
+        "特別級報務員",
+        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+        "332",
+        "0402",
+        "0601",
+        "0702",
+        "0901",
+        "1001",
+        "c121",
+        "c142",
+        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
+      ],
+      "sources": [
+        {
+          "name": "考選部",
+          "url": "https://wwwq.moex.gov.tw/exam/"
+        }
+      ]
+    },
+    {
       "id": "moex-professional-special-combined-track-131c37fde1de",
       "name": "專技特考｜合併／制度待審核｜甲種引水人(基隆港)",
       "years": [
@@ -86853,45 +87557,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-grade-1-track-5bd51257b3b6",
-      "name": "專技特考｜一等｜一等報務員(補考)",
-      "years": [
-        89,
-        88
-      ],
-      "fileCount": 5,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-1-track-5bd51257b3b6--035945f56df5.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-1",
-      "trackId": "track-5bd51257b3b6",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "電碼收報",
-        "電碼發報",
-        "電話收發",
-        "一等報務員(補考)",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "390",
-        "0901",
-        "1001",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "712",
-        "0802",
-        "1101"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-grade-1-track-7493227ec071",
       "name": "專技特考｜一等｜一等管輪(加註)",
       "years": [
@@ -87454,57 +88119,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-grade-2-track-6f70e0454245",
-      "name": "專技特考｜二等｜二等報務員",
-      "years": [
-        89,
-        88
-      ],
-      "fileCount": 23,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-2-track-6f70e0454245--95695e2fe8ce.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-6f70e0454245",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "通信英語",
-        "無線電學概要",
-        "國文",
-        "中華民國憲法概要",
-        "無線電業務法規概要",
-        "電話收發",
-        "電碼收報",
-        "電碼發報",
-        "無線電業務法規",
-        "本國歷史及地理概要",
-        "英文",
-        "航海地理",
-        "基本電學概要",
-        "二等報務員",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "331",
-        "0202",
-        "0601",
-        "c022",
-        "c064",
-        "c081",
-        "c092",
-        "c101",
-        "c111"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-grade-2-track-770b324cef94",
       "name": "專技特考｜二等｜二等管輪(海軍)",
       "years": [
@@ -87628,50 +88242,6 @@
         "211",
         "0601",
         "0701"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-grade-2-track-bffeaddb45a0",
-      "name": "專技特考｜二等｜二等報務員(補考)",
-      "years": [
-        89,
-        88
-      ],
-      "fileCount": 8,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-grade-2-track-bffeaddb45a0--c43ed703d115.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "grade-2",
-      "trackId": "track-bffeaddb45a0",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "電碼收報",
-        "電碼發報",
-        "英文",
-        "航海地理",
-        "基本電學概要",
-        "二等報務員(補考)",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "391",
-        "c101",
-        "c111",
-        "c132",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "713",
-        "c141",
-        "c151",
-        "c161",
-        "c171"
       ],
       "sources": [
         {
@@ -89361,58 +89931,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-professional-special-track-777956ea71e4",
-      "name": "專技特考｜專技特考｜通用級報務員",
-      "years": [
-        89,
-        88,
-        83
-      ],
-      "fileCount": 33,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-professional-special-track-777956ea71e4--db6f004204d9.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-777956ea71e4",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "無線電業務法規",
-        "通信英語",
-        "電話收發",
-        "無線電學",
-        "電碼收報",
-        "電碼發報",
-        "國文",
-        "中華民國憲法",
-        "航海地理",
-        "基本電學",
-        "英文",
-        "國父遺教",
-        "無線電業務法挸",
-        "無線電學(含無線電話學 )",
-        "通用級報務員",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "329",
-        "0101",
-        "0202",
-        "0402",
-        "0601",
-        "0901",
-        "1001",
-        "c012"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-professional-special-track-878c96a2c897",
       "name": "專技特考｜專技特考｜人身保險代理人",
       "years": [
@@ -89527,46 +90045,6 @@
       ]
     },
     {
-      "id": "moex-professional-special-professional-special-track-985876453c69",
-      "name": "專技特考｜專技特考｜船舶電信人員通用值機員",
-      "years": [
-        95,
-        93
-      ],
-      "fileCount": 8,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-985876453c69--c277567076ba.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-985876453c69",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "通信英語",
-        "遇險無線電通信設備概要",
-        "無線電業務法規概要",
-        "遇險設備操作概要",
-        "船舶電信人員通用值機員",
-        "095年專門職業及技術人員特種考試中醫師、驗船師、船舶電信人員、漁船船員考試、95年第2次專技特種考試呼吸治療師、消防設備人員考試暨95年專技普通考試專責報關人員、保險從業人員考試",
-        "803",
-        "1001",
-        "2001",
-        "3001",
-        "4001",
-        "093年專門職業及技術人員特種考試消防人員、不動產估價師、報關人員、保險人員、船舶電信、漁船船員考試",
-        "302"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-professional-special-professional-special-track-9bb45c0d27f6",
       "name": "專技特考｜專技特考｜正司機",
       "years": [
@@ -89659,46 +90137,6 @@
         "c051",
         "c061",
         "c071"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-professional-special-professional-special-track-a1789344fba6",
-      "name": "專技特考｜專技特考｜通用級報務員(補考)",
-      "years": [
-        89,
-        88
-      ],
-      "fileCount": 5,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-special-professional-special-track-a1789344fba6--e4e48aa2ac43.zip",
-      "domainId": "professional",
-      "examFamilyId": "professional-exam",
-      "seriesId": "professional-special",
-      "levelId": "professional-special",
-      "trackId": "track-a1789344fba6",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "專技人員考試",
-      "examSubclass": "專技特考",
-      "searchAliases": [
-        "英文",
-        "航海地理",
-        "電話收發",
-        "通用級報務員(補考)",
-        "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
-        "399",
-        "0202",
-        "c071",
-        "088年第一次航海人員、驗船師、船舶電信人員考試",
-        "711",
-        "c102",
-        "c111",
-        "c122"
       ],
       "sources": [
         {
@@ -147938,56 +148376,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-grade-1-track-5bd51257b3b6",
-      "name": "航海／船員特考｜一等｜一等報務員(補考)",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        84
-      ],
-      "fileCount": 10,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-5bd51257b3b6--5e746d5a572e.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-5bd51257b3b6",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "電碼發報",
-        "電碼收報",
-        "英文",
-        "一等報務員(補考)",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "130",
-        "c961",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "b30",
-        "c191",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "c211",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "c201",
-        "一等報務員(補考）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "084年特種考試第三次航海人員漁船船員船舶電信人員考試",
-        "217",
-        "c202",
-        "c221"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-grade-1-track-6016eee7e02a",
       "name": "航海／船員特考｜一等｜一等大副(海軍)",
       "years": [
@@ -148263,64 +148651,6 @@
         "c101",
         "c111",
         "c221"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-1-track-cc11c940efe9",
-      "name": "航海／船員特考｜一等｜一等報務員",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        82
-      ],
-      "fileCount": 152,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-1-track-cc11c940efe9--29baa4403d82.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-1",
-      "trackId": "track-cc11c940efe9",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "無線電學",
-        "電話收發",
-        "電碼收報（實地考試）",
-        "國文",
-        "中華民國憲法",
-        "電碼發報",
-        "通信英語",
-        "無線電業務法規",
-        "航海地理",
-        "電碼收報",
-        "英文",
-        "基本電學",
-        "無線電學(含無線電話學)",
-        "國父遺教",
-        "一等報務員",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "030",
-        "3001",
-        "5001",
-        "8001",
-        "c011",
-        "c051",
-        "c961",
-        "c971"
       ],
       "sources": [
         {
@@ -148829,62 +149159,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-grade-2-track-6f70e0454245",
-      "name": "航海／船員特考｜二等｜二等報務員",
-      "years": [
-        89,
-        88,
-        87,
-        86,
-        85,
-        84,
-        82
-      ],
-      "fileCount": 131,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-6f70e0454245--f0c1fa5ce4d8.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-6f70e0454245",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "無線電學概要",
-        "國文",
-        "中華民國憲法概要",
-        "無線電業務法規概要",
-        "通信英語",
-        "電碼發報",
-        "電話收發",
-        "電碼收報",
-        "無線電業務法規",
-        "英文",
-        "航海地理",
-        "基本電學概要",
-        "本國歷史及地理概要",
-        "無線電學概要(含無線電話學)",
-        "中華民國憲法概要試題更正",
-        "無線電學概要 (含無線電話學)",
-        "三民主義",
-        "二等報務員",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "a31",
-        "3001",
-        "c022",
-        "c104",
-        "c171"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-grade-2-track-770b324cef94",
       "name": "航海／船員特考｜二等｜二等管輪(海軍)",
       "years": [
@@ -149049,61 +149323,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-grade-2-track-bffeaddb45a0",
-      "name": "航海／船員特考｜二等｜二等報務員(補考)",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87,
-        84
-      ],
-      "fileCount": 23,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-bffeaddb45a0--1a53e2ab2a14.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-bffeaddb45a0",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "英文",
-        "電碼收報",
-        "電碼發報（實地考試）",
-        "電碼發報",
-        "航海地理",
-        "無線電學概要",
-        "電話收發",
-        "基本電學概要",
-        "二等報務員(補考)",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "031",
-        "1001",
-        "8001",
-        "9001",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "b31",
-        "c151",
-        "c161",
-        "090年特種考試第四次航海人員、第二次船舶電信人員、漁船船員考試",
-        "7001",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "c31",
-        "c131",
-        "c221"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-grade-2-track-c06e20b2e21f",
       "name": "航海／船員特考｜二等｜二等船副",
       "years": [
@@ -149172,59 +149391,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-grade-2-track-cd6a0a00e8da",
-      "name": "航海／船員特考｜二等｜二等無線電子員",
-      "years": [
-        91,
-        90,
-        89,
-        88
-      ],
-      "fileCount": 50,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-cd6a0a00e8da--86e307c82cd2.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-cd6a0a00e8da",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "電學、無線電學及電子學",
-        "遇險無線電通信設備",
-        "遇險設備操作及檢修",
-        "國文",
-        "中華民國憲法",
-        "通信英語",
-        "無線電業務法規",
-        "航海地理",
-        "二等無線電子員",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "236",
-        "3001",
-        "5001",
-        "8001",
-        "c011",
-        "c051",
-        "c971",
-        "c981",
-        "c991",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "036",
-        "c012",
-        "c104",
-        "c121"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-grade-2-track-d7a54e2d1e0d",
       "name": "航海／船員特考｜二等｜漁船船員二等船副",
       "years": [
@@ -149262,47 +149428,6 @@
         "020",
         "c022",
         "c114"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-e16486fdfc76",
-      "name": "航海／船員特考｜二等｜補考二等報務員",
-      "years": [
-        88,
-        87
-      ],
-      "fileCount": 6,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-012/moex-special-maritime-grade-2-track-e16486fdfc76--aedb82026fc0.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-e16486fdfc76",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "航海地理",
-        "電碼收報",
-        "電碼發報",
-        "補考二等報務員",
-        "088年第三次航海人員、漁船船員、第三次船舶電信人員考試",
-        "793",
-        "c151",
-        "c181",
-        "c191",
-        "087年第三次航海人員、漁船船員、第三次船舶電信人員考試",
-        "931",
-        "1001",
-        "b001",
-        "c0a1"
       ],
       "sources": [
         {
@@ -149412,53 +149537,6 @@
         "082年特種考試第三次航海人員、漁船船員、船舶電信人員考試",
         "105",
         "c071"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-grade-2-track-f20e785b12cc",
-      "name": "航海／船員特考｜二等｜二等報務員(海軍)",
-      "years": [
-        90,
-        89
-      ],
-      "fileCount": 10,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-grade-2-track-f20e785b12cc--9630c0df0eb2.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "grade-2",
-      "trackId": "track-f20e785b12cc",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "英文",
-        "電話收發",
-        "無線電業務法規",
-        "電碼收報",
-        "電碼發報",
-        "二等報務員(海軍)",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "a31",
-        "2002",
-        "5002",
-        "c141",
-        "c151",
-        "c161",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "b31",
-        "2001",
-        "c171",
-        "c221",
-        "c232",
-        "c251"
       ],
       "sources": [
         {
@@ -149960,108 +150038,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-professional-special-track-296976374348",
-      "name": "航海／船員特考｜專技特考｜通用級話務員",
-      "years": [
-        91,
-        90,
-        88,
-        87,
-        86
-      ],
-      "fileCount": 36,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-296976374348--55e87341549c.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-296976374348",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "無線電業務法規大意",
-        "無線電話學大意",
-        "電話收發（實地考試）",
-        "國文",
-        "通信英語",
-        "電話收發",
-        "無線電業務法規",
-        "英文",
-        "航海地理",
-        "無線電話學概要",
-        "基本電學概要",
-        "公民及本國史地大意",
-        "通用級話務員",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "033",
-        "1001",
-        "3001",
-        "5001",
-        "c031",
-        "c951",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "5002",
-        "c032",
-        "c172"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-3ca4f40b5c3a",
-      "name": "航海／船員特考｜專技特考｜限用值機員",
-      "years": [
-        91,
-        90,
-        88
-      ],
-      "fileCount": 15,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-3ca4f40b5c3a--5f9198e48909.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-3ca4f40b5c3a",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "遇險無線電通信設備大意及無線電業務法規大意",
-        "遇險設備操作大意",
-        "國文",
-        "通信英語",
-        "限用值機員",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "238",
-        "1001",
-        "3001",
-        "c031",
-        "c951",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "038",
-        "c032",
-        "c172",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "302",
-        "2001",
-        "4002",
-        "c261"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-professional-special-track-42056a163816",
       "name": "航海／船員特考｜專技特考｜正駕駛(海軍)",
       "years": [
@@ -150206,110 +150182,6 @@
       ]
     },
     {
-      "id": "moex-special-maritime-professional-special-track-777956ea71e4",
-      "name": "航海／船員特考｜專技特考｜通用級報務員",
-      "years": [
-        90,
-        89,
-        87
-      ],
-      "fileCount": 42,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-777956ea71e4--73bea0eee429.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-777956ea71e4",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "無線電業務法規",
-        "通信英語",
-        "無線電學",
-        "電話收發",
-        "電碼收報",
-        "電碼發報",
-        "國文",
-        "中華民國憲法",
-        "航海地理",
-        "英文",
-        "基本電學",
-        "通用級報務員",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "a29",
-        "1001",
-        "2002",
-        "3001",
-        "5002",
-        "8001",
-        "9001",
-        "c012",
-        "c104",
-        "c211",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-7b39d39988a4",
-      "name": "航海／船員特考｜專技特考｜普通值機員",
-      "years": [
-        90,
-        89,
-        88
-      ],
-      "fileCount": 24,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-7b39d39988a4--8000f93182f9.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-7b39d39988a4",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "通信英語",
-        "遇險設備操作概要",
-        "遇險無線電通信設備概要",
-        "國文",
-        "中華民國憲法概要",
-        "無線電業務法規概要",
-        "普通值機員",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "037",
-        "2002",
-        "3001",
-        "5001",
-        "c022",
-        "c114",
-        "c141",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "c104",
-        "c171",
-        "c182",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "301",
-        "4002",
-        "6001",
-        "c024"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
       "id": "moex-special-maritime-professional-special-track-9bb45c0d27f6",
       "name": "航海／船員特考｜專技特考｜正司機",
       "years": [
@@ -150357,107 +150229,6 @@
         "c171",
         "085年特種考試第二次航海人員、引水人考試",
         "c051"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-a1789344fba6",
-      "name": "航海／船員特考｜專技特考｜通用級報務員(補考)",
-      "years": [
-        91,
-        90,
-        89,
-        88,
-        87
-      ],
-      "fileCount": 8,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-a1789344fba6--cc026dd61736.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-a1789344fba6",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "航海地理",
-        "英文",
-        "基本電學",
-        "通用級報務員(補考)",
-        "091年專門職業及技術人員特種考試第一次航海人員、船舶電信人員考試",
-        "029",
-        "c991",
-        "090年專門職業及技術人員特種考試第二次航海人員、第一次船舶電信人員、第一次漁船船員考試",
-        "b29",
-        "c211",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "2002",
-        "c261",
-        "通用級報務員(補考）",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "129",
-        "4001",
-        "087年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "3002",
-        "7001"
-      ],
-      "sources": [
-        {
-          "name": "考選部",
-          "url": "https://wwwq.moex.gov.tw/exam/"
-        }
-      ]
-    },
-    {
-      "id": "moex-special-maritime-professional-special-track-b4212cbda8a7",
-      "name": "航海／船員特考｜專技特考｜特別級報務員",
-      "years": [
-        89,
-        88
-      ],
-      "fileCount": 16,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-007/moex-special-maritime-professional-special-track-b4212cbda8a7--317399801b51.zip",
-      "domainId": "civil-service",
-      "examFamilyId": "civil-service-exam",
-      "seriesId": "special-maritime",
-      "levelId": "professional-special",
-      "trackId": "track-b4212cbda8a7",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "公職考試",
-      "examSubclass": "公職／公務人員",
-      "searchAliases": [
-        "無線電業務法規大意",
-        "通信英語",
-        "無線電學大意",
-        "電話收發",
-        "電碼收報",
-        "電碼發報",
-        "國文",
-        "特別級報務員",
-        "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "032",
-        "1001",
-        "2001",
-        "3001",
-        "5002",
-        "8001",
-        "9001",
-        "c032",
-        "088年特種考試第二次航海人員、引水人、第二次船舶電信人員考試",
-        "201",
-        "6001",
-        "a001",
-        "c241",
-        "c252",
-        "c261"
       ],
       "sources": [
         {

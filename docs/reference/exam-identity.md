@@ -183,6 +183,25 @@ source keys, roles, URLs, and checksums remain unchanged by reclassification.
 
 ## Bundle purity
 
+Ship-radio qualifications use their own professional programme. The
+[historical ship-radio rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1373&id=FL016859)
+distinguish telegraphists, telephonists, electronic operators and operators,
+their native grades, retakes and military-transfer subject tables. The
+[ROC 92 revision](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1374&id=FL016859)
+retains second-class electronic operators and general operators. Legal
+high/ordinary examination equivalence does not replace those native grades.
+Programme headings in later categories and punctuation or prefix placement
+around 補考 and 海軍 do not create different qualifications. Retake and navy
+routes remain explicit variants because their paper sets differ.
+
+An explicit ship-radio category takes priority over cohosted navigation,
+ship-inspector or other professional examinations. Fishing-crew operators
+remain outside that rule: the amended ship-radio scope excludes fishing
+vessels. Some official papers explicitly serve multiple qualifications, such
+as the [ROC 88 navigation-geography paper](https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=088270&c=793&s=c151&q=1).
+Shared bytes retain each source reference and do not merge the qualifications.
+These references and retained native headers were checked on 2026-10-08.
+
 The default bundle policy groups papers only when these values match:
 
 exam_series_id, level_id, track_id, stage_id when stage changes content, and every provider-policy variant that changes the paper set.

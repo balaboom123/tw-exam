@@ -133,6 +133,7 @@ _SERIES_LABELS = {
     "professional-special": "專技特考",
     "professional-combined": "專技綜合／歷史制度",
     "professional-screening": "專技檢覈／檢覈筆試",
+    "professional-ship-radio": "船舶電信人員特考",
     "moex-unknown": "MOEX待審核考試",
     "teacher-qualification": "教師資格考試",
     "teacher-recruitment": "教師甄試",
@@ -204,6 +205,10 @@ _LEVEL_LABELS = {
     "class-a": "甲級",
     "class-b": "乙級",
     "class-c": "丙級",
+    "radio-general": "通用",
+    "radio-special": "特別",
+    "radio-limited": "限用",
+    "radio-ordinary": "普通",
     NOT_APPLICABLE: "不分級",
     "unknown": "待審核等級",
 }
@@ -405,6 +410,9 @@ def _track_details(
     if provider_id in {"hce_cmu", "hce_tcu", "hce_nsysu", "hce_nthu"}:
         return _slug(canonical_id, prefix="hce"), _display(canonical_name, canonical_id)
     if provider_id == "moex":
+        radio = _moex_ship_radio_category(category, exam_name)
+        if radio is not None:
+            return radio.track_id, radio.track_label
         value = _clean_moex_track(category, canonical_name, series_id)
         return _slug(value, prefix="track"), value
     value = (
@@ -464,7 +472,75 @@ def _moex_eligibility_programme(category: str, exam_name: str) -> str | None:
 def _moex_native_level_label(series_id: str, level_id: str, fallback: str) -> str:
     if series_id == "civil-high":
         return {"grade-1": "一級", "grade-2": "二級", "grade-3": "三級"}.get(level_id, fallback)
+    if series_id == "professional-ship-radio":
+        # 通用級報務員 and 通用值機員 use different native suffixes.
+        return fallback
     return _LEVEL_LABELS.get(level_id, fallback)
+
+
+@dataclass(frozen=True)
+class _ShipRadioCategory:
+    level_id: str
+    level_label: str
+    track_id: str
+    track_label: str
+    variants: tuple[tuple[str, str], ...]
+
+
+@lru_cache(maxsize=8192)
+def _moex_ship_radio_category(category: str, exam_name: str) -> _ShipRadioCategory | None:
+    """Resolve native radio qualifications, independently of cohosted exams.
+
+    FL016859 distinguishes these grades, occupations and military/retake
+    subject tables. Legal high/ordinary equivalence is not a native grade.
+    Fishing-crew operators belong to their own programme after the 1999
+    scope amendment; a shared paper does not merge the two qualifications.
+    """
+    category = re.sub(r"\s+", "", normalize_text(category))
+    if "船舶電信" not in exam_name and not category.startswith("船舶電信人員"):
+        return None
+    if re.search(r"升資|升等|升官等", exam_name):
+        return None
+    match = re.fullmatch(
+        r"(?:船舶電信人員)?(?P<navy>海軍)?(?P<retake>補考)?"
+        r"(?P<grade>通用級|一等|二等|特別級|限用級|普通|限用|通用)"
+        r"(?P<role>報務員|話務員|無線電子員|值機員)"
+        r"(?:\((?P<suffix>補考|海軍)\))?",
+        category,
+    )
+    if match is None:
+        return None
+    grade, role = match["grade"], match["role"]
+    allowed_grades = {
+        "報務員": {"通用級", "一等", "二等", "特別級"},
+        "話務員": {"通用級", "限用級"},
+        "無線電子員": {"一等", "二等"},
+        "值機員": {"普通", "限用", "通用"},
+    }
+    if grade not in allowed_grades[role]:
+        return None
+    level_id = {
+        "一等": "grade-1",
+        "二等": "grade-2",
+        "通用級": "radio-general",
+        "通用": "radio-general",
+        "特別級": "radio-special",
+        "限用級": "radio-limited",
+        "限用": "radio-limited",
+        "普通": "radio-ordinary",
+    }[grade]
+    track_id = {
+        "報務員": "radio-telegraphist",
+        "話務員": "radio-telephonist",
+        "無線電子員": "radio-electronic-operator",
+        "值機員": "radio-operator",
+    }[role]
+    variants = []
+    if match["navy"] or match["suffix"] == "海軍":
+        variants.append(("navy-transfer", "海軍轉任"))
+    if match["retake"] or match["suffix"] == "補考":
+        variants.append(("subject-retake", "補考"))
+    return _ShipRadioCategory(level_id, grade, track_id, role, tuple(variants))
 
 
 @lru_cache(maxsize=8192)
@@ -472,6 +548,9 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     cat = normalize_text(category)
     event = normalize_text(exam_name)
     professional = f"{cat} {event}"
+    radio = _moex_ship_radio_category(cat, event)
+    if radio is not None:
+        return radio.level_id, radio.level_label, "high", f"native ship-radio qualification: {cat}"
     eligibility = _moex_eligibility_programme(cat, event)
     if eligibility == "chinese-medicine-eligibility":
         return (
@@ -873,6 +952,9 @@ def _moex_series(
 ) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
+    if _moex_ship_radio_category(cat, event) is not None:
+        series = "professional-ship-radio"
+        return "professional", "professional-exam", series, _SERIES_LABELS[series]
     eligibility = _moex_eligibility_programme(cat, event)
     if eligibility is not None:
         return "qualification", "exam-eligibility", eligibility, _SERIES_LABELS[eligibility]
@@ -1263,6 +1345,10 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "moex":
+        radio = _moex_ship_radio_category(category, exam_name)
+        if radio is not None:
+            variant_pairs = (*variant_pairs, *radio.variants)
     if provider_id == "moex" and series_id == "civil-high" and year_ad < 1996:
         # The 1996 reform replaced a two-level civil high system with three
         # levels. Equal native numerals across that change are not equal exams.
