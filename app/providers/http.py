@@ -167,9 +167,13 @@ class Http:
                 if delay is not None and delay > 120:
                     raise
                 error.close()
-            except (URLError, TimeoutError):
+            except (URLError, TimeoutError) as error:
                 if attempt + 1 == self.max_attempts:
-                    raise
+                    location = urlparse(url)._replace(query="", fragment="").geturl()
+                    message = f"{method} {location}: {error}"
+                    if isinstance(error, URLError):
+                        raise URLError(message) from error
+                    raise TimeoutError(message) from error
                 delay = None
             time.sleep(
                 delay if delay is not None else min(30.0, 2**attempt + random.uniform(0, 0.5))

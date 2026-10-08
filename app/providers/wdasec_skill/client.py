@@ -277,7 +277,13 @@ class WdasecSkillClient:
     provider_id = "wdasec_skill"
 
     def __init__(self) -> None:
-        self.http = Http(self.provider_id, cookies=True, min_interval=0.25, user_agent=USER_AGENT)
+        self.http = Http(
+            self.provider_id,
+            cookies=True,
+            min_interval=0.25,
+            max_attempts=1,
+            user_agent=USER_AGENT,
+        )
         self._hidden_fields: dict[str, str] = {}
         self._listing_rows_cache: tuple[ListingRow, ...] | None = None
 

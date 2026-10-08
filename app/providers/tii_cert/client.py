@@ -215,7 +215,12 @@ class TiiCertClient:
     provider_id = "tii_cert"
 
     def __init__(self) -> None:
-        self.http = Http(self.provider_id, ssl_context=_build_ssl_context(), user_agent=USER_AGENT)
+        self.http = Http(
+            self.provider_id,
+            ssl_context=_build_ssl_context(),
+            max_attempts=1,
+            user_agent=USER_AGENT,
+        )
         self._entries_cache: tuple[TiiExamEntry, ...] | None = None
         self._archives: dict[str, dict[str, bytes]] = {}
         self._archive_payloads: dict[str, bytes] = {}

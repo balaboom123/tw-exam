@@ -3,6 +3,7 @@ from unittest.mock import patch
 from urllib.error import URLError
 from urllib.parse import parse_qs
 
+from app.sync import retry_network
 from app.providers.wdasec_skill.client import (
     DetailRow,
     ListingRow,
@@ -167,9 +168,11 @@ class WdasecSkillClientPostTests(unittest.TestCase):
         client._hidden_fields = parse_hidden_fields(CATEGORY_LISTING_HTML)
         with (
             patch.object(client.http, "_open", side_effect=[URLError(TimeoutError()), _FakeResponse()]) as open_request,
-            patch("app.providers.http.time.sleep"),
+            patch("app.sync.time.sleep"),
         ):
-            client._post({"__EVENTTARGET": "gvData", "__EVENTARGUMENT": "Page$2"})
+            retry_network(
+                lambda: client._post({"__EVENTTARGET": "gvData", "__EVENTARGUMENT": "Page$2"})
+            )
         self.assertEqual(open_request.call_count, 2)
         first, second = [call.args[0] for call in open_request.call_args_list]
         self.assertEqual(first.data, second.data)
@@ -199,9 +202,9 @@ class WdasecSkillClientPostTests(unittest.TestCase):
         opener = client.http._opener
         with (
             patch.object(opener, "open", side_effect=[TimeoutError(), _FakeResponse()]) as open_request,
-            patch("app.providers.http.time.sleep"),
+            patch("app.sync.time.sleep"),
         ):
-            html = client._get(PAGE_URL)
+            html = retry_network(lambda: client._get(PAGE_URL))
         self.assertEqual(open_request.call_count, 2)
         self.assertEqual(html, INITIAL_PAGE_HTML)
         self.assertIs(client.http._opener, opener)
