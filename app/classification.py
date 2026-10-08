@@ -137,6 +137,8 @@ _SERIES_LABELS = {
     "professional-navigation-special": "航海人員特考",
     "professional-navigation-high": "航海人員高考",
     "professional-navigation-ordinary": "航海人員普考",
+    "professional-fishing-special": "漁船船員特考",
+    "professional-fishing-screening": "漁船船員檢覈筆試",
     "moex-unknown": "MOEX待審核考試",
     "teacher-qualification": "教師資格考試",
     "teacher-recruitment": "教師甄試",
@@ -477,8 +479,9 @@ def _moex_eligibility_programme(category: str, exam_name: str) -> str | None:
 def _moex_native_level_label(series_id: str, level_id: str, fallback: str) -> str:
     if series_id == "civil-high":
         return {"grade-1": "一級", "grade-2": "二級", "grade-3": "三級"}.get(level_id, fallback)
-    if series_id == "professional-ship-radio":
-        # 通用級報務員 and 通用值機員 use different native suffixes.
+    if series_id == "professional-ship-radio" or series_id.startswith("professional-fishing-"):
+        # Native wording includes different radio suffixes and genuinely
+        # ungraded fishing technical occupations.
         return fallback
     return _LEVEL_LABELS.get(level_id, fallback)
 
@@ -628,9 +631,96 @@ def _moex_navigation_category(category: str, exam_name: str) -> _MaritimeQualifi
 
 
 @lru_cache(maxsize=8192)
+def _moex_fishing_crew_category(category: str, exam_name: str) -> _MaritimeQualification | None:
+    """Preserve fishing qualifications under FL016872 and FL016890.
+
+    Some cohosted event titles omit fishing entirely. Native category wording
+    identifies the programme; legal equivalence does not replace its grades.
+    """
+    category = re.sub(r"\s+", "", normalize_text(category))
+    event = normalize_text(exam_name)
+    if "考試" not in event or re.search(r"升資|升等|升官等", event):
+        return None
+    old = re.fullmatch(
+        r"(?P<prefix>補考)?(?P<grade>一級|二級|三級|四級)(?P<role>漁航員|輪機員)"
+        r"(?:\((?P<suffix>檢覈筆試|檢覈|補考)\))?",
+        category,
+    )
+    technical = re.fullmatch(
+        r"(?P<prefix>補考)?(?P<role>製造主任技術員|冷凍長技術員)(?:\((?P<suffix>補考)\))?",
+        category,
+    )
+    series = "professional-fishing-special"
+    variants: tuple[tuple[str, str], ...] = ()
+    if old is not None:
+        grade, role = old["grade"], old["role"]
+        if old["suffix"] in {"檢覈", "檢覈筆試"}:
+            if grade != "一級" or old["prefix"]:
+                return None
+            series = "professional-fishing-screening"
+        if old["prefix"] or old["suffix"] == "補考":
+            variants = (("subject-retake", "補考"),)
+        level = {
+            "一級": "maritime-rank-1",
+            "二級": "maritime-rank-2",
+            "三級": "maritime-rank-3",
+            "四級": "maritime-rank-4",
+        }[grade]
+        track = "fishing-navigator" if role == "漁航員" else "fishing-engineer"
+    elif technical is not None:
+        role = technical["role"]
+        level, grade = NOT_APPLICABLE, "未分級"
+        track = "manufacturing-officer" if role == "製造主任技術員" else "refrigeration-chief"
+        if technical["prefix"] or technical["suffix"]:
+            variants = (("subject-retake", "補考"),)
+    else:
+        # The ROC90 reform explicitly prefixes these categories with 漁船船員.
+        # An unprefixed ship officer or radio operator can belong to a different
+        # cohosted programme and must never be consumed by this rule.
+        native = re.fullmatch(r"漁船船員_?(?P<qualification>.+)", category)
+        if native is None:
+            return None
+        qualification = native["qualification"]
+        officer = re.fullmatch(
+            r"(?P<grade>一等|二等|三等)(?P<role>船長|船副|輪機長|大管輪|管輪)", qualification
+        )
+        if officer is not None:
+            grade, role = officer["grade"], officer["role"]
+            allowed = {
+                "一等": {"船長", "船副", "輪機長", "大管輪", "管輪"},
+                "二等": {"船長", "船副", "輪機長"},
+                "三等": {"船長", "船副"},
+            }
+            if role not in allowed[grade]:
+                return None
+            level = {"一等": "grade-1", "二等": "grade-2", "三等": "grade-3"}[grade]
+            track = {
+                "船長": "captain",
+                "船副": "deck-officer",
+                "輪機長": "chief-engineer",
+                "大管輪": "first-engineer",
+                "管輪": "engineer",
+            }[role]
+        else:
+            radio = {
+                "無線電子員": (NOT_APPLICABLE, "未分級", "radio-electronic-operator", "無線電子員"),
+                "普通值機員": ("radio-ordinary", "普通", "radio-operator", "值機員"),
+                "限用值機員": ("radio-limited", "限用", "radio-operator", "值機員"),
+                "一級話務員": ("maritime-rank-1", "一級", "radio-telephonist", "話務員"),
+                "二級話務員": ("maritime-rank-2", "二級", "radio-telephonist", "話務員"),
+            }.get(qualification)
+            if radio is None:
+                return None
+            level, grade, track, role = radio
+    return _MaritimeQualification(series, level, grade, track, role, variants)
+
+
+@lru_cache(maxsize=8192)
 def _moex_maritime_qualification(category: str, exam_name: str) -> _MaritimeQualification | None:
-    return _moex_ship_radio_category(category, exam_name) or _moex_navigation_category(
-        category, exam_name
+    return (
+        _moex_ship_radio_category(category, exam_name)
+        or _moex_navigation_category(category, exam_name)
+        or _moex_fishing_crew_category(category, exam_name)
     )
 
 
@@ -641,9 +731,12 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     professional = f"{cat} {event}"
     qualification = _moex_maritime_qualification(cat, event)
     if qualification is not None:
-        programme = (
-            "ship-radio" if qualification.series_id == "professional-ship-radio" else "navigation"
-        )
+        if qualification.series_id.startswith("professional-fishing-"):
+            programme = "fishing-crew"
+        elif qualification.series_id == "professional-ship-radio":
+            programme = "ship-radio"
+        else:
+            programme = "navigation"
         return (
             qualification.level_id,
             qualification.level_label,

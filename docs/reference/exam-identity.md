@@ -213,6 +213,26 @@ that candidate-route variant. Fishing-crew qualifications are a separate
 programme and do not inherit navigation identity from a shared event title.
 These primary rules and retained boundary headers were checked on 2026-10-08.
 
+Fishing-crew qualifications use a separate professional programme, even when
+a shared event title lists navigation or ship-radio exams and omits fishing.
+The [historical screening rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1453&id=FL016872)
+distinguish native 一級 through 四級 fishing navigators and engineers, plus
+technical occupations without a numerical grade. Explicit 檢覈 and 檢覈筆試
+headings identify the written screening programme; an unmarked ordinary
+examination must not inherit that purpose from a shared paper or subject count.
+Explicit subject-retake routes remain distinct, including technical officers.
+
+The [ROC90 fishing reform](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1376&id=FL016890)
+defines fifteen captain, deck, engine and radio qualifications within the
+professional-special fishing programme. Vessel length, operating water and
+engine power give these qualifications their own scope; legal equivalence to
+high, ordinary or elementary exams does not replace native grades. Prefix
+separators and compatibility characters do not split a qualification across
+years. A shared native question header can name fishing, ship-radio, regular
+and retake candidates together; preserve their programme and candidate-route
+identities while retaining each original source reference and file role.
+These rules and every retained fishing category header were checked on 2026-10-08.
+
 Ship-radio qualifications use their own professional programme. The
 [historical ship-radio rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1373&id=FL016859)
 distinguish telegraphists, telephonists, electronic operators and operators,

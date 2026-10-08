@@ -19,6 +19,75 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_fishing_native_ranks_do_not_inherit_cohosted_navigation_or_legal_equivalence(self) -> None:
+        event = "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
+        identities = set()
+        for rank in ("一級", "二級", "三級", "四級"):
+            for role in ("漁航員", "輪機員"):
+                with self.subTest(rank=rank, role=role):
+                    identity = classify(rank + role, event)
+                    self.assertEqual(identity.domain_id, "professional")
+                    self.assertEqual(identity.exam_series_id, "professional-fishing-special")
+                    self.assertEqual(identity.level_label, rank)
+                    self.assertEqual(identity.track_label, role)
+                    self.assertEqual(identity.bundle_name, f"漁船船員特考｜{rank}｜{role}")
+                    self.assertEqual(identity.confidence, "high")
+                    identities.add(identity.bundle_id)
+        self.assertEqual(len(identities), 8)
+
+    def test_fishing_reform_preserves_fifteen_native_qualifications(self) -> None:
+        event = "091年第二次航海人員、漁船船員考試"
+        categories = ("一等船長", "一等船副", "二等船長", "二等船副", "三等船長", "三等船副",
+                      "一等輪機長", "一等大管輪", "一等管輪", "二等輪機長", "無線電子員",
+                      "普通值機員", "限用值機員", "一級話務員", "二級話務員")
+        identities = set()
+        for category in categories:
+            with self.subTest(category=category):
+                identity = classify("漁船船員" + category, event)
+                self.assertEqual(identity.exam_series_id, "professional-fishing-special")
+                self.assertEqual(identity.domain_id, "professional")
+                self.assertEqual(identity.confidence, "high")
+                identities.add(identity.bundle_id)
+        self.assertEqual(len(identities), 15)
+        self.assertNotEqual(classify("一等船副", event).bundle_id,
+                            classify("漁船船員一等船副", event).bundle_id)
+        self.assertNotEqual(classify("普通值機員", "091年船舶電信人員、漁船船員考試").bundle_id,
+                            classify("漁船船員普通值機員", event).bundle_id)
+
+    def test_fishing_prefix_punctuation_and_compatibility_glyphs_do_not_fragment(self) -> None:
+        event = "092年航海人員、驗船師、漁船船員考試"
+        for categories in (("漁船船員_三等船副", "漁船船員三等船副"),
+                           ("漁船船員一等輪機長", "漁船船員_一等輪機長"),
+                           ("補考三級漁航員", "三級漁航員（補考）"),
+                           ("一級漁航員(檢覈)", "一級漁航員（檢覈筆試）")):
+            self.assertEqual(classify(categories[0], event).bundle_id, classify(categories[1], event).bundle_id)
+
+    def test_fishing_screening_and_retake_remain_separate_from_regular_exams(self) -> None:
+        event = "088年航海人員、漁船船員、船舶電信人員考試"
+        ordinary = classify("一級漁航員", event)
+        screening = classify("一級漁航員（檢覈）", event)
+        self.assertEqual(screening.exam_series_id, "professional-fishing-screening")
+        self.assertNotEqual(ordinary.bundle_id, screening.bundle_id)
+        for category in ("三級漁航員", "二級輪機員", "製造主任技術員"):
+            regular = classify(category, event)
+            retake = classify("補考" + category, event)
+            self.assertEqual(retake.variant_ids, ("subject-retake",))
+            self.assertNotEqual(regular.bundle_id, retake.bundle_id)
+        technical = classify("製造主任技術員", event)
+        self.assertEqual(technical.level_id, "not-applicable")
+        self.assertEqual(technical.level_label, "未分級")
+        self.assertEqual(technical.track_label, "製造主任技術員")
+
+    def test_fishing_does_not_consume_unsupported_native_combinations(self) -> None:
+        for category, event in (("漁船船員三等管輪", "航海人員、漁船船員考試"),
+                                ("漁船船員二等大管輪", "航海人員、漁船船員考試"),
+                                ("漁船船員一等大副", "航海人員、漁船船員考試"),
+                                ("三級漁航員(檢覈)", "漁船船員考試"),
+                                ("漁船船員普通值機員", "漁船船員測驗"),
+                                ("一級輪機員", "航海人員升等考試")):
+            with self.subTest(category=category, event=event):
+                self.assertFalse(classify(category, event).exam_series_id.startswith("professional-fishing-"))
+
     def test_navigation_uses_professional_programme_native_grade_and_occupation(self) -> None:
         event = "082年特種考試第一次航海人員驗船師考試"
         identities = set()
