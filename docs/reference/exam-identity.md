@@ -244,6 +244,14 @@ Missing or abbreviated historical event wording is resolved only by exact,
 checksum-anchored native-header facts. These primary rules and every retained
 ship-inspector category header were checked on 2026-10-08.
 
+Historical pilot rules distinguish native type and numerical grade. When one
+local-waterway header conflicts with the official category and other professional
+subject headers, the checksum-anchored category fact preserves the supported
+programme and grade while isolating that subject in review. A single conflicting
+paper cannot regrade all other subjects or select a cohosted navigation programme.
+The [historical pilot rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1328&id=FL016856)
+and the exact conflicting source context were checked on 2026-10-08.
+
 Ship-radio qualifications use their own professional programme. The
 [historical ship-radio rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1373&id=FL016859)
 distinguish telegraphists, telephonists, electronic operators and operators,

@@ -2829,6 +2829,38 @@
           "observation": "Manually viewed native first-page header explicitly names 特種考試 and 驗船師; source category, event, subject locator and original question checksum are preserved."
         }
       ]
+    },
+    {
+      "id": "moex-083180-017-pilot-native-grade-and-local-header-conflict",
+      "source_exam_id": "083180",
+      "year_ad": 1994,
+      "category_code": "017",
+      "category_raw": "甲種二等引水人",
+      "exam_name_raw": "083年特種考試第二次航海人員引水人考試",
+      "series_id": "professional-special",
+      "level_id": "grade-2",
+      "reviewed_at": "2026-10-08",
+      "reason": "FL016856 defines historical professional pilotage by native type and grade. The official source category and the professional common-subject headers identify 甲種二等引水人. One local-waterway header conflicts, so retain its exact source reference in event-isolated review rather than assign the entire context to 一等 or civil navigation.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=083180&c=017&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "5da6805b4920c0fb534f13a1b7dc301ed5c206377a6a650b2c49b04b170f992e",
+          "observation": "Manually viewed native 引港學 header explicitly identifies 八十三年特種考試第二次航海人員引水人 and 甲種二等引水人. The other professional common-subject headers independently retain 二等."
+        },
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=083180&c=017&s=5001&q=1",
+          "subject_code": "5001",
+          "checksum": "228a4c769e64efb6a760a2ac5a1d30c6ac2a3bac7e9ba2ec4ab411b96e899aa4",
+          "observation": "Manually viewed the complete local-waterway paper. Its header explicitly identifies 甲種一等引水人(台灣區高雄港), conflicting with its source category and the other professional headers. Fresh official PDF has the same checksum; fresh listing still assigns this source locator to 二等."
+        }
+      ],
+      "subject_reviews": [
+        {
+          "subject_code": "5001",
+          "reason": "Conflicting pilot-grade evidence: official category and other professional headers identify 甲種二等引水人, while this local-waterway header identifies 甲種一等引水人(台灣區高雄港). Preserve the exact source and native bytes pending an official correction or decisive historical subject evidence."
+        }
+      ]
     }
   ]
 }

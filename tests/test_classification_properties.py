@@ -144,12 +144,34 @@ def test_bundles_preserve_series_level_variant_and_stage_distinctions(track, yea
         later = classify_paper(**{**record, "source_exam_id": f"event-{year + 1}", "year_ad": year + 1,
                                   "exam_name_raw": f"{year + 1 - 1911}年{exam}"})
         assert current.confidence != "review"
-        assert current.bundle_id == later.bundle_id
-        assert current.signature == later.signature
+        if year == 1995 and current.exam_series_id == "civil-high":
+            assert current.bundle_id != later.bundle_id
+            assert current.signature != later.signature
+            assert current.variant_ids == (*later.variant_ids, "civil-high-pre-1996")
+        else:
+            assert current.bundle_id == later.bundle_id
+            assert current.signature == later.signature
         assert current.exam_event_id != later.exam_event_id
         identities.append(current)
     assert len({identity.signature for identity in identities}) == len(dimensions)
     assert len({identity.bundle_id for identity in identities}) == len(dimensions)
+
+
+@given(native_grade=st.sampled_from(["一", "二"]),
+       track=st.sampled_from(["一般行政", "資訊處理", "會計", "地政"]))
+def test_civil_high_groups_within_each_historical_system_and_separates_reform(native_grade, track):
+    identities = [classify_paper(
+        provider_id="moex", source_exam_id=f"event-{year}", year_ad=year,
+        category_raw=track, exam_name_raw=f"{year - 1911}年公務人員高等考試{native_grade}級",
+        canonical_id="fixture", canonical_name=track,
+    ) for year in (1994, 1995, 1996, 1997)]
+    assert all(identity.confidence != "review" for identity in identities)
+    assert len({identity.level_id for identity in identities}) == 1
+    assert len({identity.track_id for identity in identities}) == 1
+    assert identities[0].bundle_id == identities[1].bundle_id
+    assert identities[2].bundle_id == identities[3].bundle_id
+    assert identities[1].bundle_id != identities[2].bundle_id
+    assert identities[1].signature != identities[2].signature
 
 
 @given(events=st.lists(st.integers(min_value=1, max_value=999999), min_size=2, max_size=8, unique=True))

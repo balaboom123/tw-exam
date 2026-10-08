@@ -111,6 +111,28 @@ def test_conflicting_subject_isolated_without_poisoning_category_cache():
     assert changed.bundle_id == regular.bundle_id
 
 
+def test_pilot_grade_conflict_isolated_without_regrading_other_subjects():
+    arguments = dict(provider_id='moex', source_exam_id='083180', year_ad=1994,
+        category_raw='甲種二等引水人', category_code='017',
+        exam_name_raw='083年特種考試第二次航海人員引水人考試',
+        canonical_id='pilot', canonical_name='甲種二等引水人')
+    common = classify_paper(**arguments, subject_code='2001')
+    conflict = classify_paper(**arguments, subject_code='5001')
+    following = classify_paper(**arguments, subject_code='7001')
+    assert common.exam_series_id == conflict.exam_series_id == 'professional-special'
+    assert common.domain_id == following.domain_id == 'professional'
+    assert common.level_id == following.level_id == 'grade-2'
+    assert common.confidence == following.confidence == 'high'
+    assert common.bundle_id == following.bundle_id
+    assert conflict.confidence == 'review'
+    assert conflict.bundle_id.endswith('event-083180')
+    assert conflict.bundle_id != common.bundle_id
+    assert 'Conflicting pilot-grade evidence' in conflict.reason
+    assert classify_paper(**arguments, subject_code='2001') == common
+    changed = classify_paper(**dict(arguments, category_code='other'), subject_code='5001')
+    assert 'reviewed official question headers' not in changed.reason
+
+
 @pytest.mark.parametrize('change', ['missing', 'context', 'revision', 'wrong_role'])
 def test_evidence_gate_rejects_lost_changed_or_wrong_role_anchors(tmp_path, change):
     payload = document()
