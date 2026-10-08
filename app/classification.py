@@ -486,6 +486,25 @@ def _moex_native_level_label(series_id: str, level_id: str, fallback: str) -> st
     return _LEVEL_LABELS.get(level_id, fallback)
 
 
+@lru_cache(maxsize=8192)
+def _moex_ship_inspector_programme(category: str, exam_name: str) -> str | None:
+    """Resolve FL016883 from its own heading, independently of cohosted exams."""
+    category = re.sub(r"\s+", "", normalize_text(category))
+    event = normalize_text(exam_name)
+    native = re.fullmatch(r"(?:(?P<heading>驗船師(?:高等考試)?)_)?驗船師", category)
+    if native is None or "考試" not in event or re.search(r"升資|升等|升官等", event):
+        return None
+    if native["heading"] == "驗船師高等考試":
+        return "professional-high"
+    # An exam list can contain several statutory programmes and levels. Stop
+    # at a new level heading; a later special exam cannot change this one.
+    if re.search(r"高等考試(?:(?!高等暨普通考試|普通考試|特種考試|專技特考).)*驗船師", event):
+        return "professional-high"
+    if re.search(r"(?:特種考試|專技特考)(?:(?!高等考試|普通考試).)*驗船師", event):
+        return "professional-special"
+    return None
+
+
 @dataclass(frozen=True)
 class _MaritimeQualification:
     series_id: str
@@ -729,6 +748,10 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
     cat = normalize_text(category)
     event = normalize_text(exam_name)
     professional = f"{cat} {event}"
+    inspector = _moex_ship_inspector_programme(cat, event)
+    if inspector is not None:
+        level = "professional-high" if inspector == "professional-high" else NOT_APPLICABLE
+        return level, _LEVEL_LABELS[level], "high", f"native ship-inspector programme: {cat}"
     qualification = _moex_maritime_qualification(cat, event)
     if qualification is not None:
         if qualification.series_id.startswith("professional-fishing-"):
@@ -1144,6 +1167,9 @@ def _moex_series(
 ) -> tuple[str, str, str, str]:
     cat = normalize_text(category)
     event = normalize_text(exam_name)
+    inspector = _moex_ship_inspector_programme(cat, event)
+    if inspector is not None:
+        return "professional", "professional-exam", inspector, _SERIES_LABELS[inspector]
     qualification = _moex_maritime_qualification(cat, event)
     if qualification is not None:
         series = qualification.series_id
@@ -1494,6 +1520,8 @@ def _classify_paper_uncached(
             } or reviewed.series_id.startswith("special-"):
                 domain_id, family_id = "civil-service", "civil-service-exam"
             elif reviewed.series_id in {
+                "professional-high",
+                "professional-special",
                 "professional-navigation-special",
                 "professional-navigation-high",
                 "professional-navigation-ordinary",

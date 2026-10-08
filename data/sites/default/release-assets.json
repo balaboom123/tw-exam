@@ -21682,6 +21682,21 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/moex-professional-high-professional-high-track-d4cc204b2e27--327944279558.zip",
+      "asset_name": "moex-professional-high-professional-high-track-d4cc204b2e27--327944279558.zip",
+      "checksum": "540f17a80ee5c3ad6a83a824bc3c87c7210f9393ddc2e002168f93be35032078",
+      "bundle_id": "moex-professional-high-professional-high-track-d4cc204b2e27",
+      "domain_id": "professional",
+      "exam_family_id": "professional-exam",
+      "exam_series_id": "professional-high",
+      "level_id": "professional-high",
+      "track_id": "track-d4cc204b2e27",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
       "release_tag": "default-bundles-v2-005",
       "storage_key": "bundles/sites/default/moex-professional-high-professional-high-track-d7e104b2f469--eef1f894e0dd.zip",
       "asset_name": "moex-professional-high-professional-high-track-d7e104b2f469--eef1f894e0dd.zip",
@@ -24529,21 +24544,6 @@
     },
     {
       "release_tag": "default-bundles-v2-005",
-      "storage_key": "bundles/sites/default/moex-professional-special-combined-track-d4cc204b2e27--ef077afa95c8.zip",
-      "asset_name": "moex-professional-special-combined-track-d4cc204b2e27--ef077afa95c8.zip",
-      "checksum": "6d6b237c0af397c6762ece23a04f6b167ff20de8ab6e3d878bfc649806c185c2",
-      "bundle_id": "moex-professional-special-combined-track-d4cc204b2e27",
-      "domain_id": "professional",
-      "exam_family_id": "professional-exam",
-      "exam_series_id": "professional-special",
-      "level_id": "combined",
-      "track_id": "track-d4cc204b2e27",
-      "variant_ids": [],
-      "stage_id": "not-applicable",
-      "bundle_policy_id": "default-bundle-policy-v2"
-    },
-    {
-      "release_tag": "default-bundles-v2-005",
       "storage_key": "bundles/sites/default/moex-professional-special-combined-track-d4f61c07ae25--fc135994f7b0.zip",
       "asset_name": "moex-professional-special-combined-track-d4f61c07ae25--fc135994f7b0.zip",
       "checksum": "8d41cd56edadedc2d0675e0c136c536f714d84866a7acb2702204c918b8bb0f1",
@@ -24598,6 +24598,21 @@
       "exam_series_id": "professional-special",
       "level_id": "combined",
       "track_id": "track-ee5787d99cb3",
+      "variant_ids": [],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/moex-professional-special-not-applicable-track-d4cc204b2e27--3f696a6bdd52.zip",
+      "asset_name": "moex-professional-special-not-applicable-track-d4cc204b2e27--3f696a6bdd52.zip",
+      "checksum": "50b00f88a0d2afe1136d24b17563acc4eaabd2c3416495088a5ba55714bda9b9",
+      "bundle_id": "moex-professional-special-not-applicable-track-d4cc204b2e27",
+      "domain_id": "professional",
+      "exam_family_id": "professional-exam",
+      "exam_series_id": "professional-special",
+      "level_id": "not-applicable",
+      "track_id": "track-d4cc204b2e27",
       "variant_ids": [],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
@@ -25033,21 +25048,6 @@
       "exam_series_id": "professional-special",
       "level_id": "professional-special",
       "track_id": "track-d463509763b9",
-      "variant_ids": [],
-      "stage_id": "not-applicable",
-      "bundle_policy_id": "default-bundle-policy-v2"
-    },
-    {
-      "release_tag": "default-bundles-v2-005",
-      "storage_key": "bundles/sites/default/moex-professional-special-professional-special-track-d4cc204b2e27--a6fdc491a31f.zip",
-      "asset_name": "moex-professional-special-professional-special-track-d4cc204b2e27--a6fdc491a31f.zip",
-      "checksum": "bb4c2b5ae2a446ce2a11df3afdaaeb9ee5eee3bbcf7ab46dd02a9e8e23feaff7",
-      "bundle_id": "moex-professional-special-professional-special-track-d4cc204b2e27",
-      "domain_id": "professional",
-      "exam_family_id": "professional-exam",
-      "exam_series_id": "professional-special",
-      "level_id": "professional-special",
-      "track_id": "track-d4cc204b2e27",
       "variant_ids": [],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"

@@ -19,6 +19,58 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_ship_inspector_uses_its_own_level_in_a_cohosted_event(self) -> None:
+        event = ("114年專門職業及技術人員高等考試大地工程技師考試分階段考試、驗船師、"
+                 "引水人、第一次食品技師考試、高等暨普通考試消防設備人員考試、"
+                 "普通考試地政士、專責報關人員考試、特種考試驗光人員考試")
+        for category in ("驗船師高等考試_驗船師", "驗船師_驗船師", "驗船師"):
+            with self.subTest(category=category):
+                identity = classify(category, event)
+                self.assertEqual(identity.exam_series_id, "professional-high")
+                self.assertEqual(identity.level_id, "professional-high")
+                self.assertEqual(identity.domain_id, "professional")
+                self.assertEqual(identity.track_label, "驗船師")
+                self.assertEqual(identity.confidence, "high")
+
+    def test_ship_inspector_special_exam_does_not_inherit_legal_high_equivalence(self) -> None:
+        event = ("097年第一次專門職業及技術人員高等暨普通考試消防設備人員考試、"
+                 "普通考試不動產經紀人考試、97年特種考試中醫師、驗船師考試")
+        identity = classify("驗船師", event)
+        self.assertEqual(identity.exam_series_id, "professional-special")
+        self.assertEqual(identity.level_id, "not-applicable")
+        self.assertEqual(identity.confidence, "high")
+        high = classify("驗船師", "098年專門職業及技術人員高等考試引水人、驗船師考試、特種考試中醫師考試")
+        self.assertNotEqual(identity.bundle_id, high.bundle_id)
+
+    def test_ship_inspector_does_not_consume_unrelated_or_unmarked_categories(self) -> None:
+        for category, event in (("助理驗船師", "驗船師考試"),
+                                ("驗船師", "驗船師測驗"),
+                                ("驗船師", "驗船師升等考試"),
+                                ("驗船師", "航海人員、驗船師考試")):
+            with self.subTest(category=category, event=event):
+                identity = classify(category, event)
+                self.assertNotIn("native ship-inspector programme:", identity.reason)
+
+    def test_ship_inspector_missing_event_wording_uses_exact_native_header_evidence(self) -> None:
+        from app.moex_identity_evidence import moex_evidence_path, read_moex_category_identities
+        from pathlib import Path
+
+        facts = read_moex_category_identities(moex_evidence_path(Path(__file__).resolve().parents[1]))
+        inspector_facts = [fact for fact in facts if fact.fact_id.endswith("ship-inspector-native-special")]
+        self.assertEqual(len(inspector_facts), 3)
+        for fact in inspector_facts:
+            with self.subTest(source=fact.source_exam_id):
+                identity = classify_paper(
+                    provider_id="moex", source_exam_id=fact.source_exam_id,
+                    year_ad=fact.year_ad, category_raw=fact.category_raw,
+                    exam_name_raw=fact.exam_name_raw, category_code=fact.category_code,
+                    canonical_id="ship-inspector", canonical_name="驗船師",
+                )
+                self.assertEqual(identity.exam_series_id, "professional-special")
+                self.assertEqual(identity.level_id, "not-applicable")
+                self.assertEqual(identity.confidence, "high")
+                self.assertIn(fact.fact_id, identity.reason)
+
     def test_fishing_native_ranks_do_not_inherit_cohosted_navigation_or_legal_equivalence(self) -> None:
         event = "089年特種考試第二次航海人員、引水人、第二次船舶電信人員考試"
         identities = set()

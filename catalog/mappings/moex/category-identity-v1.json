@@ -2769,6 +2769,66 @@
           "observation": "Manually inspected the full native header: 八十三年特種考試第三次航海人員; 類科 一等管輪、一等管輪(海軍); 科目 輪機英文. The current source still lists it under 一等管輪(加註). Do not infer which of the two named candidate routes owns this source reference."
         }
       ]
+    },
+    {
+      "id": "moex-088030-251-ship-inspector-native-special",
+      "source_exam_id": "088030",
+      "year_ad": 1999,
+      "category_code": "251",
+      "category_raw": "驗船師",
+      "exam_name_raw": "088年第一次航海人員、驗船師、船舶電信人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The complete native question header identifies the special ship-inspector examination despite missing or abbreviated programme wording in the shared event title. FL016883 defines an ungraded ship-inspector qualification; legal high equivalence does not create a native grade.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=088030&c=251&s=0201&q=1",
+          "subject_code": "0201",
+          "checksum": "ca6a9db50cbdc866bf34a8e8df96b588f897f60c1a1d557ffa2c0d63ba23ea41",
+          "observation": "Manually viewed native first-page header explicitly names 特種考試 and 驗船師; source category, event, subject locator and original question checksum are preserved."
+        }
+      ]
+    },
+    {
+      "id": "moex-089110-240-ship-inspector-native-special",
+      "source_exam_id": "089110",
+      "year_ad": 2000,
+      "category_code": "240",
+      "category_raw": "驗船師",
+      "exam_name_raw": "089年專技社會工作師特考、第一次航海人員、驗船師、船舶電信人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The complete native question header identifies the special ship-inspector examination despite missing or abbreviated programme wording in the shared event title. FL016883 defines an ungraded ship-inspector qualification; legal high equivalence does not create a native grade.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=089110&c=240&s=0101&q=1",
+          "subject_code": "0101",
+          "checksum": "bd2bedbf40646c39c61737232b3957f27e4309d57ee9f7bd8a2e67ddaaeda9b3",
+          "observation": "Manually viewed native first-page header explicitly names 特種考試 and 驗船師; source category, event, subject locator and original question checksum are preserved."
+        }
+      ]
+    },
+    {
+      "id": "moex-087040-040-ship-inspector-native-special",
+      "source_exam_id": "087040",
+      "year_ad": 1998,
+      "category_code": "040",
+      "category_raw": "驗船師",
+      "exam_name_raw": "087年特種考試第一次航海人員、引水人、第一次船舶電信人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The source event title omits ship inspectors entirely, but the manually viewed native question header explicitly names the special ship-inspector examination. FL016883 defines an ungraded ship-inspector qualification; cohosted navigation cannot assign its programme or grade.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087040&c=040&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "b6b4fe6c63a4e13bb969b4650b07c628e242118446bc690a3aeb8ebe9e4039af",
+          "observation": "Manually viewed native first-page header explicitly names 特種考試 and 驗船師; source category, event, subject locator and original question checksum are preserved."
+        }
+      ]
     }
   ]
 }

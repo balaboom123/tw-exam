@@ -233,6 +233,17 @@ and retake candidates together; preserve their programme and candidate-route
 identities while retaining each original source reference and file role.
 These rules and every retained fishing category header were checked on 2026-10-08.
 
+Ship-inspector examinations use their own category or scoped programme heading
+within a shared event. The [historical ship-inspector rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1323&id=FL016883)
+define a special examination without a numerical qualification grade; its legal
+equivalence to a professional high examination does not create a native grade.
+The [ROC98 reform](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1324&id=FL016883)
+changes the actual examination to professional high. Explicit high category
+headings take precedence over unrelated special exams in the same event.
+Missing or abbreviated historical event wording is resolved only by exact,
+checksum-anchored native-header facts. These primary rules and every retained
+ship-inspector category header were checked on 2026-10-08.
+
 Ship-radio qualifications use their own professional programme. The
 [historical ship-radio rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1373&id=FL016859)
 distinguish telegraphists, telephonists, electronic operators and operators,
