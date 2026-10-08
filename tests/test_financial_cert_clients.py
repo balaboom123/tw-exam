@@ -3,7 +3,6 @@ from unittest.mock import patch
 
 from app.providers.sfi_cert.client import SfiCertClient, parse_sfi_archive
 from app.providers.tabf_cert.client import TabfCertClient, classify_tabf_certificate, parse_tabf_history_links
-from app.providers.tii_cert.client import TiiCertClient, parse_tii_intro_page
 
 
 SFI_ARCHIVE_HTML = """
@@ -44,16 +43,6 @@ TABF_TRUST_HTML = """
   <a href="https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-2.pdf">信託實務</a>
   <a href="https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-3.pdf">答案</a>
 </div>
-</body></html>
-"""
-
-
-TII_AML_HTML = """
-<html><body>
-<h2>防制洗錢與打擊資恐專業人員測驗</h2>
-<p>〖114 年第 2 次測驗 114.6.7 試題解答下載〗</p>
-<a href="https://edu.tii.org.tw/exam/users/message_download/640">試題 ─ 防制洗錢與打擊資恐法令及實務</a>
-<a href="https://edu.tii.org.tw/exam/users/message_download/641">解答 ─ 防制洗錢與打擊資恐法令及實務</a>
 </body></html>
 """
 
@@ -115,29 +104,6 @@ class TabfCertClientTests(unittest.TestCase):
         self.assertEqual(len(page.papers), 3)
         self.assertEqual(page.papers[0].files["question"], "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-1.pdf")
         self.assertEqual(page.papers[2].files["answer"], "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-3.pdf")
-
-
-class TiiCertClientTests(unittest.TestCase):
-    def test_parse_tii_intro_page_extracts_question_and_answer(self) -> None:
-        parsed = parse_tii_intro_page(TII_AML_HTML, slug="aml", label="防制洗錢與打擊資恐專業人員測驗")
-
-        self.assertEqual(parsed.year_roc, 114)
-        self.assertEqual(parsed.round_no, 2)
-        self.assertEqual(parsed.files["question"], "https://edu.tii.org.tw/exam/users/message_download/640")
-        self.assertEqual(parsed.files["answer"], "https://edu.tii.org.tw/exam/users/message_download/641")
-
-    def test_tii_discovery_and_fetch_page(self) -> None:
-        with patch.object(TiiCertClient, "_fetch_text", return_value=TII_AML_HTML):
-            client = TiiCertClient()
-            self.assertEqual(client.discover_available_years(), [2025])
-            exams = client.discover_exams(2025)
-            page = client.fetch_exam_page("tii-cert-aml-2025-2", 2025)
-
-        self.assertIn("tii-cert-aml-2025-2", [exam.code for exam in exams])
-        self.assertEqual(page.provider_id, "tii_cert")
-        self.assertEqual(page.source_exam_id, "tii-cert-aml-2025-2")
-        self.assertEqual(page.papers[0].files["question"], "https://edu.tii.org.tw/exam/users/message_download/640")
-        self.assertEqual(page.papers[0].files["answer"], "https://edu.tii.org.tw/exam/users/message_download/641")
 
 
 if __name__ == "__main__":

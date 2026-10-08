@@ -89,8 +89,8 @@
     {
       "provider_id": "tii_cert",
       "site_id": "default",
-      "status": "non_paper_role",
-      "reason": "One of the five published files is an annual investment-insurance brochure normalized and published as an exam question.",
+      "status": "redistribution_unresolved",
+      "reason": "The administered-paper adapter now separates dated events, sections, corrected answers and historical ZIP members, and retires the brochure from current papers. TII displays a copyright notice and no exam-PDF republication grant has been established; keep site bundles and public mirror backups withheld until the existing redistribution review is resolved.",
       "evidence_path": "data/providers/tii_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#tii_cert",
       "review_by": "2026-11-01"

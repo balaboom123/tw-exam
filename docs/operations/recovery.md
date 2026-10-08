@@ -48,6 +48,12 @@ quarantined. It does not change quarantine or authorize site publication.
 Adapters with a public backup prohibition cannot use `save`; retain verified
 local mirrors and use the workflow's cache-only mode instead.
 
+Cache-only mode checks the same unique-payload budget through `cache-policy`
+and saves eligible mirrors after a sync attempt. It does not require a public
+snapshot upload. An Actions cache can expire; keep a verified local copy of the
+provider mirror and revision journal for restricted sources. Restore missing
+historical bytes by their recorded checksum before refreshing that provider.
+
 With an authenticated `gh` CLI, save one provider's local mirror:
 
 ```bash
@@ -109,7 +115,8 @@ Publication recovery can pin `--generation <generation>` and
 later provider snapshot. Mirror generation and SHA outputs are written when
 `GITHUB_OUTPUT` is present.
 
-For an admissions recovery pilot, dispatch `sync-admissions.yml` with
+For an admissions or certification recovery pilot, dispatch the corresponding
+matrix workflow with
 `provider_id` set to the affected provider. Other provider jobs are skipped;
 the default `all` and scheduled runs retain their full matrix.
 Verify a durable snapshot before deliberately evicting that provider's cache.

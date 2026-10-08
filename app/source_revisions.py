@@ -258,6 +258,29 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
     }
 
 
+def _retain_source_payload(provider: ProviderPaths, record: dict[str, Any]) -> str | None:
+    checksum = record.get("checksum", "")
+    if not checksum:
+        return None
+    storage_key = record.get("storage_key", "")
+    blob_key = revision_blob_key(provider.provider_id, checksum, Path(storage_key).suffix)
+    mirror_root = provider.mirror_dir.parents[1]
+    blob = mirror_root / blob_key
+    if not blob.exists():
+        original = mirror_root / storage_key
+        if not original.is_file() and not storage_key.startswith("providers/"):
+            original = provider.mirror_dir / storage_key
+        if not original.is_file() or payload_checksum(original) != checksum:
+            raise ValueError(
+                f"Cannot retain previous source bytes for {record['source_exam_id']}; "
+                "restore the checksum-verified original before refreshing provider state"
+            )
+        _copy_verified_payload(original, blob, checksum)
+    if payload_checksum(blob) != checksum:
+        raise ValueError(f"Retained source revision checksum mismatch: {blob_key}")
+    return blob_key
+
+
 def retain_superseded_sources(
     provider: ProviderPaths,
     previous_pages: list[SourceExamPage],
@@ -267,6 +290,11 @@ def retain_superseded_sources(
 ) -> int:
     """Persist previous source evidence before the provider writer replaces it."""
     entries = load_source_revisions(provider)
+    # Older verified mirror generations can contain the original locator but
+    # predate the journal's immutable recovery copy. Restore that copy only
+    # when the original bytes match the journal's recorded checksum.
+    for entry in entries:
+        _retain_source_payload(provider, entry["source_record"])
     known = {entry["id"] for entry in entries}
     current_records = _source_records(provider.provider_id, current_pages, current_papers)
     current_keys = {_reference_key(kind, record) for kind, record in current_records}
@@ -274,7 +302,6 @@ def retain_superseded_sources(
         (_reference_key(kind, record), record.get("checksum", ""))
         for kind, record in current_records
     }
-    mirror_root = provider.mirror_dir.parents[1]
     retained = 0
     for kind, record in _source_records(provider.provider_id, previous_pages, previous_papers):
         _validate_source_record(provider.provider_id, record)
@@ -287,23 +314,7 @@ def retain_superseded_sources(
         ).hexdigest()
         if revision_id in known:
             continue
-        blob_key = None
-        if checksum:
-            storage_key = record.get("storage_key", "")
-            blob_key = revision_blob_key(provider.provider_id, checksum, Path(storage_key).suffix)
-            blob = mirror_root / blob_key
-            if not blob.exists():
-                original = mirror_root / storage_key
-                if not original.is_file() and not storage_key.startswith("providers/"):
-                    original = provider.mirror_dir / storage_key
-                if not original.is_file() or payload_checksum(original) != checksum:
-                    raise ValueError(
-                        f"Cannot retain previous source bytes for {record['source_exam_id']}; "
-                        "restore the checksum-verified original before refreshing provider state"
-                    )
-                _copy_verified_payload(original, blob, checksum)
-            if payload_checksum(blob) != checksum:
-                raise ValueError(f"Retained source revision checksum mismatch: {blob_key}")
+        blob_key = _retain_source_payload(provider, record)
         entries.append(
             {
                 "id": revision_id,

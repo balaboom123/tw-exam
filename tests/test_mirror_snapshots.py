@@ -23,7 +23,7 @@ spec.loader.exec_module(mirror)
 PROVIDER = "ceec_ast"
 
 
-@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert'])
+@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert', 'tii_cert'])
 def test_restricted_public_save_is_rejected_before_packing_or_remote_operations(tmp_path, monkeypatch, provider):
     def unexpected(*args, **kwargs):
         pytest.fail("A restricted provider reached public backup work")
@@ -35,7 +35,7 @@ def test_restricted_public_save_is_rejected_before_packing_or_remote_operations(
     assert not (tmp_path / ".tmp").exists()
 
 
-@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert'])
+@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert', 'tii_cert'])
 def test_restricted_public_save_cli_checks_policy_before_cache_outputs(tmp_path, monkeypatch, capsys, provider):
     def unexpected(*args, **kwargs):
         pytest.fail("A restricted provider reached backup or cache work")
@@ -1059,4 +1059,37 @@ def test_hydrate_cli_uses_latest_pointer_without_restore_flags(hydrating, monkey
     )
     assert mirror.main() == 0
     monkeypatch.setattr(sys, "argv", sys.argv + ["--generation", "pilot-1"])
+    assert mirror.main() == 1
+
+
+@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert', 'tii_cert'])
+def test_private_cache_policy_has_no_public_backup_or_network_work(tmp_path, monkeypatch, provider):
+    source = tmp_path / 'mirror/providers' / provider
+    source.mkdir(parents=True)
+    (source / 'paper.pdf').write_bytes(b'original')
+    os.link(source / 'paper.pdf', source / 'shared.pdf')
+    output = tmp_path / 'outputs'
+    monkeypatch.setenv('GITHUB_OUTPUT', str(output))
+    monkeypatch.setattr(mirror, 'CACHE_PAYLOAD_LIMIT', len(b'original'))
+    def unexpected(*args, **kwargs):
+        pytest.fail('Cache policy reached public storage')
+    monkeypatch.setattr(mirror, 'save', unexpected)
+    monkeypatch.setattr(mirror, 'gh', unexpected)
+    monkeypatch.setattr(mirror, 'pack', unexpected)
+    monkeypatch.setattr(sys, 'argv', ['mirror_snapshots.py', 'cache-policy', '--repo-root', str(tmp_path), '--provider', provider])
+    assert mirror.main() == 0
+    assert output.read_text() == 'cacheable=true\n'
+    monkeypatch.setattr(mirror, 'CACHE_PAYLOAD_LIMIT', len(b'original') - 1)
+    output.unlink()
+    assert mirror.main() == 0
+    assert output.read_text() == 'cacheable=false\n'
+
+
+def test_cache_policy_reports_missing_mirror_without_masking_invalid_owner(tmp_path, monkeypatch):
+    output = tmp_path / 'outputs'
+    monkeypatch.setenv('GITHUB_OUTPUT', str(output))
+    monkeypatch.setattr(sys, 'argv', ['mirror_snapshots.py', 'cache-policy', '--repo-root', str(tmp_path), '--provider', 'tii_cert'])
+    assert mirror.main() == 0
+    assert output.read_text() == 'cacheable=false\n'
+    monkeypatch.setattr(sys, 'argv', sys.argv[:-1] + ['not_a_provider'])
     assert mirror.main() == 1

@@ -12,6 +12,7 @@ from app.paths import provider_paths
 from app.providers.base import DownloadedFile
 from app.providers.sfi_cert.provider import SfiCertProvider
 from app.providers.tabf_cert.provider import TabfCertProvider
+from app.providers.tii_cert.provider import TiiCertProvider
 from app.publisher import write_provider_state
 from app.source_revisions import (
     audit_source_revisions,
@@ -294,3 +295,45 @@ def test_default_reuse_and_mutable_provider_refresh_policy(tmp_path):
     assert catalog.papers[0].checksum == paper(REVISED).checksum
     assert SfiCertProvider.refresh_files_on_sync is True
     assert TabfCertProvider.refresh_files_on_sync is True
+    assert TiiCertProvider.refresh_files_on_sync is True
+
+
+def test_existing_journal_recovers_from_checksum_verified_older_cache(tmp_path):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    write_state(tmp_path, [paper()])
+    # Retiring a source reference creates its journal without changing its
+    # original locator. An older cache can retain that locator but lack blobs.
+    write_state(tmp_path, [])
+    provider = provider_paths(tmp_path, "moex")
+    entry = load_source_revisions(provider)[0]
+    blob = store.root / entry["blob_storage_key"]
+    blob.unlink()
+    journal_before = revision_journal_path(provider).read_bytes()
+    write_state(tmp_path, [])
+    assert blob.read_bytes() == ORIGINAL
+    assert not blob.samefile(store.root / KEY)
+    assert revision_journal_path(provider).read_bytes() == journal_before
+
+
+@pytest.mark.parametrize("damage", ["missing", "changed", "corrupt_blob"])
+def test_existing_revision_loss_blocks_state_write_without_rebinding_bytes(tmp_path, damage):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    write_state(tmp_path, [paper()])
+    write_state(tmp_path, [])
+    provider = provider_paths(tmp_path, "moex")
+    entry = load_source_revisions(provider)[0]
+    blob = store.root / entry["blob_storage_key"]
+    if damage == "corrupt_blob":
+        blob.write_bytes(REVISED)
+    else:
+        blob.unlink()
+        if damage == "missing":
+            (store.root / KEY).unlink()
+        else:
+            (store.root / KEY).write_bytes(REVISED)
+    before = {p: p.read_bytes() for p in provider.data_dir.rglob("*.json")}
+    with pytest.raises(ValueError, match="checksum-verified original|revision checksum mismatch"):
+        write_state(tmp_path, [paper(REVISED)])
+    assert {p: p.read_bytes() for p in provider.data_dir.rglob("*.json")} == before

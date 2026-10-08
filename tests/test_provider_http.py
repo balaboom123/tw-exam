@@ -251,7 +251,6 @@ TRANSPORT_EXCEPTIONS = {
     "moex/client.py": "pinned TWCA context with bespoke charset and filename parsing",
     "rcpet_cap/client.py": "Google Drive confirmation flow reads the redirected URL",
     "teacher_qual/client.py": "a fresh cookie session per listing request",
-    "wdasec_skill/client.py": "ASP.NET view-state session with strict decoding",
 }
 def test_only_listed_modules_open_network_connections_themselves():
     providers = Path(__file__).resolve().parents[1] / "app" / "providers"

@@ -167,6 +167,21 @@ Use the official Taoyuan elementary teacher-recruitment source and its linked pa
 
 Use official Taiwan Insurance Institute examination pages and administered paper material. Annual reports, product brochures, and other institute publications are not exam questions.
 
+Read dated anchors only from historical-paper rows. Preserve separate sections,
+morning/afternoon papers and corrected answers; a revision date does not change
+the examination date. For the official history ZIP, retain the original package
+and use its exact member paths as provenance for extracted papers. Discovery
+must use those listings, rather than the first download on an introduction page.
+
+The source omits a TLS intermediate. The adapter supplies the issuer's
+[2023 G3 certificate](https://www.twca.com.tw/upload/saveArea/filePage/20240327/9a2b62d266824935ac33759f90cd1e23/9a2b62d266824935ac33759f90cd1e23.pdf)
+while retaining system roots, complete-chain validation and hostname checking.
+Do not bypass certificate verification when the source rotates its certificate.
+
+The reviewed redistribution hold remains separate from acquisition correctness.
+It applies to public mirror releases as well as site bundles. Keep verified local
+mirrors and source revisions for recovery until a republication grant is established.
+
 ## `tocfl_cert`
 
 Use official TOCFL paper and mock-test banks while preserving whether material has a stable event identity. Rolling mock resources must not receive synthetic current-year identities.

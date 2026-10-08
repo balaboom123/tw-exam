@@ -141,8 +141,9 @@ class Http:
         method: str = "GET",
         data: bytes | None = None,
         timeout: int = 60,
+        request_headers: dict[str, str] | None = None,
     ) -> tuple[bytes, Message, int]:
-        headers = {**self.headers, "User-Agent": self.user_agent}
+        headers = {**self.headers, "User-Agent": self.user_agent, **(request_headers or {})}
         if data is not None:
             headers["Content-Type"] = "application/x-www-form-urlencoded"
         for attempt in range(self.max_attempts):

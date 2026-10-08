@@ -322,6 +322,9 @@ def sync_exam_pages(
     refresh_files: bool = False,
 ) -> tuple[list[SourceExamPage], NormalizedCatalog, list[SyncFailure]]:
     refresh_files = refresh_files or bool(getattr(client, "refresh_files_on_sync", False))
+    download_attachments = download_attachments or bool(
+        getattr(client, "download_attachments_on_sync", False)
+    )
     raw_pages: list[SourceExamPage] = []
     normalized_papers = []
     review_queue = []

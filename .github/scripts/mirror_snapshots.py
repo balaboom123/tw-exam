@@ -798,7 +798,7 @@ def hydrate(root: Path, repository: str, provider: str):
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("save", "restore", "hydrate"))
+    parser.add_argument("command", choices=("save", "restore", "hydrate", "cache-policy"))
     parser.add_argument("--repo-root", type=Path, default=ROOT)
     parser.add_argument("--repository", default=os.environ.get("GITHUB_REPOSITORY"))
     parser.add_argument("--provider", required=True)
@@ -806,10 +806,20 @@ def main() -> int:
     parser.add_argument("--manifest-sha256")
     parser.add_argument("--allow-missing", action="store_true")
     args = parser.parse_args()
-    if not args.repository or not re.fullmatch(r"[\w.-]+/[\w.-]+", args.repository):
+    if args.command != "cache-policy" and (
+        not args.repository or not re.fullmatch(r"[\w.-]+/[\w.-]+", args.repository)
+    ):
         parser.error("--repository owner/repo is required")
     try:
-        if args.command == "save":
+        if args.command == "cache-policy":
+            get_provider(args.provider)
+            source = args.repo_root / "mirror/providers" / args.provider
+            eligible = cacheable(args.repo_root, args.provider) if source.exists() else False
+            if output := os.environ.get("GITHUB_OUTPUT"):
+                with open(output, "a", encoding="utf-8") as stream:
+                    stream.write(f"cacheable={str(eligible).lower()}\n")
+            print(f"{args.provider} mirror cache eligible: {eligible}")
+        elif args.command == "save":
             validate_public_backup_provider(args.provider)
             if output := os.environ.get("GITHUB_OUTPUT"):
                 with open(output, "a", encoding="utf-8") as stream:

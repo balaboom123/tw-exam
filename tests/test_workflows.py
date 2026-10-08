@@ -1671,6 +1671,29 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(fail["run"], "exit 1")
         self.assertFalse(any("commit-and-push" in step.get("run", "") for step in steps))
 
+    def test_restricted_sources_save_private_cache_without_uploading_public_snapshots(self) -> None:
+        steps = self.reusable["jobs"]["sync"]["steps"]
+        budget = next(step for step in steps if step.get("id") == "private_cache")
+        save = next(step for step in steps if step.get("uses", "").startswith("actions/cache/save@"))
+        self.assertIn("!inputs.durable_snapshot", budget["if"])
+        self.assertIn("steps.sync.outcome != 'skipped'", budget["if"])
+        self.assertIn('mirror_snapshots.py cache-policy --provider "$PROVIDER_ID"', budget["run"])
+        self.assertIn("steps.private_cache.outputs.cacheable == 'true'", save["if"])
+        self.assertLess(steps.index(budget), steps.index(save))
+        self.assertNotIn("GH_TOKEN", budget.get("env", {}))
+
+    def test_certification_retry_selector_preserves_scheduled_provider_scope(self) -> None:
+        caller = self.workflows["sync-certifications.yml"]
+        selector = caller["on"]["workflow_dispatch"]["inputs"]["provider_id"]
+        rows = caller["jobs"]["sync"]["strategy"]["matrix"]["include"]
+        providers = {row["provider_id"] for row in rows}
+        self.assertEqual(set(selector["options"]), {"all", *providers})
+        self.assertEqual(selector["default"], "all")
+        self.assertEqual(caller["jobs"]["sync"]["with"]["enabled"],
+                         "${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}")
+        self.assertIn("schedule", caller["on"])
+        self.assertEqual(len(rows), 10)
+
     def test_admissions_recovery_selector_leaves_the_scheduled_matrix_intact(self) -> None:
         caller = self.workflows["sync-admissions.yml"]
         inputs = caller["on"]["workflow_dispatch"]["inputs"]
@@ -1775,6 +1798,9 @@ class HakkaPrivateMirrorTests(unittest.TestCase):
         jlpt = next(row for row in rows if row['provider_id'] == 'jlpt_cert')
         self.assertIs(jlpt['publish'], False)
         self.assertIs(jlpt['durable_snapshot'], False)
+        tii = next(row for row in rows if row['provider_id'] == 'tii_cert')
+        self.assertIs(tii['publish'], False)
+        self.assertIs(tii['durable_snapshot'], False)
         self.assertIn('schedule', weekly['on'])
 
     def test_hakka_is_manual_only_and_never_writes_a_public_snapshot(self) -> None:

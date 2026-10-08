@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import patch
+from urllib.error import URLError
 from urllib.parse import parse_qs
 
 from app.providers.wdasec_skill.client import (
@@ -161,10 +162,55 @@ class HiddenFieldParserTests(unittest.TestCase):
 
 
 class WdasecSkillClientPostTests(unittest.TestCase):
+    def test_timeout_retry_keeps_session_fields_and_post_headers(self) -> None:
+        client = WdasecSkillClient()
+        client._hidden_fields = parse_hidden_fields(CATEGORY_LISTING_HTML)
+        with (
+            patch.object(client.http, "_open", side_effect=[URLError(TimeoutError()), _FakeResponse()]) as open_request,
+            patch("app.providers.http.time.sleep"),
+        ):
+            client._post({"__EVENTTARGET": "gvData", "__EVENTARGUMENT": "Page$2"})
+        self.assertEqual(open_request.call_count, 2)
+        first, second = [call.args[0] for call in open_request.call_args_list]
+        self.assertEqual(first.data, second.data)
+        payload = parse_qs(first.data.decode("utf-8"))
+        self.assertEqual(payload["__VIEWSTATE"], ["FAKE_VS_2"])
+        self.assertEqual(payload["gvData$ctl02$hdfPLAID"], ["202603160001"])
+        self.assertEqual(payload["__EVENTARGUMENT"], ["Page$2"])
+        self.assertEqual(first.get_header("Referer"), PAGE_URL)
+        self.assertEqual(first.get_header("Origin"), "https://owinform.wdasec.gov.tw")
+        self.assertEqual(client._hidden_fields["__VIEWSTATE"], "FAKE_VS_1")
+        with patch.object(client.http, "_open", return_value=_FakeResponse()) as get_request:
+            client._get(PAGE_URL)
+        self.assertIsNone(get_request.call_args.args[0].get_header("Referer"))
+        self.assertIsNone(get_request.call_args.args[0].get_header("Origin"))
+
+    def test_invalid_utf8_keeps_last_valid_session_state(self) -> None:
+        client = WdasecSkillClient()
+        client._hidden_fields = {"__VIEWSTATE": "retained"}
+        for method in [lambda: client._get(PAGE_URL), lambda: client._post({})]:
+            with patch.object(client.http, "_request", return_value=(b"\xff", {}, 200)):
+                with self.assertRaises(UnicodeDecodeError):
+                    method()
+            self.assertEqual(client._hidden_fields, {"__VIEWSTATE": "retained"})
+
+    def test_get_retries_timeout_and_uses_same_cookie_opener(self) -> None:
+        client = WdasecSkillClient()
+        opener = client.http._opener
+        with (
+            patch.object(opener, "open", side_effect=[TimeoutError(), _FakeResponse()]) as open_request,
+            patch("app.providers.http.time.sleep"),
+        ):
+            html = client._get(PAGE_URL)
+        self.assertEqual(open_request.call_count, 2)
+        self.assertEqual(html, INITIAL_PAGE_HTML)
+        self.assertIs(client.http._opener, opener)
+        self.assertEqual(client._hidden_fields["__VIEWSTATE"], "FAKE_VS_1")
+
     def test_post_replays_listing_row_hidden_fields(self) -> None:
         opener = _CapturingOpener()
         client = WdasecSkillClient()
-        client._opener = opener
+        client.http._opener = opener
         client._hidden_fields = parse_hidden_fields(CATEGORY_LISTING_HTML)
 
         client._post({"__EVENTTARGET": "gvData", "__EVENTARGUMENT": "order$0"})

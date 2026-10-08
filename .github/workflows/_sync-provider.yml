@@ -127,8 +127,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/mirror_snapshots.py save --provider "$PROVIDER_ID" --repository "${{ github.repository }}" --generation "${{ github.run_id }}-${{ github.run_attempt }}"
 
+      - name: Check private mirror cache budget
+        id: private_cache
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && !inputs.durable_snapshot }}
+        run: python .github/scripts/mirror_snapshots.py cache-policy --provider "$PROVIDER_ID"
+
       - name: Save mirror directory
-        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && steps.durable.outputs.cacheable == 'true' }}
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && (steps.durable.outputs.cacheable == 'true' || steps.private_cache.outputs.cacheable == 'true') }}
         uses: actions/cache/save@v6
         with:
           path: mirror

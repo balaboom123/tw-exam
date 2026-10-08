@@ -3,13 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from http.cookiejar import CookieJar
-from pathlib import Path
-from urllib.parse import unquote, urlencode, urljoin, urlparse
-from urllib.request import HTTPCookieProcessor, Request, build_opener
+from urllib.parse import urlencode, urljoin
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.http import Http
 
 BASE_URL = "https://owinform.wdasec.gov.tw/ExamNet/owInform/"
 PAGE_URL = "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
@@ -279,16 +277,13 @@ class WdasecSkillClient:
     provider_id = "wdasec_skill"
 
     def __init__(self) -> None:
-        self._cookie_jar = CookieJar()
-        self._opener = build_opener(HTTPCookieProcessor(self._cookie_jar))
+        self.http = Http(self.provider_id, cookies=True, min_interval=0.25, user_agent=USER_AGENT)
         self._hidden_fields: dict[str, str] = {}
         self._listing_rows_cache: tuple[ListingRow, ...] | None = None
 
     def _get(self, url: str) -> str:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with self._opener.open(request, timeout=60) as response:
-            body: bytes = response.read()
-            html = body.decode("utf-8")
+        body, _headers, _status = self.http._request(url)
+        html = body.decode("utf-8")
         self._hidden_fields = parse_hidden_fields(html)
         return html
 
@@ -298,43 +293,24 @@ class WdasecSkillClient:
         payload.setdefault("__EVENTARGUMENT", "")
         payload.update(extra_fields)
         data = urlencode(payload).encode("utf-8")
-        request = Request(
+        body, _headers, _status = self.http._request(
             PAGE_URL,
+            method="POST",
             data=data,
-            headers={
-                "User-Agent": USER_AGENT,
-                "Content-Type": "application/x-www-form-urlencoded",
+            request_headers={
                 "Referer": PAGE_URL,
                 "Origin": "https://owinform.wdasec.gov.tw",
             },
         )
-        with self._opener.open(request, timeout=60) as response:
-            body: bytes = response.read()
-            html = body.decode("utf-8")
+        html = body.decode("utf-8")
         self._hidden_fields = parse_hidden_fields(html)
         return html
 
     def head(self, url: str) -> ResponseMetadata:
-        request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
-        with self._opener.open(request, timeout=60) as response:
-            content_length = response.headers.get("Content-Length")
-            return ResponseMetadata(
-                url=url,
-                status=response.status,
-                content_length=int(content_length) if content_length else None,
-                content_type=response.headers.get("Content-Type", ""),
-                content_disposition=response.headers.get("Content-Disposition", ""),
-                cache_control=response.headers.get("Cache-Control", ""),
-            )
+        return self.http.head(url)
 
     def download_file(self, url: str) -> DownloadedFile:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
-        with self._opener.open(request, timeout=120) as response:
-            return DownloadedFile(
-                data=response.read(),
-                content_type=response.headers.get("Content-Type", "application/octet-stream"),
-                file_name=Path(unquote(urlparse(url).path)).name,
-            )
+        return self.http.download(url, content_disposition_name=False)
 
     def fetch_category_listing(self, *, category: str = "btnSelectA") -> str:
         self._get(PAGE_URL)

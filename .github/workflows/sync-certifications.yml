@@ -2,6 +2,23 @@ name: sync-certifications
 
 on:
   workflow_dispatch:
+    inputs:
+      provider_id:
+        description: "Sync one certification provider or all providers"
+        type: choice
+        default: all
+        options:
+          - all
+          - gept_cert
+          - ipas_cert
+          - jlpt_cert
+          - sfi_cert
+          - tabf_cert
+          - taigi_cert
+          - tii_cert
+          - tocfl_cert
+          - tqc_cert
+          - wdasec_skill
   schedule:
     - cron: "20 5 * * 3"
 
@@ -53,7 +70,7 @@ jobs:
             publish: false
             prune_orphaned_mirror: false
           - provider_id: tii_cert
-            durable_snapshot: true
+            durable_snapshot: false
             cache_prefix: tii-cert
             timeout_minutes: 30
             publish: false
@@ -79,6 +96,7 @@ jobs:
     uses: ./.github/workflows/_sync-provider.yml
     with:
       provider_id: ${{ matrix.provider_id }}
+      enabled: ${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}
       cache_prefix: ${{ matrix.cache_prefix }}
       timeout_minutes: ${{ matrix.timeout_minutes }}
       publish: ${{ matrix.publish }}
