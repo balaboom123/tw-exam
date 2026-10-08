@@ -19,6 +19,23 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_public_titles_show_an_identical_programme_and_level_label_once(self) -> None:
+        for occupation, programme, level, title in (
+            ("食品技師", "高等考試食品技師考試", "professional-high", "專技高考｜食品技師"),
+            ("專責報關人員", "普通考試專責報關人員考試", "professional-ordinary", "專技普考｜專責報關人員"),
+        ):
+            with self.subTest(occupation=occupation):
+                identity = classify(occupation, f"115年專門職業及技術人員{programme}")
+                self.assertEqual(identity.bundle_name, title)
+                self.assertEqual(identity.level_id, level)
+                self.assertEqual(identity.exam_series_id, level)
+        civil = classify("三等考試_一般行政", "115年公務人員高等考試三級考試")
+        self.assertIn("三級", civil.bundle_name)
+        self.assertEqual(civil.level_id, "grade-3")
+        staged = classify("專技高考_大地工程技師(二)", "115年專門職業及技術人員高等考試技師考試")
+        self.assertEqual(staged.bundle_name, "專技高考｜大地工程技師｜第二階段")
+        self.assertEqual(staged.stage_id, "stage-2")
+
     def test_generic_combined_professional_heading_keeps_each_qualification_level(self) -> None:
         for heading in ("高等暨普通考試", "高等、普通考試"):
             for occupation, level in (

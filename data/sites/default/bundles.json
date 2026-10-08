@@ -80933,7 +80933,7 @@
     },
     {
       "canonical_id": "canonical-d1c2b44b8b106ac9",
-      "canonical_name": "專技高考｜專技高考｜會計師",
+      "canonical_name": "專技高考｜會計師",
       "years": [
         115,
         114,
@@ -80967,7 +80967,7 @@
       "asset_name": "moex-professional-high-professional-high-accountant--d15d00d649bf.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-accountant--d15d00d649bf.zip",
-      "checksum": "a8cdc29f3970787f5715b3acc890413d4b1e1f62ef6b037d53f9ef1bbc28bfd0",
+      "checksum": "e6230c5546f21a6213c7470f89a612ddcf9142fd22ef6d48faaa7521b5e3e49a",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-accountant",
       "catalog_version": "exam-identity-v2",
@@ -81014,7 +81014,7 @@
     },
     {
       "canonical_id": "dietitian",
-      "canonical_name": "專技高考｜專技高考｜營養師",
+      "canonical_name": "專技高考｜營養師",
       "years": [
         115,
         114,
@@ -81038,7 +81038,7 @@
       "asset_name": "moex-professional-high-professional-high-dietitian--1f36daca3ff6.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-dietitian--1f36daca3ff6.zip",
-      "checksum": "17023da911720e8aa8d4f5ff5ee013fee5d7703794c5b6bfbb9e365e345c3136",
+      "checksum": "01e243ef90752b41c8460d1b3296453ff56a06f2f28233385fdcf7ed81e79596",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-dietitian",
       "catalog_version": "exam-identity-v2",
@@ -81085,7 +81085,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師",
+      "canonical_name": "專技高考｜律師",
       "years": [
         101,
         100,
@@ -81105,7 +81105,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer--787a40365cd5.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer--787a40365cd5.zip",
-      "checksum": "f296d25b31c377217bf889abbac2bdc2ac7e0232d4bfa78f03e1ff8300a2022a",
+      "checksum": "70bf7c92242e47c2755204ae572ec63483b3711de1ce2388e297eaa0ec5d5cf1",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer",
       "catalog_version": "exam-identity-v2",
@@ -81152,7 +81152,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師｜選試財稅法｜第二試",
+      "canonical_name": "專技高考｜律師｜選試財稅法｜第二試",
       "years": [
         114,
         113,
@@ -81171,7 +81171,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer-elective-language-0ebfea3a15dc-stage-2--3b084c6d0643.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer-elective-language-0ebfea3a15dc-stage-2--3b084c6d0643.zip",
-      "checksum": "3af4e6b65071917b928378e821c6584582bc34b66a9d27c3ba1ed89f2f03e16e",
+      "checksum": "f0ad04159e41a9191763e03b8be61ac30483e34d949728260141b58c7cee2903",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer-elective-language-0ebfea3a15dc-stage-2",
       "catalog_version": "exam-identity-v2",
@@ -81220,7 +81220,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師｜選試海商法與海洋法｜第二試",
+      "canonical_name": "專技高考｜律師｜選試海商法與海洋法｜第二試",
       "years": [
         114,
         113,
@@ -81239,7 +81239,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer-elective-language-35742b820d2a-stage-2--3651e4cd0460.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer-elective-language-35742b820d2a-stage-2--3651e4cd0460.zip",
-      "checksum": "9dab877667ae5d58db382efb035a21a73bf839be08dc9ae19e91f519de3e835a",
+      "checksum": "d1a8d1eb7bf294b866eb96344dd6c4176a5fe0c5baa3c16a623bc148c4cc28ec",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer-elective-language-35742b820d2a-stage-2",
       "catalog_version": "exam-identity-v2",
@@ -81288,7 +81288,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師｜選試智慧財產法｜第二試",
+      "canonical_name": "專技高考｜律師｜選試智慧財產法｜第二試",
       "years": [
         114,
         113,
@@ -81307,7 +81307,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer-elective-language-704c38f7605b-stage-2--b7e68004fb90.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer-elective-language-704c38f7605b-stage-2--b7e68004fb90.zip",
-      "checksum": "ecdf252240de2a8d28cd8d9851e3ab7d72e21c54f4b32eff4f41bdb16f1574a1",
+      "checksum": "28e5ed314d194d76e40bcfd6caf3b1d4cc2bdedbfb2ced544107a02c67efd787",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer-elective-language-704c38f7605b-stage-2",
       "catalog_version": "exam-identity-v2",
@@ -81356,7 +81356,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師｜選試勞動社會法｜第二試",
+      "canonical_name": "專技高考｜律師｜選試勞動社會法｜第二試",
       "years": [
         114,
         113,
@@ -81375,7 +81375,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer-elective-language-f6d293ea424f-stage-2--04a91c67bc58.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer-elective-language-f6d293ea424f-stage-2--04a91c67bc58.zip",
-      "checksum": "0dae4047a1261487663189b425bc33d88d71a8dc79981ab73fbfad4bd5897b06",
+      "checksum": "d65b2325ea832b1abab6f7da5bb11d353398946f7aed56a7879262bc74016357",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer-elective-language-f6d293ea424f-stage-2",
       "catalog_version": "exam-identity-v2",
@@ -81424,7 +81424,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師｜第一試",
+      "canonical_name": "專技高考｜律師｜第一試",
       "years": [
         115,
         114,
@@ -81446,7 +81446,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer-stage-1--62889083ae4a.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer-stage-1--62889083ae4a.zip",
-      "checksum": "751358d70a1d3a351a1debf42d0c093a54af0482e35390760767c5dfb8316479",
+      "checksum": "ac672d5ec9e9387dc03f10dc8fde57ae260abdc1c3579d62fca72b61584568d0",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer-stage-1",
       "catalog_version": "exam-identity-v2",
@@ -81493,7 +81493,7 @@
     },
     {
       "canonical_id": "canonical-96f468d6b8432b0c",
-      "canonical_name": "專技高考｜專技高考｜律師｜第二試",
+      "canonical_name": "專技高考｜律師｜第二試",
       "years": [
         103,
         102,
@@ -81505,7 +81505,7 @@
       "asset_name": "moex-professional-high-professional-high-lawyer-stage-2--4b4d50ff1c64.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-lawyer-stage-2--4b4d50ff1c64.zip",
-      "checksum": "f7e65b42aff675adb86ffd435b69c56247a5a5ee6703bc97469ddfbda62cf7f3",
+      "checksum": "1b1068f836a56579f788d9c11dff0f7b4f7be88fce98446144ed536d8931c52b",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-lawyer-stage-2",
       "catalog_version": "exam-identity-v2",
@@ -81552,7 +81552,7 @@
     },
     {
       "canonical_id": "nurse",
-      "canonical_name": "專技高考｜專技高考｜護理師",
+      "canonical_name": "專技高考｜護理師",
       "years": [
         115,
         114,
@@ -81576,7 +81576,7 @@
       "asset_name": "moex-professional-high-professional-high-nurse--3becf79dad64.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-nurse--3becf79dad64.zip",
-      "checksum": "5493c974a8adefac954b9803b3394f88dbefa5f460718c7c08de445d8f58a8bc",
+      "checksum": "34d195a9189e9db5a5c3c439c327db50e3cda8cf9eaa1d11b244de568fb76a24",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-nurse",
       "catalog_version": "exam-identity-v2",
@@ -81623,7 +81623,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及電子學",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及電子學",
       "years": [
         115,
         114,
@@ -81648,7 +81648,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-40064aa74cef--47b2a13f87dc.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-40064aa74cef--47b2a13f87dc.zip",
-      "checksum": "6b057368a8077b9675d44666a48cf9a89471c129deb97dd2411a584bee314d82",
+      "checksum": "961006a0dbb0b496fb803fac6b71da366287506044ebad129065c2ef62d319b0",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-40064aa74cef",
       "catalog_version": "exam-identity-v2",
@@ -81697,7 +81697,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及工程力學",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及工程力學",
       "years": [
         115,
         114,
@@ -81722,7 +81722,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-4bfc0fe9ae3d--c11fff473c11.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-4bfc0fe9ae3d--c11fff473c11.zip",
-      "checksum": "d2e1bd8019379282ab6b2e62d91fa1f2e362cd29d85116a0022e0ff8e215ce5c",
+      "checksum": "54c5d7a7e31561db9dc49bccf34cf6b37debf54ccbcbdf2d6b795dc7ddcbb1e6",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-4bfc0fe9ae3d",
       "catalog_version": "exam-identity-v2",
@@ -81771,7 +81771,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及電子學",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及電子學",
       "years": [
         115,
         114,
@@ -81796,7 +81796,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-540e2cf9a014--c97adc0e4f3f.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-540e2cf9a014--c97adc0e4f3f.zip",
-      "checksum": "3accb7ddaf9e64cdd66ab7af7b781a5e579909f33e3fc12413e485197deb2bfb",
+      "checksum": "3e7e01ef6ad016d8ce68b2f61282122df81d81599d93fd89f7070636502487a7",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-540e2cf9a014",
       "catalog_version": "exam-identity-v2",
@@ -81845,7 +81845,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及工業設計",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及工業設計",
       "years": [
         115,
         114,
@@ -81863,7 +81863,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-56c994dfc25d--8a642c0985ff.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-56c994dfc25d--8a642c0985ff.zip",
-      "checksum": "19017756feeea2657c50d028b636704affe4b42e9fc35efc4f179b7a1e57544a",
+      "checksum": "64c1b786ce830fbbb6864dead8586bdb5c1924b867c1953c82f5bb7ff29b122a",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-56c994dfc25d",
       "catalog_version": "exam-identity-v2",
@@ -81912,7 +81912,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及工業設計",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及工業設計",
       "years": [
         115,
         114,
@@ -81930,7 +81930,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-5bfb7d1fbfc8--a7c5cd5a69ba.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-5bfb7d1fbfc8--a7c5cd5a69ba.zip",
-      "checksum": "c1ca875529ba8abdabdd69e4ba7cca8dd9744c2fc5d0208ab348822be7b81b23",
+      "checksum": "37e9b5ec4cf2528167781aad67b423c4e9b1bfec54612d14730b622f42c3293f",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-5bfb7d1fbfc8",
       "catalog_version": "exam-identity-v2",
@@ -81979,7 +81979,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及計算機結構",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及計算機結構",
       "years": [
         115,
         114,
@@ -82001,7 +82001,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-683552bb7317--60267576386d.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-683552bb7317--60267576386d.zip",
-      "checksum": "5d698463211552223e4e0e31f286ccdda163e4cea5a62b12444a2378f6a7f161",
+      "checksum": "5f640e7a986bd65122a9b4a30f7db6b9edb5e337c0a83292ea9cb9585a6d2929",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-683552bb7317",
       "catalog_version": "exam-identity-v2",
@@ -82050,7 +82050,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及生物技術",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及生物技術",
       "years": [
         115,
         114,
@@ -82075,7 +82075,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-89569bb29706--aed02ac8b773.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-89569bb29706--aed02ac8b773.zip",
-      "checksum": "6d5eb9c1a3fcd2e12b01af0ccac72b6ad4a87c1c9943fe970d2307f7a0385c23",
+      "checksum": "cbc436be43f5d7e185bf65a75b2f017adca17bd5aa2efbffd7255eb015241d7b",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-89569bb29706",
       "catalog_version": "exam-identity-v2",
@@ -82124,7 +82124,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及物理化學",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及物理化學",
       "years": [
         115,
         114,
@@ -82149,7 +82149,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-8abf6b49368e--ca482228dd52.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-8abf6b49368e--ca482228dd52.zip",
-      "checksum": "c9268918f272caa05c53cb4d456e149f2b67007af8b506b880387710599fe1fb",
+      "checksum": "9bf405fffc7a999d5e4053addb7c97d5c2e48cb875e9af063c694e4e5200643d",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-8abf6b49368e",
       "catalog_version": "exam-identity-v2",
@@ -82198,7 +82198,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及基本設計",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及基本設計",
       "years": [
         105,
         104,
@@ -82213,7 +82213,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-8f6203b413b5--eb8ba0a958d1.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-8f6203b413b5--eb8ba0a958d1.zip",
-      "checksum": "b4ab36fae5370349d673b03db168157f6390251f00a0473e8073d07c2b9e8a6b",
+      "checksum": "20c41e936f890e089b7500b478134557b74d7f8b56bee06043064127c7d97a27",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-8f6203b413b5",
       "catalog_version": "exam-identity-v2",
@@ -82262,7 +82262,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及基本設計",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及基本設計",
       "years": [
         105,
         104,
@@ -82277,7 +82277,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-bb03dd44af80--8944b0712910.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-bb03dd44af80--8944b0712910.zip",
-      "checksum": "c1b427808090f6c7d9af0fa05360ed35c335685cbc14816c1f369bd61209bba7",
+      "checksum": "4d9c61bfd67f5d3bda968391dd5efee153995f65dec24a889f65b54f3742769a",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-bb03dd44af80",
       "catalog_version": "exam-identity-v2",
@@ -82326,7 +82326,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及工程力學",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及工程力學",
       "years": [
         115,
         114,
@@ -82351,7 +82351,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-d29b4d0be280--066a83f7e7ac.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-d29b4d0be280--066a83f7e7ac.zip",
-      "checksum": "ff00a406b3dc59409b06b4e6b1839eb00917526b0866521691f675a240669f0c",
+      "checksum": "389c6575aac41b5c05f6bdced0108f75bb7a760e7e22534aff8e40bd8041e35c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-d29b4d0be280",
       "catalog_version": "exam-identity-v2",
@@ -82400,7 +82400,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業日文及生物技術",
+      "canonical_name": "專技高考｜專利師｜選試專業日文及生物技術",
       "years": [
         115,
         114,
@@ -82425,7 +82425,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-d2badaec0825--2bbc7b157652.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-d2badaec0825--2bbc7b157652.zip",
-      "checksum": "f32bfa7f297376d599441333a3ab65326065ebd063c23177d51e19c2213b90a8",
+      "checksum": "aa4fc5a987e6261a3222f97e7567e7053f3886c41f8f56adcddffb6cec4d373f",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-d2badaec0825",
       "catalog_version": "exam-identity-v2",
@@ -82474,7 +82474,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及物理化學",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及物理化學",
       "years": [
         115,
         114,
@@ -82499,7 +82499,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-e63d629dce6a--492857eac17b.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-e63d629dce6a--492857eac17b.zip",
-      "checksum": "d4df90dbf4d223d530f87f6f6da5f3c7d4b95c00113056eca2dd06b19f88af1c",
+      "checksum": "0ea41b25a867c1eb50131cea3231d7c2cd74535b8033d190626495ba78cad3c7",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-e63d629dce6a",
       "catalog_version": "exam-identity-v2",
@@ -82548,7 +82548,7 @@
     },
     {
       "canonical_id": "canonical-28ca50967564b8c0",
-      "canonical_name": "專技高考｜專技高考｜專利師｜選試專業英文及計算機結構",
+      "canonical_name": "專技高考｜專利師｜選試專業英文及計算機結構",
       "years": [
         115,
         114,
@@ -82571,7 +82571,7 @@
       "asset_name": "moex-professional-high-professional-high-patent-attorney-elective-language-eeeead74b286--c92607408b2d.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-patent-attorney-elective-language-eeeead74b286--c92607408b2d.zip",
-      "checksum": "3c9639f07b0b203a46aa22aab20eb95865fb778bec89f85b468ec57617c874cd",
+      "checksum": "68fff87c24f963b57b24c7bebc23fc51df351de5c131cc047696f5ee2d6d5798",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-patent-attorney-elective-language-eeeead74b286",
       "catalog_version": "exam-identity-v2",
@@ -82620,7 +82620,7 @@
     },
     {
       "canonical_id": "social-worker",
-      "canonical_name": "專技高考｜專技高考｜社會工作師",
+      "canonical_name": "專技高考｜社會工作師",
       "years": [
         115,
         114,
@@ -82658,7 +82658,7 @@
       "asset_name": "moex-professional-high-professional-high-social-worker--3ba5c46861f0.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-social-worker--3ba5c46861f0.zip",
-      "checksum": "6c93f1089b925443caf38504458a4c4e467106a27d4a5e9f4d34f7f0961167c4",
+      "checksum": "b3b53bf2fc2bf1848d7b9a0c0884866ac540ac28daf26f5c0fa5061237760b93",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-social-worker",
       "catalog_version": "exam-identity-v2",
@@ -82705,7 +82705,7 @@
     },
     {
       "canonical_id": "canonical-066339cf4516a17a",
-      "canonical_name": "專技高考｜專技高考｜物理治療師",
+      "canonical_name": "專技高考｜物理治療師",
       "years": [
         115,
         114,
@@ -82729,7 +82729,7 @@
       "asset_name": "moex-professional-high-professional-high-track-066339cf4516--364dad664eea.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-066339cf4516--364dad664eea.zip",
-      "checksum": "1d5b6f00157f4d77cf74582f508712438a657606205285f57f4b3e1a30781617",
+      "checksum": "21f6ebdeb471488460a59b3647965067ffef7bd3f819d438b9597d65839cf515",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-066339cf4516",
       "catalog_version": "exam-identity-v2",
@@ -82776,7 +82776,7 @@
     },
     {
       "canonical_id": "canonical-0c52fcbadb75d905",
-      "canonical_name": "專技高考｜專技高考｜藥師(二)",
+      "canonical_name": "專技高考｜藥師(二)",
       "years": [
         115,
         114,
@@ -82796,7 +82796,7 @@
       "asset_name": "moex-professional-high-professional-high-track-0c52fcbadb75--aabe073b2230.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-0c52fcbadb75--aabe073b2230.zip",
-      "checksum": "f697aab682b9f21b57fd39cdbf3547ea7ffc5e69b3d101c04cd5c6377048efba",
+      "checksum": "fb206ce6492b8925f9da1fce3d55919cc4427e6710fb1cda686d10b6636bec29",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-0c52fcbadb75",
       "catalog_version": "exam-identity-v2",
@@ -82843,7 +82843,7 @@
     },
     {
       "canonical_id": "canonical-1074f009b3157999",
-      "canonical_name": "專技高考｜專技高考｜電子工程技師",
+      "canonical_name": "專技高考｜電子工程技師",
       "years": [
         114,
         113,
@@ -82873,7 +82873,7 @@
       "asset_name": "moex-professional-high-professional-high-track-1074f009b315--1739ca543db0.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-1074f009b315--1739ca543db0.zip",
-      "checksum": "113e4b3a4d4b52b5d11eb100d4560d10f490d9ab59001e7a2cba5773c26c9d2f",
+      "checksum": "db5baf25713f89b3bcf74f86322d8339346b487e90463fc281494600d49b4d55",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-1074f009b315",
       "catalog_version": "exam-identity-v2",
@@ -82920,7 +82920,7 @@
     },
     {
       "canonical_id": "canonical-15ad8ceb94ce8110",
-      "canonical_name": "專技高考｜專技高考｜醫師(二)",
+      "canonical_name": "專技高考｜醫師(二)",
       "years": [
         115,
         114,
@@ -82944,7 +82944,7 @@
       "asset_name": "moex-professional-high-professional-high-track-15ad8ceb94ce--e8a339719250.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-15ad8ceb94ce--e8a339719250.zip",
-      "checksum": "17cd93ae20a68db11452cb70d5e6eb82e2ee0e1feefc330b0862c6210e5f9ff5",
+      "checksum": "dfa17490c5cd606027d14e4b96e7b54ae266ef0ea17b4cbd1803abb71e609bb0",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-15ad8ceb94ce",
       "catalog_version": "exam-identity-v2",
@@ -82991,7 +82991,7 @@
     },
     {
       "canonical_id": "canonical-18cfe1aaa4d40cc3",
-      "canonical_name": "專技高考｜專技高考｜牙醫師(二)",
+      "canonical_name": "專技高考｜牙醫師(二)",
       "years": [
         115,
         114,
@@ -83017,7 +83017,7 @@
       "asset_name": "moex-professional-high-professional-high-track-18cfe1aaa4d4--3de3a8462e8f.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-18cfe1aaa4d4--3de3a8462e8f.zip",
-      "checksum": "9b0251fb4d9530b3fe3ad73632fcf154cfc9a3c892cb3813c989ca92c34a9163",
+      "checksum": "26ac2c7aa377fa357e72cba4188fdbcae717a77c6d0583d85fe3b637e086d1c3",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-18cfe1aaa4d4",
       "catalog_version": "exam-identity-v2",
@@ -83064,7 +83064,7 @@
     },
     {
       "canonical_id": "canonical-1a4b7577f8c366ab",
-      "canonical_name": "專技高考｜專技高考｜水利工程技師",
+      "canonical_name": "專技高考｜水利工程技師",
       "years": [
         114,
         113,
@@ -83094,7 +83094,7 @@
       "asset_name": "moex-professional-high-professional-high-track-1a4b7577f8c3--f8cc71f61540.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-1a4b7577f8c3--f8cc71f61540.zip",
-      "checksum": "7f029cccf024080a7dd93aa277da03c4cd6b5e1253a1be063038400f3642f694",
+      "checksum": "60b51be71c1a299dcecef69f5be0e8343bbfe8366d810b2fb93aa5e89a6ad73c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-1a4b7577f8c3",
       "catalog_version": "exam-identity-v2",
@@ -83141,7 +83141,7 @@
     },
     {
       "canonical_id": "canonical-1fb062baffaa2517",
-      "canonical_name": "專技高考｜專技高考｜工礦衛生技師",
+      "canonical_name": "專技高考｜工礦衛生技師",
       "years": [
         107,
         106,
@@ -83164,7 +83164,7 @@
       "asset_name": "moex-professional-high-professional-high-track-1fb062baffaa--e267a8b01bf8.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-1fb062baffaa--e267a8b01bf8.zip",
-      "checksum": "7505f5a3e38c5f82df881a4f9a50955a885189cd384b897e642c8f891da97a05",
+      "checksum": "caf1672785f7b07c72b5b4803d86ceba304b55cef58d0292a543f40301b73e4c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-1fb062baffaa",
       "catalog_version": "exam-identity-v2",
@@ -83211,7 +83211,7 @@
     },
     {
       "canonical_id": "canonical-21589f0d87b54813",
-      "canonical_name": "專技高考｜專技高考｜語言治療師",
+      "canonical_name": "專技高考｜語言治療師",
       "years": [
         115,
         114,
@@ -83236,7 +83236,7 @@
       "asset_name": "moex-professional-high-professional-high-track-21589f0d87b5--7443808b8e4d.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-21589f0d87b5--7443808b8e4d.zip",
-      "checksum": "f046a116d27f7dfef152715fbe41aa24a6d6a1fddbba6647571047d9031d79af",
+      "checksum": "0758580b1e5e1810e724c65a8c66a1e11c41c0d0b9b083cf8e0a0d2044499a2a",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-21589f0d87b5",
       "catalog_version": "exam-identity-v2",
@@ -83283,7 +83283,7 @@
     },
     {
       "canonical_id": "canonical-2aaf63c6a1472791",
-      "canonical_name": "專技高考｜專技高考｜林業技師",
+      "canonical_name": "專技高考｜林業技師",
       "years": [
         114,
         113,
@@ -83313,7 +83313,7 @@
       "asset_name": "moex-professional-high-professional-high-track-2aaf63c6a147--daeeba027167.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-2aaf63c6a147--daeeba027167.zip",
-      "checksum": "cb86fd30ed29e9ea14420c863632b87c7946f341d72bf55927b0123958502859",
+      "checksum": "f1ea29ec3d5976b45fcedf9e1cd1b691fb0de307a6f04976aac6f4ea1f18f39e",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-2aaf63c6a147",
       "catalog_version": "exam-identity-v2",
@@ -83360,7 +83360,7 @@
     },
     {
       "canonical_id": "canonical-aeef40b85ea18612",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業日文及物理化學)",
+      "canonical_name": "專技高考｜專利師(專業日文及物理化學)",
       "years": [
         102,
         101
@@ -83370,7 +83370,7 @@
       "asset_name": "moex-professional-high-professional-high-track-2db3f02362cf--12568e02b0e6.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-2db3f02362cf--12568e02b0e6.zip",
-      "checksum": "c7b9d61ee6f3fdbc52bd50fb3703bc842f668c287ffebcb05748e910a8249cc8",
+      "checksum": "9dd427949899c09ceb9f88a070274861d4e259119ffeaafe1c0ccc7bab859fb4",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-2db3f02362cf",
       "catalog_version": "exam-identity-v2",
@@ -83417,7 +83417,7 @@
     },
     {
       "canonical_id": "counseling-psychologist",
-      "canonical_name": "專技高考｜專技高考｜諮商心理師",
+      "canonical_name": "專技高考｜諮商心理師",
       "years": [
         115,
         114,
@@ -83442,7 +83442,7 @@
       "asset_name": "moex-professional-high-professional-high-track-30efc314da9c--71d7c7f63bb9.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-30efc314da9c--71d7c7f63bb9.zip",
-      "checksum": "4cbcfd2df114ef022fc9586c11952fa27ff76b376718596264ae41e6f5e2634a",
+      "checksum": "d91d3ecb7a63cce4a1faa154ed8502a8612f4633f45d3c39f426f0b9052470ca",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-30efc314da9c",
       "catalog_version": "exam-identity-v2",
@@ -83489,7 +83489,7 @@
     },
     {
       "canonical_id": "canonical-30f9d36613c10a43",
-      "canonical_name": "專技高考｜專技高考｜民間之公證人",
+      "canonical_name": "專技高考｜民間之公證人",
       "years": [
         115,
         113,
@@ -83513,7 +83513,7 @@
       "asset_name": "moex-professional-high-professional-high-track-30f9d36613c1--102f4e2debac.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-30f9d36613c1--102f4e2debac.zip",
-      "checksum": "ae454f8647828f7e2a2e28f960b2c71f5346c31a763c8b31a518ce9e929866a6",
+      "checksum": "35c02c0d3db36355b00e2494bca38c95f72fc8c98de50f14bce8dcdf2a3b3caf",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-30f9d36613c1",
       "catalog_version": "exam-identity-v2",
@@ -83560,7 +83560,7 @@
     },
     {
       "canonical_id": "canonical-2d99751da94389bf",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業日文及計算機結構)",
+      "canonical_name": "專技高考｜專利師(專業日文及計算機結構)",
       "years": [
         104,
         103,
@@ -83572,7 +83572,7 @@
       "asset_name": "moex-professional-high-professional-high-track-33d23378bdfc--2bb6be9a3dbd.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-33d23378bdfc--2bb6be9a3dbd.zip",
-      "checksum": "691deaaf752d8e740df3e95103b4d8b7e9cca5b34f9b8d0349c0c2e1fc893608",
+      "checksum": "fd650402a2f3d8f49b97b8d7ba43a041c3446a5283a180085e8ef9a7125459d3",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-33d23378bdfc",
       "catalog_version": "exam-identity-v2",
@@ -83621,7 +83621,7 @@
     },
     {
       "canonical_id": "canonical-33eae2823cc1c959",
-      "canonical_name": "專技高考｜專技高考｜畜牧技師",
+      "canonical_name": "專技高考｜畜牧技師",
       "years": [
         114,
         113,
@@ -83651,7 +83651,7 @@
       "asset_name": "moex-professional-high-professional-high-track-33eae2823cc1--7fb8ec7f0d80.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-33eae2823cc1--7fb8ec7f0d80.zip",
-      "checksum": "7ada1199e6675cf8c12ec115c71d26483d6afb4d05fb6c761168858c4ac37568",
+      "checksum": "34b02846b2f45d30fca5c773d703925c224574af3ecdb9c081fcddf9211661ca",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-33eae2823cc1",
       "catalog_version": "exam-identity-v2",
@@ -83698,7 +83698,7 @@
     },
     {
       "canonical_id": "canonical-5c4d6dfc80cd08ad",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業日文及工程力學)",
+      "canonical_name": "專技高考｜專利師(專業日文及工程力學)",
       "years": [
         102,
         101
@@ -83708,7 +83708,7 @@
       "asset_name": "moex-professional-high-professional-high-track-3aa0d89c2155--8dea4a57df79.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-3aa0d89c2155--8dea4a57df79.zip",
-      "checksum": "3df221a1ec982f0fa44f38c27535f328fa29b28cae75998d7b313d0039e4ff8d",
+      "checksum": "49f2d6ac0d556f4110d1e58c76da363fa78608d268596545161b13f4faa69661",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-3aa0d89c2155",
       "catalog_version": "exam-identity-v2",
@@ -83755,7 +83755,7 @@
     },
     {
       "canonical_id": "canonical-3e4bb171bfe3303b",
-      "canonical_name": "專技高考｜專技高考｜醫師(一)",
+      "canonical_name": "專技高考｜醫師(一)",
       "years": [
         115,
         114,
@@ -83779,7 +83779,7 @@
       "asset_name": "moex-professional-high-professional-high-track-3e4bb171bfe3--36a59378c82e.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-3e4bb171bfe3--36a59378c82e.zip",
-      "checksum": "3fd8bf69f9e36f05aa24209881d77a5da3b00b8b93c4beba1fbb2c8971bfda6f",
+      "checksum": "d522c3a0a99faed8cf2841385ee9572ff8131321b2be3a7a3e1d04cce387edec",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-3e4bb171bfe3",
       "catalog_version": "exam-identity-v2",
@@ -83826,7 +83826,7 @@
     },
     {
       "canonical_id": "canonical-3e7af1c8af089526",
-      "canonical_name": "專技高考｜專技高考｜不動產估價師",
+      "canonical_name": "專技高考｜不動產估價師",
       "years": [
         115,
         114,
@@ -83860,7 +83860,7 @@
       "asset_name": "moex-professional-high-professional-high-track-3e7af1c8af08--6cdd10cfde06.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-3e7af1c8af08--6cdd10cfde06.zip",
-      "checksum": "627c8e5c476416d86697dfe7ecd8db1abc5cf032da6ab28ea1ed149900488843",
+      "checksum": "49136a560e6ae677e185e78f5e30d9da76b8b75cd6b537241608527566aa69c2",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-3e7af1c8af08",
       "catalog_version": "exam-identity-v2",
@@ -83907,7 +83907,7 @@
     },
     {
       "canonical_id": "canonical-41d2955294455748",
-      "canonical_name": "專技高考｜專技高考｜醫事檢驗師",
+      "canonical_name": "專技高考｜醫事檢驗師",
       "years": [
         115,
         114,
@@ -83931,7 +83931,7 @@
       "asset_name": "moex-professional-high-professional-high-track-41d295529445--6519b13641ee.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-41d295529445--6519b13641ee.zip",
-      "checksum": "ca1609ef5b0dee843d6b447000e8b50b55c4170aedaf9e281054e222c110d132",
+      "checksum": "f0506a27f5957c1007704e9ae0440dde45f2ecb14217d4df1ae9538381f2a322",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-41d295529445",
       "catalog_version": "exam-identity-v2",
@@ -83978,7 +83978,7 @@
     },
     {
       "canonical_id": "canonical-478ea011b661e246",
-      "canonical_name": "專技高考｜專技高考｜消防設備師",
+      "canonical_name": "專技高考｜消防設備師",
       "years": [
         115,
         114,
@@ -84006,7 +84006,7 @@
       "asset_name": "moex-professional-high-professional-high-track-478ea011b661--fdef749ec8b8.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-high-professional-high-track-478ea011b661--fdef749ec8b8.zip",
-      "checksum": "54ece3e89c1617d5c1dd52e5a27a9886bad5e761076cedad7108de16e17282e8",
+      "checksum": "7d6349020286be82fcd119cfbe3139a86a7a2f03cf8f77b0dcbc565a2fd15615",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-478ea011b661",
       "catalog_version": "exam-identity-v2",
@@ -84053,7 +84053,7 @@
     },
     {
       "canonical_id": "canonical-47ea5df4614998a7",
-      "canonical_name": "專技高考｜專技高考｜都市計畫技師",
+      "canonical_name": "專技高考｜都市計畫技師",
       "years": [
         114,
         113,
@@ -84083,7 +84083,7 @@
       "asset_name": "moex-professional-high-professional-high-track-47ea5df46149--30010423e297.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-47ea5df46149--30010423e297.zip",
-      "checksum": "6a09f6ba52bc4fdac30106c7fbfcdc8b3637a4b0f63601b95777c3ecf0e8ff74",
+      "checksum": "3f524cfc3fc773a40963eef163d0e798be09ca3c07127ad58dbfb1f7f5daa957",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-47ea5df46149",
       "catalog_version": "exam-identity-v2",
@@ -84130,7 +84130,7 @@
     },
     {
       "canonical_id": "canonical-4804e55daf1b44bb",
-      "canonical_name": "專技高考｜專技高考｜水產養殖技師",
+      "canonical_name": "專技高考｜水產養殖技師",
       "years": [
         114,
         113,
@@ -84160,7 +84160,7 @@
       "asset_name": "moex-professional-high-professional-high-track-4804e55daf1b--b76e9adc6a54.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-4804e55daf1b--b76e9adc6a54.zip",
-      "checksum": "19f3d361fdbdd68af8b87ac069fb178fcb55dbedb64eb872a84aa8e6e7757f9f",
+      "checksum": "8ed9c46ca0b3df3e3de1a3bb1af6deb98dbf333a2af083430b2403ac1dbb224c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-4804e55daf1b",
       "catalog_version": "exam-identity-v2",
@@ -84207,7 +84207,7 @@
     },
     {
       "canonical_id": "canonical-52744aeb51cbbaba",
-      "canonical_name": "專技高考｜專技高考｜醫事放射師",
+      "canonical_name": "專技高考｜醫事放射師",
       "years": [
         115,
         114,
@@ -84232,7 +84232,7 @@
       "asset_name": "moex-professional-high-professional-high-track-52744aeb51cb--64a620035a03.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-52744aeb51cb--64a620035a03.zip",
-      "checksum": "0e03f6fec9771f36046f32d3341818bcaeb53c6bb45bce0a35eb537141f40148",
+      "checksum": "2c1f10881618418abd9ca86c07d4db63c711e6dc9f54f48cb15f354b38e66f0e",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-52744aeb51cb",
       "catalog_version": "exam-identity-v2",
@@ -84279,7 +84279,7 @@
     },
     {
       "canonical_id": "canonical-55f5b66c801af76c",
-      "canonical_name": "專技高考｜專技高考｜結構工程技師",
+      "canonical_name": "專技高考｜結構工程技師",
       "years": [
         114,
         113,
@@ -84309,7 +84309,7 @@
       "asset_name": "moex-professional-high-professional-high-track-55f5b66c801a--872ad66162f3.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-55f5b66c801a--872ad66162f3.zip",
-      "checksum": "633a94e1ff788d6e5d1a3bdfbb883b35919bef6482942d22ce3d0d230daf7797",
+      "checksum": "7f2046c23117b5cf7ed143cb431a73185ee0f3a690b622977183e21667a3783b",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-55f5b66c801a",
       "catalog_version": "exam-identity-v2",
@@ -84356,7 +84356,7 @@
     },
     {
       "canonical_id": "canonical-59a2d115c62a8d2c",
-      "canonical_name": "專技高考｜專技高考｜測量技師",
+      "canonical_name": "專技高考｜測量技師",
       "years": [
         114,
         113,
@@ -84386,7 +84386,7 @@
       "asset_name": "moex-professional-high-professional-high-track-59a2d115c62a--afd81d914ae8.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-59a2d115c62a--afd81d914ae8.zip",
-      "checksum": "7cd35c50b81b42c7703e4dc92e6eafefcc6503be5157c6aa683fdda0687d90eb",
+      "checksum": "b92a28f0e4fa216715e70bddb542d8ef93ee6fdbc7342688174b904abdf8f473",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-59a2d115c62a",
       "catalog_version": "exam-identity-v2",
@@ -84433,7 +84433,7 @@
     },
     {
       "canonical_id": "canonical-680854d0d77811cb",
-      "canonical_name": "專技高考｜專技高考｜冷凍空調工程技師",
+      "canonical_name": "專技高考｜冷凍空調工程技師",
       "years": [
         114,
         113,
@@ -84463,7 +84463,7 @@
       "asset_name": "moex-professional-high-professional-high-track-680854d0d778--87b06823e99e.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-680854d0d778--87b06823e99e.zip",
-      "checksum": "eeed8dd8e50875568af1d7712960c2ea8b1d86a7fab7c9114a71c59f84914649",
+      "checksum": "a952f07a8e698eb3a71ab1907cc5ea6e05032070f263d560412f9964903a4e10",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-680854d0d778",
       "catalog_version": "exam-identity-v2",
@@ -84510,7 +84510,7 @@
     },
     {
       "canonical_id": "canonical-6ac4e07e58a2d4da",
-      "canonical_name": "專技高考｜專技高考｜漁撈技師",
+      "canonical_name": "專技高考｜漁撈技師",
       "years": [
         113,
         111,
@@ -84532,7 +84532,7 @@
       "asset_name": "moex-professional-high-professional-high-track-6ac4e07e58a2--4df7479b8b39.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-6ac4e07e58a2--4df7479b8b39.zip",
-      "checksum": "270f1d13b873156d74aaa3e61a5d006672ccad99739cd262a64816e9f3591890",
+      "checksum": "47bebb230b76c58f2e27c4142f11ed044f49924a647eb56ed034873cdac03ed8",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-6ac4e07e58a2",
       "catalog_version": "exam-identity-v2",
@@ -84579,7 +84579,7 @@
     },
     {
       "canonical_id": "canonical-38fffdc276c7b9da",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業日文及生物技術)",
+      "canonical_name": "專技高考｜專利師(專業日文及生物技術)",
       "years": [
         102,
         101
@@ -84589,7 +84589,7 @@
       "asset_name": "moex-professional-high-professional-high-track-6db0d9ef316f--b571826e13a4.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-6db0d9ef316f--b571826e13a4.zip",
-      "checksum": "d332da00e847f916cf8f1c6b86b75b258ae24fa01b1062c9305c43a0acf7c5cd",
+      "checksum": "442c8c1d3b66991c92d1119b19c39c3fd8cbb9aa113904a364c7ba04ea788bd1",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-6db0d9ef316f",
       "catalog_version": "exam-identity-v2",
@@ -84636,7 +84636,7 @@
     },
     {
       "canonical_id": "canonical-739400d702852e8d",
-      "canonical_name": "專技高考｜專技高考｜採礦工程技師",
+      "canonical_name": "專技高考｜採礦工程技師",
       "years": [
         113,
         111,
@@ -84658,7 +84658,7 @@
       "asset_name": "moex-professional-high-professional-high-track-739400d70285--7acc3806ae53.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-739400d70285--7acc3806ae53.zip",
-      "checksum": "2942d0f28079f878d9c4364cc989175d15c3b3fc4dd71d7e50b7e695517b28f2",
+      "checksum": "ab1a94211d9e2473fd43edc3de058e40ddbe06096aabb3ed790e6671761677ca",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-739400d70285",
       "catalog_version": "exam-identity-v2",
@@ -84705,7 +84705,7 @@
     },
     {
       "canonical_id": "canonical-7415dfa7b989a858",
-      "canonical_name": "專技高考｜專技高考｜法醫師",
+      "canonical_name": "專技高考｜法醫師",
       "years": [
         115,
         114,
@@ -84728,7 +84728,7 @@
       "asset_name": "moex-professional-high-professional-high-track-7415dfa7b989--7a8bc39cedde.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-7415dfa7b989--7a8bc39cedde.zip",
-      "checksum": "4c5d2d5d6d20f2ff9288ca47759be39802509c7237ac6514152b1b64b9bb4dbb",
+      "checksum": "033033ded47f22cdc443b18ee8d56d6ee66575f4e7888712dc97f334ab14bea6",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-7415dfa7b989",
       "catalog_version": "exam-identity-v2",
@@ -84775,7 +84775,7 @@
     },
     {
       "canonical_id": "canonical-74b850dc0c04e704",
-      "canonical_name": "專技高考｜專技高考｜航空工程技師",
+      "canonical_name": "專技高考｜航空工程技師",
       "years": [
         109,
         107,
@@ -84795,7 +84795,7 @@
       "asset_name": "moex-professional-high-professional-high-track-74b850dc0c04--3846644deee7.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-74b850dc0c04--3846644deee7.zip",
-      "checksum": "67c50733362e67328dde05250d082e1a54e94d8fdafdcec57427c93dc0b67691",
+      "checksum": "88c64bcae4f2a7e08b9b098df32291bc78d18efb4912c8777d1b9495117ba682",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-74b850dc0c04",
       "catalog_version": "exam-identity-v2",
@@ -84842,7 +84842,7 @@
     },
     {
       "canonical_id": "canonical-756b5391485fe2da",
-      "canonical_name": "專技高考｜專技高考｜大地工程技師",
+      "canonical_name": "專技高考｜大地工程技師",
       "years": [
         114,
         113,
@@ -84882,7 +84882,7 @@
       "asset_name": "moex-professional-high-professional-high-track-756b5391485f--db0dd1c15bb3.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-756b5391485f--db0dd1c15bb3.zip",
-      "checksum": "0c2a76ba062f38c0915f02764f624ecdb077e0045954be557a1e8368556887a8",
+      "checksum": "574c1fe97bfcfd9949cf6493d008cb00f274c5400cb6a5368e5b6fa028d75383",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-756b5391485f",
       "catalog_version": "exam-identity-v2",
@@ -84929,7 +84929,7 @@
     },
     {
       "canonical_id": "canonical-1434733203327c04",
-      "canonical_name": "專技高考｜專技高考｜大地工程技師｜第一階段",
+      "canonical_name": "專技高考｜大地工程技師｜第一階段",
       "years": [
         115,
         114,
@@ -84948,7 +84948,7 @@
       "asset_name": "moex-professional-high-professional-high-track-756b5391485f-stage-1--65bd56714745.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-high-professional-high-track-756b5391485f-stage-1--65bd56714745.zip",
-      "checksum": "9491ab9ef4806978142aa8b31b6fbad05b3dd85bb1449c0086a7e4aa54a250ed",
+      "checksum": "d59283f239c04f54b0a07d288470e61b04e9fdc4c2b76618a75222d94c6da748",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-756b5391485f-stage-1",
       "catalog_version": "exam-identity-v2",
@@ -84997,7 +84997,7 @@
     },
     {
       "canonical_id": "canonical-1376e1c374dc67fb",
-      "canonical_name": "專技高考｜專技高考｜大地工程技師｜第二階段",
+      "canonical_name": "專技高考｜大地工程技師｜第二階段",
       "years": [
         114,
         113,
@@ -85015,7 +85015,7 @@
       "asset_name": "moex-professional-high-professional-high-track-756b5391485f-stage-2--389aa2748206.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-high-professional-high-track-756b5391485f-stage-2--389aa2748206.zip",
-      "checksum": "5d6f3ac7f0779651174157ec510786ae6ab659e250237494f1dc90b487c3ab63",
+      "checksum": "c62711640d8565e8bb73d51f4daa4b36c5bc97e514a106770a96d3a19ce94404",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-756b5391485f-stage-2",
       "catalog_version": "exam-identity-v2",
@@ -85064,7 +85064,7 @@
     },
     {
       "canonical_id": "canonical-7661250cf31b5a67",
-      "canonical_name": "專技高考｜專技高考｜藥師(一)",
+      "canonical_name": "專技高考｜藥師(一)",
       "years": [
         115,
         114,
@@ -85085,7 +85085,7 @@
       "asset_name": "moex-professional-high-professional-high-track-7661250cf31b--0280e87ecf92.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-7661250cf31b--0280e87ecf92.zip",
-      "checksum": "2a581d6946cb9d1811b199ab7cfd8d8628ae8963bf2da8d52af827d88c4bc8a7",
+      "checksum": "5d66711a66aa21393587869c90a39da21547457dfeb06361b61d1dc0166173ed",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-7661250cf31b",
       "catalog_version": "exam-identity-v2",
@@ -85132,7 +85132,7 @@
     },
     {
       "canonical_id": "canonical-76c5e812caa2a05f",
-      "canonical_name": "專技高考｜專技高考｜植物診療師",
+      "canonical_name": "專技高考｜植物診療師",
       "years": [
         115,
         114
@@ -85142,7 +85142,7 @@
       "asset_name": "moex-professional-high-professional-high-track-76c5e812caa2--1a9d337d8002.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/moex-professional-high-professional-high-track-76c5e812caa2--1a9d337d8002.zip",
-      "checksum": "18212e879f5d934c9cf797225ca9fd0c40c2e4b4783b4bf517c9c331d8f9a012",
+      "checksum": "07a41fffaee332666bd020979594cff54fbf30f4f53b35269e4f78358335b549",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-76c5e812caa2",
       "catalog_version": "exam-identity-v2",
@@ -85187,7 +85187,7 @@
     },
     {
       "canonical_id": "canonical-90ce2394e6c95e8c",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業英文及計算機結構)",
+      "canonical_name": "專技高考｜專利師(專業英文及計算機結構)",
       "years": [
         103,
         102,
@@ -85198,7 +85198,7 @@
       "asset_name": "moex-professional-high-professional-high-track-7c193ce1622d--a2efac6e0968.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-7c193ce1622d--a2efac6e0968.zip",
-      "checksum": "5bcf27169a426bbe6f5601203e11c06b48e246aa7bb3cb16405ad1cecc46f6cd",
+      "checksum": "cffcaa702f7f4aa33845a0b043a6cb5c33caa4fccf28222bdae6ef8596188654",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-7c193ce1622d",
       "catalog_version": "exam-identity-v2",
@@ -85247,7 +85247,7 @@
     },
     {
       "canonical_id": "canonical-16c133c5aa812494",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業日文及基本設計)",
+      "canonical_name": "專技高考｜專利師(專業日文及基本設計)",
       "years": [
         102,
         101
@@ -85257,7 +85257,7 @@
       "asset_name": "moex-professional-high-professional-high-track-7c3361427fc5--b3178f87bdbb.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-7c3361427fc5--b3178f87bdbb.zip",
-      "checksum": "0fb062fb6ca437e881939a6248f20881c5d46433d560f16c34eb1f0951ffda09",
+      "checksum": "42eb75528ba319c00f74e13845378094196374133a6b045051e849144e4457ab",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-7c3361427fc5",
       "catalog_version": "exam-identity-v2",
@@ -85304,7 +85304,7 @@
     },
     {
       "canonical_id": "canonical-7dc3d3890ffb67e8",
-      "canonical_name": "專技高考｜專技高考｜化學工程技師",
+      "canonical_name": "專技高考｜化學工程技師",
       "years": [
         114,
         113,
@@ -85334,7 +85334,7 @@
       "asset_name": "moex-professional-high-professional-high-track-7dc3d3890ffb--400f06ff3d67.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-7dc3d3890ffb--400f06ff3d67.zip",
-      "checksum": "1c6e1167f30b487105d9a3e50472f1f2759502550e4d218456650f5ab29d65cb",
+      "checksum": "78da5e0317155067ef7f855f4cd886c1bb96eca873bee98c4adb1ba9eb7f5512",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-7dc3d3890ffb",
       "catalog_version": "exam-identity-v2",
@@ -85381,7 +85381,7 @@
     },
     {
       "canonical_id": "canonical-82aaaf9134b2d265",
-      "canonical_name": "專技高考｜專技高考｜環境工程技師",
+      "canonical_name": "專技高考｜環境工程技師",
       "years": [
         114,
         113,
@@ -85411,7 +85411,7 @@
       "asset_name": "moex-professional-high-professional-high-track-82aaaf9134b2--5043f5b0da4a.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-82aaaf9134b2--5043f5b0da4a.zip",
-      "checksum": "6dfd9142ca38a6b1ff287ae4caa746a11e8ed55bea712e894586e5e69d02736b",
+      "checksum": "d158c1287afd2dee6e1ec6a29f66fc769ca053e0cd24132ccc9c3bb2b5b3e55c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-82aaaf9134b2",
       "catalog_version": "exam-identity-v2",
@@ -85458,7 +85458,7 @@
     },
     {
       "canonical_id": "canonical-82e0532518c5b1cc",
-      "canonical_name": "專技高考｜專技高考｜礦業安全技師",
+      "canonical_name": "專技高考｜礦業安全技師",
       "years": [
         113,
         111,
@@ -85478,7 +85478,7 @@
       "asset_name": "moex-professional-high-professional-high-track-82e0532518c5--bfb764aef8b7.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-82e0532518c5--bfb764aef8b7.zip",
-      "checksum": "61d8a552d436a2338617f9416bdc33fa7be2f16976a11bf810a5627f1c6a87eb",
+      "checksum": "23527730db050d7358c38976430befdf8941a32aaabf2636ab988ecab1128550",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-82e0532518c5",
       "catalog_version": "exam-identity-v2",
@@ -85525,7 +85525,7 @@
     },
     {
       "canonical_id": "canonical-8ba00d875f46a1a8",
-      "canonical_name": "專技高考｜專技高考｜助產師",
+      "canonical_name": "專技高考｜助產師",
       "years": [
         115,
         114,
@@ -85553,7 +85553,7 @@
       "asset_name": "moex-professional-high-professional-high-track-8ba00d875f46--a7471ca414b3.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-8ba00d875f46--a7471ca414b3.zip",
-      "checksum": "74ad4cc5ffe34ed88b091555c77948d1868cf095f4048a7033599fc3f18f279e",
+      "checksum": "7ebf06b3ee9b24c1069e5ac28cc4b116a6cafaa4798f6741639f836509e62942",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-8ba00d875f46",
       "catalog_version": "exam-identity-v2",
@@ -85600,7 +85600,7 @@
     },
     {
       "canonical_id": "canonical-38d8266c2cffcc2b",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業英文及物理化學)",
+      "canonical_name": "專技高考｜專利師(專業英文及物理化學)",
       "years": [
         102,
         101
@@ -85610,7 +85610,7 @@
       "asset_name": "moex-professional-high-professional-high-track-8bf6ae364d38--01cc529f9f5d.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-8bf6ae364d38--01cc529f9f5d.zip",
-      "checksum": "95e949badd56731a902ab15dd1f79dc5723c24d62e179e71febb70af44f9598f",
+      "checksum": "4a1720fcfda6ed04c081b45ee6f9245fe7e9931f4871b289c0a45394c6b3b232",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-8bf6ae364d38",
       "catalog_version": "exam-identity-v2",
@@ -85657,7 +85657,7 @@
     },
     {
       "canonical_id": "canonical-36854d3c35959a49",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業英文及工程力學)",
+      "canonical_name": "專技高考｜專利師(專業英文及工程力學)",
       "years": [
         102,
         101
@@ -85667,7 +85667,7 @@
       "asset_name": "moex-professional-high-professional-high-track-8c97a464f159--eb1770dc0b65.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-8c97a464f159--eb1770dc0b65.zip",
-      "checksum": "29d6f63476130dff3deed226927f3ff4bac72ac73c5b4be6be9e243ca475ec1f",
+      "checksum": "0aec42c75913e091d406fe41a9a0af6657c28f5a4a19fbba00ffce91d65c7125",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-8c97a464f159",
       "catalog_version": "exam-identity-v2",
@@ -85714,7 +85714,7 @@
     },
     {
       "canonical_id": "canonical-8e08b50a5d142efe",
-      "canonical_name": "專技高考｜專技高考｜建築師",
+      "canonical_name": "專技高考｜建築師",
       "years": [
         114,
         113,
@@ -85744,7 +85744,7 @@
       "asset_name": "moex-professional-high-professional-high-track-8e08b50a5d14--ad01bb533926.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-track-8e08b50a5d14--ad01bb533926.zip",
-      "checksum": "6f35e48f518ccdb6282853025c8747ce4efc512ba5ce625078e2c4ca9a03d467",
+      "checksum": "47fe66d926a1ba50db39ff67b11ae1faaa2f86bb2365a89441506f5b9cb2dbca",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-8e08b50a5d14",
       "catalog_version": "exam-identity-v2",
@@ -85791,7 +85791,7 @@
     },
     {
       "canonical_id": "canonical-2fc2efe6aa805bc9",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業英文及電子學)",
+      "canonical_name": "專技高考｜專利師(專業英文及電子學)",
       "years": [
         102,
         101
@@ -85801,7 +85801,7 @@
       "asset_name": "moex-professional-high-professional-high-track-91b96a2ed54b--30a4db0268b7.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-91b96a2ed54b--30a4db0268b7.zip",
-      "checksum": "ce1619ca000b0aba6e51bcd76d10eb3920bce41922cc4b8b2207b1cbffe19921",
+      "checksum": "eaed721f96fbddae105792143fce1d279d24addab8582a117a4594fe40dab562",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-91b96a2ed54b",
       "catalog_version": "exam-identity-v2",
@@ -85848,7 +85848,7 @@
     },
     {
       "canonical_id": "canonical-7417fc84681a7ae3",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業英文及生物技術)",
+      "canonical_name": "專技高考｜專利師(專業英文及生物技術)",
       "years": [
         102,
         101
@@ -85858,7 +85858,7 @@
       "asset_name": "moex-professional-high-professional-high-track-91fcd4416dde--a6208510370b.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-91fcd4416dde--a6208510370b.zip",
-      "checksum": "72519cbbd5990f7780fbf206e38b7f4687989bd9e9b3d2a1bb967f63a77d5566",
+      "checksum": "ebf126a03b822985eedffd09deaf5872d499fc099af7041b317c7ccbe7a330ef",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-91fcd4416dde",
       "catalog_version": "exam-identity-v2",
@@ -85905,7 +85905,7 @@
     },
     {
       "canonical_id": "canonical-941091f207db66d9",
-      "canonical_name": "專技高考｜專技高考｜食品技師",
+      "canonical_name": "專技高考｜食品技師",
       "years": [
         115,
         114,
@@ -85948,7 +85948,7 @@
       "asset_name": "moex-professional-high-professional-high-track-941091f207db--3e5a3ddc3c75.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-941091f207db--3e5a3ddc3c75.zip",
-      "checksum": "344a9b5ba8aa8da8992bf0f6b70dfc37d794e0091b0ab02529f7544e8654c93f",
+      "checksum": "d4ea2301054537e24ce2ca5f9c1ef3595e5a7318e6e5ab25067c3041dc6f7552",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-941091f207db",
       "catalog_version": "exam-identity-v2",
@@ -85995,7 +85995,7 @@
     },
     {
       "canonical_id": "canonical-95b16d5970fd624e",
-      "canonical_name": "專技高考｜專技高考｜醫師(ㄧ)",
+      "canonical_name": "專技高考｜醫師(ㄧ)",
       "years": [
         105,
         104,
@@ -86006,7 +86006,7 @@
       "asset_name": "moex-professional-high-professional-high-track-95b16d5970fd--02b23e3f9daf.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-95b16d5970fd--02b23e3f9daf.zip",
-      "checksum": "3480dd46ec93ce8e2d8a14d2276ac91b56a2fdb8107b8d8922a934d79baa257e",
+      "checksum": "6eaabad31c8c9c9056fd3635f83435fe3fb154c3550edc95afcccaaa3447516f",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-95b16d5970fd",
       "catalog_version": "exam-identity-v2",
@@ -86042,7 +86042,7 @@
     },
     {
       "canonical_id": "canonical-a160c066a98c9e79",
-      "canonical_name": "專技高考｜專技高考｜電機工程技師",
+      "canonical_name": "專技高考｜電機工程技師",
       "years": [
         114,
         113,
@@ -86072,7 +86072,7 @@
       "asset_name": "moex-professional-high-professional-high-track-a160c066a98c--43a3d35bccc7.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-a160c066a98c--43a3d35bccc7.zip",
-      "checksum": "9a823c82b61277b96e6155479a9319afc4c525987aeaa68e951df4b6513ac47f",
+      "checksum": "5672eb2f05e02619c837fef4c3491130810de66907ec72eca55691861f86780c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-a160c066a98c",
       "catalog_version": "exam-identity-v2",
@@ -86119,7 +86119,7 @@
     },
     {
       "canonical_id": "canonical-a251e21ac34a50a2",
-      "canonical_name": "專技高考｜專技高考｜土木工程技師",
+      "canonical_name": "專技高考｜土木工程技師",
       "years": [
         114,
         113,
@@ -86149,7 +86149,7 @@
       "asset_name": "moex-professional-high-professional-high-track-a251e21ac34a--4cbb2f2fb93c.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-a251e21ac34a--4cbb2f2fb93c.zip",
-      "checksum": "5553677e3adf5ae33520232ed6d04150ec5c6f01087315ed54d7120eeb90c18d",
+      "checksum": "795da75c6d9dd027c82a5dab4a2793f0404a4573527f23a1c046f5a31af67fc6",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-a251e21ac34a",
       "catalog_version": "exam-identity-v2",
@@ -86196,7 +86196,7 @@
     },
     {
       "canonical_id": "canonical-a83578a7b79bdf8b",
-      "canonical_name": "專技高考｜專技高考｜公共衛生師",
+      "canonical_name": "專技高考｜公共衛生師",
       "years": [
         115,
         114,
@@ -86210,7 +86210,7 @@
       "asset_name": "moex-professional-high-professional-high-track-a83578a7b79b--656d5d842142.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-a83578a7b79b--656d5d842142.zip",
-      "checksum": "ea7bc370720adcf2bb46bc96298454ade183c1ef022c53a5bb1306ae59c891dd",
+      "checksum": "76100bff37acb7b02f9a3ac7edeb1e44b6957ba1ec918bd33e18420d332cf4ea",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-a83578a7b79b",
       "catalog_version": "exam-identity-v2",
@@ -86257,7 +86257,7 @@
     },
     {
       "canonical_id": "canonical-aae5c742c2dfd312",
-      "canonical_name": "專技高考｜專技高考｜工業安全技師",
+      "canonical_name": "專技高考｜工業安全技師",
       "years": [
         114,
         113,
@@ -86287,7 +86287,7 @@
       "asset_name": "moex-professional-high-professional-high-track-aae5c742c2df--bb34afffe1c4.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-aae5c742c2df--bb34afffe1c4.zip",
-      "checksum": "2b584017e3c0ed3237ee55824b58a1e3e4d8f92a5fcfc579831de51ffa0ffc1d",
+      "checksum": "48ac896c9496c35fb37f88bd50c999237ac11350a51dceee43b663abb8014349",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-aae5c742c2df",
       "catalog_version": "exam-identity-v2",
@@ -86334,7 +86334,7 @@
     },
     {
       "canonical_id": "canonical-ae4d00669bf2fe59",
-      "canonical_name": "專技高考｜專技高考｜牙體技術師",
+      "canonical_name": "專技高考｜牙體技術師",
       "years": [
         115,
         114,
@@ -86358,7 +86358,7 @@
       "asset_name": "moex-professional-high-professional-high-track-ae4d00669bf2--7e8811ef92be.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-ae4d00669bf2--7e8811ef92be.zip",
-      "checksum": "ce269e8215a52d88ab6eccf416f14fa5d568b052f942b0a856d53c39ed65d030",
+      "checksum": "fa3c2189375320dd54f1b5c213b946c0231b7bea402ae52aaba3787d09c4c0c3",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-ae4d00669bf2",
       "catalog_version": "exam-identity-v2",
@@ -86405,7 +86405,7 @@
     },
     {
       "canonical_id": "canonical-afca445da66bf372",
-      "canonical_name": "專技高考｜專技高考｜資訊技師",
+      "canonical_name": "專技高考｜資訊技師",
       "years": [
         114,
         113,
@@ -86435,7 +86435,7 @@
       "asset_name": "moex-professional-high-professional-high-track-afca445da66b--8e221f579df8.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-afca445da66b--8e221f579df8.zip",
-      "checksum": "b5b4facaa5887197b45e928680bd33369d4cae451ced6744d0e13141ee495077",
+      "checksum": "86d5e3ea5d494fb6899b9478f371c9e7d5aad86710fa90f93ac12e5e15ee1d0f",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-afca445da66b",
       "catalog_version": "exam-identity-v2",
@@ -86482,7 +86482,7 @@
     },
     {
       "canonical_id": "canonical-b02813f143270a39",
-      "canonical_name": "專技高考｜專技高考｜驗光師",
+      "canonical_name": "專技高考｜驗光師",
       "years": [
         115,
         114,
@@ -86500,7 +86500,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b02813f14327--59a928974a50.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b02813f14327--59a928974a50.zip",
-      "checksum": "2362b052e00e48a05c38aa44b05d0343c8b447e4c3054c44283f42d9a4e53674",
+      "checksum": "60859dfaf2093b49674b6d4a716413adc05bd75a8e87e703eedf5e9710822d0b",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b02813f14327",
       "catalog_version": "exam-identity-v2",
@@ -86547,7 +86547,7 @@
     },
     {
       "canonical_id": "canonical-b0ca20f451e798db",
-      "canonical_name": "專技高考｜專技高考｜紡織工程技師",
+      "canonical_name": "專技高考｜紡織工程技師",
       "years": [
         111,
         109,
@@ -86568,7 +86568,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b0ca20f451e7--35649c28ba13.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b0ca20f451e7--35649c28ba13.zip",
-      "checksum": "9be5608ba3d7ebf9b3e431bc94172485655e51217eda54d96c07fabf53c5f5ad",
+      "checksum": "ba2229de3fc1f6a0bc1ffa909f01b31d554f64704d437b0f0d3b88864c46ac21",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b0ca20f451e7",
       "catalog_version": "exam-identity-v2",
@@ -86615,7 +86615,7 @@
     },
     {
       "canonical_id": "canonical-b4f6b717d8f34499",
-      "canonical_name": "專技高考｜專技高考｜牙醫師",
+      "canonical_name": "專技高考｜牙醫師",
       "years": [
         100,
         99,
@@ -86628,7 +86628,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b4f6b717d8f3--75e034f30478.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b4f6b717d8f3--75e034f30478.zip",
-      "checksum": "41c3e0977f6fb20abe28f17c115b1a87a8028bb3f08e9533805aae031910099e",
+      "checksum": "1e5fca260c3f2964e645b8c8bf3d19f82396f4db1ae3e09c9ed0ffe0a21caabb",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b4f6b717d8f3",
       "catalog_version": "exam-identity-v2",
@@ -86675,7 +86675,7 @@
     },
     {
       "canonical_id": "canonical-87ca62b373ee06d2",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業日文及電子學)",
+      "canonical_name": "專技高考｜專利師(專業日文及電子學)",
       "years": [
         102,
         101
@@ -86685,7 +86685,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b57ee004c171--20215ae426ca.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-b57ee004c171--20215ae426ca.zip",
-      "checksum": "1a4ca527c151723ba4dcd3d5a7c7bbbbec491e946aeb317c938ee1e4330a70f0",
+      "checksum": "b1a1d23aff96b8b9e1d2f86d63111ade2e1633e335b88a564775d1c672a7a7c2",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b57ee004c171",
       "catalog_version": "exam-identity-v2",
@@ -86732,7 +86732,7 @@
     },
     {
       "canonical_id": "clinical-psychologist",
-      "canonical_name": "專技高考｜專技高考｜臨床心理師",
+      "canonical_name": "專技高考｜臨床心理師",
       "years": [
         115,
         114,
@@ -86757,7 +86757,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b642462aa467--6948028f9a1e.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b642462aa467--6948028f9a1e.zip",
-      "checksum": "06d2e4c31ce6e330b3651419a9074774425fccc4d6a1d048bbc51727d6bdd03b",
+      "checksum": "570eaa14ccfa3fa2f1b9e2825a3823d6bc9f31a74cf2ebb816ab57f5f78046f5",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b642462aa467",
       "catalog_version": "exam-identity-v2",
@@ -86804,7 +86804,7 @@
     },
     {
       "canonical_id": "canonical-b66a2c73d928bfce",
-      "canonical_name": "專技高考｜專技高考｜園藝技師",
+      "canonical_name": "專技高考｜園藝技師",
       "years": [
         114,
         113,
@@ -86834,7 +86834,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b66a2c73d928--ebad9683aefe.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b66a2c73d928--ebad9683aefe.zip",
-      "checksum": "077470d3588320e756eaa637d8f2080afd6f728fc0b73bed6147f3cd25347d0d",
+      "checksum": "ba680d48b9b5cd68862fa404988af67d395c805dfac50c3ed7e85bb7c7057814",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b66a2c73d928",
       "catalog_version": "exam-identity-v2",
@@ -86881,7 +86881,7 @@
     },
     {
       "canonical_id": "canonical-b86f8822c0b8e180",
-      "canonical_name": "專技高考｜專技高考｜中醫師",
+      "canonical_name": "專技高考｜中醫師",
       "years": [
         104,
         103,
@@ -86904,7 +86904,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b86f8822c0b8--e4e9d478ac74.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b86f8822c0b8--e4e9d478ac74.zip",
-      "checksum": "17a35b499022217411bd55f9ecd5b696f30a587b947851781086b3b2a9f79426",
+      "checksum": "4db8fcb0f443000d030655e45b690615302b869af564d1719322411dd7231da2",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b86f8822c0b8",
       "catalog_version": "exam-identity-v2",
@@ -86951,7 +86951,7 @@
     },
     {
       "canonical_id": "canonical-b92265dc0f37fbcc",
-      "canonical_name": "專技高考｜專技高考｜交通工程技師",
+      "canonical_name": "專技高考｜交通工程技師",
       "years": [
         114,
         113,
@@ -86981,7 +86981,7 @@
       "asset_name": "moex-professional-high-professional-high-track-b92265dc0f37--4beb2459a7e9.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-b92265dc0f37--4beb2459a7e9.zip",
-      "checksum": "20e10f2d1f302ed9318b21205673b27b355411700f60afe9f0d5107c8fc26af1",
+      "checksum": "a6bfce85c96382ab66659aef62ecc6a22b416ae8b6489818a2d7960ea9a1cd3c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-b92265dc0f37",
       "catalog_version": "exam-identity-v2",
@@ -87028,7 +87028,7 @@
     },
     {
       "canonical_id": "canonical-ba1b06139e7cc7e7",
-      "canonical_name": "專技高考｜專技高考｜工業工程技師",
+      "canonical_name": "專技高考｜工業工程技師",
       "years": [
         114,
         113,
@@ -87058,7 +87058,7 @@
       "asset_name": "moex-professional-high-professional-high-track-ba1b06139e7c--0f90763da58d.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-ba1b06139e7c--0f90763da58d.zip",
-      "checksum": "35335da2ac41e8924dc31a50624087c3ca2501f09c4fcd27e5d2010800853ce8",
+      "checksum": "ba6f356092b318df0e03a2bf9abbb41d611eac2b98802010635a0abe38e7d6c5",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-ba1b06139e7c",
       "catalog_version": "exam-identity-v2",
@@ -87105,7 +87105,7 @@
     },
     {
       "canonical_id": "canonical-beff1b691fabae94",
-      "canonical_name": "專技高考｜專技高考｜農藝技師",
+      "canonical_name": "專技高考｜農藝技師",
       "years": [
         114,
         113,
@@ -87135,7 +87135,7 @@
       "asset_name": "moex-professional-high-professional-high-track-beff1b691fab--31193334a6d1.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-beff1b691fab--31193334a6d1.zip",
-      "checksum": "33498ace93f9a424c94473189a3e8152b76922896cb8f88378bf8874773810e8",
+      "checksum": "af25090b8b57262f5081678e572a77b0391ecae687da83a5fbef9335dce107bd",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-beff1b691fab",
       "catalog_version": "exam-identity-v2",
@@ -87182,7 +87182,7 @@
     },
     {
       "canonical_id": "canonical-c7701e57ac6e1784",
-      "canonical_name": "專技高考｜專技高考｜冶金工程技師",
+      "canonical_name": "專技高考｜冶金工程技師",
       "years": [
         111,
         109,
@@ -87203,7 +87203,7 @@
       "asset_name": "moex-professional-high-professional-high-track-c7701e57ac6e--90825dd7cc6d.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-c7701e57ac6e--90825dd7cc6d.zip",
-      "checksum": "1454b602982d84af3ae7f82fd11939dba20a1947110823ef0811d84ed3ec79a3",
+      "checksum": "1dc330c2586fa4fe293402172230e0062930f9038a5a9ce48cef9abe942aa119",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-c7701e57ac6e",
       "catalog_version": "exam-identity-v2",
@@ -87250,7 +87250,7 @@
     },
     {
       "canonical_id": "canonical-c7a1f89e21415789",
-      "canonical_name": "專技高考｜專技高考｜聽力師",
+      "canonical_name": "專技高考｜聽力師",
       "years": [
         115,
         114,
@@ -87275,7 +87275,7 @@
       "asset_name": "moex-professional-high-professional-high-track-c7a1f89e2141--c246251751af.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-c7a1f89e2141--c246251751af.zip",
-      "checksum": "c3c8fb8f48110ae7b577b49a82d3840ee10ab13a1d12933422b8a64cb99a14bf",
+      "checksum": "5966f075c61a2f779243d37cfdb2ffc5eaca40c1a401ed8e9f5b55af56fc55e0",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-c7a1f89e2141",
       "catalog_version": "exam-identity-v2",
@@ -87322,7 +87322,7 @@
     },
     {
       "canonical_id": "canonical-cbba729d67c6cf0a",
-      "canonical_name": "專技高考｜專技高考｜造船工程技師",
+      "canonical_name": "專技高考｜造船工程技師",
       "years": [
         113,
         111,
@@ -87344,7 +87344,7 @@
       "asset_name": "moex-professional-high-professional-high-track-cbba729d67c6--d92456627edd.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-cbba729d67c6--d92456627edd.zip",
-      "checksum": "74ba2eba9583a02b3444a63c1a24828a7ee724ee2ae37bb0de32c7ebb4b813e8",
+      "checksum": "d2402d9e409651118a2d157d9a1c95550971c76d664a72273a5f769f3a3678ae",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-cbba729d67c6",
       "catalog_version": "exam-identity-v2",
@@ -87391,7 +87391,7 @@
     },
     {
       "canonical_id": "canonical-cd9f59bc93d37c16",
-      "canonical_name": "專技高考｜專技高考｜職業衛生技師",
+      "canonical_name": "專技高考｜職業衛生技師",
       "years": [
         114,
         113,
@@ -87406,7 +87406,7 @@
       "asset_name": "moex-professional-high-professional-high-track-cd9f59bc93d3--2f8e16731b63.zip",
       "release_tag": "default-bundles-v2-008",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/moex-professional-high-professional-high-track-cd9f59bc93d3--2f8e16731b63.zip",
-      "checksum": "068dc20a725ecd9727341129f949fcf5a5affc493b9250adf924eed611a71844",
+      "checksum": "6f25b7780df6219aac6f5c15a263bb4e7798ba715bee438179e2b08b609e9799",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-cd9f59bc93d3",
       "catalog_version": "exam-identity-v2",
@@ -87453,7 +87453,7 @@
     },
     {
       "canonical_id": "canonical-d2d0c44b244f6e38",
-      "canonical_name": "專技高考｜專技高考｜機械工程技師",
+      "canonical_name": "專技高考｜機械工程技師",
       "years": [
         114,
         113,
@@ -87483,7 +87483,7 @@
       "asset_name": "moex-professional-high-professional-high-track-d2d0c44b244f--d31b683a2311.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-d2d0c44b244f--d31b683a2311.zip",
-      "checksum": "0d6a2a5bedf419e61abc232a1eb3bb74c6f91c81476a8ced3846497df3a8d877",
+      "checksum": "4d05df6b233ee2b619adf2d1b7b85c054c277e33897f96d7267ca8622a4cb377",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-d2d0c44b244f",
       "catalog_version": "exam-identity-v2",
@@ -87530,7 +87530,7 @@
     },
     {
       "canonical_id": "canonical-d4cc204b2e272802",
-      "canonical_name": "專技高考｜專技高考｜驗船師",
+      "canonical_name": "專技高考｜驗船師",
       "years": [
         115,
         114,
@@ -87555,7 +87555,7 @@
       "asset_name": "moex-professional-high-professional-high-track-d4cc204b2e27--327944279558.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-high-professional-high-track-d4cc204b2e27--327944279558.zip",
-      "checksum": "540f17a80ee5c3ad6a83a824bc3c87c7210f9393ddc2e002168f93be35032078",
+      "checksum": "81bf7daeebc5618ccc5d1ff671ebd6b8160d8b73d1cc120aaf110069c84e9dbc",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-d4cc204b2e27",
       "catalog_version": "exam-identity-v2",
@@ -87602,7 +87602,7 @@
     },
     {
       "canonical_id": "canonical-d7e104b2f4693ca2",
-      "canonical_name": "專技高考｜專技高考｜獸醫師",
+      "canonical_name": "專技高考｜獸醫師",
       "years": [
         115,
         114,
@@ -87630,7 +87630,7 @@
       "asset_name": "moex-professional-high-professional-high-track-d7e104b2f469--eef1f894e0dd.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-d7e104b2f469--eef1f894e0dd.zip",
-      "checksum": "117ad7902f271a52b4b9e24fc09d9821c215cd1908e542647cd07202032a8de9",
+      "checksum": "3b54fe933be99ab07c17968e495fd0951b500dbd4ef1b2240d4abc1c9978cee4",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-d7e104b2f469",
       "catalog_version": "exam-identity-v2",
@@ -87677,7 +87677,7 @@
     },
     {
       "canonical_id": "canonical-da8ba29533584433",
-      "canonical_name": "專技高考｜專技高考｜記帳士",
+      "canonical_name": "專技高考｜記帳士",
       "years": [
         99,
         94
@@ -87687,7 +87687,7 @@
       "asset_name": "moex-professional-high-professional-high-track-da8ba2953358--428145c1325e.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-da8ba2953358--428145c1325e.zip",
-      "checksum": "d25720aa5ce30b78fedd0fe60f4423ad27e6fc5ffd9491c8b8bd387f55ab6dc3",
+      "checksum": "727a340420b4a5cb699ea2046c521ccab8137bea1750fdb2a914e277ecc17822",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-da8ba2953358",
       "catalog_version": "exam-identity-v2",
@@ -87734,7 +87734,7 @@
     },
     {
       "canonical_id": "canonical-db2a7c67122ffa66",
-      "canonical_name": "專技高考｜專技高考｜中醫師(二)",
+      "canonical_name": "專技高考｜中醫師(二)",
       "years": [
         115,
         114,
@@ -87756,7 +87756,7 @@
       "asset_name": "moex-professional-high-professional-high-track-db2a7c67122f--4153e24b98ea.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-db2a7c67122f--4153e24b98ea.zip",
-      "checksum": "bbba104fa2fc3fcb080d753d44d8a90b044f38963f95ad0ccb452f77f97999f2",
+      "checksum": "0a294ada819e3563a3a3bef0e993e7594c0a56090a12b6fe5504adbeb80fae8c",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-db2a7c67122f",
       "catalog_version": "exam-identity-v2",
@@ -87803,7 +87803,7 @@
     },
     {
       "canonical_id": "canonical-db7cc99d8ae73401",
-      "canonical_name": "專技高考｜專技高考｜中醫師(一)",
+      "canonical_name": "專技高考｜中醫師(一)",
       "years": [
         115,
         114,
@@ -87825,7 +87825,7 @@
       "asset_name": "moex-professional-high-professional-high-track-db7cc99d8ae7--fb7704f70126.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-db7cc99d8ae7--fb7704f70126.zip",
-      "checksum": "764fd1a60d507a40c3ad69d993884df769ebb02c3999fb8102c9680838b338ef",
+      "checksum": "455427401a1a9ad9dd9672ca49321bc6a6d0f655966684141b453bd6c87258bf",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-db7cc99d8ae7",
       "catalog_version": "exam-identity-v2",
@@ -87872,7 +87872,7 @@
     },
     {
       "canonical_id": "canonical-dc37d740d459eaee",
-      "canonical_name": "專技高考｜專技高考｜牙醫師(一)",
+      "canonical_name": "專技高考｜牙醫師(一)",
       "years": [
         115,
         114,
@@ -87898,7 +87898,7 @@
       "asset_name": "moex-professional-high-professional-high-track-dc37d740d459--1363de3edf6c.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-dc37d740d459--1363de3edf6c.zip",
-      "checksum": "aa4b5bcfe8cf2a1fcd48df136229e3fbae6855f2e189a1abcffa28e2a9881a72",
+      "checksum": "3316e27b89ce71a23bc1381fd703d6283b53161b7bf05f6f6506bac458091cd9",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-dc37d740d459",
       "catalog_version": "exam-identity-v2",
@@ -87945,7 +87945,7 @@
     },
     {
       "canonical_id": "canonical-e70a1b18458c3d56",
-      "canonical_name": "專技高考｜專技高考｜呼吸治療師",
+      "canonical_name": "專技高考｜呼吸治療師",
       "years": [
         115,
         114,
@@ -87978,7 +87978,7 @@
       "asset_name": "moex-professional-high-professional-high-track-e70a1b18458c--aee2a26bb110.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-e70a1b18458c--aee2a26bb110.zip",
-      "checksum": "4c87b021ed578f3c2217a6190d7ebd2d376e9bc7f72a43b5f82f3cd0cfeabe88",
+      "checksum": "25653651892d4b25b4f81212154d6d31aa48c956b42981d5160d698971860d9d",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-e70a1b18458c",
       "catalog_version": "exam-identity-v2",
@@ -88025,7 +88025,7 @@
     },
     {
       "canonical_id": "canonical-e9133ea8bfdfcf75",
-      "canonical_name": "專技高考｜專技高考｜應用地質技師",
+      "canonical_name": "專技高考｜應用地質技師",
       "years": [
         114,
         113,
@@ -88055,7 +88055,7 @@
       "asset_name": "moex-professional-high-professional-high-track-e9133ea8bfdf--83e1920074a8.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-e9133ea8bfdf--83e1920074a8.zip",
-      "checksum": "83e9746b2b7bea3e22a2b2b043218ee537a0df838801f08cc4cdc157e589a305",
+      "checksum": "e4551e22578242721af3a3297fa7cb6b6cad887e05ef3088cd385762404e44d6",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-e9133ea8bfdf",
       "catalog_version": "exam-identity-v2",
@@ -88102,7 +88102,7 @@
     },
     {
       "canonical_id": "canonical-a6a1886c8d4a4038",
-      "canonical_name": "專技高考｜專技高考｜專利師(專業英文及基本設計)",
+      "canonical_name": "專技高考｜專利師(專業英文及基本設計)",
       "years": [
         102,
         101
@@ -88112,7 +88112,7 @@
       "asset_name": "moex-professional-high-professional-high-track-e9bbe2235ed0--6ccf71f3ed30.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/moex-professional-high-professional-high-track-e9bbe2235ed0--6ccf71f3ed30.zip",
-      "checksum": "98e12bf2636d6fbc7e666fbe144bb293e011f1a1440296b7f2d1ee84dfa5230e",
+      "checksum": "babf453f0be2a45cb942063c9274801e023d24f3401d1d63443f2273faf5ebd9",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-e9bbe2235ed0",
       "catalog_version": "exam-identity-v2",
@@ -88159,7 +88159,7 @@
     },
     {
       "canonical_id": "canonical-f6f0f7ec65fc7a02",
-      "canonical_name": "專技高考｜專技高考｜職能治療師",
+      "canonical_name": "專技高考｜職能治療師",
       "years": [
         115,
         114,
@@ -88187,7 +88187,7 @@
       "asset_name": "moex-professional-high-professional-high-track-f6f0f7ec65fc--027b868e7619.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-f6f0f7ec65fc--027b868e7619.zip",
-      "checksum": "a0ef1fd029160fd9743e89a0edd598a1cf61e53279a7ca6e585d3544b58fb6c8",
+      "checksum": "779e9a0c6c8a624d8af42bc53e52cdef4b76958a5f5d1e0e313260986c209592",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-f6f0f7ec65fc",
       "catalog_version": "exam-identity-v2",
@@ -88234,7 +88234,7 @@
     },
     {
       "canonical_id": "canonical-f74516e0ba711d33",
-      "canonical_name": "專技高考｜專技高考｜藥師",
+      "canonical_name": "專技高考｜藥師",
       "years": [
         107,
         106,
@@ -88250,7 +88250,7 @@
       "asset_name": "moex-professional-high-professional-high-track-f74516e0ba71--32fd72e7e2b1.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-f74516e0ba71--32fd72e7e2b1.zip",
-      "checksum": "b60dda7192772433aecc918e687d1cd8f248da07c23f2b5d61406997e54402a8",
+      "checksum": "b5303c63fe6ba7bbcb9357b6e57ffcd3f075d3de902f96b72e70604afdf0a211",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-f74516e0ba71",
       "catalog_version": "exam-identity-v2",
@@ -88297,7 +88297,7 @@
     },
     {
       "canonical_id": "canonical-fa416d141d77cbc7",
-      "canonical_name": "專技高考｜專技高考｜水土保持技師",
+      "canonical_name": "專技高考｜水土保持技師",
       "years": [
         114,
         113,
@@ -88327,7 +88327,7 @@
       "asset_name": "moex-professional-high-professional-high-track-fa416d141d77--f194d2fe282e.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-high-professional-high-track-fa416d141d77--f194d2fe282e.zip",
-      "checksum": "ec7b7875b4a7cd3e1b53da64169be277d3aa7d470d8f397a062981e65e0be0ef",
+      "checksum": "bf28cd30abc1158e215cdddf00af77760d2a77a70e611c3a1dc2b45846d0dbc0",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-track-fa416d141d77",
       "catalog_version": "exam-identity-v2",
@@ -91332,7 +91332,7 @@
     },
     {
       "canonical_id": "canonical-025c291cd24a6cc8",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(德語)",
+      "canonical_name": "專技普考｜外語導遊人員(德語)",
       "years": [
         101,
         99,
@@ -91346,7 +91346,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-025c291cd24a--db016dc22a07.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-025c291cd24a--db016dc22a07.zip",
-      "checksum": "3f371945f699def3d6a006a9269a83cd27143a1d2d3f20e207c40246249d5587",
+      "checksum": "9bb27b9e53747fb0e328d73d738a283e9fb88ccb0215fca91c54bc24a245273d",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-025c291cd24a",
       "catalog_version": "exam-identity-v2",
@@ -91393,7 +91393,7 @@
     },
     {
       "canonical_id": "canonical-1beca733ce3493c1",
-      "canonical_name": "專技普考｜專技普考｜外語領隊人員(法語)",
+      "canonical_name": "專技普考｜外語領隊人員(法語)",
       "years": [
         101,
         99,
@@ -91407,7 +91407,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-1beca733ce34--0bb9a469ed09.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-1beca733ce34--0bb9a469ed09.zip",
-      "checksum": "981af4570b93a77bf7d0d8102e072a73e9ffa0ce1989fe086a61bc316140ed4b",
+      "checksum": "e883a4b01bd1be992ce7576c270db1ed592330d40c96478c07486f7351200fbe",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-1beca733ce34",
       "catalog_version": "exam-identity-v2",
@@ -91454,7 +91454,7 @@
     },
     {
       "canonical_id": "canonical-1e63398a150417db",
-      "canonical_name": "專技普考｜專技普考｜一般保險公證人",
+      "canonical_name": "專技普考｜一般保險公證人",
       "years": [
         115,
         114,
@@ -91483,7 +91483,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-1e63398a1504--96eb24c65e17.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-1e63398a1504--96eb24c65e17.zip",
-      "checksum": "832250c0932f63aa36dc3a300d75b3b7dfab3ccc116c1061cb1bc0386f00362a",
+      "checksum": "7bf7d96326e1ff0d6b97ec6e47965ac363fabf36bf66228c2a7488ea2c52d118",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-1e63398a1504",
       "catalog_version": "exam-identity-v2",
@@ -91530,7 +91530,7 @@
     },
     {
       "canonical_id": "canonical-2071c307cc7535b2",
-      "canonical_name": "專技普考｜專技普考｜財產保險經紀人",
+      "canonical_name": "專技普考｜財產保險經紀人",
       "years": [
         115,
         114,
@@ -91559,7 +91559,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-2071c307cc75--2b16b6c3f98f.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-2071c307cc75--2b16b6c3f98f.zip",
-      "checksum": "3024f41ed89547968bce4069459276036d09ed4fab1ad6e199bf81bd9902892d",
+      "checksum": "55142eda05e660b82f446998c159d43b4594fb5e53c7ab10b32c6237b855c2b2",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-2071c307cc75",
       "catalog_version": "exam-identity-v2",
@@ -91606,7 +91606,7 @@
     },
     {
       "canonical_id": "canonical-27a67ff63e8d57cd",
-      "canonical_name": "專技普考｜專技普考｜華語導遊人員",
+      "canonical_name": "專技普考｜華語導遊人員",
       "years": [
         101,
         99,
@@ -91622,7 +91622,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-27a67ff63e8d--2957fa5a8508.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-27a67ff63e8d--2957fa5a8508.zip",
-      "checksum": "218fe262ca3fc4db147ea5e4b84ecea287a661beb6c1bfd3f2dced085bca4952",
+      "checksum": "15859cd467eb0d1fccb7af551e7737470b291753f5a7316b9f0bfc753cf3b635",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-27a67ff63e8d",
       "catalog_version": "exam-identity-v2",
@@ -91669,7 +91669,7 @@
     },
     {
       "canonical_id": "canonical-2b6cdc715867f1d9",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(泰語)",
+      "canonical_name": "專技普考｜外語導遊人員(泰語)",
       "years": [
         101,
         99,
@@ -91681,7 +91681,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-2b6cdc715867--24ec8ddf9904.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-2b6cdc715867--24ec8ddf9904.zip",
-      "checksum": "0a1c99d0dc264a827fc844f0ff7b72addb6d41e0e78fd193bf405c33e5089384",
+      "checksum": "59c5ef04869c2017ed93afe09343845c0fedc1e9534f83a536ba89967999119c",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-2b6cdc715867",
       "catalog_version": "exam-identity-v2",
@@ -91728,7 +91728,7 @@
     },
     {
       "canonical_id": "canonical-2c7638fff2ee6029",
-      "canonical_name": "專技普考｜專技普考｜外語領隊人員(西班牙語)",
+      "canonical_name": "專技普考｜外語領隊人員(西班牙語)",
       "years": [
         101,
         99,
@@ -91742,7 +91742,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-2c7638fff2ee--96aa05bf2823.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-2c7638fff2ee--96aa05bf2823.zip",
-      "checksum": "28f83f9ac08b91eb360f750de9f3c25b10c22dd71e5d05b54775498ad1c0a819",
+      "checksum": "c53f5f94954c6629a416beb56fc722f7ff1f5180430530bafd2a5e50e8985899",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-2c7638fff2ee",
       "catalog_version": "exam-identity-v2",
@@ -91789,7 +91789,7 @@
     },
     {
       "canonical_id": "canonical-42abc5f8488ce798",
-      "canonical_name": "專技普考｜專技普考｜外語領隊人員(英語)",
+      "canonical_name": "專技普考｜外語領隊人員(英語)",
       "years": [
         101,
         99,
@@ -91803,7 +91803,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-42abc5f8488c--3825b427f9c3.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-42abc5f8488c--3825b427f9c3.zip",
-      "checksum": "5c8dae80c9aa4d4791f0c3b793f39b76b6b29e66b57c055ea266d3d1aac8896f",
+      "checksum": "aa531e157b90918a7cec2b2e43d6683a1c2b5227c6f28f21db6644cb5c597496",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-42abc5f8488c",
       "catalog_version": "exam-identity-v2",
@@ -91850,7 +91850,7 @@
     },
     {
       "canonical_id": "canonical-47d52ad81fa6acdb",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(阿拉伯語)",
+      "canonical_name": "專技普考｜外語導遊人員(阿拉伯語)",
       "years": [
         101,
         99,
@@ -91862,7 +91862,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-47d52ad81fa6--851f165523e1.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-47d52ad81fa6--851f165523e1.zip",
-      "checksum": "d94dca26d3f8353f66791d013b76a814c57bc3146f9f7a7366b1c746193dbe3c",
+      "checksum": "0bbe90c602311c76bdd3810e9d3fca4fc3ee7c91c61ac481a2d04985d3c7f149",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-47d52ad81fa6",
       "catalog_version": "exam-identity-v2",
@@ -91909,7 +91909,7 @@
     },
     {
       "canonical_id": "canonical-51498db318155937",
-      "canonical_name": "專技普考｜專技普考｜海事保險公證人",
+      "canonical_name": "專技普考｜海事保險公證人",
       "years": [
         115,
         114,
@@ -91938,7 +91938,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-51498db31815--8795235c0654.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-51498db31815--8795235c0654.zip",
-      "checksum": "a83b6d19064abe19d2fa125dfa3ac53ee014645eb1e7e6de6f93791ffbc78b31",
+      "checksum": "6e87eacbbcb6d7e5334073084bce139cbadf442eab39cfa43905dde397d2ebc7",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-51498db31815",
       "catalog_version": "exam-identity-v2",
@@ -91985,7 +91985,7 @@
     },
     {
       "canonical_id": "canonical-6c114401a1452553",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(英語)",
+      "canonical_name": "專技普考｜外語導遊人員(英語)",
       "years": [
         101,
         99,
@@ -91999,7 +91999,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-6c114401a145--9bce92a5385b.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-6c114401a145--9bce92a5385b.zip",
-      "checksum": "9d1e0979224b4c671eda6ba623196ef28086ea52c017375ba902dd9147a74b74",
+      "checksum": "70b07723815c9934274851fcc2a490fa46e19ef36bc6c2511c28df6e22f81064",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-6c114401a145",
       "catalog_version": "exam-identity-v2",
@@ -92046,7 +92046,7 @@
     },
     {
       "canonical_id": "canonical-847ebd15066bb512",
-      "canonical_name": "專技普考｜專技普考｜華語領隊人員",
+      "canonical_name": "專技普考｜華語領隊人員",
       "years": [
         101,
         99,
@@ -92062,7 +92062,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-847ebd15066b--9a8d5f697307.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-847ebd15066b--9a8d5f697307.zip",
-      "checksum": "218532f9b2d8cea81af62510b9a17917fe628218ef8ed42654c4da9e45ce938c",
+      "checksum": "59340f565a47097a70139d2262b9db7e2f4bd602f6ef5620a73246185a042843",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-847ebd15066b",
       "catalog_version": "exam-identity-v2",
@@ -92109,7 +92109,7 @@
     },
     {
       "canonical_id": "canonical-878c96a2c8975247",
-      "canonical_name": "專技普考｜專技普考｜人身保險代理人",
+      "canonical_name": "專技普考｜人身保險代理人",
       "years": [
         115,
         114,
@@ -92138,7 +92138,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-878c96a2c897--f4f4482f86de.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-878c96a2c897--f4f4482f86de.zip",
-      "checksum": "769261925eeed38868593b11c66bdf3ec30d4310f79fbac8836b06f4b23d4126",
+      "checksum": "066ae7c703b3064d4cf3da497f03eb2b834710459b72a13505d06b85b0373d1f",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-878c96a2c897",
       "catalog_version": "exam-identity-v2",
@@ -92185,7 +92185,7 @@
     },
     {
       "canonical_id": "canonical-91de1fd54fe9d0ce",
-      "canonical_name": "專技普考｜專技普考｜外語領隊人員(日語)",
+      "canonical_name": "專技普考｜外語領隊人員(日語)",
       "years": [
         101,
         99,
@@ -92199,7 +92199,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-91de1fd54fe9--d741b15c43dc.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-91de1fd54fe9--d741b15c43dc.zip",
-      "checksum": "1152e2bc28a91e254ae9047cfc4edd5a5fdc5ce241657d2e608c4b86743cf79b",
+      "checksum": "59307b8496d62b14856192d69e4fda1d826a8e59c337322181b98300ee8197cc",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-91de1fd54fe9",
       "catalog_version": "exam-identity-v2",
@@ -92246,7 +92246,7 @@
     },
     {
       "canonical_id": "canonical-93edf56133081659",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(法語)",
+      "canonical_name": "專技普考｜外語導遊人員(法語)",
       "years": [
         101,
         99,
@@ -92260,7 +92260,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-93edf5613308--ed2849556d5d.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-93edf5613308--ed2849556d5d.zip",
-      "checksum": "deffe2a28aa13ba6717f90bf92e5136a3bb41874f4bd8a28ca3989728f368e00",
+      "checksum": "2da3bc434356ee89bbfaee0788ce52ab18b5507b151facf808a426477d4bae31",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-93edf5613308",
       "catalog_version": "exam-identity-v2",
@@ -92307,7 +92307,7 @@
     },
     {
       "canonical_id": "canonical-97c484b11f27815b",
-      "canonical_name": "專技普考｜專技普考｜不動產經紀人",
+      "canonical_name": "專技普考｜不動產經紀人",
       "years": [
         114,
         113,
@@ -92341,7 +92341,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-97c484b11f27--7bcc651425e9.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-97c484b11f27--7bcc651425e9.zip",
-      "checksum": "7cbf57115e928b33e6b0b4e05c6fa1b452b31efda6836f83a6efaac21aa13925",
+      "checksum": "17dbc669005c5b35f190a635e6e17b4b08428dce08a762a2e1fba1965a0c8f99",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-97c484b11f27",
       "catalog_version": "exam-identity-v2",
@@ -92388,7 +92388,7 @@
     },
     {
       "canonical_id": "canonical-a567f6d1491f9cd5",
-      "canonical_name": "專技普考｜專技普考｜人身保險經紀人",
+      "canonical_name": "專技普考｜人身保險經紀人",
       "years": [
         115,
         114,
@@ -92417,7 +92417,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-a567f6d1491f--9f47c417e164.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-a567f6d1491f--9f47c417e164.zip",
-      "checksum": "062d738824762b9d96995dba12e97be8d3119d27253b3b6328fae136f7e54442",
+      "checksum": "cfb8f5e4dca9dc87394dd12d24071fd47f1998b079f5f7651f071c6b244f2d26",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-a567f6d1491f",
       "catalog_version": "exam-identity-v2",
@@ -92464,7 +92464,7 @@
     },
     {
       "canonical_id": "canonical-b3bc912bd2695c56",
-      "canonical_name": "專技普考｜專技普考｜專責報關人員",
+      "canonical_name": "專技普考｜專責報關人員",
       "years": [
         115,
         114,
@@ -92493,7 +92493,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-b3bc912bd269--106002915eec.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-b3bc912bd269--106002915eec.zip",
-      "checksum": "7fd6f72d622312571fa20ca06d8bc297e803325713a81ebce5b0870b19ea83e3",
+      "checksum": "3f7e774c781887977b01a366e300c761da8c868b3716f79ce6ea55092c39d261",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-b3bc912bd269",
       "catalog_version": "exam-identity-v2",
@@ -92540,7 +92540,7 @@
     },
     {
       "canonical_id": "canonical-d463509763b9aac2",
-      "canonical_name": "專技普考｜專技普考｜消防設備士",
+      "canonical_name": "專技普考｜消防設備士",
       "years": [
         115,
         114,
@@ -92568,7 +92568,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-d463509763b9--6c82b28c3798.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-d463509763b9--6c82b28c3798.zip",
-      "checksum": "fd1a15df36a0e169ab8318616a69c6a6a7011fbd88e6e432820852aa56a268b8",
+      "checksum": "7cc1ddb1aacef671a4a03cf6f407af4aea4f5c3a11ac726a7b873568055fb7ef",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-d463509763b9",
       "catalog_version": "exam-identity-v2",
@@ -92615,7 +92615,7 @@
     },
     {
       "canonical_id": "canonical-d7a40dc7ab403185",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(韓語)",
+      "canonical_name": "專技普考｜外語導遊人員(韓語)",
       "years": [
         101,
         99,
@@ -92629,7 +92629,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-d7a40dc7ab40--067c19aff1c5.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-d7a40dc7ab40--067c19aff1c5.zip",
-      "checksum": "426b899e0ebce69b2a891a1487421ca728e017d77aabf2b50968bc81e9415c9f",
+      "checksum": "84e85916b5e3bd4d34b5f99d4735a74c07f383be71efe8df4163c0d85952fdb2",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-d7a40dc7ab40",
       "catalog_version": "exam-identity-v2",
@@ -92676,7 +92676,7 @@
     },
     {
       "canonical_id": "canonical-d800450a3f21e9a2",
-      "canonical_name": "專技普考｜專技普考｜外語領隊人員(德語)",
+      "canonical_name": "專技普考｜外語領隊人員(德語)",
       "years": [
         101,
         99,
@@ -92690,7 +92690,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-d800450a3f21--b36f07aef0d0.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-d800450a3f21--b36f07aef0d0.zip",
-      "checksum": "46290bd63dd5a288babc2788be4edd71df76e1b9a155c6e9855e1b7cda4745c1",
+      "checksum": "b33adbb6d0afe66650bb8951562d1964fbec42c3b9060bd9522778877da7e253",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-d800450a3f21",
       "catalog_version": "exam-identity-v2",
@@ -92737,7 +92737,7 @@
     },
     {
       "canonical_id": "canonical-d96270850973a2d6",
-      "canonical_name": "專技普考｜專技普考｜驗光生",
+      "canonical_name": "專技普考｜驗光生",
       "years": [
         115,
         114,
@@ -92755,7 +92755,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-d96270850973--35b84df734be.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-d96270850973--35b84df734be.zip",
-      "checksum": "15d401d246820acd9802960f5bb7b2434abbd9f7179ee7a846a4f84d5a7f6112",
+      "checksum": "3de051d179863b698db784a76b1365a70193cd9b4169a93bbf9e7525dc6bf5dd",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-d96270850973",
       "catalog_version": "exam-identity-v2",
@@ -92802,7 +92802,7 @@
     },
     {
       "canonical_id": "canonical-e3ecf64309598c11",
-      "canonical_name": "專技普考｜專技普考｜財產保險代理人",
+      "canonical_name": "專技普考｜財產保險代理人",
       "years": [
         115,
         114,
@@ -92831,7 +92831,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-e3ecf6430959--04e189f86231.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-e3ecf6430959--04e189f86231.zip",
-      "checksum": "83c501fccb2f8c2896ad4017c4850f3be4685383d5db59a447a391ea5ae5ce4f",
+      "checksum": "5ad3326492e0ebdac1dfa94184bf3f0466d90afd5390c71028c328be6cb5f912",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-e3ecf6430959",
       "catalog_version": "exam-identity-v2",
@@ -92878,7 +92878,7 @@
     },
     {
       "canonical_id": "canonical-ebcb970b3e920d52",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(日語)",
+      "canonical_name": "專技普考｜外語導遊人員(日語)",
       "years": [
         101,
         99,
@@ -92892,7 +92892,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-ebcb970b3e92--6e2fe972a2f7.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-ebcb970b3e92--6e2fe972a2f7.zip",
-      "checksum": "a97c499f549638590b871fcbf774d4eb192c7264d87ef73aadcb7ff6c85aed7a",
+      "checksum": "be0f008f09b360c4b29dfb707af8d86e39744e62ee0c7df2149bcbc0dc7ea3e2",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-ebcb970b3e92",
       "catalog_version": "exam-identity-v2",
@@ -92939,7 +92939,7 @@
     },
     {
       "canonical_id": "canonical-ee5787d99cb3f8c9",
-      "canonical_name": "專技普考｜專技普考｜地政士",
+      "canonical_name": "專技普考｜地政士",
       "years": [
         115,
         114,
@@ -92971,7 +92971,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-ee5787d99cb3--feb9f72c8108.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-ordinary-professional-ordinary-track-ee5787d99cb3--feb9f72c8108.zip",
-      "checksum": "497d9bb1b148b88acbcf9ccb9392bbb8657bbb65b9689fb435787703e99b5e8f",
+      "checksum": "911ae1f9d248bbcc683efec927d6964c3aaef15274fa70a9be53926b94b96af9",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-ee5787d99cb3",
       "catalog_version": "exam-identity-v2",
@@ -93018,7 +93018,7 @@
     },
     {
       "canonical_id": "canonical-f656268671131447",
-      "canonical_name": "專技普考｜專技普考｜外語導遊人員(西班牙語)",
+      "canonical_name": "專技普考｜外語導遊人員(西班牙語)",
       "years": [
         101,
         99,
@@ -93032,7 +93032,7 @@
       "asset_name": "moex-professional-ordinary-professional-ordinary-track-f65626867113--0f7d7260b9c7.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-ordinary-professional-ordinary-track-f65626867113--0f7d7260b9c7.zip",
-      "checksum": "d5e6de7b27ed0ac64fb07596092de3e99effae0e5b6ed4708d16c8b72b1f6d04",
+      "checksum": "d12b9013557878fac18d6348d6d335110b6d24581510d7b27a418bb19d0533fc",
       "schema_version": 2,
       "bundle_id": "moex-professional-ordinary-professional-ordinary-track-f65626867113",
       "catalog_version": "exam-identity-v2",
@@ -100380,7 +100380,7 @@
     },
     {
       "canonical_id": "canonical-131c37fde1deb6b4",
-      "canonical_name": "專技特考｜專技特考｜甲種引水人(基隆港)",
+      "canonical_name": "專技特考｜甲種引水人(基隆港)",
       "years": [
         94,
         92
@@ -100390,7 +100390,7 @@
       "asset_name": "moex-professional-special-professional-special-track-131c37fde1de--ba3c6a06e327.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-131c37fde1de--ba3c6a06e327.zip",
-      "checksum": "821e8ccd413fe6212186b126579871e2f25f9089dca66c36836663758f9a5789",
+      "checksum": "de54b5f51cbebdd727d2dc433b9b206791852b486917b371330943d26d8f18ce",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-131c37fde1de",
       "catalog_version": "exam-identity-v2",
@@ -100432,7 +100432,7 @@
     },
     {
       "canonical_id": "canonical-16441b9a84bc3418",
-      "canonical_name": "專技特考｜專技特考｜甲種引水人(臺北港)",
+      "canonical_name": "專技特考｜甲種引水人(臺北港)",
       "years": [
         94,
         92
@@ -100442,7 +100442,7 @@
       "asset_name": "moex-professional-special-professional-special-track-16441b9a84bc--5a665b931c8c.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-16441b9a84bc--5a665b931c8c.zip",
-      "checksum": "bb42d341b7cd1243d69c5b463a67290f647ea822e0e5cafce5f00910f5eb885b",
+      "checksum": "6c871d4b563377415482cf6816708d3d75cb1deefc4831cfeec729cdba3765a0",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-16441b9a84bc",
       "catalog_version": "exam-identity-v2",
@@ -100484,7 +100484,7 @@
     },
     {
       "canonical_id": "canonical-1e63398a150417db",
-      "canonical_name": "專技特考｜專技特考｜一般保險公證人",
+      "canonical_name": "專技特考｜一般保險公證人",
       "years": [
         90,
         89,
@@ -100495,7 +100495,7 @@
       "asset_name": "moex-professional-special-professional-special-track-1e63398a1504--07d04fb2146c.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-1e63398a1504--07d04fb2146c.zip",
-      "checksum": "6be2620bfd69574b4ebd81b75ce8523c8882677e3d22922655d8fa6d342b09ec",
+      "checksum": "832a3ddc53459eea2b9d45ac24118d0bf0b8511c89758619487e798bf9cc5791",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-1e63398a1504",
       "catalog_version": "exam-identity-v2",
@@ -100542,7 +100542,7 @@
     },
     {
       "canonical_id": "canonical-2071c307cc7535b2",
-      "canonical_name": "專技特考｜專技特考｜財產保險經紀人",
+      "canonical_name": "專技特考｜財產保險經紀人",
       "years": [
         90,
         89,
@@ -100553,7 +100553,7 @@
       "asset_name": "moex-professional-special-professional-special-track-2071c307cc75--a7d1dc8d659b.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-2071c307cc75--a7d1dc8d659b.zip",
-      "checksum": "a740a972175d0f83cbcbca089c65e4e41883ad07be322018b2745af1c29d7c94",
+      "checksum": "0f726fc4a7a7ccc6c5d0a387f621e5aff556de6cf8c02068dc5b153c6bbd46c9",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-2071c307cc75",
       "catalog_version": "exam-identity-v2",
@@ -100598,7 +100598,7 @@
     },
     {
       "canonical_id": "counseling-psychologist",
-      "canonical_name": "專技特考｜專技特考｜諮商心理師",
+      "canonical_name": "專技特考｜諮商心理師",
       "years": [
         94,
         93,
@@ -100609,7 +100609,7 @@
       "asset_name": "moex-professional-special-professional-special-track-30efc314da9c--b6a110c6d234.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-30efc314da9c--b6a110c6d234.zip",
-      "checksum": "cd2ebc4d1dc84645e091024a47a45fe13a9f8c1c115b3612a2b29e1cab5a055b",
+      "checksum": "ab9cb9355059097da2a5cfe8334d49b0b4e0e321b7c99c630583393816e9d128",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-30efc314da9c",
       "catalog_version": "exam-identity-v2",
@@ -100654,7 +100654,7 @@
     },
     {
       "canonical_id": "canonical-51498db318155937",
-      "canonical_name": "專技特考｜專技特考｜海事保險公證人",
+      "canonical_name": "專技特考｜海事保險公證人",
       "years": [
         90,
         89,
@@ -100665,7 +100665,7 @@
       "asset_name": "moex-professional-special-professional-special-track-51498db31815--4b73aadf9aef.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-51498db31815--4b73aadf9aef.zip",
-      "checksum": "1a268435f27bfaba407445d3cb1c5ce897a5a6e2d04ddf27bbcf0b7f67db6c60",
+      "checksum": "3290721c3658f40d20a96faadd32c64358e3bbd95b1512ef968884f1b026bd7b",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-51498db31815",
       "catalog_version": "exam-identity-v2",
@@ -100712,7 +100712,7 @@
     },
     {
       "canonical_id": "canonical-7538ffa83d308f80",
-      "canonical_name": "專技特考｜專技特考｜甲種引水人(安平港)",
+      "canonical_name": "專技特考｜甲種引水人(安平港)",
       "years": [
         94,
         92
@@ -100722,7 +100722,7 @@
       "asset_name": "moex-professional-special-professional-special-track-7538ffa83d30--180d19fcc58d.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-7538ffa83d30--180d19fcc58d.zip",
-      "checksum": "acd7740b4c2fa817486f04a4677690b1b3be81ec686d78546693aa298276ee05",
+      "checksum": "1c750b96dc6cb2232947b454e340c67f5c5b9962044d9007b9da908e33dc9b0e",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-7538ffa83d30",
       "catalog_version": "exam-identity-v2",
@@ -100764,7 +100764,7 @@
     },
     {
       "canonical_id": "canonical-878c96a2c8975247",
-      "canonical_name": "專技特考｜專技特考｜人身保險代理人",
+      "canonical_name": "專技特考｜人身保險代理人",
       "years": [
         90,
         89,
@@ -100775,7 +100775,7 @@
       "asset_name": "moex-professional-special-professional-special-track-878c96a2c897--f2d1aa71b7fa.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-878c96a2c897--f2d1aa71b7fa.zip",
-      "checksum": "07070bea36884864d81a14a0bcfd21b1090e9e96f2ae57dd91ed71d1815ec13a",
+      "checksum": "8f47795458e6fb208f5d13fa6967a585cb555a8f53b9e8e3a8444120450a297b",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-878c96a2c897",
       "catalog_version": "exam-identity-v2",
@@ -100820,7 +100820,7 @@
     },
     {
       "canonical_id": "canonical-9c39ea053df86786",
-      "canonical_name": "專技特考｜專技特考｜甲種引水人(麥寮港)",
+      "canonical_name": "專技特考｜甲種引水人(麥寮港)",
       "years": [
         94,
         92
@@ -100830,7 +100830,7 @@
       "asset_name": "moex-professional-special-professional-special-track-9c39ea053df8--b57f2fef9a55.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-9c39ea053df8--b57f2fef9a55.zip",
-      "checksum": "a4a391b384f052dce79543c769bc58f758c083c5fd6938507b5ca02a09482208",
+      "checksum": "0e76dc390a48994c23df9c85e98a2c4a8de961d769f0b10b7ed31e111fdeed94",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-9c39ea053df8",
       "catalog_version": "exam-identity-v2",
@@ -100872,7 +100872,7 @@
     },
     {
       "canonical_id": "canonical-a567f6d1491f9cd5",
-      "canonical_name": "專技特考｜專技特考｜人身保險經紀人",
+      "canonical_name": "專技特考｜人身保險經紀人",
       "years": [
         90,
         89,
@@ -100883,7 +100883,7 @@
       "asset_name": "moex-professional-special-professional-special-track-a567f6d1491f--16c427f6c4b0.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-a567f6d1491f--16c427f6c4b0.zip",
-      "checksum": "b58c994890a11035c81a29c21aa24947c4998604739363ba90fdc9f629cfa143",
+      "checksum": "9999e5a7e153391fb323107a88d8a1f7535edb1f580c5fe2101195deaafd04a6",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-a567f6d1491f",
       "catalog_version": "exam-identity-v2",
@@ -100928,7 +100928,7 @@
     },
     {
       "canonical_id": "canonical-b3bc912bd2695c56",
-      "canonical_name": "專技特考｜專技特考｜專責報關人員",
+      "canonical_name": "專技特考｜專責報關人員",
       "years": [
         90,
         89,
@@ -100941,7 +100941,7 @@
       "asset_name": "moex-professional-special-professional-special-track-b3bc912bd269--c070411607d4.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-b3bc912bd269--c070411607d4.zip",
-      "checksum": "575d44081d299fcbbc5a1a151cdb0deb73c43a87f7d84ff83ca13f288b46d203",
+      "checksum": "e2d8915ae875152f506815c6212a42e80296368a948271b1edaa3faefb6e5383",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-b3bc912bd269",
       "catalog_version": "exam-identity-v2",
@@ -100988,7 +100988,7 @@
     },
     {
       "canonical_id": "clinical-psychologist",
-      "canonical_name": "專技特考｜專技特考｜臨床心理師",
+      "canonical_name": "專技特考｜臨床心理師",
       "years": [
         94,
         93,
@@ -100999,7 +100999,7 @@
       "asset_name": "moex-professional-special-professional-special-track-b642462aa467--e5221e603a5e.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-b642462aa467--e5221e603a5e.zip",
-      "checksum": "5517b1a15e61083372e5eccb060ba35ac8e1c4d43843e453c788d06c85bbcf0c",
+      "checksum": "602a553c92dd61a4c52455c44587fbefe3d49b36b5548354daf8cb13c2e0c79a",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-b642462aa467",
       "catalog_version": "exam-identity-v2",
@@ -101045,7 +101045,7 @@
     },
     {
       "canonical_id": "canonical-d4f61c07ae2542c2",
-      "canonical_name": "專技特考｜專技特考｜甲種引水人(高雄港)",
+      "canonical_name": "專技特考｜甲種引水人(高雄港)",
       "years": [
         94,
         92
@@ -101055,7 +101055,7 @@
       "asset_name": "moex-professional-special-professional-special-track-d4f61c07ae25--233385f099a1.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-d4f61c07ae25--233385f099a1.zip",
-      "checksum": "c9fbc591e666cacab8297820349a1c25a1af13df42ee332259f3517507bfda77",
+      "checksum": "d6afd76dd774860750b09dca226aed908910de0f761360ce29a61cb8ff4772ad",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-d4f61c07ae25",
       "catalog_version": "exam-identity-v2",
@@ -101097,7 +101097,7 @@
     },
     {
       "canonical_id": "canonical-e3ecf64309598c11",
-      "canonical_name": "專技特考｜專技特考｜財產保險代理人",
+      "canonical_name": "專技特考｜財產保險代理人",
       "years": [
         90,
         89,
@@ -101108,7 +101108,7 @@
       "asset_name": "moex-professional-special-professional-special-track-e3ecf6430959--7245e52a193c.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-e3ecf6430959--7245e52a193c.zip",
-      "checksum": "fad474dcb240829675f82b89b2782aaa006ccb77ba8b32acaf15450a63de7ce5",
+      "checksum": "80ae451f3b5faf8b12621da34416fc53dd303f65844e807ff0d2e213fdb4443c",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-e3ecf6430959",
       "catalog_version": "exam-identity-v2",
@@ -101153,7 +101153,7 @@
     },
     {
       "canonical_id": "canonical-ea77d4c68a16f27e",
-      "canonical_name": "專技特考｜專技特考｜醫事檢驗生",
+      "canonical_name": "專技特考｜醫事檢驗生",
       "years": [
         93,
         92,
@@ -101165,7 +101165,7 @@
       "asset_name": "moex-professional-special-professional-special-track-ea77d4c68a16--044a49941a46.zip",
       "release_tag": "default-bundles-v2-005",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-005/moex-professional-special-professional-special-track-ea77d4c68a16--044a49941a46.zip",
-      "checksum": "17527e02cfa01cbcbb8802e13e4f2b87de15b4c187a8ff5a8a66778089854242",
+      "checksum": "8524d359bc8cf654a0261e71bff264154a9ff5d1d2c75caae3a82e320a247252",
       "schema_version": 2,
       "bundle_id": "moex-professional-special-professional-special-track-ea77d4c68a16",
       "catalog_version": "exam-identity-v2",

@@ -1760,7 +1760,11 @@ def _classify_paper_uncached(
     if provider_id == "moex":
         track_display = _display(track_label, canonical_name)
         level_label = _moex_native_level_label(series_id, level_id, level_label)
-        bundle_name = f"{series_label}｜{level_label}｜{track_display}"
+        name_parts = [series_label]
+        if level_label != series_label:
+            name_parts.append(level_label)
+        name_parts.append(track_display)
+        bundle_name = "｜".join(name_parts)
         # The track text often already carries the wording (e.g. a region), and
         # two patterns can match one phrase; keep only the longest wording.
         candidates = [label for _variant_id, label in variant_pairs if label not in bundle_name]

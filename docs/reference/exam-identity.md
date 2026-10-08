@@ -190,6 +190,11 @@ source keys, roles, URLs, and checksums remain unchanged by reclassification.
 
 ## Bundle purity
 
+Public titles show programme, meaningful level, occupation and applicable
+variants or stages. When programme and level have the same display label,
+show that wording once while retaining both structured identity dimensions.
+Distinct native grades and stages remain visible.
+
 Shared professional-exam event headings contain independently administered
 programmes. Resolve each qualification from its own programme clause and native
 category. Programme boilerplate and qualification-specific level prefixes do
