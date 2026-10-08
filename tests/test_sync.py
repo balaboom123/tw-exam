@@ -403,7 +403,7 @@ class QuestionDocClient:
         )
 
 
-class CorrectedAnswerDocClient:
+class QuestionCoverDocClient:
     provider_id = "ceec_gsat"
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
@@ -419,7 +419,7 @@ class CorrectedAnswerDocClient:
                     category_code="92",
                     subject_code="math-02",
                     subject_name_raw="數學 封面",
-                    files={"corrected_answer": "https://example.test/math-cover.doc"},
+                    files={"question_cover": "https://example.test/math-cover.doc"},
                 )
             ],
             provider_id=self.provider_id,
@@ -875,10 +875,10 @@ class SyncExamPagesTests(unittest.TestCase):
         )
         self.assertEqual(failures, [])
 
-    def test_sync_exam_pages_accepts_legacy_corrected_answer_doc_payloads(self) -> None:
+    def test_sync_exam_pages_accepts_legacy_question_cover_doc_payloads(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             raw_pages, normalized, failures = sync_exam_pages(
-                client=CorrectedAnswerDocClient(),
+                client=QuestionCoverDocClient(),
                 exam_codes=[("gsat-92-math", 2003)],
                 mirror_store=MirrorStore(Path(tmp_dir)),
                 alias_rules=[],
@@ -886,10 +886,10 @@ class SyncExamPagesTests(unittest.TestCase):
             )
 
         self.assertEqual(
-            raw_pages[0].papers[0].mirror_files["corrected_answer"]["storage_key"],
-            "providers/ceec_gsat/92/gsat-92-math/92/math-02/corrected_answer.doc",
+            raw_pages[0].papers[0].mirror_files["question_cover"]["storage_key"],
+            "providers/ceec_gsat/92/gsat-92-math/92/math-02/question_cover.doc",
         )
-        self.assertEqual([paper.file_type for paper in normalized.papers], ["corrected_answer"])
+        self.assertEqual([paper.file_type for paper in normalized.papers], ["question_cover"])
         self.assertEqual(failures, [])
 
     def test_sync_exam_pages_accepts_question_zip_payloads_without_filename_extension(self) -> None:

@@ -17,7 +17,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-044c38871952--4ba649350e31.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-044c38871952--4ba649350e31.zip",
-      "checksum": "2f4f04e756245cff725d87658bcc880a18699753ace370a85442a39f36ec1d98",
+      "checksum": "557f5bbc7cb395d6fd779161df595d0195cefdd88eebdce3b47171ceb0f3e96c",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-044c38871952",
       "catalog_version": "exam-identity-v2",
@@ -75,7 +75,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-1d962a4964f4--0a0e97ef4797.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-1d962a4964f4--0a0e97ef4797.zip",
-      "checksum": "9adf62734849811c7fb2f544f04112588e21d96bff83e203a46b7cc633d2bc81",
+      "checksum": "7ba733c1efda2f285ac9742451df9c986a5466ba62a7ae64db5fc941731b4015",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-1d962a4964f4",
       "catalog_version": "exam-identity-v2",
@@ -133,7 +133,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-431d61e540ce--75265f773993.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-431d61e540ce--75265f773993.zip",
-      "checksum": "aea1d84fe55b0c520870986bbfab58754b129dfa197b8c504910c1243d385cbf",
+      "checksum": "6a04ea8a600b4cb40cbddb60e2f6ace70f7278aea9b747884226456bcf3c9a3c",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-431d61e540ce",
       "catalog_version": "exam-identity-v2",
@@ -188,7 +188,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-8c5b43521d26--95c62ffecfce.zip",
       "release_tag": "default-bundles-v2-012",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-012/ceec-ast-admission-ast-not-applicable-subject-8c5b43521d26--95c62ffecfce.zip",
-      "checksum": "40fd3a0673fff01641a08c86a9e78b564ba400d45c61fd691fae684afd67e1c6",
+      "checksum": "542cd74f49f26036a37d2523adfba04437c5c188b9677a502f0a33e2874b5c9f",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-8c5b43521d26",
       "catalog_version": "exam-identity-v2",
@@ -240,7 +240,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-917794ac4b09--68950075e733.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-917794ac4b09--68950075e733.zip",
-      "checksum": "e9d120e91f08592a1269388b0f7fbe057d0545b93d26452bb6d08dbdcb88b3d0",
+      "checksum": "d0cc2655ad879434a17eb9b891dc9745e71afd39a108af5b6a5ba9ac38d9aec5",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-917794ac4b09",
       "catalog_version": "exam-identity-v2",
@@ -298,7 +298,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-96e681cf7c19--16385dcc909d.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-96e681cf7c19--16385dcc909d.zip",
-      "checksum": "486ba75fa6969a2dca90af0d8a1f29f92b12cc2d27d89861914ef5e379eec771",
+      "checksum": "0c72488395e5fe09d589328bcc776ade07921237192e2926ccaf88776280c88a",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-96e681cf7c19",
       "catalog_version": "exam-identity-v2",
@@ -356,7 +356,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-b231957e76b1--2d9778e9a58c.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-b231957e76b1--2d9778e9a58c.zip",
-      "checksum": "b5c37f94c821d14cedef04fab2015b882af1e47fa80092bab3433a162f8fb05f",
+      "checksum": "68acf6471726d82c0ec32a94298cf87e076d7e2e78540222ec8fdb3eedf1db98",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-b231957e76b1",
       "catalog_version": "exam-identity-v2",
@@ -414,7 +414,7 @@
       "asset_name": "ceec-ast-admission-ast-not-applicable-subject-fcc037220b94--a924917d4e47.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-ast-admission-ast-not-applicable-subject-fcc037220b94--a924917d4e47.zip",
-      "checksum": "93e2ba06cf1486aa6f9842ecb9200a399ffdd1f080c355706a226c9d5cfa0642",
+      "checksum": "d50deb6a87ac7dfde91b2ec4f3982ec21001a0c04c732c44a0bce651b754160e",
       "schema_version": 2,
       "bundle_id": "ceec-ast-admission-ast-not-applicable-subject-fcc037220b94",
       "catalog_version": "exam-identity-v2",
@@ -472,7 +472,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-a-e02ac9a60e3b--54502ba7cc14.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-a-e02ac9a60e3b--54502ba7cc14.zip",
-      "checksum": "2464f2ad95b552c7cf2ebb08ae1737cf68399af21dd87396f1d068b5959ac678",
+      "checksum": "effbf2c5ce871cad57deb35ed457d1961058fcf59e79d77c4b9e9b06e76b7ea8",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-a-e02ac9a60e3b",
       "catalog_version": "exam-identity-v2",
@@ -527,7 +527,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-b-f029ae047a05--d90bfc2738d2.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-b-f029ae047a05--d90bfc2738d2.zip",
-      "checksum": "37e5a5e23dd6ab43ae719b9f3c6caa6fcba1bde96c9063f4f72ad1be3179768e",
+      "checksum": "b95eb75e0c5743b7c69cb5fe9a2db11935f679104ff7bad6c46114417116e5e5",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-b-f029ae047a05",
       "catalog_version": "exam-identity-v2",
@@ -582,7 +582,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-01dffb930c30--87af6e466871.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-01dffb930c30--87af6e466871.zip",
-      "checksum": "ce7479adab3241053eb673fdbb18efe523f46a56657280eec609d81a75c07854",
+      "checksum": "395ec4f03c1d6c837486cf0b3a7e3f310d46cc26a08576b91a62f41ef13a2866",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-01dffb930c30",
       "catalog_version": "exam-identity-v2",
@@ -691,7 +691,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-816698368d7b--3b60d368981b.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-816698368d7b--3b60d368981b.zip",
-      "checksum": "446597f7bbf2a10b9a9c5b21e6516f54dd305ec59ca625281173d6f64ec5a452",
+      "checksum": "078b27746490c78fcdb8cbcb62dced90727329ebdaf85a0a5933b7d23782d05a",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-816698368d7b",
       "catalog_version": "exam-identity-v2",
@@ -781,7 +781,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-8b5fcb869b59--cba44faad127.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-8b5fcb869b59--cba44faad127.zip",
-      "checksum": "f88dc052de753a9787407c069c379ae8b677b09ea1ce0d7316cded1b2cf4b3b0",
+      "checksum": "67aed169e3a82924a6ab69f2278d3bc50345be8bb834f57cfe3e758c946505da",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-8b5fcb869b59",
       "catalog_version": "exam-identity-v2",
@@ -799,7 +799,6 @@
       "exam_subclass": "學科能力測驗",
       "search_aliases": [
         "自然",
-        "自然 封面",
         "學科能力測驗",
         "115學年度學科能力測驗－自然",
         "115",
@@ -821,11 +820,11 @@
         "109學年度學科能力測驗－自然",
         "109",
         "108學年度學科能力測驗－自然",
-        "108"
+        "108",
+        "107學年度學科能力測驗－自然"
       ],
       "subject_labels": [
-        "自然",
-        "自然 封面"
+        "自然"
       ],
       "legacy_canonical_ids": []
     },
@@ -872,7 +871,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-9da19f227e67--de40b3c4a427.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-9da19f227e67--de40b3c4a427.zip",
-      "checksum": "4c6148742e7c4092ca8b0c1b5edbacbc2e3703a4aa11f0c980df5f6cbc2179f7",
+      "checksum": "750415356ace9dc9dfa0e6db0bfaa3450f78c3f5be48b5efeb28c1018425705c",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-9da19f227e67",
       "catalog_version": "exam-identity-v2",
@@ -890,7 +889,6 @@
       "exam_subclass": "學科能力測驗",
       "search_aliases": [
         "社會",
-        "社會 封面",
         "學科能力測驗",
         "115學年度學科能力測驗－社會",
         "115",
@@ -912,11 +910,11 @@
         "109學年度學科能力測驗－社會",
         "109",
         "108學年度學科能力測驗－社會",
-        "108"
+        "108",
+        "107學年度學科能力測驗－社會"
       ],
       "subject_labels": [
-        "社會",
-        "社會 封面"
+        "社會"
       ],
       "legacy_canonical_ids": []
     },
@@ -954,7 +952,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-cbe0bd0abe60--b0f1eed0893c.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-cbe0bd0abe60--b0f1eed0893c.zip",
-      "checksum": "896a3f858f1ab382f82e6c0f0b19e904a48710c5c455aac60415bc1f93d49c1d",
+      "checksum": "7d05a552067a3c5bbf2661550bbddc1145b0c73e10c09d81791bc2748737874b",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-cbe0bd0abe60",
       "catalog_version": "exam-identity-v2",
@@ -972,9 +970,6 @@
       "exam_subclass": "學科能力測驗",
       "search_aliases": [
         "國文",
-        "國文 非選擇題評分說明",
-        "國文 非選擇題評分標準",
-        "國文 封面",
         "學科能力測驗",
         "106學年度學科能力測驗－國文",
         "106",
@@ -994,13 +989,13 @@
         "101學年度學科能力測驗－國文",
         "101",
         "100學年度學科能力測驗－國文",
-        "100"
+        "100",
+        "99學年度學科能力測驗－國文",
+        "99",
+        "98學年度學科能力測驗－國文"
       ],
       "subject_labels": [
-        "國文",
-        "國文 非選擇題評分說明",
-        "國文 非選擇題評分標準",
-        "國文 封面"
+        "國文"
       ],
       "legacy_canonical_ids": []
     },
@@ -1047,7 +1042,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-ce65f52bc980--04ee75c3b738.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-ce65f52bc980--04ee75c3b738.zip",
-      "checksum": "18dfae5f47f209004bf305bad2860ac9dca3562dbbebe5e7b5d611699aed8e1b",
+      "checksum": "a1f1e2c3b779287aa886d09fbe4b3b6512af6757b8993fd00c31e79cbf2664f1",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-ce65f52bc980",
       "catalog_version": "exam-identity-v2",
@@ -1065,9 +1060,6 @@
       "exam_subclass": "學科能力測驗",
       "search_aliases": [
         "英文",
-        "英文 非選擇題評分說明",
-        "英文 非選擇題評分標準",
-        "英文 封面",
         "學科能力測驗",
         "115學年度學科能力測驗－英文",
         "115",
@@ -1087,13 +1079,13 @@
         "110學年度學科能力測驗－英文",
         "110",
         "109學年度學科能力測驗－英文",
-        "109"
+        "109",
+        "108學年度學科能力測驗－英文",
+        "108",
+        "107學年度學科能力測驗－英文"
       ],
       "subject_labels": [
-        "英文",
-        "英文 非選擇題評分說明",
-        "英文 非選擇題評分標準",
-        "英文 封面"
+        "英文"
       ],
       "legacy_canonical_ids": []
     },
@@ -1135,7 +1127,7 @@
       "asset_name": "ceec-gsat-admission-gsat-not-applicable-subject-d2fdb2ed2cb7--23f16d56824d.zip",
       "release_tag": "default-bundles-v2-001",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/ceec-gsat-admission-gsat-not-applicable-subject-d2fdb2ed2cb7--23f16d56824d.zip",
-      "checksum": "e50917ef276a61b867eef805420ea994d86482c9c7931a5c1886b83a1cc9bd6b",
+      "checksum": "5d94647c56433677c561d4cb93c5f2fa777998a0623f87967a5a87062aae2047",
       "schema_version": 2,
       "bundle_id": "ceec-gsat-admission-gsat-not-applicable-subject-d2fdb2ed2cb7",
       "catalog_version": "exam-identity-v2",
@@ -1153,7 +1145,6 @@
       "exam_subclass": "學科能力測驗",
       "search_aliases": [
         "數學",
-        "數學 封面",
         "學科能力測驗",
         "110學年度學科能力測驗－數學",
         "110",
@@ -1175,11 +1166,11 @@
         "103學年度學科能力測驗－數學",
         "103",
         "102學年度學科能力測驗－數學",
-        "102"
+        "102",
+        "101學年度學科能力測驗－數學"
       ],
       "subject_labels": [
-        "數學",
-        "數學 封面"
+        "數學"
       ],
       "legacy_canonical_ids": []
     },

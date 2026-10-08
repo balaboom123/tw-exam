@@ -8,6 +8,7 @@ from urllib.parse import urljoin
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.ceec import listing_file_type
 from app.providers.http import Http
 
 BASE_URL = "https://www.ceec.edu.tw/"
@@ -293,20 +294,9 @@ class CeecGsatClient:
         papers: list[ParsedPaper] = []
         question_seen = 0
         for index, download in enumerate(entry.downloads, start=1):
+            file_type = listing_file_type(download.label, alternative_question=question_seen > 0)
             if download.label == "\u8a66\u984c\u5167\u5bb9":
                 question_seen += 1
-                file_type = "question" if question_seen == 1 else "question_alt"
-            elif download.label == "\u7b54\u984c\u5377":
-                file_type = "answer_sheet"
-            elif (
-                "\u8a55\u5206\u539f\u5247" in download.label
-                or "\u53c3\u8003\u7b54\u6848" in download.label
-            ):
-                file_type = "corrected_answer"
-            elif "\u7b54\u6848" in download.label:
-                file_type = "answer"
-            else:
-                file_type = "corrected_answer"
             papers.append(
                 ParsedPaper(
                     category_raw=_CEEC_CATEGORY_NAME,

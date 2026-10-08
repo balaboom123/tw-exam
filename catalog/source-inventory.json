@@ -289,7 +289,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official selector and 179 listing events observed for 1994–2026 on 2026-07-29",
+        "note": "All 179 official general-paper subject/year rows rechecked on 2026-10-08 for 1994–2026.",
         "start_ad": 1994
       },
       "discovery_snapshot": {
@@ -302,8 +302,8 @@
       ],
       "exam_category": "CEEC 學科能力測驗 / GSAT archive",
       "local_state": {
-        "normalized_paper_records": 648,
         "raw_event_pages": 179,
+        "normalized_paper_records": 648,
         "sync_failures": 0
       },
       "local_years": [
@@ -346,17 +346,17 @@
       ],
       "provider_id": "ceec_gsat",
       "restrictions": [
-        "Public CEEC pages and linked PDF/DOC/ZIP files only; one 2003 scoring-principle file is a signature-validated legacy OLE DOC. No paid publications or browser automation."
+        "Public CEEC pages and directly linked official files only; the 2003 OLE DOC question cover is accepted only with its verified payload signature. Alternate official PDF/DOC/DOCX formats and original source references remain retained. No paid publications or browser automation."
       ],
       "source_name": "大學入學考試中心",
       "status": "covered",
-      "status_reason": "Covered in declared scope; official listing: 1994–2026, 179 events; local coverage: 1994–2026, 33 buckets; 179 → 648; zero failures and zero normalization-review records."
+      "status_reason": "All 179 current general-paper subject/year rows and their 648 linked file references are retained. Native question and file-role review preserves historical Chinese-paper and mathematics reforms; 12 covers and 73 scoring guides are separate from answer corrections."
     },
     {
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official AST event-bearing rows and notices observed for 2022–2026 on 2026-07-29; older selector years belong to the predecessor 指定科目考試",
+        "note": "Official general-paper archive rechecked on 2026-10-08 for 2022–2026; retained historical notice references are additional evidence, and predecessor 指定科目考試 remains a separate series.",
         "start_ad": 2022
       },
       "discovery_snapshot": {
@@ -369,8 +369,8 @@
       ],
       "exam_category": "CEEC 分科測驗 general-paper archive",
       "local_state": {
-        "normalized_paper_records": 177,
-        "raw_event_pages": 31,
+        "raw_event_pages": 39,
+        "normalized_paper_records": 217,
         "sync_failures": 0
       },
       "local_years": [
@@ -390,7 +390,7 @@
       ],
       "source_name": "大學入學考試中心",
       "status": "covered",
-      "status_reason": "Covered in declared general-paper scope; official discovery: 2022–2026, 31 events; local coverage: 2022–2026, 5 buckets; 31 → 177; all 31 events are published-complete with zero failures and zero normalization-review records."
+      "status_reason": "All 37 current general-paper subject/year rows are retained; 39 retained source events contain 217 file references including two historical notices. The historical notice landing URLs now return the news listing, so their original payloads and provenance remain retained rather than being treated as current discoverable rows. Native questions, covers, answer sheets, keys and scoring guidance have distinct roles; no source files were discarded."
     },
     {
       "available_years": {

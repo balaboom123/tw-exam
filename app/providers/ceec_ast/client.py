@@ -8,6 +8,7 @@ from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.ceec import listing_file_type
 from app.providers.http import Http
 
 BASE_URL = "https://www.ceec.edu.tw/"
@@ -430,7 +431,7 @@ def parse_guideline_papers(html: str, *, base_url: str, year_ad: int) -> list[Pa
                 category_code=str(year_ad - 1911),
                 subject_code=_slug_from_subject(subject),
                 subject_name_raw=subject,
-                files={"corrected_answer": urljoin(base_url, links[0].url)},
+                files={"scoring_guidelines": urljoin(base_url, links[0].url)},
             )
         )
     if not papers:
@@ -573,17 +574,9 @@ class CeecAstClient:
         papers = []
         question_seen = 0
         for index, download in enumerate(entry.downloads, start=1):
+            file_type = listing_file_type(download.label, alternative_question=question_seen > 0)
             if download.label == "試題內容":
                 question_seen += 1
-                file_type = "question" if question_seen == 1 else "question_alt"
-            elif download.label == "答題卷":
-                file_type = "answer_sheet"
-            elif "評分原則" in download.label:
-                file_type = "corrected_answer"
-            elif "答案" in download.label:
-                file_type = "answer"
-            else:
-                file_type = "corrected_answer"
             papers.append(
                 ParsedPaper(
                     category_raw=_CEEC_CATEGORY_NAME,

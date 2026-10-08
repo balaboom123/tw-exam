@@ -177,13 +177,13 @@ class CeecAstParserTests(unittest.TestCase):
         page = client.fetch_exam_page("ceec-ast-guidelines-115", 2026)
 
         self.assertEqual(len(page.papers), 2)
-        self.assertEqual({file_type for paper in page.papers for file_type in paper.files}, {"corrected_answer"})
+        self.assertEqual({file_type for paper in page.papers for file_type in paper.files}, {"scoring_guidelines"})
 
     def test_parse_guideline_papers_requires_and_extracts_scoring_principles(self) -> None:
         papers = parse_guideline_papers(AST_GUIDELINE_PAGE_HTML, base_url=AST_NOTICE_URL, year_ad=2026)
 
         self.assertEqual([paper.subject_code for paper in papers], ["physics", "chemistry"])
-        self.assertEqual({file_type for paper in papers for file_type in paper.files}, {"corrected_answer"})
+        self.assertEqual({file_type for paper in papers for file_type in paper.files}, {"scoring_guidelines"})
 
     def test_fetch_exam_page_turns_one_listing_row_into_many_single_file_papers(self) -> None:
         with patch.object(CeecAstClient, "_fetch_text", return_value=LISTING_HTML):
@@ -195,7 +195,7 @@ class CeecAstParserTests(unittest.TestCase):
         self.assertEqual({paper.category_raw for paper in page.papers}, {"分科測驗"})
         self.assertEqual(
             {file_type for paper in page.papers for file_type in paper.files},
-            {"question", "question_alt", "answer_sheet", "answer", "corrected_answer"},
+            {"question", "question_alt", "answer_sheet", "answer", "scoring_guidelines"},
         )
 
     def test_registry_returns_ceec_ast_provider(self) -> None:

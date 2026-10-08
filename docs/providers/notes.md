@@ -8,9 +8,21 @@ Sections use stable provider IDs; evidence links may point to their Markdown anc
 
 Limit this provider to the official AST archive. The predecessor Subject Competency Test is a distinct official series and must not be inferred from older selector rows.
 
+CEEC's archive link labels own file roles. A blank 答題卷 is an answer sheet,
+封面 is a question cover, and 評分原則、評分標準 or 評分說明 is scoring
+guidance. These are separate from answer keys and explicitly corrected answers.
+An unfamiliar link label requires source review instead of an answer-role guess.
+Retain alternate official document formats and every source reference; identical
+same-subject/year/role payloads can share one ZIP member under the bundler policy.
+
 ## `ceec_gsat`
 
 Use the official CEEC GSAT archive and its directly linked paper, answer, and scoring artifacts. Legacy document or archive formats are eligible only when payload signatures match the advertised role.
+
+Use the [CEEC file-role boundary](#ceec_ast) for covers, answer sheets, scoring
+guidance and answer corrections. 國文 before the writing split, 國文（選擇題）,
+國綜 and 國寫 retain their distinct paper identities across the official reforms;
+the shared Chinese-subject score does not make their papers interchangeable.
 
 ## `cpc_recruit`
 

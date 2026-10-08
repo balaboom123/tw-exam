@@ -182,7 +182,7 @@ class CeecParserTests(unittest.TestCase):
         self.assertEqual({paper.category_raw for paper in page.papers}, {"\u5b78\u79d1\u80fd\u529b\u6e2c\u9a57"})
         self.assertEqual(
             {file_type for paper in page.papers for file_type in paper.files},
-            {"question", "question_alt", "answer_sheet", "answer", "corrected_answer"},
+            {"question", "question_alt", "answer_sheet", "answer", "scoring_guidelines"},
         )
         self.assertEqual(client.build_discovery_year_url(2026), LISTING_URL)
         self.assertEqual(client.build_discovery_exam_url("gsat-115-guozong", 2026), LISTING_URL)

@@ -48,6 +48,8 @@ EXPECTED_EXTENSIONS = {
     "listening_transcript": (".pdf", ".docx", ".doc"),
     "answer": (".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ods", ".zip", ".rar"),
     "answer_sheet": (".pdf",),
+    "question_cover": (".pdf", ".doc", ".docx"),
+    "scoring_guidelines": (".pdf", ".doc", ".docx"),
     "corrected_answer": (".pdf", ".doc", ".zip"),
     "all_answers": (".pdf",),
     "answer_table": (".html", ".htm"),
