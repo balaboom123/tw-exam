@@ -420,6 +420,9 @@ def _track_details(
         qualification = _moex_maritime_qualification(category, exam_name)
         if qualification is not None:
             return qualification.track_id, qualification.track_label
+        professional = _moex_professional_qualification(category, exam_name)
+        if professional is not None:
+            return _slug(professional.occupation, prefix="track"), professional.occupation
         value = _clean_moex_track(category, canonical_name, series_id)
         return _slug(value, prefix="track"), value
     value = (
@@ -503,6 +506,118 @@ def _moex_ship_inspector_programme(category: str, exam_name: str) -> str | None:
     if re.search(r"(?:特種考試|專技特考)(?:(?!高等考試|普通考試).)*驗船師", event):
         return "professional-special"
     return None
+
+
+@dataclass(frozen=True)
+class _ProfessionalQualification:
+    series_id: str
+    level_id: str
+    occupation: str
+    stage_id: str
+
+
+@lru_cache(maxsize=8192)
+def _moex_professional_qualification(
+    category: str, exam_name: str
+) -> _ProfessionalQualification | None:
+    """Use a qualification's own programme clause in a shared exam heading.
+
+    Special-exam equivalence is not an administered high/ordinary level.
+    The occupational boundary also prevents a cohosted stage from leaking
+    into an unrelated qualification.
+    """
+    event = normalize_text(exam_name)
+    if re.search(r"公務人員|升官等|升等|升資|檢定|檢覈", event):
+        return None
+    native = re.fullmatch(
+        r"(?P<occupation>消防設備[師士]|不動產經紀人|不動產估價師|專責報關人員"
+        r"|(?:人身|財產)保險(?:代理|經紀)人|(?:一般|海事)保險公證人"
+        r"|中醫師|社會工作師|呼吸治療師|語言治療師|聽力師|牙體技術[師生]"
+        r"|地政士|食品技師|大地工程技師|驗光[師生])"
+        r"(?:(?:考試分階段考試[（(])?第(?P<stage>[一二])階段考試[）)]?"
+        r"|[（(](?P<short_stage>[一二])[）)])?",
+        normalize_text(category).rsplit("_", 1)[-1],
+    )
+    if native is None:
+        return None
+    occupation = native["occupation"]
+    if native["short_stage"] is not None and occupation != "大地工程技師":
+        return None
+    aliases = [occupation]
+    if occupation.startswith("消防設備"):
+        aliases.extend(("消防設備人員", "消防人員"))
+    elif "保險" in occupation:
+        aliases.extend(("保險從業", "保險人員", "保險代理人保險經紀人及保險公證人"))
+    elif occupation == "專責報關人員":
+        aliases.append("報關人員")
+    elif occupation.startswith("牙體技術"):
+        aliases.append("牙體技術人員")
+    elif occupation.startswith("驗光"):
+        aliases.append("驗光人員")
+    elif occupation in {"食品技師", "大地工程技師"}:
+        aliases.append("技師")
+    markers = list(
+        re.finditer(r"高等[暨、]普通考試|高等考試|普通考試|特種考試|專技[高普特]考", event)
+    )
+    programmes = set()
+    for position, marker in enumerate(markers):
+        end = markers[position + 1].start() if position + 1 < len(markers) else len(event)
+        clause = event[marker.end() : end]
+        if not any(alias in clause for alias in aliases):
+            # Some retained headings name only the combined regular programme.
+            if not (len(markers) == 1 and not clause.strip() and "專門職業及技術人員" in event):
+                continue
+        heading = marker[0]
+        if heading in {"高等暨普通考試", "高等、普通考試"}:
+            # These regulated qualifications have their own regular exam level.
+            # This applies only inside the regular programme clause, never to
+            # a special examination that states legal high/ordinary equivalence.
+            ordinary = (
+                occupation
+                in {
+                    "消防設備士",
+                    "不動產經紀人",
+                    "專責報關人員",
+                    "地政士",
+                    "牙體技術生",
+                    "驗光生",
+                }
+                or "保險" in occupation
+            )
+            programmes.add("professional-ordinary" if ordinary else "professional-high")
+        elif heading in {"高等考試", "專技高考"}:
+            programmes.add("professional-high")
+        elif heading in {"普通考試", "專技普考"}:
+            programmes.add("professional-ordinary")
+        else:
+            programmes.add("professional-special")
+    if "專技" in event and f"{occupation}特考" in event:
+        programmes.add("professional-special")
+    if not programmes:
+        return None
+    if len(programmes) > 1:
+        category_heading = normalize_text(category).rsplit("_", 1)[0]
+        if "相當" in category_heading or "專技特考" in category_heading:
+            explicit = "professional-special"
+        elif re.search(r"高等考試|專技高考|(?:^|_)高(?:等|考)(?:_|$)", category_heading):
+            explicit = "professional-high"
+        elif re.search(r"普通考試|專技普考|(?:^|_)(?:普通|普考|普)(?:_|$)", category_heading):
+            explicit = "professional-ordinary"
+        else:
+            explicit = None
+        if explicit in programmes:
+            programmes = {explicit}
+    series = next(iter(programmes)) if len(programmes) == 1 else "professional-combined"
+    level = {
+        "professional-high": "professional-high",
+        "professional-ordinary": "professional-ordinary",
+        "professional-special": NOT_APPLICABLE,
+        "professional-combined": "unknown",
+    }[series]
+    stage = {"一": "stage-1", "二": "stage-2"}.get(
+        native["stage"] or native["short_stage"], NOT_APPLICABLE
+    )
+    return _ProfessionalQualification(series, level, occupation, stage)
 
 
 @dataclass(frozen=True)
@@ -791,6 +906,16 @@ def _moex_level(category: str, exam_name: str, canonical_name: str) -> tuple[str
             _LEVEL_LABELS["unknown"],
             "review",
             f"eligibility-test level missing from category: {cat}",
+        )
+    professional_qualification = _moex_professional_qualification(cat, event)
+    if professional_qualification is not None:
+        level = professional_qualification.level_id
+        confidence = "review" if level == "unknown" else "high"
+        return (
+            level,
+            _LEVEL_LABELS[level],
+            confidence,
+            f"qualification-specific professional programme: {cat}",
         )
     legacy_level = re.match(r"^(高等|普通|普)_", cat)
     if legacy_level is not None:
@@ -1177,6 +1302,10 @@ def _moex_series(
     eligibility = _moex_eligibility_programme(cat, event)
     if eligibility is not None:
         return "qualification", "exam-eligibility", eligibility, _SERIES_LABELS[eligibility]
+    professional = _moex_professional_qualification(cat, event)
+    if professional is not None:
+        series = professional.series_id
+        return "professional", "professional-exam", series, _SERIES_LABELS[series]
     promotion_series = _moex_promotion_series(cat, event, level_id)
     if promotion_series is not None:
         return (
@@ -1521,6 +1650,7 @@ def _classify_paper_uncached(
                 domain_id, family_id = "civil-service", "civil-service-exam"
             elif reviewed.series_id in {
                 "professional-high",
+                "professional-ordinary",
                 "professional-special",
                 "professional-navigation-special",
                 "professional-navigation-high",
@@ -1598,6 +1728,10 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "moex":
+        professional = _moex_professional_qualification(category, exam_name)
+        if professional is not None:
+            stage_id = professional.stage_id
     if not source_exam_id:
         confidence = "review"
         reason = f"missing source exam event id; {reason}"
@@ -1638,7 +1772,10 @@ def _classify_paper_uncached(
         if labels:
             bundle_name += f"｜{'、'.join(labels)}"
         if stage_id != NOT_APPLICABLE:
-            bundle_name += f"｜{_STAGE_LABELS[stage_id]}"
+            stage_label = _STAGE_LABELS[stage_id]
+            if professional is not None and professional.occupation == "大地工程技師":
+                stage_label = {"stage-1": "第一階段", "stage-2": "第二階段"}[stage_id]
+            bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
         if level_id not in {NOT_APPLICABLE, "unknown"}:

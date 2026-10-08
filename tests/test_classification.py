@@ -19,6 +19,168 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_generic_combined_professional_heading_keeps_each_qualification_level(self) -> None:
+        for heading in ("高等暨普通考試", "高等、普通考試"):
+            for occupation, level in (
+                ("食品技師", "professional-high"),
+                ("大地工程技師", "professional-high"),
+                ("社會工作師", "professional-high"),
+                ("不動產經紀人", "professional-ordinary"),
+            ):
+                with self.subTest(heading=heading, occupation=occupation):
+                    identity = classify(occupation, f"086年專門職業及技術人員{heading}")
+                    self.assertEqual(identity.exam_series_id, level)
+                    self.assertEqual(identity.level_id, level)
+                    self.assertEqual(identity.stage_id, "not-applicable")
+
+    def test_cohosted_professions_use_their_own_regular_programme_clause(self) -> None:
+        event = (
+            "100年專門職業及技術人員高等考試食品技師考試、"
+            "高等暨普通考試消防設備人員考試、普通考試地政士、專責報關人員、"
+            "保險代理人保險經紀人及保險公證人考試、特種考試中醫師、"
+            "驗船師、語言治療師、聽力師及牙體技術人員考試"
+        )
+        levels = {
+            "食品技師": "professional-high",
+            "消防設備師": "professional-high",
+            "消防設備士": "professional-ordinary",
+            "地政士": "professional-ordinary",
+            "專責報關人員": "professional-ordinary",
+            "財產保險代理人": "professional-ordinary",
+            "人身保險代理人": "professional-ordinary",
+            "財產保險經紀人": "professional-ordinary",
+            "人身保險經紀人": "professional-ordinary",
+            "一般保險公證人": "professional-ordinary",
+            "海事保險公證人": "professional-ordinary",
+        }
+        for occupation, level in levels.items():
+            with self.subTest(occupation=occupation):
+                identity = classify(occupation, event)
+                self.assertEqual(identity.exam_series_id, level)
+                self.assertEqual(identity.level_id, level)
+                self.assertEqual(identity.track_label, occupation)
+                self.assertEqual(identity.confidence, "high")
+                self.assertEqual(identity.stage_id, "not-applicable")
+
+    def test_special_exam_equivalence_does_not_become_regular_high_or_ordinary(self) -> None:
+        for occupation, group, equivalent in (
+            ("消防設備師", "消防設備人員", "高考"),
+            ("消防設備士", "消防設備人員", "普考"),
+            ("中醫師", "中醫師", "高考"),
+            ("社會工作師", "社會工作師", "高考"),
+            ("呼吸治療師", "呼吸治療師", "高考"),
+            ("不動產估價師", "不動產估價師", "高考"),
+            ("不動產經紀人", "不動產經紀人", "普考"),
+            ("專責報關人員", "專責報關人員", "普考"),
+            ("人身保險經紀人", "保險從業", "普考"),
+            ("語言治療師", "語言治療師", "高考"),
+            ("聽力師", "聽力師", "高考"),
+            ("牙體技術師", "牙體技術人員", "高考"),
+            ("牙體技術生", "牙體技術人員", "普考"),
+            ("驗光師", "驗光人員", "高考"),
+            ("驗光生", "驗光人員", "普考"),
+        ):
+            with self.subTest(occupation=occupation):
+                special = classify(
+                    f"相當{equivalent}_{occupation}",
+                    f"專門職業及技術人員特種考試{group}考試",
+                )
+                regular = classify(
+                    f"{equivalent}_{occupation}",
+                    f"專門職業及技術人員高等暨普通考試{group}考試",
+                )
+                self.assertEqual(special.exam_series_id, "professional-special")
+                self.assertEqual(special.level_id, "not-applicable")
+                self.assertEqual(special.confidence, "high")
+                self.assertNotEqual(special.bundle_id, regular.bundle_id)
+
+    def test_same_occupation_regular_and_special_event_requires_category_programme(self) -> None:
+        event = (
+            "102年第二次專門職業及技術人員高等考試中醫師、社會工作師考試、"
+            "特種考試聽力師、牙體技術人員考試、102年專門職業及技術人員"
+            "高等考試法醫師、語言治療師、聽力師、牙體技術師考試"
+        )
+        for occupation in ("聽力師", "牙體技術師"):
+            with self.subTest(occupation=occupation):
+                regular = classify(f"高考_{occupation}", event)
+                special = classify(f"相當高考_{occupation}", event)
+                missing = classify(occupation, event, source="ambiguous-102")
+                self.assertEqual(regular.exam_series_id, "professional-high")
+                self.assertEqual(regular.level_id, "professional-high")
+                self.assertEqual(special.exam_series_id, "professional-special")
+                self.assertEqual(special.level_id, "not-applicable")
+                self.assertNotEqual(regular.bundle_id, special.bundle_id)
+                self.assertEqual(missing.confidence, "review")
+                self.assertEqual(missing.level_id, "unknown")
+                self.assertIn("event-ambiguous-102", missing.bundle_id)
+
+    def test_optometry_special_programme_takes_priority_over_abbreviated_category_level(self) -> None:
+        event = (
+            "107年專門職業及技術人員高等考試大地工程技師考試分階段考試、"
+            "驗船師、引水人、第一次食品技師考試、高等暨普通考試消防設備人員考試、"
+            "普通考試地政士、專責報關人員考試、特種考試驗光人員考試"
+        )
+        for occupation, category in (
+            ("驗光師", "驗光師專技高考_驗光師"),
+            ("驗光生", "驗光生專技普考_驗光生"),
+        ):
+            with self.subTest(occupation=occupation):
+                identity = classify(category, event)
+                self.assertEqual(identity.exam_series_id, "professional-special")
+                self.assertEqual(identity.level_id, "not-applicable")
+                self.assertEqual(identity.track_label, occupation)
+                self.assertEqual(identity.stage_id, "not-applicable")
+
+    def test_geotechnical_stages_are_category_owned_and_keep_native_display(self) -> None:
+        event = (
+            "109年專門職業及技術人員高等考試建築師、32類科技師(含第二次食品技師)、"
+            "大地工程技師考試分階段考試(第二階段考試)暨普通考試不動產經紀人、記帳士考試、"
+            "109年第二次專門職業及技術人員特種考試驗光人員考試"
+        )
+        for stage, number in (("stage-1", "一"), ("stage-2", "二")):
+            categories = (
+                f"大地工程技師高等考試_大地工程技師考試分階段考試（第{number}階段考試）",
+                f"專技高考_大地工程技師({number})",
+            )
+            identities = [classify(category, event) for category in categories]
+            self.assertEqual(len({identity.bundle_id for identity in identities}), 1)
+            for identity in identities:
+                self.assertEqual(identity.stage_id, stage)
+                self.assertEqual(identity.track_label, "大地工程技師")
+                self.assertEqual(identity.level_id, "professional-high")
+                self.assertTrue(identity.bundle_name.endswith(f"｜第{number}階段"))
+        for occupation in ("食品技師", "不動產經紀人", "驗光師", "驗光生"):
+            with self.subTest(occupation=occupation):
+                self.assertEqual(classify(occupation, event).stage_id, "not-applicable")
+        unstaged = classify("專技高考_大地工程技師", event)
+        second = classify("專技高考_大地工程技師(二)", event)
+        self.assertNotEqual(unstaged.bundle_id, second.bundle_id)
+
+    def test_cohosted_medical_first_trial_does_not_stage_other_professions(self) -> None:
+        event = (
+            "101年第二次專門職業及技術人員高等考試醫師考試分試考試、中醫師、"
+            "營養師、心理師、醫事檢驗師、護理師考試暨普通考試護士考試、"
+            "101年專門職業及技術人員高等考試中醫師（第一試）考試分試考試、"
+            "法醫師、語言治療師、聽力師、牙體技術師考試"
+        )
+        for occupation in ("中醫師", "語言治療師", "聽力師", "牙體技術師"):
+            with self.subTest(occupation=occupation):
+                identity = classify(f"高考_{occupation}", event)
+                self.assertEqual(identity.stage_id, "not-applicable")
+        staged = classify("中醫師分試高考_中醫師(一)", event)
+        self.assertNotEqual(staged.track_id, classify("高考_中醫師", event).track_id)
+
+    def test_cohosted_professional_rule_does_not_consume_other_purposes(self) -> None:
+        for category, event in (
+            ("中醫師", "中醫師檢定考試"),
+            ("消防設備師", "公務人員升官等考試"),
+            ("食品技師", "專門職業及技術人員檢覈筆試技師考試"),
+            ("驗光助理", "專門職業及技術人員特種考試驗光人員考試"),
+            ("聽力師", "專門職業及技術人員高等考試語言治療師考試"),
+        ):
+            with self.subTest(category=category, event=event):
+                self.assertNotIn("qualification-specific professional programme:", classify(category, event).reason)
+
     def test_ship_inspector_uses_its_own_level_in_a_cohosted_event(self) -> None:
         event = ("114年專門職業及技術人員高等考試大地工程技師考試分階段考試、驗船師、"
                  "引水人、第一次食品技師考試、高等暨普通考試消防設備人員考試、"

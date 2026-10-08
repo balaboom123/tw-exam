@@ -2861,6 +2861,846 @@
           "reason": "Conflicting pilot-grade evidence: official category and other professional headers identify 甲種二等引水人, while this local-waterway header identifies 甲種一等引水人(台灣區高雄港). Preserve the exact source and native bytes pending an official correction or decisive historical subject evidence."
         }
       ]
+    },
+    {
+      "id": "moex-087120-category-049",
+      "source_exam_id": "087120",
+      "year_ad": 1998,
+      "category_code": "049",
+      "category_raw": "人身保險代理人",
+      "exam_name_raw": "087年專門職業及技術人員特種考試專責報關人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087120&c=049&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "d9eac7a6d44dadd534da29c15858d00cb36b215e3e24a3283ce2e2c5a7e8021c",
+          "observation": "The native heading explicitly names the professional special examination for customs and insurance workers; this category is 人身保險代理人. No native high/ordinary exam level is administered."
+        }
+      ]
+    },
+    {
+      "id": "moex-087120-category-050",
+      "source_exam_id": "087120",
+      "year_ad": 1998,
+      "category_code": "050",
+      "category_raw": "財產保險代理人",
+      "exam_name_raw": "087年專門職業及技術人員特種考試專責報關人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087120&c=050&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "eaab9e9c8edd57aa775531838d1797d1d03445e850906c35c72415102922affc",
+          "observation": "The native heading explicitly names the professional special examination for customs and insurance workers; this category is 財產保險代理人. No native high/ordinary exam level is administered."
+        }
+      ]
+    },
+    {
+      "id": "moex-087120-category-051",
+      "source_exam_id": "087120",
+      "year_ad": 1998,
+      "category_code": "051",
+      "category_raw": "人身保險經紀人",
+      "exam_name_raw": "087年專門職業及技術人員特種考試專責報關人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087120&c=051&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "e597227f82c7a05519b4ef1ffaa2e441741a5243babed94000af833f26f886ed",
+          "observation": "The native heading explicitly names the professional special examination for customs and insurance workers; this category is 人身保險經紀人. No native high/ordinary exam level is administered."
+        }
+      ]
+    },
+    {
+      "id": "moex-087120-category-052",
+      "source_exam_id": "087120",
+      "year_ad": 1998,
+      "category_code": "052",
+      "category_raw": "財產保險經紀人",
+      "exam_name_raw": "087年專門職業及技術人員特種考試專責報關人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087120&c=052&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "c1696ecac6ab3d4af46cfaca68747738ac7edf0c4a8f62ba79358543aae6642a",
+          "observation": "The native heading explicitly names the professional special examination for customs and insurance workers; this category is 財產保險經紀人. No native high/ordinary exam level is administered."
+        }
+      ]
+    },
+    {
+      "id": "moex-087120-category-053",
+      "source_exam_id": "087120",
+      "year_ad": 1998,
+      "category_code": "053",
+      "category_raw": "一般保險公證人",
+      "exam_name_raw": "087年專門職業及技術人員特種考試專責報關人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087120&c=053&s=3001&q=1",
+          "subject_code": "3001",
+          "checksum": "6f4083aa526bde0c1e1876fc833256960686de88d8e32a7abe8335700392f273",
+          "observation": "The native heading explicitly names the professional special examination for customs and insurance workers; this category is 一般保險公證人. No native high/ordinary exam level is administered."
+        }
+      ]
+    },
+    {
+      "id": "moex-087120-category-054",
+      "source_exam_id": "087120",
+      "year_ad": 1998,
+      "category_code": "054",
+      "category_raw": "海事保險公證人",
+      "exam_name_raw": "087年專門職業及技術人員特種考試專責報關人員考試",
+      "series_id": "professional-special",
+      "level_id": "not-applicable",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=087120&c=054&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "cf8840277ece9e197ce193338d56532cce54d950ad2d8c04759d8a7984208769",
+          "observation": "The native heading explicitly names the professional special examination for customs and insurance workers; this category is 海事保險公證人. No native high/ordinary exam level is administered."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-001",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "001",
+      "category_raw": "土木工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=001&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f30647632d550ccf82aff2821d9d89db23adfe931142c4318fca281a69c63f61",
+          "observation": "The native header states 高等考試 for 土木工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-002",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "002",
+      "category_raw": "水利工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=002&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f93326479267623ea520a36b177f042b18e2f18150dc78d2e75ebfc55808f860",
+          "observation": "The native header states 高等考試 for 水利工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-003",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "003",
+      "category_raw": "結構工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=003&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f1ea434091887d62c8c4642a13e61c6c44940a9a6cd16fb9d92813605fbaa425",
+          "observation": "The native header states 高等考試 for 結構工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-004",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "004",
+      "category_raw": "大地工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=004&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "99709cf3702e0747566530f3d36ca5b012bdccb7d303520c1239cef4f20ebd0a",
+          "observation": "The native header states 高等考試 for 大地工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-005",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "005",
+      "category_raw": "測量技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=005&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "080d1880e06007576f30b0e851b3b7ad46f21530a4a8770b483c919394c80269",
+          "observation": "The native header states 高等考試 for 測量技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-006",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "006",
+      "category_raw": "環境工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=006&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f33c614f544632ab02c3ea71ae8af20aa9a57fa4b3eaff7404c915cfb1b8d48d",
+          "observation": "The native header states 高等考試 for 環境工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-007",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "007",
+      "category_raw": "都市計畫技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=007&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "4f1a4e59c610300520ab62d62a134260caca8941b6748913159aeb5d8d2152bb",
+          "observation": "The native header states 高等考試 for 都市計畫技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-008",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "008",
+      "category_raw": "機械工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=008&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "7d2024975005bced2336d7b1bcc058f4988466301286702123ac0f558b5dbf06",
+          "observation": "The native header states 高等考試 for 機械工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-009",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "009",
+      "category_raw": "冷凍空調工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=009&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "b2de14c2ab86fc009c0dbc2bc634fd4e282ad2f40193705fc8df10714b5db8b2",
+          "observation": "The native header states 高等考試 for 冷凍空調工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-010",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "010",
+      "category_raw": "造船工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=010&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f45eafb6c58f9bf00f8678ef263e80bb7fb06cb00e40656095dedd76344c2a97",
+          "observation": "The native header states 高等考試 for 造船工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-011",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "011",
+      "category_raw": "電機工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=011&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "a3ab3de9e66a74003a4655c334b7662c863f57841803dfe30cfdd1a191946414",
+          "observation": "The native header states 高等考試 for 電機工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-012",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "012",
+      "category_raw": "電子工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=012&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "eba2ab3d4341a9ca209e20efa1f3d9c1b770f7fcb157931d68c9be86cbd571f5",
+          "observation": "The native header states 高等考試 for 電子工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-013",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "013",
+      "category_raw": "資訊技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=013&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "47e3791e0764f7e1bb47fda76297b2eb6152fe503a42225ddd8033366e83989f",
+          "observation": "The native header states 高等考試 for 資訊技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-014",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "014",
+      "category_raw": "航空工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=014&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "5179177936149f86e1656a547021fc5e42227cd728ba245c6cdaa53be5322f02",
+          "observation": "The native header states 高等考試 for 航空工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-015",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "015",
+      "category_raw": "化學工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=015&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "fd31062e23274d5ef380557e033da0f9dc9d5c76010f6b1c484bacf337205e13",
+          "observation": "The native header states 高等考試 for 化學工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-016",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "016",
+      "category_raw": "工業工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=016&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "0662a03774128a9efa4789dfd9676a6169a9a34b34388dc42ae83ce1e4cf7964",
+          "observation": "The native header states 高等考試 for 工業工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-017",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "017",
+      "category_raw": "工業安全技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=017&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "a673959ac5b4c726dc167903abd852f5184bbce5c3786ba506d0887573ac4b8d",
+          "observation": "The native header states 高等考試 for 工業安全技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-018",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "018",
+      "category_raw": "工礦衛生技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=018&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "771f33aea4bae9f6a0d04a21313c2542be4c9ba33d0b273556d1e10deccc18b7",
+          "observation": "The native header states 高等考試 for 工礦衛生技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-019",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "019",
+      "category_raw": "紡織工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=019&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "e55fc6a6654d6495c3fabd636413a4833d97408dc181a07835a591e4e20adc8e",
+          "observation": "The native header states 高等考試 for 紡織工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-020",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "020",
+      "category_raw": "食品技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=020&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "e110a8b7679eae32155c308dcdd0b697be65fb32dd76db7bb6a72d0e5b754ea1",
+          "observation": "The native header states 高等考試 for 食品技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-021",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "021",
+      "category_raw": "冶金工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=021&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "e9a905847407a3b148e6be108526f7d4efa1457ded39beaa92916f201212fafa",
+          "observation": "The native header states 高等考試 for 冶金工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-022",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "022",
+      "category_raw": "農藝技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=022&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "ef690b4dfaa26697d9a8605b3506b88ceacd817db986680795bc658079b8b8b1",
+          "observation": "The native header states 高等考試 for 農藝技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-023",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "023",
+      "category_raw": "園藝技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=023&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "3bccca02f7b76449e8a8f5a8deb9040ba9b3158cf855eb5ba0bb629e5891b389",
+          "observation": "The native header states 高等考試 for 園藝技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-024",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "024",
+      "category_raw": "林業技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=024&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "92a7252119bfcbf500f34284037e73f7f43570809d493dda8e4efa80dd7b5443",
+          "observation": "The native header states 高等考試 for 林業技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-025",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "025",
+      "category_raw": "畜牧技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=025&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "441557e990e73cf73cc5f817f0916550a756d76f03dd3d28f9b77037f2f81c73",
+          "observation": "The native header states 高等考試 for 畜牧技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-026",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "026",
+      "category_raw": "漁撈技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=026&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "7d8a20e9aa30bb2b7f2e49760fde297e7a2223af5f4900df9dd50a84b8bde582",
+          "observation": "The native header states 高等考試 for 漁撈技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-027",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "027",
+      "category_raw": "水產養殖技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=027&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "e9ff2b09a47fe0342e3753f459a122ef0b876f3b39a0064f5200114001e444f4",
+          "observation": "The native header states 高等考試 for 水產養殖技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-028",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "028",
+      "category_raw": "水土保持技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=028&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "79c92b2af591989221c28245fe2b44c5ebb4437ffbffed09ba8191eb865f3a3b",
+          "observation": "The native header states 高等考試 for 水土保持技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-029",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "029",
+      "category_raw": "採礦工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=029&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "8252a5bccef3b403a778361ed3d173591937298e4b947e8f254ca5ce14c8182b",
+          "observation": "The native header states 高等考試 for 採礦工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-030",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "030",
+      "category_raw": "應用地質技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=030&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "533093128cf64166fcf09b9eea4361cae89acef9de91254273e36958e9339c1b",
+          "observation": "The native header states 高等考試 for 應用地質技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-031",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "031",
+      "category_raw": "礦業安全技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=031&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "5a2b36296dff64bd38aa98c0000f8a3f8c880ad18b0887fa0f46e8237fda64ff",
+          "observation": "The native header states 高等考試 for 礦業安全技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-032",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "032",
+      "category_raw": "交通工程技師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=032&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "1c7b8f45a51bdcb80b90595fa052ef98e637f40bdd82cffed1911538c754b670",
+          "observation": "The native header states 高等考試 for 交通工程技師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-401",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "401",
+      "category_raw": "不動產經紀人",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-ordinary",
+      "level_id": "professional-ordinary",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=401&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "8e4bad26c3256e59394cb62cf7a9402756a0346837bd098d9c0018784eb7eea1",
+          "observation": "The native header states 普通考試 for 不動產經紀人, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-402",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "402",
+      "category_raw": "地政士",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-ordinary",
+      "level_id": "professional-ordinary",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=402&s=2001&q=1",
+          "subject_code": "2001",
+          "checksum": "20685773096f3798cc4467bff12b9695d7131db50e73a2a3c534ad6098d7d708",
+          "observation": "The native header states 普通考試 for 地政士, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-801",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "801",
+      "category_raw": "建築師",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=801&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "46ed064cb7c2a84f42004a4e4b593f0a35f8be86b71a4419713bdcd73506cd64",
+          "observation": "The native header states 高等考試 for 建築師, despite the abbreviated event title."
+        }
+      ]
+    },
+    {
+      "id": "moex-093250-category-901",
+      "source_exam_id": "093250",
+      "year_ad": 2004,
+      "category_code": "901",
+      "category_raw": "民間之公證人",
+      "exam_name_raw": "093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試",
+      "series_id": "professional-high",
+      "level_id": "professional-high",
+      "reviewed_at": "2026-10-08",
+      "reason": "The retained event title omits this cohosted qualification or its programme level. Visually reviewed the official professional-subject header and freshly verified its complete payload checksum; source codes and neighbouring categories do not determine identity.",
+      "evidence": [
+        {
+          "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=Q&code=093250&c=901&s=1001&q=1",
+          "subject_code": "1001",
+          "checksum": "f8c7861b84d502cc56a06f77c83ef91ab7d5c1de4d66e509ceecb6bd1a727d34",
+          "observation": "The native header states 高等考試 for 民間之公證人, despite the abbreviated event title."
+        }
+      ]
     }
   ]
 }

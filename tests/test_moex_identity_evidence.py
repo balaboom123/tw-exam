@@ -133,6 +133,30 @@ def test_pilot_grade_conflict_isolated_without_regrading_other_subjects():
     assert 'reviewed official question headers' not in changed.reason
 
 
+@pytest.mark.parametrize('event,category,occupation,series,level', [
+    ('087120', '049', '人身保險代理人', 'professional-special', 'not-applicable'),
+    ('093250', '004', '大地工程技師', 'professional-high', 'professional-high'),
+    ('093250', '401', '不動產經紀人', 'professional-ordinary', 'professional-ordinary'),
+])
+def test_omitted_professional_programmes_use_only_the_exact_reviewed_context(
+    event, category, occupation, series, level,
+):
+    title = ('087年專門職業及技術人員特種考試專責報關人員考試' if event == '087120'
+             else '093年專門職業及技術人員建築師、技師、民間之公證人、不動產經紀人、地政士考試')
+    arguments = dict(provider_id='moex', source_exam_id=event, year_ad=int(event[:3]) + 1911,
+        category_code=category, category_raw=occupation, exam_name_raw=title,
+        canonical_id='fixture', canonical_name=occupation)
+    identity = classify_paper(**arguments)
+    assert identity.exam_series_id == series
+    assert identity.level_id == level
+    assert identity.domain_id == 'professional'
+    assert identity.stage_id == 'not-applicable'
+    assert identity.confidence == 'high'
+    assert 'reviewed official question headers' in identity.reason
+    changed = classify_paper(**dict(arguments, source_exam_id='unreviewed-event'))
+    assert 'reviewed official question headers' not in changed.reason
+
+
 @pytest.mark.parametrize('change', ['missing', 'context', 'revision', 'wrong_role'])
 def test_evidence_gate_rejects_lost_changed_or_wrong_role_anchors(tmp_path, change):
     payload = document()

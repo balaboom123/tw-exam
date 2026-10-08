@@ -190,6 +190,34 @@ source keys, roles, URLs, and checksums remain unchanged by reclassification.
 
 ## Bundle purity
 
+Shared professional-exam event headings contain independently administered
+programmes. Resolve each qualification from its own programme clause and native
+category. Programme boilerplate and qualification-specific level prefixes do
+not create new occupations. A generic combined high/ordinary heading requires
+the qualification's own regulated level; its punctuation does not select a
+level. When the same qualification appears under regular and special programmes
+in one event, use its explicit category programme or retain an unresolved,
+event-isolated identity. An abbreviated event that omits a qualification or
+level requires an exact checksum-anchored native-header fact.
+
+Historical special qualifications remain distinct from regular high and
+ordinary examinations. For example, the
+[historical insurance rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016876)
+and [fire-equipment rules](https://law.exam.gov.tw/LawContent.aspx?id=FL016895)
+describe changes to the actual examination programme. Legal equivalence to a
+high or ordinary examination is not itself an administered level. Preserve
+separate qualifications such as 師/士, 師/生 and each insurance occupation,
+including when their common papers are identical. Explicit programme evidence,
+corroborated by the historical rules, determines the reform boundary; a shared
+event's first marker or a year-only rule does not.
+
+The [geotechnical staged-exam rules](https://law.exam.gov.tw/LawContent.aspx?id=FL077429)
+define separate first and second phases. Native category spellings for these
+phases share the corresponding stage identity and display 第一階段 or 第二階段.
+The regular unstaged route remains separate. A cohosted phase or medical
+第一試 marker does not stage unrelated qualifications in the same event.
+These boundaries and retained native question headings were checked on 2026-10-08.
+
 Navigation qualifications belong to professional examination programmes.
 The [historical navigation rules](https://law.exam.gov.tw/LawContentHistory.aspx?hid=1356&id=FL016913)
 distinguish ship grades, occupations, naval-transfer subject tables and
