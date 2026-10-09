@@ -23,7 +23,7 @@ spec.loader.exec_module(mirror)
 PROVIDER = "ceec_ast"
 
 
-@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert', 'tii_cert'])
+@pytest.mark.parametrize('provider', ['cpc_recruit', 'hakka_cert', 'jlpt_cert', 'tii_cert'])
 def test_restricted_public_save_is_rejected_before_packing_or_remote_operations(tmp_path, monkeypatch, provider):
     def unexpected(*args, **kwargs):
         pytest.fail("A restricted provider reached public backup work")
@@ -35,7 +35,7 @@ def test_restricted_public_save_is_rejected_before_packing_or_remote_operations(
     assert not (tmp_path / ".tmp").exists()
 
 
-@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert', 'tii_cert'])
+@pytest.mark.parametrize('provider', ['cpc_recruit', 'hakka_cert', 'jlpt_cert', 'tii_cert'])
 def test_restricted_public_save_cli_checks_policy_before_cache_outputs(tmp_path, monkeypatch, capsys, provider):
     def unexpected(*args, **kwargs):
         pytest.fail("A restricted provider reached backup or cache work")
@@ -1062,7 +1062,7 @@ def test_hydrate_cli_uses_latest_pointer_without_restore_flags(hydrating, monkey
     assert mirror.main() == 1
 
 
-@pytest.mark.parametrize('provider', ['hakka_cert', 'jlpt_cert', 'tii_cert'])
+@pytest.mark.parametrize('provider', ['cpc_recruit', 'hakka_cert', 'jlpt_cert', 'tii_cert'])
 def test_private_cache_policy_has_no_public_backup_or_network_work(tmp_path, monkeypatch, provider):
     source = tmp_path / 'mirror/providers' / provider
     source.mkdir(parents=True)

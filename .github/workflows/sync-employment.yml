@@ -2,6 +2,18 @@ name: sync-employment
 
 on:
   workflow_dispatch:
+    inputs:
+      provider_id:
+        description: Run all providers or one provider for recovery
+        type: choice
+        default: all
+        options:
+          - all
+          - moea_recruit
+          - cpc_recruit
+          - post_recruit
+          - taipower_recruit
+          - twc_recruit
   schedule:
     - cron: "20 5 * * 6"
 
@@ -17,26 +29,31 @@ jobs:
       matrix:
         include:
           - provider_id: moea_recruit
+            durable_snapshot: true
             cache_prefix: moea-recruit
             timeout_minutes: 120
             publish: false
             prune_orphaned_mirror: false
           - provider_id: cpc_recruit
+            durable_snapshot: false
             cache_prefix: cpc-recruit
             timeout_minutes: 120
             publish: false
             prune_orphaned_mirror: false
           - provider_id: post_recruit
+            durable_snapshot: true
             cache_prefix: post-recruit
             timeout_minutes: 120
             publish: true
             prune_orphaned_mirror: false
           - provider_id: taipower_recruit
+            durable_snapshot: true
             cache_prefix: taipower-recruit
             timeout_minutes: 120
             publish: true
             prune_orphaned_mirror: false
           - provider_id: twc_recruit
+            durable_snapshot: true
             cache_prefix: twc-recruit
             timeout_minutes: 120
             publish: false
@@ -44,7 +61,9 @@ jobs:
     uses: ./.github/workflows/_sync-provider.yml
     with:
       provider_id: ${{ matrix.provider_id }}
+      enabled: ${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}
       cache_prefix: ${{ matrix.cache_prefix }}
       timeout_minutes: ${{ matrix.timeout_minutes }}
       publish: ${{ matrix.publish }}
+      durable_snapshot: ${{ matrix.durable_snapshot }}
       prune_orphaned_mirror: ${{ matrix.prune_orphaned_mirror }}

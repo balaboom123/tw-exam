@@ -146,6 +146,42 @@
         "status": "not_currently_enumerable"
       }
     ],
+    "contracted_source_recheck": {
+      "checked_at": "2026-10-09T00:50:00.908388+00:00",
+      "requests": [
+        {
+          "captured_at": "2026-10-09T00:50:00.908388+00:00",
+          "content_type": "text/html; charset=utf-8",
+          "final_url": "https://cpc114.twrecruit.com.tw/news/",
+          "requested_url": "https://cpc114.twrecruit.com.tw/news/",
+          "sha256": "dde97e7a817ee551ed33832d0813e2f027c29f5813c41392e8d053574c17f6b2",
+          "status": 200
+        },
+        {
+          "captured_at": "2026-10-09T00:50:00.908388+00:00",
+          "content_type": "text/html; charset=utf-8",
+          "final_url": "https://cpc114.twrecruit.com.tw/news/?login=Y&url=L2J1bGxldGluLz9jPWV4YW1CdWxsZXRpbg",
+          "requested_url": "https://cpc114.twrecruit.com.tw/bulletin/?c=examBulletin",
+          "sha256": "46cae31d1334d62857db657aeda5919f9dfc4d80862f22ae04bd0b65b255a81c",
+          "status": 200
+        },
+        {
+          "captured_at": "2026-10-09T00:50:00.908388+00:00",
+          "content_type": "text/html; charset=utf-8",
+          "final_url": "https://cpc114.twrecruit.com.tw/news/?login=Y&url=L2J1bGxldGluLz9jPWl0ZW1CdWxsZXRpbg",
+          "requested_url": "https://cpc114.twrecruit.com.tw/bulletin/?c=itemBulletin",
+          "sha256": "410c696f905dcdd5e804ee8539bfdea8607207aa705d27eac3c8f337af0e64d1",
+          "status": 200
+        },
+        {
+          "captured_at": "2026-10-09T00:50:00.908388+00:00",
+          "error_type": "SSLCertVerificationError",
+          "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'cpcdr113.twrecruit.com.tw'. (_ssl.c:1000)",
+          "requested_url": "https://cpcdr113.twrecruit.com.tw/",
+          "status": "request_failed"
+        }
+      ]
+    },
     "delegated_source": {
       "owner_provider": "moea_recruit",
       "reason": "the CPC page delegates the MOEA joint recruitment paper archive to Taipower and must not be duplicated",
@@ -247,8 +283,20 @@
         "url": "https://www.cpc.com.tw/robots.txt"
       }
     },
-    "retained_local_contamination": {
-      "brochure_only_event_years_ad": [
+    "redistribution_review": {
+      "declaration_url": "https://www.cpc.com.tw/cp.aspx?n=2559",
+      "evidence": "Page 1 explicitly identifies the fifth question figure as copyrighted; page 2 includes a figure modified from Genik (1993), AAPG Bulletin. The general CPC reuse declaration does not establish permission for this specifically identified third-party image.",
+      "native_member": "98年考古題/地球物理探勘(包含盆地分析、石油系統).pdf",
+      "native_member_checksum": "8d1dd5b5e3fa831379a0cb8c74b04b7af00889112ee8f1134423f4e6685f9200",
+      "next_action": "Obtain relevant permission or a reviewed publication treatment preserving the original and provenance before lifting the provider hold.",
+      "package_storage_key": "providers/cpc_recruit/98/cpc-recruit-98/98/phd-01/question.rar",
+      "reviewed_at": "2026-10-09T00:48:03.829229+00:00",
+      "status": "unresolved"
+    },
+    "retired_brochure_evidence": {
+      "current_normalized_brochure_records": 0,
+      "disposition": "Retired non-paper source records and original bytes are retained in the provider journal and checksum-addressed recovery blobs; brochure-only acquisition rows are not exam events.",
+      "previous_brochure_only_event_years_ad": [
         2015,
         2016,
         2017,
@@ -259,15 +307,80 @@
         2024,
         2025
       ],
-      "mixed_event_years_ad": [
+      "previous_mixed_event_years_ad": [
         2009,
         2012,
         2019
       ],
-      "normalized_brochure_records": 12,
-      "publication_status": "the current generated bundle still contains all 12 brochures; removal or reclassification is deferred to a separate reviewed data migration"
+      "recovery_journal": "data/providers/cpc_recruit/source-revisions.json",
+      "retired_source_records": 12,
+      "reviewed_at": "2026-10-09T00:48:03.829229+00:00"
     },
     "robots_policy": "no machine-readable policy was found: /robots.txt resolves to the CPC HTML homepage",
+    "semantic_review": {
+      "identical_nested_payloads": 0,
+      "level": "not-applicable: doctorate is an eligibility requirement, not an examination grade",
+      "native_question_members": 51,
+      "native_question_packages": 5,
+      "official_rule_evidence": [
+        {
+          "checksum": "a9e07bd954aca83de6f52d5df914753fba5bfa6d56bcb6f679a5347aa4521b4a",
+          "url": "https://ws.cpc.com.tw/Download.ashx?n=MjAxNDQzMDEzMzUyMF%2FnsKHnq6Ao5qC45a6a5p2%2FKS5wZGY%3D&u=LzAwMS9VcGxvYWQvT2xkRmlsZS9GaWxlcy9OZXdzRmlsZS8yMDE0NDMwMTMzNTIwX%2BewoeeroCjmoLjlrprmnb8pLnBkZg%3D%3D",
+          "year_ad": 2009
+        },
+        {
+          "checksum": "bc3242cee514a6dfd61ea944231ce1a1bd721613488de9632aa395b2bdcf71dd",
+          "url": "https://ws.cpc.com.tw/Download.ashx?u=LzAwMS9VcGxvYWQvT2xkRmlsZS9GaWxlcy9OZXdzRmlsZS8yMDE0NDMwMTMzNTQ2XzEwMOW5tOWNmuWjq%2beUhOippuewoeeroC5wZGY%3d&n=MjAxNDQzMDEzMzU0Nl8xMDDlubTljZrlo6vnlIToqabnsKHnq6AucGRm",
+          "year_ad": 2011
+        },
+        {
+          "checksum": "8eb9c57c907130405d1e46b9426f577aa07df6076f2ba9d2c478019c508189e8",
+          "url": "https://ws.cpc.com.tw/Download.ashx?u=LzAwMS9VcGxvYWQvT2xkRmlsZS9GaWxlcy9OZXdzRmlsZS8yMDE0NDMwMTMzNjIyX%2bS4reayuTEwMeW5tOWNmuWjq%2beUhOippuewoeeroC5wZGY%3d&n=MjAxNDQzMDEzMzYyMl%2fkuK3msrkxMDHlubTljZrlo6vnlIToqabnsKHnq6AucGRm",
+          "year_ad": 2012
+        },
+        {
+          "checksum": "6eeeb4edb4487b4887121a4b0a7fbd35ede46b36b3b17005d24d9f0d1d832905",
+          "url": "https://ws.cpc.com.tw/Download.ashx?u=LzAwMS9VcGxvYWQvT2xkRmlsZS9GaWxlcy9OZXdzRmlsZS8yMDE0NDMwMTMzNjUzXzEwMuW5tOWNmuWjq%2beUhOippuewoeeroCjmoLjlrpopLnBkZg%3d%3d&n=MjAxNDQzMDEzMzY1M18xMDLlubTljZrlo6vnlIToqabnsKHnq6Ao5qC45a6aKS5wZGY%3d",
+          "year_ad": 2013
+        },
+        {
+          "checksum": "dc12886e98b26f02a24c608d64b680938dfe10e7e513c83eee1e534aa9ebd5d3",
+          "url": "https://ws.cpc.com.tw/Download.ashx?u=LzAwMS9VcGxvYWQvMS9yZWxmaWxlLzg5NjkvODI1LzY3YjJmNmNkLWZjMzctNDcyNS05OGJiLWZjY2I3MDAwMGQwYy5wZGY%3d&n=MTA45bm05paw6YCy5Y2a5aOr57Sa6IG35ZOh55SE6Kmm57Ch56ugLnBkZg%3d%3d",
+          "year_ad": 2019
+        }
+      ],
+      "packaging": "Keep complete original ZIP/RAR packages, native occupational categories, subjects, A/B distinctions and source paths; all nested members are readable PDFs with safe unique relative paths.",
+      "programme": "中油新進博士級人員甄試",
+      "purpose": "CPC doctoral employee recruitment",
+      "reviewed_at": "2026-10-09T00:48:03.829229+00:00",
+      "shared_category_papers": {
+        "chemical_engineering": [
+          "煉製",
+          "綠能"
+        ],
+        "disposition": "Native covers explicitly combine each pair on one original paper. Keep shared original packages without duplicating category bytes.",
+        "materials_engineering": [
+          "探採",
+          "綠能"
+        ],
+        "year_ad": 2019
+      },
+      "source_omissions": [
+        {
+          "disposition": "These two occupational papers are listed in the official doctoral brochure but absent from the current complete 10-member upstream package. No official downloadable locator was established; do not invent a download failure or call the complete programme covered.",
+          "expected_papers": [
+            "經濟學及計量經濟學",
+            "管理學及計量經濟學"
+          ],
+          "official_rule_categories": [
+            "經濟",
+            "管理"
+          ],
+          "year_ad": 2012
+        }
+      ],
+      "stage": "stage-1: initial written selection, followed by document review, research presentation and interview"
+    },
     "static_archive_event_count": 5,
     "static_archive_years_ad": [
       2009,

@@ -402,6 +402,8 @@ def _track_details(
         return _slug(canonical_id, prefix="teacher"), _display(canonical_name, canonical_id)
     if provider_id == "teacher_qual":
         return "teacher-qualification", "教師資格考試"
+    if provider_id == "cpc_recruit" and "博士" in category:
+        return "cpc-doctoral", "中油新進博士級人員甄試"
     if provider_id in {
         "moea_recruit",
         "taipower_recruit",
@@ -1151,6 +1153,13 @@ def _non_moex_level(
     provider_id: str, category: str, canonical_id: str, subject_name: str
 ) -> tuple[str, str, str, str]:
     text = normalize_text(f"{category} {subject_name}")
+    if provider_id == "cpc_recruit" and "博士" in category:
+        return (
+            NOT_APPLICABLE,
+            _LEVEL_LABELS[NOT_APPLICABLE],
+            "high",
+            "CPC doctoral recruitment: doctorate is an eligibility requirement, not an exam grade",
+        )
     if provider_id == "gept_cert":
         for marker, level_id in (
             ("初級", "elementary"),
@@ -1728,6 +1737,11 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "cpc_recruit" and track_id == "cpc-doctoral" and stage_id == NOT_APPLICABLE:
+        # The static doctoral archive supplies the initial written test. Its
+        # official brochures distinguish this from the later interview and
+        # research-presentation stage.
+        stage_id = "stage-1"
     if provider_id == "moex":
         professional = _moex_professional_qualification(category, exam_name)
         if professional is not None:
@@ -1782,6 +1796,12 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
+        if provider_id == "cpc_recruit" and track_id == "cpc-doctoral":
+            # Keep the old canonical compatibility key, while the structured
+            # identity and title distinguish this specific hiring programme.
+            bundle_name = track_label
+            stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
+            bundle_name += f"｜{stage_label}"
         if level_id not in {NOT_APPLICABLE, "unknown"}:
             bundle_name = f"{bundle_name}｜{level_label}"
         # These providers publish separate subject/occupation tracks under a

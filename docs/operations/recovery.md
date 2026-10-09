@@ -115,7 +115,7 @@ Publication recovery can pin `--generation <generation>` and
 later provider snapshot. Mirror generation and SHA outputs are written when
 `GITHUB_OUTPUT` is present.
 
-For an admissions or certification recovery pilot, dispatch the corresponding
+For an admissions, certification, or employment recovery pilot, dispatch the corresponding
 matrix workflow with
 `provider_id` set to the affected provider. Other provider jobs are skipped;
 the default `all` and scheduled runs retain their full matrix.

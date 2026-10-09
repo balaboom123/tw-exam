@@ -8,8 +8,8 @@
     {
       "provider_id": "cpc_recruit",
       "site_id": "default",
-      "status": "non_paper_role",
-      "reason": "The public bundle publishes 12 operational recruitment brochures as exam questions across 9 brochure-only and 3 mixed events; only the five static doctoral packages are administered papers.",
+      "status": "redistribution_unresolved",
+      "reason": "The 12 hiring brochures have been retired from the current exam catalog into checksum-verified source revision recovery. The five genuine doctoral packages remain intact, but ROC 98 geophysics A explicitly says its fifth question's figure is copyrighted; its next page attributes the image to Genik (1993), AAPG Bulletin. CPC's reuse declaration does not resolve this specific third-party restriction. Resolve permission or a reviewed publication treatment before republishing the packages.",
       "evidence_path": "data/providers/cpc_recruit/source-manifest.json",
       "spec_path": "docs/providers/notes.md#cpc_recruit",
       "review_by": "2026-11-01"

@@ -28,6 +28,29 @@ the shared Chinese-subject score does not make their papers interchangeable.
 
 Only administered examination packages in the official static past-exam archive are papers. Recruitment brochures, application material, and similarly named operational documents remain outside the paper boundary.
 
+The static archive is the doctoral recruitment programme's initial written
+test. Its official doctoral brochures require a doctorate and separately describe
+the later document review, research presentation and interview. A doctorate is
+an eligibility requirement, not a certification grade. Keep this programme
+distinct from ordinary company recruitment and preserve each complete original
+package, including its different occupational papers and any A/B categories.
+Historically misclassified hiring brochures belong in the provider's source
+revision journal and recovery blobs, outside the current examination catalog.
+Retention of a complete upstream package does not establish complete programme
+coverage: the ROC 101 brochure lists economics and management papers absent
+from its published package. Keep that source omission explicit. Conversely,
+the ROC 108 chemical-engineering and materials-engineering papers explicitly
+cover paired recruitment categories; preserve their shared originals.
+
+Publication remains withheld because the ROC 98 geophysics A paper explicitly
+identifies its fifth question's copyrighted figure; the next page includes an
+image attributed to Genik (1993), AAPG Bulletin. CPC's
+[reuse declaration](https://www.cpc.com.tw/cp.aspx?n=2559) does not resolve that
+specific third-party restriction. Preserve the original, and resolve permission
+or provide a reviewed publication treatment before lifting this hold. Public
+mirror backup creation is also disabled; retain the verified provider mirror
+and revision blobs locally and use the scheduled workflow's cache-only mode.
+
 ## `gept_cert`
 
 Use official GEPT paper material only when level and event identity are supported by the source. Rolling samples must not acquire a synthetic current-year identity merely because they were fetched recently.

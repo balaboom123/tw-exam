@@ -199,7 +199,7 @@ class SourceInventoryTests(unittest.TestCase):
                     )
         self.assertEqual(report["local_state_drift"], [])
 
-    def test_cpc_manifest_records_verified_scope_and_contamination(self) -> None:
+    def test_cpc_manifest_records_verified_scope_and_retired_brochures(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/cpc_recruit/source-manifest.json").read_text(
                 encoding="utf-8"
@@ -217,9 +217,19 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(policy["accepted_asset_count"], 5)
         self.assertEqual(policy["excluded_brochure_archive"]["asset_count"], 15)
         self.assertEqual(
-            policy["retained_local_contamination"]["normalized_brochure_records"],
-            12,
+            policy["retired_brochure_evidence"]["current_normalized_brochure_records"],
+            0,
         )
+        self.assertEqual(policy["retired_brochure_evidence"]["retired_source_records"], 12)
+        self.assertEqual(policy["semantic_review"]["native_question_members"], 51)
+        self.assertEqual(policy["redistribution_review"]["status"], "unresolved")
+        revisions = json.loads(
+            (ROOT / "data/providers/cpc_recruit/source-revisions.json").read_text()
+        )["revisions"]
+        self.assertEqual(len(revisions), 12)
+        self.assertTrue(all(r["reason"] == "source_reference_retired" for r in revisions))
+        self.assertTrue(all(r["source_record"]["subject_code"].startswith("hire-") for r in revisions))
+        self.assertTrue(all(r["blob_storage_key"] for r in revisions))
         self.assertEqual(
             policy["contracted_source_blockers"][0]["status"],
             "login_required",

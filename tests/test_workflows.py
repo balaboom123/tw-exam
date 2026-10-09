@@ -1682,6 +1682,19 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertLess(steps.index(budget), steps.index(save))
         self.assertNotIn("GH_TOKEN", budget.get("env", {}))
 
+    def test_employment_recovery_selector_preserves_scheduled_provider_scope(self) -> None:
+        caller = self.workflows['sync-employment.yml']
+        selector = caller['on']['workflow_dispatch']['inputs']['provider_id']
+        job = caller['jobs']['sync']
+        providers = {row['provider_id'] for row in job['strategy']['matrix']['include']}
+        self.assertEqual(selector['type'], 'choice')
+        self.assertEqual(selector['default'], 'all')
+        self.assertEqual(set(selector['options']), {'all', *providers})
+        self.assertEqual(job['with']['enabled'],
+                         "${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}")
+        self.assertIn('schedule', caller['on'])
+        self.assertFalse(job['strategy']['fail-fast'])
+
     def test_certification_retry_selector_preserves_scheduled_provider_scope(self) -> None:
         caller = self.workflows["sync-certifications.yml"]
         selector = caller["on"]["workflow_dispatch"]["inputs"]["provider_id"]
@@ -1785,6 +1798,22 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
 
 
 class HakkaPrivateMirrorTests(unittest.TestCase):
+    def test_cpc_keeps_acquisition_without_public_mirror_backup(self) -> None:
+        from app.providers.registry import get_provider
+
+        weekly = _workflow((REPO_ROOT / '.github/workflows/sync-employment.yml').read_text())
+        job = weekly['jobs']['sync']
+        self.assertEqual(job['with']['durable_snapshot'], '${{ matrix.durable_snapshot }}')
+        rows = job['strategy']['matrix']['include']
+        for row in rows:
+            with self.subTest(provider=row['provider_id']):
+                allowed = getattr(get_provider(row['provider_id']), 'public_mirror_backup_allowed', True)
+                self.assertIs(row['durable_snapshot'], allowed)
+        cpc = next(row for row in rows if row['provider_id'] == 'cpc_recruit')
+        self.assertIs(cpc['publish'], False)
+        self.assertIs(cpc['durable_snapshot'], False)
+        self.assertIn('schedule', weekly['on'])
+
     def test_jlpt_keeps_acquisition_without_site_or_public_backup_publication(self) -> None:
         from app.providers.registry import get_provider
         weekly = _workflow((REPO_ROOT / '.github/workflows/sync-certifications.yml').read_text())

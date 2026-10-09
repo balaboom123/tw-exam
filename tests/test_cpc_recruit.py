@@ -349,7 +349,16 @@ class CpcRecruitClientTests(unittest.TestCase):
             page = client.fetch_exam_page("cpc-recruit-113", 2024)
 
         file_types = {ft for paper in page.papers for ft in paper.files}
-        self.assertTrue(file_types.issubset({"question", "answer"}))
+        # This fixture explicitly says 試題及參考答案. Its questions must remain
+        # discoverable instead of the complete package becoming answer-only.
+        self.assertEqual(file_types, {"question"})
+
+    def test_brochure_mentioning_questions_is_not_an_exam_package(self) -> None:
+        html = PHD_PAGE_HTML.replace("試題及參考答案", "甄試簡章（含試題說明）")
+        with patch.object(CpcRecruitClient, "_fetch_text", return_value=html):
+            client = self._make_client()
+            self.assertEqual(client.discover_available_years(), [])
+            self.assertEqual(client.fetch_exam_page("cpc-recruit-113", 2024).papers, [])
 
     def test_fetch_exam_page_preserves_download_ashx_url_in_papers(self) -> None:
         def fake_fetch(url: str) -> str:

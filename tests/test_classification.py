@@ -19,6 +19,24 @@ def classify(category: str, event: str, *, source: str = "event-115", canonical:
 
 
 class ExamIdentityClassificationTests(unittest.TestCase):
+    def test_cpc_doctoral_recruitment_keeps_its_programme_and_written_stage(self) -> None:
+        doctoral = classify("中油新進博士級人員甄試", "108年中油公司新進博士級人員甄試",
+                            provider="cpc_recruit", canonical="cpc-recruit")
+        general = classify("中油新進人員甄試", "108年中油公司新進博士級人員甄試",
+                           provider="cpc_recruit", canonical="cpc-recruit")
+        self.assertEqual(doctoral.domain_id, "employment")
+        self.assertEqual(doctoral.track_id, "cpc-doctoral")
+        self.assertEqual(doctoral.level_id, "not-applicable")
+        self.assertEqual(doctoral.stage_id, "stage-1")
+        self.assertEqual(doctoral.confidence, "high")
+        self.assertEqual(doctoral.bundle_name, "中油新進博士級人員甄試｜初試（筆試）")
+        self.assertNotEqual(doctoral.bundle_id, general.bundle_id)
+        self.assertEqual(general.stage_id, "not-applicable")
+        later = classify("中油新進博士級人員甄試複試", "108年中油公司新進博士級人員甄試",
+                         provider="cpc_recruit", canonical="cpc-recruit")
+        self.assertEqual(later.stage_id, "stage-2")
+        self.assertNotEqual(doctoral.bundle_id, later.bundle_id)
+
     def test_public_titles_show_an_identical_programme_and_level_label_once(self) -> None:
         for occupation, programme, level, title in (
             ("食品技師", "高等考試食品技師考試", "professional-high", "專技高考｜食品技師"),

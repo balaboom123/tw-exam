@@ -410,8 +410,8 @@
       ],
       "exam_category": "CPC doctoral and company-specific recruitment written papers",
       "local_state": {
-        "normalized_paper_records": 17,
-        "raw_event_pages": 14,
+        "normalized_paper_records": 5,
+        "raw_event_pages": 5,
         "sync_failures": 0
       },
       "local_years": [
@@ -419,16 +419,7 @@
         2011,
         2012,
         2013,
-        2015,
-        2016,
-        2017,
-        2018,
-        2019,
-        2020,
-        2021,
-        2022,
-        2024,
-        2025
+        2019
       ],
       "official_source_urls": [
         "https://www.cpc.com.tw/News.aspx?n=32&sms=8969",
@@ -437,15 +428,18 @@
       ],
       "provider_id": "cpc_recruit",
       "restrictions": [
-        "The static CPC doctoral archive exposes exactly five paper packages for AD 2009, 2011, 2012, 2013, and 2019; all five live files are byte-identical to the retained mirror.",
-        "The adjacent operational archive contains 15 recruitment brochures, not papers. Twelve were historically normalized and published as questions: nine brochure-only events and three mixed events remain pending a separate reviewed data migration.",
-        "The AD 2025 contractor paper routes redirect to login, and the retired AD 2024 doctoral contractor is not publicly enumerable and currently fails default TLS hostname validation; no access control is bypassed.",
+        "All five current static doctoral packages were freshly downloaded and SHA-256 matched on 2026-10-08; all 51 distinct nested PDF members were read successfully and their native headers visually reviewed.",
+        "Twelve historically misclassified hiring brochures and nine brochure-only rows were retired from the active exam catalog. All original records and checksum-verified bytes remain in the provider source revision journal and recovery blobs.",
+        "The ROC 101 doctoral brochure lists economics and management occupational papers absent from the current 10-member upstream package. Complete acquisition of the five packages does not establish complete programme coverage.",
+        "The doctoral programme requires a doctorate and selects employees through an initial written test followed by document review, research presentation and interview. A doctorate is eligibility, not an exam grade; ROC 108 paired chemical/materials recruitment categories share explicit native original papers.",
+        "ROC 98 geophysics A explicitly identifies its fifth-question figure as copyrighted, and the next page attributes it to Genik (1993), AAPG Bulletin. CPC reuse terms do not resolve that specific third-party restriction; publication remains withheld.",
         "The CPC MOEA-joint page delegates to Taipower and is owned by moea_recruit, so it is not duplicated here.",
-        "CPC's open-data declaration permits broad attributed reuse for material within CPC's copyright but does not establish third-party rights for every archived item."
+        "On 2026-10-09 the AD 2025 contractor current/past paper routes still redirect to login; no access control was bypassed.",
+        "On 2026-10-09 the retired AD 2024 doctoral contractor still fails default TLS hostname verification; no insecure connection was used."
       ],
       "source_name": "台灣中油股份有限公司",
       "status": "partial",
-      "status_reason": "Partial: 5/5 packages on the static doctoral-paper page were manifest-backed and byte-verified; the broader contracted source family is not enumerable, and retained history contains 12 recruitment brochures mislabeled as questions. Publication remains withheld pending a reviewed data migration."
+      "status_reason": "Partial: five static doctoral packages and all 51 nested question PDFs are retained and reviewed; missing ROC 101 economics/management papers and unavailable contractor routes remain explicit source gaps. The 12 brochures have verified revision recovery, while an explicit third-party figure restriction keeps publication withheld."
     },
     {
       "available_years": {

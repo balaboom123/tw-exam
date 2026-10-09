@@ -7,6 +7,9 @@ from app.providers.cpc_recruit.client import CpcRecruitClient
 
 class CpcRecruitProvider(SourceProvider):
     provider_id = "cpc_recruit"
+    # The retained originals include an explicitly copyrighted third-party
+    # figure. Keep recovery local or in the private Actions cache.
+    public_mirror_backup_allowed = False
 
     def __init__(self, client: CpcRecruitClient | None = None) -> None:
         self.client = client or CpcRecruitClient()

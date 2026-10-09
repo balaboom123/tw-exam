@@ -184,7 +184,11 @@ class CpcRecruitClient:
         """Fetch the accepted doctoral exam-paper archive."""
         phd_html = self._fetch_text(PHD_PAGE_URL)
         entries = parse_employment_page(phd_html, source="phd")
-        return [entry for entry in entries if "博士" in entry.label and "試題" in entry.label]
+        return [
+            entry
+            for entry in entries
+            if "博士" in entry.label and "試題" in entry.label and "簡章" not in entry.label
+        ]
 
     def build_discovery_year_url(self, year_ad: int) -> str:
         return PHD_PAGE_URL
@@ -234,21 +238,16 @@ class CpcRecruitClient:
 
         papers: list[ParsedPaper] = []
         for index, entry in enumerate(entries, start=1):
-            # Determine file type from label heuristics
-            label_lower = entry.label
-            if any(kw in label_lower for kw in ("答案", "解答", "答題")):
-                file_type = "answer"
-            else:
-                file_type = "question"
-
-            subject_prefix = "phd" if entry.source == "phd" else "hire"
+            # Accepted entries are question packages. A package mentioning
+            # reference answers still contains its questions; do not turn the
+            # entire original into an answer-only record.
             papers.append(
                 ParsedPaper(
                     category_raw=CANONICAL_CATEGORY,
                     category_code=str(year_roc),
-                    subject_code=f"{subject_prefix}-{index:02d}",
+                    subject_code=f"phd-{index:02d}",
                     subject_name_raw=entry.label,
-                    files={file_type: entry.url},
+                    files={"question": entry.url},
                 )
             )
 
