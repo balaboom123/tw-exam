@@ -716,7 +716,12 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(current["current_source_payloads_matching"], policy["official_listed_file_count"])
         self.assertEqual(current["current_source_payload_mismatches"], 0)
         self.assertEqual(current["unique_current_storage_keys"], current["current_records"])
-        self.assertIn("reference samples", current["remaining_identity_issue"])
+        reviewed = policy["material_date_review"]
+        self.assertEqual(reviewed["current_source_records"], policy["official_listed_file_count"])
+        self.assertEqual(reviewed["material_kind"], "sample")
+        self.assertEqual(reviewed["date_basis"], "publication_year")
+        self.assertIn("grade", current["remaining_identity_issue"])
+        self.assertIn("republication", current["publication"])
 
     def test_ipas_manifest_exposes_family_and_document_role_gaps(self) -> None:
         manifest = json.loads(

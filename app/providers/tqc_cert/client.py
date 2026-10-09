@@ -9,6 +9,7 @@ from urllib.parse import urlencode, urljoin, urlparse
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.source_material import SourceDate, SourceMaterial
 
 BASE_URL = "https://www.tqc.org.tw/TQCNet/"
 EXAM_PAPER_URL = urljoin(BASE_URL, "ExamPaper.aspx")
@@ -143,9 +144,14 @@ def parse_exam_papers(html: str) -> list[TqcExamPaper]:
             or not paper_path.endswith(".pdf")
         ):
             continue
-        if len(text_window) < 3:
+        if len(text_window) >= 2 and text_window[-1].endswith("類"):
+            title, category = text_window[-2:]
+            published = ""
+        elif len(text_window) >= 3 and text_window[-2].endswith("類"):
+            title, category, published = text_window[-3:]
+        else:
             continue
-        title, category, published = text_window[-3], text_window[-2], text_window[-1]
+        text_window = []
         year_match = re.match(r"(\d{4})/", published)
         entries.append(
             TqcExamPaper(
@@ -203,6 +209,8 @@ class TqcCertClient:
         return self._cached_entries
 
     def _entry_year(self, entry: TqcExamPaper) -> int:
+        # This is a legacy storage/discovery partition, not an examination
+        # year. Missing listing dates remain unknown in the source facts.
         return entry.published_year or MATERIALS_YEAR
 
     def discover_available_years(self) -> list[int]:
@@ -223,6 +231,8 @@ class TqcCertClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         entries = [entry for entry in self._entries() if self._entry_year(entry) == year_ad]
+        if not entries or exam_code != f"tqc-cert-samples-{year_ad}":
+            raise ValueError("Requested TQC sample partition is not in the official listing")
         papers = [
             ParsedPaper(
                 category_raw=f"{CANONICAL_CATEGORY}_{entry.category}",
@@ -230,6 +240,17 @@ class TqcCertClient:
                 subject_code=_slug(entry.title, f"sample-{index}"),
                 subject_name_raw=entry.title,
                 files={"question": entry.url},
+                source_material=SourceMaterial(
+                    kind="sample",
+                    date=SourceDate("publication_year", entry.published_year)
+                    if entry.published_year
+                    else SourceDate("unknown", None),
+                    evidence_url=EXAM_PAPER_URL,
+                    evidence_label=f"TQC官方範例試卷：{entry.title}；各科題型參考；刊登日期",
+                    review_reason="The official sample listing has no publication date"
+                    if not entry.published_year
+                    else "",
+                ),
             )
             for index, entry in enumerate(entries, start=1)
         ]

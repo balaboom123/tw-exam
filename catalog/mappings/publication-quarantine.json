@@ -108,7 +108,7 @@
       "provider_id": "tqc_cert",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "Fresh normal-source rechecks on 2026-10-07 and 2026-10-09 matched every retained payload; the earlier nine-file mismatch finding was not reproduced. The official listing provides reference samples and publication dates, not administered sittings. Explicit material/date classification and the existing unresolved republication review still require resolution before publication.",
+      "reason": "Fresh normal-source rechecks on 2026-10-07 and 2026-10-09 matched every retained payload; the earlier nine-file mismatch finding was not reproduced. Explicit sample/publication-date facts are corrected across the retained history. Programme, subject/software/edition and native grade identity corrections and the existing unresolved republication review still require resolution before publication.",
       "evidence_path": "data/providers/tqc_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#tqc_cert",
       "review_by": "2026-11-01"

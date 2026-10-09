@@ -252,6 +252,10 @@ Use official TOCFL paper and mock-test banks while preserving whether material h
 
 Use official TQC examination artifacts with source identity strong enough to keep distinct payloads separate. Generic labels must not share storage keys when their source files differ.
 
+The official sample listing in the source inventory describes its PDFs as references for question formats. Treat this collection as sample material, including previews whose native headings say 模擬試卷. Dates alongside those downloads are publication dates, not administered examination dates. Preserve legacy discovery partitions for traceability; a missing listing date requires review rather than a synthetic public year. Software versions and book editions are separate content distinctions.
+
+The sample/date correction does not resolve the generic programme identity, category-only grouping or grade treatment. Native 專業級 headers need TQC's own grade system; typing samples can serve performance-based grades and must not inherit a single grade from a numeral in their edition or paper code. Complete that structured identity migration and the unresolved republication review before lifting the publication hold. First-page inspection is not full-body or rights review.
+
 ## `twc_recruit`
 
 Use official Taiwan Water recruitment examination archives and inspect nested artifacts rather than validating only an outer archive signature. Retain corrupt official payload evidence without publishing unusable papers.

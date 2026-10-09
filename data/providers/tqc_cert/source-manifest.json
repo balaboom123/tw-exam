@@ -144,6 +144,23 @@
       "restriction": "The listing describes the PDFs as candidate reference samples; broader CSF pages prohibit reposting/excerpting without authorization. No sample-paper republication grant was established.",
       "robots_status": "The wildcard robots policy disallows /TQC/ but does not explicitly disallow the listing path /TQCNet/."
     },
+    "material_date_review": {
+      "conservation": "All source URLs, source selectors, compatibility canonical IDs, roles, storage keys and SHA-256 payloads are unchanged. Legacy year partitions remain traceability keys. No public TQC bundle is active.",
+      "current_source_records": 44,
+      "date_basis": "publication_year",
+      "date_reason": "Dates alongside the sample download entries are publication/listing dates. Software versions and book editions are separate content facts.",
+      "listing_rechecked_at": "2026-10-09T02:51:15.527809+00:00",
+      "material_kind": "sample",
+      "material_reason": "The source calls its collection 範例試卷 and describes its mock papers as references for question formats. Native first pages include both 模擬 and 範例 headings. These are sample previews, not evidence of administered sittings.",
+      "native_first_pages_visually_reviewed": 44,
+      "official_listing_url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx",
+      "other_header_without_grade": 1,
+      "printed_professional_grade_headers": 29,
+      "redistribution_review": "Unresolved; source publication hold remains in place. First-page inspection does not establish a republication grant or constitute full-body review.",
+      "remaining_identity_review": "The generic other/provider-exam programme, four broad category tracks and absent grade treatment remain incorrect. Complete subject/software/edition/grade migration requires structured official evidence, including performance-based typing grades and the MySQL detail page.",
+      "reviewed_at": "2026-10-09T03:04:08.666750+00:00",
+      "typing_headers_without_grade": 14
+    },
     "official_event_count": 11,
     "official_listed_file_count": 44,
     "official_listing_urls": [
@@ -158,9 +175,9 @@
       "current_source_payloads_matching": 44,
       "earlier_capture_is_historical": "Initial-capture findings above are preserved as dated evidence, not current provider-state facts.",
       "fresh_source_checked_at": "2026-10-09T02:15:22.748898+00:00",
-      "publication": "Withheld: sample/date identity and the existing unresolved republication review remain. The earlier nine-payload mismatch finding was not reproduced on 2026-10-07 or 2026-10-09.",
+      "publication": "Withheld: explicit sample/publication-date facts are corrected; programme/subject/version/grade identity and existing republication review remain unresolved.",
       "raw_events": 11,
-      "remaining_identity_issue": "The source labels these PDFs as reference samples and dates its listing entries. Explicit sample-material and publication-date classification remain pending; listing dates are not proof of administered examination dates.",
+      "remaining_identity_issue": "The generic other/provider-exam programme, four broad category tracks and absent grade treatment remain incorrect. Complete subject/software/edition/grade migration requires structured official evidence, including performance-based typing grades and the MySQL detail page.",
       "roles": {
         "question": 44
       },
