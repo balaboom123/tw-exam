@@ -66,6 +66,20 @@ to distinguish question packages from explicitly labeled 音檔, and inspect
 the contents before changing the packaging. The retained archives and current
 official listing were checked on 2026-10-07.
 
+Recognize the source's pure 樣卷 labels as sample packages as well as 試題範例.
+Their source edition dates are distinct from administered sittings. Undated
+advanced samples carry no public year; the legacy discovery/storage year stays
+only for compatibility. Mixed 題庫及樣卷 packages and other banks need their own
+material/date review and must not inherit a pure sample's meaning.
+
+The intermediate sample ZIPs use CP950 filename metadata without the UTF-8 flag.
+Preserve the original packages and explicitly decode their member names with
+that charset when inspecting them; default CP437 decoding produces garbled
+characters and apparent path separators. The current primary listing was
+rechecked on 2026-10-09, including the previously omitted samples. Complete
+level/dialect, secondary-surface and audiovisual redistribution review remain
+required before publication.
+
 An earlier refresh replaced or dropped source references before immutable
 revision retention existed. Recover those original records from Git and their
 matching bytes from retained mirrors or conserved archives, then backfill them

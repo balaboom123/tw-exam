@@ -387,6 +387,15 @@ class SourceInventoryTests(unittest.TestCase):
                 "secondary_question_audio_packages_unintegrated": 15,
             },
         )
+        # Keep the initial capture's gaps as history, while the dated recheck
+        # records the samples recovered by the current parser.
+        current = policy["current_scope_recheck"]
+        self.assertEqual(current["primary_listing_urls_missing"], 0)
+        self.assertEqual(current["recovered_sample_packages"], 5)
+        self.assertEqual(current["recovered_native_pdf_members"], 20)
+        self.assertEqual(current["undated_advanced_samples"], 15)
+        self.assertEqual(current["edition_2018_intermediate_samples"], 5)
+        self.assertIn("CP950", current["archive_filename_encoding"])
         historical = policy["initial_capture_retained_state_evidence"]
         self.assertEqual(historical["captured_at"], policy["last_discovery_at"])
         self.assertTrue(historical["identity_risks"]["undated_advanced_material_forced_to_2026"])
@@ -394,7 +403,8 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertNotIn("identity_risks", policy)
         current = policy["retained_state_recheck"]
         self.assertEqual(current["current_payloads_sha256_verified"], current["current_records"])
-        self.assertIn("synthetic 2026", current["remaining_identity_issue"])
+        self.assertEqual(current["current_records"], policy["current_scope_recheck"]["retained_current_records"])
+        self.assertIn("question-bank", current["remaining_identity_issue"])
         self.assertIn("Fifteen ZIP/RAR", current["role_correction"])
 
     def test_sfi_manifest_exposes_wrong_identity_publication(self) -> None:

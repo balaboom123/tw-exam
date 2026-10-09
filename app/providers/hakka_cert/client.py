@@ -10,6 +10,7 @@ from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.source_material import SourceDate, SourceMaterial
 
 DOWNLOAD_URL = "https://elearning.hakka.gov.tw/hakka/download-files"
 USER_AGENT = "Mozilla/5.0 (compatible; hakka-cert-mirror/1.0)"
@@ -31,7 +32,7 @@ SUPPORTED_DOWNLOAD_SUFFIXES = (
     ".xlsx",
     ".ods",
 )
-EXAM_ASSET_LABEL_TOKENS = ("題庫", "試題", "答案")
+EXAM_ASSET_LABEL_TOKENS = ("題庫", "試題", "答案", "樣卷")
 AUDIO_SUFFIXES = (".mp3",)
 
 
@@ -114,9 +115,27 @@ def _dialect_code(label: str) -> str:
     return "general"
 
 
-def _year_from_label(label: str) -> int:
+def _label_year(label: str) -> int | None:
     match = re.search(r"(\d{3})\s*年度", label)
-    return int(match.group(1)) + 1911 if match else MATERIALS_YEAR
+    return int(match.group(1)) + 1911 if match else None
+
+
+def _year_from_label(label: str) -> int:
+    # This fallback is a legacy discovery/storage partition, not a public date.
+    return _label_year(label) or MATERIALS_YEAR
+
+
+def _sample_material(download: HakkaDownload) -> SourceMaterial | None:
+    # Mixed 題庫及樣卷 packages need a separate content review; do not label the
+    # whole bank as one sample merely because its title mentions a sample.
+    if "題庫" in download.label or not any(
+        marker in download.label for marker in ("樣卷", "試題範例")
+    ):
+        return None
+    year = _label_year(download.label)
+    date = SourceDate("edition_year", year) if year is not None else SourceDate("undated", None)
+    listing = next(url for code, _, url in LEVEL_CATEGORIES if code == download.level_code)
+    return SourceMaterial("sample", date, listing, download.label)
 
 
 def _file_type_for_download(path_lower: str, label: str) -> str:
@@ -250,12 +269,15 @@ class HakkaCertClient:
             ),
             None,
         )
+        if requested_level is None:
+            raise ValueError(f"Unknown Hakka event or mismatched discovery year: {exam_code}")
         downloads = [
             download
             for download in self._downloads()
-            if download.year_ad == year_ad
-            and (requested_level is None or download.level_code == requested_level)
+            if download.year_ad == year_ad and download.level_code == requested_level
         ]
+        if not downloads:
+            raise ValueError(f"Hakka event is absent from the official listing: {exam_code}")
         papers = [
             ParsedPaper(
                 category_raw=(
@@ -267,6 +289,7 @@ class HakkaCertClient:
                 subject_code=_subject_code(download.url, download.label, f"download-{index}"),
                 subject_name_raw=download.label,
                 files={download.file_type: download.url},
+                source_material=_sample_material(download),
             )
             for index, download in enumerate(downloads, start=1)
         ]

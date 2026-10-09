@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from app.providers.hakka_cert.client import HakkaCertClient, parse_downloads
+from app.source_material import SourceDate
 
 
 DOWNLOAD_HTML = """
@@ -33,6 +34,20 @@ PAGED_INTERMEDIATE_HTML = """
 
 
 class HakkaCertParserTests(unittest.TestCase):
+    def test_official_sample_label_is_in_scope_without_collecting_vocabulary(self) -> None:
+        downloads = parse_downloads(
+            """
+        <a href="/hakka/files/downloads/225.zip">107 年度客語能力認證中級暨中高級樣卷 ( 四縣腔 ) 下載</a>
+        <a href="/hakka/files/downloads/225.zip">duplicate</a>
+        <a href="/hakka/files/downloads/555.zip">107 年度客語詞彙音檔</a>
+        """,
+            level_code="intermediate-high-intermediate",
+        )
+        self.assertEqual(len(downloads), 1)
+        self.assertEqual(downloads[0].file_type, "question")
+        self.assertEqual(downloads[0].year_ad, 2018)
+        self.assertEqual(downloads[0].category_code, "sixian")
+
     def test_archive_container_does_not_turn_question_packages_into_audio(self) -> None:
         html = """
         <a href="/hakka/files/downloads/129.zip">107 年度客語能力認證初級題庫及樣卷 ( 四縣腔 ) 下載</a>
@@ -60,11 +75,34 @@ class HakkaCertParserTests(unittest.TestCase):
         self.assertEqual(downloads[2].file_type, "listening_audio")
         self.assertTrue(downloads[2].url.endswith("/hakka/files/downloads/322.zip"))
 
-
         self.assertEqual(downloads[3].file_type, "answer")
         self.assertTrue(downloads[3].url.endswith("/hakka/files/downloads/325.ods"))
 
+
 class HakkaCertClientTests(unittest.TestCase):
+    def test_samples_keep_edition_years_and_do_not_inherit_the_storage_fallback(self) -> None:
+        client = HakkaCertClient()
+
+        def fake_fetch(url: str) -> str:
+            if "c=3" in url:
+                return '<a href="/hakka/files/downloads/225.zip">107 年度客語能力認證中級暨中高級樣卷 ( 四縣腔 ) 下載</a>'
+            if "c=5" in url:
+                return '<a href="/hakka/files/downloads/477.pdf">高級-閱讀測驗試題範例-海陸</a>'
+            return '<a href="/hakka/files/downloads/129.zip">107 年度客語能力認證初級題庫及樣卷 ( 四縣腔 ) 下載</a>'
+
+        client._fetch_text = fake_fetch  # type: ignore[method-assign]
+        sample = client.fetch_exam_page(
+            "hakka-cert-intermediate-high-intermediate-2018", 2018
+        ).papers[0]
+        self.assertEqual(sample.source_material.kind, "sample")
+        self.assertEqual(sample.source_material.date, SourceDate("edition_year", 2018))
+        self.assertTrue(sample.source_material.evidence_url.endswith("?c=3"))
+        advanced = client.fetch_exam_page("hakka-cert-advanced-2026", 2026)
+        self.assertEqual(advanced.year_ad, 2026)  # compatibility partition only
+        self.assertEqual(advanced.papers[0].source_material.date, SourceDate("undated", None))
+        bank = client.fetch_exam_page("hakka-cert-basic-elementary-2018", 2018).papers[0]
+        self.assertIsNone(bank.source_material)
+
     def test_discovery_uses_material_year_for_labels_without_year(self) -> None:
         client = HakkaCertClient()
 
@@ -76,7 +114,10 @@ class HakkaCertClientTests(unittest.TestCase):
         client._fetch_text = fake_fetch  # type: ignore[method-assign]
 
         self.assertEqual(client.discover_available_years(), [2026])
-        self.assertEqual([exam.code for exam in client.discover_exams(2026)], ["hakka-cert-basic-elementary-2026"])
+        self.assertEqual(
+            [exam.code for exam in client.discover_exams(2026)],
+            ["hakka-cert-basic-elementary-2026"],
+        )
         self.assertEqual(client.discover_exams(2027), [])
 
     def test_discovery_uses_official_level_category_and_label_years(self) -> None:
@@ -117,7 +158,10 @@ class HakkaCertClientTests(unittest.TestCase):
 
         self.assertEqual(page.source_exam_id, "hakka-cert-basic-elementary-2023")
         self.assertEqual(len(page.papers), 1)
-        self.assertEqual(page.papers[0].subject_name_raw, "112 年度客語能力認證基礎級暨初級題庫 ( 四縣腔 ) PDF 下載")
+        self.assertEqual(
+            page.papers[0].subject_name_raw,
+            "112 年度客語能力認證基礎級暨初級題庫 ( 四縣腔 ) PDF 下載",
+        )
 
     def test_fetch_exam_page_builds_question_papers(self) -> None:
         client = HakkaCertClient()
@@ -131,7 +175,6 @@ class HakkaCertClientTests(unittest.TestCase):
         self.assertIn("question", page.papers[0].files)
         self.assertIn("listening_audio", page.papers[2].files)
         self.assertEqual(len({paper.subject_code for paper in page.papers}), len(page.papers))
-
 
     def test_download_listing_is_cached_across_discovery_and_fetch(self) -> None:
         client = HakkaCertClient()
@@ -162,12 +205,14 @@ def test_retained_question_packages_keep_prior_audio_role_references() -> None:
     # Historical backfills also retain older payload versions and delisted
     # sources. Isolate the corrections that changed only an audio role.
     retired = [
-        entry for entry in journal["revisions"]
+        entry
+        for entry in journal["revisions"]
         if entry["source_record"]["file_type"] == "listening_audio"
         and entry["reason"] == "source_reference_retired"
         and entry["source_record"]["download_url_source"] in current
         and current[entry["source_record"]["download_url_source"]]["file_type"] == "question"
-        and current[entry["source_record"]["download_url_source"]]["checksum"] == entry["source_record"]["checksum"]
+        and current[entry["source_record"]["download_url_source"]]["checksum"]
+        == entry["source_record"]["checksum"]
     ]
     assert len(retired) == 15
     for entry in retired:
@@ -175,11 +220,46 @@ def test_retained_question_packages_keep_prior_audio_role_references() -> None:
         corrected = current[previous["download_url_source"]]
         assert corrected["file_type"] == "question"
         for field in (
-            "provider_id", "year_roc", "source_exam_id", "category_code",
-            "subject_code", "subject_name_raw", "checksum", "bundle_id",
+            "provider_id",
+            "year_roc",
+            "source_exam_id",
+            "category_code",
+            "subject_code",
+            "subject_name_raw",
+            "checksum",
         ):
             assert previous[field] == corrected[field]
-        assert entry["blob_storage_key"].startswith("providers/hakka_cert/recovery/source-revisions/")
+        # Immutable history preserves the earlier classification. Current
+        # sample material adds an identity variant without revising its source.
+        if corrected.get("source_material") is not None:
+            assert "material-sample" in corrected["variant_ids"]
+        else:
+            assert previous["bundle_id"] == corrected["bundle_id"]
+        assert entry["blob_storage_key"].startswith(
+            "providers/hakka_cert/recovery/source-revisions/"
+        )
+
+
+@pytest.mark.parametrize(
+    "event,year",
+    [
+        ("hakka-cert-unknown-2026", 2026),
+        ("hakka-cert-advanced-2025", 2026),
+        ("another-provider-2026", 2026),
+    ],
+)
+def test_invalid_event_keys_cannot_merge_other_hakka_levels(event, year):
+    client = HakkaCertClient()
+    client._fetch_text = lambda url: pytest.fail("Invalid event must be rejected before discovery")
+    with pytest.raises(ValueError, match="Unknown Hakka event"):
+        client.fetch_exam_page(event, year)
+
+
+def test_absent_listing_event_is_rejected_instead_of_returning_empty_success():
+    client = HakkaCertClient()
+    client._fetch_text = lambda url: ""
+    with pytest.raises(ValueError, match="absent from the official listing"):
+        client.fetch_exam_page("hakka-cert-advanced-2026", 2026)
 
 
 if __name__ == "__main__":

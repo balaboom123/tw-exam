@@ -27,7 +27,7 @@
       "provider_id": "hakka_cert",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "Package roles have been corrected and earlier source references recovered in the immutable revision journal. The advanced samples still carry synthetic 2026 identity for undated material, the delisted intermediate family's meaning and complete current acquisition need review, and the existing audiovisual/third-party redistribution limits remain unresolved.",
+      "reason": "All 150 current primary-listing assets are retained and the 15 advanced samples have explicit undated facts. Five previously omitted intermediate sample packages are restored with edition dates. Other question-bank and mixed-package dates/material meaning, full native level/dialect boundaries, secondary-surface integration and audiovisual redistribution remain unresolved; keep publication withheld.",
       "evidence_path": "data/providers/hakka_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#hakka_cert",
       "review_by": "2026-12-01"
