@@ -96,7 +96,7 @@ def test_track_title_prefixes_have_one_owner():
     from app.classification import TRACK_TITLED_PROVIDERS
     from scripts.validate_publication import GENERIC_SUBJECT_PREFIXES
     assert set(GENERIC_SUBJECT_PREFIXES) == {
-        "wdasec-skill-", "ceec-gsat-", "ceec-ast-", "tcte-tve-",
+        "wdasec-skill-", "ceec-gsat-", "ceec-ast-", "tcte-tve-", "tqc-cert-",
     }
     assert set(GENERIC_SUBJECT_PREFIXES) == {
         provider.replace("_", "-") + "-" for provider in TRACK_TITLED_PROVIDERS

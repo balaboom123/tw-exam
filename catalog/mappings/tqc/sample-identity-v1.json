@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "catalog_version": "exam-identity-v2",
+  "provider_id": "tqc_cert",
+  "owner": "catalog maintainers",
+  "programme": {
+    "domain_id": "certification",
+    "exam_family_id": "skill-certification",
+    "id": "tqc-skills-certification",
+    "label": "企業人才技能認證（TQC）",
+    "evidence_url": "https://www.tqc.org.tw/TQCNet/Certificate.aspx",
+    "reason": "The Computer Skills Foundation identifies TQC as workforce skills certification. The certification index distinguishes subject certificates from composite personnel certificates. TQC+ is a separate programme. These retained files are sample previews, not administered sittings. Written/practical components belong to one subject certification assessment and do not establish selection stages."
+  },
+  "levels": {
+    "tqc-professional": {
+      "label": "專業級",
+      "reason": "TQC native professional grade, separate from MOEX professional qualifications and other certification grading systems."
+    },
+    "tqc-input-performance-grades": {
+      "label": "實用級／進階級／專業級",
+      "reason": "Shared input-sample coverage of TQC performance-based grades; these are three awarded grades, not an absent grade dimension or one combined administered sitting."
+    }
+  },
+  "subjects": {
+    "tqc-project-management": {
+      "label": "專案管理概論",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=NSssbk5%20K/E="
+    },
+    "tqc-ecommerce": {
+      "label": "電子商務概論",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=CMd9ARml7nc="
+    },
+    "tqc-artificial-intelligence": {
+      "label": "人工智慧應用與技術",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=ijqo8mJkRJo="
+    },
+    "tqc-python": {
+      "label": "資訊科技 Python",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=DrK4Zfi2X3Q="
+    },
+    "tqc-iot": {
+      "label": "物聯網智慧應用及技術",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=ce5rSnsQ13g="
+    },
+    "tqc-generative-ai": {
+      "label": "生成式AI應用與技術",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=D58axVVGrZzEkHFRcoZY%20w=="
+    },
+    "tqc-ecommerce-ai": {
+      "label": "電子商務與AI應用",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=qO5U008UrABsNsRIdSmcZQ=="
+    },
+    "tqc-access": {
+      "label": "資料庫管理系統 Microsoft Access",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=GvzZ97/MEjI="
+    },
+    "tqc-mysql": {
+      "label": "大型資料庫管理系統 MySQL",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=hzuv6/UBs2Q="
+    },
+    "tqc-mobile-devices": {
+      "label": "行動裝置應用",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=xVlfAZZfabg="
+    },
+    "tqc-chinese-input": {
+      "label": "中文輸入",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=r1y127Koepg="
+    },
+    "tqc-numeric-input": {
+      "label": "數字輸入",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=KqhI6%20uuQHc="
+    },
+    "tqc-english-input": {
+      "label": "英文輸入",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=fN2by0BM06Y="
+    },
+    "tqc-word": {
+      "label": "文書處理 Microsoft Word",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=CmR0VEl4nBQ="
+    },
+    "tqc-excel": {
+      "label": "電子試算表 Microsoft Excel",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=0wIxR2oqQ88="
+    },
+    "tqc-powerpoint": {
+      "label": "電腦簡報 Microsoft PowerPoint",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=33DDJFC8sT8="
+    },
+    "tqc-japanese-input": {
+      "label": "日文輸入",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=tR2dArUxgi0="
+    },
+    "tqc-libreoffice": {
+      "label": "商務軟體應用能力 LibreOffice",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=Lncl%20i7IEe0="
+    },
+    "tqc-cloud-services": {
+      "label": "雲端技術及網路服務",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=wWB20uaBoaQ="
+    },
+    "tqc-microsoft-office": {
+      "label": "商務軟體應用能力 Microsoft Office",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=tjDyMUfKCnM="
+    },
+    "tqc-accounting-ifrs": {
+      "label": "電腦會計IFRS",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=soQPsFt5MEc="
+    },
+    "tqc-ai-excel": {
+      "label": "AI數據分析Excel",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=SEjY2Rx5676pSOgr/SYJhQ=="
+    },
+    "tqc-linux-network": {
+      "label": "Linux網路管理",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=ww2IOFp%20BHk="
+    },
+    "tqc-linux-system": {
+      "label": "Linux系統管理",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=r6r39MLwL2k="
+    },
+    "tqc-network-management": {
+      "label": "網路管理實務",
+      "evidence_url": "https://www.tqc.org.tw/TQCNet/CertificateDetail.aspx?CODE=LFZ9dhvk6tk="
+    }
+  },
+  "facts": [
+    {
+      "id": "tqc-project-management-edition-3",
+      "title": "專案管理概論(第三版)",
+      "track_id": "tqc-project-management",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-3",
+          "label": "第三版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/04F78FEA-146B-46A5-9169-FA296D4A36D0.pdf",
+      "checksum": "00a06d1b015741ddc8fbba925b8eafa46bc87f49aea295607cc501fb9de3336f",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-ecommerce-edition-4",
+      "title": "電子商務概論(第四版)",
+      "track_id": "tqc-ecommerce",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-4",
+          "label": "第四版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/C08642D6-471E-40AF-839C-B18C65E7B85B.pdf",
+      "checksum": "7f65edd15bb1d6305daeb658a48f2648e5b19cfdc9bbefec1ef8e468308183bc",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-artificial-intelligence-sample",
+      "title": "人工智慧應用與技術",
+      "track_id": "tqc-artificial-intelligence",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/C3188DB0-FFEE-4BCB-A3FC-66E4F6BFC509.pdf",
+      "checksum": "c75f5a9cc537c14f5693760b036241682ce1b340710eb7dc22dc2f1d0ff13d18",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-python-sample",
+      "title": "資訊科技Python",
+      "track_id": "tqc-python",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/F7647750-C7D7-4A24-9E40-157D3C365057.pdf",
+      "checksum": "d1317221f21416b4201c80d2ef9249c718d8db00f52e40298f7ae34807052c6e",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-iot-edition-2",
+      "title": "物聯網智慧應用及技術 第二版",
+      "track_id": "tqc-iot",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-2",
+          "label": "第二版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/D6C63E61-D175-400C-92B7-13E53E1B62F9.pdf",
+      "checksum": "dcceb2fe9999951869352fe89eedb6faf2afa9b1bded0bb039cfb1f552c314f4",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-generative-ai-sample",
+      "title": "生成式AI應用與技術",
+      "track_id": "tqc-generative-ai",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/C229CF0C-D41D-413A-9C44-6930D628A1F2.pdf",
+      "checksum": "bd6abf9590af5458bddefbaf209c00339197ef029939e347bb99e2c26cd6fa37",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-ecommerce-ai-sample",
+      "title": "電子商務與AI應用",
+      "track_id": "tqc-ecommerce-ai",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/6ACCBC4A-9FA2-4B73-A990-42DCE8BFE380.pdf",
+      "checksum": "a33e0861cf542dcd1a497fddfc29209a92dfd4f300000a17b19748d7c61e46fb",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-access-software-version-2016",
+      "title": "Access 2016",
+      "track_id": "tqc-access",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2016",
+          "label": "2016版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/09C1FB1D-195B-45C4-A907-3DE351248B6D.pdf",
+      "checksum": "5396ce8910b68ed7ea8626e4576d5e7dc4ef232a91c4787b1469122e787c3148",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-mysql-software-version-5",
+      "title": "MySQL 5",
+      "track_id": "tqc-mysql",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-5",
+          "label": "5版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/291C1515-3CD0-42E6-819B-5DCFD01197AF.pdf",
+      "checksum": "b7ebe7a9029d8532f5e7957e9c97801ceed4bb9089845e55c8cf27543be8f4b8",
+      "reviewed_at": "2026-10-09",
+      "reason": "The native MySQL 5 written sample omits a grade. The official MySQL subject detail links this exact sample and lists only 專業級 (MY3). Software version 5 is a content version, not the grade. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-mobile-devices-sample",
+      "title": "行動裝置應用",
+      "track_id": "tqc-mobile-devices",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/D95627E4-2BA9-4DFE-A2BF-83056394E72A.pdf",
+      "checksum": "9bd2d28ba13aed3e291993190e06658149274f12b50f6f149a81905de67f45b9",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-chinese-input-edition-2016",
+      "title": "中文輸入(2016年版)",
+      "track_id": "tqc-chinese-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2016",
+          "label": "2016年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/3BCA5BA3-5505-48DF-9221-FCCEF99052BB.pdf",
+      "checksum": "5f2ada23c0b6be75cef85cee9490381052470cfddf945a6ef44bb1e04580914e",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-numeric-input-edition-2016",
+      "title": "數字輸入(2016年版)",
+      "track_id": "tqc-numeric-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2016",
+          "label": "2016年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/BE0B3258-7965-47AE-BE7B-659F4A372DFA.pdf",
+      "checksum": "902838d278a25d407dc13c4f0a82221c52a020e41b2b10e9c903b51abefbdf02",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-english-input-edition-2016",
+      "title": "英文輸入(2016年版)",
+      "track_id": "tqc-english-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2016",
+          "label": "2016年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/200F8A0A-D854-460D-9C3C-4B6BA2B6E05B.pdf",
+      "checksum": "099618c42a44cccf938979379070d013407fca20b38a00f6c5ba033860157e45",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-word-software-version-2016",
+      "title": "Word 2016",
+      "track_id": "tqc-word",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2016",
+          "label": "2016版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/F02AB1D2-65FD-4F2D-BCEF-8004F99AB21C.pdf",
+      "checksum": "3e4ed80d34c1e7bb119a8225cb48576440b31dd9ca4f65ef93ea62e4f4fe09dc",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-excel-software-version-2016",
+      "title": "Excel 2016",
+      "track_id": "tqc-excel",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2016",
+          "label": "2016版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/696433AA-28F7-4230-B5E0-EC5ED0F61273.pdf",
+      "checksum": "b0073a55a80ccfaf529fe5812dbb64da3b13662fabbccfeed570310b461345f0",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-powerpoint-software-version-2016",
+      "title": "PowerPoint 2016",
+      "track_id": "tqc-powerpoint",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2016",
+          "label": "2016版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/95BF498D-230F-4E9A-BED4-906B0803E4A4.pdf",
+      "checksum": "3960728711d688fc79e6264759f44277cd7b03c785894a01c843e3ddd16f6c56",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-chinese-input-edition-2017",
+      "title": "中文輸入(2017年版)",
+      "track_id": "tqc-chinese-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2017",
+          "label": "2017年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/F9C2052A-A22B-4380-AA51-50C37AB2068D.pdf",
+      "checksum": "0b2a16ede550df751dc2bb7a7789a51ed8407d5c87fb1aebe588ac3f16787b15",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-japanese-input-edition-3",
+      "title": "日文輸入(第三版)",
+      "track_id": "tqc-japanese-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-3",
+          "label": "第三版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/B4FBA235-5837-4E20-BCA0-356E32BE00DD.pdf",
+      "checksum": "77cbf0687281713ba86c5d879003ded354f82d8abb4d5b88154d2527127430dd",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-libreoffice-software-version-5",
+      "title": "商務軟體應用能力LibreOffice 5",
+      "track_id": "tqc-libreoffice",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-5",
+          "label": "5版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/11ECF1C6-CD58-4780-A025-0BE5079A0668.pdf",
+      "checksum": "b3451daed41289a08e1869b3bc39e1112115f7da951cdf2d96a10efb352c2aba",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-chinese-input-edition-2022",
+      "title": "中文輸入(2022年版)",
+      "track_id": "tqc-chinese-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2022",
+          "label": "2022年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/5F2C1501-350E-4134-8936-37AD7056481E.pdf",
+      "checksum": "27ac7cbd6c472f50ef633973041f0c9012efe8d2dcf95054c6337ff3da118716",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-english-input-edition-2022",
+      "title": "英文輸入(2022年版)",
+      "track_id": "tqc-english-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2022",
+          "label": "2022年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/6C55AF67-1AB7-4EF1-9DC9-F49E4FB79007.pdf",
+      "checksum": "116860aba6254fa94500a96b0b1af707d101992043fea306df61e5f4b280cc1d",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-numeric-input-edition-2022",
+      "title": "數字輸入(2022年版)",
+      "track_id": "tqc-numeric-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2022",
+          "label": "2022年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/0373C03E-0678-4BB1-AACC-B7A63E494D6C.pdf",
+      "checksum": "a1b7cb3298b67b243ed790347eab1bf85ca95cd5fd0ba858f0112ebf7451e84a",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-powerpoint-software-version-2021",
+      "title": "PowerPoint 2021",
+      "track_id": "tqc-powerpoint",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2021",
+          "label": "2021版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/5060BDCB-90A6-410D-A544-414458B16740.pdf",
+      "checksum": "43a91f0fba11349f47991627571b6fb280c1da7b03e57885b3ae9740010ce3bc",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-word-software-version-2021",
+      "title": "Word 2021",
+      "track_id": "tqc-word",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2021",
+          "label": "2021版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/64DB40E1-21BF-430B-A5B4-D2786466715D.pdf",
+      "checksum": "1c171e23c28ef41e67ee381cb79f2c597098fea92b9e93b33c59a132c117b4c8",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-excel-software-version-2021",
+      "title": "Excel 2021",
+      "track_id": "tqc-excel",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2021",
+          "label": "2021版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/59E23F24-6C6B-4263-9000-E37B1873A9B7.pdf",
+      "checksum": "91200c709ee30d4c19ba2bd4b21f7049c18fd17e9e1cb713670dc6248806e80a",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-chinese-input-edition-2023",
+      "title": "中文輸入(2023年版)",
+      "track_id": "tqc-chinese-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2023",
+          "label": "2023年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/DECBE78B-E9BC-4226-806F-6881824BD284.pdf",
+      "checksum": "d7276acfd93a5fc3d2b10af82e6c07d844cb5564d4a8ea93c783f96a48a97210",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-english-input-edition-2023",
+      "title": "英文輸入(2023年版)",
+      "track_id": "tqc-english-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2023",
+          "label": "2023年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/12335E28-A98C-4557-9019-0CDF4BCA4D95.pdf",
+      "checksum": "33cf043fda11484fb81ed61528fd1eb9a198a4585f09ca366e2a38755f65dca2",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-numeric-input-edition-2023",
+      "title": "數字輸入(2023年版)",
+      "track_id": "tqc-numeric-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2023",
+          "label": "2023年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/162AE180-F003-459F-8236-97FDB62EDC2D.pdf",
+      "checksum": "a72393d267a6c3c2cd01685dd8c5e7bdd8a57981b275daf58a81790ce14fed0d",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-cloud-services-edition-2",
+      "title": "雲端技術及網路服務 第二版",
+      "track_id": "tqc-cloud-services",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-2",
+          "label": "第二版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/314506F4-9360-46D6-9E7B-D035532D3FF1.pdf",
+      "checksum": "8567d830ecfb8c906b16ad8fbefb79736e4441db5ad45465122ca32729a2f74a",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-chinese-input-edition-2021",
+      "title": "中文輸入(2021年版)",
+      "track_id": "tqc-chinese-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2021",
+          "label": "2021年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/8CBE99EE-C092-44A2-81F1-E939B63B2688.pdf",
+      "checksum": "a9d245cfb62e9a181c45c47dde9f1fc5f8de604b899985603be1d90c82fcd49f",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-english-input-edition-2021",
+      "title": "英文輸入(2021年版)",
+      "track_id": "tqc-english-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2021",
+          "label": "2021年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/2E1958CB-3761-4394-A716-1FD7E672E3AB.pdf",
+      "checksum": "3e5ea9de86175abe6b81ada5cf21c16667c492db69e2b01e446898d82415d08f",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-numeric-input-edition-2021",
+      "title": "數字輸入(2021年版)",
+      "track_id": "tqc-numeric-input",
+      "level_id": "tqc-input-performance-grades",
+      "variants": [
+        {
+          "id": "edition-2021",
+          "label": "2021年版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/53A02EA3-2258-40AA-98FA-D007E775904D.pdf",
+      "checksum": "f615b9946d320f5605123a916be73e979202746d8135879d0d46c9e69f93cb1a",
+      "reviewed_at": "2026-10-09",
+      "reason": "Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-microsoft-office-software-version-2019",
+      "title": "商務軟體應用能力Microsoft Office 2019",
+      "track_id": "tqc-microsoft-office",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2019",
+          "label": "2019版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/DF6682D2-5688-4562-A281-3756866F9C26.pdf",
+      "checksum": "922d0c5090223c78ef53c972e27117652b69b1b5b0ff88b0c8e7e7d8fdcc4d67",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-word-software-version-2019",
+      "title": "Word 2019",
+      "track_id": "tqc-word",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2019",
+          "label": "2019版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/62CB23F1-44C8-49DC-8E4B-9799186AA4AE.pdf",
+      "checksum": "15b0228cc954ef1e5c8ddc362dbb9821fff7f925037a99a971fa4c77e3a7c6a5",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-excel-software-version-2019",
+      "title": "Excel 2019",
+      "track_id": "tqc-excel",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2019",
+          "label": "2019版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/EE9CD213-40AB-42AD-883F-5ADC1EADA5BB.pdf",
+      "checksum": "3a1bb9c21e14c690a76a66577403622a65abff2ff210d967069b51841cb815e1",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-powerpoint-software-version-2019",
+      "title": "PowerPoint 2019",
+      "track_id": "tqc-powerpoint",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2019",
+          "label": "2019版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/152C98DB-9255-4DED-A336-872D1825BAF2.pdf",
+      "checksum": "cb171c99e22931d0755442b0dd060c96b7c6ff378f82c370b6c1eb99887330bc",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-microsoft-office-software-version-2016",
+      "title": "商務軟體應用能力Microsoft Office 2016",
+      "track_id": "tqc-microsoft-office",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-version-2016",
+          "label": "2016版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/9913E55A-2C05-4A92-A7F8-6DCA0CAAAFB0.pdf",
+      "checksum": "f0743293bbba9f8e8b9d6a24b65290d456766bfbabc6710ce619aa8bd24d0f8c",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-accounting-ifrs-edition-2",
+      "title": "電腦會計IFRS 第二版",
+      "track_id": "tqc-accounting-ifrs",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-2",
+          "label": "第二版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/B87F52B0-51C5-4552-B1D4-09C8BB1B24C2.pdf",
+      "checksum": "4e6a262198626d53a716705d346d7f2e967ceb558d764feff88fffa4c03a8610",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-ai-excel-sample",
+      "title": "AI數據分析Excel",
+      "track_id": "tqc-ai-excel",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/89755A59-15FA-4D2F-97AA-A9C50CDBF662.pdf",
+      "checksum": "2cd4ce5237fdbc8901e3f1a6f1205bd7ebee6322fdd3a1d0a2517fc5376e68ce",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-linux-network-software-ubuntu-22-04-lts",
+      "title": "Linux網路管理 Ubuntu 22.04 LTS",
+      "track_id": "tqc-linux-network",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-ubuntu-22-04-lts",
+          "label": "Ubuntu 22.04 LTS"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/55D42D39-4FC0-42A1-8FE5-98C5D61CBECB.pdf",
+      "checksum": "0316fb0b6f02cf0274c1a3f508e29b7d71b78bd1f2ccef2fa16ce915a0f3f12e",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-linux-system-software-ubuntu-22-04-lts",
+      "title": "Linux系統管理 Ubuntu 22.04 LTS",
+      "track_id": "tqc-linux-system",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "software-ubuntu-22-04-lts",
+          "label": "Ubuntu 22.04 LTS"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/F46F8805-18F4-44EB-9A0E-6DD778FE480B.pdf",
+      "checksum": "273aea41b07dd07cdc31d17b5992b29ca2c7b8c25e52d363a474c6ad181f0369",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-network-management-sample",
+      "title": "網路管理實務",
+      "track_id": "tqc-network-management",
+      "level_id": "tqc-professional",
+      "variants": [],
+      "source_url": "http://www.tqc.org.tw/user/Example/E7F7CC58-CB4A-4FA6-8DEC-80901128447A.pdf",
+      "checksum": "5dd107be3134e225cc22e3d8ca49e3be21e93e12124127cbb053589b325fc002",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule."
+    },
+    {
+      "id": "tqc-linux-network-edition-2",
+      "title": "Linux網路管理(第二版)",
+      "track_id": "tqc-linux-network",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-2",
+          "label": "第二版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/3FAE9B07-F2B6-437E-AFDC-C863C9D80955.pdf",
+      "checksum": "b33a4e4eb272e127668dd91bb8d1fbbc10c9341fe00843bde38dac412010d1e8",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    },
+    {
+      "id": "tqc-linux-system-edition-2",
+      "title": "Linux系統管理(第二版)",
+      "track_id": "tqc-linux-system",
+      "level_id": "tqc-professional",
+      "variants": [
+        {
+          "id": "edition-2",
+          "label": "第二版"
+        }
+      ],
+      "source_url": "http://www.tqc.org.tw/user/Example/9E7AFB2D-FCED-4FB2-857A-75F4F1A5C7C4.pdf",
+      "checksum": "30189c205db0e651d0da086e93e5987df72ec30d366163916e18a183f27b7f47",
+      "reviewed_at": "2026-10-09",
+      "reason": "The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date."
+    }
+  ]
+}

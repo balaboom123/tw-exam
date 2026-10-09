@@ -1659,12 +1659,13 @@
         "start_ad": 2015
       },
       "discovery_snapshot": {
-        "coverage": "partial",
+        "coverage": "complete",
         "manifest_path": "data/providers/tqc_cert/source-manifest.json",
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#tqc_cert"
+        "docs/providers/notes.md#tqc_cert",
+        "catalog/mappings/tqc/sample-identity-v1.json"
       ],
       "exam_category": "TQC certification sample-paper archive",
       "local_state": {
@@ -1692,11 +1693,11 @@
       "restrictions": [
         "The source is a reference sample-paper listing, not a complete sitting archive. All retained records now carry explicit sample-material and publication-year facts. Legacy year partitions are traceability keys; software versions and book editions are separate content facts. TQC+ remains a separate family.",
         "Fresh normal requests on 2026-10-09 matched all 44 retained PDF checksums, with 44 distinct source-specific storage keys and no missing local payloads. The earlier nine-payload mismatch finding was not reproduced on either 2026-10-07 or 2026-10-09.",
-        "No sample-paper republication grant was established in the existing review; broader CSF restrictions remain recorded in the source manifest. Publication stays withheld pending programme, subject/version and native grade identity corrections and resolution of that review."
+        "No sample-paper republication grant was established in the existing review; broader CSF restrictions remain recorded in the source manifest. Publication stays withheld pending resolution. Full-body and complete historical-rule review are not claimed."
       ],
       "source_name": "中華民國電腦技能基金會",
-      "status": "partial",
-      "status_reason": "Partial: all 44 retained source payloads freshly match and sample/publication-date facts are corrected. Programme, subject/version and native grade identities and the existing republication review remain unresolved."
+      "status": "covered",
+      "status_reason": "Covered within the declared current sample-listing scope: all 44 official samples are retained, fresh source bytes match, and complete subject/version/native grade identities are corrected. Public redistribution remains withheld."
     },
     {
       "available_years": {

@@ -165,7 +165,6 @@ class SourceInventoryTests(unittest.TestCase):
                 "tocfl_cert",
                 "hakka_cert",
                 "taigi_cert",
-                "tqc_cert",
                 "ipas_cert",
             ],
         )
@@ -720,8 +719,22 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(reviewed["current_source_records"], policy["official_listed_file_count"])
         self.assertEqual(reviewed["material_kind"], "sample")
         self.assertEqual(reviewed["date_basis"], "publication_year")
-        self.assertIn("grade", current["remaining_identity_issue"])
+        identity = policy["identity_review"]
+        self.assertEqual(policy["coverage_status"], "complete")
+        self.assertEqual(identity["retained_samples"], policy["official_listed_file_count"])
+        self.assertEqual(identity["retained_subjects"], 25)
+        self.assertEqual(identity["before_identity_groups"], 4)
+        self.assertEqual(identity["after_identity_groups"], 44)
+        self.assertEqual(identity["professional_grade_samples"], 30)
+        self.assertEqual(identity["shared_performance_grade_input_samples"], 14)
+        self.assertIn("changed payloads", current["remaining_identity_issue"])
         self.assertIn("republication", current["publication"])
+        inventory = load_source_inventory(ROOT)
+        entry = next(row for row in inventory["providers"] if row["provider_id"] == "tqc_cert")
+        self.assertEqual(entry["status"], "covered")
+        quarantine = json.loads((ROOT / "catalog/mappings/publication-quarantine.json").read_text())
+        hold = next(row for row in quarantine["quarantine"] if row["provider_id"] == "tqc_cert")
+        self.assertEqual(hold["status"], "redistribution_unresolved")
 
     def test_ipas_manifest_exposes_family_and_document_role_gaps(self) -> None:
         manifest = json.loads(

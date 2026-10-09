@@ -19,6 +19,7 @@ if str(ROOT) not in sys.path:
 from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
 from app.moex_identity_evidence import moex_evidence_path, validate_moex_category_evidence
+from app.tqc_identity_evidence import tqc_evidence_path, validate_tqc_identity_evidence
 from app.paths import provider_paths
 from app.provider_index import load_provider_index
 from app.source_revisions import load_source_revisions, revision_journal_path
@@ -82,10 +83,12 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (site_dir / "release-assets.json", "release-assets-v2.schema.json"),
         (repo_root / "catalog" / "source-inventory.json", "source-inventory.schema.json"),
         (moex_evidence_path(repo_root), "moex-category-identity-v1.schema.json"),
+        (tqc_evidence_path(repo_root), "tqc-sample-identity-v1.schema.json"),
     )
     for path, schema_name in artifacts:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
     validate_moex_category_evidence(repo_root)
+    validate_tqc_identity_evidence(repo_root)
 
     validated_providers = 0
     providers_without_papers: list[str] = []

@@ -19,6 +19,7 @@ from typing import Any
 
 from app.moex_identity_evidence import resolve_moex_category_identity
 from app.source_material import SourceMaterial, material_label
+from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
 
 IDENTITY_SCHEMA_VERSION = 2
 CATALOG_VERSION = "exam-identity-v2"
@@ -268,7 +269,9 @@ _STAGE_LABELS = {"stage-1": "第一試", "stage-2": "第二試", "stage-3": "第
 STAGE_IDS = frozenset(_STAGE_LABELS)
 # Providers whose public title appends the track label; validate_publication
 # derives its bundle-id prefixes from this set.
-TRACK_TITLED_PROVIDERS = frozenset({"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill"})
+TRACK_TITLED_PROVIDERS = frozenset(
+    {"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill", "tqc_cert"}
+)
 
 
 def _variants(category: str, exam_name: str) -> tuple[tuple[str, str], ...]:
@@ -1208,7 +1211,7 @@ def _non_moex_level(
         ):
             if marker in text:
                 return level_id, marker, "high", f"skill certification level marker: {marker}"
-    if provider_id in {"gept_cert", "jlpt_cert", "wdasec_skill", "taigi_cert"}:
+    if provider_id in {"gept_cert", "jlpt_cert", "wdasec_skill", "taigi_cert", "tqc_cert"}:
         # These programmes have official levels. An absent or unsupported
         # marker is missing evidence, not proof that the dimension is absent.
         return (
@@ -1485,6 +1488,8 @@ def _moex_series(
 
 
 def _provider_series(provider_id: str, canonical_id: str) -> tuple[str, str, str, str]:
+    if provider_id == "tqc_cert":
+        return tqc_identity_catalog().programme
     if provider_id == "ceec_gsat":
         return (
             "admissions",
@@ -1633,6 +1638,7 @@ def _classify_paper_uncached(
     subject_code: str = "",
     category_code: str = "",
     source_material: SourceMaterial | None = None,
+    source_checksum: str = "",
 ) -> ExamIdentity:
     provider_id = normalize_text(provider_id) or "unknown-provider"
     category = normalize_text(category_raw)
@@ -1715,6 +1721,31 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "tqc_cert":
+        sample = (
+            resolve_tqc_sample_identity(subject_name_raw, source_checksum)
+            if source_material is not None and source_material.kind == "sample"
+            else None
+        )
+        if sample is None:
+            track_id = _slug(subject_name_raw, prefix="tqc")
+            track_label = normalize_text(subject_name_raw) or "待審核科目"
+            reason = "TQC sample title or checksum lacks reviewed native grade/content evidence"
+            if (
+                source_material is not None
+                and source_material.kind == "sample"
+                and re.fullmatch(r"[0-9a-f]{64}", source_checksum)
+            ):
+                variant_pairs = (
+                    *variant_pairs,
+                    (f"unreviewed-payload-{source_checksum[:16]}", "待審核內容版本"),
+                )
+        else:
+            track_id, track_label = sample.track_id, sample.track_label
+            level_id, level_label = sample.level_id, sample.level_label
+            confidence = "high"
+            reason = f"reviewed TQC native sample: {sample.fact_id}; {sample.reason}"
+            variant_pairs = (*variant_pairs, *sample.variants)
     if provider_id == "moex":
         qualification = _moex_maritime_qualification(category, exam_name)
         if qualification is not None:
@@ -1796,6 +1827,8 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
+        if provider_id == "tqc_cert":
+            bundle_name = series_label
         if provider_id == "cpc_recruit" and track_id == "cpc-doctoral":
             # Keep the old canonical compatibility key, while the structured
             # identity and title distinguish this specific hiring programme.
@@ -1818,6 +1851,10 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
+        if provider_id == "tqc_cert":
+            for _variant_id, label in variant_pairs:
+                if label not in bundle_name:
+                    bundle_name += f"｜{label}"
     if source_material is not None and source_material.kind != "administered":
         label = material_label(source_material.kind)
         if label not in bundle_name:
@@ -1904,6 +1941,7 @@ def classify_paper(
     subject_code: str = "",
     category_code: str = "",
     source_material: SourceMaterial | None = None,
+    source_checksum: str = "",
 ) -> ExamIdentity:
     if provider_id == "moex" and source_material is None:
         reviewed = resolve_moex_category_identity(
@@ -1931,6 +1969,7 @@ def classify_paper(
         subject_code=subject_code,
         category_code=category_code,
         source_material=source_material,
+        source_checksum=source_checksum,
     )
 
 
@@ -1947,6 +1986,7 @@ def classify_normalized_paper(paper: Any) -> ExamIdentity:
         subject_code=getattr(paper, "subject_code", ""),
         category_code=getattr(paper, "category_code", ""),
         source_material=getattr(paper, "source_material", None),
+        source_checksum=getattr(paper, "checksum", ""),
     )
 
 

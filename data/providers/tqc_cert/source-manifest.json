@@ -48,8 +48,27 @@
   "files": {},
   "probe_policy": {
     "captured_at": "2026-08-01",
-    "coverage_status": "partial",
+    "coverage_status": "complete",
     "declared_scope": "All 44 PDF rows across the four current pages of the official TQC sample-paper listing. TQC+ is a separate product family and is outside this provider unless explicitly approved.",
+    "identity_review": {
+      "after_identity_groups": 44,
+      "before_identity_groups": 4,
+      "catalog_path": "catalog/mappings/tqc/sample-identity-v1.json",
+      "catalog_sha256": "37f2e7144f8fa785b1c38e0f593be7c7cbd3993838faf5f5dd99be859ed53f7d",
+      "consumer_compatibility": "All compatibility canonical IDs, source IDs, selectors, URLs, roles, dates, storage keys and payload checksums remain unchanged. No active public TQC archive exists; no public asset, URL or release assignment changes.",
+      "future_payloads": "Only an exact normalized title plus reviewed native SHA-256 can reuse a sample grade/content fact. Unknown titles and changed payloads require review and isolated identities.",
+      "grade_evidence": "29 native sample first pages print 專業級. MySQL official subject rules identify its only grade as 專業級 and link the exact retained sample. Four input subjects award three grades from performance; their 14 samples cover the shared format.",
+      "identity_boundary": "TQC workforce skills certification; subjects, native grade coverage, software versions and book/input editions are separate facts. Composite personnel certificates and TQC+ do not select a retained sample identity. Written/practical components do not establish selection stages.",
+      "professional_grade_samples": 30,
+      "programme_evidence_url": "https://www.tqc.org.tw/TQCNet/Certificate.aspx",
+      "remaining": "The existing republication review is unresolved. Full-body and later historical rule review remain outside this bounded identity review. Backup-policy approval is separate; no backup/workflow setting changed.",
+      "retained_samples": 44,
+      "retained_subjects": 25,
+      "review_scope": "All 44 native first pages and all 25 retained subjects initial grade/rule sections. This is not full-body or complete historical-rule review.",
+      "reviewed_at": "2026-10-09T03:30:17.225644+00:00",
+      "rollback": "Restore the TQC classifier/normalizer/evidence owner and provider data from the baseline commit or migration-baseline-state.tar.gz. Public site state is unchanged.",
+      "shared_performance_grade_input_samples": 14
+    },
     "initial_capture_retained_state_evidence": {
       "captured_at": "2026-08-01",
       "live_payload_reconciliation": {
@@ -157,7 +176,7 @@
       "other_header_without_grade": 1,
       "printed_professional_grade_headers": 29,
       "redistribution_review": "Unresolved; source publication hold remains in place. First-page inspection does not establish a republication grant or constitute full-body review.",
-      "remaining_identity_review": "The generic other/provider-exam programme, four broad category tracks and absent grade treatment remain incorrect. Complete subject/software/edition/grade migration requires structured official evidence, including performance-based typing grades and the MySQL detail page.",
+      "remaining_identity_review": "Resolved by the complete checksum-backed subject, version/edition and native grade migration; see identity_review. Unknown future payloads require fresh grade/content review.",
       "reviewed_at": "2026-10-09T03:04:08.666750+00:00",
       "typing_headers_without_grade": 14
     },
@@ -175,9 +194,9 @@
       "current_source_payloads_matching": 44,
       "earlier_capture_is_historical": "Initial-capture findings above are preserved as dated evidence, not current provider-state facts.",
       "fresh_source_checked_at": "2026-10-09T02:15:22.748898+00:00",
-      "publication": "Withheld: explicit sample/publication-date facts are corrected; programme/subject/version/grade identity and existing republication review remain unresolved.",
+      "publication": "Withheld: sample/publication-date and programme/subject/version/native grade identities are corrected; the existing republication review remains unresolved.",
       "raw_events": 11,
-      "remaining_identity_issue": "The generic other/provider-exam programme, four broad category tracks and absent grade treatment remain incorrect. Complete subject/software/edition/grade migration requires structured official evidence, including performance-based typing grades and the MySQL detail page.",
+      "remaining_identity_issue": "Current retained subject, version/edition and native grade identities are resolved by checksum-backed facts. Unknown titles or changed payloads require fresh grade/content review; full-body and complete historical-rule review remain pending.",
       "roles": {
         "question": 44
       },

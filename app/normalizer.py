@@ -348,6 +348,9 @@ def normalize_papers(
         identity = None
         fields = {}
         if provider_id:
+            question_metadata = paper.mirror_files.get("question") or mirror_metadata.get(
+                (paper.category_code, paper.subject_code, "question"), {}
+            )
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -360,6 +363,7 @@ def normalize_papers(
                 subject_code=paper.subject_code,
                 category_code=paper.category_code,
                 source_material=material,
+                source_checksum=question_metadata.get("checksum", ""),
             )
             fields = identity_fields(identity)
         if material is not None:
@@ -487,6 +491,7 @@ def renormalize_catalog(
                 subject_code=paper.subject_code,
                 category_code=paper.category_code,
                 source_material=paper.source_material,
+                source_checksum=paper.checksum,
             )
             fields = identity_fields(identity)
         if paper.source_material is not None:

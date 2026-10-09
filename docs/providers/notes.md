@@ -254,7 +254,9 @@ Use official TQC examination artifacts with source identity strong enough to kee
 
 The official sample listing in the source inventory describes its PDFs as references for question formats. Treat this collection as sample material, including previews whose native headings say 模擬試卷. Dates alongside those downloads are publication dates, not administered examination dates. Preserve legacy discovery partitions for traceability; a missing listing date requires review rather than a synthetic public year. Software versions and book editions are separate content distinctions.
 
-The sample/date correction does not resolve the generic programme identity, category-only grouping or grade treatment. Native 專業級 headers need TQC's own grade system; typing samples can serve performance-based grades and must not inherit a single grade from a numeral in their edition or paper code. Complete that structured identity migration and the unresolved republication review before lifting the publication hold. First-page inspection is not full-body or rights review.
+Reviewed subject, software/edition and native grade facts live in the [TQC identity catalog](../../catalog/mappings/tqc/sample-identity-v1.json). Exact titles and PDF checksums guard these decisions. Native 專業級 sample headers establish professional-grade coverage; the official MySQL rules establish the grade omitted from that sample's header. Typing samples serve performance-based grades and must not inherit a single grade from an edition or paper-code numeral. Changed payloads and new titles require fresh review. Subject certificates remain distinct from composite personnel certificates and from TQC+.
+
+The complete retained sample set has been reclassified through the shared owner. Publication remains withheld because the existing review did not establish a republication grant. First-page inspection and the reviewed initial grade/rule sections do not constitute full-body or complete historical-rule review. Backup policy remains a separate operational decision.
 
 ## `twc_recruit`
 

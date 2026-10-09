@@ -26,6 +26,7 @@ The v2 rule is catalog-wide:
 | Shared concepts and labels | catalog/taxonomy/exam-identity-v2.json |
 | MOEX level and promotion rules | app/classification.py |
 | Reviewed exact historical MOEX category facts | catalog/mappings/moex/category-identity-v1.json |
+| Reviewed TQC sample subjects, native grade coverage and content editions | catalog/mappings/tqc/sample-identity-v1.json |
 | Provider membership and publication policy | app/site_registry.py and catalog/mappings/publication-quarantine.json |
 | Deterministic identity resolution | app/classification.py |
 | Normalized paper contract | schemas/normalized-paper-v2.schema.json |
@@ -56,6 +57,15 @@ The classifier returns an immutable ExamIdentity containing:
 - confidence and reason: explainability and review state.
 
 A provider may use not-applicable. It must not be forced into MOEX grades when its official system has no equivalent.
+
+TQC sample identities require an exact normalized title and reviewed native PDF
+checksum in the catalog. Their official subject rules and native sample headers
+establish grade coverage; a paper-code numeral, software version or edition year
+does not. Shared typing samples cover performance-based grades rather than a
+single awarded grade. Content editions remain separate from publication dates.
+Unknown titles and changed payloads return to review with isolated identities.
+The evidence gate reconciles every approved anchor with current or retained
+source history; its optional mirror check verifies the original bytes.
 
 MOEX grade labels preserve the programme's native wording. Civil high
 examinations use 級; special examinations use 等. Legal equivalence does not
