@@ -523,14 +523,15 @@
       "provider_id": "hakka_cert",
       "restrictions": [
         "The initial 2026-08 source capture bounded primary and secondary surfaces, including unintegrated intermediate samples, vocabulary/support exclusions and alternate question-audio packages; these historical measurements do not establish current complete acquisition.",
-        "The 2026-10-07 role correction preserves 145 current records and 15 source revisions. Fifteen ZIP/RAR references now use question roles; all current retained payloads were SHA-256 verified again on 2026-10-09.",
-        "The advanced samples still use synthetic 2026 identity for undated material. The delisted intermediate family and historical references need review; 21 unique unreferenced payloads remain preserved for that review.",
+        "The 2026-10-07 role correction preserves 145 current records and 15 role-revision references. Fifteen ZIP/RAR references now use question roles; all current retained payloads were SHA-256 verified again on 2026-10-09.",
+        "Historical recovery on 2026-10-09 backfilled 41 earlier source references, including five older original payloads recovered from a conserved archive. All 156 records from the earlier source state are accounted for, all 56 journal payloads match their recorded SHA-256, and 21 historical original paths remain preserved.",
+        "The advanced samples still use synthetic 2026 identity for undated material. The delisted intermediate family's material meaning and date identity require review; recovered history is not automatically eligible for current publication.",
         "Complete current listing coverage, material/date identity and large audiovisual packaging remain unresolved; absence from publication follows the recorded hold rather than proving that retained bytes are redundant.",
         "Taiwan Government Data Open License 1.0 requires attribution and excludes specially marked audiovisual or third-party works; academy terms also restrict unauthorized commercial use. The existing audio republication review and prohibition on public mirror backup creation remain in force."
       ],
       "source_name": "客家委員會",
       "status": "partial",
-      "status_reason": "Partial: package roles are corrected and retained bytes verified; undated advanced identity, delisted intermediate history, complete acquisition and existing audiovisual redistribution treatment remain unresolved."
+      "status_reason": "Partial: package roles are corrected, retained bytes verified and earlier source references recovered; undated advanced identity, historical material meaning, complete acquisition and existing audiovisual redistribution treatment remain unresolved."
     },
     {
       "available_years": {

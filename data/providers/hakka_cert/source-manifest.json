@@ -984,6 +984,17 @@
       "current_payloads_sha256_verified": 145,
       "current_records": 145,
       "earlier_capture_is_historical": "Initial-capture findings above are preserved as dated evidence, not current provider-state facts.",
+      "historical_original_paths_preserved": 21,
+      "historical_source_recovery": {
+        "all_56_journal_payloads_sha256_verified": true,
+        "backfilled_revision_references": 41,
+        "checked_at": "2026-10-09T02:45:23.621316+00:00",
+        "current_145_records_and_all_public_archives_unchanged": true,
+        "historical_records_conserved": 156,
+        "historical_source_commit": "815d43f4edbc6da82e569e08a6bd02246ccc699f",
+        "older_original_payloads_recovered_from_conserved_archive": 5,
+        "remaining_review": "Historical material meaning, undated identity, complete current acquisition and existing publication limits remain unresolved."
+      },
       "publication": "Withheld: unresolved material/date identity and existing audiovisual/third-party redistribution limits remain. Public mirror backup creation stays prohibited.",
       "raw_events": 10,
       "remaining_identity_issue": "The advanced sample event still uses synthetic 2026 identity for undated material; the delisted intermediate family and historical source references require review.",
@@ -992,8 +1003,7 @@
         "listening_audio": 35,
         "question": 110
       },
-      "source_revision_records": 15,
-      "unique_unreferenced_payloads_preserved_for_review": 21
+      "source_revision_records": 56
     },
     "secondary_download_center": {
       "identity_sha256": "5894efa7383b0c8617c12a2d42be1309338fcb2451d164c5a745c50912efa9f9",

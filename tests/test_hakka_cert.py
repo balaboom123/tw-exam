@@ -159,10 +159,15 @@ def test_retained_question_packages_keep_prior_audio_role_references() -> None:
     ]
     current = {paper["download_url_source"]: paper for paper in papers}
     journal = json.loads((provider / "source-revisions.json").read_text(encoding="utf-8"))
+    # Historical backfills also retain older payload versions and delisted
+    # sources. Isolate the corrections that changed only an audio role.
     retired = [
         entry for entry in journal["revisions"]
         if entry["source_record"]["file_type"] == "listening_audio"
         and entry["reason"] == "source_reference_retired"
+        and entry["source_record"]["download_url_source"] in current
+        and current[entry["source_record"]["download_url_source"]]["file_type"] == "question"
+        and current[entry["source_record"]["download_url_source"]]["checksum"] == entry["source_record"]["checksum"]
     ]
     assert len(retired) == 15
     for entry in retired:

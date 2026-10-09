@@ -66,6 +66,14 @@ to distinguish question packages from explicitly labeled 音檔, and inspect
 the contents before changing the packaging. The retained archives and current
 official listing were checked on 2026-10-07.
 
+An earlier refresh replaced or dropped source references before immutable
+revision retention existed. Recover those original records from Git and their
+matching bytes from retained mirrors or conserved archives, then backfill them
+through the source-revision owner. Keep the original roles and date claims as
+historical evidence; corrections belong to current material facts and do not
+make the earlier classification authoritative. Publication and public mirror
+backup restrictions apply equally to recovered originals.
+
 ## `hce_cmu`
 
 This provider covers official CMU post-baccalaureate medicine entrance papers reached from the university admission archive. General admission notices and forms are not paper records.
