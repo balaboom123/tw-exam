@@ -1722,7 +1722,9 @@ def _classify_paper_uncached(
     )
     variant_pairs = _variants(category, exam_name)
     if provider_id == "hakka_cert":
-        level_id, level_label, reason = hakka_level(subject_name_raw, source_material)
+        level_id, level_label, reason = hakka_level(
+            subject_name_raw, source_material, source_checksum, subject_code
+        )
         dialect = hakka_dialect(subject_name_raw, category_code)
         conflict = hakka_conflict_reason(subject_name_raw, source_checksum, subject_code)
         if dialect is None or conflict:

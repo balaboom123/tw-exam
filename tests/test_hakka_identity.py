@@ -2,6 +2,7 @@
 
 from dataclasses import replace
 import json
+import hashlib
 from pathlib import Path
 
 import pytest
@@ -13,6 +14,7 @@ from app.hakka_identity import (
     hakka_level,
     hakka_material,
     validate_hakka_conflicts,
+    validate_hakka_historical_grades,
 )
 from app.models import NormalizedCatalog, ParsedPaper
 from app.normalizer import normalize_papers, renormalize_catalog
@@ -83,7 +85,7 @@ def test_unsupported_or_conflicting_dialect_stays_unresolved(label, code):
     assert hakka_dialect(label, code) is None
 
 
-def _identity(label, code="sixian", checksum=""):
+def _identity(label, code="sixian", checksum="", subject_code=""):
     return classify_paper(
         provider_id="hakka_cert",
         source_exam_id="hakka-cert-basic-elementary-2018",
@@ -96,6 +98,7 @@ def _identity(label, code="sixian", checksum=""):
         category_code=code,
         source_material=hakka_material(label, "hakka-cert-basic-elementary-2018"),
         source_checksum=checksum,
+        subject_code=subject_code,
     )
 
 
@@ -247,3 +250,134 @@ def test_conflict_gate_rejects_a_missing_or_changed_retained_anchor(tmp_path, fi
         )
     with pytest.raises(ValueError, match="anchor is missing or changed"):
         validate_hakka_conflicts(tmp_path)
+
+
+def _historical_grade_facts():
+    return json.loads((ROOT / "catalog/mappings/hakka/historical-grades-v1.json").read_text())[
+        "facts"
+    ]
+
+
+@pytest.mark.parametrize("fact", _historical_grade_facts(), ids=lambda fact: fact["id"])
+def test_reviewed_historical_grade_requires_exact_label_checksum_and_source_key(fact):
+    identity = _identity(
+        fact["title"], fact["dialect_code"], fact["checksum"], fact["subject_code"]
+    )
+    assert identity.level_id == "basic-elementary"
+    assert identity.confidence == "high"
+    assert fact["id"] in identity.reason
+    changed_bytes = _identity(fact["title"], fact["dialect_code"], "a" * 64, fact["subject_code"])
+    changed_key = _identity(fact["title"], fact["dialect_code"], fact["checksum"], "unreviewed")
+    for changed in (changed_bytes, changed_key):
+        assert changed.level_id == "unknown"
+        assert changed.confidence == "review"
+        assert "event-" in changed.bundle_id
+
+
+@pytest.mark.repo_data
+def test_historical_grade_projection_conserves_current_state_and_immutable_history():
+    assert validate_hakka_historical_grades(ROOT) == 10
+    journal_path = ROOT / "data/providers/hakka_cert/source-revisions.json"
+    original = journal_path.read_bytes()
+    revisions = json.loads(original)["revisions"]
+    from app.models import NormalizedPaper, to_plain_data
+
+    before = [NormalizedPaper(**entry["source_record"]) for entry in revisions]
+    projected = renormalize_catalog(NormalizedCatalog(before, []), []).papers
+    facts = {row["subject_code"]: row for row in _historical_grade_facts()}
+    assert len(projected) == 56
+    for old, new in zip(before, projected, strict=True):
+        for field in (
+            "checksum",
+            "storage_key",
+            "download_url_source",
+            "file_type",
+            "year_roc",
+            "source_exam_id",
+        ):
+            assert getattr(old, field) == getattr(new, field)
+        if new.subject_code in facts:
+            assert new.level_id == "basic-elementary"
+            assert new.classification_confidence == "high"
+    assert sum(p.classification_confidence == "review" for p in projected) == 1
+    current = [
+        NormalizedPaper(**r)
+        for p in (ROOT / "data/providers/hakka_cert/papers").glob("*.json")
+        for r in json.loads(p.read_text())
+    ]
+    again = renormalize_catalog(NormalizedCatalog(current, []), []).papers
+    assert [to_plain_data(p) for p in again] == [to_plain_data(p) for p in current]
+    assert journal_path.read_bytes() == original
+
+
+@pytest.mark.parametrize("anchor", ["historical", "current"])
+@pytest.mark.parametrize(
+    "field,value",
+    [("checksum", "a" * 64), ("subject_code", "changed"), ("category_code", "changed")],
+)
+def test_historical_grade_gate_rejects_tampered_source_context(tmp_path, anchor, field, value):
+    document = json.loads((ROOT / "catalog/mappings/hakka/historical-grades-v1.json").read_text())
+    owner = tmp_path / "catalog/mappings/hakka/historical-grades-v1.json"
+    owner.parent.mkdir(parents=True)
+    folder = tmp_path / "data/providers/hakka_cert"
+    (folder / "papers").mkdir(parents=True)
+    journal = json.loads((ROOT / "data/providers/hakka_cert/source-revisions.json").read_text())
+    records = [
+        r
+        for p in (ROOT / "data/providers/hakka_cert/papers").glob("*.json")
+        for r in json.loads(p.read_text())
+    ]
+    fact = document["facts"][0]
+    if anchor == "historical":
+        # Keep the journal valid and immutable: a false catalog claim must also
+        # be rejected when no retained source reference supports it.
+        fact[{"category_code": "dialect_code"}.get(field, field)] = value
+    else:
+        changed = next(
+            r for r in records if r["download_url_source"] == fact["matching_source_url"]
+        )
+        changed[field] = value
+    owner.write_text(json.dumps(document))
+    (folder / "source-revisions.json").write_text(json.dumps(journal))
+    for year in {r["year_roc"] for r in records}:
+        (folder / "papers" / f"{year + 1911}.json").write_text(
+            json.dumps([r for r in records if r["year_roc"] == year])
+        )
+    with pytest.raises(ValueError, match="historical grade anchor is missing or changed"):
+        validate_hakka_historical_grades(tmp_path)
+
+
+def test_reviewed_counterpart_can_retire_into_immutable_history(tmp_path):
+    from app.models import NormalizedPaper
+    from app.paths import provider_paths
+    from app.source_revisions import retain_superseded_sources
+
+    document = json.loads((ROOT / "catalog/mappings/hakka/historical-grades-v1.json").read_text())
+    fact = document["facts"][0]
+    journal = json.loads((ROOT / "data/providers/hakka_cert/source-revisions.json").read_text())
+    old = next(
+        entry["source_record"]
+        for entry in journal["revisions"]
+        if entry["source_record"]["subject_code"] == fact["subject_code"]
+    )
+    current = next(
+        r
+        for p in (ROOT / "data/providers/hakka_cert/papers").glob("*.json")
+        for r in json.loads(p.read_text())
+        if r["subject_code"] == fact["matching_subject_code"]
+    )
+    payload = b"retained source anchor fixture"
+    checksum = hashlib.sha256(payload).hexdigest()
+    fact["checksum"] = fact["matching_checksum"] = checksum
+    document["facts"] = [fact]
+    owner = tmp_path / "catalog/mappings/hakka/historical-grades-v1.json"
+    owner.parent.mkdir(parents=True)
+    owner.write_text(json.dumps(document))
+    provider = provider_paths(tmp_path, "hakka_cert")
+    for record in (old, current):
+        paper = replace(NormalizedPaper(**record), checksum=checksum)
+        path = tmp_path / "mirror" / paper.storage_key
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+        assert retain_superseded_sources(provider, [], [paper], [], []) == 1
+    assert validate_hakka_historical_grades(tmp_path, verify_mirror=True) == 1

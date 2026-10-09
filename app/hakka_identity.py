@@ -61,7 +61,12 @@ def hakka_material(label: str, source_exam_id: str) -> SourceMaterial | None:
     return SourceMaterial(kind, date, f"{LISTING_URL}?c={category}", label)
 
 
-def hakka_level(label: str, material: SourceMaterial | None) -> tuple[str, str, str]:
+def hakka_level(
+    label: str,
+    material: SourceMaterial | None,
+    checksum: str = "",
+    subject_code: str = "",
+) -> tuple[str, str, str]:
     """Resolve the download's own grade; page groups are navigation headings."""
     text = _label_key(label)
     for marker, level, display in (
@@ -84,6 +89,17 @@ def hakka_level(label: str, material: SourceMaterial | None) -> tuple[str, str, 
             and material.date.year_ad is not None
             and material.date.year_ad >= 2023
         ):
+            for fact in _historical_grades():
+                if (
+                    text == _label_key(fact["title"])
+                    and checksum == fact["checksum"]
+                    and subject_code == fact["subject_code"]
+                ):
+                    return (
+                        "basic-elementary",
+                        "基礎級暨初級",
+                        f"Reviewed Hakka historical grade: {fact['id']}; {fact['reason']}",
+                    )
             return (
                 "unknown",
                 "待確認",
@@ -105,6 +121,69 @@ def hakka_dialect(label: str, category_code: str) -> tuple[str, str] | None:
 
 def hakka_conflicts_path(repo_root: Path) -> Path:
     return repo_root / "catalog/mappings/hakka/native-conflicts-v1.json"
+
+
+def hakka_historical_grades_path(repo_root: Path) -> Path:
+    return repo_root / "catalog/mappings/hakka/historical-grades-v1.json"
+
+
+@lru_cache(maxsize=1)
+def _historical_grades() -> tuple[dict[str, Any], ...]:
+    document = json.loads(
+        hakka_historical_grades_path(Path(__file__).resolve().parents[1]).read_text()
+    )
+    return tuple(cast(list[dict[str, Any]], document["facts"]))
+
+
+def validate_hakka_historical_grades(repo_root: Path, *, verify_mirror: bool = False) -> int:
+    """Anchor legacy grade facts to both retained references, including retired material."""
+    from app.models import to_plain_data
+    from app.paths import provider_paths
+    from app.source_revisions import load_source_revisions
+    from app.state import load_provider_state
+
+    document = json.loads(hakka_historical_grades_path(repo_root).read_text())
+    provider = provider_paths(repo_root, "hakka_cert")
+    _, current, _ = load_provider_state(provider)
+    revisions = load_source_revisions(provider)
+    records = [(to_plain_data(paper), paper.storage_key) for paper in current.papers]
+    historical = [
+        (entry["source_record"], entry["blob_storage_key"])
+        for entry in revisions
+        if entry["record_type"] == "paper"
+    ]
+    ids = [fact["id"] for fact in document["facts"]]
+    keys = [(fact["subject_code"], fact["checksum"]) for fact in document["facts"]]
+    if len(set(ids)) != len(ids) or len(set(keys)) != len(keys):
+        raise ValueError("Duplicate Hakka historical grade fact")
+    for fact in document["facts"]:
+        matching_grade = hakka_level(
+            fact["matching_title"], hakka_material(fact["matching_title"], "")
+        )[0]
+        if matching_grade != "basic-elementary":
+            raise ValueError(f"{fact['id']}: Hakka historical grade counterpart is unsupported")
+        for candidates, prefix in ((historical, ""), (records + historical, "matching_")):
+            matches = [
+                key
+                for record, key in candidates
+                if record["download_url_source"] == fact[f"{prefix}source_url"]
+                and _label_key(record["subject_name_raw"]) == _label_key(fact[f"{prefix}title"])
+                and record["checksum"] == fact[f"{prefix}checksum"]
+                and record["subject_code"] == fact[f"{prefix}subject_code"]
+                and record["category_code"] == fact["dialect_code"]
+                and record["year_roc"] + 1911 == fact["edition_year_ad"]
+                and record["file_type"] == "question"
+            ]
+            if not matches:
+                raise ValueError(
+                    f"{fact['id']}: Hakka historical grade anchor is missing or changed"
+                )
+            if verify_mirror:
+                with (repo_root / "mirror" / matches[0]).open("rb") as stream:
+                    checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+                if checksum != fact[f"{prefix}checksum"]:
+                    raise ValueError(f"{fact['id']}: Hakka historical grade mirror differs")
+    return len(document["facts"])
 
 
 @lru_cache(maxsize=1)

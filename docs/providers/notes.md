@@ -82,6 +82,14 @@ and [2023 framework](https://www.hakka.gov.tw/File/Attach/45962/File_97071.pdf)
 document the introduction of a shared basic/elementary paper. The retained
 bank covers corroborate this boundary. An elementary-only annual label after
 that reform requires native review rather than an assumed shared grade.
+Reviewed historical label corrections are anchored by exact title, source key
+and payload checksum in `catalog/mappings/hakka/historical-grades-v1.json`.
+The gate reconciles both the immutable older reference and its reviewed
+same-edition, same-dialect counterpart. A later retirement into the immutable
+journal keeps that evidence valid. Identical bytes can support an old label
+correction; reformatted workbooks remain separate retained payload revisions.
+Unseen bytes or source keys require another review. Preserve
+the historical source label and journal rather than rewriting the evidence.
 Dialect changes the paper/audio content and remains an identity variant.
 Unsupported or conflicting dialect evidence stays in review.
 
