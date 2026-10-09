@@ -308,7 +308,7 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(current["normalized_records"], 610)
         self.assertEqual(current["subject_groups"], 314)
         self.assertEqual(current["events"], 23)
-        self.assertEqual(current["roles"], {"question": 314, "answer": 296})
+        self.assertEqual(current["source_listing_roles"], {"question": 314, "answer": 296})
         self.assertEqual(current["sync_failures"], 0)
         reconciliation = policy["payload_reconciliation"]
         self.assertEqual(reconciliation["new_source_keys"], 240)
@@ -325,7 +325,20 @@ class SourceInventoryTests(unittest.TestCase):
         revisions = json.loads(
             (ROOT / reconciliation["recovery_journal"]).read_text(encoding="utf-8")
         )["revisions"]
-        self.assertEqual(len(revisions), 26)
+        self.assertEqual(len(revisions), 54)
+        self.assertEqual(sum(row["reason"] == "payload_replaced" for row in revisions), 26)
+        corrected = [row for row in records if row["file_type"] == "corrected_answer"]
+        originals = [row["source_record"] for row in revisions
+                     if row["reason"] == "source_reference_retired"]
+        self.assertEqual(len(corrected), 28)
+        self.assertEqual(len(originals), 28)
+        self.assertTrue(all(row["file_type"] == "answer" for row in originals))
+        self.assertEqual(
+            {(row["source_exam_id"], row["subject_code"], row["checksum"], row["storage_key"])
+             for row in originals},
+            {(row["source_exam_id"], row["subject_code"], row["checksum"], row["storage_key"])
+             for row in corrected},
+        )
 
     def test_taisugar_manifest_records_public_assets_and_login_blocker(self) -> None:
         manifest = json.loads(

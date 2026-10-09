@@ -29,6 +29,7 @@ from app.hakka_identity import (
 from app.paths import provider_paths
 from app.provider_index import load_provider_index
 from app.source_revisions import load_source_revisions, revision_journal_path
+from app.taipower_file_roles import taipower_corrections_path, validate_taipower_corrections
 
 
 def _read_json(path: Path) -> Any:
@@ -92,6 +93,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (tqc_evidence_path(repo_root), "tqc-sample-identity-v1.schema.json"),
         (hakka_conflicts_path(repo_root), "hakka-native-conflicts-v1.schema.json"),
         (hakka_historical_grades_path(repo_root), "hakka-historical-grades-v1.schema.json"),
+        (taipower_corrections_path(repo_root), "taipower-answer-corrections-v1.schema.json"),
     )
     for path, schema_name in artifacts:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
@@ -99,6 +101,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_tqc_identity_evidence(repo_root)
     validate_hakka_conflicts(repo_root)
     validate_hakka_historical_grades(repo_root)
+    validate_taipower_corrections(repo_root)
 
     validated_providers = 0
     providers_without_papers: list[str] = []

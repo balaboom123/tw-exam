@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/taipower-answer-corrections-v1.schema.json",
+  "title": "Reviewed Taipower native answer corrections v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "provider_id", "facts"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider_id": {"const": "taipower_recruit"},
+    "facts": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["source_exam_id", "category_code", "subject_code", "title", "source_url", "checksum", "native_page", "reviewed_at", "reason"],
+        "properties": {
+          "source_exam_id": {"type": "string", "pattern": "^taipower-recruit-[0-9]{2,3}(-[0-9]{1,2})?$"},
+          "category_code": {"type": "string", "pattern": "^[0-9]{2,3}$"},
+          "subject_code": {"type": "string", "pattern": "^hiring-[0-9]{2,}$"},
+          "title": {"type": "string", "minLength": 1},
+          "source_url": {"type": "string", "pattern": "^https://www\\.taipower\\.com\\.tw/media/[^?#]+\\.pdf(\\?[^#]*)?$"},
+          "checksum": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "native_page": {"type": "integer", "minimum": 1},
+          "reviewed_at": {"type": "string", "format": "date"},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

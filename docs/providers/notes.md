@@ -223,6 +223,17 @@ The hiring and historical 養成班 archive is distinct from the MOEA joint
 sessions as separate events. An official answer PDF may reproduce the questions
 with annotated answers; its source role remains an answer.
 
+Listing labels do not identify every corrected answer. The reviewed
+[native correction facts](../../catalog/mappings/taipower/answer-corrections-v1.json)
+bind the original event, category, subject, label, URL and checksum to a native
+correction notice or visibly marked post-publication correction. Normalization
+projects these originals as `corrected_answer` while preserving acquisition
+roles, mirror locators and bytes. A correction word inside a question, a generic
+footnote without an actual marked change, or different bytes is insufficient.
+New bytes at a reviewed correction source stop normalization for native review;
+previously corrected records with changed context also stop re-normalization.
+This evidence does not resolve occupational or selection-stage identity.
+
 Refresh payloads during sync: a locally valid PDF and checksum do not establish
 that it matches the current official URL. Earlier common-paper copies contained
 material from the other programme. The provider writer preserves replaced

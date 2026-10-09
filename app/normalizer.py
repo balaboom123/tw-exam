@@ -12,6 +12,7 @@ from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
 from app.source_material import SourceMaterial
+from app.taipower_file_roles import taipower_file_role
 
 KNOWN_CANONICAL_IDS = {
     "護理師": "nurse",
@@ -400,6 +401,18 @@ def normalize_papers(
             metadata = paper.mirror_files.get(file_type) or mirror_metadata.get(
                 (paper.category_code, paper.subject_code, file_type), {}
             )
+            normalized_role = file_type
+            if provider_id == "taipower_recruit":
+                normalized_role = taipower_file_role(
+                    file_type,
+                    source_exam_id=source_exam_id,
+                    year_roc=year_roc,
+                    category_code=paper.category_code,
+                    subject_code=paper.subject_code,
+                    title=paper.subject_name_raw,
+                    source_url=download_url_source,
+                    checksum=metadata.get("checksum", ""),
+                )
             storage_key = metadata.get("storage_key", "")
             asset_name = metadata.get("asset_name") or storage_key
             download_url_mirror = (
@@ -418,8 +431,8 @@ def normalize_papers(
                     source_exam_id=source_exam_id,
                     subject_code=paper.subject_code,
                     subject_name_raw=paper.subject_name_raw,
-                    paper_code=f"{paper.category_code}-{paper.subject_code}-{file_type}",
-                    file_type=file_type,
+                    paper_code=f"{paper.category_code}-{paper.subject_code}-{normalized_role}",
+                    file_type=normalized_role,
                     download_url_source=download_url_source,
                     download_url_mirror=download_url_mirror,
                     storage_key=storage_key,
@@ -467,6 +480,23 @@ def renormalize_catalog(
         else set()
     )
     for paper in catalog.papers:
+        if paper.provider_id == "taipower_recruit":
+            role = taipower_file_role(
+                paper.file_type,
+                source_exam_id=paper.source_exam_id,
+                year_roc=paper.year_roc,
+                category_code=paper.category_code,
+                subject_code=paper.subject_code,
+                title=paper.subject_name_raw,
+                source_url=paper.download_url_source,
+                checksum=paper.checksum,
+            )
+            if role != paper.file_type:
+                paper = replace(
+                    paper,
+                    file_type=role,
+                    paper_code=f"{paper.category_code}-{paper.subject_code}-{role}",
+                )
         if paper.provider_id == "hakka_cert" and paper.source_material is None:
             material = hakka_material(
                 paper.subject_name_raw, paper.source_exam_id, paper.download_url_source
