@@ -17,6 +17,7 @@ from dataclasses import asdict, dataclass
 from functools import lru_cache
 from typing import Any
 
+from app.hakka_identity import hakka_conflict_reason, hakka_dialect, hakka_level
 from app.moex_identity_evidence import resolve_moex_category_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
@@ -204,6 +205,7 @@ _LEVEL_LABELS = {
     "n4": "N4",
     "n5": "N5",
     "basic-elementary": "基礎級暨初級",
+    "hakka-elementary": "初級",
     "intermediate-high-intermediate": "中級暨中高級",
     "advanced": "高級",
     "cefr-a1-a2": "A1 基礎級／A2 初級",
@@ -1184,14 +1186,12 @@ def _non_moex_level(
                 f"JLPT official level marker: N{match.group(1)}",
             )
     if provider_id == "hakka_cert":
-        for level_id in ("basic-elementary", "intermediate-high-intermediate", "advanced"):
-            if level_id in canonical_id or level_id.replace("-", "") in text:
-                return (
-                    level_id,
-                    _LEVEL_LABELS[level_id],
-                    "high",
-                    f"Hakka provider mapping: {level_id}",
-                )
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            "Hakka grade requires the download label",
+        )
     if provider_id == "taigi_cert":
         form = _taigi_form(text)
         if form is not None:
@@ -1721,6 +1721,20 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "hakka_cert":
+        level_id, level_label, reason = hakka_level(subject_name_raw, source_material)
+        dialect = hakka_dialect(subject_name_raw, category_code)
+        conflict = hakka_conflict_reason(subject_name_raw, source_checksum, subject_code)
+        if dialect is None or conflict:
+            variant_pairs = (*variant_pairs, ("dialect-unknown", "腔調待確認"))
+            confidence = "review"
+            dialect_reason = (
+                conflict or "Hakka source dialect is missing, unsupported or conflicting"
+            )
+            reason = f"{dialect_reason}; {reason}"
+        else:
+            variant_pairs = (*variant_pairs, (f"dialect-{dialect[0]}", dialect[1]))
+            confidence = "high"
     if provider_id == "tqc_cert":
         sample = (
             resolve_tqc_sample_identity(subject_name_raw, source_checksum)
@@ -1827,7 +1841,7 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
-        if provider_id == "tqc_cert":
+        if provider_id in {"tqc_cert", "hakka_cert"}:
             bundle_name = series_label
         if provider_id == "cpc_recruit" and track_id == "cpc-doctoral":
             # Keep the old canonical compatibility key, while the structured
@@ -1851,7 +1865,7 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
-        if provider_id == "tqc_cert":
+        if provider_id in {"tqc_cert", "hakka_cert"}:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:
                     bundle_name += f"｜{label}"

@@ -487,7 +487,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "2018–2026 annual basic/elementary question banks and undated advanced samples observed across nine primary pages; the intermediate/high-intermediate page now lists vocabulary material only; the separate download center exposes ROC 113–115 packages",
+        "note": "Official 2018–2026 material editions: elementary-only banks before the shared basic/elementary format, five 2018 intermediate/high-intermediate samples and undated advanced samples. Legacy partitions do not identify administered sittings.",
         "start_ad": 2018
       },
       "discovery_snapshot": {
@@ -522,13 +522,14 @@
       ],
       "provider_id": "hakka_cert",
       "restrictions": [
-        "The primary source offers question banks and sample material, not a complete archive of administered sittings. All 150 current in-scope primary-listing URLs are retained; 20 pure samples have explicit material/date facts. Other banks and mixed packages still require material/date review.",
-        "Five intermediate sample ZIPs contain 20 PDFs and use CP950 filenames without UTF-8 metadata. Preserve original ZIP bytes and decode with the evidenced charset when inspecting or projecting member names.",
-        "Secondary download-center integration, complete native grade/dialect identity and the existing audiovisual redistribution review remain unresolved. Public bundles and public mirror backups stay withheld."
+        "The primary source provides learning banks and samples, not an archive of administered sittings. Annual labels identify material editions and undated advanced samples have no public year.",
+        "Preserve original native ZIPs and their filename charset. The inspected bank/sample packages include PDFs, spreadsheets, MP3 and WAV; containers and companion payloads do not establish a single file role.",
+        "Checksum-backed cross-dialect conflicts are isolated by catalog/mappings/hakka/native-conflicts-v1.json. Unique source references and immutable history are preserved.",
+        "Full historical native content, official resolution of source dialect conflicts, three source ZIPs above the normal 1.9 GB multipart target, secondary-download-center integration and audiovisual redistribution remain unresolved. Hakka publication/public mirror backup holds are unchanged."
       ],
       "source_name": "客家委員會",
       "status": "partial",
-      "status_reason": "Partial: all 150 current primary-listing assets are retained, including the five formerly omitted sample packages. Undated advanced samples no longer claim a public year; question-bank dates, complete level/dialect meaning, secondary-surface integration and audiovisual redistribution remain unresolved."
+      "status_reason": "Partial: current primary-listing material dates and native grade/dialect boundaries are corrected; two official labels conflict with retained bytes. Full historical native content, secondary-surface integration and audiovisual redistribution remain unresolved."
     },
     {
       "available_years": {

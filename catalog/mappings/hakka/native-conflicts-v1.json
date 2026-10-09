@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "provider_id": "hakka_cert",
+  "catalog_version": "exam-identity-v2",
+  "facts": [
+    {
+      "id": "hakka-108-raoping-ods-dapu-bytes",
+      "reviewed_at": "2026-10-09",
+      "title": "108 年度客語能力認證初級題庫 ( 饒平腔 ) EXCEL 下載",
+      "source_url": "https://elearning.hakka.gov.tw/hakka/files/downloads/109.ods",
+      "subject_code": "109-108-excel",
+      "checksum": "e86ee4647786580c464a021a9c020a6719837e6cc5148d8c9dda5b80d2aafd1a",
+      "matching_source_url": "https://elearning.hakka.gov.tw/hakka/files/downloads/106.ods",
+      "matching_title": "108 年度客語能力認證初級題庫 ( 大埔腔 ) EXCEL 下載",
+      "reason": "The 饒平-labelled ODS is byte-identical to the official 大埔 ODS. Native initial worksheet rows use the 大埔 wording, differing from the paired 饒平 PDF. Preserve both source references and isolate the conflicting dialect; do not relabel or delete the original.",
+      "evidence_url": "https://elearning.hakka.gov.tw/hakka/download-files?c=2"
+    },
+    {
+      "id": "hakka-111-zhaoan-audio-raoping-bytes",
+      "reviewed_at": "2026-10-09",
+      "title": "111 年度客語能力認證初級題庫音檔 ( 詔安腔 ) 下載",
+      "source_url": "https://elearning.hakka.gov.tw/hakka/files/downloads/307.zip",
+      "subject_code": "307-111",
+      "checksum": "c477d1117cd3a33be27b10979d21e24e08eb5b6e2732ec7eb23172090d1b5b53",
+      "matching_source_url": "https://elearning.hakka.gov.tw/hakka/files/downloads/80.zip",
+      "matching_title": "110 年度客語能力認證初級題庫音檔 ( 饒平腔 ) 下載",
+      "reason": "The 詔安-labelled ZIP is byte-identical to the preceding official 饒平 audio ZIP, including the rhw2 directory and 78 WAV members. A separate 111 詔安 ZIP uses zhw2 and different payloads. Preserve the source reference and isolate the conflicting dialect pending official correction.",
+      "evidence_url": "https://elearning.hakka.gov.tw/hakka/download-files?c=2"
+    }
+  ]
+}

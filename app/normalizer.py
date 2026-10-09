@@ -9,6 +9,7 @@ from dataclasses import replace
 from pathlib import Path
 
 from app.classification import classify_paper, identity_fields
+from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
 from app.source_material import SourceMaterial
 
@@ -341,6 +342,8 @@ def normalize_papers(
     review_queue: list[ReviewItem] = []
     for paper in papers:
         material = paper.source_material or source_material
+        if provider_id == "hakka_cert" and material is None:
+            material = hakka_material(paper.subject_name_raw, source_exam_id)
         raw_category = paper.category_raw or exam_name_raw
         canonical_id, canonical_name, candidate, needs_review = _derive_canonical(
             source_exam_id, raw_category, exam_name_raw, year_ad, alias_rules
@@ -348,9 +351,14 @@ def normalize_papers(
         identity = None
         fields = {}
         if provider_id:
-            question_metadata = paper.mirror_files.get("question") or mirror_metadata.get(
+            source_metadata = paper.mirror_files.get("question") or mirror_metadata.get(
                 (paper.category_code, paper.subject_code, "question"), {}
             )
+            if provider_id == "hakka_cert" and not source_metadata and len(paper.files) == 1:
+                role = next(iter(paper.files))
+                source_metadata = paper.mirror_files.get(role) or mirror_metadata.get(
+                    (paper.category_code, paper.subject_code, role), {}
+                )
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -363,7 +371,7 @@ def normalize_papers(
                 subject_code=paper.subject_code,
                 category_code=paper.category_code,
                 source_material=material,
-                source_checksum=question_metadata.get("checksum", ""),
+                source_checksum=source_metadata.get("checksum", ""),
             )
             fields = identity_fields(identity)
         if material is not None:
@@ -455,6 +463,10 @@ def renormalize_catalog(
         else set()
     )
     for paper in catalog.papers:
+        if paper.provider_id == "hakka_cert" and paper.source_material is None:
+            material = hakka_material(paper.subject_name_raw, paper.source_exam_id)
+            if material is not None:
+                paper = replace(paper, source_material=material, schema_version=3)
         raw_category = paper.category_raw or paper.exam_name_raw
         provider_id = paper.provider_id
         year_ad = paper.year_roc + 1911

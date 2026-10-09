@@ -67,18 +67,48 @@ the contents before changing the packaging. The retained archives and current
 official listing were checked on 2026-10-07.
 
 Recognize the source's pure 樣卷 labels as sample packages as well as 試題範例.
-Their source edition dates are distinct from administered sittings. Undated
-advanced samples carry no public year; the legacy discovery/storage year stays
-only for compatibility. Mixed 題庫及樣卷 packages and other banks need their own
-material/date review and must not inherit a pure sample's meaning.
+Annual 題庫 resources carry material edition dates rather than administered
+sitting dates. The inspected 題庫及樣卷 packages contain a bank and a sample PDF;
+retain them as practice collections, distinct from pure samples and banks.
+Undated advanced samples carry no public year; the legacy discovery/storage
+year stays only for compatibility. `app/hakka_identity.py` owns this meaning
+for acquisition and reclassification.
+
+Resolve a download's native grade from its own official title and content,
+rather than the current navigation heading or legacy canonical key. Older
+初級 banks remain separate from 基礎級暨初級 resources. The official
+[2022 framework](https://www.hakka.gov.tw/File/Attach/45166/File_94088.pdf)
+and [2023 framework](https://www.hakka.gov.tw/File/Attach/45962/File_97071.pdf)
+document the introduction of a shared basic/elementary paper. The retained
+bank covers corroborate this boundary. An elementary-only annual label after
+that reform requires native review rather than an assumed shared grade.
+Dialect changes the paper/audio content and remains an identity variant.
+Unsupported or conflicting dialect evidence stays in review.
+
+The checksum-backed native conflicts in
+`catalog/mappings/hakka/native-conflicts-v1.json` preserve official links whose
+labels disagree with another dialect's identical source bytes. Isolate those
+records; shared payloads do not authorize deleting their source references or
+silently assigning another dialect. Match the individual source key as well as
+the title; a correct distinct package can share the same official label.
+Changed bytes at a known conflicting source key require another review.
+The contract gate reconciles both retained
+source references supporting each fact.
 
 The intermediate sample ZIPs use CP950 filename metadata without the UTF-8 flag.
 Preserve the original packages and explicitly decode their member names with
 that charset when inspecting them; default CP437 decoding produces garbled
 characters and apparent path separators. The current primary listing was
-rechecked on 2026-10-09, including the previously omitted samples. Complete
-level/dialect, secondary-surface and audiovisual redistribution review remain
-required before publication.
+rechecked on 2026-10-09, including the previously omitted samples. Native banks,
+spreadsheets and packages were inspected on that date. Full historical native
+content, source conflicts, secondary-surface integration and audiovisual
+redistribution still need review before publication.
+
+Some intact original audio ZIPs also exceed the normal multipart target.
+Do not relax the public target or rewrite retained source bytes to make that
+check pass. A private conservation build can use an explicit target below the
+hard asset limit, while recording the different scope. Public packaging still
+requires its own verified treatment before the publication hold is cleared.
 
 An earlier refresh replaced or dropped source references before immutable
 revision retention existed. Recover those original records from Git and their

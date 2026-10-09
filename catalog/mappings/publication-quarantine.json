@@ -27,7 +27,7 @@
       "provider_id": "hakka_cert",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "All 150 current primary-listing assets are retained and the 15 advanced samples have explicit undated facts. Five previously omitted intermediate sample packages are restored with edition dates. Other question-bank and mixed-package dates/material meaning, full native level/dialect boundaries, secondary-surface integration and audiovisual redistribution remain unresolved; keep publication withheld.",
+      "reason": "Partial: current primary-listing material dates and native grade/dialect boundaries are corrected; two official labels conflict with retained bytes. Full historical native content, secondary-surface integration and audiovisual redistribution remain unresolved. Keep publication withheld.",
       "evidence_path": "data/providers/hakka_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#hakka_cert",
       "review_by": "2026-12-01"

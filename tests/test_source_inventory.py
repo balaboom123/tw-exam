@@ -404,7 +404,19 @@ class SourceInventoryTests(unittest.TestCase):
         current = policy["retained_state_recheck"]
         self.assertEqual(current["current_payloads_sha256_verified"], current["current_records"])
         self.assertEqual(current["current_records"], policy["current_scope_recheck"]["retained_current_records"])
-        self.assertIn("question-bank", current["remaining_identity_issue"])
+        self.assertIn("historical", current["remaining_identity_issue"])
+        native = policy["native_material_identity_recheck"]
+        self.assertEqual(native["current_records"], 150)
+        self.assertEqual(native["immutable_revision_references"], 56)
+        self.assertEqual(native["question_bank_records"], 125)
+        self.assertEqual(native["bank_and_sample_practice_collections"], 5)
+        self.assertEqual(native["pure_sample_records"], 20)
+        self.assertEqual(native["annual_edition_records"], 135)
+        self.assertEqual(native["undated_advanced_samples"], 15)
+        self.assertEqual(native["native_zip_packages_crc_sha256_and_paths_verified"], 40)
+        self.assertEqual(native["native_ods_archives_crc_sha256_and_paths_verified"], 45)
+        self.assertEqual(native["current_identity_bundles"], 27)
+        self.assertIn("conflicts", native["remaining"])
         self.assertIn("Fifteen ZIP/RAR", current["role_correction"])
 
     def test_sfi_manifest_exposes_wrong_identity_publication(self) -> None:

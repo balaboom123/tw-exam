@@ -101,7 +101,8 @@ class HakkaCertClientTests(unittest.TestCase):
         self.assertEqual(advanced.year_ad, 2026)  # compatibility partition only
         self.assertEqual(advanced.papers[0].source_material.date, SourceDate("undated", None))
         bank = client.fetch_exam_page("hakka-cert-basic-elementary-2018", 2018).papers[0]
-        self.assertIsNone(bank.source_material)
+        self.assertEqual(bank.source_material.kind, "practice_collection")
+        self.assertEqual(bank.source_material.date, SourceDate("edition_year", 2018))
 
     def test_discovery_uses_material_year_for_labels_without_year(self) -> None:
         client = HakkaCertClient()
@@ -229,12 +230,19 @@ def test_retained_question_packages_keep_prior_audio_role_references() -> None:
             "checksum",
         ):
             assert previous[field] == corrected[field]
-        # Immutable history preserves the earlier classification. Current
-        # sample material adds an identity variant without revising its source.
-        if corrected.get("source_material") is not None:
-            assert "material-sample" in corrected["variant_ids"]
+        # Immutable history preserves the earlier classification. The native
+        # mixed packages and advanced samples now have different material facts.
+        material = corrected["source_material"]
+        if previous["download_url_source"].rsplit("/", 1)[-1] in {
+            "129.zip", "130.zip", "131.zip", "132.zip", "133.zip"
+        }:
+            assert material["kind"] == "practice_collection"
+            assert material["date"] == {"basis": "edition_year", "year_ad": 2018}
+            assert "material-practice-collection" in corrected["variant_ids"]
         else:
-            assert previous["bundle_id"] == corrected["bundle_id"]
+            assert material["kind"] == "sample"
+            assert material["date"] == {"basis": "undated", "year_ad": None}
+            assert "material-sample" in corrected["variant_ids"]
         assert entry["blob_storage_key"].startswith(
             "providers/hakka_cert/recovery/source-revisions/"
         )
