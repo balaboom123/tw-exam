@@ -113,13 +113,14 @@ class CliCommandTests(unittest.TestCase):
         parser = build_parser()
 
         dedupe_args = parser.parse_args(["dedupe-mirror", "--mirror-dir", "mirror", "--apply"])
-        prune_args = parser.parse_args(["prune-orphaned-mirror", "--provider", "hakka_cert", "--apply"])
+        prune_args = parser.parse_args(["prune-orphaned-mirror", "--provider", "hakka_cert", "--duplicates-only", "--apply"])
         sync_args = parser.parse_args(["sync-full", "--provider", "hakka_cert", "--prune-orphaned-mirror"])
 
         self.assertEqual(dedupe_args.mirror_dir, Path("mirror"))
         self.assertTrue(dedupe_args.apply)
         self.assertEqual(prune_args.provider, "hakka_cert")
         self.assertTrue(prune_args.apply)
+        self.assertTrue(prune_args.duplicates_only)
         self.assertTrue(sync_args.prune_orphaned_mirror)
 
     @patch("app.cli.sync_exam_pages")

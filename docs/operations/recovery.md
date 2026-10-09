@@ -150,6 +150,18 @@ uv run python scripts/validate_publication.py
 
 Do not delete raw pages, retained failures, or source evidence merely to satisfy a gate. Remove an exception when the official source becomes available; strict audits intentionally reject orphaned exceptions.
 
+For redundant mirror paths, preview the restricted cleanup before adding `--apply`:
+
+```bash
+uv run python -m app prune-orphaned-mirror --provider <provider_id> --duplicates-only
+```
+
+This mode hashes actual files and removes an unreferenced path only when a
+currently referenced file in the same provider retains identical bytes. It
+preserves unique unreferenced payloads and the source-revision directory. Review
+those unique payloads separately; absence from current state is not proof that
+historical material is unnecessary.
+
 ## Scenario 3: catalog or identity audit fails
 
 A normalized v3 material migration also changes the provider index format.

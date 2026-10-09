@@ -11,6 +11,60 @@ from app.storage import MirrorStore
 
 
 class MirrorStoreTests(unittest.TestCase):
+    def test_duplicate_only_prune_preserves_unique_history_and_recovery(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            store = MirrorStore(root)
+            active = store.write_bytes('providers/demo/active/question.pdf', b'current')
+            duplicate = root / 'providers/demo/old/question.pdf'
+            unique = root / 'providers/demo/old/unique.pdf'
+            orphan_pair = root / 'providers/demo/old/unique-copy.pdf'
+            revision = root / 'providers/demo/recovery/source-revisions/original.pdf'
+            sibling = root / 'providers/other/old/question.pdf'
+            for path, payload in [
+                (duplicate, b'current'), (unique, b'history'),
+                (orphan_pair, b'history'), (revision, b'current'), (sibling, b'current'),
+            ]:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(payload)
+            # A stale cache claiming equal checksums is not byte evidence.
+            store.dedupe_index_path.write_text(json.dumps({'entries': {
+                active.checksum: {'storage_key': unique.relative_to(root).as_posix(), 'size': 7},
+            }}))
+            store = MirrorStore(root)
+            with mock.patch.object(store, 'referenced_storage_keys', return_value={active.storage_key}):
+                preview = store.prune_unreferenced_provider(
+                    'demo', [], NormalizedCatalog([], []), duplicates_only=True,
+                )
+                self.assertEqual(preview.removed_files, 1)
+                self.assertEqual(preview.preserved_unique_files, 2)
+                self.assertTrue(duplicate.exists())
+                result = store.prune_unreferenced_provider(
+                    'demo', [], NormalizedCatalog([], []), apply=True, duplicates_only=True,
+                )
+            self.assertTrue(result.applied)
+            self.assertEqual(result.reclaimable_bytes, len(b'current'))
+            self.assertFalse(duplicate.exists())
+            self.assertEqual(active.path.read_bytes(), b'current')
+            self.assertEqual(unique.read_bytes(), b'history')
+            self.assertEqual(orphan_pair.read_bytes(), b'history')
+            self.assertEqual(revision.read_bytes(), b'current')
+            self.assertEqual(sibling.read_bytes(), b'current')
+
+    def test_duplicate_only_prune_refuses_a_missing_retained_copy(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            orphan = root / 'providers/demo/orphan.pdf'
+            orphan.parent.mkdir(parents=True)
+            orphan.write_bytes(b'original')
+            store = MirrorStore(root)
+            with mock.patch.object(store, 'referenced_storage_keys', return_value={'providers/demo/missing.pdf'}):
+                with self.assertRaisesRegex(ValueError, 'referenced file'):
+                    store.prune_unreferenced_provider(
+                        'demo', [], NormalizedCatalog([], []), apply=True, duplicates_only=True,
+                    )
+            self.assertEqual(orphan.read_bytes(), b'original')
+
     def test_overwrite_removes_all_loaded_checksums_for_the_same_path(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

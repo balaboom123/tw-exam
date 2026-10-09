@@ -32,6 +32,7 @@ class MirrorPruneResult:
     reclaimable_bytes: int
     missing_references: int
     applied: bool
+    preserved_unique_files: int = 0
 
 
 class MirrorStore:
@@ -404,6 +405,7 @@ class MirrorStore:
         catalog: NormalizedCatalog,
         *,
         apply: bool = False,
+        duplicates_only: bool = False,
     ) -> MirrorPruneResult:
         references = self.referenced_storage_keys(provider_id, raw_pages, catalog)
         if not references:
@@ -426,6 +428,22 @@ class MirrorStore:
                 f"{len(missing_references)} referenced file(s) are missing."
             )
         stale_paths = [path for key, path in files_by_key.items() if key not in references]
+        # Restrict the existing prune operation to byte-identical copies of
+        # currently referenced provider files. Never trust the dedupe cache
+        # as proof, and preserve unique unreferenced historical material.
+        preserved_unique_files = 0
+        if duplicates_only:
+            candidate_sizes = {path.stat().st_size for path in stale_paths}
+            retained_checksums = {
+                self._checksum_path(path)
+                for key, path in files_by_key.items()
+                if key in references and path.stat().st_size in candidate_sizes
+            }
+            redundant_paths = [
+                path for path in stale_paths if self._checksum_path(path) in retained_checksums
+            ]
+            preserved_unique_files = len(stale_paths) - len(redundant_paths)
+            stale_paths = redundant_paths
         reclaimable_bytes = sum(path.stat().st_size for path in stale_paths)
         if apply:
             stale_keys = {self._storage_key_for_path(path) for path in stale_paths}
@@ -473,4 +491,5 @@ class MirrorStore:
             reclaimable_bytes=reclaimable_bytes,
             missing_references=0,
             applied=apply,
+            preserved_unique_files=preserved_unique_files,
         )

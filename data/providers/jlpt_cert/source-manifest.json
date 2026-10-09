@@ -22,6 +22,26 @@
     "captured_at": "2026-08-01",
     "coverage_status": "complete_declared_source_scope_with_redistribution_blocker",
     "declared_scope": "Every direct PDF and MP3 in the official 2012 and 2018 JLPT Official Practice Workbook sections. This is a sample-workbook scope, not an archive of every administered JLPT sitting.",
+    "initial_capture_retained_state_evidence": {
+      "captured_at": "2026-08-01",
+      "publication_risk": {
+        "manifest_agreement_warning": "Exact source/local URL agreement proves only the declared workbook denominator; it does not authorize redistribution or imply historical sitting coverage.",
+        "published_bundle_count": 5,
+        "published_file_records": 116,
+        "release_status": "blocked_pending_redistribution_decision"
+      },
+      "retained_local_state": {
+        "mirror_bytes": 760920192,
+        "mirror_files": 232,
+        "normalized_records": 116,
+        "raw_event_pages": 2,
+        "source_urls_matching_current_listing": 116,
+        "sync_failures": 0,
+        "unreferenced_evidence": "The unreferenced half is the older per-level storage-key identity set; it is preserved pending a reviewed deduplication decision.",
+        "unreferenced_mirror_bytes": 380460096,
+        "unreferenced_mirror_files": 116
+      }
+    },
     "legal_and_technical": {
       "copyright_policy_url": "https://www.jlpt.jp/e/policy.html",
       "redistribution_status": "operator_or_legal_review_required",
@@ -41,22 +61,22 @@
       "https://www.jlpt.jp/e/samples/sampleindex.html"
     ],
     "official_unique_url_count": 116,
-    "publication_risk": {
-      "manifest_agreement_warning": "Exact source/local URL agreement proves only the declared workbook denominator; it does not authorize redistribution or imply historical sitting coverage.",
-      "published_bundle_count": 5,
-      "published_file_records": 116,
-      "release_status": "blocked_pending_redistribution_decision"
-    },
-    "retained_local_state": {
-      "mirror_bytes": 760920192,
-      "mirror_files": 232,
-      "normalized_records": 116,
-      "raw_event_pages": 2,
-      "source_urls_matching_current_listing": 116,
-      "sync_failures": 0,
-      "unreferenced_evidence": "The unreferenced half is the older per-level storage-key identity set; it is preserved pending a reviewed deduplication decision.",
-      "unreferenced_mirror_bytes": 380460096,
-      "unreferenced_mirror_files": 116
+    "retained_state_recheck": {
+      "checked_at": "2026-10-09T02:25:01.856644+00:00",
+      "current_payloads_sha256_verified": 116,
+      "current_records": 116,
+      "earlier_capture_is_historical": "Initial-capture findings above are preserved as dated evidence, not current provider-state facts.",
+      "material_classification": "All 116 current records explicitly use practice_collection with edition_year date evidence; ten listening transcripts have their own role and verified source revision recovery.",
+      "publication": "Withheld solely by the unresolved official third-party text/listening-audio redistribution hold. Workbook editions are no longer classified as administered sittings.",
+      "raw_events": 2,
+      "roles": {
+        "answer": 10,
+        "answer_sheet": 10,
+        "listening_audio": 46,
+        "listening_transcript": 10,
+        "question": 40
+      },
+      "source_revision_records": 10
     }
   },
   "provider_id": "jlpt_cert",

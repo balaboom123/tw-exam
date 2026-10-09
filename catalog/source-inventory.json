@@ -501,7 +501,7 @@
       ],
       "exam_category": "Hakka certification question banks, sample tests, answers, and paired question audio",
       "local_state": {
-        "normalized_paper_records": 140,
+        "normalized_paper_records": 145,
         "raw_event_pages": 10,
         "sync_failures": 0
       },
@@ -522,16 +522,15 @@
       ],
       "provider_id": "hakka_cert",
       "restrictions": [
-        "The primary surface has 607 unique links across nine pages: 140 accepted by the current parser, five in-scope intermediate sample ZIPs missed by the parser, 455 vocabulary links intentionally outside exam scope, and seven other supporting-material links.",
-        "The unimplemented download center has 50 unique ROC 113–115 packages, including 15 in-scope question-audio packages; ten ROC 114–115 declared sizes differ from retained mirrors.",
-        "Retained intermediate and advanced events use synthetic 2026 identity for undated material, and five advanced ZIPs are misclassified as listening audio.",
-        "Eight historical events remain normalized but unpublished; a 2,094,415,387-byte retained asset exceeds the 1.9 GB multipart target.",
-        "Taiwan Government Data Open License 1.0 requires attribution and excludes specially marked audiovisual or third-party works; academy terms also restrict unauthorized commercial use, so audio republication requires review.",
-        "Source de-listing confirmed 2026-08-05: upstream replaced the ROC 114–115 basic/elementary 題庫音檔 entries with 詞彙音檔 under new URLs, and the five intermediate 語料選粹 ZIPs and the 通過標準與題型說明 ZIP are absent from all 1,526 anchors across c=2, c=3, and c=5 although the files themselves still return HTTP 200. Sixteen retained records were dropped, leaving the intermediate/high-intermediate level with no published event."
+        "The initial 2026-08 source capture bounded primary and secondary surfaces, including unintegrated intermediate samples, vocabulary/support exclusions and alternate question-audio packages; these historical measurements do not establish current complete acquisition.",
+        "The 2026-10-07 role correction preserves 145 current records and 15 source revisions. Fifteen ZIP/RAR references now use question roles; all current retained payloads were SHA-256 verified again on 2026-10-09.",
+        "The advanced samples still use synthetic 2026 identity for undated material. The delisted intermediate family and historical references need review; 21 unique unreferenced payloads remain preserved for that review.",
+        "Complete current listing coverage, material/date identity and large audiovisual packaging remain unresolved; absence from publication follows the recorded hold rather than proving that retained bytes are redundant.",
+        "Taiwan Government Data Open License 1.0 requires attribution and excludes specially marked audiovisual or third-party works; academy terms also restrict unauthorized commercial use. The existing audio republication review and prohibition on public mirror backup creation remain in force."
       ],
       "source_name": "客家委員會",
       "status": "partial",
-      "status_reason": "Partial / source, identity, licensing, and release blockers: an evidence manifest now bounds both official surfaces, but one source event and 40 current/alternate source files are unintegrated, one retained event identity is synthetic, and eight historical events are absent from publication"
+      "status_reason": "Partial: package roles are corrected and retained bytes verified; undated advanced identity, delisted intermediate history, complete acquisition and existing audiovisual redistribution treatment remain unresolved."
     },
     {
       "available_years": {
@@ -1690,13 +1689,13 @@
       ],
       "provider_id": "tqc_cert",
       "restrictions": [
-        "The four-page source is a sample-paper listing rather than a complete sitting archive; TQC+ remains a separate unapproved family.",
-        "The earlier retained sample contained nine records with incorrect source-to-payload alignment caused by generic-label storage collisions. Publication remains withheld pending byte reconciliation; URL-specific storage prevents new locator collisions.",
-        "No sample-paper republication grant was established; broader CSF pages prohibit reposting/excerpting without authorization."
+        "The source is a reference sample-paper listing, not a complete sitting archive. Its listing dates do not establish administered examination dates; explicit sample-material/date classification remains pending. TQC+ remains a separate family.",
+        "Fresh normal requests on 2026-10-09 matched all 44 retained PDF checksums, with 44 distinct source-specific storage keys and no missing local payloads. The earlier nine-payload mismatch finding was not reproduced on either 2026-10-07 or 2026-10-09.",
+        "No sample-paper republication grant was established in the existing review; broader CSF restrictions remain recorded in the source manifest. Publication stays withheld pending material/date correction and resolution of that review."
       ],
       "source_name": "中華民國電腦技能基金會",
       "status": "partial",
-      "status_reason": "Partial / exact 44-row listing retained but nine payloads are wrong after storage-key collisions and redistribution remains unresolved"
+      "status_reason": "Partial: all 44 retained source payloads freshly match, but reference samples and listing dates still need explicit material/date classification and the existing republication review remains unresolved."
     },
     {
       "available_years": {

@@ -1091,6 +1091,7 @@ def command_prune_orphaned_mirror(args: argparse.Namespace) -> int:
             raw_pages,
             catalog,
             apply=args.apply,
+            duplicates_only=args.duplicates_only,
         )
     except ValueError as exc:
         print(str(exc), flush=True)
@@ -1102,6 +1103,10 @@ def command_prune_orphaned_mirror(args: argparse.Namespace) -> int:
         f"from {result.scanned_files} scanned file(s).",
         flush=True,
     )
+    if args.duplicates_only:
+        print(
+            f"Preserved {result.preserved_unique_files} unique unreferenced payload(s).", flush=True
+        )
     return 0
 
 
@@ -1401,6 +1406,12 @@ def build_parser() -> argparse.ArgumentParser:
     prune_parser.add_argument("--data-dir", type=Path, default=repo_root / "data")
     prune_parser.add_argument("--mirror-dir", type=Path, default=repo_root / "mirror")
     prune_parser.add_argument("--apply", action="store_true", default=False)
+    prune_parser.add_argument(
+        "--duplicates-only",
+        action="store_true",
+        default=False,
+        help="Restrict cleanup to files matching a currently referenced file in the same provider.",
+    )
     prune_parser.set_defaults(handler=command_prune_orphaned_mirror)
 
     for name in ("sync-full", "sync-incremental"):

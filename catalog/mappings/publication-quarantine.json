@@ -27,7 +27,7 @@
       "provider_id": "hakka_cert",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "Both published non-basic bundles carry a synthetic ROC 115 identity forced by MATERIALS_YEAR onto undated material that is absent from the current exam scope, and 11 ZIPs are published as listening_audio because every ZIP suffix is treated as audio - including the five advanced writing-test ZIPs. The eight historical basic/elementary events are withheld with them: publishing that group would require a 30.02 GB archive of paired audio, and the Hakka Affairs Council's Open Government Data License expressly carves out audiovisual works, so redistribution is unresolved.",
+      "reason": "Package roles have been corrected: a ZIP/RAR suffix no longer implies listening audio, and prior references and bytes remain in source revision recovery. The advanced samples still carry synthetic 2026 identity for undated material, the delisted intermediate family and historical references need review, and the existing audiovisual/third-party redistribution limits remain unresolved.",
       "evidence_path": "data/providers/hakka_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#hakka_cert",
       "review_by": "2026-12-01"
@@ -45,7 +45,7 @@
       "provider_id": "jlpt_cert",
       "site_id": "default",
       "status": "redistribution_unresolved",
-      "reason": "The public ZIPs redistribute the 2012/2018 official practice workbooks, including all N1–N5 listening audio and N1/N2 passages covered by the official third-party reproduction restriction. The source inventory already records that redistribution is withheld; no permission covering this archive was established. Workbook edition years are also presented through the administered-exam year contract.",
+      "reason": "The retained 2012/2018 official practice workbooks now carry explicit practice-collection and edition-year facts, with listening transcripts classified separately. The official third-party restriction still covers N1/N2 attributed passages and all N1-N5 listening audio; no permission covering their archive republication has been established.",
       "evidence_path": "catalog/source-inventory.json",
       "spec_path": "docs/providers/notes.md#jlpt_cert",
       "review_by": "2026-11-01"
@@ -54,7 +54,7 @@
       "provider_id": "moea_recruit",
       "site_id": "default",
       "status": "duplicate_source_identity",
-      "reason": "All 370 published records are Taipower new-hire papers whose URL and checksum sets exactly duplicate taipower_recruit; no MOEA-identified paper is actually published.",
+      "reason": "Every retained MOEA source URL actually belongs to the separate Taipower hiring archive. The baseline provider sets were identical, but refreshed Taipower acquisition corrected mixed/stale common-paper payloads, so their current checksum sets are not identical. Keep the wrong MOEA identity withheld until the distinct official staff archive is completely acquired and reviewed with source conservation.",
       "evidence_path": "data/providers/moea_recruit/source-manifest.json",
       "spec_path": "docs/providers/notes.md#moea_recruit",
       "review_by": "2026-11-01"
@@ -107,8 +107,8 @@
     {
       "provider_id": "tqc_cert",
       "site_id": "default",
-      "status": "wrong_payload",
-      "reason": "Nine public records point at the wrong bytes after five generic-label storage-key collisions overwrote distinct source PDFs.",
+      "status": "wrong_identity",
+      "reason": "Fresh normal-source rechecks on 2026-10-07 and 2026-10-09 matched every retained payload; the earlier nine-file mismatch finding was not reproduced. The official listing provides reference samples and publication dates, not administered sittings. Explicit material/date classification and the existing unresolved republication review still require resolution before publication.",
       "evidence_path": "data/providers/tqc_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#tqc_cert",
       "review_by": "2026-11-01"

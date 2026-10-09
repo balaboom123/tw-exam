@@ -388,12 +388,15 @@ class SourceInventoryTests(unittest.TestCase):
                 "secondary_question_audio_packages_unintegrated": 15,
             },
         )
-        self.assertTrue(
-            policy["identity_risks"]["undated_advanced_material_forced_to_2026"]
-        )
-        self.assertTrue(
-            policy["identity_risks"]["zip_suffix_is_currently_misclassified_as_listening_audio"]
-        )
+        historical = policy["initial_capture_retained_state_evidence"]
+        self.assertEqual(historical["captured_at"], policy["last_discovery_at"])
+        self.assertTrue(historical["identity_risks"]["undated_advanced_material_forced_to_2026"])
+        self.assertTrue(historical["identity_risks"]["zip_suffix_is_currently_misclassified_as_listening_audio"])
+        self.assertNotIn("identity_risks", policy)
+        current = policy["retained_state_recheck"]
+        self.assertEqual(current["current_payloads_sha256_verified"], current["current_records"])
+        self.assertIn("synthetic 2026", current["remaining_identity_issue"])
+        self.assertIn("Fifteen ZIP/RAR", current["role_correction"])
 
     def test_sfi_manifest_exposes_wrong_identity_publication(self) -> None:
         manifest = json.loads(
@@ -647,7 +650,13 @@ class SourceInventoryTests(unittest.TestCase):
         policy = manifest["probe_policy"]
         self.assertEqual(policy["official_listed_file_count"], 116)
         self.assertEqual(policy["official_unique_url_count"], 116)
-        self.assertEqual(policy["retained_local_state"]["unreferenced_mirror_files"], 116)
+        historical = policy["initial_capture_retained_state_evidence"]
+        self.assertEqual(historical["captured_at"], policy["captured_at"])
+        self.assertEqual(historical["retained_local_state"]["unreferenced_mirror_files"], 116)
+        self.assertNotIn("retained_local_state", policy)
+        current = policy["retained_state_recheck"]
+        self.assertEqual(current["current_payloads_sha256_verified"], policy["official_unique_url_count"])
+        self.assertIn("practice_collection", current["material_classification"])
         self.assertEqual(
             policy["legal_and_technical"]["redistribution_status"],
             "operator_or_legal_review_required",
@@ -686,7 +695,7 @@ class SourceInventoryTests(unittest.TestCase):
             "blocked_pending_written_permission_or_policy_change",
         )
 
-    def test_tqc_manifest_exposes_nine_collision_payloads(self) -> None:
+    def test_tqc_manifest_preserves_old_mismatches_without_claiming_they_are_current(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/tqc_cert/source-manifest.json").read_text(
                 encoding="utf-8"
@@ -696,10 +705,18 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(len(manifest["exams"]), 11)
         policy = manifest["probe_policy"]
         self.assertEqual(policy["official_listed_file_count"], 44)
-        reconciliation = policy["live_payload_reconciliation"]
+        historical = policy["initial_capture_retained_state_evidence"]
+        self.assertEqual(historical["captured_at"], policy["captured_at"])
+        reconciliation = historical["live_payload_reconciliation"]
         self.assertEqual(reconciliation["matching_retained_payloads"], 35)
         self.assertEqual(reconciliation["wrong_retained_payloads"], 9)
         self.assertEqual(len(reconciliation["mismatches"]), 9)
+        self.assertNotIn("live_payload_reconciliation", policy)
+        current = policy["retained_state_recheck"]
+        self.assertEqual(current["current_source_payloads_matching"], policy["official_listed_file_count"])
+        self.assertEqual(current["current_source_payload_mismatches"], 0)
+        self.assertEqual(current["unique_current_storage_keys"], current["current_records"])
+        self.assertIn("reference samples", current["remaining_identity_issue"])
 
     def test_ipas_manifest_exposes_family_and_document_role_gaps(self) -> None:
         manifest = json.loads(

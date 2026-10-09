@@ -859,11 +859,43 @@
     },
     "discovery_mode": "two-official-surface-bounded-listing-audit",
     "files_section_scope": "Only current unretained URLs, source-only sample bundles, and alternate official question-audio packages are enumerated; retained exact primary files are summarized by listing hashes.",
-    "identity_risks": {
-      "advanced_zip_record_count_affected": 5,
-      "retained_intermediate_2026_event_absent_from_current_exam_scope": true,
-      "undated_advanced_material_forced_to_2026": true,
-      "zip_suffix_is_currently_misclassified_as_listening_audio": true
+    "initial_capture_retained_state_evidence": {
+      "captured_at": "2026-08-01T21:46:03+08:00",
+      "identity_risks": {
+        "advanced_zip_record_count_affected": 5,
+        "retained_intermediate_2026_event_absent_from_current_exam_scope": true,
+        "undated_advanced_material_forced_to_2026": true,
+        "zip_suffix_is_currently_misclassified_as_listening_audio": true
+      },
+      "retained_local_state": {
+        "largest_retained_asset_bytes": 2094415387,
+        "local_event_absent_from_manifest": [
+          [
+            "hakka-cert-intermediate-high-intermediate-2026",
+            2026
+          ]
+        ],
+        "manifest_event_missing_locally": [
+          [
+            "hakka-cert-intermediate-high-intermediate-2018",
+            2018
+          ]
+        ],
+        "normalized_not_published_event_count": 8,
+        "normalized_paper_records": 156,
+        "raw_event_pages": 11,
+        "retained_years": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ]
+      }
     },
     "last_discovery_at": "2026-08-01T21:46:03+08:00",
     "primary_listing": {
@@ -947,34 +979,21 @@
       "largest_secondary_declared_package_bytes": 1858996831,
       "multipart_target_bytes": 1900000000
     },
-    "retained_local_state": {
-      "largest_retained_asset_bytes": 2094415387,
-      "local_event_absent_from_manifest": [
-        [
-          "hakka-cert-intermediate-high-intermediate-2026",
-          2026
-        ]
-      ],
-      "manifest_event_missing_locally": [
-        [
-          "hakka-cert-intermediate-high-intermediate-2018",
-          2018
-        ]
-      ],
-      "normalized_not_published_event_count": 8,
-      "normalized_paper_records": 156,
-      "raw_event_pages": 11,
-      "retained_years": [
-        2018,
-        2019,
-        2020,
-        2021,
-        2022,
-        2023,
-        2024,
-        2025,
-        2026
-      ]
+    "retained_state_recheck": {
+      "checked_at": "2026-10-09T02:25:01.856644+00:00",
+      "current_payloads_sha256_verified": 145,
+      "current_records": 145,
+      "earlier_capture_is_historical": "Initial-capture findings above are preserved as dated evidence, not current provider-state facts.",
+      "publication": "Withheld: unresolved material/date identity and existing audiovisual/third-party redistribution limits remain. Public mirror backup creation stays prohibited.",
+      "raw_events": 10,
+      "remaining_identity_issue": "The advanced sample event still uses synthetic 2026 identity for undated material; the delisted intermediate family and historical source references require review.",
+      "role_correction": "Fifteen ZIP/RAR package references were reclassified as questions on 2026-10-07; all originals remain in the revision journal. ZIP suffix no longer implies listening audio.",
+      "roles": {
+        "listening_audio": 35,
+        "question": 110
+      },
+      "source_revision_records": 15,
+      "unique_unreferenced_payloads_preserved_for_review": 21
     },
     "secondary_download_center": {
       "identity_sha256": "5894efa7383b0c8617c12a2d42be1309338fcb2451d164c5a745c50912efa9f9",
