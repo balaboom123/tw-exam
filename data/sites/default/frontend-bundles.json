@@ -159884,6 +159884,7 @@
         110,
         109,
         108,
+        107,
         106,
         105,
         104,
@@ -159898,7 +159899,7 @@
         92,
         90
       ],
-      "fileCount": 370,
+      "fileCount": 610,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/taipower-recruit-employment-recruitment-not-applicable-taipower-recruit--5cbf513a6b24.zip",
       "domainId": "employment",
       "examFamilyId": "employment-exam",
@@ -159930,17 +159931,18 @@
         "115年度新進僱用人員甄試答案_基本電學",
         "115年度新進僱用人員甄試試題_機械原理",
         "115年度新進僱用人員甄試答案_機械原理",
-        "114年度新進僱用人員甄試試題_國文及英文",
-        "114年度新進僱用人員甄試答案_國文及英文",
-        "114年度新進僱用人員甄試試題_物理",
-        "114年度新進僱用人員甄試答案_物理"
+        "115年度新進僱用人員甄試試題_測量、土木、建築工程概要",
+        "115年度新進僱用人員甄試答案_測量、土木、建築工程概要",
+        "115年度新進僱用人員甄試試題_企業管理概論",
+        "115年度新進僱用人員甄試答案_企業管理概論"
       ],
       "sources": [
         {
           "name": "台灣電力股份有限公司",
           "url": "https://www.taipower.com.tw/2289/2544/2554/2557/"
         }
-      ]
+      ],
+      "updated": "2026-10-09T01:24:55Z"
     },
     {
       "id": "tcte-tve-admission-tcte-not-applicable-common-subject",

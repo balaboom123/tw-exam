@@ -1,0 +1,29 @@
+{
+  "events": {
+    "taipower-recruit-101": "2026-10-09T01:24:55Z",
+    "taipower-recruit-102": "2026-10-09T01:24:55Z",
+    "taipower-recruit-103": "2026-10-09T01:24:55Z",
+    "taipower-recruit-104": "2026-10-09T01:24:55Z",
+    "taipower-recruit-105": "2026-10-09T01:24:55Z",
+    "taipower-recruit-106": "2026-10-09T01:24:55Z",
+    "taipower-recruit-107-12": "2026-10-09T01:24:55Z",
+    "taipower-recruit-107-5": "2026-10-09T01:24:55Z",
+    "taipower-recruit-108": "2026-10-09T01:24:55Z",
+    "taipower-recruit-109": "2026-10-09T01:24:55Z",
+    "taipower-recruit-110": "2026-10-09T01:24:55Z",
+    "taipower-recruit-111": "2026-10-09T01:24:55Z",
+    "taipower-recruit-112": "2026-10-09T01:24:55Z",
+    "taipower-recruit-113": "2026-10-09T01:24:55Z",
+    "taipower-recruit-114": "2026-10-09T01:24:55Z",
+    "taipower-recruit-115": "2026-10-09T01:24:55Z",
+    "taipower-recruit-90": "2026-10-09T01:24:55Z",
+    "taipower-recruit-92": "2026-10-09T01:24:55Z",
+    "taipower-recruit-94": "2026-10-09T01:24:55Z",
+    "taipower-recruit-95": "2026-10-09T01:24:55Z",
+    "taipower-recruit-96": "2026-10-09T01:24:55Z",
+    "taipower-recruit-97": "2026-10-09T01:24:55Z",
+    "taipower-recruit-99": "2026-10-09T01:24:55Z"
+  },
+  "provider_id": "taipower_recruit",
+  "schema_version": 1
+}

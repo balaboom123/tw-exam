@@ -582,6 +582,68 @@ class TaipowerRecruitParserTests(unittest.TestCase):
         self.assertIsInstance(provider, SourceProvider)
         self.assertEqual(provider.provider_id, "taipower_recruit")
 
+    def test_default_sync_refreshes_a_valid_old_pdf_and_preserves_its_bytes(self) -> None:
+        import hashlib
+        import tempfile
+        from pathlib import Path
+
+        from app.models import ParsedPaper, SourceExamPage
+        from app.providers.base import DownloadedFile
+        from app.providers.taipower_recruit.provider import TaipowerRecruitProvider
+        from app.source_revisions import revision_blob_key
+        from app.storage import MirrorStore
+        from app.sync import sync_exam_pages
+
+        url = "https://www.taipower.com.tw/media/common.pdf?mediaDL=true"
+        page = SourceExamPage(
+            source_exam_id="taipower-recruit-113",
+            year_ad=2024,
+            year_roc=113,
+            exam_name_raw="113年度台電新進僱用人員甄試",
+            attachments=[],
+            papers=[
+                ParsedPaper(
+                    category_raw="台電新進僱用人員甄試",
+                    category_code="113",
+                    subject_code="hiring-01",
+                    subject_name_raw="國文及英文",
+                    files={"question": url},
+                )
+            ],
+            provider_id="taipower_recruit",
+        )
+        old = b"%PDF-1.7 retained MOEA common paper"
+        fresh = b"%PDF-1.7 current Taipower hiring paper"
+        key = "providers/taipower_recruit/113/taipower-recruit-113/113/hiring-01/question.pdf"
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            store.write_bytes(key, old)
+            with (
+                patch.object(TaipowerRecruitClient, "fetch_exam_page", return_value=page),
+                patch.object(
+                    TaipowerRecruitClient,
+                    "download_file",
+                    return_value=DownloadedFile(
+                        data=fresh, content_type="application/pdf", file_name="common.pdf"
+                    ),
+                ) as download,
+            ):
+                _, catalog, failures = sync_exam_pages(
+                    client=TaipowerRecruitProvider(),
+                    exam_codes=[("taipower-recruit-113", 2024)],
+                    mirror_store=store,
+                    alias_rules=[],
+                    mirror_base_url="",
+                    download_attachments=False,
+                )
+            self.assertEqual(failures, [])
+            download.assert_called_once_with(url)
+            self.assertEqual((store.root / key).read_bytes(), fresh)
+            self.assertEqual(catalog.papers[0].checksum, hashlib.sha256(fresh).hexdigest())
+            blob = revision_blob_key("taipower_recruit", hashlib.sha256(old).hexdigest(), ".pdf")
+            self.assertEqual((store.root / blob).read_bytes(), old)
+
+
 
 if __name__ == "__main__":
     unittest.main()

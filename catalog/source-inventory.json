@@ -822,14 +822,14 @@
       ],
       "provider_id": "moea_recruit",
       "restrictions": [
-        "The 21 official year tabs currently enumerate 515 subject groups and 1,486 unique public PDF URLs; pagination is fail-closed, but the assets are listing-verified rather than byte-reconciled.",
-        "All 370 retained MOEA records are Taipower new-hire or training-class material: their source-URL and checksum sets exactly duplicate taipower_recruit. The duplicate MOEA identity is withheld by the publication quarantine.",
-        "The reviewed MOEA source manifest and contaminated retained event set differ. The publication quarantine isolates the incorrect identity while its evidence is retained for a reviewed provider-state replacement.",
-        "Taipower's open-data declaration permits attributed reuse within Taipower-owned rights with exclusions; it does not independently prove ownership of every exam item. No machine-readable robots policy was found."
+        "Direct 2026-10-09 listing capture covers 21 official events, 515 subject groups and 1,486 unique public PDF URLs. Isolated acquisition verified 1,364 PDFs; 122 URLs from AD 2002, 2004 and 2006 returned AWS WAF challenge responses.",
+        "All 370 retained MOEA source URLs actually belong to the separate Taipower hiring archive. At the pre-correction baseline both provider URL/checksum sets were identical; the refreshed Taipower archive now shares 344 of those old checksums after correcting 26 mixed/stale common papers.",
+        "The incorrect MOEA identity remains withheld by publication quarantine. Partial acquisition is isolated and cannot replace retained evidence until outstanding originals are acquired or individually reviewed.",
+        "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. No access-control or WAF challenge bypass was attempted."
       ],
       "source_name": "經濟部所屬事業機構新進職員甄試",
       "status": "partial",
-      "status_reason": "Partial / contaminated retained identity: reviewed official listing discovery covers 21 events, 515 subject groups, and 1,486 unique URLs, but none is represented by correct retained MOEA data. All 370 retained records duplicate Taipower hiring material and the MOEA identity is withheld from publication."
+      "status_reason": "Partial / contaminated retained identity: all 370 retained URLs belong to the Taipower hiring archive and the incorrect MOEA identity remains withheld. Correct source discovery covers 1,486 URLs; 1,364 isolated PDFs are verified and 122 downloads remain WAF-blocked."
     },
     {
       "available_years": {
@@ -1100,7 +1100,7 @@
         "start_ad": 2001
       },
       "discovery_snapshot": {
-        "coverage": "partial",
+        "coverage": "complete",
         "manifest_path": "data/providers/taipower_recruit/source-manifest.json",
         "status": "present"
       },
@@ -1109,8 +1109,8 @@
       ],
       "exam_category": "Taipower recruitment written papers and answer keys",
       "local_state": {
-        "normalized_paper_records": 370,
-        "raw_event_pages": 21,
+        "normalized_paper_records": 610,
+        "raw_event_pages": 23,
         "sync_failures": 0
       },
       "local_years": [
@@ -1127,6 +1127,7 @@
         2015,
         2016,
         2017,
+        2018,
         2019,
         2020,
         2021,
@@ -1141,14 +1142,15 @@
       ],
       "provider_id": "taipower_recruit",
       "restrictions": [
-        "The latest indexed official HTML exposes 23 event tabs, but current direct listing and asset requests receive a zero-byte AWS WAF challenge; the hc1/hc2 delivery hosts time out from this environment.",
-        "The old client fetched only the default first 10 subject groups per event and did not recognize the ROC 107 May/December tabs; official filtered listings prove at least four modern events are truncated and both 2018 sessions are absent locally.",
-        "All 370 retained records have unique official Taipower media URLs discovered under the /2557 archive and unique checksums, but the incorrect MOEA sibling state duplicates them exactly; eight additional unreferenced mirror PDFs (3,570,035 bytes) are MOEA new-staff material and remain undeleted pending migration approval.",
-        "Taipower's open-data declaration permits attributed reuse within Taipower-owned rights with exclusions; it does not independently prove ownership of every exam item."
+        "Coverage is relative to the currently linked official archive, not every historically administered recruitment paper. Each event listing is requested completely and residual pagination is rejected.",
+        "Earlier first-page truncation and omitted ROC 107 May/December events are repaired: 240 files were added. Fresh source downloads corrected 26 locally valid but mismatched common-paper payloads; all earlier bytes and records remain in provider revision recovery.",
+        "Taipower hiring and historical training-class papers are distinct from MOEA staff selection. The contaminated MOEA state remains quarantined; its partial replacement acquisition has 122 WAF-blocked files and is isolated.",
+        "Eight unreferenced stale PDFs totaling 3,570,035 bytes were isolated from the active mirror after independent checksum-verified recovery copies were saved.",
+        "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. Full historical occupational and selection-stage mapping still needs primary-rule review."
       ],
       "source_name": "台灣電力股份有限公司",
-      "status": "partial",
-      "status_reason": "Partial: the official event set is represented by a 23-event manifest, but retained state has 21 events/370 records, omits both ROC 107 sessions, and is demonstrably first-page-truncated for modern years; live full-asset enumeration is currently WAF-blocked."
+      "status": "covered",
+      "status_reason": "Covered for the currently linked archive: direct 2026-10-09 acquisition covers all 23 events, 314 subject groups and 610 verified PDFs, including both ROC 107 sessions. All 370 earlier source keys survive; 26 replaced originals have verified revision recovery. Broader historical occupational and stage semantics remain under review."
     },
     {
       "available_years": {

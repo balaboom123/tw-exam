@@ -146,6 +146,18 @@ Use official Taiwanese-language certification paper forms while preserving form 
 
 Use official Taipower recruitment examination events and administered paper attachments. Corporate recruitment information that is not an administered paper remains outside the boundary.
 
+The hiring and historical 養成班 archive is distinct from the MOEA joint
+新進職員 programme, even though Taipower hosts both. Keep the two ROC 107
+sessions as separate events. An official answer PDF may reproduce the questions
+with annotated answers; its source role remains an answer.
+
+Refresh payloads during sync: a locally valid PDF and checksum do not establish
+that it matches the current official URL. Earlier common-paper copies contained
+material from the other programme. The provider writer preserves replaced
+records and immutable recovery bytes before updating current state. Complete
+acquisition of the currently linked archive does not establish exhaustive
+historical occupational or selection-stage classification.
+
 ## `taisugar_recruit`
 
 Use official Taiwan Sugar recruitment examination listings and their administered paper artifacts. Current-cycle recruitment pages do not establish an unobserved historical range.

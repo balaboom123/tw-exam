@@ -176,6 +176,19 @@
     "asset_reconciliation_status": "listing-only; 1,486 official URLs are enumerated but have not yet been downloaded or byte-reconciled into retained MOEA state",
     "discovery_mode": "official-year-tab-and-bounded-listing",
     "html_fingerprint_scope": "capture evidence only; exact year set, per-year subject/file counts, and URL-set hashes are the stable drift keys",
+    "isolated_acquisition_recheck": {
+      "date": "2026-10-09",
+      "disposition": "Partial acquisition remains isolated. Do not replace retained provider state or claim complete source coverage until the failed original URLs are acquired or individually reviewed.",
+      "download_failures": 122,
+      "failed_years_ad": [
+        2002,
+        2004,
+        2006
+      ],
+      "listed_urls": 1486,
+      "observed_failure": "Normal source requests returned HTTP 202 AWS WAF challenge HTML; independent first/last failed-URL probes confirmed the response. No challenge bypass was attempted.",
+      "verified_pdf_payloads": 1364
+    },
     "last_discovery_at": "2026-07-31T15:13:56.464510+08:00",
     "last_listing_audit_at": "2026-07-31T15:19:11.270710+08:00",
     "license_status": "Taipower permits broad attributed reuse for material within its copyright, subject to stated exclusions and third-party rights; this does not independently establish ownership of every exam item",
@@ -245,10 +258,10 @@
     },
     "pagination_policy": "each official year tab is requested at Page=1 and PageSize=200; discovery fails if any same-route Page>1 link remains",
     "retained_local_contamination": {
-      "all_records_are_taipower_hiring_material": true,
-      "duplicated_mirror_bytes": 194695148,
-      "exact_taipower_checksum_set_duplicate": true,
-      "exact_taipower_source_url_set_duplicate": true,
+      "all_source_urls_belong_to_taipower_hiring_archive": true,
+      "comparison_baseline_commit": "d15ca7350d4406ed4849d40fc934085253c9b3f4",
+      "current_taipower_checksum_overlap": 344,
+      "current_taipower_source_url_overlap": 370,
       "local_only_events": [
         [
           "moea-recruit-115",
@@ -295,9 +308,8 @@
         2026
       ],
       "normalized_records": 370,
-      "publication_status": "the generated MOEA bundle still publishes all 370 misclassified Taipower hiring files; replacement or quarantine is deferred to a reviewed destructive data migration",
-      "published_bundle_bytes": 138667426,
-      "published_bundle_file_count": 370,
+      "previous_comparison": "At the baseline, the 370 MOEA and Taipower URL and checksum sets were identical. Fresh Taipower acquisition corrected 26 mixed/stale common-paper payloads, so their current checksum sets are no longer identical.",
+      "publication_status": "The incorrect MOEA identity is withheld by the default site publication quarantine; all 370 retained records remain available as evidence pending a complete reviewed replacement.",
       "raw_event_pages": 21,
       "source_only_events": [
         [

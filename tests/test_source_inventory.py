@@ -158,7 +158,6 @@ class SourceInventoryTests(unittest.TestCase):
             [
                 "cpc_recruit",
                 "moea_recruit",
-                "taipower_recruit",
                 "taisugar_recruit",
                 "sfi_cert",
                 "tabf_cert",
@@ -265,9 +264,10 @@ class SourceInventoryTests(unittest.TestCase):
         )
         contamination = policy["retained_local_contamination"]
         self.assertEqual(contamination["normalized_records"], 370)
-        self.assertTrue(contamination["all_records_are_taipower_hiring_material"])
-        self.assertTrue(contamination["exact_taipower_source_url_set_duplicate"])
-        self.assertTrue(contamination["exact_taipower_checksum_set_duplicate"])
+        self.assertTrue(contamination["all_source_urls_belong_to_taipower_hiring_archive"])
+        self.assertEqual(contamination["current_taipower_source_url_overlap"], 370)
+        self.assertEqual(contamination["current_taipower_checksum_overlap"], 344)
+        self.assertEqual(contamination["comparison_baseline_commit"], "d15ca7350d4406ed4849d40fc934085253c9b3f4")
         self.assertEqual(
             contamination["source_only_events"],
             [
@@ -289,7 +289,7 @@ class SourceInventoryTests(unittest.TestCase):
             ],
         )
 
-    def test_taipower_manifest_records_event_scope_and_truncation(self) -> None:
+    def test_taipower_manifest_reconciles_full_archive_and_retains_revisions(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/taipower_recruit/source-manifest.json").read_text(
                 encoding="utf-8"
@@ -298,29 +298,35 @@ class SourceInventoryTests(unittest.TestCase):
 
         self.assertEqual(len(manifest["years"]), 22)
         self.assertEqual(len(manifest["exams"]), 23)
-        self.assertEqual(manifest["files"], {})
+        self.assertEqual(len(manifest["files"]), 610)
         self.assertEqual(
             manifest["years"]["2018"]["exam_codes"],
             ["taipower-recruit-107-12", "taipower-recruit-107-5"],
         )
         policy = manifest["probe_policy"]
-        self.assertEqual(policy["coverage_status"], "partial")
+        self.assertEqual(policy["coverage_status"], "complete")
+        current = policy["current_archive"]
+        self.assertEqual(current["normalized_records"], 610)
+        self.assertEqual(current["subject_groups"], 314)
+        self.assertEqual(current["events"], 23)
+        self.assertEqual(current["roles"], {"question": 314, "answer": 296})
+        self.assertEqual(current["sync_failures"], 0)
+        reconciliation = policy["payload_reconciliation"]
+        self.assertEqual(reconciliation["new_source_keys"], 240)
+        self.assertEqual(reconciliation["retained_source_keys"], 370)
+        self.assertEqual(reconciliation["replaced_payloads"], 26)
+        records = [
+            row for path in (ROOT / "data/providers/taipower_recruit/papers").glob("*.json")
+            for row in json.loads(path.read_text(encoding="utf-8"))
+        ]
         self.assertEqual(
-            policy["known_listing_evidence"]["older_unfiltered_archive"]
-            ["indexed_subject_group_count"],
-            301,
+            {(row["storage_key"], row["checksum"], row["download_url_source"]) for row in records},
+            {(key, row["sha256"], row["source_url"]) for key, row in manifest["files"].items()},
         )
-        retained = policy["retained_local_state"]
-        self.assertEqual(retained["normalized_records"], 370)
-        self.assertEqual(
-            retained["source_only_events"],
-            [
-                ["taipower-recruit-107-12", 2018],
-                ["taipower-recruit-107-5", 2018],
-            ],
-        )
-        self.assertEqual(policy["stale_mirror_files"]["count"], 8)
-        self.assertEqual(policy["stale_mirror_files"]["bytes"], 3_570_035)
+        revisions = json.loads(
+            (ROOT / reconciliation["recovery_journal"]).read_text(encoding="utf-8")
+        )["revisions"]
+        self.assertEqual(len(revisions), 26)
 
     def test_taisugar_manifest_records_public_assets_and_login_blocker(self) -> None:
         manifest = json.loads(

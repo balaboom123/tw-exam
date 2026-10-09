@@ -7,6 +7,9 @@ from app.providers.taipower_recruit.client import TaipowerRecruitClient
 
 class TaipowerRecruitProvider(SourceProvider):
     provider_id = "taipower_recruit"
+    # A valid retained checksum does not prove that it matches today's source:
+    # earlier common-paper copies contained the separate MOEA programme.
+    refresh_files_on_sync = True
 
     def __init__(self, client: TaipowerRecruitClient | None = None) -> None:
         self.client = client or TaipowerRecruitClient()
