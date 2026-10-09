@@ -158,6 +158,13 @@ records and immutable recovery bytes before updating current state. Complete
 acquisition of the currently linked archive does not establish exhaustive
 historical occupational or selection-stage classification.
 
+Hosted discovery can fail even when a normal local source request succeeds.
+The source manifest retains the dated runner evidence. Preserve the last
+verified provider state on that failure; a retained cache is not a successful
+source refresh. Perform acquisition from an accessible, authorized environment,
+then use the normal publication and durable-mirror recovery procedures. Keep
+the revision journal and its original payloads with the refreshed mirror.
+
 ## `taisugar_recruit`
 
 Use official Taiwan Sugar recruitment examination listings and their administered paper artifacts. Current-cycle recruitment pages do not establish an unobserved historical range.

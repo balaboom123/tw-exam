@@ -1146,6 +1146,7 @@
         "Earlier first-page truncation and omitted ROC 107 May/December events are repaired: 240 files were added. Fresh source downloads corrected 26 locally valid but mismatched common-paper payloads; all earlier bytes and records remain in provider revision recovery.",
         "Taipower hiring and historical training-class papers are distinct from MOEA staff selection. The contaminated MOEA state remains quarantined; its partial replacement acquisition has 122 WAF-blocked files and is isolated.",
         "Eight unreferenced stale PDFs totaling 3,570,035 bytes were isolated from the active mirror after independent checksum-verified recovery copies were saved.",
+        "Hosted discovery returned HTTP 403 on 2026-10-09 before acquisition. The workflow preserved all provider state and skipped publication; complete local acquisition remains verified, without inferring a geographic or permanent restriction.",
         "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. Full historical occupational and selection-stage mapping still needs primary-rule review."
       ],
       "source_name": "台灣電力股份有限公司",

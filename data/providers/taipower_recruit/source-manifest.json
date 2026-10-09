@@ -8769,6 +8769,14 @@
     },
     "discovery_mode": "official-event-tabs-and-bounded-listing",
     "discovery_scope_note": "All currently linked event tabs and their complete subject-group listings were captured directly on 2026-10-09. Coverage is relative to the linked archive, not proof that every historically administered paper was published.",
+    "hosted_acquisition_recheck": {
+      "date": "2026-10-09",
+      "disposition": "Source access from this runner is unresolved; no geographic or permanent restriction is inferred. Keep existing state and use authorized local acquisition and verified durable mirror recovery.",
+      "provider_state": "All 51 provider JSON files match the deployed 610-record/26-revision state byte for byte; publication skipped.",
+      "result": "HTTP 403 Forbidden before discovery",
+      "run_url": "https://github.com/balaboom123/tw-exam/actions/runs/37871885235",
+      "successful_local_acquisition": "610 current PDFs verified and published from normal local source requests."
+    },
     "isolated_unreferenced_payloads": {
       "bytes": 3570035,
       "count": 8,
