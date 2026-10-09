@@ -890,7 +890,7 @@ class LaunchCITest(unittest.TestCase):
         fast_job = workflow.split("  fast-python:\n", 1)[1].split("  python:\n", 1)[0]
         catalog_job = workflow.split("  python:\n", 1)[1].split("  frontend:\n", 1)[0]
 
-        self.assertIn("fetch-depth: 0", workflow)
+        self.assertIn("fetch-depth: 2", workflow)
         self.assertIn("ci_scope.py", workflow)
         self.assertIn("needs: changes", catalog_job)
         self.assertIn("if: needs.changes.outputs.catalog == 'true'", catalog_job)

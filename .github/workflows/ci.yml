@@ -21,10 +21,12 @@ jobs:
     outputs:
       catalog: ${{ steps.scope.outputs.catalog }}
     steps:
-      - name: Checkout history
+      - name: Checkout recent history
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0
+          # The current commit and its parents cover normal pushes and PR
+          # merge comparisons. Missing bases run every catalog gate instead.
+          fetch-depth: 2
 
       - name: Check changed paths
         id: scope
