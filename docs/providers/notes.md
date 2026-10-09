@@ -106,11 +106,23 @@ source references supporting each fact.
 The intermediate sample ZIPs use CP950 filename metadata without the UTF-8 flag.
 Preserve the original packages and explicitly decode their member names with
 that charset when inspecting them; default CP437 decoding produces garbled
-characters and apparent path separators. The current primary listing was
-rechecked on 2026-10-09, including the previously omitted samples. Native banks,
-spreadsheets and packages were inspected on that date. Full historical native
-content, source conflicts, secondary-surface integration and audiovisual
-redistribution still need review before publication.
+characters and apparent path separators. Both official download surfaces were
+rechecked on 2026-10-09, including the previously omitted samples and annual
+question-bank audio. The adapter joins the primary category pages with the
+academy download center, accepting its API and legacy download paths while
+excluding vocabulary-only resources. Repeated desktop/mobile links share one
+source record. Source keys use the download group and decoded filename rather
+than displayed byte counts. The download's title supplies its native grade;
+unreviewed grades or a failed secondary listing stop discovery without caching
+partial success. Each material fact retains its actual listing provenance.
+
+Preserve complete audio packages and their PDF/spreadsheet companions. Matching
+companion bytes or bank text do not make the whole packages interchangeable or
+authorize discarding distinct container versions. Current manifest entries
+reconcile with retained originals; initial-capture gaps and delisted source
+links remain dated historical evidence. Full historical native content,
+non-paper treatment of the historical all-grade standards reference, source
+conflicts and audiovisual redistribution still need review before publication.
 
 Some intact original audio ZIPs also exceed the normal multipart target.
 Do not relax the public target or rewrite retained source bytes to make that

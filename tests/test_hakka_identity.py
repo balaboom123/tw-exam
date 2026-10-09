@@ -209,7 +209,7 @@ def test_catalog_conflicts_reconcile_with_both_retained_source_references():
         for p in (ROOT / "data/providers/hakka_cert/papers").glob("*.json")
         for r in json.loads(p.read_text())
     ]
-    assert len(current) == 150
+    assert len(current) == 160
     assert all(r.get("source_material") for r in current)
     assert sum(r["classification_confidence"] == "review" for r in current) == 2
     assert {r["level_id"] for r in current} == {

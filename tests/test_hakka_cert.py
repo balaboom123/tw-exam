@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from app.providers.hakka_cert.client import HakkaCertClient, parse_downloads
+from app.hakka_identity import ACADEMY_DOWNLOAD_URL
 from app.source_material import SourceDate
 
 
@@ -32,8 +33,27 @@ PAGED_INTERMEDIATE_HTML = """
 <a href="/hakka/files/downloads/548.pdf">114 年度客語能力認證中級暨中高級題庫（海陸腔-上）PDF 下載</a>
 """
 
+ACADEMY_HTML = """
+<a href="/hakka/api/download/91/115年度客語能力認證基礎級暨初級題庫音檔(四縣腔).zip">115年度客語能力認證基礎級暨初級題庫音檔(四縣腔).zip (474,363,409 bytes)</a>
+<a href="/hakka/api/download/91/115年度客語能力認證基礎級暨初級題庫音檔(四縣腔).zip">115年度客語能力認證基礎級暨初級題庫音檔(四縣腔).zip (474,363,409 bytes)</a>
+<a href="/base/10001/download/82/114年度客語能力認證基礎級暨初級題庫音檔(海陸腔).zip">114年度客語能力認證基礎級暨初級題庫音檔(海陸腔).zip (148,824,211 bytes)</a>
+<a href="/hakka/api/download/90/115年度客語能力認證基礎級暨初級詞彙及音檔(海陸腔).zip">115年度客語能力認證基礎級暨初級詞彙及音檔(海陸腔).zip (521,563,828 bytes)</a>
+<a href="https://unrelated.invalid/hakka/api/download/91/115初級題庫音檔.zip">115年度初級題庫音檔</a>
+"""
+
 
 class HakkaCertParserTests(unittest.TestCase):
+    def test_academy_collects_exam_audio_once_and_excludes_vocabulary(self) -> None:
+        downloads = parse_downloads(ACADEMY_HTML, base_url=ACADEMY_DOWNLOAD_URL, level_code=None)
+        self.assertEqual(len(downloads), 2)
+        self.assertEqual([d.year_ad for d in downloads], [2026, 2025])
+        self.assertEqual([d.category_code for d in downloads], ["sixian", "hailu"])
+        self.assertTrue(all(d.level_code == "basic-elementary" for d in downloads))
+        self.assertTrue(all(d.file_type == "listening_audio" for d in downloads))
+        self.assertTrue(
+            all("bytes" not in d.label and not d.label.endswith(".zip") for d in downloads)
+        )
+
     def test_official_sample_label_is_in_scope_without_collecting_vocabulary(self) -> None:
         downloads = parse_downloads(
             """
@@ -190,7 +210,8 @@ class HakkaCertClientTests(unittest.TestCase):
         client.discover_available_years()
         client.fetch_exam_page("hakka-cert-basic-elementary-2026", 2026)
 
-        self.assertEqual(len(calls), 3)
+        self.assertEqual(len(calls), 4)
+        self.assertEqual(calls[-1], ACADEMY_DOWNLOAD_URL)
 
 
 @pytest.mark.repo_data
@@ -234,7 +255,11 @@ def test_retained_question_packages_keep_prior_audio_role_references() -> None:
         # mixed packages and advanced samples now have different material facts.
         material = corrected["source_material"]
         if previous["download_url_source"].rsplit("/", 1)[-1] in {
-            "129.zip", "130.zip", "131.zip", "132.zip", "133.zip"
+            "129.zip",
+            "130.zip",
+            "131.zip",
+            "132.zip",
+            "133.zip",
         }:
             assert material["kind"] == "practice_collection"
             assert material["date"] == {"basis": "edition_year", "year_ad": 2018}
@@ -268,6 +293,96 @@ def test_absent_listing_event_is_rejected_instead_of_returning_empty_success():
     client._fetch_text = lambda url: ""
     with pytest.raises(ValueError, match="absent from the official listing"):
         client.fetch_exam_page("hakka-cert-advanced-2026", 2026)
+
+
+def test_academy_audio_joins_existing_event_identity_with_stable_source_keys():
+    from app.models import NormalizedCatalog
+    from app.normalizer import normalize_papers, renormalize_catalog
+
+    client = HakkaCertClient()
+    client._fetch_text = lambda url: (
+        ACADEMY_HTML
+        if url == ACADEMY_DOWNLOAD_URL
+        else (
+            '<a href="/hakka/files/downloads/764.pdf">115年度客語能力認證基礎級暨初級題庫（四縣腔）PDF下載</a>'
+            if "c=2" in url
+            else ""
+        )
+    )
+    page = client.fetch_exam_page("hakka-cert-basic-elementary-2026", 2026)
+    assert len(page.papers) == 2
+    secondary = next(p for p in page.papers if "listening_audio" in p.files)
+    assert secondary.subject_code.startswith("academy-91-")
+    assert secondary.subject_code.isascii()
+    assert secondary.source_material.evidence_url == ACADEMY_DOWNLOAD_URL
+    assert secondary.source_material.date == SourceDate("edition_year", 2026)
+    catalog = normalize_papers(
+        page.source_exam_id,
+        2026,
+        page.exam_name_raw,
+        page.papers,
+        [],
+        "",
+        {},
+        provider_id="hakka_cert",
+    )
+    assert len({p.bundle_id for p in catalog.papers}) == 1
+    assert all(p.level_id == "basic-elementary" for p in catalog.papers)
+    assert renormalize_catalog(NormalizedCatalog(catalog.papers, []), []).papers == catalog.papers
+    altered = HakkaCertClient()
+    altered._fetch_text = lambda url: (
+        ACADEMY_HTML.replace("474,363,409", "474,363,410") if url == ACADEMY_DOWNLOAD_URL else ""
+    )
+    alternate = altered.fetch_exam_page("hakka-cert-basic-elementary-2026", 2026).papers[0]
+    assert alternate.subject_code == secondary.subject_code
+
+
+def test_unknown_academy_exam_grade_fails_discovery_without_silently_omitting_asset():
+    with pytest.raises(ValueError, match="requires native grade review"):
+        parse_downloads(
+            '<a href="/hakka/api/download/99/115年度題庫音檔.zip">115年度題庫音檔.zip</a>',
+            base_url=ACADEMY_DOWNLOAD_URL,
+            level_code=None,
+        )
+
+
+def test_secondary_listing_failure_does_not_cache_an_incomplete_discovery():
+    client = HakkaCertClient()
+
+    def unavailable(url):
+        if url == ACADEMY_DOWNLOAD_URL:
+            raise RuntimeError("listing unavailable")
+        return DOWNLOAD_HTML if "c=2" in url else ""
+
+    client._fetch_text = unavailable
+    with pytest.raises(RuntimeError, match="listing unavailable"):
+        client.discover_available_years()
+    assert client._downloads_cache is None
+
+
+def test_legacy_academy_material_upgrade_preserves_listing_evidence():
+    from dataclasses import replace
+    from app.models import NormalizedCatalog
+    from app.normalizer import normalize_papers, renormalize_catalog
+
+    client = HakkaCertClient()
+    client._fetch_text = lambda url: ACADEMY_HTML if url == ACADEMY_DOWNLOAD_URL else ""
+    page = client.fetch_exam_page("hakka-cert-basic-elementary-2026", 2026)
+    paper = normalize_papers(
+        page.source_exam_id,
+        2026,
+        page.exam_name_raw,
+        page.papers,
+        [],
+        "",
+        {},
+        provider_id="hakka_cert",
+    ).papers[0]
+    legacy = replace(paper, schema_version=2, source_material=None)
+    upgraded = renormalize_catalog(NormalizedCatalog([legacy], []), []).papers[0]
+    assert upgraded.source_material.evidence_url == ACADEMY_DOWNLOAD_URL
+    assert upgraded.source_material.date == SourceDate("edition_year", 2026)
+    assert upgraded.bundle_id == paper.bundle_id
 
 
 if __name__ == "__main__":

@@ -343,7 +343,11 @@ def normalize_papers(
     for paper in papers:
         material = paper.source_material or source_material
         if provider_id == "hakka_cert" and material is None:
-            material = hakka_material(paper.subject_name_raw, source_exam_id)
+            material = hakka_material(
+                paper.subject_name_raw,
+                source_exam_id,
+                next(iter(paper.files.values()), ""),
+            )
         raw_category = paper.category_raw or exam_name_raw
         canonical_id, canonical_name, candidate, needs_review = _derive_canonical(
             source_exam_id, raw_category, exam_name_raw, year_ad, alias_rules
@@ -464,7 +468,9 @@ def renormalize_catalog(
     )
     for paper in catalog.papers:
         if paper.provider_id == "hakka_cert" and paper.source_material is None:
-            material = hakka_material(paper.subject_name_raw, paper.source_exam_id)
+            material = hakka_material(
+                paper.subject_name_raw, paper.source_exam_id, paper.download_url_source
+            )
             if material is not None:
                 paper = replace(paper, source_material=material, schema_version=3)
         raw_category = paper.category_raw or paper.exam_name_raw

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from html import unescape
@@ -7,7 +8,12 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 
-from app.hakka_identity import hakka_material
+from app.hakka_identity import (
+    ACADEMY_DOWNLOAD_URL,
+    hakka_level,
+    hakka_material,
+    is_hakka_academy_asset,
+)
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
@@ -97,6 +103,11 @@ def _slug(text: str, fallback: str) -> str:
 
 
 def _subject_code(url: str, label: str, fallback: str) -> str:
+    if is_hakka_academy_asset(url):
+        path = unquote(urlparse(url).path)
+        group, filename = path.rsplit("/", 2)[-2:]
+        filename_id = hashlib.sha256(filename.encode("utf-8")).hexdigest()[:16]
+        return f"academy-{group}-{filename_id}"
     stem = Path(unquote(urlparse(url).path)).stem
     label_slug = _slug(label, fallback)
     return f"{stem}-{label_slug}" if stem and stem != label_slug else label_slug
@@ -155,7 +166,7 @@ def parse_page_urls(html: str, *, base_url: str = DOWNLOAD_URL) -> list[str]:
 
 
 def parse_downloads(
-    html: str, *, base_url: str = DOWNLOAD_URL, level_code: str = "materials"
+    html: str, *, base_url: str = DOWNLOAD_URL, level_code: str | None = "materials"
 ) -> list[HakkaDownload]:
     parser = _AnchorParser()
     parser.feed(html)
@@ -164,21 +175,37 @@ def parse_downloads(
     for label, href in parser.links:
         url = _quote_url_for_request(urljoin(base_url, href))
         parsed = urlparse(url)
-        if parsed.netloc != "elearning.hakka.gov.tw" or not parsed.path.startswith(
-            "/hakka/files/downloads/"
+        academy_asset = is_hakka_academy_asset(url)
+        if parsed.netloc != "elearning.hakka.gov.tw" or not (
+            parsed.path.startswith("/hakka/files/downloads/") or academy_asset
         ):
+            continue
+        if level_code is None and not academy_asset:
             continue
         path_lower = parsed.path.lower()
         if not path_lower.endswith(SUPPORTED_DOWNLOAD_SUFFIXES) or url in seen:
             continue
         display_label = label or Path(unquote(parsed.path)).name
+        if academy_asset:
+            # The same links appear in desktop and mobile tables. File-size
+            # annotations and the filename suffix are not material identity.
+            display_label = re.sub(r"\s*\([0-9,]+\s+bytes\)\s*$", "", display_label)
+            display_label = re.sub(r"\.zip$", "", display_label, flags=re.IGNORECASE).strip()
         if not _is_exam_asset(display_label):
             continue
+        group_code = level_code
+        if group_code is None:
+            grade = hakka_level(display_label, hakka_material(display_label, "", url))[0]
+            group_code = "basic-elementary" if grade == "hakka-elementary" else grade
+            if group_code not in {code for code, _name, _url in LEVEL_CATEGORIES}:
+                raise ValueError(
+                    f"Hakka academy examination asset requires native grade review: {display_label}"
+                )
         seen.add(url)
         file_type = _file_type_for_download(path_lower, display_label)
         downloads.append(
             HakkaDownload(
-                level_code=level_code,
+                level_code=group_code,
                 category_code=_dialect_code(display_label),
                 label=display_label,
                 file_type=file_type,
@@ -224,6 +251,13 @@ class HakkaCertClient:
                     for url in parse_page_urls(html, base_url=page_url)
                     if url not in seen_pages and url not in pending
                 )
+        academy_html = self._fetch_text(ACADEMY_DOWNLOAD_URL)
+        for download in parse_downloads(
+            academy_html, base_url=ACADEMY_DOWNLOAD_URL, level_code=None
+        ):
+            if download.url not in seen_download_urls:
+                seen_download_urls.add(download.url)
+                downloads.append(download)
         self._downloads_cache = tuple(downloads)
         return list(self._downloads_cache)
 
@@ -276,7 +310,7 @@ class HakkaCertClient:
                 subject_code=_subject_code(download.url, download.label, f"download-{index}"),
                 subject_name_raw=download.label,
                 files={download.file_type: download.url},
-                source_material=hakka_material(download.label, exam_code),
+                source_material=hakka_material(download.label, exam_code, download.url),
             )
             for index, download in enumerate(downloads, start=1)
         ]

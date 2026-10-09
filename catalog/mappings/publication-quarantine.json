@@ -27,7 +27,7 @@
       "provider_id": "hakka_cert",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "Partial: current primary-listing material dates and native grade/dialect boundaries are corrected; two official labels conflict with retained bytes. Full historical native content, secondary-surface integration and audiovisual redistribution remain unresolved. Keep publication withheld.",
+      "reason": "Partial: both official download surfaces now retain all currently discovered in-scope material. Native edition/grade/dialect facts are reviewed within the documented scope; two official labels conflict with retained bytes. Full historical native content, reference treatment, normal-limit packaging and audiovisual redistribution remain unresolved. Keep publication withheld.",
       "evidence_path": "data/providers/hakka_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#hakka_cert",
       "review_by": "2026-12-01"

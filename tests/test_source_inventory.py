@@ -352,43 +352,56 @@ class SourceInventoryTests(unittest.TestCase):
 
     def test_hakka_manifest_exposes_both_official_surfaces_and_identity_gaps(self) -> None:
         manifest = json.loads(
-            (ROOT / "data/providers/hakka_cert/source-manifest.json").read_text(
-                encoding="utf-8"
-            )
+            (ROOT / "data/providers/hakka_cert/source-manifest.json").read_text(encoding="utf-8")
         )
 
         self.assertEqual(len(manifest["years"]), 9)
         self.assertEqual(len(manifest["exams"]), 11)
-        self.assertEqual(len(manifest["files"]), 40)
+        self.assertEqual(len(manifest["files"]), 160)
         policy = manifest["probe_policy"]
         self.assertEqual(policy["coverage_status"], "partial")
-        self.assertEqual(policy["primary_listing"]["page_count"], 9)
-        self.assertEqual(policy["primary_listing"]["unique_download_count"], 607)
-        self.assertEqual(policy["primary_listing"]["adapter_accepted_count"], 140)
-        self.assertEqual(
-            policy["primary_listing"]["additional_in_scope_sample_bundle_count"],
-            5,
-        )
+        self.assertEqual(policy["primary_listing"]["page_count"], 11)
+        self.assertEqual(len(policy["primary_listing"]["pages"]), 11)
+        self.assertEqual(policy["primary_listing"]["adapter_accepted_count"], 150)
+        self.assertTrue(policy["secondary_download_center"]["implemented_by_provider"])
         self.assertEqual(
             policy["secondary_download_center"]["unique_package_count"],
             50,
         )
         self.assertEqual(
             policy["secondary_download_center"]["in_scope_question_audio_package_count"],
-            15,
+            10,
         )
         self.assertEqual(
             policy["source_gaps"],
             {
-                "primary_current_urls_not_retained": 20,
-                "primary_sample_bundles_missing_locally": 5,
-                "secondary_question_audio_declared_size_differs_from_retained": 10,
-                "secondary_question_audio_declared_size_matches_retained": 5,
-                "secondary_question_audio_packages_unintegrated": 15,
+                "primary_current_urls_not_retained": 0,
+                "primary_sample_bundles_missing_locally": 0,
+                "secondary_question_audio_packages_unintegrated": 0,
             },
         )
-        # Keep the initial capture's gaps as history, while the dated recheck
-        # records the samples recovered by the current parser.
+        # Current evidence joins every discovered URL to retained state;
+        # the initial source snapshot remains historical, including delisted links.
+        retained = [
+            paper
+            for path in (ROOT / "data/providers/hakka_cert/papers").glob("*.json")
+            for paper in json.loads(path.read_text())
+        ]
+        self.assertEqual(
+            {
+                (item["source_url"], item["sha256"], item["file_type"], item["storage_key"])
+                for item in manifest["files"].values()
+            },
+            {
+                (
+                    paper["download_url_source"],
+                    paper["checksum"],
+                    paper["file_type"],
+                    paper["storage_key"],
+                )
+                for paper in retained
+            },
+        )
         current = policy["current_scope_recheck"]
         self.assertEqual(current["primary_listing_urls_missing"], 0)
         self.assertEqual(current["recovered_sample_packages"], 5)
@@ -397,23 +410,37 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(current["edition_2018_intermediate_samples"], 5)
         self.assertIn("CP950", current["archive_filename_encoding"])
         historical = policy["initial_capture_retained_state_evidence"]
-        self.assertEqual(historical["captured_at"], policy["last_discovery_at"])
+        original = historical["source_listing_evidence"]
+        self.assertEqual(historical["captured_at"], original["last_discovery_at"])
+        self.assertEqual(original["primary_listing"]["unique_download_count"], 607)
+        self.assertEqual(
+            original["secondary_download_center"]["in_scope_question_audio_package_count"], 15
+        )
+        self.assertFalse(original["secondary_download_center"]["implemented_by_provider"])
+        self.assertEqual(len(original["files"]), 40)
+        self.assertEqual(
+            original["source_gaps"]["secondary_question_audio_packages_unintegrated"], 15
+        )
         self.assertTrue(historical["identity_risks"]["undated_advanced_material_forced_to_2026"])
-        self.assertTrue(historical["identity_risks"]["zip_suffix_is_currently_misclassified_as_listening_audio"])
+        self.assertTrue(
+            historical["identity_risks"]["zip_suffix_is_currently_misclassified_as_listening_audio"]
+        )
         self.assertNotIn("identity_risks", policy)
         current = policy["retained_state_recheck"]
         self.assertEqual(current["current_payloads_sha256_verified"], current["current_records"])
-        self.assertEqual(current["current_records"], policy["current_scope_recheck"]["retained_current_records"])
+        self.assertEqual(
+            current["current_records"], policy["current_scope_recheck"]["retained_current_records"]
+        )
         self.assertIn("historical", current["remaining_identity_issue"])
         native = policy["native_material_identity_recheck"]
-        self.assertEqual(native["current_records"], 150)
+        self.assertEqual(native["current_records"], 160)
         self.assertEqual(native["immutable_revision_references"], 56)
-        self.assertEqual(native["question_bank_records"], 125)
+        self.assertEqual(native["question_bank_records"], 135)
         self.assertEqual(native["bank_and_sample_practice_collections"], 5)
         self.assertEqual(native["pure_sample_records"], 20)
-        self.assertEqual(native["annual_edition_records"], 135)
+        self.assertEqual(native["annual_edition_records"], 145)
         self.assertEqual(native["undated_advanced_samples"], 15)
-        self.assertEqual(native["native_zip_packages_crc_sha256_and_paths_verified"], 40)
+        self.assertEqual(native["native_zip_packages_crc_sha256_and_paths_verified"], 50)
         self.assertEqual(native["native_ods_archives_crc_sha256_and_paths_verified"], 45)
         self.assertEqual(native["current_identity_bundles"], 27)
         self.assertIn("conflicts", native["remaining"])

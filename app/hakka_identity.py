@@ -9,10 +9,12 @@ import unicodedata
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, cast
+from urllib.parse import unquote, urlsplit
 
 from app.source_material import SourceDate, SourceMaterial
 
 LISTING_URL = "https://elearning.hakka.gov.tw/hakka/download-files"
+ACADEMY_DOWNLOAD_URL = "https://elearning.hakka.gov.tw/mooc/download.php"
 DIALECTS = {
     "sixian": "四縣腔",
     "hailu": "海陸腔",
@@ -26,7 +28,18 @@ def _label_key(label: str) -> str:
     return "".join(unicodedata.normalize("NFKC", label).split())
 
 
-def hakka_material(label: str, source_exam_id: str) -> SourceMaterial | None:
+def is_hakka_academy_asset(url: str) -> bool:
+    parts = urlsplit(url)
+    return (
+        parts.netloc == "elearning.hakka.gov.tw"
+        and re.fullmatch(
+            r"/(?:hakka/api/download|base/10001/download)/[0-9]+/[^/]+", unquote(parts.path)
+        )
+        is not None
+    )
+
+
+def hakka_material(label: str, source_exam_id: str, source_url: str = "") -> SourceMaterial | None:
     """Official annual resources carry edition years, never sitting years."""
     text = _label_key(label)
     if "題庫" in text:
@@ -50,15 +63,20 @@ def hakka_material(label: str, source_exam_id: str) -> SourceMaterial | None:
         category = "5"
     elif "intermediate" in source_exam_id:
         category = "3"
+    evidence_url = (
+        ACADEMY_DOWNLOAD_URL
+        if is_hakka_academy_asset(source_url)
+        else f"{LISTING_URL}?c={category}"
+    )
     if kind == "unknown":
         return SourceMaterial(
             kind,
             SourceDate("unknown", None),
-            f"{LISTING_URL}?c={category}",
+            evidence_url,
             label,
             "Hakka official download lacks reviewed material/date meaning",
         )
-    return SourceMaterial(kind, date, f"{LISTING_URL}?c={category}", label)
+    return SourceMaterial(kind, date, evidence_url, label)
 
 
 def hakka_level(

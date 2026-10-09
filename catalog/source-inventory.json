@@ -501,7 +501,7 @@
       ],
       "exam_category": "Hakka certification question banks, sample tests, answers, and paired question audio",
       "local_state": {
-        "normalized_paper_records": 150,
+        "normalized_paper_records": 160,
         "raw_event_pages": 11,
         "sync_failures": 0
       },
@@ -525,11 +525,11 @@
         "The primary source provides learning banks and samples, not an archive of administered sittings. Annual labels identify material editions and undated advanced samples have no public year.",
         "Preserve original native ZIPs and their filename charset. The inspected bank/sample packages include PDFs, spreadsheets, MP3 and WAV; containers and companion payloads do not establish a single file role.",
         "Checksum-backed cross-dialect conflicts are isolated by catalog/mappings/hakka/native-conflicts-v1.json. Unique source references and immutable history are preserved.",
-        "Full historical native content, official resolution of source dialect conflicts, three source ZIPs above the normal 1.9 GB multipart target, secondary-download-center integration and audiovisual redistribution remain unresolved. Hakka publication/public mirror backup holds are unchanged."
+        "Full historical native content, non-paper treatment of the historical all-grade standards reference, official resolution of two source dialect conflicts, three source ZIPs above the normal 1.9 GB multipart target and audiovisual redistribution remain unresolved. Hakka publication/public mirror backup holds are unchanged."
       ],
       "source_name": "客家委員會",
       "status": "partial",
-      "status_reason": "Partial: current primary-listing material dates and native grade/dialect boundaries are corrected; two official labels conflict with retained bytes. Full historical native content, secondary-surface integration and audiovisual redistribution remain unresolved."
+      "status_reason": "Partial: both official download surfaces now retain all currently discovered in-scope material. Native edition/grade/dialect facts are reviewed within the documented scope; two official labels conflict with retained bytes. Full historical native content, reference treatment, normal-limit packaging and audiovisual redistribution remain unresolved."
     },
     {
       "available_years": {
