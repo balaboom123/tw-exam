@@ -43542,7 +43542,7 @@
       "release_tag": "default-bundles-v2-008",
       "storage_key": "bundles/sites/default/rcpet-cap-admission-cap-not-applicable-cap--4be13812c9a7.zip",
       "asset_name": "rcpet-cap-admission-cap-not-applicable-cap--4be13812c9a7.zip",
-      "checksum": "ff25ddfcf3a265955b74389bbcd0f0b2b982a37cb3ea489af49b214d091eeabf",
+      "checksum": "c6f69574bb21f3b68dfef31c9db1187583737f7fa2fa14b9e2e78861ba49f6e9",
       "bundle_id": "rcpet-cap-admission-cap-not-applicable-cap",
       "domain_id": "admissions",
       "exam_family_id": "secondary-admission",
