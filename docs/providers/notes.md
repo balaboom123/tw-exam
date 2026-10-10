@@ -120,9 +120,15 @@ Preserve complete audio packages and their PDF/spreadsheet companions. Matching
 companion bytes or bank text do not make the whole packages interchangeable or
 authorize discarding distinct container versions. Current manifest entries
 reconcile with retained originals; initial-capture gaps and delisted source
-links remain dated historical evidence. Full historical native content,
-non-paper treatment of the historical all-grade standards reference, source
-conflicts and audiovisual redistribution still need review before publication.
+links remain dated historical evidence. The retained all-grade standards ZIP is
+an undated reference containing passing thresholds and question-format PDFs,
+with no audio or administered paper. Its legacy listening-audio role and current-
+year intermediate discovery group remain immutable acquisition evidence. The
+source-revision review owner records its separate non-paper disposition using
+the exact source context and native payload checksums, without assigning a
+single examination grade or reintroducing it into current publication. Full
+historical native content, source conflicts and audiovisual redistribution still
+need review before publication.
 
 Some intact original audio ZIPs also exceed the normal multipart target.
 Do not relax the public target or rewrite retained source bytes to make that

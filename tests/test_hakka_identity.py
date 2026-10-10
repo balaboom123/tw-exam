@@ -281,11 +281,14 @@ def test_historical_grade_projection_conserves_current_state_and_immutable_histo
     original = journal_path.read_bytes()
     revisions = json.loads(original)["revisions"]
     from app.models import NormalizedPaper, to_plain_data
+    from app.source_revision_review import reviewed_reference_revisions
 
-    before = [NormalizedPaper(**entry["source_record"]) for entry in revisions]
+    references = {row["revision_id"] for row in reviewed_reference_revisions(revisions)}
+    assert len(references) == 1
+    before = [NormalizedPaper(**entry["source_record"]) for entry in revisions if entry["id"] not in references]
     projected = renormalize_catalog(NormalizedCatalog(before, []), []).papers
     facts = {row["subject_code"]: row for row in _historical_grade_facts()}
-    assert len(projected) == 56
+    assert len(projected) == 55
     for old, new in zip(before, projected, strict=True):
         for field in (
             "checksum",
@@ -299,7 +302,7 @@ def test_historical_grade_projection_conserves_current_state_and_immutable_histo
         if new.subject_code in facts:
             assert new.level_id == "basic-elementary"
             assert new.classification_confidence == "high"
-    assert sum(p.classification_confidence == "review" for p in projected) == 1
+    assert sum(p.classification_confidence == "review" for p in projected) == 0
     current = [
         NormalizedPaper(**r)
         for p in (ROOT / "data/providers/hakka_cert/papers").glob("*.json")

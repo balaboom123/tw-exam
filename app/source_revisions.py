@@ -20,6 +20,7 @@ from typing import Any
 from app.models import NormalizedPaper, SourceExamPage, to_plain_data
 from app.paths import ProviderPaths
 from app.source_material import source_material
+from app.source_revision_review import reviewed_reference_revisions
 
 REVISION_DIRECTORY = "recovery/source-revisions"
 
@@ -255,6 +256,9 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         "unverified_source_reference_count": unverified,
         "mirror_checked": verify_mirror,
         "errors": errors,
+        "reviewed_non_paper_references": reviewed_reference_revisions(
+            entries, repo_root=provider.data_dir.parents[2]
+        ),
     }
 
 

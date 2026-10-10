@@ -54,6 +54,13 @@ Current publication continues to use the current catalog; retired roles,
 URLs and older bytes are not republished automatically. Strict history audits
 with mirror checking verify every journal blob as well as current references.
 
+Historical acquisition errors are reviewed alongside the journal rather than
+rewriting it. The source-revision review owner distinguishes a checksum-backed
+non-paper reference from an examination paper. History audits report that
+disposition separately; the original role, storage partition and discovery group
+remain traceability evidence. Do not normalize such a reviewed reference into a
+new examination identity or infer its date from the original partition.
+
 Successful full, incremental, targeted, and repair syncs record a UTC receipt for each completely refreshed event. Failed and unrefreshed events keep their previous receipt. Discovery, catalog migration, and bundle builds do not advance dates. Retained state may lack receipts; never backfill them from discovery or file modification time.
 
 Failure behavior is owned by [the CLI](../../app/cli.py) and [state merging](../../app/state.py):

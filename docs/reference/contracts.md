@@ -11,6 +11,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Compact review ledger | [Review schema](../../schemas/review-queue-v2.schema.json), [codec](../../app/review_queue.py) | `data/providers/<provider_id>/review-queue.json` |
 | Successful event sync receipts | [Sync status schema](../../schemas/provider-sync-status-v1.schema.json), [provenance](../../app/provenance.py) | `data/providers/<provider_id>/sync-status.json` |
 | Superseded source references and payloads | [Revision schema](../../schemas/provider-source-revisions-v1.schema.json), [retention owner](../../app/source_revisions.py) | `data/providers/<provider_id>/source-revisions.json`, `mirror/providers/<provider_id>/recovery/source-revisions/` |
+| Reviewed non-paper revision meaning | [Reference evidence schema](../../schemas/source-revision-reference-v1.schema.json), [review owner](../../app/source_revision_review.py) | `catalog/mappings/source-revisions/reference-material-v1.json` |
 | Material nature and official date evidence | [Material schema](../../schemas/source-material-v1.schema.json), [fact model](../../app/source_material.py) | Provider raw events/papers and normalized records |
 | Reviewed TQC sample identities | [Evidence schema](../../schemas/tqc-sample-identity-v1.schema.json), [checksum resolver and evidence gate](../../app/tqc_identity_evidence.py) | `catalog/mappings/tqc/sample-identity-v1.json` |
 | Reviewed native Taipower answer corrections | [Evidence schema](../../schemas/taipower-answer-corrections-v1.schema.json), [role resolver and evidence gate](../../app/taipower_file_roles.py) | `catalog/mappings/taipower/answer-corrections-v1.json` |
@@ -92,6 +93,15 @@ matches. Records without a verified checksum retain metadata with no claimed
 payload. `retained_at` is the UTC retention time, not an examination or edition
 date. Readers reject unsupported versions, mismatched ownership, duplicate ids,
 and inconsistent source keys or blob locators.
+
+An old acquisition record may describe a reference document as a paper or audio.
+Keep that record immutable. Exact revision id, source context and checksum can
+anchor a separate reviewed non-paper disposition, exposed by the history audit.
+The judgment records material nature and its own official date evidence, without
+assigning an examination grade, event or bundle identity. Native member names and
+checksums support optional byte verification. An unmatched source key, changed
+payload or unresolved material/date fact cannot inherit the reviewed disposition.
+This review does not add a retired reference to the current publication catalog.
 
 Review queues contain unresolved normalization work and remain provider-scoped unless a site explicitly owns cross-provider canonicalization. Failure rows use the shared model and retain enough event, file, URL, and stage information for machine-readable triage and recovery.
 

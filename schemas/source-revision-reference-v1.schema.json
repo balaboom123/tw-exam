@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/source-revision-reference-v1.schema.json",
+  "title": "Reviewed non-paper source revision reference evidence v1",
+  "type": "object",
+  "required": ["schema_version", "facts"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": 1},
+    "facts": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "reviewed_at", "revision_id", "source_record", "source_material", "filename_encoding", "native_members", "reason"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^reference-revision-[a-z0-9-]+$"},
+          "reviewed_at": {"type": "string", "format": "date"},
+          "revision_id": {"$ref": "#/$defs/checksum"},
+          "source_record": {
+            "type": "object", "additionalProperties": false,
+            "required": ["provider_id", "source_exam_id", "year_roc", "category_code", "subject_code", "subject_name_raw", "file_type", "download_url_source", "checksum"],
+            "properties": {
+              "provider_id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+              "source_exam_id": {"type": "string", "minLength": 1},
+              "year_roc": {"type": "integer"},
+              "category_code": {"type": "string"},
+              "subject_code": {"type": "string"},
+              "subject_name_raw": {"type": "string", "minLength": 1},
+              "file_type": {"type": "string", "minLength": 1},
+              "download_url_source": {"type": "string", "format": "uri", "pattern": "^https://"},
+              "checksum": {"$ref": "#/$defs/checksum"}
+            }
+          },
+          "source_material": {
+            "allOf": [
+              {"$ref": "https://tw-exam.invalid/schemas/source-material-v1.schema.json"},
+              {"properties": {"kind": {"const": "reference"}, "review_reason": {"const": ""}}}
+            ]
+          },
+          "filename_encoding": {"enum": ["cp950", "utf-8"]},
+          "native_members": {
+            "type": "array", "minItems": 1, "uniqueItems": true,
+            "items": {
+              "type": "object", "required": ["name", "checksum"], "additionalProperties": false,
+              "properties": {
+                "name": {"type": "string", "pattern": "^[^/\\\\]+\\.pdf$"},
+                "checksum": {"$ref": "#/$defs/checksum"}
+              }
+            }
+          },
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  },
+  "$defs": {"checksum": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "facts": [
+    {
+      "id": "reference-revision-hakka-standards-134",
+      "reviewed_at": "2026-10-10",
+      "revision_id": "3f39dbf3a58d4582d8d8fbcfa9174327aabe1c0ee6d00c8e7626d7b880757894",
+      "source_record": {
+        "provider_id": "hakka_cert",
+        "source_exam_id": "hakka-cert-intermediate-high-intermediate-2026",
+        "year_roc": 115,
+        "category_code": "general",
+        "subject_code": "134-e5aea2e8aa9ee883bde58a9b",
+        "subject_name_raw": "客語能力各級通過標準與題型說明",
+        "file_type": "listening_audio",
+        "download_url_source": "https://elearning.hakka.gov.tw/hakka/files/downloads/134.zip",
+        "checksum": "b3a8e6c90a843a1a8dd115a58c18405a682c52991479d93de5fe6b974945738c"
+      },
+      "source_material": {
+        "schema_version": 1,
+        "kind": "reference",
+        "date": {"basis": "undated", "year_ad": null},
+        "evidence_url": "https://elearning.hakka.gov.tw/hakka/files/downloads/134.zip",
+        "evidence_label": "客語能力各級通過標準與題型說明",
+        "review_reason": ""
+      },
+      "filename_encoding": "cp950",
+      "native_members": [
+        {
+          "name": "客語能力各級認證通過標準.pdf",
+          "checksum": "78f36e126c6147d5171e92e735879625f8b370f3aacdd1b97132c0151ed0bd53"
+        },
+        {
+          "name": "題型說明.pdf",
+          "checksum": "6e28139d626058d5ae4761c11975a68d25e481201049a36ddd5d648c678c6106"
+        }
+      ],
+      "reason": "The original ZIP contains only two undated explanatory PDFs: passing-score/component thresholds and question-format descriptions for elementary and intermediate/high-intermediate certification. It contains no administered paper or audio. The earlier listening_audio role, intermediate discovery group and synthetic 2026 storage partition remain immutable acquisition evidence, not reviewed material meaning or an examination date. Retain this reference separately from current examination publication; no single examination grade or bundle identity is assigned."
+    }
+  ]
+}
