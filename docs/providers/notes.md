@@ -234,6 +234,16 @@ New bytes at a reviewed correction source stop normalization for native review;
 previously corrected records with changed context also stop re-normalization.
 This evidence does not resolve occupational or selection-stage identity.
 
+Archive filenames and search labels omit the known Taipower file-label prefix;
+the original labels remain in provider state. In particular, the historical
+`科目A` filename boilerplate does not establish a professional A/B period.
+The [official rule books](https://www.taipower.com.tw/2289/2544/2554/2555/)
+separate recruitment categories from their shared written subjects. Preserve
+year-specific subject wording and retain one original paper rather than copying
+it into each applicable category. The two ROC 107 sessions use separate month
+folders, derived from their structured source event IDs. Neither this layout
+nor a shared subject establishes occupational equivalence or a selection stage.
+
 Refresh payloads during sync: a locally valid PDF and checksum do not establish
 that it matches the current official URL. Earlier common-paper copies contained
 material from the other programme. The provider writer preserves replaced

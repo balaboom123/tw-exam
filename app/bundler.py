@@ -29,7 +29,11 @@ from app.provider_index import (
     paper_index_canonical_id,
     paper_index_public_year_roc,
 )
-from app.publication_metadata import derive_public_metadata, file_subject_label
+from app.publication_metadata import (
+    derive_public_metadata,
+    file_subject_label,
+    publication_subject_label,
+)
 from app.source_material import (
     MaterialSummary,
     material_summary,
@@ -155,11 +159,14 @@ def _safe_segment(value: str, max_length: int | None = None) -> str:
 
 def _bundle_arcname(paper: NormalizedPaper) -> str:
     suffix = Path(paper.storage_key).suffix or ".bin"
+    subject = paper.subject_name_raw
+    if paper.provider_id == "taipower_recruit":
+        subject = publication_subject_label(subject, provider_id=paper.provider_id)
     file_name = "_".join(
         [
             _safe_segment(paper.category_code or "category", max_length=24),
             _safe_segment(paper.subject_code or "subject", max_length=24),
-            _safe_segment(paper.subject_name_raw or "subject", max_length=60),
+            _safe_segment(subject or "subject", max_length=60),
             _safe_segment(file_type_label(paper.file_type), max_length=20),
         ]
     )
@@ -172,6 +179,12 @@ def _bundle_arcname(paper: NormalizedPaper) -> str:
         if paper.source_material is not None
         else str(paper.year_roc)
     )
+    if paper.provider_id == "taipower_recruit" and paper.source_material is None:
+        session = re.fullmatch(
+            rf"taipower-recruit-{paper.year_roc}-(0?[1-9]|1[0-2])", paper.source_exam_id
+        )
+        if session:
+            folder = f"{folder}/{int(session.group(1)):02d}月"
     return f"{folder}/{file_name}{suffix}"
 
 

@@ -51,6 +51,60 @@ def make_paper(
 
 
 class BundlerTests(unittest.TestCase):
+    def test_taipower_subject_filenames_and_session_folders_preserve_originals(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            mirror = root / "mirror"
+            mirror.mkdir()
+            papers = []
+            payloads = {}
+            for year, month, role, raw in (
+                (101, None, "question", "101年新進養成班試題科目A_基本電學"),
+                (107, 5, "question", "107年5月新進僱用人員甄試科目試題_基本電學"),
+                (107, 12, "question", "107年12月新進僱用人員甄試科目試題_基本電學"),
+                (107, 12, "corrected_answer", "107年12月新進僱用人員甄試科目解答_基本電學"),
+            ):
+                event = f"taipower-recruit-{year}" + (f"-{month}" if month else "")
+                storage_key = f"{event}-{role}.pdf"
+                payload = f"%PDF-1.7 original {event} {role}".encode()
+                (mirror / storage_key).write_bytes(payload)
+                paper = make_paper(
+                    canonical_id="taipower-recruit", canonical_name="台電新進僱用人員甄試",
+                    year_roc=year, source_exam_id=event, subject_code="hiring-09",
+                    storage_key=storage_key, file_type=role, subject_name_raw=raw,
+                )
+                paper.provider_id = "taipower_recruit"
+                paper.category_code = str(year)
+                paper.checksum = hashlib.sha256(payload).hexdigest()
+                papers.append(paper)
+                payloads[(event, role)] = payload
+            original_records = [asdict(paper) for paper in papers]
+
+            built = build_bundles(root / "bundles", mirror, NormalizedCatalog(papers, []), "")
+
+            self.assertEqual(built.failures, [])
+            self.assertEqual(len(built.bundles), 1)
+            with zipfile.ZipFile(root / "bundles" / built.bundles[0].asset_name) as archive:
+                manifest = json.loads(archive.read("bundle.json"))
+                ARCHIVE_SCHEMA.validate(manifest)
+                self.assertEqual(len(manifest["papers"]), 4)
+                for record in manifest["papers"]:
+                    name = record["bundle_entry"]
+                    event = record["source_exam_id"]
+                    if event.endswith("-5"):
+                        self.assertTrue(name.startswith("107/05月/"))
+                    elif event.endswith("-12"):
+                        self.assertTrue(name.startswith("107/12月/"))
+                    else:
+                        self.assertTrue(name.startswith("101/"))
+                    self.assertNotIn("科目A", name)
+                    self.assertNotIn("新進", name)
+                    self.assertIn("基本電學", name)
+                    self.assertEqual(archive.read(name), payloads[(event, record["file_type"])])
+                corrected = next(r for r in manifest["papers"] if r["file_type"] == "corrected_answer")
+                self.assertIn("更正答案", corrected["bundle_entry"])
+            self.assertEqual([asdict(paper) for paper in papers], original_records)
+
     def test_direct_v1_asset_naming_does_not_depend_on_display_language(self) -> None:
         for label in ("Legacy Exam", "歷史考試"):
             with self.subTest(label=label), tempfile.TemporaryDirectory() as tmp_dir:
