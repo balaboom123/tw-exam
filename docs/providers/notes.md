@@ -192,6 +192,25 @@ snapshot per client; an absent edition or mismatched event key is rejected.
 
 A MOEA recruitment provider must be supported by MOEA-owned recruitment identity and source material. Taipower records cannot stand in for MOEA records even when the subject matter or filenames look compatible.
 
+The historical 新進職員 archive is hosted by Taipower, separately from its hiring
+and 養成班 archive. Hosting does not establish the programme: the [ROC 91 common
+paper](https://www.taipower.com.tw/media/tjnpg3wc/2017120111152173465.pdf?mediaDL=true)
+names MOEA administering Taipower recruitment alone, while the [ROC 93
+paper](https://www.taipower.com.tw/media/huyfqx2s/2017120114115741430.pdf?mediaDL=true)
+and [ROC 95 paper](https://www.taipower.com.tw/media/tsze2tl5/2017120115215814733.pdf?mediaDL=true)
+name Taipower and CPC. These native headings were inspected on 2026-10-10.
+Do not project the modern joint programme or employer set onto every historical
+event without complete native review and historical migration.
+
+The adapter derives acquisition subject keys from the normalized request URL,
+not a file's position in an annual listing. Reordering, inserting a file or
+changing its label therefore leaves existing mirror locators stable. These keys
+identify source references; they do not establish an occupation, subject, grade
+or programme. A change from positional keys requires a checksum-verified
+old-to-new mapping of the complete affected capture, with the previous state
+and originals retained for rollback. It must not merge the misowned production
+records into a newly acquired staff archive or lift publication quarantine.
+
 ## `moex`
 
 Accept only Ministry of Examination event listings, result pages, and attachments directly linked by those pages. Preserve source-side placeholder and expired-result evidence instead of substituting unofficial copies.

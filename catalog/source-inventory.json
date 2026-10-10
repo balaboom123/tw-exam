@@ -821,14 +821,14 @@
       ],
       "provider_id": "moea_recruit",
       "restrictions": [
-        "Direct 2026-10-09 listing capture covers 21 official events, 515 subject groups and 1,486 unique public PDF URLs. Isolated acquisition verified 1,364 PDFs; 122 URLs from AD 2002, 2004 and 2006 returned AWS WAF challenge responses.",
+        "Direct 2026-10-09 listing capture covers 21 official annual archive partitions, 515 subject groups and 1,486 unique public PDF URLs. The initial isolated acquisition verified 1,364 PDFs; on 2026-10-10 all 122 previously WAF-blocked URLs from AD 2002, 2004 and 2006 were recovered using the normal runtime client. All 1,486 original references are checksum-verified in isolated evidence.",
         "All 370 retained MOEA source URLs actually belong to the separate Taipower hiring archive. At the pre-correction baseline both provider URL/checksum sets were identical; the refreshed Taipower archive now shares 344 of those old checksums after correcting 26 mixed/stale common papers.",
-        "The incorrect MOEA identity remains withheld by publication quarantine. Partial acquisition is isolated and cannot replace retained evidence until outstanding originals are acquired or individually reviewed.",
+        "The incorrect MOEA identity remains withheld by publication quarantine. Complete binary acquisition is isolated and does not establish programme, occupation, stage or historical identity. Native ROC 91 headings name MOEA administering Taipower recruitment alone; ROC 93 and 95 name Taipower and CPC. Complete native review and a conservation-backed production migration remain required before replacement or publication.",
         "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. No access-control or WAF challenge bypass was attempted."
       ],
       "source_name": "經濟部所屬事業機構新進職員甄試",
       "status": "partial",
-      "status_reason": "Partial / contaminated retained identity: all 370 retained URLs belong to the Taipower hiring archive and the incorrect MOEA identity remains withheld. Correct source discovery covers 1,486 URLs; 1,364 isolated PDFs are verified and 122 downloads remain WAF-blocked."
+      "status_reason": "Partial / contaminated retained identity: all 370 retained URLs belong to the Taipower hiring archive and remain withheld. Correct staff archive discovery covers 1,486 checksum-verified isolated original references; native historical programme and paper review plus complete production migration remain pending."
     },
     {
       "available_years": {

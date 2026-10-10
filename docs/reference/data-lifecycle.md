@@ -27,6 +27,12 @@ mirror metadata so one source cannot overwrite another source's checksum.
 and normalized references only after every affected URL for a provider succeeds.
 It does not advance whole-event sync receipts for this partial repair.
 
+An adapter for an archive without native subject codes must derive stable
+acquisition keys from source references, rather than renumbering files by listing
+position. A source-key change is a storage migration: verify every old reference
+and payload, map it to the new locator, retain rollback evidence, and separately
+review examination identity before publication.
+
 Legacy mirror fallback validates each candidate once. A valid historical payload
 can replace an invalid scoped copy without another source download, using the
 checksum returned by the mirror writer. Mirror deduplication uses hard links;

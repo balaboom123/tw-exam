@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from html import unescape
@@ -328,9 +329,17 @@ class MoeaRecruitClient:
             raise ValueError(f"No entries found for {exam_code} year {year_ad}")
         first = matching[0]
         papers: list[ParsedPaper] = []
-        for file_index, download in enumerate(
-            (dl for entry in matching for dl in entry.downloads), start=1
-        ):
+        source_urls_by_key: dict[str, str] = {}
+        for download in (dl for entry in matching for dl in entry.downloads):
+            request_url = _quote_url_for_request(download.url)
+            digest = hashlib.sha256(request_url.encode("utf-8")).hexdigest()[:16]
+            subject_code = f"joint-{digest}"
+            if (
+                subject_code in source_urls_by_key
+                and source_urls_by_key[subject_code] != request_url
+            ):
+                raise ValueError(f"MOEA archive has colliding source keys: {subject_code}")
+            source_urls_by_key[subject_code] = request_url
             if "答案" in download.label or "解答" in download.label:
                 file_type = "answer"
             else:
@@ -339,7 +348,7 @@ class MoeaRecruitClient:
                 ParsedPaper(
                     category_raw=CANONICAL_CATEGORY,
                     category_code=str(first.year_roc),
-                    subject_code=f"joint-{file_index:02d}",
+                    subject_code=subject_code,
                     subject_name_raw=download.label,
                     files={file_type: download.url},
                 )
