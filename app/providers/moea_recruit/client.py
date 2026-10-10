@@ -36,7 +36,6 @@ REQUEST_HEADERS = {
     "Accept-Language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7",
     "Referer": BASE_URL,
 }
-CANONICAL_CATEGORY = "國營事業聯招（新進職員）"
 _YEAR_RE = re.compile(r"(\d{2,3})\s*年")
 
 
@@ -56,6 +55,17 @@ class MoeaRecruitEntry:
 
 def _normalize_text(text: str) -> str:
     return " ".join(unescape(text).split())
+
+
+def _exam_name(year_roc: int) -> str:
+    """Name the annual programme without replacing historical employers."""
+    if year_roc == 91:
+        programme = "經濟部辦理台灣電力公司新進職員甄試"
+    elif year_roc in {93, 95}:
+        programme = "經濟部辦理台電公司及中油公司新進職員甄試"
+    else:
+        programme = "經濟部所屬事業機構新進職員甄試"
+    return f"{year_roc}年度{programme}"
 
 
 class _DownloadPageParser(HTMLParser):
@@ -314,7 +324,7 @@ class MoeaRecruitClient:
                     code=code,
                     year_ad=entry.year_ad,
                     year_roc=entry.year_roc,
-                    label=f"{entry.year_roc}年度經濟部所屬事業機構新進職員甄試",
+                    label=_exam_name(entry.year_roc),
                 )
             )
         return result
@@ -330,34 +340,35 @@ class MoeaRecruitClient:
         first = matching[0]
         papers: list[ParsedPaper] = []
         source_urls_by_key: dict[str, str] = {}
-        for download in (dl for entry in matching for dl in entry.downloads):
-            request_url = _quote_url_for_request(download.url)
-            digest = hashlib.sha256(request_url.encode("utf-8")).hexdigest()[:16]
-            subject_code = f"joint-{digest}"
-            if (
-                subject_code in source_urls_by_key
-                and source_urls_by_key[subject_code] != request_url
-            ):
-                raise ValueError(f"MOEA archive has colliding source keys: {subject_code}")
-            source_urls_by_key[subject_code] = request_url
-            if "答案" in download.label or "解答" in download.label:
-                file_type = "answer"
-            else:
-                file_type = "question"
-            papers.append(
-                ParsedPaper(
-                    category_raw=CANONICAL_CATEGORY,
-                    category_code=str(first.year_roc),
-                    subject_code=subject_code,
-                    subject_name_raw=download.label,
-                    files={file_type: download.url},
+        for entry in matching:
+            for download in entry.downloads:
+                request_url = _quote_url_for_request(download.url)
+                digest = hashlib.sha256(request_url.encode("utf-8")).hexdigest()[:16]
+                subject_code = f"joint-{digest}"
+                if (
+                    subject_code in source_urls_by_key
+                    and source_urls_by_key[subject_code] != request_url
+                ):
+                    raise ValueError(f"MOEA archive has colliding source keys: {subject_code}")
+                source_urls_by_key[subject_code] = request_url
+                if "答案" in download.label or "解答" in download.label:
+                    file_type = "answer"
+                else:
+                    file_type = "question"
+                papers.append(
+                    ParsedPaper(
+                        category_raw=entry.title,
+                        category_code=str(first.year_roc),
+                        subject_code=subject_code,
+                        subject_name_raw=download.label,
+                        files={file_type: download.url},
+                    )
                 )
-            )
         return SourceExamPage(
             source_exam_id=exam_code,
             year_ad=year_ad,
             year_roc=first.year_roc,
-            exam_name_raw=f"{first.year_roc}年度經濟部所屬事業機構新進職員甄試",
+            exam_name_raw=_exam_name(first.year_roc),
             attachments=[],
             papers=papers,
             provider_id=self.provider_id,

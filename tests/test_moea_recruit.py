@@ -305,7 +305,7 @@ class MoeaRecruitParserTests(unittest.TestCase):
         self.assertEqual(page.exam_name_raw, "113年度經濟部所屬事業機構新進職員甄試")
         self.assertEqual(len(page.papers), 2)
         self.assertEqual(
-            {paper.category_raw for paper in page.papers}, {"國營事業聯招（新進職員）"}
+            {paper.category_raw for paper in page.papers}, {"113年新進職員甄試試題解答"}
         )
 
     def test_fetch_exam_page_assigns_question_and_answer_file_types(self) -> None:
@@ -377,6 +377,52 @@ class MoeaRecruitParserTests(unittest.TestCase):
             self.assertRegex(code, r"^joint-[0-9a-f]{16}$")
         file_types = [ft for paper in page.papers for ft in paper.files]
         self.assertEqual(file_types, ["question", "answer", "question", "answer"])
+
+    def test_matching_file_labels_keep_their_distinct_listing_groups(self) -> None:
+        entries = parse_download_page(DOWNLOAD_PAGE_HTML_MULTI_SUBJECT)
+        entries = [
+            replace(
+                entry,
+                title=f"112年度電機({track})",
+                downloads=[replace(entry.downloads[0], label="電路學試題")],
+            )
+            for entry, track in zip(entries, ("一", "二"), strict=True)
+        ]
+        client = MoeaRecruitClient()
+        with patch.object(client, "_iter_entries", return_value=entries):
+            page = client.fetch_exam_page("moea-recruit-112", 2023)
+
+        self.assertEqual(
+            [paper.category_raw for paper in page.papers],
+            ["112年度電機(一)", "112年度電機(二)"],
+        )
+        self.assertEqual({paper.subject_name_raw for paper in page.papers}, {"電路學試題"})
+        self.assertNotEqual(page.papers[0].subject_code, page.papers[1].subject_code)
+        self.assertEqual(
+            [paper.files["question"] for paper in page.papers],
+            [entry.downloads[0].url for entry in entries],
+        )
+
+    def test_historical_programme_names_agree_in_discovery_and_acquisition(self) -> None:
+        expected = {
+            91: "91年度經濟部辦理台灣電力公司新進職員甄試",
+            93: "93年度經濟部辦理台電公司及中油公司新進職員甄試",
+            95: "95年度經濟部辦理台電公司及中油公司新進職員甄試",
+            96: "96年度經濟部所屬事業機構新進職員甄試",
+        }
+        for year_roc, name in expected.items():
+            with self.subTest(year_roc=year_roc):
+                entries = parse_download_page(_year_page_html(year_roc))
+                client = MoeaRecruitClient()
+                with patch.object(client, "_iter_entries", return_value=entries):
+                    event = client.discover_exams(year_roc + 1911)[0]
+                    page = client.fetch_exam_page(event.code, event.year_ad)
+                self.assertEqual(event.code, f"moea-recruit-{year_roc}")
+                self.assertEqual(event.label, name)
+                self.assertEqual(page.exam_name_raw, name)
+                self.assertEqual(
+                    {paper.category_raw for paper in page.papers}, {f"{year_roc}年度共同科目"}
+                )
 
     def test_source_keys_survive_group_and_file_reordering_and_label_changes(self) -> None:
         entries = parse_download_page(DOWNLOAD_PAGE_HTML_MULTI_SUBJECT)

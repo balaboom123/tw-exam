@@ -202,6 +202,24 @@ name Taipower and CPC. These native headings were inspected on 2026-10-10.
 Do not project the modern joint programme or employer set onto every historical
 event without complete native review and historical migration.
 
+Acquisition preserves each official listing-group title in `category_raw`,
+including common papers, occupational names and electrical-track qualifiers.
+It does not substitute the shared canonical display name for that evidence.
+Annual discovery and acquired event names preserve the reviewed ROC 91,
+93 and 95 employer boundaries. The source category is listing evidence;
+it still needs comparison with native paper headings and annual rules before
+assigning a cross-year occupation identity.
+
+Identical bytes may represent one paper applicable to several listed occupations.
+Keep their source references and native applicability when sharing storage.
+Extracted answer letters alone do not establish a file role: some PDFs contain
+hidden answer text that is absent from their visible question pages. The
+[ROC 109 chemistry question link](https://www.taipower.com.tw/media/ylinuevz/2021122413491339388.pdf?mediaDL=true)
+and [answer link](https://www.taipower.com.tw/media/0g3jfaw1/2020111609474591417.pdf?mediaDL=true)
+returned identical bytes with visibly printed answers on 2026-10-10. Preserve
+both original references and resolve the answered paper's publication role
+as part of the complete migration; do not claim an unanswered copy exists.
+
 The adapter derives acquisition subject keys from the normalized request URL,
 not a file's position in an annual listing. Reordering, inserting a file or
 changing its label therefore leaves existing mirror locators stable. These keys
