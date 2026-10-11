@@ -267,6 +267,28 @@ class _MirrorRequest:
     paper: ParsedPaper | None = None
 
 
+def _retained_source_checksums(
+    pages: list[SourceExamPage],
+) -> dict[tuple[str, str], str]:
+    """Connect cached bytes to the source URL that supplied them."""
+    checksums: dict[tuple[str, str], str] = {}
+    for page in pages:
+        for attachment in page.attachments:
+            if attachment.checksum:
+                checksums[
+                    (
+                        _mirror_prefix_for_attachment(page, attachment),
+                        attachment.download_url_source,
+                    )
+                ] = attachment.checksum
+        for paper in page.papers:
+            for file_type, url in paper.files.items():
+                checksum = paper.mirror_files.get(file_type, {}).get("checksum", "")
+                if checksum:
+                    checksums[(_mirror_prefix_for_paper(page, paper, file_type), url)] = checksum
+    return checksums
+
+
 def restore_catalog_files(
     client: SourceProvider,
     mirror_store: MirrorStore,
@@ -322,6 +344,7 @@ def sync_exam_pages(
     mirror_base_url: str,
     download_attachments: bool = True,
     refresh_files: bool = False,
+    previous_pages: list[SourceExamPage] | None = None,
 ) -> tuple[list[SourceExamPage], NormalizedCatalog, list[SyncFailure]]:
     refresh_files = refresh_files or bool(getattr(client, "refresh_files_on_sync", False))
     download_attachments = download_attachments or bool(
@@ -331,6 +354,7 @@ def sync_exam_pages(
     normalized_papers = []
     review_queue = []
     failures: list[SyncFailure] = []
+    retained_checksums = _retained_source_checksums(previous_pages or [])
 
     for exam_code, year_ad in exam_codes:
         try:
@@ -380,14 +404,17 @@ def sync_exam_pages(
         # Some official pages reuse subject codes for different source URLs.
         # Never let one URL's cached payload satisfy another URL in that group.
         urls_by_prefix: dict[str, set[str]] = {}
+        expected_checksums: dict[str, str] = {}
         for request in requests:
             urls_by_prefix.setdefault(request.prefix, set()).add(request.url)
         for index, request in enumerate(requests):
+            checksum = retained_checksums.get((request.prefix, request.url), "")
             prefix_path = mirror_store.root / request.prefix
             previously_split = any(prefix_path.parent.glob(f"{prefix_path.name}--source-*"))
             if len(urls_by_prefix[request.prefix]) > 1 or previously_split:
                 digest = hashlib.sha256(request.url.encode("utf-8")).hexdigest()[:16]
                 requests[index] = replace(request, prefix=f"{request.prefix}--source-{digest}")
+            expected_checksums[requests[index].prefix] = checksum
 
         max_workers = max(1, min(4, int(getattr(client, "max_concurrency", 4))))
         stored_by_prefix: dict[str, StoredFile] = {}
@@ -398,10 +425,13 @@ def sync_exam_pages(
                 for request in requests[start : start + max_workers]:
                     try:
                         stored = stored_by_prefix.get(request.prefix)
-                        if stored is None and not refresh_files:
+                        expected_checksum = expected_checksums[request.prefix]
+                        if stored is None and not refresh_files and expected_checksum:
                             stored = _existing_mirrored(
                                 mirror_store, request.prefix, request.file_type
                             )
+                            if stored is not None and stored.checksum != expected_checksum:
+                                stored = None
                         if stored is not None:
                             stored_by_prefix[request.prefix] = stored
                             batch.append((request, stored))

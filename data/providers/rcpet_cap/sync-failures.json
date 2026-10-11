@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "stage": "download",
+    "source_exam_id": "cap-103",
+    "year_roc": 103,
+    "paper_code": "103-all-subjects-question_alt",
+    "file_type": "question_alt",
+    "url": "https://drive.google.com/file/d/1LHS0K2YLrDhS_jz2CULl8AnFN23h1x0M/view?usp=drive_link",
+    "message": "The official 試題說明 link returns the same checksum as 國文科. Its visible native content is the Chinese examination paper, not the explanation. The last verified explanation and its original source reference are retained; do not publish the conflicting link as an explanation."
+  }
+]

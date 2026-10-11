@@ -281,16 +281,17 @@ def test_unchanged_refresh_preserves_shared_storage_and_creates_no_revision(tmp_
     assert load_source_revisions(provider_paths(tmp_path, "moex")) == []
 
 
-def test_default_reuse_and_mutable_provider_refresh_policy(tmp_path):
+def test_verified_reuse_and_mutable_provider_refresh_policy(tmp_path):
     store = MirrorStore(tmp_path / "mirror")
-    store.write_bytes(KEY, ORIGINAL)
+    previous, _, failures = sync(MutableClient(ORIGINAL), store)
+    assert failures == []
     client = MutableClient(REVISED)
-    _pages, catalog, failures = sync(client, store)
+    _pages, catalog, failures = sync(client, store, previous_pages=previous)
     assert failures == []
     assert client.downloads == []
     assert catalog.papers[0].checksum == paper().checksum
     client.refresh_files_on_sync = True
-    _pages, catalog, failures = sync(client, store)
+    _pages, catalog, failures = sync(client, store, previous_pages=previous)
     assert failures == []
     assert catalog.papers[0].checksum == paper(REVISED).checksum
     assert SfiCertProvider.refresh_files_on_sync is True

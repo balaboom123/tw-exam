@@ -16,7 +16,10 @@ For a matrix caller, identify the provider from the failed job name and its sync
 
 When an official URL serves corrected bytes, add `--refresh-files` to the
 appropriate sync or repair command. Mutable-slot adapters already request file
-refresh. Restore the previous checksum-verified payload before refreshing if
+refresh. A changed source URL is downloaded automatically: production sync
+reuses a cached payload only when the retained reference has the same URL
+and checksum. A valid file at the same storage path does not establish source
+provenance. Restore the previous checksum-verified payload before refreshing if
 the provider writer reports that its earlier revision cannot be retained.
 Use the provider's matching durable generation or an earlier verified source
 archive; downloading today's bytes from the same URL does not recover its

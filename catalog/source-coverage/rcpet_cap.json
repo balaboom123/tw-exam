@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "provider_id": "rcpet_cap",
+  "exceptions": [
+    {
+      "scope": "file",
+      "provider_id": "rcpet_cap",
+      "source_exam_id": "cap-103",
+      "year_ad": 2014,
+      "status": "blocked",
+      "reason_code": "official_source_role_conflict",
+      "reason": "The official 試題說明 link returns the same checksum as 國文科. Its visible native content is the Chinese examination paper, not the explanation. The last verified explanation and its original source reference are retained; do not publish the conflicting link as an explanation.",
+      "source_url": "https://drive.google.com/file/d/1LHS0K2YLrDhS_jz2CULl8AnFN23h1x0M/view?usp=drive_link",
+      "paper_code": "103-all-subjects-question_alt",
+      "file_type": "question_alt",
+      "evidence": {
+        "captured_at": "2026-10-10T11:40:58.860064+00:00",
+        "http_status": 200,
+        "response_bytes": 3924275,
+        "response_sha256": "c2fb630b3158cfed14470d7987903363b30587257e971c22ade5a8964b2acca7",
+        "observation": "Downloaded PDF matches the retained Chinese paper checksum c2fb630b3158cfed14470d7987903363b30587257e971c22ade5a8964b2acca7. Page 2 visibly contains Chinese questions. The retained explanation checksum is f0a5d0a1e5a8c6cd81661ae3c07c5e3f05684ed1ad2e73e099c2adf1781963a9 and its first-page heading is 103 年國中教育會考試題說明.",
+        "source_page_url": "https://cap.rcpet.edu.tw/exam/103/103exam.html",
+        "source_page_sha256": "5616b8c5d30af04eea60e7692fa47a14bd310b310e8e7dcd3cbd5387988c1825",
+        "http_status_rechecked_at": "2026-10-11T01:11:36.453714+00:00"
+      }
+    }
+  ]
+}

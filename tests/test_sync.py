@@ -637,6 +637,10 @@ class SyncExamPagesTests(unittest.TestCase):
             question_path.parent.mkdir(parents=True, exist_ok=True)
             question_path.write_bytes(b"%PDF-1.7 cached question")
             client = ReuseExistingMirrorClient()
+            previous = client.fetch_exam_page("115030", 2026)
+            previous.provider_id = client.provider_id
+            previous.attachments[0].checksum = hashlib.sha256(attachment_path.read_bytes()).hexdigest()
+            previous.papers[0].mirror_files = {"question": {"checksum": hashlib.sha256(question_path.read_bytes()).hexdigest()}}
 
             raw_pages, normalized, failures = sync_exam_pages(
                 client=client,
@@ -644,6 +648,7 @@ class SyncExamPagesTests(unittest.TestCase):
                 mirror_store=MirrorStore(mirror_root),
                 alias_rules=[AliasRule(match_type="exact", raw_pattern="nurse raw", canonical_id="nurse", canonical_name="Nurse")],
                 mirror_base_url="",
+                previous_pages=[previous],
             )
 
         self.assertEqual(client.downloaded_urls, ["https://example.test/answer.pdf"])
@@ -655,6 +660,70 @@ class SyncExamPagesTests(unittest.TestCase):
         self.assertEqual(sorted(paper.file_type for paper in normalized.papers), ["answer", "question"])
         self.assertEqual(failures, [])
 
+    def test_changed_source_url_downloads_new_bytes_and_retains_original(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            store = MirrorStore(Path(tmp_dir))
+            client = ReuseExistingMirrorClient()
+            previous, _, failures = sync_exam_pages(
+                client, [("115030", 2026)], store, [], "", previous_pages=[]
+            )
+            self.assertEqual(failures, [])
+            original = previous[0].papers[0].mirror_files["question"]
+            old_bytes = (store.root / original["storage_key"]).read_bytes()
+            new_page = client.fetch_exam_page("115030", 2026)
+            new_url = "https://example.test/replacement.pdf"
+            new_page.papers[0].files["question"] = new_url
+            new_bytes = b"%PDF-1.7 corrected source"
+            client.downloaded_urls.clear()
+            with patch.object(client, "fetch_exam_page", return_value=new_page):
+                with patch.object(client, "download_file", return_value=DownloadedFile(
+                    data=new_bytes, content_type="application/pdf", file_name="replacement.pdf"
+                )) as download:
+                    pages, _, failures = sync_exam_pages(
+                        client, [("115030", 2026)], store, [], "", previous_pages=previous
+                    )
+            download.assert_called_once_with(new_url)
+            self.assertEqual(failures, [])
+            self.assertEqual((store.root / original["storage_key"]).read_bytes(), new_bytes)
+            retained = store.root / "providers/moex/recovery/source-revisions" / f"{original['checksum']}.pdf"
+            self.assertEqual(retained.read_bytes(), old_bytes)
+            self.assertEqual(pages[0].papers[0].mirror_files["question"]["checksum"], hashlib.sha256(new_bytes).hexdigest())
+
+    def test_cache_without_a_retained_source_reference_is_downloaded(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            store = MirrorStore(Path(tmp_dir))
+            key = "providers/moex/115/115030/101/0101/question.pdf"
+            store.write_bytes(key, b"%PDF-1.7 unrelated original")
+            client = QuestionOnlyClient()
+            _, _, failures = sync_exam_pages(client, [("115030", 2026)], store, [], "")
+            self.assertEqual(failures, [])
+            self.assertEqual(client.downloaded_urls, ["https://example.test/question.pdf"])
+            self.assertEqual((store.root / key).read_bytes(), b"%PDF-1.7 original payload")
+
+    def test_cached_payload_requires_its_retained_checksum(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            store = MirrorStore(Path(tmp_dir))
+            client = ReuseExistingMirrorClient()
+            previous, _, failures = sync_exam_pages(
+                client, [("115030", 2026)], store, [], "", previous_pages=[]
+            )
+            self.assertEqual(failures, [])
+            client.downloaded_urls.clear()
+            _, _, failures = sync_exam_pages(
+                client, [("115030", 2026)], store, [], "", previous_pages=previous
+            )
+            self.assertEqual(failures, [])
+            self.assertEqual(client.downloaded_urls, [])
+            key = previous[0].attachments[0].storage_key
+            (store.root / key).unlink()  # Do not alter the other hard-linked source files.
+            (store.root / key).write_bytes(b"%PDF-1.7 unrelated cached attachment")
+            _, _, failures = sync_exam_pages(
+                client, [("115030", 2026)], store, [], "", previous_pages=previous
+            )
+            self.assertEqual(failures, [])
+            self.assertEqual(client.downloaded_urls, ["https://example.test/all.pdf"])
+            self.assertEqual((store.root / key).read_bytes(), b"%PDF-1.7 demo")
+
     def test_sync_exam_pages_reuses_legacy_unscoped_mirror_files_and_promotes_storage_keys(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             mirror_root = Path(tmp_dir)
@@ -662,6 +731,9 @@ class SyncExamPagesTests(unittest.TestCase):
             legacy_question_path.parent.mkdir(parents=True, exist_ok=True)
             legacy_question_path.write_bytes(b"%PDF-1.7 cached legacy question")
             client = ReuseExistingMirrorClient()
+            previous = client.fetch_exam_page("115030", 2026)
+            previous.provider_id = client.provider_id
+            previous.papers[0].mirror_files = {"question": {"checksum": hashlib.sha256(legacy_question_path.read_bytes()).hexdigest()}}
 
             raw_pages, normalized, failures = sync_exam_pages(
                 client=client,
@@ -669,6 +741,7 @@ class SyncExamPagesTests(unittest.TestCase):
                 mirror_store=MirrorStore(mirror_root),
                 alias_rules=[AliasRule(match_type="exact", raw_pattern="nurse raw", canonical_id="nurse", canonical_name="Nurse")],
                 mirror_base_url="",
+                previous_pages=[previous],
             )
 
             promoted_path = mirror_root / "providers" / "moex" / "115" / "115030" / "101" / "0101" / "question.pdf"
@@ -801,6 +874,9 @@ class SyncExamPagesTests(unittest.TestCase):
             legacy_dir.mkdir(parents=True, exist_ok=True)
             (legacy_dir / "question.pdf").write_bytes(b"%PDF-1.7 cached legacy payload")
             client = QuestionOnlyClient()
+            previous = client.fetch_exam_page("115030", 2026)
+            previous.provider_id = client.provider_id
+            previous.papers[0].mirror_files = {"question": {"checksum": hashlib.sha256((legacy_dir / "question.pdf").read_bytes()).hexdigest()}}
 
             raw_pages, normalized, failures = sync_exam_pages(
                 client=client,
@@ -808,6 +884,7 @@ class SyncExamPagesTests(unittest.TestCase):
                 mirror_store=MirrorStore(mirror_root),
                 alias_rules=[AliasRule(match_type="exact", raw_pattern="nurse raw", canonical_id="nurse", canonical_name="Nurse")],
                 mirror_base_url="",
+                previous_pages=[previous],
             )
 
             promoted_path = scoped_dir / "question.pdf"
@@ -1061,7 +1138,7 @@ def test_distinct_urls_with_reused_codes_have_independent_mirrors(tmp_path):
     client.only_first = True
     client.downloaded_urls.clear()
     _, refreshed, failures = sync_exam_pages(
-        client, [('115030', 2026)], store, [], '', download_attachments=False,
+        client, [('115030', 2026)], store, [], '', download_attachments=False, previous_pages=pages,
     )
     assert not failures
     assert not client.downloaded_urls

@@ -241,6 +241,20 @@ Use official Chunghwa Post recruitment event pages and their directly linked exa
 
 Use the official RCPET CAP archive and its event-linked assessment materials. Provider normalization must preserve the official assessment identity rather than deriving it only from filenames.
 
+The [ROC 103 archive](https://cap.rcpet.edu.tw/exam/103/103exam.html)
+linked both 試題說明 and 國文科 to the same Google Drive file on 2026-10-10.
+A fresh download matched the retained Chinese paper, whereas the retained
+explanation begins 「103 年國中教育會考試題說明」. Keep the last verified
+explanation reference and its bytes; reject conflicting source labels before
+replacing that event. The failure ledger records the unresolved official link.
+Earlier source references and the rejected metadata remain in provider revision
+recovery, without treating that metadata as proof of the linked payload.
+
+The [ROC 111 reference-test archive](https://cap.rcpet.edu.tw/exam/111c/111practice.html)
+relocated its eight files from Google Drive to Chinese filenames on the official
+site. Fresh encoded requests verified that all eight payloads match the retained
+checksums. Encode request URLs without changing the recorded source spelling.
+
 ## `sfi_cert`
 
 Use official SFI category and event pages, with embedded paper headings as identity evidence when adapter labels conflict. A reachable PDF is not publishable until its official category and event agree.

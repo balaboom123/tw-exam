@@ -626,6 +626,10 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
         print(str(exc), flush=True)
         return 1
     aliases = load_alias_rules(args.aliases)
+    provider_state = _provider_state_paths(args.data_dir, args.mirror_dir, provider_id)
+    existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
+        load_provider_state(provider_state)
+    )
     refreshed_raw_pages, refreshed_catalog, sync_failures = sync_exam_pages(
         client=sync_client,
         exam_codes=exam_codes,
@@ -634,6 +638,7 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
         mirror_base_url="",
         download_attachments=args.download_attachments,
         refresh_files=bool(getattr(args, "refresh_files", False)),
+        previous_pages=existing_provider_raw_pages,
     )
     allow_partial = bool(getattr(args, "allow_partial", False))
     # Targeted sync remains fail-closed by default.  The explicit partial mode
@@ -642,10 +647,6 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
     if sync_failures and not allow_partial:
         _print_failures(sync_failures)
         return 1
-    provider_state = _provider_state_paths(args.data_dir, args.mirror_dir, provider_id)
-    existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
-        load_provider_state(provider_state)
-    )
     refreshed_exam_ids = {page.source_exam_id for page in refreshed_raw_pages}
     provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = (
         merge_targeted_state(
@@ -744,6 +745,7 @@ def command_repair_failures(args: argparse.Namespace, client: SourceProvider | N
         mirror_base_url="",
         download_attachments=not args.skip_attachments,
         refresh_files=bool(getattr(args, "refresh_files", False)),
+        previous_pages=existing_raw_pages,
     )
     failed_exam_ids = {failure.source_exam_id for failure in sync_failures}
     safe_exam_ids = {
@@ -843,6 +845,9 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         return 1
     aliases = load_alias_rules(args.aliases)
     mirror_store = MirrorStore(args.mirror_dir)
+    existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
+        load_provider_state(provider_state)
+    )
     all_raw_pages: list[SourceExamPage] = []
     all_papers: list[NormalizedPaper] = []
     all_review_queue: list[ReviewItem] = []
@@ -884,6 +889,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
                 mirror_base_url="",
                 download_attachments=args.download_attachments,
                 refresh_files=bool(getattr(args, "refresh_files", False)),
+                previous_pages=existing_provider_raw_pages,
             )
         except Exception as exc:
             print(f"Year {year}: failed with unexpected error: {exc}")
@@ -914,9 +920,6 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
 
     incremental_mode = getattr(args, "year_window", None) is not None
     if incremental_mode:
-        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
-            load_provider_state(provider_state)
-        )
         failed_exam_ids = {failure.source_exam_id for failure in sync_failures}
         safe_raw_pages = [
             page for page in refreshed_raw_pages if page.source_exam_id not in failed_exam_ids
@@ -961,9 +964,6 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         # is what an archive of past papers has to do. It also keeps the
         # retained papers referenced, so --prune-orphaned-mirror leaves their
         # mirrored files alone.
-        existing_provider_raw_pages, existing_provider_catalog, existing_provider_failures = (
-            load_provider_state(provider_state)
-        )
         provider_raw_pages, provider_normalized, _, affected_canonical_ids, canonical_aliases = (
             merge_incremental_state(
                 existing_raw_pages=existing_provider_raw_pages,

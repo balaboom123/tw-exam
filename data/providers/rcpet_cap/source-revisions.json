@@ -379,6 +379,48 @@
       "blob_storage_key": "providers/rcpet_cap/recovery/source-revisions/5445d9c5a552eb43c60d1f34c26cb631b1defb672d89cc8220fe542864a096b3.pdf",
       "retained_at": "2026-10-10T10:03:47.206294+00:00",
       "reason": "source_reference_retired"
+    },
+    {
+      "id": "427cb2eb5e6af846d90a44c42ab857aa2c4d51e161ec836dbcc9ec3ed1e0c299",
+      "record_type": "paper",
+      "source_record": {
+        "canonical_id": "rcpet-cap",
+        "canonical_name": "國中教育會考",
+        "year_roc": 103,
+        "exam_name_raw": "103年國中教育會考題本及相關檔案",
+        "category_raw": "國中教育會考",
+        "subject_name_raw": "試題說明",
+        "paper_code": "103-all-subjects-question_alt",
+        "file_type": "question_alt",
+        "download_url_source": "https://drive.google.com/file/d/1LHS0K2YLrDhS_jz2CULl8AnFN23h1x0M/view?usp=drive_link",
+        "category_code": "103",
+        "source_exam_id": "cap-103",
+        "subject_code": "all-subjects",
+        "download_url_mirror": "",
+        "storage_key": "providers/rcpet_cap/103/cap-103/103/all-subjects/question_alt.pdf",
+        "checksum": "f0a5d0a1e5a8c6cd81661ae3c07c5e3f05684ed1ad2e73e099c2adf1781963a9",
+        "provider_id": "rcpet_cap",
+        "schema_version": 2,
+        "catalog_version": "exam-identity-v2",
+        "domain_id": "admissions",
+        "exam_family_id": "secondary-admission",
+        "exam_series_id": "admission-cap",
+        "level_id": "not-applicable",
+        "track_id": "cap",
+        "variant_ids": [],
+        "stage_id": "not-applicable",
+        "exam_event_id": "cap-103",
+        "bundle_id": "rcpet-cap-admission-cap-not-applicable-cap",
+        "bundle_name": "國中教育會考",
+        "bundle_policy_id": "default-bundle-policy-v2",
+        "classification_confidence": "medium",
+        "classification_reason": "provider policy declares no level dimension",
+        "exam_class": "升學測驗",
+        "exam_subclass": "國中教育會考"
+      },
+      "blob_storage_key": "providers/rcpet_cap/recovery/source-revisions/f0a5d0a1e5a8c6cd81661ae3c07c5e3f05684ed1ad2e73e099c2adf1781963a9.pdf",
+      "retained_at": "2026-10-11T01:07:52.086009+00:00",
+      "reason": "source_reference_retired"
     }
   ]
 }

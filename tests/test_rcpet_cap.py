@@ -259,6 +259,11 @@ class YearPageParserTests(unittest.TestCase):
         desc_papers = [p for p in result.papers if "question_alt" in p.files]
         self.assertEqual(len(desc_papers), 1)
 
+    def test_conflicting_labels_cannot_share_one_download(self) -> None:
+        html = YEAR_PAGE_HTML.replace("/desc-id/", "/chinese-id/")
+        with self.assertRaisesRegex(ValueError, "conflicting labels.*試題說明, 國文科"):
+            parse_year_page(html, year_roc=115)
+
     def test_parse_year_page_111c_gets_unique_id(self) -> None:
         result = parse_year_page(YEAR_PAGE_HTML_LEGACY, year_roc=111, year_dir="111c")
 
@@ -276,6 +281,23 @@ class YearPageParserTests(unittest.TestCase):
 
 
 class RcpetCapClientTests(unittest.TestCase):
+    def test_chinese_source_filenames_are_encoded_for_requests(self) -> None:
+        url = "https://cap.rcpet.edu.tw/exam/111c/111年參考試題本.pdf?x=%20"
+        client = RcpetCapClient()
+        for operation in [client._fetch_text, client.head, client.download_file]:
+            with self.subTest(operation=operation.__name__):
+                with patch("app.providers.rcpet_cap.client.urlopen") as opened:
+                    response = opened.return_value.__enter__.return_value
+                    response.read.return_value = b"%PDF-1.7 native"
+                    response.headers = {"Content-Type": "application/pdf"}
+                    response.status = 200
+                    operation(url)
+                requested = opened.call_args.args[0].full_url
+                self.assertEqual(
+                    requested,
+                    "https://cap.rcpet.edu.tw/exam/111c/111%E5%B9%B4%E5%8F%83%E8%80%83%E8%A9%A6%E9%A1%8C%E6%9C%AC.pdf?x=%20",
+                )
+
     @patch.object(RcpetCapClient, "_fetch_text", return_value=YEAR_PAGE_HTML)
     def test_fetch_exam_page_returns_source_exam_page(self, mock_fetch) -> None:
         client = RcpetCapClient()

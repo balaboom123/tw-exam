@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import parse_qsl, unquote, urlencode, urljoin, urlparse
+from urllib.parse import parse_qsl, quote, unquote, urlencode, urljoin, urlparse
 from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
@@ -218,6 +218,7 @@ def parse_year_page(
     effective_dir = year_dir or str(year_roc)
     source_exam_id = f"cap-{effective_dir}"
     papers: list[ParsedPaper] = []
+    labels_by_url: dict[str, str] = {}
 
     for label, href in parser.links:
         if _SKIP_LABELS.search(label):
@@ -229,6 +230,13 @@ def parse_year_page(
 
         subject_slug, file_type = mapping
         url = urljoin(base_url, href) if base_url else href
+        previous_label = labels_by_url.get(url)
+        if previous_label is not None and previous_label != label:
+            raise ValueError(
+                f"CAP archive reuses one source URL for conflicting labels: "
+                f"{previous_label}, {label} ({url})"
+            )
+        labels_by_url[url] = label
 
         papers.append(
             ParsedPaper(
@@ -258,13 +266,13 @@ class RcpetCapClient:
         self._dropdown_entries_cache: tuple[DropdownEntry, ...] | None = None
 
     def _fetch_text(self, url: str) -> str:
-        request = Request(url, headers={"User-Agent": USER_AGENT})
+        request = Request(quote(url, safe=":/?&=%+#()"), headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=60) as response:
             body: bytes = response.read()
             return body.decode("utf-8", "replace")
 
     def head(self, url: str) -> ResponseMetadata:
-        url = _resolve_gdrive_url(url)
+        url = quote(_resolve_gdrive_url(url), safe=":/?&=%+#()")
         request = Request(url, headers={"User-Agent": USER_AGENT}, method="HEAD")
         with urlopen(request, timeout=60) as response:
             content_length = response.headers.get("Content-Length")
@@ -278,7 +286,7 @@ class RcpetCapClient:
             )
 
     def download_file(self, url: str) -> DownloadedFile:
-        url = _resolve_gdrive_url(url)
+        url = quote(_resolve_gdrive_url(url), safe=":/?&=%+#()")
         request = Request(url, headers={"User-Agent": USER_AGENT})
         with urlopen(request, timeout=120) as response:
             data: bytes = response.read()

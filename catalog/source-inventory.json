@@ -889,11 +889,11 @@
       "evidence": [
         "docs/providers/notes.md#rcpet_cap"
       ],
-      "exam_category": "RCPET CAP / teacher-education screening exam papers",
+      "exam_category": "國中教育會考及其試辦、參考試題",
       "local_state": {
         "normalized_paper_records": 136,
         "raw_event_pages": 15,
-        "sync_failures": 0
+        "sync_failures": 1
       },
       "local_years": [
         2013,
@@ -917,6 +917,7 @@
       "provider_id": "rcpet_cap",
       "restrictions": [
         "Public page uses per-year iframe links and official files hosted on Google Drive; file IDs can be replaced without changing an event identity.",
+        "On 2026-10-10 the ROC 103 explanation and Chinese-paper labels pointed to the same file. Fresh bytes match the Chinese paper, not the retained explanation. The last verified explanation reference and payload are retained; conflicting labels fail acquisition before replacing the event. Eight ROC 111 reference-test files relocated to Chinese filenames on the official site and were independently checksum-verified.",
         "Pilot-year and reference-test materials are intentionally included in this provider scope.",
         "Materials are publicly downloadable, but no explicit redistribution license is recorded in the repository."
       ],

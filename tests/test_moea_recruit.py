@@ -510,7 +510,7 @@ def test_reordering_reuses_verified_mirrors_without_new_downloads_or_paths(tmp_p
         patch.object(client, "_iter_entries", return_value=entries),
         patch.object(client, "download_file", return_value=download) as acquire,
     ):
-        _, original, failures = sync_exam_pages(client, [("moea-recruit-112", 2023)], store, [], "")
+        previous_pages, original, failures = sync_exam_pages(client, [("moea-recruit-112", 2023)], store, [], "")
     assert not failures and acquire.call_count == 4
     before = {path.relative_to(store.root) for path in store.root.rglob("*") if path.is_file()}
     reordered = [
@@ -524,7 +524,7 @@ def test_reordering_reuses_verified_mirrors_without_new_downloads_or_paths(tmp_p
             side_effect=AssertionError("Existing original should be reused"),
         ) as acquire,
     ):
-        _, current, failures = sync_exam_pages(client, [("moea-recruit-112", 2023)], store, [], "")
+        _, current, failures = sync_exam_pages(client, [("moea-recruit-112", 2023)], store, [], "", previous_pages=previous_pages)
     assert not failures and acquire.call_count == 0
     assert {
         path.relative_to(store.root) for path in store.root.rglob("*") if path.is_file()
