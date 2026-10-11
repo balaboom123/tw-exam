@@ -1714,11 +1714,12 @@
       "evidence": [
         "data/providers/twc_recruit/source-manifest.json",
         "catalog/mappings/twc/archive-identity-v1.json",
+        "catalog/mappings/twc/archive-papers-v1.json",
         "docs/providers/notes.md#twc_recruit"
       ],
       "exam_category": "Taiwan Water Corporation recruitment papers",
       "local_state": {
-        "normalized_paper_records": 11,
+        "normalized_paper_records": 202,
         "raw_event_pages": 11,
         "sync_failures": 1
       },
@@ -1742,14 +1743,15 @@
       "provider_id": "twc_recruit",
       "restrictions": [
         "The canonical archive omits ROC 109 and 113 and exposes no enumerable official pre-ROC-103 namespace; third-party copies are not accepted as sources.",
-        "The 2026-10-11 live-byte comparison found all ten earlier source ZIPs still matched retained mirrors. ROC 107 has two unreadable PDF members: one CRC failure and one bad local header; normal full sync records the exact failed container download and catalog/source-coverage/twc_recruit.json documents it. Legacy ZIP filenames decode portably with the reviewed native encodings, but publication still needs a child projection that excludes operating-system metadata and preserves source relationships. All eleven official SHA pages were rechecked, confirming discrepancies for ROC 107, 110, and 114.",
+        "The 2026-10-11 live-byte comparison found all ten earlier source ZIPs still matched retained mirrors. ROC 107 has two unreadable PDF members: one CRC failure and one bad local header; normal full sync records the exact failed container download and catalog/source-coverage/twc_recruit.json documents it. Legacy ZIP filenames decode portably with the reviewed native encodings, and the reviewed child projection now exposes native papers while retaining the original containers and source relationships. Occupational applicability remains unresolved. All eleven official SHA pages were rechecked, confirming discrepancies for ROC 107, 110, and 114.",
         "The official listing now uses generic accessibility titles. Discovery reads the visible year-bearing link label and still rejects unparsed candidates, duplicate years, and duplicate URLs. All eleven current source links are reconciled.",
         "The public ROC 115 ZIP was acquired through normal provider sync on 2026-10-11: 13 CRC-valid PDFs, 94 pages, with native evaluation-position programme headers, shared recruitment categories, and answer-marked questions. An earlier contractor-route review found applicant login; that route does not establish availability of the independent official archive.",
+        "All ten CRC-valid annual containers are projected through checksum-anchored full native paths into PDF source references. Desktop thumbnails and an Office lock file remain in the original containers and are omitted from paper projection. Byte-identical ROC 111 references share mirror payloads without losing their paths; different-checksum ROC 106 renditions remain separately traceable. Questions, separate answers and answer-marked questions retain their reviewed roles. ROC 107 stays a withheld complete container with its original failure.",
         "Taiwan Water's open-data declaration uses Taiwan Government Data Open License 1.0 with attribution and stated caveats; robots.txt contains contradictory wildcard Allow and Disallow groups."
       ],
       "source_name": "台灣自來水股份有限公司",
       "status": "partial",
-      "status_reason": "Complete bounded discovery and retention of the eleven current official ZIPs, including public ROC 115. Ordinary archive roles and reviewed initial-written date/stage facts are applied during normalization; unreviewed annual dates/stages remain explicitly unknown. Publication remains withheld pending complete native occupational applicability, corrected-answer and portable child-projection review; ROC 107 also has two unreadable members. Original source bytes and historical references are retained."
+      "status_reason": "Complete bounded discovery and retention of the eleven current official ZIPs, including public ROC 115. All ten valid containers now expose checksum-verified native PDF references and preserve original source archives and superseded wrapper history. Reviewed initial-written date/stage facts are applied; unreviewed annual dates/stages stay unknown. Publication remains withheld pending occupational applicability and complete historical programme review; ROC 107 retains two unreadable members and its original failed-container evidence."
     },
     {
       "available_years": {

@@ -1,14 +1,22 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
+from pathlib import PurePosixPath
 from urllib.parse import parse_qs, urljoin, urlsplit
 
-from app.models import ExamOption, ParsedPaper, SourceExamPage
+from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.twc_recruit.archive import (
+    extract_native_members,
+    member_locator,
+    native_archives,
+    parse_member_locator,
+)
 
 BASE_URL = "https://www.water.gov.tw/"
 DOWNLOAD_PAGE_URL = "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
@@ -181,6 +189,8 @@ class TwcRecruitClient:
 
     def __init__(self) -> None:
         self._cached_entries: list[TwcRecruitEntry] | None = None
+        self._archive_downloads: dict[str, DownloadedFile] = {}
+        self._native_payloads: dict[tuple[str, str], dict[str, bytes]] = {}
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
 
     @staticmethod
@@ -201,12 +211,46 @@ class TwcRecruitClient:
         return self.http.get_text(url, encoding="utf-8")
 
     def head(self, url: str) -> ResponseMetadata:
+        if urlsplit(url).fragment:
+            file = self.download_file(url)
+            return ResponseMetadata(
+                url=url,
+                status=200,
+                content_length=len(file.data),
+                content_type=file.content_type,
+                content_disposition="",
+            )
         self._validate_download_url(url)
         return self.http.head(url)
 
-    def download_file(self, url: str) -> DownloadedFile:
+    def _download_archive(self, url: str) -> DownloadedFile:
         self._validate_download_url(url)
-        return self.http.download(url, content_disposition_name=False)
+        if url not in self._archive_downloads:
+            self._archive_downloads[url] = self.http.download(url, content_disposition_name=False)
+        return self._archive_downloads[url]
+
+    def download_file(self, url: str) -> DownloadedFile:
+        if not urlsplit(url).fragment:
+            return self._download_archive(url)
+        archive_url, checksum, name = parse_member_locator(url)
+        matches = [
+            fact
+            for fact in native_archives()
+            if fact.source_url == archive_url and fact.checksum == checksum
+        ]
+        if len(matches) != 1 or not any(
+            member.name == name and member.file_role != "source_artifact"
+            for member in matches[0].members
+        ):
+            raise ValueError("Unreviewed Taiwan Water native paper locator")
+        key = (archive_url, checksum)
+        if key not in self._native_payloads:
+            self._native_payloads[key] = extract_native_members(
+                matches[0], self._download_archive(archive_url).data
+            )
+        return DownloadedFile(
+            self._native_payloads[key][name], "application/pdf", PurePosixPath(name).name
+        )
 
     def _iter_entries(self) -> list[TwcRecruitEntry]:
         if self._cached_entries is not None:
@@ -277,12 +321,48 @@ class TwcRecruitClient:
         )
         if entry is None:
             raise ValueError(f"No Taiwan Water recruitment event for {exam_code} ({year_ad})")
+        role = archive_file_role(entry.label)
+        candidates = [
+            fact
+            for fact in native_archives()
+            if role == "question_answer"
+            and fact.year_roc == entry.year_roc
+            and fact.source_url == entry.url
+            and fact.members
+        ]
+        if candidates:
+            data = self._download_archive(entry.url).data
+            checksum = hashlib.sha256(data).hexdigest()
+            archive = next((fact for fact in candidates if fact.checksum == checksum), None)
+            if archive is not None:
+                self._native_payloads[entry.url, checksum] = extract_native_members(archive, data)
+                return SourceExamPage(
+                    source_exam_id=exam_code,
+                    year_ad=year_ad,
+                    year_roc=entry.year_roc,
+                    exam_name_raw=entry.label,
+                    attachments=[ExamAttachment(entry.label, "source_archive", entry.url)],
+                    papers=[
+                        ParsedPaper(
+                            category_raw=CANONICAL_CATEGORY,
+                            category_code=str(entry.year_roc),
+                            subject_code=member.subject_code,
+                            subject_name_raw=member.subject_label,
+                            files={member.file_role: member_locator(archive, member)},
+                        )
+                        for member in archive.members
+                        if member.file_role != "source_artifact"
+                    ],
+                    provider_id=self.provider_id,
+                )
+        # Unknown versions and known damaged containers retain the original
+        # acquisition path and explicit review/failure handling.
         paper = ParsedPaper(
             category_raw=CANONICAL_CATEGORY,
             category_code=str(entry.year_roc),
             subject_code=f"twc-recruit-{entry.year_roc}-bundle",
             subject_name_raw=entry.label,
-            files={archive_file_role(entry.label): entry.url},
+            files={role: entry.url},
         )
         return SourceExamPage(
             source_exam_id=exam_code,

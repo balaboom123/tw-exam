@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from app.archive_paths import WINDOWS_RESERVED_NAMES as WINDOWS_RESERVED_NAMES
 from app.models import (
     BundleAsset,
     BundleBuildResult,
@@ -46,15 +47,6 @@ from app.source_material import (
 )
 
 PaperKey = tuple[int, str, str, str, str, str]
-
-WINDOWS_RESERVED_NAMES = {
-    "CON",
-    "PRN",
-    "AUX",
-    "NUL",
-    *(f"COM{index}" for index in range(1, 10)),
-    *(f"LPT{index}" for index in range(1, 10)),
-}
 
 # GitHub rejects release assets at 2 GiB or larger. Keep a generous margin
 # because the API limit is strict and ZIP metadata adds a small amount.

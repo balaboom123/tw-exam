@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/twc-archive-papers-v1.schema.json",
+  "title": "Reviewed Taiwan Water native paper inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "provider_id", "archives"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "provider_id": {"const": "twc_recruit"},
+    "archives": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/archive"}
+    }
+  },
+  "$defs": {
+    "checksum": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "member": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "native_name", "checksum", "file_role", "subject_label",
+        "native_category_header", "revision_notice"
+      ],
+      "properties": {
+        "native_name": {"type": "string", "minLength": 1},
+        "checksum": {"$ref": "#/$defs/checksum"},
+        "file_role": {"enum": ["question", "answer", "question_answer", "source_artifact"]},
+        "subject_label": {"type": "string"},
+        "native_category_header": {"type": "string"},
+        "revision_notice": {"type": "string"}
+      },
+      "allOf": [{
+        "if": {"properties": {"file_role": {"const": "source_artifact"}}},
+        "then": {
+          "properties": {
+            "subject_label": {"const": ""},
+            "native_category_header": {"const": ""},
+            "revision_notice": {"const": ""}
+          }
+        },
+        "else": {
+          "properties": {
+            "subject_label": {"minLength": 1},
+            "native_category_header": {"minLength": 1}
+          }
+        }
+      }]
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "programme_year_roc", "source_url", "checksum", "reviewed_at",
+        "review_reason", "members"
+      ],
+      "properties": {
+        "programme_year_roc": {"type": "integer", "minimum": 1, "maximum": 999},
+        "source_url": {"type": "string", "format": "uri"},
+        "checksum": {"$ref": "#/$defs/checksum"},
+        "reviewed_at": {"type": "string", "format": "date"},
+        "review_reason": {"type": "string"},
+        "members": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/member"}
+        }
+      },
+      "allOf": [{
+        "if": {"properties": {"review_reason": {"const": ""}}},
+        "then": {"properties": {"members": {"minItems": 1}}},
+        "else": {"properties": {"members": {"maxItems": 0}, "review_reason": {"minLength": 1}}}
+      }]
+    }
+  }
+}

@@ -7,6 +7,7 @@ from app.providers.twc_recruit.client import TwcRecruitClient
 
 class TwcRecruitProvider(SourceProvider):
     provider_id = "twc_recruit"
+    download_attachments_on_sync = True
 
     def __init__(self, client: TwcRecruitClient | None = None) -> None:
         self.client = client or TwcRecruitClient()

@@ -1804,6 +1804,28 @@ def _classify_paper_uncached(
             "Taiwan Water outer archive requires native occupational applicability review; "
             f"{reason}"
         )
+    elif provider_id == "twc_recruit":
+        from app.providers.twc_recruit.archive import resolve_native_member
+
+        native = resolve_native_member(
+            year_ad - 1911, subject_code, source_checksum, source_material=source_material
+        )
+        archive = (
+            resolve_archive_identity(
+                year_ad - 1911, native[0].checksum, source_url=native[0].source_url
+            )
+            if native is not None
+            and source_exam_id == f"twc-recruit-{year_ad - 1911}"
+            and category_code == str(year_ad - 1911)
+            else None
+        )
+        stage_id = (
+            archive.stage_id
+            if archive is not None and source_material == archive.material
+            else "unknown"
+        )
+        confidence = "review"
+        reason = f"Taiwan Water native paper requires occupational applicability review; {reason}"
     if provider_id == "cpc_recruit" and track_id == "cpc-doctoral" and stage_id == NOT_APPLICABLE:
         # The static doctoral archive supplies the initial written test. Its
         # official brochures distinguish this from the later interview and

@@ -413,8 +413,12 @@ a filename. Initial written papers remain separate from the later practical,
 physical and oral assessments. Professional subject numbers are paper slots,
 not selection stages, and a school prerequisite is not an examination grade.
 These outer-archive facts do not establish every native occupational applicability
-relationship or authorize child publication. Historical answer-change labels and
-different original renditions must remain traceable during the pending projection.
+relationship or authorize child publication. The checksum-anchored
+[native paper inventory](../../catalog/mappings/twc/archive-papers-v1.json) now
+drives portable PDF projection while retaining original containers separately.
+Historical answer-change and 疑義後 labels, shared native category headers, and
+different original renditions remain traceable. This file review does not approve
+occupational identities or remove the publication hold.
 
 Download anchors may use a generic accessibility title; use the visible
 year-bearing file label when the title has no year. Keep candidate reconciliation
@@ -430,7 +434,7 @@ wrapper records during catalog migration. Former roles remain traceable in the
 source revision journal, and historical source locators are preserved until a
 successful acquisition supplies their current role-specific mirror locator.
 
-Preserve original ZIP bytes separately from any future portable publication
+Preserve original ZIP bytes separately from portable native paper
 projection. Legacy filename decoding and corrupt nested members require explicit
 review. Native recruitment categories may share a subject paper; answer-marked
 questions must not be presented as an unanswered copy merely because the outer

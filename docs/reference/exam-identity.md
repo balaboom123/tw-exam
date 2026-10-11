@@ -21,6 +21,23 @@ same programme year and checksum must agree on the written-test date, while its
 material evidence resolves against the exact source URL. Changed bytes without
 their own review remain unresolved.
 
+Taiwan Water's native paper catalogue records the original archive checksum,
+full decoded member path, member checksum, file role, and native subject and
+category headers. The provider retains the original container as a source
+attachment and projects PDFs only when every member agrees with the reviewed
+inventory. Legacy CP950 filenames and verified Unicode path metadata are decoded
+before applying the shared portable-path policy. A member locator contains both
+the parent checksum and full path; changes in ZIP ordering do not rename a paper.
+Desktop thumbnail databases and Office lock files remain in the original source
+container and are excluded from paper projection. A damaged container remains
+whole and unresolved rather than producing a partial successful projection.
+
+Native file review does not establish occupational bundle identities. Shared
+papers can name several recruitment categories, and those relationships remain
+in the reviewed native headers until their occupation and variant boundaries
+are established. Projected papers retain the provider's publication quarantine
+and an explicit classification review disposition.
+
 ## Why this exists
 
 A display name such as 「一般行政」 is a track, not a complete exam identity. The same track can occur in high, ordinary, elementary, local, promotion, disability, indigenous, customs, or other programs. Grouping by a stripped display name therefore creates mixed bundles.

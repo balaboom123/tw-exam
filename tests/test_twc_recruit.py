@@ -327,6 +327,12 @@ class TwcRecruitEntryTests(unittest.TestCase):
 # ---------------------------------------------------------------------------
 
 class TwcRecruitClientTests(unittest.TestCase):
+    def setUp(self):
+        # These HTML-only fixtures exercise discovery and the unreviewed
+        # container fallback. Native byte projection has separate regressions.
+        native = patch("app.providers.twc_recruit.client.native_archives", return_value=())
+        native.start()
+        self.addCleanup(native.stop)
 
     def test_discover_available_years_returns_sorted_descending(self) -> None:
         with patch.object(TwcRecruitClient, "_fetch_text", return_value=DETAIL_PAGE_HTML):
@@ -438,7 +444,7 @@ class TwcRecruitClientTests(unittest.TestCase):
         self.assertEqual(page.year_roc, 114)
 
     def test_fetch_exam_page_has_exactly_one_paper(self) -> None:
-        """Each year produces exactly one ParsedPaper (the ZIP bundle)."""
+        """An unreviewed container remains one source paper pending review."""
         with patch.object(TwcRecruitClient, "_fetch_text", return_value=DETAIL_PAGE_HTML):
             client = TwcRecruitClient()
             page = client.fetch_exam_page("twc-recruit-114", 2025)

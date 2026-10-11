@@ -1,0 +1,1752 @@
+{
+  "schema_version": 1,
+  "provider_id": "twc_recruit",
+  "archives": [
+    {
+      "programme_year_roc": 103,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/e7ac95c8-84cb-417a-a29d-d16cdb5527f2?nodeId=715",
+      "checksum": "7121f3914e68508d38292c39dba6451f8379bf80c58f0da63435014b8426806c",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "103年試題(解答)/(全類組)共同科目-網路公告版-一般常識-公民-電子計算機概論-國文閱讀測驗(已合併).pdf",
+          "checksum": "7ebb35b8e96cd2166bcacfedd153848cf9762ce506f2810c00c17a9b70ca2496",
+          "file_role": "question_answer",
+          "subject_label": "共同科目：包括一般法律常識、公民、電子計算機概論及國文閱讀測驗等",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【F7801-F7804】／ 技術士操作類-乙(淨水、管線、水源)【F7805-F7808】／技術士化驗類【F7809】／ 技術士裝修類【F7810-F7812】／技術士工程類【F7813-F7816】／ 營運士業務類【F7817-F7822】／營運士業務類-抄表人員【F7823-F7824】／ 營運士行政類【F7825-F7828】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/1-F7801-04.F7805-08.F7809技術士操作類甲.乙.技術士化驗類-高中（職）物理化學-公告版.pdf",
+          "checksum": "91909f2d93f4e0934abb6143f1c3c7c7baea86a7d0c7fc09757c12cc17df87fb",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：高中（職）物理化學",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【F7801-F7804】／ 技術士操作類-乙(淨水、管線、水源)【F7805-F7808】／ 技術士化驗類【F7809】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/1-F7810-F7812技術士裝修類-高中（職）配管裝修-公告版.pdf",
+          "checksum": "b0356e1d5832ccb5c23e1e14465806f5721a9bb1d4a21bf56cf28cb9c67fe9b3",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：高中（職）配管裝修",
+          "native_category_header": "甄試類別：技術士裝修類【F7810-F7812】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/1-F7813-F7816技術士工程類-高中（職）土木及水管埋設施工-公告版.pdf",
+          "checksum": "fc813e631ff0333aadb0591523e15fae25f74e45436571de57dae0567a63883a",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：高中（職）土木及水管埋設施工",
+          "native_category_header": "甄試類別：技術士工程類【F7813-F7816】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/1-F7817-22.F7823-24營運士業務類+抄表人員-企業管理概要-公告版(103.9.26更正).pdf",
+          "checksum": "c26eb26768d1ed7fcc52c7faa26b4e8e254212d8e00f76d7290ef72177b9f196",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：企業管理概要",
+          "native_category_header": "甄試類別：營運士業務類【F7817-F7822】／營運士業務類-抄表人員【F7823-F7824】",
+          "revision_notice": "1-F7817-22.F7823-24營運士業務類+抄表人員-企業管理概要-公告版(103.9.26更正).pdf"
+        },
+        {
+          "native_name": "103年試題(解答)/1-F7825-F7828營運士行政類-土地法規-公告版.pdf",
+          "checksum": "5de5a3ab6d6420391367280526f2095296835c9ea1b7528b6fe317233ec41ca2",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：土地法規",
+          "native_category_header": "甄試類別：營運士行政類【F7825-F7828】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7801-F7804技術士操作類-甲類-基本電學-公告版.pdf",
+          "checksum": "7b2ae85f4d0b1135a677644d605c6953ec729d49450ecdab789ca49d77d72bfb",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：基本電學",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【F7801-F7804】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7805-F7808技術士操作類-乙-自來水工程概要-公告版.pdf",
+          "checksum": "f7eec8bad9b678b350e1f91a4ae799d9a5708936974149087b4ff3cd99472c8e",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：自來水工程概要",
+          "native_category_header": "甄試類別：技術士操作類-乙(淨水、管線、水源)【F7805-F7808】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7809技術士化驗類-高中（職）分析化學及檢驗室操作需知-公告版.pdf",
+          "checksum": "02b4f06e8f5c0af30eb93b5177f3ad5ac328d40662795ab7abda5bbd7422c637",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：高中（職）分析化學及檢驗室操作需知",
+          "native_category_header": "甄試類別：技術士化驗類【F7809】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7810-F7812技術士裝修類-配管與儀器操作原理-公告版.pdf",
+          "checksum": "a62e118208724fb6b6ddaaeb220e535ee73133dfdb0437baeb64d41bf9aaf687",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：配管與儀器操作原理",
+          "native_category_header": "甄試類別：技術士裝修類【F7810-F7812】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7813-F7816技術士工程類-電腦繪圖(AutoCad)-公告版.pdf",
+          "checksum": "37912e5ff7e05c4904e2b5ebc436d6911d959ff45088a7cf71474ecc6da4faf7",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：電腦繪圖（AutoCad）",
+          "native_category_header": "甄試類別：技術士工程類【F7813-F7816】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7817-F7822營運士業務類-英文-公告版.pdf",
+          "checksum": "7f55e886b3c8a9967d36be8c63e1ff2ff0e338a80bc3c6737d804c6c111c3e7e",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：英文",
+          "native_category_header": "甄試類別：營運士業務類【F7817-F7822】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7823-F7824營運士抄表類-自來水法及台灣自來水公司營業章程-公告版.pdf",
+          "checksum": "32de0a56957735e974946dc5971b9c0ec2b3ef4a7c02abb94bf49d1562c29cc0",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：營運士業務類-抄表人員【F7823-F7824】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "103年試題(解答)/2-F7825-F7828營運士行政類-民法物權編-公告版.pdf",
+          "checksum": "f5bebd15f8adc0119784346d8d335438045fdbc71d90da58d34b14df7fe88369",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：民法物權編",
+          "native_category_header": "甄試類別：營運士行政類【F7825-F7828】",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 104,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/3dc49939-b596-457f-a590-072036d2d161?nodeId=715",
+      "checksum": "47335feb4f71767750c579c5cac52ba471cd77a867c74b17adf55afb89390389",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "104年試題(解答)/(更正1040820)3.3-專2-技術士化驗類【H2108-09】-高中（職）分析化學及水質檢驗操作需知-公告版.pdf",
+          "checksum": "8fb68240f1df6cb1f411add47a882bcd7a9b6abac7e36726265503c57be7c57b",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：高中（職）分析化學及水質檢驗操作需知",
+          "native_category_header": "甄試類別：技術士化驗類【H2108-H2109】",
+          "revision_notice": "(更正1040820)3.3-專2-技術士化驗類【H2108-09】-高中（職）分析化學及水質檢驗操作需知-公告版.pdf"
+        },
+        {
+          "native_name": "104年試題(解答)/1-共同科目-全-網路公告版-一般常識-公民-電子計算機概論-國文閱讀測驗.pdf",
+          "checksum": "9e025c953fc65f1752ff9a5843e6dcf07adb26fae061e9977bd1b29a99b93537",
+          "file_role": "question_answer",
+          "subject_label": "共同科目：包括一般法律常識、公民、電子計算機概論及國文閱讀測驗等",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【H2101-H2104】／ 技術士操作類-乙(淨水、管線、水源)【H2105-H2107】／ 技術士化驗類【H2108-H2109】／技術士裝修類【H2110-H2117】／ 技術士工程類【H2118-H2121】／ 營運士業務類【H2122-H2124】／營運士業務類-抄表人員【H2125-H2127】／ 營運士行政類【H2128-H2129】／營運士行政類-護理人員【H2130-H2132】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/2.1-專1-技術士操作類甲.乙.技術士化驗類【H2101-04、05-07、08-09】-高中（職）物理化學-公告版.pdf",
+          "checksum": "b6521593ef9369c8928f95fece422d8a2ebc4a802d28225af282c5f7aa2ba0f8",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：高中（職）物理化學",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【H2101- H2104】／ 技術士操作類-乙(淨水、管線、水源)【H2105- H2107】／ 技術士化驗類【H2108- H2109】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/2.2-專1-技術士裝修類【H2110-17】-高中（職）配管裝修-公告版.pdf",
+          "checksum": "3cc02f19df6208b5c01ef88bead7dbe191118ff5897c3c91b73bbe81665bf58c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：高中（職）配管裝修",
+          "native_category_header": "甄試類別：技術士裝修類【H2110-H2117】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/2.3-專1-技術士工程類【H2118-21】-高中（職）土木及水管埋設施工-公告版.pdf",
+          "checksum": "c1e4384a374206fd8e4f1dd7f00bdc9a40f2f40cb93e232270e2554aea83ec03",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：高中（職）土木及水管埋設施工",
+          "native_category_header": "甄試類別：技術士工程類【H2118-H2121】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/2.4-專1-營運士業務類+抄表人員【H2122-27】-企業管理概要-公告版.pdf",
+          "checksum": "5a42da7d34ababf471d2d39b91822fda8000e9bc74221a5f4eb19f95a8246d27",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：企業管理概要",
+          "native_category_header": "甄試類別：營運士業務類【H2122-H2124】／營運士業務類-抄表人員【H2125-H2127】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/2.5-專1-營運士行政類【H2128-29】-土地法規-公告版.pdf",
+          "checksum": "f0aeedd6595a9e369a719afd040c38e38bd8a2c362d5bf2f6c7e16590140808a",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：土地法規",
+          "native_category_header": "甄試類別：營運士行政類【H2128-H2129】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/2.6-專1-營運士行政類-護理人員【H2130-32】-基礎醫學概要（包括解剖學、生理學、藥理學與微生物免疫學）-公告版.pdf",
+          "checksum": "077c1cf74d49b9bb0fd9304d5f9f7a1ebde75d1967dff18c692e94763b263018",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（1） ：基礎醫學概要（包括解剖學、生理學、藥理學與微生物免疫學）",
+          "native_category_header": "甄試類別：營運士行政類-護理人員【H2130-H2132】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.1-專2-技術士操作類甲【H2101-04】-基本電學-公告版.pdf",
+          "checksum": "815938911e5f9b7629d1e163164c72b3cd50ba3299c0240b190d36bc65729dc1",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：基本電學",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【H2101- H2104】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.2-專2-技術士操作類-乙【H2105-07】-自來水工程概要-公告版.pdf",
+          "checksum": "711c6249dae7ca7bcd35c5c76bbcf0ec852d7b9815e479f374d1ffc3a3c49652",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：自來水工程概要",
+          "native_category_header": "甄試類別：技術士操作類-乙(淨水、管線、水源)【H2105-H2107】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.4-專2-技術士裝修類【H2110-17】-配管與儀器操作原理-公告版.pdf",
+          "checksum": "6eeb95656bd4a1c32b6ab39a33f582acf41ba2b1e8698e9eb8dc4a4fdef1a82a",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：配管與儀器操作原理",
+          "native_category_header": "甄試類別：技術士裝修類【H2110-H2117】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.5-專2-技術士工程類【H2118-21】-電腦繪圖(AutoCad)-公告版.pdf",
+          "checksum": "f6845d31bc0c1c64dfddc2c4f0256af4f6919690464f95d4222517c88ef87be9",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：電腦繪圖（AutoCad）",
+          "native_category_header": "甄試類別：技術士工程類【H2118-H2121】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.6-專2-營運士業務類【H2122-24】-英文-公告版.pdf",
+          "checksum": "a584c09d63b77e86bdef508138b3f96671d730c4e65d8991df214fcd9cd551de",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：英文",
+          "native_category_header": "甄試類別：營運士業務類【H2122-H2124】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.7-專2-營運士抄表類【H2125-27】-自來水法及台灣自來水公司營業章程-公告版.pdf",
+          "checksum": "0569fbcbaabe7cd9867e400044f8b200ce6bbbd1ebd0f60d4314e41bcc3ac962",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：營運士業務類-抄表人員【H2125-H2127】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.8-專2-營運士行政類【H2128-29】-民法物權編-公告版.pdf",
+          "checksum": "383f79bfb727ca6c30d517e12cc14be2a83c244a8527d003c9e464e1e85d12c3",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：民法物權編",
+          "native_category_header": "甄試類別：營運士行政類【H2128-H2129】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/3.9-專2-營運士行政類-護理人員【H2130-32】-基礎護理學概要（包括護理原理與護理技術）-公告版.pdf",
+          "checksum": "bda64bfcdfec73ef84f61eb558d7b20bdca9240d835613c31200e329b12e3f28",
+          "file_role": "question_answer",
+          "subject_label": "專業科目（2） ：基本護理學概要（包括護理原理與護理技術）",
+          "native_category_header": "甄試類別：營運士行政類-護理人員【H2130-H2132】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "104年試題(解答)/~$5-專2-技術士工程類【H2116-19】-電腦繪圖(AutoCad)-公告版.doc",
+          "checksum": "09677d9ecd5cc53045e610272e96e4c9fdb111e519c15578dced03e702e11439",
+          "file_role": "source_artifact",
+          "subject_label": "",
+          "native_category_header": "",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 105,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/977326a1-ebeb-4549-a31a-4a7c0f93c12f?nodeId=715",
+      "checksum": "be442ace1e80c5cc7cc6fccdc898064e7bd6a13be89ce876da618a0417e5b74c",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "105年試題(解答)/2.1-專一-技術士操作類-甲乙、化驗類【I6001-03】-高中(職)物理化學-公告版.pdf",
+          "checksum": "bd4c24b0dd5b7086ed9664468cfc3e7cfa30c8357d023634a0ebf36e59409588",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)物理化學",
+          "native_category_header": "甄試類組【代碼】：技術士操作類-甲(機電)【I6001】、技術士操作類-乙(淨水、管線、水源)【I6002】、技術士化驗類【I6003】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/2.2-專一-技術士裝修類、檢漏人員【I6004-05】-高中(職)配管裝修-公告版.pdf",
+          "checksum": "db916cd102462685b4fca1e194fa5313e07e8e4a7355198fb18ec62bc7a9a1e4",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)配管裝修",
+          "native_category_header": "甄試類組【代碼】：技術士裝修類【I6004】、技術士裝修類-檢漏人員【I6005】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/2.3-專一-技術士工程類【I6006】-高中(職)土木及水管埋設施工-公告版.pdf",
+          "checksum": "6337e4d06c5078b8a48b3064e582fede48236a692bf142dc612df9b6649bb3bf",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類組【代碼】：技術士工程類【I6006】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/2.5-專一-營運士行政類【I6010】-土地法規-公告版.pdf",
+          "checksum": "6b78be149e179e1728d82898fa125b5f2b4848ae53641b0ebd5668b620f45f0c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：土地法規",
+          "native_category_header": "甄試類組【代碼】：營運士行政類【I6010】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/3.1-專二-技術士操作類-甲【I6001】-基本電學-公告版.pdf",
+          "checksum": "daa88ca94bd76776bc2d34f442a4b8dd8f3d8b4ca172f0bf006e03f0980835f5",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：基本電學",
+          "native_category_header": "甄試類組【代碼】：技術士操作類-甲(機電)【I6001】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/3.2-專二-技術士操作類-乙【I6002】-自來水工程概要-公告版.pdf",
+          "checksum": "e5f1a71af9136e3a60da0b5dd9610bbb550593417728094a4ef5d6842e7d3d8c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：自來水工程概要",
+          "native_category_header": "甄試類組【代碼】：技術士操作類-乙(淨水、管線、水源)【I6002】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/3.3-專二-技術士化驗類【I6003】-高中(職)分析化學及水質檢驗操作須知-公告版.pdf",
+          "checksum": "1edd6adf133a11da5a0a54cfb85e967316a5a60bb06e87cd5b1ea313019a0d5e",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類組【代碼】：技術士化驗類【I6003】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/3.5-專二-技術士工程類【I6006】-電腦繪圖(AutoCad)-公告版.pdf",
+          "checksum": "60d3dce497effe46b4c5d4ea01a28acb11a294d764e4fca725bd50f7623e051b",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類組【代碼】：技術士工程類【I6006】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/3.6-專二-營運士業務類、身障【I6007-08】-英文-公告版.pdf",
+          "checksum": "7e7221dc9274bc9ed8fda954f03607dd42a5cfd60fb97b7cac1e52814c684a51",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：英文",
+          "native_category_header": "甄試類組【代碼】：營運士業務類【I6007-I6008】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/3.7-專二-營運士業務類-抄表人員【I6009】-自來水法及台灣自來水公司營業章程-公告版.pdf",
+          "checksum": "af7e5ea909844abe47206f94c35416790a464c985b22559d4126ebf37c4c7f3c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類組【代碼】：營運士業務類─抄表人員【I6009】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "105年試題(解答)/答案異動_1-共-全類組【I6001-10】-一般法律常識、公民、電子計算機概論及國文閱讀測驗等-公告版.pdf",
+          "checksum": "06486c0b512dd8ec9e61d9746c7d15461cf31af9d2cc3c46808d1b8b5a945bc7",
+          "file_role": "question_answer",
+          "subject_label": "共同科目：一般法律常識、公民、電子計算機概論及國文閱讀測驗等",
+          "native_category_header": "甄試類組【代碼】：全類別【I6001-I6010】",
+          "revision_notice": "答案異動_1-共-全類組【I6001-10】-一般法律常識、公民、電子計算機概論及國文閱讀測驗等-公告版.pdf"
+        },
+        {
+          "native_name": "105年試題(解答)/答案異動_2.4-專一-營運士業務類、身障、抄表人員【I6007-09】-企業管理概要-公告版.pdf",
+          "checksum": "c8420a5ca055c8ce6a9bd438ad9d093ef00f3e6fd975378316bf3a5515db6e1e",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：企業管理概要",
+          "native_category_header": "甄試類組【代碼】：營運士業務類【I6007-I6008】、營運士業務類─抄表人員【I6009】",
+          "revision_notice": "答案異動_2.4-專一-營運士業務類、身障、抄表人員【I6007-09】-企業管理概要-公告版.pdf"
+        },
+        {
+          "native_name": "105年試題(解答)/答案異動_3.4-專二-技術士裝修類、檢漏人員【I6004-05】-配管與儀器操作原理-公告版.pdf",
+          "checksum": "7b916c1405ae1ed0abf31a94952ab8695ae723e0a1e9db5b4467987c18386869",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：配管與儀器操作原理",
+          "native_category_header": "甄試類組【代碼】：技術士裝修類【I6004】、技術士裝修類-檢漏人員【I6005】",
+          "revision_notice": "答案異動_3.4-專二-技術士裝修類、檢漏人員【I6004-05】-配管與儀器操作原理-公告版.pdf"
+        },
+        {
+          "native_name": "105年試題(解答)/答案異動_3.8-專二-營運士行政類【I6010】-民法物權編-公告版.pdf",
+          "checksum": "b50380cc82036893fcdd3a8d535ade9e6c7b97e45dddfc4170e20648773bbd67",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：民法物權編",
+          "native_category_header": "甄試類組【代碼】：營運士行政類【I6010】",
+          "revision_notice": "答案異動_3.8-專二-營運士行政類【I6010】-民法物權編-公告版.pdf"
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 106,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/69dedaed-5aae-4bc3-ab82-6c7e39d971ed?nodeId=715",
+      "checksum": "ce1f0662511a2860b2fad3d08782800f3b355e2f053650ff48d3ab3bd9cb3331",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "106年試題(解答)/共同科目.pdf",
+          "checksum": "72b8308217d5394d2ee1bb493ca79b3e98e6db29f2b50520f5173a753a9b3943",
+          "file_role": "question_answer",
+          "subject_label": "共同科目：包括一般法律常識、公民、電子計算機概論及國文閱讀測驗等",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)【K7601-K7612】 、 技術士操作類-乙(淨水、管線、水源)【K7613-K7622】 、 技術士化驗類【K7623-K7630】 、技術士裝修類【K7631-K7641】 、 技術士裝修類-檢漏人員【K7642-K7647】 、 技術士工程類【K7648-K7661】 、 營運士業務類(限身障人員報考)【K7701-K7705】 、 營運士業務類-抄表人員【K7801-K7807】 、營運士業務類【K7901-K7907】 、 營運士行政類【K8001-K8004】 、營運士行政類-地政人員【K8005-K8006】 、 營運士行政類-護理人員【K8007】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業目二-高中(職)皆析化學及水質檢驗操作須知.pdf",
+          "checksum": "96cb57b0b7fd79dac484cdbd63594e56fdbf8747c45d1243dd9bdce30c0481e7",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別【代碼】 ：技術士化驗類【K7623-K7630】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科二-民法物權編.pdf",
+          "checksum": "4da25ec0d291cc897c59c4699a4e114d84f9d20513217e72d9db21b6deeccdc0",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：民法物權編",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類－地政人員【K8005-K8006】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目-高中(職)配管裝修.pdf",
+          "checksum": "c8d397981f69de1adb4a653b51241401bcaa60d4f2b0c98aabd07e7244653340",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)配管裝修",
+          "native_category_header": "甄試類別【代碼】 ：技術士裝修類【K7631-K7641】 、技術士裝修類-檢漏人員【K7642-K7647】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-企業管理概要.pdf",
+          "checksum": "82ed61626a71e7fd829a9ef44c8df458f6638dd503a2efdd37565dc213051d3b",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：企業管理概要",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類(限身障人員報考)【K7701-K7705】 、 營運士業務類-抄表人員 【K7801-K7807】 、 營運士業務類 【K7901-K7907】 、 營運士行政類【K8001-K8004】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-企業管理要.pdf",
+          "checksum": "bc3eab900260db7215a64bc47904d74422d2e0cf3f26fd617c2159342e70dfd5",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：企業管理概要",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類(限身障人員報考)【K7701-K7705】 、 營運士業務類-抄表人員 【K7801-K7807】 、 營運士業務類 【K7901-K7907】 、 營運士行政類【K8001-K8004】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-土地法規.pdf",
+          "checksum": "8aa6b407c1c282b53c6a1e19a4a174f85d3ce927405f3ab21929e85936011e58",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：土地法規",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類－地政人員【K8005-K8006】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-基礎醫學概要.pdf",
+          "checksum": "be5df36c430ef7260e0b3952dbbd8debf2c1408b963a70b5606dfc8e49db6179",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：基礎醫學概要(包括解剖學、生理學、藥理學與微生物免疫學)",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類－護理人員【K8007】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-高中(職)土木及水管埋設施工.pdf",
+          "checksum": "e45226d4c4a831f30282c73a713f58e653ddc3b9ad8a560ab5798d2eae3c7f48",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別【代碼】 ：技術士工程類【K7648-K7661】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-高中(職)物理化學.pdf",
+          "checksum": "820a884e07235fb1031211a6523b00089a634573cec664fbec544dcbd0809479",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)物理化學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【K7601-K7612】 、 技術士操作類-乙(淨水、管線、水源)【K7613-K7622】 、 技術士化驗類【K7623-K7630】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目一-高中職物理化學.pdf",
+          "checksum": "d8e9beff20339e18c2b73ae899e330218b46ffc59b67dca61a1a80e047315f24",
+          "file_role": "question_answer",
+          "subject_label": "專業科目一：高中(職)物理化學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【K7601-K7612】 、 技術士操作類-乙(淨水、管線、水源)【K7613-K7622】 、 技術士化驗類【K7623-K7630】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-基本護理概要.pdf",
+          "checksum": "e679213d88bc3d20e6227c3b310e4ada9371a3e1e21e5b2bbb36d9bb79a6085e",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：基本護理學概要(包括護理原理與護理技術)",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類－護理人員【K8007】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-基本電學.pdf",
+          "checksum": "c2bf74f441b1dc53987825288c4ba8b86fecb22b3edb2d27f44ab8590be7dc0f",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：基本電學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【K7601-K7612】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-自來水工程概要.pdf",
+          "checksum": "17f3aec36f6179341804c65701517ad6beef565d36450971effb847f9c176970",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：自來水工程概要",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-乙(淨水、管線、水源)【K7613-K7622】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-自來水法及台灣自來水公司營業章程.pdf",
+          "checksum": "70f3ce39d173f6c01ce82bb63eb443bd65e79e13909c84fb6691dc152f8d524d",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類-抄表人員【K7801-K7807】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-英文.pdf",
+          "checksum": "b6b94af2b3556208ccfe400d2efa9e08288aae3732cca1080ee8eb427d98386c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：英文",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類(限身障人員報考)【K7701-K7705】 、 營運士業務類【K7901-K7907】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-行政學概要.pdf",
+          "checksum": "fb5cf283bb8503d55598966f7969fbba13626ad6166879b0afbdf0d8cd33bed1",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：行政學概要",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類【K8001-K8004】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-配管與儀器操作原理.pdf",
+          "checksum": "4a9c112dbcc221c0df03b967a5f31fd6eeec67000bf89146bf076685c6bc01b6",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：配管與儀器操作原理",
+          "native_category_header": "甄試類別【代碼】 ：技術士裝修類【K7631-K7641】 、技術士裝修類-檢漏人員【K7642-K7647】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "106年試題(解答)/專業科目二-電腦繪圖(AutoCad).pdf",
+          "checksum": "fbbe369dd0fea028a378316ba86abbbac399fe2ba43798f5742d909703fdcb39",
+          "file_role": "question_answer",
+          "subject_label": "專業科目二：電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別【代碼】 ：技術士工程類【K7648-K7661】",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 107,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/fc134ba2-f89b-478a-a003-d77c6be12771?nodeId=715",
+      "checksum": "489d4f92cf74f2c2838c7191f8e42717ab3a0783e94e08b77ed52acb11f90316",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "Two native PDFs fail their original ZIP CRC checks. Preserve the complete source container and its failure records; do not project partial successful papers.",
+      "members": []
+    },
+    {
+      "programme_year_roc": 108,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/f04a1355-016d-4f0f-aea2-1bcbbb736e13?nodeId=715",
+      "checksum": "cf71a9d0d01cfcac1f197489592d19efea3f8dd30de340c24f501d73964b5955",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "108年試題(解答)/共同-全-包括一般法律常識、公民、國文閱讀測驗等-選50.pdf",
+          "checksum": "dba3696167f431b4a02a95f2f3b097d1712bfba284db5d002a08ab9793b3df88",
+          "file_role": "question_answer",
+          "subject_label": "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【P8801- P8813】 、 技術士操作類-乙(淨水、管線、水源)【P8814- P8822】 、 技術士化驗類【P8823- P8824】 、 技術士裝修類-甲(新裝、修漏)【P8825- P8834】 、 技術士裝修類-乙(檢漏)【P8835- P8839】 、 技術士工程類【P8840- P8853】 、 營運士業務類(限身障人員報考)【P8901- P8906】 、 營運士業務類-抄表人員【P9001- P9010】 、 營運士業務類-抄表人員(限原住民報考)【P9011】 、 營運士業務類【P9101- P9106】 、營運士行政類【P9201- P9205】 、 營運士行政類-地政人員【P9206- P9207】 、 營運士行政類(限身障人員報考)【P9301- P9302】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專1-【P8801- P8824】-高中(職)物理化學-選50(疑義後).pdf",
+          "checksum": "dea58fe9b369088655cdb1d6f05db9017b859d0254d79fba54df7a56c43d9b69",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：高中(職)物理化學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【P8801- P8813】 、 技術士操作類-乙(淨水、管線、水源)【P8814- P8822】 、 技術士化驗類【P8823- P8824】",
+          "revision_notice": "專1-【P8801- P8824】-高中(職)物理化學-選50(疑義後).pdf"
+        },
+        {
+          "native_name": "108年試題(解答)/專1-【P8825- P8839】-高中(職)配管裝修-選50(疑義後).pdf",
+          "checksum": "e945951b4d16d68d510aeecc377f6afee9351a53d73b8b41396796123d05e226",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：高中(職)配管裝修",
+          "native_category_header": "甄試類別【代碼】 ：技術士裝修類-甲(新裝、修漏)【P8825- P8834】 、 技術士裝修類-乙(檢漏)【P8835- P8839】",
+          "revision_notice": "專1-【P8825- P8839】-高中(職)配管裝修-選50(疑義後).pdf"
+        },
+        {
+          "native_name": "108年試題(解答)/專1-【P8840 - P8853】-高中(職)土木及水管埋設施工-選50.pdf",
+          "checksum": "72b8ed2e931659f5f9af958f852d2d9b0bbafe47bdb572c1635ce38920a10881",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別【代碼】 ：技術士工程類【P8840- P8853】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專1-【P8901- P8906、P9001- P9010、P9011、P9101- P9106、P9201- P9205、P9301- P9302】-企業管理概要-選50.pdf",
+          "checksum": "221a783f4db18a9f144f4905d6282ad7a405394f10cb8868ce8964c1fbfedfff",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：企業管理概要",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類(限身障人員報考)【P8901-P8906】 、 營運士業務類-抄表人員【P9001-P9010】 、 營運士業務類-抄表人員(限原住民報考)【P9011】 、 營運士業務類【P9101-P9106】 、營運士行政類【P9201-P9205】 、 營運士行政類(限身障人員報考)【P9301-P9302】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專1-【P9206- P9207】-土地法規-選50.pdf",
+          "checksum": "e829ff041e56cd2bc356fa44ce35877609f0613eb1a7919e2a7bb775279923d9",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：土地法規",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類-地政人員【P9206-P9207】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P8801- P8813】-基本電學-選50.pdf",
+          "checksum": "6a80d56cac6414e57e3e189c5b0e73411c5b0ae9083a78dd49e67774fdb5cc10",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：基本電學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【P8801- P8813】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P8814- P8822】-自來水工程概要-選50.pdf",
+          "checksum": "88aba076f1d4df781d0b50caa7f8e8ff13653db080d44873525b7ef878e18520",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：自來水工程概要",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-乙(淨水、管線、水源)【P8814- P8822】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P8823 - P8824】-高中(職)分析化學及水質檢驗操作須知-選50(疑義後).pdf",
+          "checksum": "27469936524467756a515e2983dda9261ef59b92c6e94d026e0f7c8b8675b0a3",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別【代碼】 ：技術士化驗類【P8823- P8824】",
+          "revision_notice": "專2-【P8823 - P8824】-高中(職)分析化學及水質檢驗操作須知-選50(疑義後).pdf"
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P8825 - P8839】-配管與儀器操作原理-選50.pdf",
+          "checksum": "33ad2158f0c1a57368378a5057378c3495f11bb1a965aa7de8d821e869021f56",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：配管與儀器操作原理",
+          "native_category_header": "甄試類別【代碼】 ：技術士裝修類-甲(新裝、修漏)【P8825- P8834】 技術士裝修類-乙(檢漏) 【P8835- P8839】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P8840- P8853】-電腦繪圖(AutoCad).pdf",
+          "checksum": "27817caa2ab87b91425b79eae770b4342abc2fd4a18b6a35a0ba442b21ef0753",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別【代碼】 ：技術士工程類【P8840- P8853】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P8901- P8906】、【P9101- P9106】-英文-選50.pdf",
+          "checksum": "aeb286a22908a6d37b1a8c1144fe99314ac2fc2c608152269e68a4aa74e72087",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：英文",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類(限身障人員報考)【P8901- P8906】 、 營運士業務類【P9101- P9106】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P9001- P9010、P9011】-自來水法及台灣自來水公司營業章程-選50.pdf",
+          "checksum": "931b01827c7dcd73bcec88ac7c5f563d838ce3773c93aa7762bb778e04576a0c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類-抄表人員【P9001-P9010】 、 營運士業務類-抄表人員(限原住民報考)【P9011】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P9201- P9205】、【P9301- P9302】-行政學概要-選50.pdf",
+          "checksum": "6d9b701c44cffd6184a8b6f372ae379d7345989b9b3e734267a1e21e41c3c2c4",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：行政學概要",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類【P9201-P9205】 、 營運士行政類(限身障人員報考)【P9301-P9302】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "108年試題(解答)/專2-【P9206- P9207】-民法物權編-選50.pdf",
+          "checksum": "ccfca1c573161972a78778ddd34a2b03893ce87abfcbc233c13e243fce55a625",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：民法物權編",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類-地政人員【P9206-P9207】",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 110,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/40fe1b28-e900-4a69-8fe1-4ea8471b6fb6?nodeId=715",
+      "checksum": "ff1f283fe597a1cdc26d657a4c4ef7cfbb3d9c73aae676aec0251fee874e3958",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "110年試題(解答)/共同-全-包括一般法律常識、公民、國文閱讀測驗等-選50-答案版=公告版.pdf",
+          "checksum": "4426a897c653419cbd3496cac7b94adbf028d229cedd539935c9dcbc5f4be3ac",
+          "file_role": "question_answer",
+          "subject_label": "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【S4901-S4912】 、 技術士操作類-乙(淨水、管線、水源)【S4913-S4921】 、 技術士化驗類【S4922-S4926】 、 技術士裝修類-甲(新裝、修漏)【S4927-S4940】 、 技術士裝修類-乙(檢漏)【S4941-S4947】 、 技術士工程類【S4948-S4963】 、 營運士業務類(限身心障礙人員報考)【S5001-S5003】 、 營運士業務類-抄表人員 【S5101-S5105】 、 營運士業務類 【S5201-S5212】 、 營運士行政類【S5301-S5307】 、 營運士行政類-地政人員【S5308-S5309】 、 營運士行政類(限身心障礙人員報考)【S5401-S5402】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專1-【S4901-S4926】-高中(職)物理化學-選50-答案版=公告版.pdf",
+          "checksum": "0bd0db9c2156e8544f632892603169a99a0672ae03ae0869a7733e7c298c4022",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：高中(職)物理化學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【S4901-S4912】 、 技術士操作類-乙(淨水、管線、水源)【S4913-S4921】 、 技術士化驗類【S4922-S4926】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專1-【S4927-S4940、S4941-S4947】-高中(職)配管裝修-選50-答案版=公告版.pdf",
+          "checksum": "e7322df5e8058f80357951e7587030820936903019e6857c10a1bfbd5cb6f849",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：高中(職)配管裝修",
+          "native_category_header": "甄試類別【代碼】 ：技術士裝修類-甲(新裝、修漏)【S4927-S4940】 、 技術士裝修類-乙(檢漏)【S4941-S4947】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專1-【S4948-S4963】-高中(職)土木及水管埋設施工-選50-答案版=公告版.pdf",
+          "checksum": "6e6425d7578c55b3d17e4d2abb696bde57e114af91acd8c59ee0e39f8b5229ea",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別【代碼】 ：技術士工程類【S4948-S4963】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專1-【S5001-S5003、S5101-S5105、S5201-S5212、S5301-S5307、S5401-S5402】-企業管理概要-選50-答案版=公告版.pdf",
+          "checksum": "66757d4d93c7c7823a27f3680dbcbe9c75f15891ec52b2342e49d9824f89de9c",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：企業管理概要",
+          "native_category_header": "甄試類別【代碼】：營運士業務類(限身心障礙人員報考)【S5001-S5003】 、 營運士業務類-抄表人員【S5101-S5105】、 營運 士業 務類 【S5201-S5212】 、 營運士行政類【S5301-S5307】 、 營運士行政類(限身心障礙人員報考)【S5401-S5402】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專1-【S5308-S5309】-土地法規-選50-答案版=公告版.pdf",
+          "checksum": "b84adc660c9b3a6ac89b917fd2b1de583ccd78efaafea4512e11d559d1c8acd0",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 1：土地法規",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類-地政人員【S5308-S5309】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S4901-S4912】-基本電學-選50-答案版=公告版.pdf",
+          "checksum": "456e091df71a2266872ea2b22919bd3e1774bb64650121879827906aea89a407",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：基本電學",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-甲(機電)【S4901-S4912】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S4913-S4921】-自來水工程概要-選50-答案版=公告版.pdf",
+          "checksum": "f0bdaf30c73a06214a6f5e6ba427860b15d73680d0e73c39ec56bc284b94b661",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：自來水工程概要",
+          "native_category_header": "甄試類別【代碼】 ：技術士操作類-乙(淨水、管線、水源)【S4913-S4921】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S4922-S4926】-高中(職)分析化學及水質檢驗操作須知-選50-答案版=公告版.pdf",
+          "checksum": "1a8679ce88d6a05159ef87a1d7115df37e904f4c6cae5e96285c45d55c873037",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別【代碼】 ：技術士化驗類【S4922-S4926】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S4927-S4940、S4941-S4947】-配管與儀器操作原理-選50-答案版=公告版.pdf",
+          "checksum": "eb272b02fdd4eed5445f9f2992b7792c03ca9eb949db37fc74626390f67170b8",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：配管與儀器操作原理",
+          "native_category_header": "甄試類別【代碼】 ：技術士裝修類-甲(新裝、修漏)【S4927-S4940】 、 技術士裝修類-乙(檢漏)【S4941-S4947】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S4948-S4963】-電腦繪圖(AutoCad)-選50-答案版=公告版.pdf",
+          "checksum": "91889c7c0e2139d2a4cfa89cae9a57c2afaca2425d1902d3571cb1a114751f7b",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別【代碼】 ：技術士工程類【S4948-S4963】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S5001-S5003、S5201-S5212】-英文-選50-答案版=公告版.pdf",
+          "checksum": "faf16d5a108a563ed97b78eea02e78da76a7368a8f5c698b3e300030070e4a24",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：英文",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類(限身心障礙人員報考)【S5001-S5003】 、 營運士業務類【S5201-S5212】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S5101-S5105】-自來水法及台灣自來水公司營業章程-選50-答案版=公告版.pdf",
+          "checksum": "08688f509f22a473e74ea886313468c945a395454f0529fb921f76006d7d649a",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別【代碼】 ：營運士業務類-抄表人員【S5101-S5105】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S5308-S5309】-民法物權編-選50-答案版=公告版.pdf",
+          "checksum": "aad733e5b2701ce6bd6d64dfe01f56e0337579567b12e275b38474ff8939a751",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：民法物權編",
+          "native_category_header": "甄試類別【代碼】 ：營運士行政類-地政人員【S5308-S5309】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "110年試題(解答)/專2-【S5301-S5307、S5401-S5402】-行政學概要-選50-答案版=公告版.pdf",
+          "checksum": "880811fce6686dab657057f6e2d84b6946f02e57957bb325c8af538f321bd5a5",
+          "file_role": "question_answer",
+          "subject_label": "專業科目 2：行政學概要",
+          "native_category_header": "甄試類別【代碼】：營運士行政類【S5301-S5307】 、 營運士行政類(限身心障礙人員報考)【S5401-S5402】",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 111,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/6e89f5a8-74c2-4ad7-b421-bd0b18da5480?nodeId=715",
+      "checksum": "021738e06c20c613b8a44b0d6cc6aff4f6a44b0a7907bf30e86f04eb76eb13bd",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/Thumbs.db",
+          "checksum": "33dad6097a87d4e003f0968ab6c441b0076ff4185db098e3288181161d5ac9e3",
+          "file_role": "source_artifact",
+          "subject_label": "",
+          "native_category_header": "",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A01_共同科目_評價職位各類別(全)試題.pdf",
+          "checksum": "1611a92aed7ae18f2bd51841823e53280c0bbd19cc1f28cb7ec3c498db76e3f2",
+          "file_role": "question",
+          "subject_label": "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A02_專業科目一_操作類-甲(機電)【含產學】、操作類-乙(淨水、管線、水源)、化驗類試題.pdf",
+          "checksum": "67c460346603d9eb4789650bec8a5537efa7e9bb10b652d52f8abcc503837d25",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-高中(職)物理化學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】 操作類-乙(淨水、管線、水源)、化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A03_專業科目一_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)試題.pdf",
+          "checksum": "d03ca97db0897af7607f460fd21666bc30735eae052e580357780750e07b2adf",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-高中(職)配管裝修",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A04_專業科目一_工程類試題.pdf",
+          "checksum": "5a4cefb46f6427a5bef43f5dd6e3766de6d1b21dc649324c73310ef38ef0959b",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A05_專業科目一_業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、行政類、行政類(限身心障礙人員報考)試題.pdf",
+          "checksum": "6f4e9dae03a1742a48a7ab6e5c466f1c55b95483a8a927b3c05e154a7162daf6",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-企業管理概要",
+          "native_category_header": "甄試類別：業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、 行政類、行政類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A06_專業科目二_操作類-甲(機電)【含產學】試題.pdf",
+          "checksum": "558b452801204be04724a62cd952e83dffcadf1dcf6f0dd41217447750795cd3",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-基本電學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A07_專業科目二_操作類-乙(淨水、管線、水源)試題.pdf",
+          "checksum": "9c3ce11d3db7c92c48d73df4a8b0634cb2df1dab49d29ee70bd6f936e46192bc",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-自來水工程概要",
+          "native_category_header": "甄試類別：操作類-乙(淨水、管線、水源)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A08_專業科目二_化驗類試題.pdf",
+          "checksum": "065e337f91fc8b22fbac06943454708b4dbf9d3c392829884c515496dc7db51f",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A09_專業科目二_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)試題.pdf",
+          "checksum": "e0bd574e2406848990f80f26bd6897be9eb7c487f6f2b61391a4909ebf349aa0",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-配管與儀器操作原理",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A10_專業科目二_工程類試題.pdf",
+          "checksum": "a4b2bd900a36936187427e96036f82c8323bd8f235c84be7bfa14130321a15a3",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-電腦繪圖（Auto Cad）",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A11_專業科目二_業務類-抄表人員試題.pdf",
+          "checksum": "f7625d0ea2306240e5c7ffbaa34104a47eac55dfd5c4805163dfa84918e3903d",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：業務類-抄表人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A12_專業科目二_業務類、業務類(限身心障礙人員報考)試題.pdf",
+          "checksum": "80a1c241935b8a2955b89242da316de78aee64d34503a05f2d406d7e9ec20f78",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-英文",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2332公告題目/【111台水】A13_專業科目二_行政類、行政類(限身心障礙人員報考)試題.pdf",
+          "checksum": "35ad11ecfa1810545ffb134eff1d2ad6695647415ff2d2aae6312761b90cbb60",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-行政學概要",
+          "native_category_header": "甄試類別：行政類、行政類 (限身心障礙人員報考 )",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/Thumbs.db",
+          "checksum": "11d2cfe061228316a218f02e025a48206abfe2ea783475744221fe594716a507",
+          "file_role": "source_artifact",
+          "subject_label": "",
+          "native_category_header": "",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A01_共同科目評價職位各類別(全)標準答案.pdf",
+          "checksum": "e6910ef87d0ead6f8454991d4d16c732cf672b9d2d02a01418571b06a0dd7103",
+          "file_role": "answer",
+          "subject_label": "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A02_專業科目一_操作類-甲(機電)【含產學】、操作類-乙(淨水、管線、水源)、化驗類標準答案.pdf",
+          "checksum": "2280981a85e2d3533718722c4bccd7efc1e25b9b28bc25f3a3082a98c71f2535",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-高中(職)物理化學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】 操作類-乙(淨水、管線、水源)、化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A03_專業科目一_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)標準答案.pdf",
+          "checksum": "5bd8ce2fb53589ae6603c774784eafcddc436e0b5f2f3b1781329ab61a9df569",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-高中(職)配管裝修",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A04_專業科目一_工程類標準答案.pdf",
+          "checksum": "2f73c6906754777c5887bb88cd49998691b2a5dac905c0b07474d6fe09da05f8",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A05_專業科目一_業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、行政類、行政類(限身心障礙人員報考)標準答案.pdf",
+          "checksum": "58451d3687472a08c16fb5edf7287c15df40843730e01ad300e0bc4503b841ba",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-企業管理概要",
+          "native_category_header": "甄試類別：業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、 行政類、行政類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A06_專業科目二_操作類-甲(機電)【含產學】標準答案.pdf",
+          "checksum": "a63587454a1edbb48160569db12687d756474905d58dd355bab66cd1abd52704",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-基本電學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A07_專業科目二_操作類-乙(淨水、管線、水源)標準答案.pdf",
+          "checksum": "0a08702301a1ecdf7a215bf5075bfb6922402f07170f5f20ce26917965b6b413",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-自來水工程概要",
+          "native_category_header": "甄試類別：操作類-乙(淨水、管線、水源)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A08_專業科目二_化驗類標準答案.pdf",
+          "checksum": "0ed0cc305832c61f0e5d70bb713a25bee6687bb5c4e3ef11f7f175a5b10428cb",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A09_專業科目二_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)標準答案.pdf",
+          "checksum": "2bf91a7dfa881daef32e0269f18a07b22ef2cc749984f96611a17060fe510d7c",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-配管與儀器操作原理",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A10_專業科目二_工程類標準答案.pdf",
+          "checksum": "a0c95d788602b435046d440fd9f4215e85fa4edcde7bf94549b06798071eea99",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-電腦繪圖（Auto Cad）",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A11_專業科目二_業務類-抄表人員標準答案.pdf",
+          "checksum": "4e8bc1cb3d5dc2b0b93eeeb258c23eb497e1e1a4b04e6986f4983e9e152f69fa",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：業務類-抄表人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A12_專業科目二_業務類、業務類(限身心障礙人員報考)標準答案.pdf",
+          "checksum": "b095daa6969f93b46fc7788b66614d8b7038634c37cf03ce2ed431f0a5215a97",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-英文",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/2334標準答案/【111台水】A13_專業科目二_行政類、行政類(限身心障礙人員報考標準答案.pdf",
+          "checksum": "6ef9820430897a08e87230a27b18611fa621d79667319b4fa45ff73eecba2585",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-行政學概要",
+          "native_category_header": "甄試類別：行政類、行政類 (限身心障礙人員報考 )",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/Thumbs.db",
+          "checksum": "33dad6097a87d4e003f0968ab6c441b0076ff4185db098e3288181161d5ac9e3",
+          "file_role": "source_artifact",
+          "subject_label": "",
+          "native_category_header": "",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A01_共同科目_評價職位各類別(全)試題.pdf",
+          "checksum": "1611a92aed7ae18f2bd51841823e53280c0bbd19cc1f28cb7ec3c498db76e3f2",
+          "file_role": "question",
+          "subject_label": "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A02_專業科目一_操作類-甲(機電)【含產學】、操作類-乙(淨水、管線、水源)、化驗類試題.pdf",
+          "checksum": "67c460346603d9eb4789650bec8a5537efa7e9bb10b652d52f8abcc503837d25",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-高中(職)物理化學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】 操作類-乙(淨水、管線、水源)、化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A03_專業科目一_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)試題.pdf",
+          "checksum": "d03ca97db0897af7607f460fd21666bc30735eae052e580357780750e07b2adf",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-高中(職)配管裝修",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A04_專業科目一_工程類試題.pdf",
+          "checksum": "5a4cefb46f6427a5bef43f5dd6e3766de6d1b21dc649324c73310ef38ef0959b",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A05_專業科目一_業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、行政類、行政類(限身心障礙人員報考)試題.pdf",
+          "checksum": "6f4e9dae03a1742a48a7ab6e5c466f1c55b95483a8a927b3c05e154a7162daf6",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一-企業管理概要",
+          "native_category_header": "甄試類別：業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、 行政類、行政類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A06_專業科目二_操作類-甲(機電)【含產學】試題.pdf",
+          "checksum": "558b452801204be04724a62cd952e83dffcadf1dcf6f0dd41217447750795cd3",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-基本電學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A07_專業科目二_操作類-乙(淨水、管線、水源)試題.pdf",
+          "checksum": "9c3ce11d3db7c92c48d73df4a8b0634cb2df1dab49d29ee70bd6f936e46192bc",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-自來水工程概要",
+          "native_category_header": "甄試類別：操作類-乙(淨水、管線、水源)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A08_專業科目二_化驗類試題.pdf",
+          "checksum": "065e337f91fc8b22fbac06943454708b4dbf9d3c392829884c515496dc7db51f",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A09_專業科目二_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)試題.pdf",
+          "checksum": "e0bd574e2406848990f80f26bd6897be9eb7c487f6f2b61391a4909ebf349aa0",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-配管與儀器操作原理",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A10_專業科目二_工程類試題.pdf",
+          "checksum": "a4b2bd900a36936187427e96036f82c8323bd8f235c84be7bfa14130321a15a3",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-電腦繪圖（Auto Cad）",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A11_專業科目二_業務類-抄表人員試題.pdf",
+          "checksum": "f7625d0ea2306240e5c7ffbaa34104a47eac55dfd5c4805163dfa84918e3903d",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：業務類-抄表人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A12_專業科目二_業務類、業務類(限身心障礙人員報考)試題.pdf",
+          "checksum": "80a1c241935b8a2955b89242da316de78aee64d34503a05f2d406d7e9ec20f78",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-英文",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/公告題目/【111台水】A13_專業科目二_行政類、行政類(限身心障礙人員報考)試題.pdf",
+          "checksum": "35ad11ecfa1810545ffb134eff1d2ad6695647415ff2d2aae6312761b90cbb60",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二-行政學概要",
+          "native_category_header": "甄試類別：行政類、行政類 (限身心障礙人員報考 )",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/Thumbs.db",
+          "checksum": "11d2cfe061228316a218f02e025a48206abfe2ea783475744221fe594716a507",
+          "file_role": "source_artifact",
+          "subject_label": "",
+          "native_category_header": "",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A01_共同科目評價職位各類別(全)標準答案.pdf",
+          "checksum": "e6910ef87d0ead6f8454991d4d16c732cf672b9d2d02a01418571b06a0dd7103",
+          "file_role": "answer",
+          "subject_label": "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A02_專業科目一_操作類-甲(機電)【含產學】、操作類-乙(淨水、管線、水源)、化驗類標準答案.pdf",
+          "checksum": "2280981a85e2d3533718722c4bccd7efc1e25b9b28bc25f3a3082a98c71f2535",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-高中(職)物理化學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】 操作類-乙(淨水、管線、水源)、化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A03_專業科目一_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)標準答案.pdf",
+          "checksum": "5bd8ce2fb53589ae6603c774784eafcddc436e0b5f2f3b1781329ab61a9df569",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-高中(職)配管裝修",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A04_專業科目一_工程類標準答案.pdf",
+          "checksum": "2f73c6906754777c5887bb88cd49998691b2a5dac905c0b07474d6fe09da05f8",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A05_專業科目一_業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、行政類、行政類(限身心障礙人員報考)標準答案.pdf",
+          "checksum": "58451d3687472a08c16fb5edf7287c15df40843730e01ad300e0bc4503b841ba",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一-企業管理概要",
+          "native_category_header": "甄試類別：業務類-抄表人員、業務類、業務類(限身心障礙人員報考)、 行政類、行政類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A06_專業科目二_操作類-甲(機電)【含產學】標準答案.pdf",
+          "checksum": "a63587454a1edbb48160569db12687d756474905d58dd355bab66cd1abd52704",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-基本電學",
+          "native_category_header": "甄試類別：操作類-甲(機電)【含產學】",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A07_專業科目二_操作類-乙(淨水、管線、水源)標準答案.pdf",
+          "checksum": "0a08702301a1ecdf7a215bf5075bfb6922402f07170f5f20ce26917965b6b413",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-自來水工程概要",
+          "native_category_header": "甄試類別：操作類-乙(淨水、管線、水源)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A08_專業科目二_化驗類標準答案.pdf",
+          "checksum": "0ed0cc305832c61f0e5d70bb713a25bee6687bb5c4e3ef11f7f175a5b10428cb",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A09_專業科目二_裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)標準答案.pdf",
+          "checksum": "2bf91a7dfa881daef32e0269f18a07b22ef2cc749984f96611a17060fe510d7c",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-配管與儀器操作原理",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A10_專業科目二_工程類標準答案.pdf",
+          "checksum": "a0c95d788602b435046d440fd9f4215e85fa4edcde7bf94549b06798071eea99",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-電腦繪圖（Auto Cad）",
+          "native_category_header": "甄試類別：工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A11_專業科目二_業務類-抄表人員標準答案.pdf",
+          "checksum": "4e8bc1cb3d5dc2b0b93eeeb258c23eb497e1e1a4b04e6986f4983e9e152f69fa",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：業務類-抄表人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A12_專業科目二_業務類、業務類(限身心障礙人員報考)標準答案.pdf",
+          "checksum": "b095daa6969f93b46fc7788b66614d8b7038634c37cf03ce2ed431f0a5215a97",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-英文",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "111試題(解答)/標準答案/【111台水】A13_專業科目二_行政類、行政類(限身心障礙人員報考標準答案.pdf",
+          "checksum": "6ef9820430897a08e87230a27b18611fa621d79667319b4fa45ff73eecba2585",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二-行政學概要",
+          "native_category_header": "甄試類別：行政類、行政類 (限身心障礙人員報考 )",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 112,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/df60fb7a-cf5f-4045-b07e-84110d74a288?nodeId=715",
+      "checksum": "f2dcb17704a5ae50ce935949c212040f1f485606ad6a824f2150a97fc8c3a261",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "【112台水】A01共同科目-包括國文及英文.pdf",
+          "checksum": "ecb39a0cd0b9e11f5519623ee25987fadd67c506f098a4e5480aeec56904435a",
+          "file_role": "question",
+          "subject_label": "應試科目：共同科目-包括國文及英文",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A01共同科目答案-包括國文及英文_標準答案.pdf",
+          "checksum": "a45a0d4705740155ebd8c572faab1889f19867ab678e78b450b73c1ecc907dfd",
+          "file_role": "answer",
+          "subject_label": "應試科目：共同科目-包括國文及英文",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A02專業科目1-電機(工)機械.pdf",
+          "checksum": "04159187d113fcd746a6e6db36382839273ecdc1d49dee1591461c508e9215dc",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一 電機(工)機械",
+          "native_category_header": "甄試類別：操作類-甲(機電)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A02專業科目1-電機(工)機械_標準答案.pdf",
+          "checksum": "bfbf520b664c37a107afe98601a94ed42d2af1735e907757ee7ab55bd8b9fd0d",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一 電機(工)機械",
+          "native_category_header": "甄試類別：操作類-甲(機電)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A03專業科目1-高中(職)物理化學.pdf",
+          "checksum": "974064a15219b1e031802ba211778312c3a423765b15059520cf6cf20f110015",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一 高中(職)物理化學",
+          "native_category_header": "甄試類別：操作類-甲(機電) (產學)、操作類-乙(淨水、管線、水源)、 操作類-乙(淨水、管線、水源) (限原住民族報考)、化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A03專業科目1-高中(職)物理化學_標準答案.pdf",
+          "checksum": "0a764b90c92a020f1352abc0dbcf34519f316e5b58d0b3573a6a8dcdd323701d",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一 高中(職)物理化學",
+          "native_category_header": "甄試類別：操作類-甲(機電) (產學)、操作類-乙(淨水、管線、水源)、 操作類-乙(淨水、管線、水源) (限原住民族報考)、化驗 類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A04專業科目1-高中(職)配管裝修.pdf",
+          "checksum": "5397ae7fa961d4fe9f737984c0fa7451034078d6ed62343c7082e3c4e9079464",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一 高中(職)配管裝修",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-甲(新裝、修漏)(限原住民 族報考)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A04專業科目1-高中(職)配管裝修_標準答案.pdf",
+          "checksum": "0490ca2bac593f2831c9a5290cb89f49f59a65ccee2ead151914ce3772c45c0c",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一 高中(職)配管裝修",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-甲(新裝、修漏)(限原住民 族報考)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A05專業科目1-高中(職)土木及水管埋設施工.pdf",
+          "checksum": "a87ed5068e29fd60d3ca2987e823abd17a92071c49326deed43c9d3abc7cfdd6",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一 高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：工程類、工程類(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A05專業科目1-高中(職)土木及水管埋設施工_標準答案.pdf",
+          "checksum": "5d3622d85ad03163a7e4febe9efd89db7987f275cd01ba8defec23da2046dbef",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一 高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：工程類、工程類(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A06專業科目1-企業管理概要.pdf",
+          "checksum": "45b1e41163bf48d70168d52d4622be5007eb1ee90aa3d5c32cdba1541214a088",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一 企業管理概要",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙者報考)、業務類(限原住民族 報考)、業務類-抄表人員、業務類-抄表人員(限原住民族報 考)、行政類、行政類(限原住民族報考)、行政類(限身心障 礙者報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A06專業科目1-企業管理概要_標準答案.pdf",
+          "checksum": "4d1c4ed0760e80a1bd14c1939aaee5061a94a2733bdd222f4a766a93de05b77f",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一 企業管理概要",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙者報考)、業務類(限原住民族 報考)、業務類-抄表人員、業務類-抄表人員(限原住民族 報考)、行政類、行政類(限原住民族報考)、行政類(限身 心障礙者報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A07專業科目1-土地法規.pdf",
+          "checksum": "7b0180c21a1c43c6475edff40590d512af0d72ccfa0bf830bccc26f7ebce77d2",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目一 土地法規",
+          "native_category_header": "甄試類別：行政類-地政人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A07專業科目1-土地法規_標準答案.pdf",
+          "checksum": "a63e7a403add6dc9704fe3b4b9badfbf685d54d931e3e3f5d7d98bd0ac509cab",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目一 土地法規",
+          "native_category_header": "甄試類別：行政類-地政人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A08專業科目2-基本電學.pdf",
+          "checksum": "f6cb8e8ce350110dc1281cb6d3368e8805c5517158072f45d7009b1561894ed5",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 基本電學",
+          "native_category_header": "甄試類別：操作類-甲(機電)、操作類-甲(機電)(產學)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A08專業科目2-基本電學_標準答案.pdf",
+          "checksum": "68bfc4adc72964e3fabbc5bda3fd4071f3dcfe23d13bca0b575c07541dbfb008",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 基本電學",
+          "native_category_header": "甄試類別：操作類-甲(機電)、操作類-甲(機電)(產學)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A09專業科目2-自來水工程概要.pdf",
+          "checksum": "29289c9b0cc756a3062f51e299271f27ae4212ac9c01622d6d2ca157bbaac115",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 自來水工程概要",
+          "native_category_header": "甄試類別：操作類-乙(淨水、管線、水源)、操作類-乙(淨水、管線、 水源) (限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A09專業科目2-自來水工程概要_標準答案.pdf",
+          "checksum": "4da73905fe1fa9e3f3213473c01b26c2fc2f0e1ba04ba0256b41a233f331d218",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 自來水工程概要",
+          "native_category_header": "甄試類別：操作類-乙(淨水、管線、水源)、操作類-乙(淨水、管線、 水源) (限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A10專業科目2-高中(職)分析化學及水質檢驗操作須知.pdf",
+          "checksum": "4cb5cea9c9ae13199bdf9090d87fcabb46a84658d688b11e8a1f2ff2da7ff3f6",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A10專業科目2-高中(職)分析化學及水質檢驗操作須知_標準答案.pdf",
+          "checksum": "3a37de57ae0f29cc99f84ed249a3c64ffbb98d9d6d4ae6d041ed8dd7d1352a9f",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A11專業科目2-配管與儀器操作原理.pdf",
+          "checksum": "222f89a12694020143053bc5af06f7d143fe5fa1a33f5cf17f9db9aafaee3150",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 配管與儀器操作原理",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-甲(新裝、修漏) (限原住民 族報考)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A11專業科目2-配管與儀器操作原理_標準答案.pdf",
+          "checksum": "6039b4562052425e4985111e37e32bc20239f8f8212ceb8601dfcd50e22b8413",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 配管與儀器操作原理",
+          "native_category_header": "甄試類別：裝修類-甲(新裝、修漏)、裝修類-甲(新裝、修漏) (限原住民 族報考)、裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A12專業科目2-電腦繪圖(AutoCad).pdf",
+          "checksum": "66b859f3f7bbf0e30cb80b4d2bf2f3baa03425b7bdbf1de1c29f51281431f078",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別：工程類、工程類(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A12專業科目2-電腦繪圖(AutoCad)_標準答案.pdf",
+          "checksum": "b1d2d182c3043fc91fb85b6c6a426f55146e5f0cfc22e2feda4175bd92198ca3",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別：工程類、工程類(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A13專業科目2-自來水法及台灣自來水公司營業章程.pdf",
+          "checksum": "b2185ccab220a54f37bc4817323bc9415696f91f41ebd4eeeaf7e279fcdfb080",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙者報考)、業務類(限原住民族報考) 、業務類-抄表人員、業務類-抄表人員(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A13專業科目2-自來水法及台灣自來水公司營業章程_標準答案.pdf",
+          "checksum": "ec6de54ae73fa63b7ea76fa195956e48cb9c3eeb40ac22f3716cde8ed589b744",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：業務類、業務類(限身心障礙者報考)、業務類(限原住民族 報考)、業務類-抄表人員、業務類-抄表人員(限原住民族報 考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A14專業科目2_行政學概要.pdf",
+          "checksum": "16b94e9511526a22df706de602989d798e15d73b9abbb738b3d50814c0d2316b",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 行政學概要",
+          "native_category_header": "甄試類別：行政類、行政類(限原住民族報考)、行政類(限身心障礙者 報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A14專業科目2_行政學概要_標準答案.pdf",
+          "checksum": "3fa7c6506f0c66ad9ce3c948545bbde6c4540674ac49c4a3c41602b58d01b6aa",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 行政學概要",
+          "native_category_header": "甄試類別：行政類、行政類(限原住民族報考)、行政類(限身心障礙者 報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A15專業科目2-民法物權編.pdf",
+          "checksum": "c5f6fcc0f8de6b8acae5f21285197945c3f24aac2d02a843c75299a84975f3ef",
+          "file_role": "question",
+          "subject_label": "應試科目：專業科目二 民法物權編",
+          "native_category_header": "甄試類別：行政類-地政人員",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【112台水】A15專業科目2-民法物權編_標準答案.pdf",
+          "checksum": "09f359ce6f56718df0d38157d4d0f2467c38714131a8ba20b67a27e877661389",
+          "file_role": "answer",
+          "subject_label": "應試科目：專業科目二 民法物權編",
+          "native_category_header": "甄試類別：行政類-地政人員",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 114,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/f21b4843-4257-4f5b-ac85-f7463e03d250?nodeId=715",
+      "checksum": "07b8d88b86ef464f0f2d6681f7e0bc67304903a63f4b197a2585cd64c11dc8a2",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "114年試題(解答)/【114台水】A共同科目_A01_國文及英文.pdf",
+          "checksum": "4d8292abc7a06229edd4e6e7293a3d5f2f511c23bb74bf5bf861213e38ed6150",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：共同科目-國文及英文",
+          "native_category_header": "甄試類別：評價職位人員全類別",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目1_A02_電機(工)機械.pdf",
+          "checksum": "14587d9e8fd77e076e661029b69a5b6d0d4d450efa94957b2d0b4413cea88cfd",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目一-電機(工)機械",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)、技術士操作類-甲(限具中級以上電氣技術 人員資格報考)、技術士操作類-甲(機電)(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目1_A03_高中(職)物理化學.pdf",
+          "checksum": "8f7fde6527ec81a4d7f90312fdad59ed1ace4410de2820eac9a2432f5eee32e4",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目一-高中(職)物理化學",
+          "native_category_header": "甄試類別：技術士操作類-乙(淨水、管線、水源)、技術士操作類-乙 (淨水、管線、水源)(限原住民族報考)、技術士化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目1_A04_高中(職)配管裝修.pdf",
+          "checksum": "12991fdfb387f118c96cc60ebd6c06e66244689b4df520018dd126a62d8e89d7",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目一-高中(職)配管裝修",
+          "native_category_header": "甄試類別：技術士裝修類-甲(新裝、修漏)、技術士裝修類-甲(新裝、 修漏)(限原住民族報考)、技術士裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目1_A05_高中(職)土木及水管埋設施工.pdf",
+          "checksum": "78e71449b47dfbe0d43555fdee5f883f343dac1d71196962b6098f459ee8a0af",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：技術士工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目1_A06_企業管理概要.pdf",
+          "checksum": "4ead8bf2517f5d7e63ea0f3d0732d32dd27fc369916f9c76fcad1a4ad857ccfe",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目一-企業管理概要",
+          "native_category_header": "甄試類別：營運士業務類-抄表人員、營運士業務類、營運士業務類(限原住民族報考)、營運 士業務類(限身心障礙者報考)、營運士行政類、營運士行政類(限身心障礙者報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A07_基本電學.pdf",
+          "checksum": "1313aad71148e24697915d1613e18fdd427c576bbfe47e0c4eb775408de2ecb6",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-基本電學",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)、技術士操作類-甲(限具中級以上 電氣技術人員資格報考)、技術士操作類-甲(機電)(限原住 民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A08_自來水工程概要.pdf",
+          "checksum": "6540350136ed6ad462d77c13d0029409ab1d52badc0335d4118dfa4ee58232f8",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-自來水工程概要",
+          "native_category_header": "甄試類別：技術士操作類-乙(淨水、管線、水源)、技術士操作類-乙 (淨水、管線、水源)(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A09_高中(職)分析化學及水質檢驗操作須知.pdf",
+          "checksum": "dd432a6ec956f73aa78bad98325d4fb8411dd43ac45132d343fa1f71afaf28e4",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：技術士化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A10_配管與儀器操作原理.pdf",
+          "checksum": "a2272691086ccdf02afa9455785943f46dc50b39e7378b2469594fc65d2bd514",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-配管與儀器操作原理",
+          "native_category_header": "甄試類別：技術士裝修類-甲(新裝、修漏)、技術士裝修類-甲(新裝、 修漏)(限原住民族報考)、技術士裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A11_電腦繪圖(AutoCad).pdf",
+          "checksum": "6224798e27770f210fa0171c628a5b762425cc4d0a91ac83006917b34fed1d68",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別：技術士工程類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A12_自來水法及台灣自來水公司營業章程.pdf",
+          "checksum": "e67cbbe15c7eaab026427fd9fa1fe21b55bfb42f3942d7e79c713435cfb1d52c",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：營運士業務類-抄表人員、營運士業務類、營運士業務類 (限原住民族報考)、營運士業務類(限身心障礙者報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "114年試題(解答)/【114台水】A專業科目2_A13_行政學概要.pdf",
+          "checksum": "d9f96a8a2ffca29a4f467aec1c68c2757cda7be2e00e7cfd401f65273f01d7f9",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目二-行政學概要",
+          "native_category_header": "甄試類別：營運士行政類、營運士行政類(限身心障礙者報考)",
+          "revision_notice": ""
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 115,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/36d37d65-f187-4176-a3d7-70495d5f417e?nodeId=715",
+      "checksum": "2db36ef8d7603148645b742146498ba72f456920d15463a1ad1648f743b3475c",
+      "reviewed_at": "2026-10-11",
+      "review_reason": "",
+      "members": [
+        {
+          "native_name": "【115台水】A01共同科目_國文及英文_標準答案.pdf",
+          "checksum": "5409357a77a625479ddd6482b406cee0daf84d3657641032fdb41f429807f310",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：共同科目-國文及英文",
+          "native_category_header": "甄試類別：各類別(全)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A02專業科目A_電機(工)機械_標準答案.pdf",
+          "checksum": "16618989551ea60342e7e83cd85a4f6d622d3441055e5753eac51807d0985628",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目A-電機(工)機械",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)、技術士操作類-甲(機電) (限具中級 以上電氣技術人員資格報考)、技術士操作類-甲(機電)(特 殊)、技術士操作類-甲(機電)(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A03專業科目A_高中(職)物理化學_標準答案.pdf",
+          "checksum": "e9d1745b6969ccb91e85cfbbabacc31451c2397421ffd62f7397f6c2cc9cee24",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目A-高中(職)物理化學",
+          "native_category_header": "甄試類別：技術士操作類-乙(淨水、管線、水源)、技術士操作類-乙(淨 水、管線、水源)(特殊)、技術士操作類-乙(淨水、管線、 水源)(限原住民族報考)、技術士化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A04專業科目A_高中(職)配管裝修_標準答案.pdf",
+          "checksum": "22f68744894b30f51e4f370afca6f15fa6abd94cd333075967d2e6ffa7f9b455",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目A-高中(職)配管裝修",
+          "native_category_header": "甄試類別：技術士裝修類-甲(新裝、修漏)、技術士裝修類-甲(新裝、 修漏) (限原住民族報考)、技術士裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A05專業科目A_高中(職)土木及水管埋設施工_標準答案.pdf",
+          "checksum": "95cf451b70255879f09d80b09b11595a9c33cc9a88462a81b4939ae02022ece7",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目A-高中(職)土木及水管埋設施工",
+          "native_category_header": "甄試類別：技術士工程類、技術士工程類(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A06專業科目A_企業管理概要_標準答案.pdf",
+          "checksum": "fdaaf85fc73b912e678d239e56df60e7d91be3ff477207daec8bf276cabf28ec",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目A-企業管理概要",
+          "native_category_header": "甄試類別：營運士業務類-抄表人員、營運士業務類、營運士業務類(限 身心障礙人員報考)、營運士行政類、營運士行政類(限身 心障礙人員報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A07專業科目B_基本電學_標準答案.pdf",
+          "checksum": "3621b12ecb038638e858f7d3c999750a9278a689163caccada6e932d6ffe5be1",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B-基本電學",
+          "native_category_header": "甄試類別：技術士操作類-甲(機電)、技術士操作類-甲(機電) (限具中級 以上電氣技術人員資格報考)、技術士操作類-甲(機電)(特 殊)、技術士操作類-甲(機電) (限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A08專業科目B_自來水工程概要_標準答案.pdf",
+          "checksum": "f94b206ea60aee8d921af8b5a0f387bb7164b9f356b351ca22c876f8d2c711ef",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B_自來水工程概要",
+          "native_category_header": "甄試類別：技術士操作類-乙(淨水、管線、水源)、技術士操作類-乙(淨 水、管線、水源) (特殊)、技術士操作類-乙(淨水、管線、 水源)(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A09專業科目B_高中(職)分析化學及水質檢驗操作須知_標準答案.pdf",
+          "checksum": "e0f7f9806e98d7fd39e573e465527821860b3bc8a45ef29b8d8136145bdc1dd0",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B-高中(職)分析化學及水質檢驗操作須知",
+          "native_category_header": "甄試類別：技術士化驗類",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A10專業科目B_配管與儀器操作原理_標準答案.pdf",
+          "checksum": "30344079ad95a687b4b1bb13e9d752bc3a5f8c82084cc0fa83509b8265db9dd9",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B-配管與儀器操作原理",
+          "native_category_header": "甄試類別：技術士裝修類-甲(新裝、修漏)、技術士裝修類-甲(新裝、 修漏)(限原住民族報考)、技術士裝修類-乙(檢漏)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A11專業科目B_電腦繪圖(AutoCad)_標準答案.pdf",
+          "checksum": "8e73ddd5e7221d26a684dd3ac7002197f6892fa0482b1428ec4828d45511b376",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B-電腦繪圖(AutoCad)",
+          "native_category_header": "甄試類別：技術士工程類、技術士工程類(限原住民族報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A12專業科目B_自來水法及台灣自來水公司營業章程_標準答案.pdf",
+          "checksum": "d078ada018dde39226878a7dd2e21cbcda7e30792507e45f1f2ce8aaee176e62",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B-自來水法及台灣自來水公司營業章程",
+          "native_category_header": "甄試類別：營運士業務類-抄表人員、營運士業務類、營運士業務類(限 身心障礙者報考)",
+          "revision_notice": ""
+        },
+        {
+          "native_name": "【115台水】A13專業科目B_行政學概要_標準答案.pdf",
+          "checksum": "0193fc8861f9eebefa8711d7d03a28ae2e262114aa1d2ecdc3982cc14b3d9b82",
+          "file_role": "question_answer",
+          "subject_label": "應試科目：專業科目B-行政學概要",
+          "native_category_header": "甄試類別：營運士行政類、營運士行政類(限身心障礙人員報考)",
+          "revision_notice": ""
+        }
+      ]
+    }
+  ]
+}

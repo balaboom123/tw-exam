@@ -12,24 +12,13 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-from app.bundler import WINDOWS_RESERVED_NAMES, PaperKey, _manifest_digest, _paper_bundle_key
+from app.archive_paths import portable_archive_name as portable_archive_name
+from app.bundler import PaperKey, _manifest_digest, _paper_bundle_key
 from app.mirror_repair import colliding_mirror_records
 from app.models import to_plain_data
 from app.paths import site_paths
 from app.publisher import load_site_catalog
 from app.state import load_site_bundles
-
-
-def portable_archive_name(name: str) -> bool:
-    parts = name.split("/")
-    return all(
-        part not in {"", ".", ".."}
-        and not any(char in '\\:*?"<>|' or ord(char) < 32 for char in part)
-        and not part.endswith((" ", "."))
-        and part.split(".", 1)[0].upper() not in WINDOWS_RESERVED_NAMES
-        and len(part.encode("utf-8")) <= 255
-        for part in parts
-    )
 
 
 def inspect_archive(path: Path, *, verify_content: bool) -> dict[str, Any]:

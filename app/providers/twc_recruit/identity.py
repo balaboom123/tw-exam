@@ -142,6 +142,28 @@ def archive_material(
     source_url: str,
     checksum: str,
 ) -> SourceMaterial | None:
+    if (
+        source_exam_id == f"twc-recruit-{year_roc}"
+        and category_code == str(year_roc)
+        and re.fullmatch(r"native-[0-9a-f]{64}", subject_code) is not None
+    ):
+        from app.providers.twc_recruit.archive import resolve_native_member
+
+        native = resolve_native_member(year_roc, subject_code, checksum, source_url=source_url)
+        if native is not None:
+            archive, _ = native
+            parent = resolve_archive_identity(
+                year_roc, archive.checksum, source_url=archive.source_url
+            )
+            if parent is not None:
+                return parent.material
+        return SourceMaterial(
+            "administered",
+            SourceDate("unknown", None),
+            source_url,
+            label,
+            "Taiwan Water native paper lacks reviewed parent and member checksum evidence",
+        )
     from app.providers.twc_recruit.client import TwcRecruitClient, archive_file_role
 
     if not is_outer_archive_context(source_exam_id, year_roc, category_code, subject_code):
