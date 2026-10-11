@@ -157,6 +157,23 @@ def _validate_zip_payload(source: bytes | Path) -> None:
         raise RuntimeError(f"Invalid ZIP container: {exc}") from exc
 
 
+def _detected_zip_extension(data: bytes) -> str:
+    """Identify an unnamed ZIP without guessing from a role's format order."""
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        names = set(archive.namelist())
+        if "word/document.xml" in names:
+            return ".docx"
+        if "xl/workbook.xml" in names:
+            return ".xlsx"
+        if "mimetype" in names and "content.xml" in names:
+            mime_info = archive.getinfo("mimetype")
+            if mime_info.file_size < 256 and archive.read(mime_info).strip() == (
+                b"application/vnd.oasis.opendocument.spreadsheet"
+            ):
+                return ".ods"
+    return ".zip"
+
+
 def _validated_extension(file_type: str, data: bytes, content_type: str, file_name: str) -> str:
     expected_extensions = _expected_extensions(file_type)
     resolved_extension = _extension_for(content_type, file_name).lower()
@@ -168,6 +185,14 @@ def _validated_extension(file_type: str, data: bytes, content_type: str, file_na
             f"Downloaded HTML placeholder instead of {joined_extensions} for {file_type}"
         )
     if expected_extensions:
+        if _matches_expected_binary(data, ".zip"):
+            _validate_zip_payload(data)
+            extension = resolved_extension
+            if extension not in ZIP_EXTENSIONS or extension not in expected_extensions:
+                extension = _detected_zip_extension(data)
+            if extension in expected_extensions:
+                return extension
+            raise RuntimeError(f"Downloaded {extension} container is not supported for {file_type}")
         # Prefer a supported source filename/MIME extension, then detect other
         # supported formats. A matching signature must still pass content checks.
         candidates = dict.fromkeys((resolved_extension, *expected_extensions))

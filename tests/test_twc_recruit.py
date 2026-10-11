@@ -445,13 +445,13 @@ class TwcRecruitClientTests(unittest.TestCase):
 
         self.assertEqual(len(page.papers), 1)
 
-    def test_fetch_exam_page_paper_has_accessible_bundle_file_type(self) -> None:
+    def test_fetch_exam_page_paper_has_question_answer_file_type(self) -> None:
         with patch.object(TwcRecruitClient, "_fetch_text", return_value=DETAIL_PAGE_HTML):
             client = TwcRecruitClient()
             page = client.fetch_exam_page("twc-recruit-114", 2025)
 
         paper = page.papers[0]
-        self.assertIn("accessible_bundle", paper.files)
+        self.assertEqual(set(paper.files), {"question_answer"})
 
     def test_fetch_exam_page_paper_url_points_to_zip(self) -> None:
         with patch.object(TwcRecruitClient, "_fetch_text", return_value=DETAIL_PAGE_HTML):
@@ -459,7 +459,7 @@ class TwcRecruitClientTests(unittest.TestCase):
             page = client.fetch_exam_page("twc-recruit-114", 2025)
 
         paper = page.papers[0]
-        url = paper.files["accessible_bundle"]
+        url = paper.files["question_answer"]
         self.assertIn("ServerFile/Get", url)
         self.assertIn("nodeId=715", url)
 

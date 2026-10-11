@@ -26,12 +26,12 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+from app.paths import MIRROR_ORIGIN_NAME as ORIGIN_NAME  # noqa: E402
 from app.providers.registry import get_provider  # noqa: E402 - bootstrap repository imports
 
 CHUNK_BYTES = 1_900_000_000  # Strictly below GitHub's 2 GiB per-asset limit.
 BLOCK_BYTES = 1024 * 1024
 GENERATION = re.compile(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}")
-ORIGIN_NAME = ".snapshot-origin.json"
 CACHE_PAYLOAD_LIMIT = 8_000_000_000
 
 

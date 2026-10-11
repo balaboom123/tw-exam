@@ -410,6 +410,14 @@ and duplicate-year/URL checks so a layout change cannot silently omit history.
 Availability on the official archive is independent of access to a contractor's
 applicant portal.
 
+Ordinary 試題(解答) archives use the question-and-answer role. They can contain
+answer-marked questions or separate question papers and standard answer sheets;
+an anchor's generic accessibility title does not make them accessibility
+editions. The provider's native-label resolver also corrects its retained
+wrapper records during catalog migration. Former roles remain traceable in the
+source revision journal, and historical source locators are preserved until a
+successful acquisition supplies their current role-specific mirror locator.
+
 Preserve original ZIP bytes separately from any future portable publication
 projection. Legacy filename decoding and corrupt nested members require explicit
 review. Native recruitment categories may share a subject paper; answer-marked

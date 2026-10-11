@@ -1,7 +1,18 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+
+MIRROR_ORIGIN_NAME = ".snapshot-origin.json"
+
+
+def is_provider_mirror_metadata(storage_key: str) -> bool:
+    parts = PurePosixPath(storage_key).parts
+    return (
+        len(parts) == 3
+        and parts[0] == "providers"
+        and (parts[2] == MIRROR_ORIGIN_NAME or parts[2].startswith(MIRROR_ORIGIN_NAME + "."))
+    )
 
 
 @dataclass(frozen=True)

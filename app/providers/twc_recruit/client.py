@@ -140,6 +140,42 @@ def parse_employment_detail(html: str) -> list[TwcRecruitEntry]:
     return parser.entries
 
 
+def archive_file_role(label: str) -> str:
+    """Use the native archive label, not an anchor's accessibility title."""
+    label = _normalize_text(label)
+    if "無障礙" in label:
+        return "accessible_bundle"
+    if "試題" in label and any(word in label for word in ("解答", "答案")):
+        return "question_answer"
+    raise ValueError(f"Unresolved Taiwan Water archive material role: {label}")
+
+
+def retained_archive_file_role(
+    file_type: str,
+    *,
+    year_roc: int,
+    source_exam_id: str,
+    category_code: str,
+    subject_code: str,
+    label: str,
+    source_url: str,
+) -> str:
+    """Correct the former wrapper role without changing its source locators."""
+    if (
+        file_type != "accessible_bundle"
+        or source_exam_id != f"twc-recruit-{year_roc}"
+        or category_code != str(year_roc)
+        or subject_code != f"twc-recruit-{year_roc}-bundle"
+    ):
+        return file_type
+    try:
+        TwcRecruitClient._validate_download_url(source_url)
+        return archive_file_role(label)
+    except ValueError:
+        # An unrecognized historical context needs its own source review.
+        return file_type
+
+
 class TwcRecruitClient:
     provider_id = "twc_recruit"
 
@@ -246,7 +282,7 @@ class TwcRecruitClient:
             category_code=str(entry.year_roc),
             subject_code=f"twc-recruit-{entry.year_roc}-bundle",
             subject_name_raw=entry.label,
-            files={"accessible_bundle": entry.url},
+            files={archive_file_role(entry.label): entry.url},
         )
         return SourceExamPage(
             source_exam_id=exam_code,

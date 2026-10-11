@@ -4,10 +4,12 @@ import hashlib
 import json
 import os
 import uuid
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
 from app.models import NormalizedCatalog, SourceExamPage, StoredFile
+from app.paths import is_provider_mirror_metadata
 from app.source_revisions import REVISION_DIRECTORY, is_revision_blob_key, preserve_mirror_payload
 
 DEDUPE_INDEX_FILE = ".mirror-dedupe-index.json"
@@ -55,6 +57,7 @@ class MirrorStore:
             if path.is_file()
             and path != self.dedupe_index_path
             and not path.name.startswith(f".{DEDUPE_INDEX_FILE}.")
+            and not is_provider_mirror_metadata(path.relative_to(self.root).as_posix())
         ]
 
     @staticmethod
@@ -64,6 +67,24 @@ class MirrorStore:
             for chunk in iter(lambda: handle.read(1024 * 1024), b""):
                 digest.update(chunk)
         return digest.hexdigest()
+
+    @staticmethod
+    def _reclaimable_payload_bytes(paths: list[Path]) -> int:
+        removed_links: Counter[tuple[int, int]] = Counter()
+        inode_stats: dict[tuple[int, int], os.stat_result] = {}
+        for path in paths:
+            # Removing a symbolic link never releases its target's payload.
+            if path.is_symlink():
+                continue
+            info = path.stat()
+            inode = (info.st_dev, info.st_ino)
+            removed_links[inode] += 1
+            inode_stats[inode] = info
+        return sum(
+            info.st_size
+            for inode, info in inode_stats.items()
+            if removed_links[inode] == info.st_nlink
+        )
 
     def _load_dedupe_index(self) -> dict[str, dict[str, int | str]]:
         if self._dedupe_index is not None:
@@ -326,12 +347,13 @@ class MirrorStore:
                 continue
             duplicate_groups += 1
             duplicate_files += len(ordered_paths)
-            for duplicate_path in ordered_paths[1:]:
-                if canonical_path.samefile(duplicate_path):
-                    continue
-                relinked_files += 1
-                reclaimable_bytes += size
-                if apply:
+            replaced_paths = [
+                path for path in ordered_paths[1:] if not canonical_path.samefile(path)
+            ]
+            relinked_files += len(replaced_paths)
+            reclaimable_bytes += self._reclaimable_payload_bytes(replaced_paths)
+            if apply:
+                for duplicate_path in replaced_paths:
                     self._replace_with_hard_link(canonical_path, duplicate_path)
 
         for path in all_paths:
@@ -444,7 +466,7 @@ class MirrorStore:
             ]
             preserved_unique_files = len(stale_paths) - len(redundant_paths)
             stale_paths = redundant_paths
-        reclaimable_bytes = sum(path.stat().st_size for path in stale_paths)
+        reclaimable_bytes = self._reclaimable_payload_bytes(stale_paths)
         if apply:
             stale_keys = {self._storage_key_for_path(path) for path in stale_paths}
             active_inode_keys = {

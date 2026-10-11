@@ -11,6 +11,7 @@ from pathlib import Path
 from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
+from app.providers.twc_recruit.client import retained_archive_file_role
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
@@ -413,6 +414,16 @@ def normalize_papers(
                     source_url=download_url_source,
                     checksum=metadata.get("checksum", ""),
                 )
+            elif provider_id == "twc_recruit":
+                normalized_role = retained_archive_file_role(
+                    file_type,
+                    year_roc=year_roc,
+                    source_exam_id=source_exam_id,
+                    category_code=paper.category_code,
+                    subject_code=paper.subject_code,
+                    label=paper.subject_name_raw,
+                    source_url=download_url_source,
+                )
             storage_key = metadata.get("storage_key", "")
             asset_name = metadata.get("asset_name") or storage_key
             download_url_mirror = (
@@ -490,6 +501,22 @@ def renormalize_catalog(
                 title=paper.subject_name_raw,
                 source_url=paper.download_url_source,
                 checksum=paper.checksum,
+            )
+            if role != paper.file_type:
+                paper = replace(
+                    paper,
+                    file_type=role,
+                    paper_code=f"{paper.category_code}-{paper.subject_code}-{role}",
+                )
+        elif paper.provider_id == "twc_recruit":
+            role = retained_archive_file_role(
+                paper.file_type,
+                year_roc=paper.year_roc,
+                source_exam_id=paper.source_exam_id,
+                category_code=paper.category_code,
+                subject_code=paper.subject_code,
+                label=paper.subject_name_raw,
+                source_url=paper.download_url_source,
             )
             if role != paper.file_type:
                 paper = replace(

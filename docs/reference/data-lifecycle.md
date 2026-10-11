@@ -39,6 +39,13 @@ checksum returned by the mirror writer. Mirror deduplication uses hard links;
 the mirror root and its temporary/canonical files must share a filesystem that
 supports them.
 
+Cleanup and deduplication count reclaimable payload bytes once per inode, and
+only when every hard link to that inode is removed or replaced. Removing an
+alias of a retained file releases no payload bytes. Recovery blobs remain
+excluded, and duplicate-only pruning preserves unique unreferenced history.
+Provider snapshot origin markers and their temporary writes are operational
+recovery metadata; payload scanning, deduplication and pruning exclude them.
+
 Source pages are fetched serially. Independent files may download with bounded concurrency, while mirror writes remain serial; stateful or rate-limited providers restrict concurrency. Shared HTTP adapters relying on sync retries use one transport attempt to avoid multiplying retries. Transient discovery/fetch requests use bounded retries and honor `Retry-After`.
 
 An unavailable year listing preserves retained provider state, returns failure, and produces no publish plan. Payload validation rejects HTML placeholders and signatures inconsistent with the expected file role. ZIP-based downloads (including OpenXML and ODS files) must also have a readable container and valid CRCs for every entry, both when downloaded and before mirror reuse. Failed validation leaves retained evidence intact and records a download failure. The [sync implementation](../../app/sync.py) owns these checks; acceptance of an outer archive does not establish the integrity of its nested papers or the internal contents of a RAR.
@@ -49,6 +56,12 @@ source URL and checksum. An unrecognized role cannot bypass ZIP integrity
 checks: the advertised ZIP format or a ZIP signature invokes validation before
 storage. Unrecognized roles remain ineligible for mirror reuse until their
 payload policy is defined.
+
+When a ZIP-based download has no supported filename or MIME extension,
+acquisition checks its native document parts to distinguish Word, spreadsheet
+and OpenDocument files from ordinary ZIPs. The ordering of a material role's
+allowed extensions must not turn an unnamed archive into a document. A native
+format unsupported by that role fails validation.
 
 ## Normalize and retain history
 
@@ -66,6 +79,13 @@ state succeeds, so a rejected retention write cannot advance that manifest.
 Current publication continues to use the current catalog; retired roles,
 URLs and older bytes are not republished automatically. Strict history audits
 with mirror checking verify every journal blob as well as current references.
+
+Provider-owned material-role corrections apply during ingestion and catalog
+migration through the same resolver. Migration preserves source URLs, checksums
+and historical storage locators while retaining the former role in the source
+journal. A subsequent source sync refreshes raw role metadata and assigns
+current mirror locators only to validated downloads. A failed source retains its
+earlier payload and failure evidence without receiving a successful-sync date.
 
 Historical acquisition errors are reviewed alongside the journal rather than
 rewriting it. The source-revision review owner distinguishes a checksum-backed

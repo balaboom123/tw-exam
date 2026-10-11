@@ -11,8 +11,8 @@
       "reason_code": "official_corrupt_archive",
       "reason": "The official ROC 107 ZIP has two unreadable PDFs: one CRC mismatch and one invalid local file header. Retain the checksum-verified original as failed source evidence; do not publish it or treat signature/checksum agreement as successful acquisition.",
       "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/fc134ba2-f89b-478a-a003-d77c6be12771?nodeId=715",
-      "paper_code": "107-twc-recruit-107-bundle-accessible_bundle",
-      "file_type": "accessible_bundle",
+      "paper_code": "107-twc-recruit-107-bundle-question_answer",
+      "file_type": "question_answer",
       "evidence": {
         "captured_at": "2026-10-11T01:39:31.774248+00:00",
         "http_status": 200,
@@ -38,6 +38,13 @@
             }
           ],
           "original_response_checksum_unchanged": true
+        },
+        "material_role_review": {
+          "reviewed_at": "2026-10-11T05:09:08.954478+00:00",
+          "former_file_type": "accessible_bundle",
+          "correct_file_type": "question_answer",
+          "source_url_and_retained_original_checksum_unchanged": true,
+          "current_normal_cli_download_failure_confirmed": true
         }
       }
     }
