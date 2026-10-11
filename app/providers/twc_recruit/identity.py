@@ -63,14 +63,12 @@ def read_archive_identities(path: Path) -> tuple[TwcArchiveIdentity, ...]:
     ):
         raise ValueError("Unsupported Taiwan Water archive identity evidence")
     facts = []
-    years: set[int] = set()
-    urls: set[str] = set()
+    contexts: set[tuple[int, str, str]] = set()
+    dates_by_payload: dict[tuple[int, str], date | None] = {}
     for row in document["facts"]:
         year = row["programme_year_roc"]
         if type(year) is not int or not 1 <= year <= 999:
             raise ValueError("Invalid Taiwan Water programme year")
-        if year in years or row["source_url"] in urls:
-            raise ValueError("Duplicate Taiwan Water archive identity context")
         TwcRecruitClient._validate_download_url(row["source_url"])
         if (
             not isinstance(row["checksum"], str)
@@ -79,6 +77,12 @@ def read_archive_identities(path: Path) -> tuple[TwcArchiveIdentity, ...]:
             raise ValueError("Taiwan Water archive evidence requires a SHA-256 checksum")
         date.fromisoformat(row["reviewed_at"])
         written = date.fromisoformat(row["written_test_date"]) if row["written_test_date"] else None
+        context = (year, row["source_url"], row["checksum"])
+        if context in contexts:
+            raise ValueError("Duplicate Taiwan Water archive identity context")
+        payload = (year, row["checksum"])
+        if payload in dates_by_payload and dates_by_payload[payload] != written:
+            raise ValueError("Conflicting Taiwan Water archive dates for the same payload")
         fact = TwcArchiveIdentity(
             year,
             row["source_url"],
@@ -90,8 +94,8 @@ def read_archive_identities(path: Path) -> tuple[TwcArchiveIdentity, ...]:
         )
         _ = fact.material  # Validate explicit unknown/date evidence at the shared owner.
         facts.append(fact)
-        years.add(year)
-        urls.add(row["source_url"])
+        contexts.add(context)
+        dates_by_payload[payload] = written
     return tuple(facts)
 
 
@@ -113,12 +117,16 @@ def is_outer_archive_context(
     )
 
 
-def resolve_archive_identity(year_roc: int, checksum: str) -> TwcArchiveIdentity | None:
+def resolve_archive_identity(
+    year_roc: int, checksum: str, *, source_url: str | None = None
+) -> TwcArchiveIdentity | None:
     return next(
         (
             fact
             for fact in archive_identities()
-            if fact.year_roc == year_roc and fact.checksum == checksum
+            if fact.year_roc == year_roc
+            and fact.checksum == checksum
+            and (source_url is None or fact.source_url == source_url)
         ),
         None,
     )
@@ -144,8 +152,8 @@ def archive_material(
             return None
     except ValueError:
         return None
-    fact = resolve_archive_identity(year_roc, checksum)
-    if fact is not None and fact.source_url == source_url:
+    fact = resolve_archive_identity(year_roc, checksum, source_url=source_url)
+    if fact is not None:
         return fact.material
     return SourceMaterial(
         "administered",

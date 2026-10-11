@@ -17,12 +17,13 @@ from app.normalizer import normalize_papers, renormalize_catalog
 from app.paths import provider_paths
 from app.providers.twc_recruit.identity import (
     archive_identities, archive_identity_path, archive_material, read_archive_identities,
-    validate_archive_identities,
+    resolve_archive_identity, validate_archive_identities,
 )
 from app.publisher import write_provider_state
 from app.source_material import source_year_roc
 from app.source_revisions import load_source_revisions
 from app.state import load_provider_state
+from app.storage import MirrorStore
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -113,6 +114,124 @@ def test_unknown_material_prevents_archive_creation(tmp_path):
         build_bundles(mirror_dir=tmp_path / "mirror", bundle_dir=tmp_path / "bundles",
                       normalized=normalize(page(fact)), min_years=1, bundle_base_url="")
     assert not (tmp_path / "bundles").exists()
+
+
+def test_reviewed_revisions_and_relocated_copies_keep_their_exact_evidence(tmp_path, monkeypatch):
+    document = json.loads(archive_identity_path(ROOT).read_text())
+    original = next(row for row in document["facts"] if row["programme_year_roc"] == 111)
+    replacement = dict(original, checksum="a" * 64, evidence_label="Reviewed corrected archive")
+    relocated = dict(
+        original,
+        source_url="https://www.water.gov.tw/ch/ServerFile/Get/11111111-1111-1111-1111-111111111111?nodeId=715",
+        evidence_url="https://www.water.gov.tw/relocation-evidence",
+        evidence_label="Reviewed relocated original",
+    )
+    document["facts"] = [original, replacement, relocated]
+    candidate = tmp_path / "facts.json"
+    candidate.write_text(json.dumps(document))
+    facts = read_archive_identities(candidate)
+    monkeypatch.setattr("app.providers.twc_recruit.identity.archive_identities", lambda: facts)
+    assert len(facts) == 3
+    for fact in facts:
+        context = dict(
+            source_exam_id="twc-recruit-111", year_roc=111, category_code="111",
+            subject_code="twc-recruit-111-bundle", label="111年試題(解答).zip",
+            source_url=fact.source_url, checksum=fact.checksum,
+        )
+        assert archive_material(**context) == fact.material
+        assert resolve_archive_identity(111, fact.checksum, source_url=fact.source_url) == fact
+        assert normalize(page(fact)).papers[0].stage_id == "stage-1"
+        assert source_year_roc(normalize(page(fact)).papers[0]) == 112
+    assert resolve_archive_identity(111, facts[0].checksum) == facts[0]
+    assert resolve_archive_identity(111, "b" * 64) is None
+    wrong_locator = dict(context, source_url=facts[1].source_url, checksum="b" * 64)
+    assert archive_material(**wrong_locator).date.basis == "unknown"
+    # A reviewed payload at another URL must not donate its material evidence.
+    unreviewed_locator = dict(context, source_url=facts[2].source_url, checksum=facts[1].checksum)
+    assert archive_material(**unreviewed_locator).date.basis == "unknown"
+
+
+@pytest.mark.parametrize("conflicting_date", [None, "2023-03-12"])
+def test_same_payload_cannot_have_conflicting_dates_after_relocation(tmp_path, conflicting_date):
+    document = json.loads(archive_identity_path(ROOT).read_text())
+    original = next(row for row in document["facts"] if row["programme_year_roc"] == 111)
+    relocated = dict(
+        original,
+        source_url="https://www.water.gov.tw/ch/ServerFile/Get/11111111-1111-1111-1111-111111111111?nodeId=715",
+        written_test_date=conflicting_date,
+        review_reason="Date requires review" if conflicting_date is None else "",
+    )
+    document["facts"] = [original, relocated]
+    candidate = tmp_path / "facts.json"
+    candidate.write_text(json.dumps(document))
+    with pytest.raises(ValueError, match="Conflicting.*dates"):
+        read_archive_identities(candidate)
+
+
+def test_unreviewed_replacement_does_not_inherit_an_older_payload_date(tmp_path, monkeypatch):
+    document = json.loads(archive_identity_path(ROOT).read_text())
+    original = next(row for row in document["facts"] if row["programme_year_roc"] == 111)
+    replacement = dict(original, checksum="a" * 64, written_test_date=None,
+                       review_reason="Replacement bytes await calendar and native review")
+    document["facts"] = [original, replacement]
+    candidate = tmp_path / "facts.json"
+    candidate.write_text(json.dumps(document))
+    facts = read_archive_identities(candidate)
+    monkeypatch.setattr("app.providers.twc_recruit.identity.archive_identities", lambda: facts)
+    old, new = [normalize(page(fact)).papers[0] for fact in facts]
+    assert source_year_roc(old) == 112 and old.stage_id == "stage-1"
+    assert source_year_roc(new) is None and new.stage_id == "unknown"
+    assert old.bundle_id != new.bundle_id
+
+
+def test_reviewed_revision_keeps_previous_source_blob_and_date_facts(tmp_path, monkeypatch):
+    provider = provider_paths(tmp_path, "twc_recruit")
+    original = next(row for row in archive_identities() if row.year_roc == 111)
+    facts, sources, payloads = [], [], []
+    key = "providers/twc_recruit/111/original.zip"
+    path = tmp_path / "mirror" / key
+    path.parent.mkdir(parents=True)
+    store = MirrorStore(tmp_path / "mirror")
+    for version in (b"original questions", b"corrected questions and answers"):
+        stream = io.BytesIO()
+        with zipfile.ZipFile(stream, "w") as archive:
+            archive.writestr("native.pdf", b"%PDF-1.7 fixture " + version)
+        data = stream.getvalue()
+        fact = replace(original, checksum=hashlib.sha256(data).hexdigest())
+        source = page(fact)
+        source.papers[0].mirror_files["question_answer"]["storage_key"] = key
+        facts.append(fact)
+        sources.append(source)
+        payloads.append(data)
+    monkeypatch.setattr("app.providers.twc_recruit.identity.archive_identities", lambda: tuple(facts))
+    # Save the first verified source, then update the same native locator.
+    for fact, source, data in zip(facts, sources, payloads, strict=True):
+        store.write_bytes(key, data, overwrite=True)
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == fact.checksum
+        write_provider_state(provider, raw_pages=[source], normalized=normalize(source),
+                             aliases=[], failures=[], manifest=None)
+    journal = load_source_revisions(provider)
+    assert len(journal) == 1
+    prior = journal[0]
+    assert prior["source_record"]["checksum"] == facts[0].checksum
+    previous = tmp_path / "mirror" / prior["blob_storage_key"]
+    assert hashlib.sha256(previous.read_bytes()).hexdigest() == facts[0].checksum
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == facts[1].checksum
+    candidate = archive_identity_path(tmp_path)
+    candidate.parent.mkdir(parents=True)
+    document = json.loads(archive_identity_path(ROOT).read_text())
+    row = next(row for row in document["facts"] if row["programme_year_roc"] == 111)
+    document["facts"] = [dict(row, checksum=fact.checksum) for fact in facts]
+    candidate.write_text(json.dumps(document))
+    assert validate_archive_identities(tmp_path, verify_mirror=True) == 2
+    for fact in read_archive_identities(candidate):
+        paper = normalize(page(fact)).papers[0]
+        assert source_year_roc(paper) == 112 and paper.stage_id == "stage-1"
+    # Every approved URL/version still needs its own retained history anchor.
+    document["facts"].append(dict(row, checksum="b" * 64))
+    candidate.write_text(json.dumps(document))
+    with pytest.raises(ValueError, match="lacks retained anchor"):
+        validate_archive_identities(tmp_path, verify_mirror=True)
 
 
 def test_complete_cli_migration_preserves_originals_failures_and_previous_identity(tmp_path, monkeypatch):

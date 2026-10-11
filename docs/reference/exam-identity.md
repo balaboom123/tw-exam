@@ -13,6 +13,14 @@ archive filename omits it. Source partitions remain stable when an official
 programme holds its examination in a later year; reviewed material date facts
 drive publication years and year folders independently of those source keys.
 
+Taiwan Water archive evidence is keyed by programme year, official source URL,
+and original SHA-256 checksum. Reviewed replacements are appended alongside
+retained versions; reviewing new bytes must not remove the old anchor. A source
+URL may retain several reviewed payload versions. A relocated copy with the
+same programme year and checksum must agree on the written-test date, while its
+material evidence resolves against the exact source URL. Changed bytes without
+their own review remain unresolved.
+
 ## Why this exists
 
 A display name such as 「一般行政」 is a track, not a complete exam identity. The same track can occur in high, ordinary, elementary, local, promotion, disability, indigenous, customs, or other programs. Grouping by a stripped display name therefore creates mixed bundles.

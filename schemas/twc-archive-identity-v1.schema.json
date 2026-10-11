@@ -11,6 +11,7 @@
     "facts": {
       "type": "array",
       "minItems": 1,
+      "uniqueItems": true,
       "items": {
         "type": "object",
         "required": ["programme_year_roc", "source_url", "checksum", "written_test_date", "evidence_url", "evidence_label", "review_reason", "reviewed_at"],
