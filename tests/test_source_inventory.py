@@ -523,20 +523,27 @@ class SourceInventoryTests(unittest.TestCase):
 
         self.assertEqual(
             sorted(map(int, manifest["years"])),
-            [2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025],
+            [2014, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2025, 2026],
         )
-        self.assertEqual(len(manifest["exams"]), 10)
-        self.assertEqual(len(manifest["files"]), 10)
+        self.assertEqual(len(manifest["exams"]), 11)
+        self.assertEqual(len(manifest["files"]), 11)
         self.assertEqual(
             sum(item["bytes"] for item in manifest["files"].values()),
-            75_196_680,
+            79_629_246,
         )
         policy = manifest["probe_policy"]
         self.assertEqual(
             policy["coverage_status"], "complete_declared_scope_with_blockers"
         )
         self.assertEqual(
-            policy["current_cycle_blocker"]["status"], "login_required"
+            policy["current_cycle_access"]["status"], "public_official_archive_available"
+        )
+        self.assertTrue(policy["contractor_route_review"]["historical_review_only"])
+        self.assertEqual(policy["current_cycle_access"]["native_pdf_count"], 13)
+        self.assertEqual(policy["source_integrity"]["asset_zip_integrity_pass_count"], 10)
+        self.assertEqual(policy["publication_state"]["frontend_bundle_count"], 0)
+        self.assertEqual(
+            policy["workflow_state"]["scheduled_workflow"], ".github/workflows/sync-employment.yml"
         )
         self.assertEqual(
             policy["source_integrity"]["official_sha256_mismatch_count"], 3
@@ -549,6 +556,24 @@ class SourceInventoryTests(unittest.TestCase):
                 "all_retained_assets_match_live_sha256"
             ]
         )
+        failures = json.loads(
+            (ROOT / "data/providers/twc_recruit/sync-failures.json").read_text(encoding="utf-8")
+        )
+        exceptions = json.loads(
+            (ROOT / "catalog/source-coverage/twc_recruit.json").read_text(encoding="utf-8")
+        )["exceptions"]
+        self.assertEqual(len(failures), 1)
+        self.assertEqual(len(exceptions), 1)
+        self.assertEqual(failures[0]["stage"], "download")
+        self.assertEqual(failures[0]["source_exam_id"], "twc-recruit-107")
+        self.assertEqual(failures[0]["url"], exceptions[0]["source_url"])
+        self.assertEqual(failures[0]["paper_code"], exceptions[0]["paper_code"])
+        self.assertEqual(exceptions[0]["reason_code"], "official_corrupt_archive")
+        receipts = json.loads(
+            (ROOT / "data/providers/twc_recruit/sync-status.json").read_text(encoding="utf-8")
+        )["events"]
+        self.assertNotIn("twc-recruit-107", receipts)
+        self.assertIn("twc-recruit-115", receipts)
 
     def test_tabf_manifest_exposes_year_and_taxonomy_contamination(self) -> None:
         manifest = json.loads(

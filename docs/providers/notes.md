@@ -404,6 +404,19 @@ The complete retained sample set has been reclassified through the shared owner.
 
 Use official Taiwan Water recruitment examination archives and inspect nested artifacts rather than validating only an outer archive signature. Retain corrupt official payload evidence without publishing unusable papers.
 
+Download anchors may use a generic accessibility title; use the visible
+year-bearing file label when the title has no year. Keep candidate reconciliation
+and duplicate-year/URL checks so a layout change cannot silently omit history.
+Availability on the official archive is independent of access to a contractor's
+applicant portal.
+
+Preserve original ZIP bytes separately from any future portable publication
+projection. Legacy filename decoding and corrupt nested members require explicit
+review. Native recruitment categories may share a subject paper; answer-marked
+questions must not be presented as an unanswered copy merely because the outer
+link says 試題. Do not infer an official grade from professional-subject letters
+or occupational 甲/乙 labels.
+
 ## `wdasec_skill`
 
 Use official workforce skills-test question-bank material within the declared paper scope. Preserve occupation, level, subject, and source-event distinctions across the large archive.

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "provider_id": "twc_recruit",
+  "exceptions": [
+    {
+      "scope": "file",
+      "provider_id": "twc_recruit",
+      "source_exam_id": "twc-recruit-107",
+      "year_ad": 2018,
+      "status": "blocked",
+      "reason_code": "official_corrupt_archive",
+      "reason": "The official ROC 107 ZIP contains a CRC-corrupt PDF. Retain the checksum-verified original as failed source evidence; do not publish it or treat signature/checksum agreement as successful acquisition.",
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/fc134ba2-f89b-478a-a003-d77c6be12771?nodeId=715",
+      "paper_code": "107-twc-recruit-107-bundle-accessible_bundle",
+      "file_type": "accessible_bundle",
+      "evidence": {
+        "captured_at": "2026-10-11T01:39:31.774248+00:00",
+        "http_status": 200,
+        "response_bytes": 6526975,
+        "response_sha256": "489d4f92cf74f2c2838c7191f8e42717ab3a0783e94e08b77ed52acb11f90316",
+        "observation": "Invalid ZIP container: CRC mismatch in ZIP entry '107ª~╕╒├D(╕╤╡¬)/▒M2-íiN4701-N4706íjíBíiN4801-N4804íj-┐∩50-ªµ¼F╛╟╖º¡n-╡¬«╫¬⌐=ñ╜ºi¬⌐.pdf'",
+        "source_page_url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715",
+        "source_page_sha256": "f4ce1217f263cb1b3ae5bcfcbffa9c75491c7374282d85c7ac4bb6a0434029a4",
+        "corrupt_member": "107ª~╕╒├D(╕╤╡¬)/▒M2-íiN4701-N4706íjíBíiN4801-N4804íj-┐∩50-ªµ¼F╛╟╖º¡n-╡¬«╫¬⌐=ñ╜ºi¬⌐.pdf",
+        "official_sha256": "479ec7e6f21d8d4861fd2a8ff2fb9cf1de86c959d22373dfd77c7fcca6b8149a"
+      }
+    }
+  ]
+}

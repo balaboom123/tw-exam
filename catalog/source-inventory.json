@@ -1703,7 +1703,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Canonical public archive ROC 103–108, 110–112, and 114 / AD 2014–2019, 2021–2023, and 2025; ROC 115 / AD 2026 contractor papers are login-gated",
+        "note": "Canonical public archive ROC 103–108, 110–112, and 114–115 / AD 2014–2019, 2021–2023, and 2025–2026; the ROC 115 package is publicly downloadable from the official archive independently of the contractor login route",
         "start_ad": 2014
       },
       "discovery_snapshot": {
@@ -1717,9 +1717,9 @@
       ],
       "exam_category": "Taiwan Water Corporation recruitment papers",
       "local_state": {
-        "normalized_paper_records": 10,
-        "raw_event_pages": 10,
-        "sync_failures": 0
+        "normalized_paper_records": 11,
+        "raw_event_pages": 11,
+        "sync_failures": 1
       },
       "local_years": [
         2014,
@@ -1731,7 +1731,8 @@
         2021,
         2022,
         2023,
-        2025
+        2025,
+        2026
       ],
       "official_source_urls": [
         "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715",
@@ -1740,13 +1741,14 @@
       "provider_id": "twc_recruit",
       "restrictions": [
         "The canonical archive omits ROC 109 and 113 and exposes no enumerable official pre-ROC-103 namespace; third-party copies are not accepted as sources.",
-        "The earlier live-byte comparison found all ten source ZIPs matched retained mirrors, but official SHA pages disagreed for ROC 107, 110, and 114. A read-only container recheck on 2026-10-07 confirmed the retained ROC 107 ZIP has one CRC-corrupt member; the source bytes are preserved and publication remains withheld.",
-        "The ROC 115 contractor paper route redirects to applicant login even though a public news item announces the papers.",
+        "The 2026-10-11 live-byte comparison found all ten earlier source ZIPs still matched retained mirrors. ROC 107 still has one CRC-corrupt PDF member; normal full sync now records that exact failed download and catalog/source-coverage/twc_recruit.json documents it. Several earlier ZIPs have legacy filename encoding and nonportable decoded names; originals remain preserved and publication stays withheld. All eleven official SHA pages were rechecked, confirming discrepancies for ROC 107, 110, and 114.",
+        "The official listing now uses generic accessibility titles. Discovery reads the visible year-bearing link label and still rejects unparsed candidates, duplicate years, and duplicate URLs. All eleven current source links are reconciled.",
+        "The public ROC 115 ZIP was acquired through normal provider sync on 2026-10-11: 13 CRC-valid PDFs, 94 pages, with native evaluation-position programme headers, shared recruitment categories, and answer-marked questions. An earlier contractor-route review found applicant login; that route does not establish availability of the independent official archive.",
         "Taiwan Water's open-data declaration uses Taiwan Government Data Open License 1.0 with attribution and stated caveats; robots.txt contains contradictory wildcard Allow and Disallow groups."
       ],
       "source_name": "台灣自來水股份有限公司",
       "status": "partial",
-      "status_reason": "Complete bounded discovery of the declared canonical archive and current contractor evidence, with partial usability/access: ten public source ZIPs are retained; ROC 107 is internally corrupt, three reviewed official SHA records disagree, and ROC 115 papers are login-gated. The corrupt source material remains withheld from publication."
+      "status_reason": "Complete bounded discovery and retention of the eleven current official ZIPs, including public ROC 115. Usability and publication remain partial: ROC 107 is internally corrupt, legacy nested paths need reviewed publication treatment, and complete historical paper-role and recruitment-category review remains pending. Original source bytes are retained and the provider remains quarantined."
     },
     {
       "available_years": {

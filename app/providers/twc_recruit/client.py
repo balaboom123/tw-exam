@@ -47,9 +47,9 @@ class _DetailPageParser(HTMLParser):
     """Parse the TWC subject detail page for exam paper ZIP downloads.
 
     Expected structure (repeating per year):
-      <div class="檔案下載">
-        <a href="/ch/ServerFile/Get/[UUID]?nodeId=715" title="114年試題(解答).zip">
-          114年試題(解答).zip(4.8M)
+      <div class="main_page_other_download">
+        <a href="/ch/ServerFile/Get/[UUID]?nodeId=715" title="(檔案下載)">
+          115年試題(解答).zip(4.3M)
         </a>
         <a href="/ch/ServerFile/ShowFileSHA256/[UUID]">
           (SHA256驗證)
@@ -109,9 +109,12 @@ class _DetailPageParser(HTMLParser):
 
         if tag == "a" and self._in_anchor:
             anchor_text = _normalize_text("".join(self._anchor_parts))
-            # Prefer title attribute for year extraction; fall back to anchor text
-            label_source = self._current_title or anchor_text
+            # Generic accessibility titles are not the source file label.
+            label_source = self._current_title
             match = _YEAR_RE.search(label_source)
+            if match is None:
+                label_source = anchor_text
+                match = _YEAR_RE.search(label_source)
             if match:
                 year_roc = int(match.group(1))
                 label = label_source

@@ -12,6 +12,7 @@ Fixtures below replicate the observed HTML structure from the live site.
 Archive spans ROC 103–114 (2014–2025), with year gaps (109, 113) which are
 treated as normal (not errors).
 """
+import re
 import unittest
 from unittest.mock import patch
 
@@ -201,6 +202,20 @@ class TwcRecruitParserTests(unittest.TestCase):
         entries = parse_employment_detail(DETAIL_PAGE_HTML)
 
         self.assertEqual(len(entries), 4)
+
+    def test_generic_download_titles_use_the_visible_year_and_file_label(self) -> None:
+        html = re.sub(r'title="\d{3}年試題\(解答\)\.zip"', 'title="(檔案下載)"', DETAIL_PAGE_HTML)
+        entries = parse_employment_detail(html)
+        self.assertEqual([e.year_roc for e in entries], [114, 112, 111, 110])
+        self.assertEqual(entries[0].label, "114年試題(解答).zip(4.8M)")
+        self.assertEqual(entries[0].url, parse_employment_detail(DETAIL_PAGE_HTML)[0].url)
+
+    def test_generic_title_without_a_visible_year_remains_unresolved(self) -> None:
+        html = NO_YEAR_PAGE_HTML.replace('?nodeId=715">', '?nodeId=715" title="(檔案下載)">')
+        self.assertEqual(parse_employment_detail(html), [])
+        with patch.object(TwcRecruitClient, "_fetch_text", return_value=html):
+            with self.assertRaisesRegex(ValueError, "candidate/parsed download mismatch: 1 != 0"):
+                TwcRecruitClient().discover_available_years()
 
     def test_parse_detail_page_extracts_year_roc(self) -> None:
         entries = parse_employment_detail(DETAIL_PAGE_HTML)
