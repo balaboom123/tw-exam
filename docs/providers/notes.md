@@ -404,6 +404,18 @@ The complete retained sample set has been reclassified through the shared owner.
 
 Use official Taiwan Water recruitment examination archives and inspect nested artifacts rather than validating only an outer archive signature. Retain corrupt official payload evidence without publishing unusable papers.
 
+Programme years are retained source partitions, not assumed examination dates.
+The [reviewed archive facts](../../catalog/mappings/twc/archive-identity-v1.json)
+bind annual initial-written dates and stages to exact original ZIP checksums.
+Normalization and migration share these facts. Missing annual evidence or changed
+bytes require an unknown date/stage and review; they must not inherit the year in
+a filename. Initial written papers remain separate from the later practical,
+physical and oral assessments. Professional subject numbers are paper slots,
+not selection stages, and a school prerequisite is not an examination grade.
+These outer-archive facts do not establish every native occupational applicability
+relationship or authorize child publication. Historical answer-change labels and
+different original renditions must remain traceable during the pending projection.
+
 Download anchors may use a generic accessibility title; use the visible
 year-bearing file label when the title has no year. Keep candidate reconciliation
 and duplicate-year/URL checks so a layout change cannot silently omit history.

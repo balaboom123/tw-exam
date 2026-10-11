@@ -6,6 +6,13 @@ Applies to: catalog version exam-identity-v2, identity schema version 2
 
 This is the current implementation reference for exam identity. The executable behavior is in app/classification.py, reviewed vocabulary is in catalog/, and serialized boundaries are in schemas/. It supersedes the old name-only grouping description.
 
+An unresolved selection stage uses `unknown` and requires review. It cannot be
+represented as `not-applicable`, which means the dimension genuinely does not
+apply. Provider-owned annual evidence may establish a written stage even when an
+archive filename omits it. Source partitions remain stable when an official
+programme holds its examination in a later year; reviewed material date facts
+drive publication years and year folders independently of those source keys.
+
 ## Why this exists
 
 A display name such as 「一般行政」 is a track, not a complete exam identity. The same track can occur in high, ordinary, elementary, local, promotion, disability, indigenous, customs, or other programs. Grouping by a stripped display name therefore creates mixed bundles.

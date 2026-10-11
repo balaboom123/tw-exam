@@ -12,6 +12,7 @@ from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
 from app.providers.twc_recruit.client import retained_archive_file_role
+from app.providers.twc_recruit.identity import archive_material
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
@@ -360,11 +361,27 @@ def normalize_papers(
             source_metadata = paper.mirror_files.get("question") or mirror_metadata.get(
                 (paper.category_code, paper.subject_code, "question"), {}
             )
-            if provider_id == "hakka_cert" and not source_metadata and len(paper.files) == 1:
+            if (
+                provider_id in {"hakka_cert", "twc_recruit"}
+                and not source_metadata
+                and len(paper.files) == 1
+            ):
                 role = next(iter(paper.files))
                 source_metadata = paper.mirror_files.get(role) or mirror_metadata.get(
                     (paper.category_code, paper.subject_code, role), {}
                 )
+            if provider_id == "twc_recruit" and len(paper.files) == 1:
+                reviewed_material = archive_material(
+                    source_exam_id=source_exam_id,
+                    year_roc=year_roc,
+                    category_code=paper.category_code,
+                    subject_code=paper.subject_code,
+                    label=paper.subject_name_raw,
+                    source_url=next(iter(paper.files.values())),
+                    checksum=source_metadata.get("checksum", ""),
+                )
+                if reviewed_material is not None:
+                    material = reviewed_material
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -524,6 +541,17 @@ def renormalize_catalog(
                     file_type=role,
                     paper_code=f"{paper.category_code}-{paper.subject_code}-{role}",
                 )
+            material = archive_material(
+                source_exam_id=paper.source_exam_id,
+                year_roc=paper.year_roc,
+                category_code=paper.category_code,
+                subject_code=paper.subject_code,
+                label=paper.subject_name_raw,
+                source_url=paper.download_url_source,
+                checksum=paper.checksum,
+            )
+            if material is not None:
+                paper = replace(paper, source_material=material, schema_version=3)
         if paper.provider_id == "hakka_cert" and paper.source_material is None:
             material = hakka_material(
                 paper.subject_name_raw, paper.source_exam_id, paper.download_url_source

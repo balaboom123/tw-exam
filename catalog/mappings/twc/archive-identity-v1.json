@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "provider_id": "twc_recruit",
+  "facts": [
+    {
+      "programme_year_roc": 103,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/e7ac95c8-84cb-417a-a29d-d16cdb5527f2?nodeId=715",
+      "checksum": "7121f3914e68508d38292c39dba6451f8379bf80c58f0da63435014b8426806c",
+      "written_test_date": null,
+      "evidence_url": "https://www.water.gov.tw/ch/ServerFile/Get/e7ac95c8-84cb-417a-a29d-d16cdb5527f2?nodeId=715",
+      "evidence_label": "台灣自來水公司103年評價職位人員甄試官方試題（解答）檔；尚未確認年度初試日期及階段",
+      "review_reason": "Programme year is a traceability label; actual sitting year and selection stage require annual rule review",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 104,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/3dc49939-b596-457f-a590-072036d2d161?nodeId=715",
+      "checksum": "47335feb4f71767750c579c5cac52ba471cd77a867c74b17adf55afb89390389",
+      "written_test_date": null,
+      "evidence_url": "https://www.water.gov.tw/ch/ServerFile/Get/3dc49939-b596-457f-a590-072036d2d161?nodeId=715",
+      "evidence_label": "台灣自來水公司104年評價職位人員甄試官方試題（解答）檔；尚未確認年度初試日期及階段",
+      "review_reason": "Programme year is a traceability label; actual sitting year and selection stage require annual rule review",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 105,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/977326a1-ebeb-4549-a31a-4a7c0f93c12f?nodeId=715",
+      "checksum": "be442ace1e80c5cc7cc6fccdc898064e7bd6a13be89ce876da618a0417e5b74c",
+      "written_test_date": null,
+      "evidence_url": "https://www.water.gov.tw/ch/ServerFile/Get/977326a1-ebeb-4549-a31a-4a7c0f93c12f?nodeId=715",
+      "evidence_label": "台灣自來水公司105年評價職位人員甄試官方試題（解答）檔；尚未確認年度初試日期及階段",
+      "review_reason": "Programme year is a traceability label; actual sitting year and selection stage require annual rule review",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 106,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/69dedaed-5aae-4bc3-ab82-6c7e39d971ed?nodeId=715",
+      "checksum": "ce1f0662511a2860b2fad3d08782800f3b355e2f053650ff48d3ab3bd9cb3331",
+      "written_test_date": null,
+      "evidence_url": "https://www.water.gov.tw/ch/ServerFile/Get/69dedaed-5aae-4bc3-ab82-6c7e39d971ed?nodeId=715",
+      "evidence_label": "台灣自來水公司106年評價職位人員甄試官方試題（解答）檔；尚未確認年度初試日期及階段",
+      "review_reason": "Programme year is a traceability label; actual sitting year and selection stage require annual rule review",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 107,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/fc134ba2-f89b-478a-a003-d77c6be12771?nodeId=715",
+      "checksum": "489d4f92cf74f2c2838c7191f8e42717ab3a0783e94e08b77ed52acb11f90316",
+      "written_test_date": "2019-03-09",
+      "evidence_url": "https://asp2003.fy.edu.tw/AncUpLoadFile/TB/2018/TB2018122092737_%E5%8F%B0%E7%81%A3%E8%87%AA%E4%BE%86%E6%B0%B4%E5%85%AC%E5%8F%B8107%E5%B9%B4%E8%A9%95%E5%83%B9%E8%81%B7%E4%BD%8D%E7%94%84%E8%A9%A6%E7%B0%A1%E7%AB%A0.pdf",
+      "evidence_label": "台灣自來水公司107年評價職位人員甄試簡章作業時程表：初試（筆試）及後續複試",
+      "review_reason": "",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 108,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/f04a1355-016d-4f0f-aea2-1bcbbb736e13?nodeId=715",
+      "checksum": "cf71a9d0d01cfcac1f197489592d19efea3f8dd30de340c24f501d73964b5955",
+      "written_test_date": null,
+      "evidence_url": "https://www.water.gov.tw/ch/ServerFile/Get/f04a1355-016d-4f0f-aea2-1bcbbb736e13?nodeId=715",
+      "evidence_label": "台灣自來水公司108年評價職位人員甄試官方試題（解答）檔；尚未確認年度初試日期及階段",
+      "review_reason": "Programme year is a traceability label; actual sitting year and selection stage require annual rule review",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 110,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/40fe1b28-e900-4a69-8fe1-4ea8471b6fb6?nodeId=715",
+      "checksum": "ff1f283fe597a1cdc26d657a4c4ef7cfbb3d9c73aae676aec0251fee874e3958",
+      "written_test_date": "2021-10-23",
+      "evidence_url": "https://ws.hl.gov.tw/Download.ashx?n=MjAyMTA5MDIwODUxMDc0OTEzMDYxLnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvT2xkRmlsZV9IdWFsaWVuL1VwbG9hZC8yMDIxMDkwMjA4NTEwNzQ5MTMwNjEucGRm",
+      "evidence_label": "台灣自來水公司110年評價職位人員甄試簡章作業時程表：初試（筆試）及後續複試",
+      "review_reason": "",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 111,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/6e89f5a8-74c2-4ad7-b421-bd0b18da5480?nodeId=715",
+      "checksum": "021738e06c20c613b8a44b0d6cc6aff4f6a44b0a7907bf30e86f04eb76eb13bd",
+      "written_test_date": "2023-03-11",
+      "evidence_url": "https://www.summit-edu.com.tw/summit1/download.php?file_5=2302b5923fb6329c00118b51717f844d",
+      "evidence_label": "台灣自來水公司111年評價職位人員甄試簡章作業時程表：初試（筆試）及後續複試",
+      "review_reason": "",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 112,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/df60fb7a-cf5f-4045-b07e-84110d74a288?nodeId=715",
+      "checksum": "f2dcb17704a5ae50ce935949c212040f1f485606ad6a824f2150a97fc8c3a261",
+      "written_test_date": "2024-05-18",
+      "evidence_url": "https://www.lit.edu.tw/wp-content/uploads/2024/01/112010012022_1121200021_Attach1.pdf",
+      "evidence_label": "台灣自來水公司112年評價職位人員甄試簡章作業時程表：初試（筆試）及後續複試",
+      "review_reason": "",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 114,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/f21b4843-4257-4f5b-ac85-f7463e03d250?nodeId=715",
+      "checksum": "07b8d88b86ef464f0f2d6681f7e0bc67304903a63f4b197a2585cd64c11dc8a2",
+      "written_test_date": "2025-05-10",
+      "evidence_url": "https://www.ttypg.gov.tw/home/attachments/article/2338/2.%E7%94%84%E8%A9%A6%E7%B0%A1%E7%AB%A0.pdf",
+      "evidence_label": "台灣自來水公司114年評價職位人員甄試簡章作業時程表：初試（筆試）及後續複試",
+      "review_reason": "",
+      "reviewed_at": "2026-10-11"
+    },
+    {
+      "programme_year_roc": 115,
+      "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/36d37d65-f187-4176-a3d7-70495d5f417e?nodeId=715",
+      "checksum": "2db36ef8d7603148645b742146498ba72f456920d15463a1ad1648f743b3475c",
+      "written_test_date": "2026-05-23",
+      "evidence_url": "https://www.ycsh.cyc.edu.tw/modules/tadnews/index.php?nsn=18934",
+      "evidence_label": "台灣自來水公司115年評價職位人員甄試受託辦理單位函文：初試（筆試）5月23日，複試6月27日至28日",
+      "review_reason": "",
+      "reviewed_at": "2026-10-11"
+    }
+  ]
+}

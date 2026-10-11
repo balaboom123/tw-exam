@@ -19,6 +19,7 @@ from typing import Any
 
 from app.hakka_identity import hakka_conflict_reason, hakka_dialect, hakka_level
 from app.moex_identity_evidence import resolve_moex_category_identity
+from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
 
@@ -267,7 +268,13 @@ def _parenthetical_values(text: str) -> list[str]:
     return [normalize_text(value) for value in re.findall(r"[（(]([^）)]*)[）)]", text)]
 
 
-_STAGE_LABELS = {"stage-1": "第一試", "stage-2": "第二試", "stage-3": "第三試", "pretest": "預試"}
+_STAGE_LABELS = {
+    "stage-1": "第一試",
+    "stage-2": "第二試",
+    "stage-3": "第三試",
+    "pretest": "預試",
+    "unknown": "階段待確認",
+}
 STAGE_IDS = frozenset(_STAGE_LABELS)
 # Providers whose public title appends the track label; validate_publication
 # derives its bundle-id prefixes from this set.
@@ -1784,6 +1791,19 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "twc_recruit" and is_outer_archive_context(
+        source_exam_id,
+        year_ad - 1911,
+        category_code,
+        subject_code,
+    ):
+        archive = resolve_archive_identity(year_ad - 1911, source_checksum)
+        stage_id = archive.stage_id if archive is not None else "unknown"
+        confidence = "review"
+        reason = (
+            "Taiwan Water outer archive requires native occupational applicability review; "
+            f"{reason}"
+        )
     if provider_id == "cpc_recruit" and track_id == "cpc-doctoral" and stage_id == NOT_APPLICABLE:
         # The static doctoral archive supplies the initial written test. Its
         # official brochures distinguish this from the later interview and
@@ -1849,6 +1869,9 @@ def _classify_paper_uncached(
             # Keep the old canonical compatibility key, while the structured
             # identity and title distinguish this specific hiring programme.
             bundle_name = track_label
+            stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
+            bundle_name += f"｜{stage_label}"
+        if provider_id == "twc_recruit" and stage_id != NOT_APPLICABLE:
             stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
             bundle_name += f"｜{stage_label}"
         if level_id not in {NOT_APPLICABLE, "unknown"}:

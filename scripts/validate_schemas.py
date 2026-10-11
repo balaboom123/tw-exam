@@ -20,6 +20,7 @@ from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
 from app.moex_identity_evidence import moex_evidence_path, validate_moex_category_evidence
 from app.tqc_identity_evidence import tqc_evidence_path, validate_tqc_identity_evidence
+from app.providers.twc_recruit.identity import archive_identity_path, validate_archive_identities
 from app.hakka_identity import (
     hakka_conflicts_path,
     hakka_historical_grades_path,
@@ -92,6 +93,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (repo_root / "catalog" / "source-inventory.json", "source-inventory.schema.json"),
         (moex_evidence_path(repo_root), "moex-category-identity-v1.schema.json"),
         (tqc_evidence_path(repo_root), "tqc-sample-identity-v1.schema.json"),
+        (archive_identity_path(repo_root), "twc-archive-identity-v1.schema.json"),
         (hakka_conflicts_path(repo_root), "hakka-native-conflicts-v1.schema.json"),
         (hakka_historical_grades_path(repo_root), "hakka-historical-grades-v1.schema.json"),
         (taipower_corrections_path(repo_root), "taipower-answer-corrections-v1.schema.json"),
@@ -101,6 +103,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
     validate_moex_category_evidence(repo_root)
     validate_tqc_identity_evidence(repo_root)
+    validate_archive_identities(repo_root)
     validate_hakka_conflicts(repo_root)
     validate_hakka_historical_grades(repo_root)
     validate_taipower_corrections(repo_root)

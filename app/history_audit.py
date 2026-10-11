@@ -32,6 +32,7 @@ from app.provider_index import (
     load_provider_index,
     paper_index_bundle_id,
     paper_index_canonical_id,
+    paper_index_public_year_roc,
 )
 from app.providers.registry import get_provider
 from app.publication_quarantine import quarantined_provider_ids
@@ -44,13 +45,18 @@ def _event_key(source_exam_id: str, year_ad: int) -> tuple[str, int]:
     return source_exam_id, year_ad
 
 
-def _published_bundle_index(bundles: list[Any]) -> dict[str, dict[str, set[int]]]:
-    index: dict[str, dict[str, set[int]]] = defaultdict(dict)
+def _published_bundle_index(bundles: list[Any]) -> dict[str, dict[str, set[int | None]]]:
+    index: dict[str, dict[str, set[int | None]]] = defaultdict(dict)
     for bundle in bundles:
         bundle_id = bundle.bundle_id or bundle.canonical_id
+        years: set[int | None] = set(bundle.years)
+        if bundle.source_material is not None and any(
+            source_date.basis == "undated" for source_date in bundle.source_material.dates
+        ):
+            years.add(None)
         for candidate in {bundle_id, bundle.canonical_id, *bundle.legacy_canonical_ids}:
             if candidate:
-                index[candidate].setdefault(bundle_id, set()).update(bundle.years)
+                index[candidate].setdefault(bundle_id, set()).update(years)
     return index
 
 
@@ -67,6 +73,7 @@ def _failure_status(failures: list[Any]) -> str | None:
 class _EventPapers:
     count: int = 0
     bundle_ids: set[str] = field(default_factory=set)
+    public_years_by_bundle: dict[str, set[int | None]] = field(default_factory=dict)
     missing_mirror_files: set[str] = field(default_factory=set)
 
 
@@ -149,6 +156,7 @@ def build_history_coverage_audit(
     """
     site_config = get_site_config(site_id)
     selected_provider_ids = tuple(provider_ids or site_config.provider_ids)
+    quarantined = quarantined_provider_ids(repo_root, site_id=site_id)
     published_index = _published_bundle_index(load_site_bundles(site_paths(repo_root, site_id)))
     provider_reports: list[dict[str, Any]] = []
     status_counts: Counter[str] = Counter()
@@ -175,9 +183,11 @@ def build_history_coverage_audit(
                 _event_key(row[PAPER_SOURCE_EXAM_ID], row[PAPER_YEAR_ROC] + 1911)
             ]
             event.count += 1
-            event.bundle_ids.add(
-                paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
-            )
+            bundle_id = paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
+            event.bundle_ids.add(bundle_id)
+            if provider_id not in quarantined:
+                public_year = paper_index_public_year_roc(index, row)
+                event.public_years_by_bundle.setdefault(bundle_id, set()).add(public_year)
             if (
                 check_mirror
                 and resolve_mirror_storage_path(
@@ -220,14 +230,16 @@ def build_history_coverage_audit(
                     for published_bundle_id, published_years in published_index.get(
                         bundle_id, {}
                     ).items()
-                    if year_ad - 1911 in published_years
+                    if papers.public_years_by_bundle.get(bundle_id, {year_ad - 1911})
+                    <= published_years
                 }
             )
             unpublished_bundle_ids = sorted(
                 bundle_id
                 for bundle_id in required_bundle_ids
                 if not any(
-                    year_ad - 1911 in published_years
+                    papers.public_years_by_bundle.get(bundle_id, {year_ad - 1911})
+                    <= published_years
                     for published_years in published_index.get(bundle_id, {}).values()
                 )
             )
@@ -327,12 +339,14 @@ def build_history_coverage_audit(
             }
         )
 
+    # All retained records and mirrors were audited above. Quarantine excludes
+    # only public eligibility: an unresolved withheld date must remain visible
+    # in coverage without being submitted to the public-date contract.
     public_ids = public_bundle_ids_from_indexes(
-        all_indexes,
+        (index for index in all_indexes if index["provider_id"] not in quarantined),
         min_years=site_config.public_min_years,
         min_years_by_canonical_prefix=site_config.public_min_years_by_canonical_prefix,
     )
-    quarantined = quarantined_provider_ids(repo_root, site_id=site_id)
     for provider_report in provider_reports:
         for event in provider_report["events"]:
             if event["status"] != "normalized_not_published":

@@ -120,6 +120,14 @@ Each quarantine entry requires a reason, source evidence, and a resolvable maint
 
 The site publisher owns exclusion. History audit reports quarantined events separately from minimum-year exclusions and unexplained publication gaps. Lifting a reviewed entry requires republishing. Removing a projection leaves previously uploaded assets directly downloadable until Release reconciliation/pruning completes.
 
+History audits check all retained records and mirror obligations before applying
+quarantine to public eligibility. Unknown dates in withheld records must remain
+visible without being submitted to the public-date contract. Eligible records
+are reconciled against reviewed material years, including explicitly undated
+resources, rather than their legacy storage partitions. A missing required year
+still leaves an unexplained publication gap when the bundle meets the site's
+minimum-history policy.
+
 ## Build and publish
 
 Reviewed material facts can be acquired before they are publishable. Their
