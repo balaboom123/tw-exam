@@ -9,7 +9,7 @@
       "year_ad": 2018,
       "status": "blocked",
       "reason_code": "official_corrupt_archive",
-      "reason": "The official ROC 107 ZIP contains a CRC-corrupt PDF. Retain the checksum-verified original as failed source evidence; do not publish it or treat signature/checksum agreement as successful acquisition.",
+      "reason": "The official ROC 107 ZIP has two unreadable PDFs: one CRC mismatch and one invalid local file header. Retain the checksum-verified original as failed source evidence; do not publish it or treat signature/checksum agreement as successful acquisition.",
       "source_url": "https://www.water.gov.tw/ch/ServerFile/Get/fc134ba2-f89b-478a-a003-d77c6be12771?nodeId=715",
       "paper_code": "107-twc-recruit-107-bundle-accessible_bundle",
       "file_type": "accessible_bundle",
@@ -22,7 +22,23 @@
         "source_page_url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715",
         "source_page_sha256": "f4ce1217f263cb1b3ae5bcfcbffa9c75491c7374282d85c7ac4bb6a0434029a4",
         "corrupt_member": "107ª~╕╒├D(╕╤╡¬)/▒M2-íiN4701-N4706íjíBíiN4801-N4804íj-┐∩50-ªµ¼F╛╟╖º¡n-╡¬«╫¬⌐=ñ╜ºi¬⌐.pdf",
-        "official_sha256": "479ec7e6f21d8d4861fd2a8ff2fb9cf1de86c959d22373dfd77c7fcca6b8149a"
+        "official_sha256": "479ec7e6f21d8d4861fd2a8ff2fb9cf1de86c959d22373dfd77c7fcca6b8149a",
+        "native_member_scan": {
+          "reviewed_at": "2026-10-11T02:06:16.732952+00:00",
+          "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+          "corrupt_member_count": 2,
+          "corrupt_native_members": [
+            {
+              "name": "107年試題(解答)/專2-【N4701-N4706】、【N4801-N4804】-選50-行政學概要-答案版=公告版.pdf",
+              "error": "Bad CRC-32 for file '107年試題(解答)/專2-【N4701-N4706】、【N4801-N4804】-選50-行政學概要-答案版=公告版.pdf'"
+            },
+            {
+              "name": "107年試題(解答)/專2-【N4707-N4709】-選50-民法物權編-答案版=公告版(更正).pdf",
+              "error": "Bad magic number for file header"
+            }
+          ],
+          "original_response_checksum_unchanged": true
+        }
       }
     }
   ]

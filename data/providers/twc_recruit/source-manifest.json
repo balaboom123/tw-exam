@@ -166,15 +166,21 @@
       "year_ad": 2014,
       "year_roc": 103,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 1,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 15,
         "member_extension_counts": {
           ".pdf": 14,
           "<directory>": 1
         },
-        "nonportable_decoded_file_names": 1,
+        "native_member_error_count": 0,
+        "native_pdf_count": 14,
+        "non_examination_artifact_count": 0,
+        "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 7609224
       }
     },
@@ -199,8 +205,11 @@
       "year_ad": 2015,
       "year_roc": 104,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 1,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 18,
         "member_extension_counts": {
@@ -208,7 +217,10 @@
           ".pdf": 16,
           "<directory>": 1
         },
-        "nonportable_decoded_file_names": 1,
+        "native_member_error_count": 0,
+        "native_pdf_count": 16,
+        "non_examination_artifact_count": 1,
+        "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 10143092
       }
     },
@@ -233,15 +245,21 @@
       "year_ad": 2016,
       "year_roc": 105,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 3,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 15,
         "member_extension_counts": {
           ".pdf": 14,
           "<directory>": 1
         },
-        "nonportable_decoded_file_names": 3,
+        "native_member_error_count": 0,
+        "native_pdf_count": 14,
+        "non_examination_artifact_count": 0,
+        "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 6904840
       }
     },
@@ -266,14 +284,20 @@
       "year_ad": 2017,
       "year_roc": 106,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 0,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 20,
         "member_extension_counts": {
           ".pdf": 19,
           "<directory>": 1
         },
+        "native_member_error_count": 0,
+        "native_pdf_count": 19,
+        "non_examination_artifact_count": 0,
         "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 8666672
       }
@@ -299,15 +323,21 @@
       "year_ad": 2018,
       "year_roc": 107,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 1,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "failed",
         "member_count": 16,
         "member_extension_counts": {
           ".pdf": 15,
           "<directory>": 1
         },
-        "nonportable_decoded_file_names": 1,
+        "native_member_error_count": 2,
+        "native_pdf_count": 15,
+        "non_examination_artifact_count": 0,
+        "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 7044992
       }
     },
@@ -332,15 +362,21 @@
       "year_ad": 2019,
       "year_roc": 108,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 1,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 16,
         "member_extension_counts": {
           ".pdf": 15,
           "<directory>": 1
         },
-        "nonportable_decoded_file_names": 1,
+        "native_member_error_count": 0,
+        "native_pdf_count": 15,
+        "non_examination_artifact_count": 0,
+        "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 6921475
       }
     },
@@ -365,15 +401,21 @@
       "year_ad": 2021,
       "year_roc": 110,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 1,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 16,
         "member_extension_counts": {
           ".pdf": 15,
           "<directory>": 1
         },
-        "nonportable_decoded_file_names": 1,
+        "native_member_error_count": 0,
+        "native_pdf_count": 15,
+        "non_examination_artifact_count": 0,
+        "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 8612243
       }
     },
@@ -398,8 +440,11 @@
       "year_ad": 2022,
       "year_roc": 111,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 0,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 61,
         "member_extension_counts": {
@@ -407,6 +452,9 @@
           ".pdf": 52,
           "<directory>": 5
         },
+        "native_member_error_count": 0,
+        "native_pdf_count": 52,
+        "non_examination_artifact_count": 4,
         "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 13424476
       }
@@ -432,13 +480,19 @@
       "year_ad": 2023,
       "year_roc": 112,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 0,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 30,
         "member_extension_counts": {
           ".pdf": 30
         },
+        "native_member_error_count": 0,
+        "native_pdf_count": 30,
+        "non_examination_artifact_count": 0,
         "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 6432852
       }
@@ -464,14 +518,20 @@
       "year_ad": 2025,
       "year_roc": 114,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 0,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 14,
         "member_extension_counts": {
           ".pdf": 13,
           "<directory>": 1
         },
+        "native_member_error_count": 0,
+        "native_pdf_count": 13,
+        "non_examination_artifact_count": 0,
         "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 5224431
       }
@@ -496,13 +556,19 @@
       "year_ad": 2026,
       "year_roc": 115,
       "zip_summary": {
+        "default_cp437_nonportable_file_names": 0,
         "duplicate_member_name_count": 0,
         "encrypted_member_count": 0,
+        "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "full_member_integrity_scan_at": "2026-10-11T02:06:16.732952+00:00",
         "integrity_status": "passed",
         "member_count": 13,
         "member_extension_counts": {
           ".pdf": 13
         },
+        "native_member_error_count": 0,
+        "native_pdf_count": 13,
+        "non_examination_artifact_count": 0,
         "nonportable_decoded_file_names": 0,
         "uncompressed_bytes": 4680827
       }
@@ -585,6 +651,24 @@
       "html_fingerprint_scope": "The raw HTML hash is capture evidence only because view counts and versioned asset query values are dynamic; normalized rows and accepted asset hashes are the stable identity.",
       "normalized_rows_sha256": "sha256:da78ea4866d7087039e1091591d97ce25afe6d7add65254499357403d43fb567",
       "reviewed_at": "2026-10-11T01:34:28.300361+00:00"
+    },
+    "native_archive_review": {
+      "all_correctly_decoded_native_paths_portable": true,
+      "artifact_disposition": "Preserve original ZIP bytes; exclude cache and owner-lock files only from a future verified examination projection.",
+      "byte_equivalent_native_pdf_groups": 26,
+      "complete_manual_semantic_review": false,
+      "corrupt_member_count": 2,
+      "crc_valid_member_count": 219,
+      "crc_valid_pdf_count": 214,
+      "filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+      "native_member_count": 221,
+      "native_pdf_count": 216,
+      "native_pdf_pages": 745,
+      "non_examination_artifact_count": 5,
+      "original_checksums_unchanged": true,
+      "original_source_archive_count": 11,
+      "publication_status": "quarantined",
+      "reviewed_at": "2026-10-11T04:35:12.030993+00:00"
     },
     "publication_state": {
       "bundle_count": 0,
@@ -692,8 +776,21 @@
       ],
       "reviewed_at": "2026-10-11T01:49:23.565404+00:00",
       "roc_107_zip_failure": {
+        "corrupt_native_member_count": 2,
+        "corrupt_native_members": [
+          {
+            "error": "Bad CRC-32 for file '107年試題(解答)/專2-【N4701-N4706】、【N4801-N4804】-選50-行政學概要-答案版=公告版.pdf'",
+            "name": "107年試題(解答)/專2-【N4701-N4706】、【N4801-N4804】-選50-行政學概要-答案版=公告版.pdf"
+          },
+          {
+            "error": "Bad magic number for file header",
+            "name": "107年試題(解答)/專2-【N4707-N4709】-選50-民法物權編-答案版=公告版(更正).pdf"
+          }
+        ],
         "expected_crc32": "18957ca0",
-        "python_zipfile_error": "Bad CRC-32 for one PDF member",
+        "full_member_scan_at": "2026-10-11T02:06:16.732952+00:00",
+        "native_filename_encoding": "cp950 (native UTF-8 flag and Unicode-path extra fields retained)",
+        "python_zipfile_error": "One PDF has a CRC mismatch; a second PDF has an invalid local file header.",
         "unzip_error": "bad zipfile offset (local header sig) for file #16 at offset 6198508"
       },
       "status": "source_defects_present"

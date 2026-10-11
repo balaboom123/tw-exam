@@ -43,6 +43,13 @@ Source pages are fetched serially. Independent files may download with bounded c
 
 An unavailable year listing preserves retained provider state, returns failure, and produces no publish plan. Payload validation rejects HTML placeholders and signatures inconsistent with the expected file role. ZIP-based downloads (including OpenXML and ODS files) must also have a readable container and valid CRCs for every entry, both when downloaded and before mirror reuse. Failed validation leaves retained evidence intact and records a download failure. The [sync implementation](../../app/sync.py) owns these checks; acceptance of an outer archive does not establish the integrity of its nested papers or the internal contents of a RAR.
 
+Original ZIP attachments use the `source_archive` role and the same container
+validation as paper archives. Their cache reuse still requires the retained
+source URL and checksum. An unrecognized role cannot bypass ZIP integrity
+checks: the advertised ZIP format or a ZIP signature invokes validation before
+storage. Unrecognized roles remain ineligible for mirror reuse until their
+payload policy is defined.
+
 ## Normalize and retain history
 
 Normalization applies reviewed provider aliases and shared identity rules to raw events; unresolved cases enter the provider review queue. Full provider writes also regenerate a compact index. Index readers fall back to source files when an index is missing or its source snapshot is stale; the catalog audit still reclassifies full records. The index must remain rebuildable, and [its check](../../scripts/build_provider_indexes.py) compares complete contents against source files.

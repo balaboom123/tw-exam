@@ -235,6 +235,7 @@ FILE_TYPE_LABELS = {
     "all_answers": "全部答案",
     "answer_table": "答案表",
     "accessible_bundle": "無障礙題本",
+    "source_archive": "來源壓縮包",
     "listening_audio": "聽力音檔",
     "listening_transcript": "聽力逐字稿",
 }

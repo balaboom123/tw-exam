@@ -54,6 +54,7 @@ EXPECTED_EXTENSIONS = {
     "all_answers": (".pdf",),
     "answer_table": (".html", ".htm"),
     "accessible_bundle": (".zip",),
+    "source_archive": (".zip",),
     "listening_audio": (".mp3", ".zip", ".rar"),
 }
 ZIP_SIGNATURES = (b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08")
@@ -182,6 +183,8 @@ def _validated_extension(file_type: str, data: bytes, content_type: str, file_na
         raise RuntimeError(
             f"Downloaded file does not match expected {joined_extensions} payload for {file_type}"
         )
+    if resolved_extension in ZIP_EXTENSIONS or _matches_expected_binary(data, ".zip"):
+        _validate_zip_payload(data)
     return resolved_extension
 
 

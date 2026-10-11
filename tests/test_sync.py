@@ -33,6 +33,41 @@ def corrupt_zip_payload() -> bytes:
 
 
 class ZipPayloadValidationTests(unittest.TestCase):
+    def test_source_archive_accepts_only_a_readable_zip(self) -> None:
+        self.assertEqual(
+            _validated_extension("source_archive", zip_payload(), "application/zip", "download"),
+            ".zip",
+        )
+        for data in (b"%PDF-1.7 paper", b"Rar!\x1a\x07\x00archive", b"<html>error</html>"):
+            with self.subTest(data=data), self.assertRaises(RuntimeError):
+                _validated_extension("source_archive", data, "application/zip", "original.zip")
+        for data in (b"PK\x03\x04truncated download", corrupt_zip_payload()):
+            with self.subTest(data=data), self.assertRaisesRegex(RuntimeError, "Invalid ZIP container"):
+                _validated_extension("source_archive", data, "application/zip", "original.zip")
+
+    def test_unrecognized_role_cannot_bypass_zip_container_validation(self) -> None:
+        formats = [("", f"original{ext}") for ext in (".zip", ".docx", ".xlsx", ".ods")]
+        formats.extend([("application/zip", "download"), ("application/octet-stream", "download.bin")])
+        for content_type, name in formats:
+            for data in (b"PK\x03\x04truncated download", corrupt_zip_payload()):
+                with self.subTest(name=name, data=data):
+                    with self.assertRaisesRegex(RuntimeError, "Invalid ZIP container"):
+                        _validated_extension("unrecognized_role", data, content_type, name)
+        with self.assertRaisesRegex(RuntimeError, "Invalid ZIP container"):
+            _validated_extension("unrecognized_role", b"not a zip", "application/zip", "original.zip")
+
+    def test_unrecognized_role_preserves_valid_container_format(self) -> None:
+        for extension in (".zip", ".docx", ".xlsx", ".ods", ".bin"):
+            with self.subTest(extension=extension):
+                self.assertEqual(
+                    _validated_extension("unrecognized_role", zip_payload(), "", f"original{extension}"),
+                    extension,
+                )
+        self.assertEqual(
+            _validated_extension("unrecognized_role", zip_payload(), "application/zip", "download"),
+            ".zip",
+        )
+
     def test_transcript_is_a_document_role_and_cannot_accept_audio(self) -> None:
         self.assertEqual(
             _validated_extension("listening_transcript", b"%PDF-1.7 transcript", "application/pdf", "script.pdf"),
@@ -160,6 +195,103 @@ class ReuseExistingMirrorClient:
     def download_file(self, url: str) -> DownloadedFile:
         self.downloaded_urls.append(url)
         return DownloadedFile(data=b"%PDF-1.7 demo", content_type="application/pdf", file_name=Path(url).name)
+
+
+class SourceArchiveClient:
+    provider_id = "tii_cert"
+
+    def __init__(self, data: bytes) -> None:
+        self.data = data
+        self.downloaded_urls: list[str] = []
+
+    def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
+        return SourceExamPage(
+            source_exam_id=exam_code,
+            year_ad=year_ad,
+            year_roc=year_ad - 1911,
+            exam_name_raw="original examination archive",
+            attachments=[ExamAttachment(
+                title="原始歷屆試題壓縮包",
+                file_type="source_archive",
+                download_url_source="https://example.test/original.zip",
+            )],
+            papers=[],
+        )
+
+    def download_file(self, url: str) -> DownloadedFile:
+        self.downloaded_urls.append(url)
+        return DownloadedFile(data=self.data, content_type="application/zip", file_name="original.zip")
+
+
+class SourceArchiveSyncTests(unittest.TestCase):
+    def test_retained_source_archive_is_reused_only_with_a_verified_reference(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            client = SourceArchiveClient(zip_payload())
+            key = "providers/tii_cert/115/event/exam/source_archive.zip"
+            store.write_bytes(key, client.data)
+            pages, catalog, failures = sync_exam_pages(client, [("event", 2026)], store, [], "")
+            self.assertEqual(failures, [])
+            self.assertEqual(catalog.papers, [])
+            self.assertEqual(client.downloaded_urls, ["https://example.test/original.zip"])
+            self.assertEqual(pages[0].attachments[0].storage_key, key)
+            client.downloaded_urls.clear()
+            _, _, failures = sync_exam_pages(
+                client, [("event", 2026)], store, [], "", previous_pages=pages,
+            )
+            self.assertEqual(failures, [])
+            self.assertEqual(client.downloaded_urls, [])
+            (store.root / key).unlink()
+            (store.root / key).write_bytes(zip_payload(content=b"%PDF-1.7 unrelated source"))
+            _, _, failures = sync_exam_pages(
+                client, [("event", 2026)], store, [], "", previous_pages=pages,
+            )
+            self.assertEqual(failures, [])
+            self.assertEqual(client.downloaded_urls, ["https://example.test/original.zip"])
+            self.assertEqual((store.root / key).read_bytes(), client.data)
+
+    def test_corrupt_source_archive_refresh_preserves_the_retained_original(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            original = zip_payload()
+            client = SourceArchiveClient(original)
+            previous, _, failures = sync_exam_pages(client, [("event", 2026)], store, [], "")
+            self.assertEqual(failures, [])
+            key = previous[0].attachments[0].storage_key
+            client.downloaded_urls.clear()
+            for corrupt in (b"PK\x03\x04truncated download", corrupt_zip_payload()):
+                client.data = corrupt
+                pages, _, failures = sync_exam_pages(
+                    client, [("event", 2026)], store, [], "",
+                    previous_pages=previous, refresh_files=True,
+                )
+                self.assertEqual(len(failures), 1)
+                self.assertEqual(failures[0].stage, "download")
+                self.assertEqual(failures[0].file_type, "source_archive")
+                self.assertEqual(failures[0].paper_code, "exam-source_archive")
+                self.assertEqual(failures[0].url, "https://example.test/original.zip")
+                self.assertIn("Invalid ZIP container", failures[0].message)
+                self.assertEqual(pages[0].attachments[0].storage_key, "")
+                self.assertEqual((store.root / key).read_bytes(), original)
+
+    def test_corrupt_source_archive_cache_is_replaced_with_verified_bytes(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            corrupt = corrupt_zip_payload()
+            key = "providers/tii_cert/115/event/exam/source_archive.zip"
+            store.write_bytes(key, corrupt)
+            client = SourceArchiveClient(zip_payload())
+            previous = client.fetch_exam_page("event", 2026)
+            previous.attachments[0].checksum = hashlib.sha256(corrupt).hexdigest()
+            pages, _, failures = sync_exam_pages(
+                client, [("event", 2026)], store, [], "", previous_pages=[previous],
+            )
+            self.assertEqual(failures, [])
+            self.assertEqual(client.downloaded_urls, ["https://example.test/original.zip"])
+            self.assertEqual(pages[0].attachments[0].checksum, hashlib.sha256(client.data).hexdigest())
+            self.assertEqual((store.root / key).read_bytes(), client.data)
+            recovery = store.root / "providers/tii_cert/recovery/source-revisions" / f"{hashlib.sha256(corrupt).hexdigest()}.zip"
+            self.assertEqual(recovery.read_bytes(), corrupt)
 
 
 class QuestionOnlyClient:

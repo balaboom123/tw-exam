@@ -417,6 +417,13 @@ questions must not be presented as an unanswered copy merely because the outer
 link says 試題. Do not infer an official grade from professional-subject letters
 or occupational 甲/乙 labels.
 
+A future projection must decode legacy Big5 filenames while respecting native
+UTF-8 flags and Unicode path fields. Windows thumbnail caches and Office owner
+lock files are acquisition artifacts; exclude them from examination downloads
+while preserving the original ZIP. Equivalent bytes in repeated native folders
+still require role and event review before their publication references can be
+consolidated.
+
 ## `wdasec_skill`
 
 Use official workforce skills-test question-bank material within the declared paper scope. Preserve occupation, level, subject, and source-event distinctions across the large archive.
