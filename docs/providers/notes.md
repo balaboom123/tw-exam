@@ -210,6 +210,16 @@ Annual discovery and acquired event names preserve the reviewed ROC 91,
 it still needs comparison with native paper headings and annual rules before
 assigning a cross-year occupation identity.
 
+Reject an event when the same file label in one listing group points to
+different normalized source URLs. Equal labels in different occupational
+groups remain separate references. On 2026-10-11 the [ROC 102 electrical B
+question link](https://www.taipower.com.tw/media/yxifagqi/2018012910571494833.pdf?mediaDL=true)
+still returned a one-page answer sheet headed 「專業科目 A 計算機概論、電子學」.
+The same B label also links the genuine B question paper. Preserve both
+original references and payloads, and keep the ambiguous event in the failure
+ledger before any mirror writes or event replacement. Do not infer a corrected
+subject or answer role from the misleading label.
+
 Identical bytes may represent one paper applicable to several listed occupations.
 Keep their source references and native applicability when sharing storage.
 Extracted answer letters alone do not establish a file role: some PDFs contain

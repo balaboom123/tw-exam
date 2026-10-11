@@ -340,9 +340,18 @@ class MoeaRecruitClient:
         first = matching[0]
         papers: list[ParsedPaper] = []
         source_urls_by_key: dict[str, str] = {}
+        source_urls_by_label: dict[tuple[str, str], str] = {}
         for entry in matching:
             for download in entry.downloads:
                 request_url = _quote_url_for_request(download.url)
+                label_key = (_normalize_text(entry.title), _normalize_text(download.label))
+                previous_url = source_urls_by_label.get(label_key)
+                if previous_url is not None and previous_url != request_url:
+                    raise ValueError(
+                        "MOEA archive repeats one file label for different source URLs: "
+                        f"{entry.title} / {download.label} ({previous_url}, {request_url})"
+                    )
+                source_urls_by_label[label_key] = request_url
                 digest = hashlib.sha256(request_url.encode("utf-8")).hexdigest()[:16]
                 subject_code = f"joint-{digest}"
                 if (

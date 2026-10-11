@@ -7,6 +7,8 @@ from app.providers.moea_recruit.client import (
     DISCOVERY_PAGE_SIZE,
     DOWNLOAD_URL,
     MoeaRecruitClient,
+    MoeaRecruitDownload,
+    MoeaRecruitEntry,
     _quote_url_for_request,
     parse_download_page,
 )
@@ -215,6 +217,26 @@ def _fake_archive_fetch(url: str) -> str:
     raise AssertionError(f"unexpected URL: {url}")
 
 
+def _electrical_entries() -> list[MoeaRecruitEntry]:
+    return [
+        MoeaRecruitEntry(
+            year_roc=102,
+            year_ad=2013,
+            title="102年度電機(乙)",
+            downloads=[
+                MoeaRecruitDownload(
+                    label="102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
+                    url="https://www.taipower.com.tw/media/byvjsiaf/2018012910565838645.pdf?mediaDL=true",
+                ),
+                MoeaRecruitDownload(
+                    label="102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
+                    url="https://www.taipower.com.tw/media/yxifagqi/2018012910571494833.pdf?mediaDL=true",
+                ),
+            ],
+        )
+    ]
+
+
 class MoeaRecruitParserTests(unittest.TestCase):
     def test_quote_url_for_request_percent_encodes_non_ascii_path_and_preserves_query(self) -> None:
         url = "https://www.taipower.com.tw/media/demo/115年度新進職員甄試試題.pdf?mediaDL=true"
@@ -403,6 +425,26 @@ class MoeaRecruitParserTests(unittest.TestCase):
             [entry.downloads[0].url for entry in entries],
         )
 
+    def test_repeated_file_label_with_different_urls_rejects_ambiguous_event(self) -> None:
+        client = MoeaRecruitClient()
+        with patch.object(client, "_iter_entries", return_value=_electrical_entries()):
+            with self.assertRaisesRegex(ValueError, "one file label.*102年度電機"):
+                client.fetch_exam_page("moea-recruit-102", 2013)
+
+    def test_split_listing_groups_cannot_hide_repeated_file_label(self) -> None:
+        entry = _electrical_entries()[0]
+        entries = [
+            replace(entry, title="  102年度電機(乙)  ", downloads=entry.downloads[:1]),
+            replace(
+                entry,
+                downloads=[replace(entry.downloads[1], label=f"  {entry.downloads[1].label}  ")],
+            ),
+        ]
+        client = MoeaRecruitClient()
+        with patch.object(client, "_iter_entries", return_value=entries):
+            with self.assertRaisesRegex(ValueError, "one file label"):
+                client.fetch_exam_page("moea-recruit-102", 2013)
+
     def test_historical_programme_names_agree_in_discovery_and_acquisition(self) -> None:
         expected = {
             91: "91年度經濟部辦理台灣電力公司新進職員甄試",
@@ -532,6 +574,65 @@ def test_reordering_reuses_verified_mirrors_without_new_downloads_or_paths(tmp_p
     assert {paper.storage_key for paper in current.papers} == {
         paper.storage_key for paper in original.papers
     }
+
+
+def test_ambiguous_event_preserves_current_state_and_allows_other_events(tmp_path):
+    import hashlib
+
+    from app.state import merge_incremental_state
+    from app.storage import MirrorStore
+    from app.sync import sync_exam_pages
+
+    ambiguous = _electrical_entries()[0]
+    valid = replace(
+        ambiguous,
+        downloads=[
+            ambiguous.downloads[0],
+            replace(
+                ambiguous.downloads[1],
+                label="102年新進職員甄試解答科目A_14.電機(乙)_計算機概論、電子學",
+            ),
+        ],
+    )
+    other = parse_download_page(DOWNLOAD_PAGE_HTML_MULTI_SUBJECT)
+    client = MoeaRecruitClient()
+    store = MirrorStore(tmp_path / "mirror")
+    download = DownloadedFile(b"%PDF-1.7\nverified original", "application/pdf", "paper.pdf")
+    events = [("moea-recruit-102", 2013), ("moea-recruit-112", 2023)]
+    with (
+        patch.object(client, "_iter_entries", return_value=[valid, *other]),
+        patch.object(client, "download_file", return_value=download),
+    ):
+        previous_pages, original, failures = sync_exam_pages(client, events, store, [], "")
+    assert not failures
+
+    def mirror_hashes():
+        return {
+            path.relative_to(store.root): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in store.root.rglob("*") if path.is_file()
+        }
+
+    before = mirror_hashes()
+    with (
+        patch.object(client, "_iter_entries", return_value=[ambiguous, *other]),
+        patch.object(client, "download_file", side_effect=AssertionError("No new bytes expected")) as acquire,
+    ):
+        incoming_pages, incoming, failures = sync_exam_pages(
+            client, events, store, [], "", previous_pages=previous_pages,
+        )
+    assert acquire.call_count == 0
+    assert len(failures) == 1
+    assert failures[0].stage == "fetch"
+    assert failures[0].source_exam_id == "moea-recruit-102"
+    assert "one file label" in failures[0].message
+    assert [page.source_exam_id for page in incoming_pages] == ["moea-recruit-112"]
+    merged_pages, merged, _, affected, _ = merge_incremental_state(
+        previous_pages, original, [], incoming_pages, incoming,
+    )
+    assert merged_pages == previous_pages
+    assert merged.papers == original.papers
+    assert affected == {paper.bundle_id for paper in incoming.papers}
+    assert mirror_hashes() == before
 
 
 class MoeaRecruitDiscoveryTests(unittest.TestCase):
