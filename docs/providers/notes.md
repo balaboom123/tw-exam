@@ -417,8 +417,22 @@ relationship or authorize child publication. The checksum-anchored
 [native paper inventory](../../catalog/mappings/twc/archive-papers-v1.json) now
 drives portable PDF projection while retaining original containers separately.
 Historical answer-change and 疑義後 labels, shared native category headers, and
-different original renditions remain traceable. This file review does not approve
-occupational identities or remove the publication hold.
+different original renditions remain traceable. Separate reviewed occupation
+entries bind a native paper to annual job-purpose and written-subject tables.
+Shared papers receive one source reference per applicable occupation while their
+identical mirror bytes are shared. The earlier generic references remain in
+source history. A native path, checksum, category code and material context must
+all match before classification approves the relationship.
+
+Candidate groups using the same written content remain listed in the occupation
+evidence; their eligibility conditions do not create duplicate content variants.
+The native 產學 headers identify a separate relationship: the ordinary recruitment
+date must not establish its date or stage. The
+[industry-school recruitment rules](https://svc.tabf.org.tw/_File/Download/110water02/Readme/10121Readme500197.pdf)
+also demonstrate that this route can have its own sitting date. Missing annual
+rules and common-paper evidence remain unresolved. Reviewing some occupational
+contexts does not remove the provider's publication hold or approve older
+unreviewed history.
 
 Download anchors may use a generic accessibility title; use the visible
 year-bearing file label when the title has no year. Keep candidate reconciliation
@@ -441,12 +455,11 @@ questions must not be presented as an unanswered copy merely because the outer
 link says 試題. Do not infer an official grade from professional-subject letters
 or occupational 甲/乙 labels.
 
-A future projection must decode legacy Big5 filenames while respecting native
+Native projection decodes legacy Big5 filenames while respecting native
 UTF-8 flags and Unicode path fields. Windows thumbnail caches and Office owner
 lock files are acquisition artifacts; exclude them from examination downloads
 while preserving the original ZIP. Equivalent bytes in repeated native folders
-still require role and event review before their publication references can be
-consolidated.
+retain their original references while verified equivalent payloads share bytes.
 
 ## `wdasec_skill`
 

@@ -32,11 +32,18 @@ Desktop thumbnail databases and Office lock files remain in the original source
 container and are excluded from paper projection. A damaged container remains
 whole and unresolved rather than producing a partial successful projection.
 
-Native file review does not establish occupational bundle identities. Shared
-papers can name several recruitment categories, and those relationships remain
-in the reviewed native headers until their occupation and variant boundaries
-are established. Projected papers retain the provider's publication quarantine
-and an explicit classification review disposition.
+Native file review alone does not establish occupational bundle identities.
+Separate occupation entries in the same catalogue bind annual job-purpose and
+written-subject evidence to exact native members. A shared paper can have several
+occupation references with one native locator and shared mirror bytes. Listed
+candidate groups using the same written papers do not create content variants.
+Distinct occupations remain separate even when their papers are identical.
+Only matching source, category, member checksum and material facts approve an
+occupational classification. Earlier generic references remain recoverable in
+source history. Unreviewed history and industry-school relationships retain
+explicit review dispositions; an ordinary recruitment date cannot establish an
+unreviewed route's date or stage. The provider's publication quarantine remains
+independent of this classification review.
 
 ## Why this exists
 

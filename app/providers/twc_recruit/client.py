@@ -336,23 +336,38 @@ class TwcRecruitClient:
             archive = next((fact for fact in candidates if fact.checksum == checksum), None)
             if archive is not None:
                 self._native_payloads[entry.url, checksum] = extract_native_members(archive, data)
+                papers = []
+                for member in archive.members:
+                    if member.file_role == "source_artifact":
+                        continue
+                    contexts = [
+                        (category.label, category.category_code(entry.year_roc))
+                        for category in archive.categories
+                        if category.category_id in member.category_ids
+                    ]
+                    # Older/unreviewed occupational contexts keep their exact
+                    # native reference and generic review identity. Shared
+                    # reviewed papers receive one reference per occupation;
+                    # the locator and cached payload remain the same.
+                    for label, category_code in contexts or [
+                        (CANONICAL_CATEGORY, str(entry.year_roc))
+                    ]:
+                        papers.append(
+                            ParsedPaper(
+                                category_raw=label,
+                                category_code=category_code,
+                                subject_code=member.subject_code,
+                                subject_name_raw=member.subject_label,
+                                files={member.file_role: member_locator(archive, member)},
+                            )
+                        )
                 return SourceExamPage(
                     source_exam_id=exam_code,
                     year_ad=year_ad,
                     year_roc=entry.year_roc,
                     exam_name_raw=entry.label,
                     attachments=[ExamAttachment(entry.label, "source_archive", entry.url)],
-                    papers=[
-                        ParsedPaper(
-                            category_raw=CANONICAL_CATEGORY,
-                            category_code=str(entry.year_roc),
-                            subject_code=member.subject_code,
-                            subject_name_raw=member.subject_label,
-                            files={member.file_role: member_locator(archive, member)},
-                        )
-                        for member in archive.members
-                        if member.file_role != "source_artifact"
-                    ],
+                    papers=papers,
                     provider_id=self.provider_id,
                 )
         # Unknown versions and known damaged containers retain the original

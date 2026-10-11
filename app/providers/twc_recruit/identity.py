@@ -144,19 +144,18 @@ def archive_material(
 ) -> SourceMaterial | None:
     if (
         source_exam_id == f"twc-recruit-{year_roc}"
-        and category_code == str(year_roc)
+        and (category_code == str(year_roc) or category_code.startswith(f"{year_roc}-"))
         and re.fullmatch(r"native-[0-9a-f]{64}", subject_code) is not None
     ):
-        from app.providers.twc_recruit.archive import resolve_native_member
+        from app.providers.twc_recruit.archive import native_material, resolve_native_member
 
-        native = resolve_native_member(year_roc, subject_code, checksum, source_url=source_url)
+        native = resolve_native_member(
+            year_roc, subject_code, checksum, source_url=source_url, category_code=category_code
+        )
         if native is not None:
-            archive, _ = native
-            parent = resolve_archive_identity(
-                year_roc, archive.checksum, source_url=archive.source_url
-            )
-            if parent is not None:
-                return parent.material
+            material = native_material(*native, category_code)
+            if material is not None:
+                return material
         return SourceMaterial(
             "administered",
             SourceDate("unknown", None),

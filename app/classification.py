@@ -1791,6 +1791,7 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    twc_category = None
     if provider_id == "twc_recruit" and is_outer_archive_context(
         source_exam_id,
         year_ad - 1911,
@@ -1805,27 +1806,58 @@ def _classify_paper_uncached(
             f"{reason}"
         )
     elif provider_id == "twc_recruit":
-        from app.providers.twc_recruit.archive import resolve_native_member
+        from app.providers.twc_recruit.archive import (
+            native_category,
+            native_material,
+            resolve_native_member,
+        )
 
         native = resolve_native_member(
-            year_ad - 1911, subject_code, source_checksum, source_material=source_material
+            year_ad - 1911,
+            subject_code,
+            source_checksum,
+            source_material=source_material,
+            category_code=category_code,
         )
         archive = (
             resolve_archive_identity(
                 year_ad - 1911, native[0].checksum, source_url=native[0].source_url
             )
-            if native is not None
-            and source_exam_id == f"twc-recruit-{year_ad - 1911}"
-            and category_code == str(year_ad - 1911)
+            if native is not None and source_exam_id == f"twc-recruit-{year_ad - 1911}"
             else None
         )
+        if native is not None and archive is not None:
+            applicable = native_category(*native, category_code)
+            if (
+                applicable is not None
+                and normalize_text(applicable.label) == category
+                and source_material == native_material(*native, category_code)
+            ):
+                twc_category = applicable
         stage_id = (
             archive.stage_id
-            if archive is not None and source_material == archive.material
+            if archive is not None
+            and native is not None
+            and source_material == native_material(*native, category_code)
+            and (category_code == str(year_ad - 1911) or twc_category is not None)
+            and (twc_category is None or not twc_category.review_reason)
             else "unknown"
         )
         confidence = "review"
         reason = f"Taiwan Water native paper requires occupational applicability review; {reason}"
+        if twc_category is not None:
+            track_id, track_label = twc_category.track_id, twc_category.label
+            variant_pairs = twc_category.variants
+            variants = tuple(variant_id for variant_id, _label in variant_pairs)
+            level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+            confidence = "review" if twc_category.review_reason else "high"
+            reason = (
+                f"reviewed Taiwan Water native occupational applicability: "
+                f"{year_ad - 1911}/{twc_category.category_id}; "
+                f"{twc_category.evidence_label}"
+            )
+            if twc_category.review_reason:
+                reason = f"{twc_category.review_reason}; {reason}"
     if provider_id == "cpc_recruit" and track_id == "cpc-doctoral" and stage_id == NOT_APPLICABLE:
         # The static doctoral archive supplies the initial written test. Its
         # official brochures distinguish this from the later interview and
@@ -1894,6 +1926,8 @@ def _classify_paper_uncached(
             stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
             bundle_name += f"｜{stage_label}"
         if provider_id == "twc_recruit" and stage_id != NOT_APPLICABLE:
+            if twc_category is not None:
+                bundle_name += f"｜{twc_category.label}"
             stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
             bundle_name += f"｜{stage_label}"
         if level_id not in {NOT_APPLICABLE, "unknown"}:

@@ -17,6 +17,35 @@
   },
   "$defs": {
     "checksum": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "categoryId": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"},
+    "category": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category_id", "label", "track_id", "native_categories", "variants", "evidence_url", "evidence_label", "review_reason"],
+      "properties": {
+        "category_id": {"$ref": "#/$defs/categoryId"},
+        "label": {"type": "string", "minLength": 1},
+        "track_id": {"type": "string", "pattern": "^twc-[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "native_categories": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "variants": {
+          "type": "array", "uniqueItems": true,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["id", "label"],
+            "properties": {
+              "id": {"$ref": "#/$defs/categoryId"},
+              "label": {"type": "string", "minLength": 1}
+            }
+          }
+        },
+        "evidence_url": {"type": "string", "format": "uri"},
+        "evidence_label": {"type": "string", "minLength": 1},
+        "review_reason": {"type": "string"}
+      }
+    },
     "member": {
       "type": "object",
       "additionalProperties": false,
@@ -30,7 +59,12 @@
         "file_role": {"enum": ["question", "answer", "question_answer", "source_artifact"]},
         "subject_label": {"type": "string"},
         "native_category_header": {"type": "string"},
-        "revision_notice": {"type": "string"}
+        "revision_notice": {"type": "string"},
+        "category_ids": {
+          "type": "array", "uniqueItems": true,
+          "items": {"$ref": "#/$defs/categoryId"}
+        },
+        "paper_slot": {"enum": ["", "common", "professional-1", "professional-2"]}
       },
       "allOf": [{
         "if": {"properties": {"file_role": {"const": "source_artifact"}}},
@@ -38,7 +72,9 @@
           "properties": {
             "subject_label": {"const": ""},
             "native_category_header": {"const": ""},
-            "revision_notice": {"const": ""}
+            "revision_notice": {"const": ""},
+            "category_ids": {"maxItems": 0},
+            "paper_slot": {"const": ""}
           }
         },
         "else": {
@@ -66,6 +102,10 @@
           "type": "array",
           "uniqueItems": true,
           "items": {"$ref": "#/$defs/member"}
+        },
+        "categories": {
+          "type": "array", "uniqueItems": true,
+          "items": {"$ref": "#/$defs/category"}
         }
       },
       "allOf": [{
