@@ -210,6 +210,13 @@ Annual discovery and acquired event names preserve the reviewed ROC 91,
 it still needs comparison with native paper headings and annual rules before
 assigning a cross-year occupation identity.
 
+Until those native identity facts are implemented, classification preserves the
+complete source category as an unresolved track and isolates it by event. Level
+and selection stage remain `unknown` with a review disposition. The shared
+legacy alias does not establish that all occupations are one track, and filename
+A/B periods, eligibility degrees or an unverified stage word cannot resolve
+these dimensions. Publication quarantine remains in force during migration.
+
 Reject an event when the same file label in one listing group points to
 different normalized source URLs. Equal labels in different occupational
 groups remain separate references. On 2026-10-11 the [ROC 102 electrical B

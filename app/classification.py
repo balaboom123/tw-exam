@@ -416,8 +416,12 @@ def _track_details(
         return "teacher-qualification", "教師資格考試"
     if provider_id == "cpc_recruit" and "博士" in category:
         return "cpc-doctoral", "中油新進博士級人員甄試"
+    if provider_id == "moea_recruit":
+        # A shared legacy alias is not an occupational identity. Preserve the
+        # complete source category until native programme facts resolve it.
+        value = normalize_text(category) or "類科待確認"
+        return f"{_slug(value, prefix='moea-category')}-unknown", value
     if provider_id in {
-        "moea_recruit",
         "taipower_recruit",
         "cpc_recruit",
         "twc_recruit",
@@ -1165,6 +1169,13 @@ def _non_moex_level(
     provider_id: str, category: str, canonical_id: str, subject_name: str
 ) -> tuple[str, str, str, str]:
     text = normalize_text(f"{category} {subject_name}")
+    if provider_id == "moea_recruit":
+        return (
+            "unknown",
+            _LEVEL_LABELS["unknown"],
+            "review",
+            "MOEA programme, occupation and level require reviewed native source evidence",
+        )
     if provider_id == "cpc_recruit" and "博士" in category:
         return (
             NOT_APPLICABLE,
@@ -1791,6 +1802,10 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "moea_recruit":
+        # Neither filename A/B periods nor a generic event title establish
+        # the selection stage of the retained material.
+        stage_id = "unknown"
     twc_category = None
     if provider_id == "twc_recruit" and is_outer_archive_context(
         source_exam_id,
