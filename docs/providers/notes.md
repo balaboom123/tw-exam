@@ -235,6 +235,17 @@ raw labels, listing roles, source keys and historical storage locators remain
 traceability evidence. This file correction does not approve examination
 identity or lift the source's publication hold.
 
+Other complete native visibility reviews are owned by
+[`native-file-roles-v1.json`](../../catalog/mappings/moea/native-file-roles-v1.json).
+These exact references distinguish unanswered papers mislabeled as answers,
+papers containing visibly printed answers, and the aviation answer key with an
+explicit native correction date. Hidden extracted letters are not visible
+answers, and a multiple-answer item alone is not a dated correction. The
+adapter binds a role fact to its complete event/group/file context before
+cache reuse and checks downloaded bytes before mirror writes. Normalization
+and migration use the same fact; original source labels and paths remain.
+These facts approve the recorded file roles only.
+
 The available ROC 100–115 brochures' main purpose, occupation/subject matrices
 and written/retest sections have been inspected. Detailed major appendices,
 complete native file roles and older unavailable annual rules remain separate

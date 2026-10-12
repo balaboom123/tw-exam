@@ -29,8 +29,8 @@ It does not advance whole-event sync receipts for this partial repair.
 
 An exact native-evidence exception may resolve conflicting source labels only
 after its complete source context and reviewed bytes have been verified. A
-fresh checksum supplied by that preflight takes precedence over an earlier
-retained checksum when deciding mirror reuse. A stale valid file is restored
+checksum supplied by the adapter's reviewed native evidence takes precedence
+over an earlier retained checksum when deciding mirror reuse. A stale valid file is restored
 from the verified download with its earlier bytes preserved for recovery;
 changed or unreviewed native files fail before source-event replacement.
 Such an acquisition exception does not approve classification or publication.

@@ -22,7 +22,11 @@ from app.moex_identity_evidence import moex_evidence_path, validate_moex_categor
 from app.tqc_identity_evidence import tqc_evidence_path, validate_tqc_identity_evidence
 from app.providers.twc_recruit.identity import archive_identity_path, validate_archive_identities
 from app.providers.twc_recruit.archive import native_archive_path, validate_native_archives
-from app.providers.moea_recruit.evidence import read_source_conflicts, source_conflicts_path
+from app.providers.moea_recruit.evidence import (
+    native_roles_path,
+    source_conflicts_path,
+    validate_native_role_evidence,
+)
 from app.hakka_identity import (
     hakka_conflicts_path,
     hakka_historical_grades_path,
@@ -101,6 +105,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (hakka_historical_grades_path(repo_root), "hakka-historical-grades-v1.schema.json"),
         (taipower_corrections_path(repo_root), "taipower-answer-corrections-v1.schema.json"),
         (source_conflicts_path(repo_root), "moea-source-label-conflicts-v1.schema.json"),
+        (native_roles_path(repo_root), "moea-native-file-roles-v1.schema.json"),
         (reference_revision_evidence_path(repo_root), "source-revision-reference-v1.schema.json"),
     )
     for path, schema_name in artifacts:
@@ -112,7 +117,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_hakka_conflicts(repo_root)
     validate_hakka_historical_grades(repo_root)
     validate_taipower_corrections(repo_root)
-    read_source_conflicts(source_conflicts_path(repo_root))
+    validate_native_role_evidence(repo_root)
     validate_reference_revision_evidence(repo_root)
 
     validated_providers = 0

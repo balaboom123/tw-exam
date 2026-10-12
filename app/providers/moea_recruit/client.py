@@ -21,7 +21,11 @@ from urllib.parse import (
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
-from app.providers.moea_recruit.evidence import normalized_label, reviewed_conflict
+from app.providers.moea_recruit.evidence import (
+    normalized_label,
+    reviewed_conflict,
+    reviewed_native_role,
+)
 
 BASE_URL = "https://www.taipower.com.tw/"
 DOWNLOAD_URL = "https://www.taipower.com.tw/tc/download.aspx?mid=261"
@@ -237,6 +241,7 @@ class MoeaRecruitClient:
         self._cached_entries: list[MoeaRecruitEntry] | None = None
         self._year_urls: dict[int, str] = {}
         self._verified_conflict_files: dict[str, DownloadedFile] = {}
+        self._reviewed_role_checksums: dict[str, str] = {}
         self.http = Http(
             self.provider_id, max_attempts=1, user_agent=USER_AGENT, headers=REQUEST_HEADERS
         )
@@ -252,11 +257,20 @@ class MoeaRecruitClient:
         verified = self._verified_conflict_files.get(request_url)
         if verified is not None:
             return verified
-        return self.http.download(request_url, content_disposition_name=False)
+        downloaded = self.http.download(request_url, content_disposition_name=False)
+        expected = self._reviewed_role_checksums.get(request_url)
+        if expected is not None and (
+            not downloaded.data.startswith(b"%PDF-")
+            or hashlib.sha256(downloaded.data).hexdigest() != expected
+        ):
+            raise ValueError("MOEA native role has changed or unreviewed bytes")
+        return downloaded
 
     def reviewed_file_checksum(self, url: str) -> str:
         verified = self._verified_conflict_files.get(_quote_url_for_request(url))
-        return hashlib.sha256(verified.data).hexdigest() if verified is not None else ""
+        if verified is not None:
+            return hashlib.sha256(verified.data).hexdigest()
+        return self._reviewed_role_checksums.get(_quote_url_for_request(url), "")
 
     def _verify_listing_conflicts(self, entries: list[MoeaRecruitEntry]) -> None:
         urls_by_label: dict[tuple[str, str], set[str]] = {}
@@ -385,6 +399,7 @@ class MoeaRecruitClient:
         if not matching:
             raise ValueError(f"No entries found for {exam_code} year {year_ad}")
         self._verified_conflict_files.clear()
+        self._reviewed_role_checksums.clear()
         self._verify_listing_conflicts(matching)
         first = matching[0]
         papers: list[ParsedPaper] = []
@@ -413,6 +428,23 @@ class MoeaRecruitClient:
                         files={file_type: download.url},
                     )
                 )
+        # Bind reviewed role bytes only after every acquisition key is checked.
+        # An old mirror receipt cannot substitute different bytes for this role.
+        for paper in papers:
+            for source_role, url in paper.files.items():
+                review = reviewed_native_role(
+                    source_exam_id=exam_code,
+                    year_roc=first.year_roc,
+                    category_code=paper.category_code,
+                    category_raw=paper.category_raw,
+                    subject_code=paper.subject_code,
+                    title=paper.subject_name_raw,
+                    source_url=url,
+                )
+                if review is not None:
+                    if source_role != review.source_role:
+                        raise ValueError("MOEA native role has an unreviewed listing role")
+                    self._reviewed_role_checksums[_quote_url_for_request(url)] = review.checksum
         return SourceExamPage(
             source_exam_id=exam_code,
             year_ad=year_ad,
