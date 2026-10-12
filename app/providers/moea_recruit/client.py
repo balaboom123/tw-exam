@@ -21,6 +21,7 @@ from urllib.parse import (
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.moea_recruit.evidence import normalized_label, reviewed_conflict
 
 BASE_URL = "https://www.taipower.com.tw/"
 DOWNLOAD_URL = "https://www.taipower.com.tw/tc/download.aspx?mid=261"
@@ -54,7 +55,7 @@ class MoeaRecruitEntry:
 
 
 def _normalize_text(text: str) -> str:
-    return " ".join(unescape(text).split())
+    return normalized_label(text)
 
 
 def _exam_name(year_roc: int) -> str:
@@ -235,6 +236,7 @@ class MoeaRecruitClient:
     def __init__(self) -> None:
         self._cached_entries: list[MoeaRecruitEntry] | None = None
         self._year_urls: dict[int, str] = {}
+        self._verified_conflict_files: dict[str, DownloadedFile] = {}
         self.http = Http(
             self.provider_id, max_attempts=1, user_agent=USER_AGENT, headers=REQUEST_HEADERS
         )
@@ -246,7 +248,52 @@ class MoeaRecruitClient:
         return self.http.head(_quote_url_for_request(url))
 
     def download_file(self, url: str) -> DownloadedFile:
-        return self.http.download(_quote_url_for_request(url), content_disposition_name=False)
+        request_url = _quote_url_for_request(url)
+        verified = self._verified_conflict_files.get(request_url)
+        if verified is not None:
+            return verified
+        return self.http.download(request_url, content_disposition_name=False)
+
+    def reviewed_file_checksum(self, url: str) -> str:
+        verified = self._verified_conflict_files.get(_quote_url_for_request(url))
+        return hashlib.sha256(verified.data).hexdigest() if verified is not None else ""
+
+    def _verify_listing_conflicts(self, entries: list[MoeaRecruitEntry]) -> None:
+        urls_by_label: dict[tuple[str, str], set[str]] = {}
+        for entry in entries:
+            for download in entry.downloads:
+                key = (_normalize_text(entry.title), _normalize_text(download.label))
+                urls_by_label.setdefault(key, set()).add(_quote_url_for_request(download.url))
+        conflicts = []
+        for (group, label), urls in urls_by_label.items():
+            if len(urls) < 2:
+                continue
+            fact = reviewed_conflict(entries[0].year_roc, group, label, urls)
+            if fact is None:
+                raise ValueError(
+                    "MOEA archive repeats one file label for different source URLs: "
+                    f"{group} / {label} ({', '.join(sorted(urls))})"
+                )
+            conflicts.append(fact)
+
+        # No mirror write can precede verification of every conflicting file
+        # and its native control. Never reuse the earlier preflight cache here.
+        verified = {}
+        for fact in conflicts:
+            for file in fact.native_files:
+                key = (_normalize_text(fact.listing_group), _normalize_text(file.source_label))
+                if file.source_url not in urls_by_label.get(key, set()):
+                    raise ValueError("MOEA source-label conflict native control has changed")
+                downloaded = self.http.download(file.source_url, content_disposition_name=False)
+                if (
+                    not downloaded.data.startswith(b"%PDF-")
+                    or hashlib.sha256(downloaded.data).hexdigest() != file.checksum
+                ):
+                    raise ValueError(
+                        "MOEA source-label conflict has changed or unreviewed native bytes"
+                    )
+                verified[file.source_url] = downloaded
+        self._verified_conflict_files.update(verified)
 
     def _iter_entries(self) -> list[MoeaRecruitEntry]:
         if self._cached_entries is not None:
@@ -337,21 +384,14 @@ class MoeaRecruitClient:
         ]
         if not matching:
             raise ValueError(f"No entries found for {exam_code} year {year_ad}")
+        self._verified_conflict_files.clear()
+        self._verify_listing_conflicts(matching)
         first = matching[0]
         papers: list[ParsedPaper] = []
         source_urls_by_key: dict[str, str] = {}
-        source_urls_by_label: dict[tuple[str, str], str] = {}
         for entry in matching:
             for download in entry.downloads:
                 request_url = _quote_url_for_request(download.url)
-                label_key = (_normalize_text(entry.title), _normalize_text(download.label))
-                previous_url = source_urls_by_label.get(label_key)
-                if previous_url is not None and previous_url != request_url:
-                    raise ValueError(
-                        "MOEA archive repeats one file label for different source URLs: "
-                        f"{entry.title} / {download.label} ({previous_url}, {request_url})"
-                    )
-                source_urls_by_label[label_key] = request_url
                 digest = hashlib.sha256(request_url.encode("utf-8")).hexdigest()[:16]
                 subject_code = f"joint-{digest}"
                 if (

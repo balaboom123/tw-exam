@@ -27,6 +27,14 @@ mirror metadata so one source cannot overwrite another source's checksum.
 and normalized references only after every affected URL for a provider succeeds.
 It does not advance whole-event sync receipts for this partial repair.
 
+An exact native-evidence exception may resolve conflicting source labels only
+after its complete source context and reviewed bytes have been verified. A
+fresh checksum supplied by that preflight takes precedence over an earlier
+retained checksum when deciding mirror reuse. A stale valid file is restored
+from the verified download with its earlier bytes preserved for recovery;
+changed or unreviewed native files fail before source-event replacement.
+Such an acquisition exception does not approve classification or publication.
+
 An adapter for an archive without native subject codes must derive stable
 acquisition keys from source references, rather than renumbering files by listing
 position. A source-key change is a storage migration: verify every old reference

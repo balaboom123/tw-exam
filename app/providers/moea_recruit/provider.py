@@ -31,3 +31,6 @@ class MoeaRecruitProvider(SourceProvider):
 
     def download_file(self, url: str) -> DownloadedFile:
         return self.client.download_file(url)
+
+    def reviewed_file_checksum(self, url: str) -> str:
+        return self.client.reviewed_file_checksum(url)

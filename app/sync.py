@@ -437,6 +437,9 @@ def sync_exam_pages(
             urls_by_prefix.setdefault(request.prefix, set()).add(request.url)
         for index, request in enumerate(requests):
             checksum = retained_checksums.get((request.prefix, request.url), "")
+            reviewed_checksum = getattr(client, "reviewed_file_checksum", None)
+            if callable(reviewed_checksum):
+                checksum = reviewed_checksum(request.url) or checksum
             prefix_path = mirror_store.root / request.prefix
             previously_split = any(prefix_path.parent.glob(f"{prefix_path.name}--source-*"))
             if len(urls_by_prefix[request.prefix]) > 1 or previously_split:

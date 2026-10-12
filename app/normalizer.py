@@ -11,6 +11,7 @@ from pathlib import Path
 from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
+from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
 from app.source_material import SourceMaterial
@@ -441,6 +442,18 @@ def normalize_papers(
                     label=paper.subject_name_raw,
                     source_url=download_url_source,
                 )
+            elif provider_id == "moea_recruit":
+                normalized_role = moea_file_role(
+                    file_type,
+                    source_exam_id=source_exam_id,
+                    year_roc=year_roc,
+                    category_code=paper.category_code,
+                    category_raw=paper.category_raw,
+                    subject_code=paper.subject_code,
+                    title=paper.subject_name_raw,
+                    source_url=download_url_source,
+                    checksum=metadata.get("checksum", ""),
+                )
             storage_key = metadata.get("storage_key", "")
             asset_name = metadata.get("asset_name") or storage_key
             download_url_mirror = (
@@ -514,6 +527,24 @@ def renormalize_catalog(
                 source_exam_id=paper.source_exam_id,
                 year_roc=paper.year_roc,
                 category_code=paper.category_code,
+                subject_code=paper.subject_code,
+                title=paper.subject_name_raw,
+                source_url=paper.download_url_source,
+                checksum=paper.checksum,
+            )
+            if role != paper.file_type:
+                paper = replace(
+                    paper,
+                    file_type=role,
+                    paper_code=f"{paper.category_code}-{paper.subject_code}-{role}",
+                )
+        elif paper.provider_id == "moea_recruit":
+            role = moea_file_role(
+                paper.file_type,
+                source_exam_id=paper.source_exam_id,
+                year_roc=paper.year_roc,
+                category_code=paper.category_code,
+                category_raw=paper.category_raw,
                 subject_code=paper.subject_code,
                 title=paper.subject_name_raw,
                 source_url=paper.download_url_source,

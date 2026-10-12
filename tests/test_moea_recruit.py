@@ -226,11 +226,11 @@ def _electrical_entries() -> list[MoeaRecruitEntry]:
             downloads=[
                 MoeaRecruitDownload(
                     label="102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
-                    url="https://www.taipower.com.tw/media/byvjsiaf/2018012910565838645.pdf?mediaDL=true",
+                    url="https://www.taipower.com.tw/media/unreviewed/B-question.pdf?mediaDL=true",
                 ),
                 MoeaRecruitDownload(
                     label="102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
-                    url="https://www.taipower.com.tw/media/yxifagqi/2018012910571494833.pdf?mediaDL=true",
+                    url="https://www.taipower.com.tw/media/unreviewed/second-B-label.pdf?mediaDL=true",
                 ),
             ],
         )

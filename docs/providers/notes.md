@@ -217,15 +217,31 @@ legacy alias does not establish that all occupations are one track, and filename
 A/B periods, eligibility degrees or an unverified stage word cannot resolve
 these dimensions. Publication quarantine remains in force during migration.
 
-Reject an event when the same file label in one listing group points to
+Reject an event when an unreviewed file label in one listing group points to
 different normalized source URLs. Equal labels in different occupational
 groups remain separate references. On 2026-10-11 the [ROC 102 electrical B
 question link](https://www.taipower.com.tw/media/yxifagqi/2018012910571494833.pdf?mediaDL=true)
 still returned a one-page answer sheet headed 「專業科目 A 計算機概論、電子學」.
-The same B label also links the genuine B question paper. Preserve both
-original references and payloads, and keep the ambiguous event in the failure
-ledger before any mirror writes or event replacement. Do not infer a corrected
-subject or answer role from the misleading label.
+The same B label also links the genuine B question paper. On 2026-10-12, all
+eight pages of the genuine A questions, genuine B questions and mislabeled
+A answer sheet were visually inspected and their standard-client downloads
+matched the retained checksums. The exact reviewed exception is owned by
+[`source-label-conflicts-v1.json`](../../catalog/mappings/moea/source-label-conflicts-v1.json)
+and its schema. Event acquisition verifies the complete conflicting URL set
+and all three native payloads before mirror writes. New conflicts, changed
+controls or changed bytes still fail. Normalization and catalog migration use
+the same exact source context and checksum to identify the A answer sheet;
+raw labels, listing roles, source keys and historical storage locators remain
+traceability evidence. This file correction does not approve examination
+identity or lift the source's publication hold.
+
+The available ROC 100–115 brochures' main purpose, occupation/subject matrices
+and written/retest sections have been inspected. Detailed major appendices,
+complete native file roles and older unavailable annual rules remain separate
+review scopes. Electrical routes and agricultural subjects changed within this
+history; neither a shared job name nor a numbered route proves interchangeable
+paper coverage. ROC 115's scheduled examination remains future material as of
+2026-10-12, and must not create an administered paper or publication receipt.
 
 Identical bytes may represent one paper applicable to several listed occupations.
 Keep their source references and native applicability when sharing storage.

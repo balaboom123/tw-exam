@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "provider_id": "moea_recruit",
+  "facts": [
+    {
+      "year_roc": 102,
+      "listing_group": "102年度電機(乙)",
+      "conflict_label": "102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
+      "native_files": [
+        {
+          "source_url": "https://www.taipower.com.tw/media/yoaj5aph/2018012910564410844.pdf?mediaDL=true",
+          "source_label": "102年新進職員甄試試題科目A_14.電機(乙)_計算機概論、電子學",
+          "checksum": "4a8705c8ea1a07fc5400bc24e8fdc3edb2300e76c97fee540a2baba4206d78ad",
+          "native_role": "question",
+          "native_subject": "計算機概論、電子學（專業科目A）",
+          "inspected_pages": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "source_url": "https://www.taipower.com.tw/media/byvjsiaf/2018012910565838645.pdf?mediaDL=true",
+          "source_label": "102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
+          "checksum": "69a4a44df013f9721c6c7565478c03e03c862cf7a2f4f9cb7c32a720aec4d148",
+          "native_role": "question",
+          "native_subject": "電路學、電磁學（專業科目B）",
+          "inspected_pages": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_url": "https://www.taipower.com.tw/media/yxifagqi/2018012910571494833.pdf?mediaDL=true",
+          "source_label": "102年新進職員甄試試題科目B_14.電機(乙)_電路學、電磁學",
+          "checksum": "df01b0ce0676c0626678104e8f8119f059215dda478113ee66f44cfa23ee8829",
+          "native_role": "answer",
+          "native_subject": "計算機概論、電子學（專業科目A）",
+          "inspected_pages": [
+            1
+          ]
+        }
+      ],
+      "reviewed_at": "2026-10-12",
+      "reason": "All eight native pages were visually reviewed and the three standard-client downloads reproduced their SHA-256 checksums. The repeated B label points to a genuine two-page B question paper and a one-page A answer key. The five-page A question control contains the corresponding sixty unannotated questions. Preserve every original label, URL and listing role; use the native role only for the exact reviewed bytes. This exception does not approve programme identity or publication."
+    }
+  ]
+}
