@@ -271,9 +271,10 @@ Extracted answer letters alone do not establish a file role: some PDFs contain
 hidden answer text that is absent from their visible question pages. The
 [ROC 109 chemistry question link](https://www.taipower.com.tw/media/ylinuevz/2021122413491339388.pdf?mediaDL=true)
 and [answer link](https://www.taipower.com.tw/media/0g3jfaw1/2020111609474591417.pdf?mediaDL=true)
-returned identical bytes with visibly printed answers on 2026-10-10. Preserve
-both original references and resolve the answered paper's publication role
-as part of the complete migration; do not claim an unanswered copy exists.
+returned identical bytes with visibly printed answers on 2026-10-10. The exact
+native-role evidence resolves both references as an answered question paper.
+Preserve both original references and that checksum-bound role; do not claim an
+unanswered copy exists.
 
 The adapter derives acquisition subject keys from the normalized request URL,
 not a file's position in an annual listing. Reordering, inserting a file or
