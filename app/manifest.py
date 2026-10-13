@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import asdict, dataclass, field
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
+
+from app.paths import is_provider_mirror_metadata
 
 SUPPORTED_SCHEMA_VERSION = 1
 
@@ -32,6 +35,37 @@ def _require_entry_mapping(value: Any, section: str) -> dict[str, dict[str, Any]
     return mapping
 
 
+def previous_storage_keys(
+    provider_id: str, storage_key: str, entry: dict[str, Any]
+) -> tuple[str, ...]:
+    """Validate optional evidence connecting obsolete locators to a current file."""
+    if "previous_storage_keys" not in entry:
+        return ()
+    aliases = entry["previous_storage_keys"]
+    if (
+        not isinstance(aliases, list)
+        or any(not isinstance(alias, str) for alias in aliases)
+        or len(aliases) != len(set(aliases))
+        or entry.get("storage_key") != storage_key
+        or re.fullmatch(r"[0-9a-f]{64}", str(entry.get("sha256", ""))) is None
+    ):
+        raise ValueError("Invalid mirror locator migration evidence")
+    for key in (storage_key, *aliases):
+        path = PurePosixPath(key)
+        if (
+            path.is_absolute()
+            or ".." in path.parts
+            or "\\" in key
+            or path.as_posix() != key
+            or path.parts[:2] != ("providers", provider_id)
+            or len(path.parts) < 3
+            or path.parts[2:4] == ("recovery", "source-revisions")
+            or is_provider_mirror_metadata(key)
+        ):
+            raise ValueError("Invalid retired mirror locator")
+    return tuple(aliases)
+
+
 def source_manifest_from_data(data: dict[str, Any]) -> SourceManifest:
     schema_version = data.get("schema_version")
     if schema_version != SUPPORTED_SCHEMA_VERSION:
@@ -39,13 +73,16 @@ def source_manifest_from_data(data: dict[str, Any]) -> SourceManifest:
     provider_id = data.get("provider_id")
     if not isinstance(provider_id, str) or not provider_id:
         raise ValueError("Invalid source manifest provider_id: expected non-empty string")
+    files = _require_entry_mapping(data.get("files", {}), "files")
+    for key, entry in files.items():
+        previous_storage_keys(provider_id, key, entry)
     return SourceManifest(
         schema_version=schema_version,
         provider_id=provider_id,
         probe_policy=_require_mapping(data.get("probe_policy", {}), "probe_policy"),
         years=_require_entry_mapping(data.get("years", {}), "years"),
         exams=_require_entry_mapping(data.get("exams", {}), "exams"),
-        files=_require_entry_mapping(data.get("files", {}), "files"),
+        files=files,
     )
 
 

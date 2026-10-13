@@ -27,7 +27,12 @@ from pathlib import Path, PurePosixPath
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from app.paths import MIRROR_ORIGIN_NAME as ORIGIN_NAME  # noqa: E402
+from app.paths import provider_paths  # noqa: E402
+from app.manifest import load_source_manifest, previous_storage_keys  # noqa: E402
 from app.providers.registry import get_provider  # noqa: E402 - bootstrap repository imports
+from app.source_revisions import is_revision_blob_key, load_source_revisions  # noqa: E402
+from app.state import load_provider_state  # noqa: E402
+from app.storage import MirrorStore  # noqa: E402
 
 CHUNK_BYTES = 1_900_000_000  # Strictly below GitHub's 2 GiB per-asset limit.
 BLOCK_BYTES = 1024 * 1024
@@ -713,6 +718,63 @@ def save(root: Path, repository: str, provider: str, generation: str) -> dict:
     return pointer
 
 
+def _checked_provider_key(key: str, provider: str) -> str:
+    path = PurePosixPath(key)
+    if (
+        path.is_absolute()
+        or ".." in path.parts
+        or "\\" in key
+        or path.as_posix() != key
+        or path.parts[:2] != ("providers", provider)
+        or len(path.parts) < 3
+        or is_revision_blob_key(key)
+    ):
+        raise ValueError("Invalid retired mirror locator")
+    return key
+
+
+def _retired_cache_payloads(root: Path, provider: str, incoming: Path) -> dict[str, set[str]]:
+    """Prove obsolete locators from current state and independently restored bytes."""
+    state = provider_paths(root, provider)
+    pages, catalog, _failures = load_provider_state(state)
+    references = MirrorStore(root / "mirror").referenced_storage_keys(provider, pages, catalog)
+    if not references:
+        return {}  # A source bootstrap cannot establish which cache paths are obsolete.
+    retired: dict[str, set[str]] = {}
+
+    def retain_proof(old_key: str, checksum: str, covered_key: str) -> None:
+        old_key = _checked_provider_key(old_key, provider)
+        if old_key in references:
+            return  # Earlier state can deliberately restore an old active locator.
+        prefix = PurePosixPath("providers") / provider
+        covered = incoming / PurePosixPath(covered_key).relative_to(prefix)
+        if covered.is_file() and not covered.is_symlink() and digest(covered) == checksum:
+            relative = PurePosixPath(old_key).relative_to(prefix).as_posix()
+            retired.setdefault(relative, set()).add(checksum)
+
+    for revision in load_source_revisions(state):
+        record = revision["source_record"]
+        if revision["blob_storage_key"] is not None and not is_revision_blob_key(record["storage_key"]):
+            retain_proof(record["storage_key"], record["checksum"], revision["blob_storage_key"])
+    manifest = load_source_manifest(state.source_manifest_path, provider_id=provider)
+    for key, file in manifest.files.items():
+        aliases = previous_storage_keys(provider, key, file)
+        for alias in aliases:
+            if key in references:
+                retain_proof(alias, file["sha256"], key)
+    return retired
+
+
+def _remove_retired_cache_paths(source: Path, retired: dict[str, set[str]]) -> int:
+    removed = 0
+    for relative, checksums in retired.items():
+        path = source / relative
+        if path.is_file() and not path.is_symlink() and digest(path) in checksums:
+            path.unlink()
+            removed += 1
+    return removed
+
+
 def hydrate(root: Path, repository: str, provider: str):
     """Refresh an Actions cache from the committed durable snapshot when needed."""
     get_provider(provider)
@@ -752,7 +814,12 @@ def hydrate(root: Path, repository: str, provider: str):
                 and sum(committed_files.values()) == cached["unpacked_bytes"]
                 and all(files.get(name) == size for name, size in committed_files.items())
             ):
-                print(f"Warm {provider} mirror matches durable generation {pointer['generation']}")
+                retired = _retired_cache_payloads(root, provider, source)
+                removed = _remove_retired_cache_paths(source, retired)
+                if removed:
+                    print(f"Removed {removed} retired {provider} cache locators with verified recovery")
+                else:
+                    print(f"Warm {provider} mirror matches durable generation {pointer['generation']}")
                 return pointer
         except (ValueError, OSError):
             pass
@@ -769,12 +836,21 @@ def hydrate(root: Path, repository: str, provider: str):
             manifest_sha256=pointer["manifest_sha256"],
         )
         incoming = stage_root / "mirror/providers" / provider
+        retired = _retired_cache_payloads(root, provider, incoming)
+        _remove_retired_cache_paths(incoming, retired)
         # Keep newly acquired files from a failed backup. The committed snapshot
         # supplies overlapping paths, avoiding replay of an older cache's bytes.
+        # Explicitly retired locators are unnecessary only when their exact bytes
+        # are independently present in the restored generation. Unknown progress,
+        # changed payloads, current references and recovery blobs stay preserved.
         if source.exists():
             for path in source_files(source):
-                target = incoming / path.relative_to(source)
+                relative = path.relative_to(source)
+                target = incoming / relative
                 if not target.exists():
+                    checksums = retired.get(relative.as_posix())
+                    if checksums is not None and digest(path) in checksums:
+                        continue
                     target.parent.mkdir(parents=True, exist_ok=True)
                     os.link(path, target)
         latest = release(repository, provider)

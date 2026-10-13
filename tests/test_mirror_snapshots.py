@@ -994,6 +994,160 @@ def test_hydrate_cannot_replace_local_operator_mirrors(hydrating, monkeypatch):
     assert not downloads
 
 
+def _cache_reference_state(root, current_key, checksum, previous_keys=None):
+    from app.manifest import SourceManifest, write_source_manifest
+    from app.models import NormalizedPaper, to_plain_data
+    from app.paths import provider_paths
+
+    state = provider_paths(root, PROVIDER)
+    state.papers_dir.mkdir(parents=True, exist_ok=True)
+    paper = NormalizedPaper(
+        canonical_id="math", canonical_name="數學", year_roc=111,
+        exam_name_raw="分科測驗", category_raw="數學", subject_name_raw="數學",
+        paper_code="math-question", file_type="question",
+        download_url_source="https://official.example/math.pdf",
+        provider_id=PROVIDER, source_exam_id="ceec-ast-111",
+        category_code="math", subject_code="math",
+        storage_key=current_key, checksum=checksum,
+    )
+    (state.papers_dir / "2022.json").write_text(json.dumps([to_plain_data(paper)]))
+    if previous_keys is not None:
+        write_source_manifest(state.source_manifest_path, SourceManifest(
+            provider_id=PROVIDER,
+            files={current_key: {
+                "storage_key": current_key, "sha256": checksum,
+                "previous_storage_keys": previous_keys,
+            }},
+        ))
+    return state, paper
+
+
+@pytest.mark.parametrize("warm", [False, True])
+def test_hydrate_does_not_resurrect_verified_positional_aliases(hydrating, packed, warm):
+    root, pointer, archive, _, _ = hydrating
+    key = f"providers/{PROVIDER}/111/數學.pdf"
+    old_key = f"providers/{PROVIDER}/obsolete-positional.pdf"
+    if warm:
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    else:
+        provider = root / "mirror/providers" / PROVIDER
+        provider.mkdir(parents=True)
+    provider = root / "mirror/providers" / PROVIDER
+    payload = (packed[0] / "mirror" / key).read_bytes()
+    checksum = hashlib.sha256(payload).hexdigest()
+    _cache_reference_state(root, key, checksum, [old_key])
+    (provider / "obsolete-positional.pdf").write_bytes(payload)
+    (provider / "uncommitted-new-reference.pdf").write_bytes(payload)
+    (provider / "new-version.pdf").write_bytes(b"new bytes from interrupted acquisition")
+    orphan = provider / "recovery/source-revisions" / f"{checksum}.pdf"
+    orphan.parent.mkdir(parents=True)
+    orphan.write_bytes(payload)
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert not (provider / "obsolete-positional.pdf").exists()
+    assert (provider / "uncommitted-new-reference.pdf").read_bytes() == payload
+    assert (provider / "new-version.pdf").read_bytes() == b"new bytes from interrupted acquisition"
+    assert orphan.read_bytes() == payload
+    assert (provider / "111/數學.pdf").read_bytes() == payload
+
+
+@pytest.mark.parametrize("protection", ["changed-cache", "changed-witness", "active-alias", "missing-state"])
+def test_hydrate_preserves_aliases_without_complete_retirement_proof(hydrating, packed, protection):
+    root, pointer, _, _, _ = hydrating
+    key = f"providers/{PROVIDER}/111/數學.pdf"
+    old_key = f"providers/{PROVIDER}/obsolete-positional.pdf"
+    payload = (packed[0] / "mirror" / key).read_bytes()
+    checksum = hashlib.sha256(payload).hexdigest()
+    mirror.hydrate(root, "owner/repo", PROVIDER)
+    provider = root / "mirror/providers" / PROVIDER
+    if protection != "missing-state":
+        active = old_key if protection == "active-alias" else key
+        _cache_reference_state(root, active, checksum)
+        from app.manifest import SourceManifest, write_source_manifest
+        from app.paths import provider_paths
+        evidence_checksum = "0" * 64 if protection == "changed-witness" else checksum
+        write_source_manifest(provider_paths(root, PROVIDER).source_manifest_path, SourceManifest(
+            provider_id=PROVIDER,
+            files={key: {"storage_key": key, "sha256": evidence_checksum, "previous_storage_keys": [old_key]}},
+        ))
+    cached = b"different uncommitted revision" if protection == "changed-cache" else payload
+    (provider / "obsolete-positional.pdf").write_bytes(cached)
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert (provider / "obsolete-positional.pdf").read_bytes() == cached
+
+
+@pytest.mark.parametrize("warm", [False, True])
+def test_retired_alias_already_in_committed_generation_is_removed(hydrating, packed, tmp_path, monkeypatch, warm):
+    root, _, _, _, remote = hydrating
+    key = f"providers/{PROVIDER}/111/數學.pdf"
+    old_key = f"providers/{PROVIDER}/obsolete-positional.pdf"
+    payload = (packed[0] / "mirror" / key).read_bytes()
+    (packed[0] / "mirror" / old_key).write_bytes(payload)
+    archive = mirror.pack(packed[0], PROVIDER, "with-retired", tmp_path / "with-retired", chunk_bytes=257)
+    pointer = {"version": 1, "provider_id": PROVIDER, "generation": "with-retired", "manifest_sha256": mirror.digest(archive)}
+    remote["body"] = json.dumps(pointer)
+
+    def download(repository, provider, name, directory):
+        target = directory / name
+        target.write_bytes((archive.parent / name).read_bytes())
+        return target
+
+    monkeypatch.setattr(mirror, "download", download)
+    if warm:
+        # A marker legitimately covers the older committed alias. It must not
+        # mask retirement once the matching current state is installed.
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    _cache_reference_state(root, key, hashlib.sha256(payload).hexdigest(), [old_key])
+    assert mirror.hydrate(root, "owner/repo", PROVIDER) == pointer
+    assert not (root / "mirror" / old_key).exists()
+    assert (root / "mirror" / key).read_bytes() == payload
+
+
+@pytest.mark.parametrize("bad_alias", ["../outside.pdf", f"providers/{PROVIDER}/../outside.pdf", "providers/other/paper.pdf", f"providers/{PROVIDER}/recovery/source-revisions/" + "a" * 64 + ".pdf"])
+def test_invalid_alias_evidence_preserves_cache(hydrating, packed, bad_alias):
+    root, _, _, _, _ = hydrating
+    key = f"providers/{PROVIDER}/111/數學.pdf"
+    payload = (packed[0] / "mirror" / key).read_bytes()
+    _cache_reference_state(root, key, hashlib.sha256(payload).hexdigest(), [bad_alias])
+    provider = root / "mirror/providers" / PROVIDER
+    provider.mkdir(parents=True)
+    (provider / "progress.pdf").write_bytes(b"preserve progress")
+    with pytest.raises(ValueError, match="retired mirror locator"):
+        mirror.hydrate(root, "owner/repo", PROVIDER)
+    assert (provider / "progress.pdf").read_bytes() == b"preserve progress"
+
+
+def test_retired_reference_original_requires_verified_independent_blob(tmp_path):
+    from dataclasses import replace
+    from app.models import NormalizedCatalog
+    from app.publisher import write_provider_state
+    from app.source_revisions import load_source_revisions
+
+    root = tmp_path / "root"
+    key = f"providers/{PROVIDER}/current.pdf"
+    old_key = f"providers/{PROVIDER}/retired.pdf"
+    payload = b"earlier verified payload"
+    checksum = hashlib.sha256(payload).hexdigest()
+    state, current = _cache_reference_state(root, old_key, checksum)
+    original = root / "mirror" / old_key
+    original.parent.mkdir(parents=True)
+    original.write_bytes(payload)
+    current = replace(current, storage_key=key, subject_code="current", download_url_source="https://official.example/current.pdf")
+    write_provider_state(state, [], NormalizedCatalog([current], []), [], [], None)
+    revision = load_source_revisions(state)[0]
+    incoming = tmp_path / "incoming"
+    incoming.mkdir()
+    blob = incoming / Path(revision["blob_storage_key"]).relative_to(Path("providers") / PROVIDER)
+    blob.parent.mkdir(parents=True)
+    assert mirror._retired_cache_payloads(root, PROVIDER, incoming) == {}
+    blob.write_bytes(b"wrong historical bytes")
+    assert mirror._retired_cache_payloads(root, PROVIDER, incoming) == {}
+    blob.write_bytes(payload)
+    proofs = mirror._retired_cache_payloads(root, PROVIDER, incoming)
+    assert proofs == {"retired.pdf": {checksum}}
+    assert mirror._remove_retired_cache_paths(original.parent, proofs) == 1
+    assert not original.exists() and blob.read_bytes() == payload
+
+
 def test_origin_marker_is_excluded_from_snapshot_content(packed, tmp_path):
     root, path = packed
     manifest = mirror.load_manifest(path, PROVIDER, "pilot-1")

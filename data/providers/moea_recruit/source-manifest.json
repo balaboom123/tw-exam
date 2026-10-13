@@ -1008,6 +1008,9 @@
       "content_type": "application/pdf",
       "file_type": "question",
       "normalized_file_type": "question",
+      "previous_storage_keys": [
+        "providers/moea_recruit/100/moea-recruit-100/100/joint-01/question.pdf"
+      ],
       "sha256": "9549daafdbbebdd5fed460e5d6d8ef83abdec410333c5770cc27c962bd62c65b",
       "source_exam_id": "moea-recruit-100",
       "source_url": "https://www.taipower.com.tw/media/v5jjehd3/2018012617393678425.pdf?mediaDL=true",
@@ -1120,6 +1123,9 @@
       "content_type": "application/pdf",
       "file_type": "answer",
       "normalized_file_type": "answer",
+      "previous_storage_keys": [
+        "providers/moea_recruit/100/moea-recruit-100/100/joint-02/answer.pdf"
+      ],
       "sha256": "4fb3e8f1579268e5dfb4dda9f6c7f31047b938253c363daee5f7b0b876b8d818",
       "source_exam_id": "moea-recruit-100",
       "source_url": "https://www.taipower.com.tw/media/gmeiet3e/2018012617401790070.pdf?mediaDL=true",
@@ -2448,6 +2454,9 @@
       "content_type": "application/pdf",
       "file_type": "question",
       "normalized_file_type": "question",
+      "previous_storage_keys": [
+        "providers/moea_recruit/101/moea-recruit-101/101/joint-02/question.pdf"
+      ],
       "sha256": "96fa3ec6e16de3a26c9a178a117de4d25f05750c1d814489bc4fe54af9b4c4f7",
       "source_exam_id": "moea-recruit-101",
       "source_url": "https://www.taipower.com.tw/media/i5iftzmj/2018012617485264336.pdf?mediaDL=true",
@@ -2960,6 +2969,9 @@
       "content_type": "application/pdf",
       "file_type": "answer",
       "normalized_file_type": "answer",
+      "previous_storage_keys": [
+        "providers/moea_recruit/101/moea-recruit-101/101/joint-01/answer.pdf"
+      ],
       "sha256": "6caaca4bd24763a684d40935d883bd42580a19cd31ab5aaa859dbfea8348c1ed",
       "source_exam_id": "moea-recruit-101",
       "source_url": "https://www.taipower.com.tw/media/q3goztg1/2018012617484169255.pdf?mediaDL=true",
@@ -10864,6 +10876,9 @@
       "content_type": "application/pdf",
       "file_type": "question",
       "normalized_file_type": "question",
+      "previous_storage_keys": [
+        "providers/moea_recruit/107/moea-recruit-107/107/joint-01/question.pdf"
+      ],
       "sha256": "3618deaa2f66a2af994eb0e4fe7f8d3fb22e78e6c51e7c7bcd21536231612f2e",
       "source_exam_id": "moea-recruit-107",
       "source_url": "https://www.taipower.com.tw/media/sjzd5zb5/2018102909141180848.pdf?mediaDL=true",
@@ -11008,6 +11023,9 @@
       "content_type": "application/pdf",
       "file_type": "answer",
       "normalized_file_type": "answer",
+      "previous_storage_keys": [
+        "providers/moea_recruit/107/moea-recruit-107/107/joint-02/answer.pdf"
+      ],
       "sha256": "42616f1f1ae787aa0202023ee4305ff29379da66cad41f7efaec471397682a51",
       "source_exam_id": "moea-recruit-107",
       "source_url": "https://www.taipower.com.tw/media/ktphqrot/2018121708525015991.pdf?mediaDL=true",
@@ -19152,6 +19170,9 @@
       "content_type": "application/pdf",
       "file_type": "question",
       "normalized_file_type": "question",
+      "previous_storage_keys": [
+        "providers/moea_recruit/91/moea-recruit-91/91/joint-01/question.pdf"
+      ],
       "sha256": "872fc5d12da3b4b25667fa77535a8bdfc0b457954b46fbc763dcad853d81acad",
       "source_exam_id": "moea-recruit-91",
       "source_url": "https://www.taipower.com.tw/media/tjnpg3wc/2017120111152173465.pdf?mediaDL=true",
@@ -19712,6 +19733,9 @@
       "content_type": "application/pdf",
       "file_type": "question",
       "normalized_file_type": "question",
+      "previous_storage_keys": [
+        "providers/moea_recruit/93/moea-recruit-93/93/joint-01/question.pdf"
+      ],
       "sha256": "5143fdbe26a3a344d084333c02feacaaa28c9f4697a3d9ed69939fb110729c96",
       "source_exam_id": "moea-recruit-93",
       "source_url": "https://www.taipower.com.tw/media/huyfqx2s/2017120114115741430.pdf?mediaDL=true",

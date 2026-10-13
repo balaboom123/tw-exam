@@ -3,7 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from app.manifest import SourceManifest, load_source_manifest, write_source_manifest
+from app.manifest import (
+    SourceManifest, load_source_manifest, source_manifest_from_data, write_source_manifest,
+)
 
 
 class SourceManifestTests(unittest.TestCase):
@@ -157,6 +159,45 @@ class SourceManifestTests(unittest.TestCase):
         self.assertTrue(first.endswith("\n"))
         self.assertLess(first.index('"exams"'), first.index('"files"'))
         self.assertLess(first.index('"probe_policy"'), first.index('"schema_version"'))
+
+    def test_previous_storage_keys_preserve_verified_migration_evidence(self) -> None:
+        key = "providers/moex/current.pdf"
+        entry = {
+            "storage_key": key, "sha256": "a" * 64,
+            "previous_storage_keys": ["providers/moex/earlier.pdf"],
+        }
+        manifest = source_manifest_from_data({
+            "schema_version": 1, "provider_id": "moex", "files": {key: entry},
+        })
+        self.assertEqual(manifest.files[key], entry)
+
+    def test_previous_storage_keys_reject_invalid_evidence_at_load(self) -> None:
+        key = "providers/moex/current.pdf"
+        valid = {"storage_key": key, "sha256": "a" * 64, "previous_storage_keys": ["providers/moex/earlier.pdf"]}
+        changes = [
+            {"previous_storage_keys": ""},
+            {"previous_storage_keys": [123]},
+            {"previous_storage_keys": ["providers/moex/earlier.pdf"] * 2},
+            {"previous_storage_keys": ["providers/other/earlier.pdf"]},
+            {"previous_storage_keys": ["providers/moex/../earlier.pdf"]},
+            {"previous_storage_keys": ["providers/moex/.snapshot-origin.json"]},
+            {"previous_storage_keys": ["providers/moex/recovery/source-revisions/" + "a" * 64 + ".pdf"]},
+            {"storage_key": "providers/moex/different.pdf"},
+            {"sha256": "not verified"},
+        ]
+        for change in changes:
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                source_manifest_from_data({
+                    "schema_version": 1, "provider_id": "moex",
+                    "files": {key: {**valid, **change}},
+                })
+
+    def test_legacy_file_metadata_without_aliases_remains_supported(self) -> None:
+        manifest = source_manifest_from_data({
+            "schema_version": 1, "provider_id": "moex",
+            "files": {"legacy-url-key": {"source_url": "https://official.example/file"}},
+        })
+        self.assertIn("legacy-url-key", manifest.files)
 
 
 if __name__ == "__main__":

@@ -114,6 +114,16 @@ refreshed once to record the file inventory. The marker is excluded from backup 
 Operator `restore` keeps its empty-directory guard, and publication retries
 continue to use their original pinned generation.
 
+Hydration does not resurrect explicitly retired locators when their exact bytes
+are verified in an independent revision blob or a current migrated locator. The
+provider journal owns retired source paths; acquisition manifest file entries
+record exact `previous_storage_keys` for locator migrations. Current raw/catalog
+references remain protected. A missing or changed recovery witness, changed cached
+bytes, an unknown new reference, or a data-only bootstrap preserves the cached
+file. Recovery blobs are never treated as obsolete aliases. The check also applies
+to warm caches and older committed generations, so a failed source request cannot
+undo locator cleanup during the next backup.
+
 Durable backup runs before Actions cache save, so cached origin markers describe
 the committed snapshot. The helper emits its cache eligibility before attempting
 an upload. Mirrors above its unique-payload budget skip warm cache save and
