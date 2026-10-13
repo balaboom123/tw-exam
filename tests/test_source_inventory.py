@@ -157,7 +157,6 @@ class SourceInventoryTests(unittest.TestCase):
             report["discovery_manifests_incomplete"],
             [
                 "cpc_recruit",
-                "moea_recruit",
                 "taisugar_recruit",
                 "sfi_cert",
                 "tabf_cert",
@@ -233,7 +232,7 @@ class SourceInventoryTests(unittest.TestCase):
             "login_required",
         )
 
-    def test_moea_manifest_records_exact_listing_and_contamination(self) -> None:
+    def test_moea_manifest_records_native_acquisition_and_retired_contamination(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/moea_recruit/source-manifest.json").read_text(
                 encoding="utf-8"
@@ -249,7 +248,9 @@ class SourceInventoryTests(unittest.TestCase):
             ],
         )
         self.assertEqual(len(manifest["exams"]), 21)
-        self.assertEqual(manifest["files"], {})
+        self.assertEqual(len(manifest["files"]), 1_486)
+        self.assertTrue(all(item["bytes"] > 0 for item in manifest["files"].values()))
+        self.assertTrue(all(len(item["sha256"]) == 64 for item in manifest["files"].values()))
         policy = manifest["probe_policy"]
         self.assertEqual(policy["subject_group_count"], 515)
         self.assertEqual(policy["listed_asset_count"], 1_486)
@@ -261,12 +262,30 @@ class SourceInventoryTests(unittest.TestCase):
             sum(item["asset_count"] for item in manifest["years"].values()),
             1_486,
         )
-        contamination = policy["retained_local_contamination"]
+        self.assertNotIn("retained_local_contamination", policy)
+        correction = policy["source_correction"]
+        self.assertEqual(correction["current_source_references"], 1_486)
+        self.assertEqual(correction["retired_source_references"], 370)
+        self.assertEqual(correction["exact_native_role_corrections"], 14)
+        self.assertFalse(correction["identity_review_complete"])
+        self.assertFalse(correction["site_publication_approved"])
+        self.assertFalse(correction["sync_receipt_created"])
+        contamination = policy["retired_acquisition_error"]
         self.assertEqual(contamination["normalized_records"], 370)
         self.assertTrue(contamination["all_source_urls_belong_to_taipower_hiring_archive"])
         self.assertEqual(contamination["current_taipower_source_url_overlap"], 370)
         self.assertEqual(contamination["current_taipower_checksum_overlap"], 344)
-        self.assertEqual(contamination["comparison_baseline_commit"], "d15ca7350d4406ed4849d40fc934085253c9b3f4")
+        self.assertEqual(
+            contamination["comparison_baseline_commit"],
+            "22bb6f2a2252d0ec611b6c467d9c78680c07b04a",
+        )
+        self.assertEqual(
+            contamination["earlier_comparison_baseline_commit"],
+            "d15ca7350d4406ed4849d40fc934085253c9b3f4",
+        )
+        self.assertTrue(contamination["all_original_metadata_and_bytes_preserved"])
+        self.assertEqual(contamination["noncurrent_hiring_payload_refs_with_verified_recovery"], 26)
+        self.assertEqual(contamination["noncurrent_hiring_payload_refs_matching_native_staff_bytes"], 26)
         self.assertEqual(
             contamination["source_only_events"],
             [
@@ -287,6 +306,79 @@ class SourceInventoryTests(unittest.TestCase):
                 ["moea-recruit-99", 2010],
             ],
         )
+
+    @pytest.mark.repo_data
+    def test_moea_source_correction_preserves_history_without_resurrecting_hiring(self) -> None:
+        from app.paths import provider_paths
+        from app.publication_quarantine import load_quarantine
+        from app.source_revisions import load_source_revisions
+        from app.state import load_provider_state
+
+        provider = provider_paths(ROOT, "moea_recruit")
+        pages, catalog, failures = load_provider_state(provider)
+        revisions = load_source_revisions(provider)
+        self.assertFalse(failures)
+        self.assertGreaterEqual(len(catalog.papers), 1_486)
+        self.assertGreaterEqual(len(revisions), 370)
+        retired_errors = revisions[:370]
+        self.assertTrue(
+            all(r["reason"] == "source_reference_retired" for r in retired_errors)
+        )
+        self.assertTrue(all(r["record_type"] == "paper" for r in retired_errors))
+        self.assertTrue(
+            all(
+                r["source_record"]["category_raw"] == "國營事業聯招（新進職員）"
+                for r in retired_errors
+            )
+        )
+        self.assertTrue(
+            all(r["source_record"]["classification_confidence"] == "review" for r in retired_errors)
+        )
+        for revision in retired_errors:
+            record = revision["source_record"]
+            self.assertEqual(record["provider_id"], "moea_recruit")
+            self.assertEqual(record["level_id"], "unknown")
+            self.assertEqual(record["stage_id"], "unknown")
+            self.assertTrue(revision["blob_storage_key"].endswith(record["checksum"] + ".pdf"))
+
+        retired_urls = {r["source_record"]["download_url_source"] for r in retired_errors}
+        current_urls = {paper.download_url_source for paper in catalog.papers}
+        self.assertFalse(retired_urls & current_urls)
+        self.assertTrue(
+            all(paper.category_raw != "國營事業聯招（新進職員）" for paper in catalog.papers)
+        )
+        self.assertTrue(
+            all(paper.classification_confidence == "review" for paper in catalog.papers)
+        )
+        self.assertTrue(
+            all(paper.level_id == paper.stage_id == "unknown" for paper in catalog.papers)
+        )
+        event_ids = {page.source_exam_id for page in pages}
+        self.assertTrue(all(paper.source_exam_id in event_ids for paper in catalog.papers))
+
+        tai = provider_paths(ROOT, "taipower_recruit")
+        _, tai_catalog, _ = load_provider_state(tai)
+        hiring_urls = {paper.download_url_source for paper in tai_catalog.papers}
+        hiring_urls.update(
+            r["source_record"]["download_url_source"] for r in load_source_revisions(tai)
+        )
+        self.assertLessEqual(retired_urls, hiring_urls)
+        manifest = json.loads(provider.source_manifest_path.read_text())
+        acquired = {(paper.download_url_source, paper.checksum) for paper in catalog.papers}
+        acquired.update(
+            (r["source_record"]["download_url_source"], r["source_record"]["checksum"])
+            for r in revisions
+        )
+        for file in manifest["files"].values():
+            self.assertIn((file["source_url"], file["sha256"]), acquired)
+        self.assertIn("moea_recruit", load_quarantine(ROOT, site_id="default"))
+        entry = next(
+            row
+            for row in load_source_inventory(ROOT)["providers"]
+            if row["provider_id"] == "moea_recruit"
+        )
+        self.assertEqual(entry["discovery_snapshot"]["coverage"], "complete")
+        self.assertEqual(entry["status"], "partial")
 
     def test_taipower_manifest_reconciles_full_archive_and_retains_revisions(self) -> None:
         manifest = json.loads(

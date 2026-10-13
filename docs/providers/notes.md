@@ -217,6 +217,17 @@ legacy alias does not establish that all occupations are one track, and filename
 A/B periods, eligibility degrees or an unverified stage word cannot resolve
 these dimensions. Publication quarantine remains in force during migration.
 
+Correct the acquired source independently from approving its examination meaning.
+The complete native listing and verified originals can replace the known hiring
+archive contamination while preserving those unresolved identities. Retire the
+earlier references through the scoped provider writer and conserve their exact
+metadata and independent recovery bytes. Source URL ownership and the purpose of
+its retained payload are separate evidence: some old hiring URLs retained bytes
+that match staff papers. Do not rewrite those original records to make them appear
+to have been acquired from the correct staff source. Verify a full backup restore
+and conserving rollback before cutover; complete annual/native review remains a
+prerequisite for approved identity and publication.
+
 Reject an event when an unreviewed file label in one listing group points to
 different normalized source URLs. Equal labels in different occupational
 groups remain separate references. On 2026-10-11 the [ROC 102 electrical B

@@ -53,8 +53,8 @@
     {
       "provider_id": "moea_recruit",
       "site_id": "default",
-      "status": "duplicate_source_identity",
-      "reason": "Every retained MOEA source URL actually belongs to the separate Taipower hiring archive. The baseline provider sets were identical, but refreshed Taipower acquisition corrected mixed/stale common-paper payloads, so their current checksum sets are not identical. Keep the wrong MOEA identity withheld until the distinct official staff archive is completely acquired and reviewed with source conservation.",
+      "status": "wrong_identity",
+      "reason": "The native source correction retires all 370 misowned hiring references with verified immutable recovery and acquires the complete 1,486-reference staff listing. Approved historical programme, occupational applicability, stage, subject and cross-year identity are still incomplete. Keep the event-isolated review candidates with unknown dimensions withheld until complete native/historical review and identity migration; acquisition correctness does not approve publication.",
       "evidence_path": "data/providers/moea_recruit/source-manifest.json",
       "spec_path": "docs/providers/notes.md#moea_recruit",
       "review_by": "2026-11-01"

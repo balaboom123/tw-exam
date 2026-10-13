@@ -41,6 +41,17 @@ and cannot establish that earlier bytes remain recoverable. Restore a current
 reference from a recovery blob only after checking its recorded checksum and
 source context; never select a blob by URL alone.
 
+For a confirmed acquisition-owner correction, rehearse replacement in a scoped
+copy using the normalizer and conserving provider writer. Compare the full native
+listing, current and retired metadata, every payload checksum, and affected
+publication consumers. Keep earlier active locators in the durable transition
+backup until the matching state is deployed. Remove redundant local locators only
+after proving their coverage by current references or verified revision blobs.
+Rollback must preserve the newer journal and recovery files: restore earlier
+locators from their exact blobs, then write the saved earlier source state through
+the same writer. A plain generated-state revert would lose newer retained
+evidence. Keep unresolved identity review and publication quarantine throughout.
+
 ## Durable provider mirror backup
 
 `.github/scripts/mirror_snapshots.py` stores provider payloads in public prereleases

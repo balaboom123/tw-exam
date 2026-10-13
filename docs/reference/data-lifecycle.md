@@ -88,6 +88,15 @@ Current publication continues to use the current catalog; retired roles,
 URLs and older bytes are not republished automatically. Strict history audits
 with mirror checking verify every journal blob as well as current references.
 
+A confirmed acquisition-owner error can be corrected before examination identity
+review is complete. Reconcile the replacement against the full official listing
+and checksum-verified payloads, rehearse the conserving write and rollback, and
+verify durable recovery before transferring current state. Preserve unresolved
+identity dimensions and review dispositions; source correction does not approve
+cross-year grouping or lift publication quarantine. A replay of retained originals
+does not create a successful-sync receipt. Retired source metadata stays immutable
+even when its earlier provider, event or role assignment was wrong.
+
 Provider-owned material-role corrections apply during ingestion and catalog
 migration through the same resolver. Migration preserves source URLs, checksums
 and historical storage locators while retaining the former role in the source

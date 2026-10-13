@@ -777,42 +777,43 @@
         "start_ad": 2002
       },
       "discovery_snapshot": {
-        "coverage": "partial",
+        "coverage": "complete",
         "manifest_path": "data/providers/moea_recruit/source-manifest.json",
         "status": "present"
       },
       "evidence": [
         "data/providers/moea_recruit/source-manifest.json",
-        "docs/providers/notes.md#moea_recruit"
+        "docs/providers/notes.md#moea_recruit",
+        "data/providers/moea_recruit/source-revisions.json"
       ],
       "exam_category": "Ministry of Economic Affairs state-owned-enterprise joint recruitment papers",
       "local_state": {
-        "normalized_paper_records": 370,
+        "normalized_paper_records": 1486,
         "raw_event_pages": 21,
         "sync_failures": 0
       },
       "local_years": [
-        2001,
-        2003,
-        2005,
+        2002,
+        2004,
         2006,
         2007,
         2008,
-        2010,
+        2009,
+        2011,
         2012,
         2013,
         2014,
         2015,
         2016,
         2017,
+        2018,
         2019,
         2020,
         2021,
         2022,
         2023,
         2024,
-        2025,
-        2026
+        2025
       ],
       "official_source_urls": [
         "https://service.taipower.com.tw/exam/info.aspx",
@@ -821,17 +822,16 @@
       ],
       "provider_id": "moea_recruit",
       "restrictions": [
-        "Direct 2026-10-09 listing capture covers 21 official annual archive partitions, 515 subject groups and 1,486 unique public PDF URLs. The initial isolated acquisition verified 1,364 PDFs; on 2026-10-10 all 122 previously WAF-blocked URLs from AD 2002, 2004 and 2006 were recovered using the normal runtime client. All 1,486 original references are checksum-verified in isolated evidence.",
-        "All 370 retained MOEA source URLs actually belong to the separate Taipower hiring archive. At the pre-correction baseline both provider URL/checksum sets were identical; the refreshed Taipower archive now shares 344 of those old checksums after correcting 26 mixed/stale common papers.",
-        "The incorrect MOEA identity remains withheld by publication quarantine. Complete binary acquisition is isolated and does not establish programme, occupation, stage or historical identity. By 2026-10-11 native headings of all 1,352 distinct PDFs were manually inspected: 311 rendered headings and 1,041 text-heading excerpts. ROC 91 names MOEA administering Taipower recruitment alone; ROC 93 and 95 name Taipower and CPC. Acquisition retains all 515 listing-group titles and these historical event names. By 2026-10-12 the main purpose, occupational/subject matrices and selection-stage sections of all 16 captured ROC 100–115 brochures were inspected; ROC 115 remains prospective. Detailed major appendices, older annual rules and complete visible file-role review plus a conservation-backed production migration remain required before replacement or publication.",
-        "A fresh 2026-10-11 ROC 102 listing confirms one repeated electrical B label for two different native documents. On 2026-10-12 all eight pages of its genuine A questions, genuine B questions and mislabeled A answer sheet were visually reviewed, and all three standard-client downloads reproduced the retained checksums. The versioned exact label-conflict fact verifies the complete URL set and three native payloads before mirror writes; normalization and migration correct only the checksum-matched A answer role while preserving source labels and locators. Unknown conflicts and changed bytes still fail. The correction does not promote or replace the contaminated retained archive.",
-        "On 2026-10-12 all 370 contaminated retained records were reclassified from the unsupported generic identity to review, with unknown level/stage and event-isolated candidates. Original categories, roles, URLs, checksums, source keys and payloads remain preserved. Native identity facts still require complete programme review before production source replacement or publication.",
-        "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. No access-control or WAF challenge bypass was attempted.",
-        "The additional native-file-role fact records 24 exact references from 19 fully visually reviewed PDFs (57 pages). It corrects 13 source-role errors: six ROC102 aviation B papers mislabeled as answers, visibly answered ROC103/109/110 papers, and the explicitly dated ROC101 aviation answer correction. Together with the separately guarded ROC102 electrical case, 14 native source-role corrections are checksum- and context-bound. Original source labels, locators, unknown identity dimensions and publication quarantine remain preserved; current contaminated source replacement is still pending."
+        "The fresh 2026-10-13 standard-client listing recheck covers all 21 official annual archive partitions, 515 listing groups and 1,486 unique PDF URLs without drift. Current provider state contains all 1,486 checksum-verified retained original references with stable source keys, raw labels and scoped mirror locators. The three exact ROC102 conflicting-label controls were freshly downloaded; other complete downloads remain the dated 2026-10-09/10 acquisitions, rechecked by SHA-256 during migration.",
+        "All 370 earlier misowned hiring-archive references were retired through the conserving provider writer. Their exact original metadata and independently verified recovery blobs remain in source-revisions.json. Of their original payloads, 344 match current Taipower hiring bytes and 26 have verified hiring-history recovery and exact native staff-byte counterparts. URL ownership and payload purpose are recorded separately; the old records are never rewritten to claim acquisition from the native staff source.",
+        "The native acquired source is corrected, but approved programme, occupation, stage and historical identity remain unresolved. All 515 listing groups retain complete raw categories, event-isolated candidates, review confidence and unknown level/stage. Native headings of all 1,352 distinct PDFs were inspected on 2026-10-10/11. ROC91 names MOEA administering Taipower recruitment alone; ROC93/95 name Taipower and CPC. All sixteen available ROC100–115 main annual matrices and selection sections were inspected by 2026-10-12; ROC115 is prospective with no acquired papers. Detailed major annexes, older annual rules and complete visible-body/role review remain required for identity approval and publication.",
+        "The two exact versioned MOEA evidence owners correct fourteen native role errors with complete visual and checksum-bound evidence. The ROC102 repeated electrical B label is accepted only for its exact complete URL set and three verified native controls; unknown conflicts and changed bytes still fail before mirror writes. Raw source labels and roles remain traceability evidence. Other native listing roles are not claimed fully reviewed.",
+        "A full isolated replacement, portable local and hosted transition-backup restores and conserving rollback were verified before cutover. The transition backup retains every earlier hosted payload and old locator until matching state is deployed. Retired recovery blobs remain independent of active deduplicated copies; a plain generated-state rollback must not discard the newer journal or bytes. No successful-sync receipt was fabricated from the retained-original replay.",
+        "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. Publication quarantine remains in force. No access-control or WAF challenge bypass was attempted."
       ],
       "source_name": "經濟部所屬事業機構新進職員甄試",
       "status": "partial",
-      "status_reason": "Partial / contaminated retained identity: all 370 retained URLs belong to the Taipower hiring archive and remain withheld. The correct staff capture has 1,486 checksum-verified original references and manually inspected native headings of all 1,352 distinct PDFs. Complete annual-rule and visible file-role review, the confirmed ROC 102 label conflict and conservation-backed production migration remain pending."
+      "status_reason": "Native source corrected and completely acquired for the observed listing: 21 events, 515 groups and 1,486 verified original references. All 370 misowned references have immutable metadata and verified recovery. Identity and complete native-role/historical-rule review remain unresolved, so site publication stays withheld."
     },
     {
       "available_years": {
