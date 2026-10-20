@@ -4,6 +4,17 @@ from app.publication_metadata import derive_public_metadata, publication_subject
 
 
 class PublicationMetadataTests(unittest.TestCase):
+    def test_teacher_route_exposes_individual_subjects_from_backend_records(self) -> None:
+        subjects = ["國語文能力測驗", "教育理念與實務", "學習者發展與適性輔導", "課程教學與評量"]
+        aliases, labels = derive_public_metadata(
+            [{"provider_id": "teacher_qual", "subject_name_raw": subject,
+              "category_raw": "幼兒園師資類科"} for subject in subjects],
+            bundle_id="teacher-qual-teacher-qualification-not-applicable-teacher-qualification-kindergarten",
+            canonical_name="教師資格考試｜幼兒園",
+        )
+        self.assertEqual(labels, subjects)
+        self.assertTrue(set(subjects).issubset(aliases))
+
     def test_taipower_file_prefix_does_not_claim_a_native_written_period(self) -> None:
         for raw in (
             "101年新進養成班試題科目A_基本電學",

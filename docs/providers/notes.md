@@ -393,6 +393,46 @@ Use the official TCTE technological and vocational examination archive, retainin
 
 Use official teacher-qualification assessment events and paper artifacts. Teacher recruitment exams are owned by separate providers and must not be folded into this qualification series.
 
+The category selector and each subject cell own the individual paper roles.
+Enumerate every selector value, retaining distinct values even when their labels
+match; an empty option is not evidence that another option duplicates it. The
+combined download is retained as a source archive, and does not establish
+complete individual question/answer coverage. The native kindergarten learner
+development answer is separately available although omitted from the ROC 115
+combined ZIP.
+
+School routes and the special-education candidate groups are structured tracks
+and variants. They are not numerical qualification grades, and the two ROC 108
+sittings remain distinct events within cross-year identities. The source's
+sample-only heading establishes sample material; its selector/storage year does
+not establish an administered examination or a publication date. Undated sample
+collections must remain separate from administered papers.
+
+The [exact native fallback](../../catalog/mappings/teacher_qual/archive-fallbacks-v1.json)
+records kindergarten links whose PDF headers name secondary school or another
+examination year. Preserve those conflicting source references with their actual
+native dates outside the kindergarten paper projection, and use the verified
+kindergarten members from the corresponding original archives. Their source
+context, original ZIP checksum and member checksum are required; changed
+conflicting bytes or originals require another review.
+
+The [native member evidence](../../catalog/mappings/teacher_qual/archive-papers-v1.json)
+binds each retained combined archive and nested member to exact checksums,
+categories and roles. Publish its Word alternatives without conversion and keep
+distinct PDF bytes even when their complete extracted text matches. Mark the
+source-container version explicitly; retain `更改前` as a filename fact without
+inventing a correction date. Verify the complete member set and CRC before
+projection, including excluded operating-system metadata. Reviewed originals
+that change must stop for another native review.
+
+Retire the former whole-programme download only after every original member is
+accounted for in the category/material projection or preserved source artifacts.
+The active primary-only site policy introduces no alias for that obsolete mixed
+identity. Keep its exact ZIP and original state in a restore-tested transition
+backup, and retain immutable earlier containers and conflicting references.
+Rollback restores the earlier source state through the conserving provider
+writer so the newer native records also remain recoverable.
+
 ## `teacher_recruit_central_alliance`
 
 Use the official Central Alliance paper surface for alliance-administered teacher recruitment. Municipal notices may prove provenance but do not become separate paper providers when they delegate papers to the alliance.

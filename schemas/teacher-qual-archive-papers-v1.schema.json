@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/teacher-qual-archive-papers-v1.schema.json",
+  "title": "Reviewed teacher qualification native archive member coverage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "evidence_url",
+    "reviewed_at",
+    "archives"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "provider_id": {
+      "const": "teacher_qual"
+    },
+    "evidence_url": {
+      "const": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "archives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_exam_id",
+          "checksum",
+          "members"
+        ],
+        "properties": {
+          "source_exam_id": {
+            "type": "string",
+            "pattern": "^teacher-qual-[0-9]{2,3}(?:-[12])?$"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "members": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path_chain",
+                "checksum",
+                "contexts",
+                "version_label",
+                "review_basis"
+              ],
+              "properties": {
+                "path_chain": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "checksum": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "contexts": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "selector_value",
+                      "category_label",
+                      "subject",
+                      "file_role"
+                    ],
+                    "properties": {
+                      "selector_value": {
+                        "enum": [
+                          "10",
+                          "21",
+                          "22",
+                          "30",
+                          "40"
+                        ]
+                      },
+                      "category_label": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "subject": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "file_role": {
+                        "enum": [
+                          "question",
+                          "answer",
+                          "question_answer"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "version_label": {
+                  "enum": [
+                    "",
+                    "來源整包版本",
+                    "來源整包，檔名：更改前"
+                  ]
+                },
+                "review_basis": {
+                  "enum": [
+                    "exact_current_SHA256",
+                    "excluded_operating_system_metadata",
+                    "paired_reviewed_native_PDF_and_Word_headers",
+                    "reviewed_native_header_missing_individual_subject",
+                    "reviewed_native_shared_special_education_answer_before_change",
+                    "same_complete_extracted_text_distinct_bytes"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

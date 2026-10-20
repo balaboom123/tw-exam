@@ -570,105 +570,56 @@ def test_save_uploads_and_discards_one_chunk_at_a_time(packed, tmp_path, monkeyp
     assert len(patches) == 1
 
 
-def test_prune_keeps_only_the_named_generations(monkeypatch):
-    listed = [
-        {"id": 1, "name": "snapshot-old-1.json"},
-        {"id": 2, "name": "snapshot-old-1.tar.gz.part0000"},
-        {"id": 3, "name": "snapshot-prev-1.json"},
-        {"id": 4, "name": "snapshot-prev-1.tar.gz.part0000"},
-        {"id": 5, "name": "snapshot-new-1.json"},
-        {"id": 6, "name": "snapshot-new-10.json"},
-        {"id": 7, "name": "README.txt"},
-    ]
-    calls = []
-    monkeypatch.setattr(mirror, "assets", lambda repository, release_id: listed)
-    monkeypatch.setattr(mirror, "gh", lambda *args: calls.append(args) or "")
-
-    removed = mirror.prune_generations("o/r", 9, {"new-1", "prev-1"})
-
-    assert removed == [
-        "snapshot-old-1.json", "snapshot-old-1.tar.gz.part0000", "snapshot-new-10.json",
-    ]
-    assert [call[-1] for call in calls] == [
-        "repos/o/r/releases/assets/1", "repos/o/r/releases/assets/2", "repos/o/r/releases/assets/6",
-    ]
-
-
-def test_prune_failure_does_not_fail_the_save(monkeypatch, capsys):
-    import subprocess
-
-    def refuse(*args):
-        raise subprocess.CalledProcessError(1, ["gh", *args])
-
-    monkeypatch.setattr(mirror, "assets", lambda repository, release_id: [
-        {"id": 1, "name": "snapshot-old-1.json"},
-    ])
-    monkeypatch.setattr(mirror, "gh", refuse)
-
-    assert mirror.prune_generations("o/r", 9, {"new-1"}) == []
-    assert "snapshot-old-1.json" in capsys.readouterr().err
-
-
-def test_save_prunes_only_after_the_pointer_is_committed():
-    import inspect
-
-    source = inspect.getsource(mirror.save)
-    assert source.index('"PATCH"') < source.index("prune_generations(")
-
-
-@pytest.mark.parametrize("failure", ["listing", "malformed", "delete"])
-def test_save_warns_and_returns_pointer_when_post_pointer_pruning_fails(
-    packed, tmp_path, monkeypatch, capsys, failure
+def test_saving_two_generations_preserves_and_restores_a_pinned_older_snapshot(
+    packed, tmp_path, monkeypatch
 ):
     root, source = packed
     pointer = {
-        "version": 1,
-        "provider_id": PROVIDER,
-        "generation": "pilot-1",
+        "version": 1, "provider_id": PROVIDER, "generation": "pilot-1",
         "manifest_sha256": mirror.digest(source),
     }
     remote = {"id": 123, "body": json.dumps(pointer)}
+    stored = {p.name: p.read_bytes() for p in source.parent.iterdir() if p.is_file()}
+    original = dict(stored)
     monkeypatch.setattr(mirror, "release", lambda *args, **kwargs: remote)
-    monkeypatch.setattr(mirror, "download", lambda *args: source)
-    calls = 0
-    uploaded = {}
 
-    def list_assets(*args):
-        nonlocal calls
-        calls += 1
-        if calls == 3:
-            if failure == "malformed":
-                raise json.JSONDecodeError("invalid assets response", "{", 0)
-            if failure == "listing":
-                raise subprocess.CalledProcessError(1, ["gh", "api", "assets"])
-            return [{"id": 77, "name": "snapshot-old.json"}]
-        return list(uploaded.values())
+    def download(repository, provider, name, directory):
+        path = directory / name
+        path.write_bytes(stored[name])
+        return path
 
-    monkeypatch.setattr(mirror, "assets", list_assets)
-    patches = []
+    monkeypatch.setattr(mirror, "download", download)
+    monkeypatch.setattr(mirror, "assets", lambda *args: [
+        {"name": name, "digest": "sha256:" + hashlib.sha256(body).hexdigest()}
+        for name, body in stored.items()
+    ])
 
     def gh(*args):
         if args[:2] == ("release", "upload"):
             path = Path(args[3])
-            uploaded[path.name] = {"name": path.name, "digest": "sha256:" + mirror.digest(path)}
-            return ""
-        if args[:3] == ("api", "--method", "PATCH"):
-            patches.append(json.loads(Path(args[-1]).read_text()))
-            return ""
-        if args[:3] == ("api", "--method", "DELETE"):
-            raise subprocess.CalledProcessError(1, ["gh", *args])
-        pytest.fail(f"Unexpected operation: {args}")
+            assert path.name not in stored
+            stored[path.name] = path.read_bytes()
+        elif args[:3] == ("api", "--method", "PATCH"):
+            remote.update(json.loads(Path(args[-1]).read_text()))
+        else:
+            pytest.fail(f"Saving a generation must not delete recovery inputs: {args}")
+        return ""
 
     monkeypatch.setattr(mirror, "gh", gh)
-    result = mirror.save(root, "owner/repo", PROVIDER, "new")
-
-    assert result["generation"] == "new"
-    assert patches and json.loads(remote["body"])["generation"] == "pilot-1"
-    warning = capsys.readouterr().err
-    if failure == "delete":
-        assert "Could not prune snapshot-old.json" in warning
-    else:
-        assert "Could not list snapshot assets for pruning" in warning
+    paper = root / "mirror/providers" / PROVIDER / "111/數學.pdf"
+    for generation in ("second", "third"):
+        paper.write_bytes(os.urandom(4096))
+        result = mirror.save(root, "owner/repo", PROVIDER, generation)
+        assert result["generation"] == generation
+    assert json.loads(remote["body"])["generation"] == "third"
+    assert all(stored[name] == body for name, body in original.items())
+    destination = tmp_path / "pinned-restore"
+    mirror.restore(destination, "owner/repo", PROVIDER, generation="pilot-1",
+                   manifest_sha256=pointer["manifest_sha256"])
+    assert (destination / "mirror/providers" / PROVIDER / "111/數學.pdf").read_bytes() != paper.read_bytes()
+    assert (destination / "mirror/providers" / PROVIDER / "hardlink.pdf").samefile(
+        destination / "mirror/providers" / PROVIDER / "111/數學.pdf"
+    )
 
 
 def test_changed_mirror_between_probe_and_upload_preserves_pointer(packed, tmp_path, monkeypatch):

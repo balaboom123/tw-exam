@@ -51,6 +51,41 @@ def make_paper(
 
 
 class BundlerTests(unittest.TestCase):
+    def test_identical_payloads_do_not_remove_distinct_sitting_folders(self) -> None:
+        for provider, events, folders in (
+            ("teacher_qual", ("teacher-qual-108-1", "teacher-qual-108-2"),
+             ("108/第一次考試/", "108/第二次考試/")),
+            ("taipower_recruit", ("taipower-recruit-107-5", "taipower-recruit-107-12"),
+             ("107/05月/", "107/12月/")),
+        ):
+            with self.subTest(provider=provider), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                mirror = root / "mirror"
+                mirror.mkdir()
+                payload = b"%PDF-1.7 same bytes in independently listed sittings"
+                papers = []
+                for index, event in enumerate(events):
+                    key = f"paper-{index}.pdf"
+                    (mirror / key).write_bytes(payload)
+                    paper = make_paper(
+                        canonical_id="test-programme", canonical_name="Test programme",
+                        year_roc=108 if provider == "teacher_qual" else 107,
+                        source_exam_id=event, subject_code="same-subject",
+                        storage_key=key,
+                    )
+                    paper.provider_id = provider
+                    paper.checksum = hashlib.sha256(payload).hexdigest()
+                    papers.append(paper)
+                result = build_bundles(root / "bundles", mirror, NormalizedCatalog(papers, []), "")
+                self.assertEqual(result.failures, [])
+                with zipfile.ZipFile(root / "bundles" / result.bundles[0].asset_name) as archive:
+                    records = json.loads(archive.read("bundle.json"))["papers"]
+                    self.assertEqual(len({r["bundle_entry"] for r in records}), 2)
+                    self.assertTrue(all(any(r["bundle_entry"].startswith(folder) for r in records)
+                                        for folder in folders))
+                    for record in records:
+                        self.assertEqual(archive.read(record["bundle_entry"]), payload)
+
     def test_taipower_subject_filenames_and_session_folders_preserve_originals(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

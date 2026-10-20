@@ -8,6 +8,7 @@ from app.providers.teacher_qual.client import TeacherQualClient
 class TeacherQualProvider(SourceProvider):
     provider_id = "teacher_qual"
     max_concurrency = 1
+    download_attachments_on_sync = True
 
     def __init__(self, client: TeacherQualClient | None = None) -> None:
         self.client = client or TeacherQualClient()

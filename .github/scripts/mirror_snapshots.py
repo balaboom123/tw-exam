@@ -479,30 +479,6 @@ def download(repository: str, provider: str, name: str, directory: Path) -> Path
     return directory / name
 
 
-def prune_generations(repository: str, release_id: int, keep: set[str]) -> list[str]:
-    """Delete snapshot assets from generations older than the retained set."""
-    keep = {checked_generation(generation) for generation in keep}
-    try:
-        inventory = assets(repository, release_id)
-    except (subprocess.CalledProcessError, json.JSONDecodeError) as exc:
-        print(f"Could not list snapshot assets for pruning: {exc}", file=sys.stderr)
-        return []
-
-    removed = []
-    for asset in inventory:
-        name = asset["name"]
-        match = re.fullmatch(r"snapshot-([^.]+)\.(?:json|tar\.gz\.part[0-9]{4})", name)
-        if not match or match[1] in keep:
-            continue
-        try:
-            gh("api", "--method", "DELETE", f"repos/{repository}/releases/assets/{asset['id']}")
-        except subprocess.CalledProcessError as exc:
-            print(f"Could not prune {name}: {exc}", file=sys.stderr)
-            continue
-        removed.append(name)
-    return removed
-
-
 def restore(
     root: Path,
     repository: str,
@@ -707,10 +683,8 @@ def save(root: Path, repository: str, provider: str, generation: str) -> dict:
             str(request),
         )
         write_origin(root, provider, pointer, manifest)
-        keep = {generation} | ({previous["generation"]} if previous else set())
-        removed = prune_generations(repository, remote["id"], keep)
-        if removed:
-            print(f"Pruned {len(removed)} assets of superseded {provider} generations")
+        # Publication retries pin earlier generations. Advancing this pointer
+        # does not prove that any older generation has no remaining consumer.
     print(
         f"Saved {provider} snapshot {generation}: {manifest['file_count']} files, "
         f"{manifest['unpacked_bytes']} bytes"

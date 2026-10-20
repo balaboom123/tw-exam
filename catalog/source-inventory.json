@@ -1269,11 +1269,13 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#teacher_qual"
+        "docs/providers/notes.md#teacher_qual",
+        "catalog/mappings/teacher_qual/archive-fallbacks-v1.json",
+        "catalog/mappings/teacher_qual/archive-papers-v1.json"
       ],
       "exam_category": "National teacher qualification exam",
       "local_state": {
-        "normalized_paper_records": 23,
+        "normalized_paper_records": 1234,
         "raw_event_pages": 23,
         "sync_failures": 0
       },
@@ -1306,11 +1308,12 @@
       ],
       "provider_id": "teacher_qual",
       "restrictions": [
-        "The 2026-07-29 official selector snapshot has 22 years and all 23 retained events. ASP.NET WebForms postbacks are required; AD 2018 is sample-only and AD 2019 is the two-order format transition. Those semantics remain visible in the manifest and completeness metric."
+        "The 2026-07-29 official selector snapshot has 22 years and all 23 retained events. ASP.NET WebForms postbacks are required; AD 2018 is sample-only and AD 2019 is the two-order format transition. Those semantics remain visible in the manifest and completeness metric.",
+        "The 2026-10-20 primary review traversed every category surface, including the empty same-label ROC 115 selector, and retained the separately listed kindergarten learner-development answer absent from the combined ZIP. Exact reviewed fallbacks correct ROC 100 kindergarten links serving ROC 98 PDFs and a ROC 102 kindergarten question link serving a secondary-school PDF. Original Word formats and distinct PDF versions remain separate; source-only operating-system metadata stays in the original container. ROC 107 samples have no asserted examination/publication year. A retired ROC 114 original generation retains its distinct earlier PDFs in immutable recovery, outside the current paper projection."
       ],
       "source_name": "教育部教師資格考試",
       "status": "covered",
-      "status_reason": "Covered in declared scope; source availability: Source selector ROC 094–115 / AD 2005–2026; local coverage: 2005–2026, 22 buckets; 23 → 23"
+      "status_reason": "All retained official category surfaces and combined-archive native members have been reconciled by event, category, role, material kind and exact bytes. Original formats, distinct versions, conflicting source references and earlier original containers remain recoverable."
     },
     {
       "available_years": {

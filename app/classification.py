@@ -279,8 +279,18 @@ STAGE_IDS = frozenset(_STAGE_LABELS)
 # Providers whose public title appends the track label; validate_publication
 # derives its bundle-id prefixes from this set.
 TRACK_TITLED_PROVIDERS = frozenset(
-    {"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill", "tqc_cert"}
+    {"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill", "tqc_cert", "teacher_qual"}
 )
+
+# Official qualification selector values. School/candidate populations are
+# tracks and variants, never numerical certification grades or exam sittings.
+_TEACHER_QUALIFICATION_CATEGORIES = {
+    "10": ("kindergarten", "幼兒園", ()),
+    "21": ("special-education", "特殊教育學校（班）", (("disability", "身心障礙組"),)),
+    "22": ("special-education", "特殊教育學校（班）", (("gifted", "資賦優異組"),)),
+    "30": ("elementary", "國民小學", ()),
+    "40": ("secondary", "中等學校", ()),
+}
 
 
 def _variants(category: str, exam_name: str) -> tuple[tuple[str, str], ...]:
@@ -1739,6 +1749,23 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "teacher_qual" and category_code != str(year_ad - 1911):
+        selection = re.fullmatch(rf"{year_ad - 1911}-(\d+)", category_code)
+        context_matches = re.fullmatch(rf"teacher-qual-{year_ad - 1911}(?:-[12])?", source_exam_id)
+        selected = (
+            _TEACHER_QUALIFICATION_CATEGORIES.get(selection.group(1))
+            if selection is not None and context_matches is not None
+            else None
+        )
+        if selected is None:
+            track_id, track_label = "teacher-qualification-unknown", category
+            confidence = "review"
+            reason = "Teacher qualification category lacks reviewed selector evidence"
+        else:
+            track, track_label, variant_pairs = selected
+            track_id = f"teacher-qualification-{track}"
+            confidence = "high"
+            reason = f"official teacher qualification category selector: {category_code}"
     if provider_id == "hakka_cert":
         level_id, level_label, reason = hakka_level(
             subject_name_raw, source_material, source_checksum, subject_code
@@ -1961,7 +1988,7 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
-        if provider_id in {"tqc_cert", "hakka_cert"}:
+        if provider_id in {"tqc_cert", "hakka_cert", "teacher_qual"}:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:
                     bundle_name += f"｜{label}"

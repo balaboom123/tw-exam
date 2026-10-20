@@ -177,6 +177,10 @@ def _bundle_arcname(paper: NormalizedPaper) -> str:
         )
         if session:
             folder = f"{folder}/{int(session.group(1)):02d}月"
+    if paper.provider_id == "teacher_qual":
+        sitting = re.fullmatch(rf"teacher-qual-{paper.year_roc}-([12])", paper.source_exam_id)
+        if sitting:
+            folder = f"{folder}/第{'一' if sitting.group(1) == '1' else '二'}次考試"
     return f"{folder}/{file_name}{suffix}"
 
 
@@ -220,9 +224,7 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
         if not re.fullmatch(r"[0-9a-f]{64}", paper.checksum):
             continue
         key = (
-            source_date_folder(paper.source_material)
-            if paper.source_material is not None
-            else str(paper.year_roc),
+            base[index].rsplit("/", 1)[0],
             paper.file_type,
             publication_paper_subject(paper)
             if paper.provider_id == "moea_recruit"

@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "site_id": "default",
   "bundles": [
     {
@@ -162278,8 +162278,8 @@
       "updated": "2026-10-17T07:56:02Z"
     },
     {
-      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification",
-      "name": "教師資格考試",
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-elementary",
+      "name": "教師資格考試｜國民小學",
       "years": [
         115,
         114,
@@ -162289,7 +162289,6 @@
         110,
         109,
         108,
-        107,
         106,
         105,
         104,
@@ -162304,42 +162303,1116 @@
         95,
         94
       ],
-      "fileCount": 23,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/teacher-qual-teacher-qualification-not-applicable-teacher-qualification--db44a76ce536.zip",
+      "fileCount": 268,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-elementary--c4d56b5b6257.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2009
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2008
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2007
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2006
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2005
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "teacher",
       "examFamilyId": "teacher-exam",
       "seriesId": "teacher-qualification",
       "levelId": "not-applicable",
-      "trackId": "teacher-qualification",
+      "trackId": "teacher-qualification-elementary",
       "variantIds": [],
       "stageId": "not-applicable",
       "examClass": "教師考試",
       "examSubclass": "教師資格考試",
       "searchAliases": [
-        "115年試題及參考答案 1 考題及參考答案 全部下載",
-        "114年試題及參考答案 1 考題及參考答案 全部下載",
-        "113年試題及參考答案 1 考題及參考答案 全部下載",
-        "112年試題及參考答案 1 考題及參考答案 全部下載",
-        "111年試題及參考答案 1 考題及參考答案 全部下載",
-        "110年試題及參考答案 1 考題及參考答案 全部下載",
-        "109年試題及參考答案 1 考題及參考答案 全部下載",
-        "108年試題及參考答案 1 考題及參考答案 全部下載",
-        "107年僅有範例題 1 範例題 全部下載",
-        "106年試題及參考答案 1 考題及參考答案 全部下載",
-        "105年試題及參考答案 1 考題及參考答案 全部下載",
-        "104年試題及參考答案 1 考題及參考答案 全部下載",
-        "103年試題及參考答案 1 考題及參考答案 全部下載",
-        "102年試題及參考答案 1 考題及參考答案 全部下載",
-        "101年試題及參考答案 1 考題及參考答案 全部下載",
-        "100年試題及參考答案 1 考題及參考答案 全部下載",
-        "099年試題及參考答案 1 考題及參考答案 全部下載",
-        "098年試題及參考答案 1 考題及參考答案 全部下載",
-        "097年試題及參考答案 1 考題及參考答案 全部下載",
-        "096年試題及參考答案 1 考題及參考答案 全部下載",
-        "095年試題及參考答案 1 考題及參考答案 全部下載",
-        "094年試題及參考答案 1 考題及參考答案 全部下載",
+        "國語文能力測驗",
+        "課程教學與評量",
+        "數學能力測驗",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "兒童發展與輔導",
+        "教育原理與制度",
+        "國民小學課程與教學",
+        "國民小學數學能力測驗",
+        "國民小學師資類科",
         "115年教師資格考試歷屆試題及參考答案",
-        "115"
+        "115-30",
+        "subject-44ff05eab9e2bc4f",
+        "subject-4559ba6e0c5cc577",
+        "subject-7656e344849a0aa2",
+        "subject-c293cb2c6cf4a334",
+        "subject-d72da82a35641b2a",
+        "114年教師資格考試歷屆試題及參考答案",
+        "114-30",
+        "archive-0c8c56b2113a1f7b",
+        "archive-1083178ac7ec9dbc",
+        "archive-111ade99cdb31fa7",
+        "archive-1ef19cef060a2a30",
+        "archive-55cafe442edba94f"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "數學能力測驗",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "兒童發展與輔導"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-elementary-material-sample",
+      "name": "教師資格考試｜國民小學｜範例試題",
+      "years": [],
+      "fileCount": 10,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-elementary-material-sample--ecaa0b3efdd3.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-elementary",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國民小學數學能力測驗",
+        "國民小學課程與教學",
+        "兒童發展與輔導",
+        "國語文能力測驗",
+        "教育原理與制度",
+        "國民小學類科",
+        "107年教師資格考試歷屆試題及參考答案",
+        "107-30",
+        "archive-050ee225df07915d",
+        "archive-22edf44f51e0eb17",
+        "archive-36f84af415b7ca03",
+        "archive-4ba35818c792027c",
+        "archive-b2e6b05feef122d9",
+        "subject-0ebe9d1009f66eec",
+        "subject-44ff05eab9e2bc4f",
+        "subject-9b74467e70075fc2",
+        "subject-a277d50ad8acc005",
+        "subject-b0b062b475fa49ae"
+      ],
+      "subjectLabels": [
+        "國民小學數學能力測驗",
+        "國民小學課程與教學",
+        "兒童發展與輔導",
+        "國語文能力測驗",
+        "教育原理與制度"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-kindergarten",
+      "name": "教師資格考試｜幼兒園",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101,
+        100,
+        99,
+        98,
+        97,
+        96,
+        95,
+        94
+      ],
+      "fileCount": 232,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-kindergarten--69f4860fe9a4.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2009
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2008
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2007
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2006
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2005
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-kindergarten",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "幼兒園課程與教學",
+        "教育原理與制度",
+        "幼兒發展與輔導",
+        "幼稚園課程與教學",
+        "幼兒園師資類科",
+        "115年教師資格考試歷屆試題及參考答案",
+        "115-10",
+        "subject-44ff05eab9e2bc4f",
+        "subject-4559ba6e0c5cc577",
+        "subject-c293cb2c6cf4a334",
+        "subject-d72da82a35641b2a",
+        "114年教師資格考試歷屆試題及參考答案",
+        "114-10",
+        "archive-0c8c56b2113a1f7b",
+        "archive-5dd9cca44ab40111",
+        "archive-91529ed0c7f770dc",
+        "archive-b83328c80d68ba2c",
+        "archive-cdf13b74eb2e4625",
+        "archive-d9271abe38d6dc84",
+        "archive-fc796068e676e17d"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "幼兒園課程與教學",
+        "教育原理與制度"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-kindergarten-material-sample",
+      "name": "教師資格考試｜幼兒園｜範例試題",
+      "years": [],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-kindergarten-material-sample--6eb0d7b2b654.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-kindergarten",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "幼兒園課程與教學",
+        "國語文能力測驗",
+        "教育原理與制度",
+        "幼兒發展與輔導",
+        "幼兒園類科",
+        "107年教師資格考試歷屆試題及參考答案",
+        "107-10",
+        "archive-1d61c4351330ae33",
+        "archive-4ba35818c792027c",
+        "archive-b2e6b05feef122d9",
+        "archive-c06e9c76f5116729",
+        "subject-44ff05eab9e2bc4f",
+        "subject-9a0e368352895b07",
+        "subject-a277d50ad8acc005",
+        "subject-bcac165724664586"
+      ],
+      "subjectLabels": [
+        "幼兒園課程與教學",
+        "國語文能力測驗",
+        "教育原理與制度",
+        "幼兒發展與輔導"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-secondary",
+      "name": "教師資格考試｜中等學校",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101,
+        100,
+        99,
+        98,
+        97,
+        96,
+        95,
+        94
+      ],
+      "fileCount": 233,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-secondary--b06e5b33aa78.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2009
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2008
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2007
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2006
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2005
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-secondary",
+      "variantIds": [],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "青少年發展與輔導",
+        "中等學校課程與教學",
+        "教育原理與制度",
+        "中等學校師資類科",
+        "115年教師資格考試歷屆試題及參考答案",
+        "115-40",
+        "subject-44ff05eab9e2bc4f",
+        "subject-4559ba6e0c5cc577",
+        "subject-c293cb2c6cf4a334",
+        "subject-d72da82a35641b2a",
+        "114年教師資格考試歷屆試題及參考答案",
+        "114-40",
+        "archive-0c8c56b2113a1f7b",
+        "archive-12ecf00475380960",
+        "archive-35f5983188d08364",
+        "archive-5dd9cca44ab40111",
+        "archive-d9fed97bb36f05e8",
+        "archive-e5c50959ec128fb4",
+        "archive-ec292f84f70493c8",
+        "archive-fec1b783ee071975"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "青少年發展與輔導",
+        "中等學校課程與教學"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-secondary-material-sample",
+      "name": "教師資格考試｜中等學校｜範例試題",
+      "years": [],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-secondary-material-sample--10d1aa329cb0.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-secondary",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "青少年發展與輔導",
+        "國語文能力測驗",
+        "中等學校課程與教學",
+        "教育原理與制度",
+        "中等學校類科",
+        "107年教師資格考試歷屆試題及參考答案",
+        "107-40",
+        "archive-226cfa26d99540e3",
+        "archive-4ba35818c792027c",
+        "archive-71f4a0d387056069",
+        "archive-b2e6b05feef122d9",
+        "subject-44ff05eab9e2bc4f",
+        "subject-80b8db36e87a6702",
+        "subject-8e137cbd4c9ca8ae",
+        "subject-a277d50ad8acc005"
+      ],
+      "subjectLabels": [
+        "青少年發展與輔導",
+        "國語文能力測驗",
+        "中等學校課程與教學",
+        "教育原理與制度"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-disability",
+      "name": "教師資格考試｜特殊教育學校（班）｜身心障礙組",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101,
+        100,
+        99,
+        98,
+        97,
+        96,
+        95,
+        94
+      ],
+      "fileCount": 231,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-disability--8e34a8f6f15d.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2009
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2008
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2007
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2006
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2005
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-special-education",
+      "variantIds": [
+        "disability"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "教育原理與制度",
+        "特殊教育課程與教學",
+        "特殊教評量與輔導",
+        "特殊教育學生評量與輔導",
+        "身心障礙組",
+        "115年教師資格考試歷屆試題及參考答案",
+        "115-21",
+        "subject-44ff05eab9e2bc4f",
+        "subject-4559ba6e0c5cc577",
+        "subject-c293cb2c6cf4a334",
+        "subject-d72da82a35641b2a",
+        "114年教師資格考試歷屆試題及參考答案",
+        "114-21",
+        "archive-0c8c56b2113a1f7b",
+        "archive-5dd9cca44ab40111",
+        "archive-68aa2f7f0c5c4bef",
+        "archive-88ee31e313a216c4",
+        "113年教師資格考試歷屆試題及參考答案",
+        "113-21",
+        "112年教師資格考試歷屆試題及參考答案"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "教育原理與制度",
+        "特殊教育課程與教學"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-disability-material-sample",
+      "name": "教師資格考試｜特殊教育學校（班）｜身心障礙組｜範例試題",
+      "years": [],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-disability-material-sample--e42f2e24ad9a.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-special-education",
+      "variantIds": [
+        "disability",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國語文能力測驗",
+        "特殊教評量與輔導",
+        "教育原理與制度",
+        "特殊教育課程與教學",
+        "身心障礙組",
+        "107年教師資格考試歷屆試題及參考答案",
+        "107-21",
+        "archive-4ba35818c792027c",
+        "archive-7a8557286df391db",
+        "archive-b2e6b05feef122d9",
+        "archive-d5a5ef1513d8bb35",
+        "subject-44ff05eab9e2bc4f",
+        "subject-a277d50ad8acc005",
+        "subject-dc109d3c74de2415",
+        "subject-dc301fd4c46a3ab5"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "特殊教評量與輔導",
+        "教育原理與制度",
+        "特殊教育課程與教學"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-gifted",
+      "name": "教師資格考試｜特殊教育學校（班）｜資賦優異組",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101,
+        100,
+        99,
+        98,
+        97,
+        96,
+        95,
+        94
+      ],
+      "fileCount": 228,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-gifted--3df93672352c.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2009
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2008
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2007
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2006
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2005
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-special-education",
+      "variantIds": [
+        "gifted"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "教育原理與制度",
+        "特殊教育課程與教學",
+        "特殊教評量與輔導",
+        "特殊教育學生評量與輔導",
+        "資賦優異組",
+        "115年教師資格考試歷屆試題及參考答案",
+        "115-22",
+        "subject-44ff05eab9e2bc4f",
+        "subject-4559ba6e0c5cc577",
+        "subject-c293cb2c6cf4a334",
+        "subject-d72da82a35641b2a",
+        "114年教師資格考試歷屆試題及參考答案",
+        "114-22",
+        "archive-0c8c56b2113a1f7b",
+        "archive-1331f9945be1586c",
+        "archive-5dd9cca44ab40111",
+        "archive-68aa2f7f0c5c4bef",
+        "archive-ed933bb57be30fda",
+        "113年教師資格考試歷屆試題及參考答案",
+        "113-22"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "課程教學與評量",
+        "學習者發展與適性輔導",
+        "教育理念與實務",
+        "教育原理與制度",
+        "特殊教育課程與教學"
+      ],
+      "sources": [
+        {
+          "name": "教育部教師資格考試",
+          "url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+        }
+      ],
+      "updated": "2026-10-20T10:15:57Z"
+    },
+    {
+      "id": "teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-gifted-material-sample",
+      "name": "教師資格考試｜特殊教育學校（班）｜資賦優異組｜範例試題",
+      "years": [],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-qual-teacher-qualification-not-applicable-teacher-qualification-special-education-gifted-material-sample--059e1391a771.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "teacher-qualification",
+      "levelId": "not-applicable",
+      "trackId": "teacher-qualification-special-education",
+      "variantIds": [
+        "gifted",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "教師考試",
+      "examSubclass": "教師資格考試",
+      "searchAliases": [
+        "國語文能力測驗",
+        "特殊教評量與輔導",
+        "教育原理與制度",
+        "特殊教育課程與教學",
+        "資賦優異組",
+        "107年教師資格考試歷屆試題及參考答案",
+        "107-22",
+        "archive-4ba35818c792027c",
+        "archive-7a8557286df391db",
+        "archive-b2e6b05feef122d9",
+        "archive-b2fb60b34de2f58a",
+        "subject-44ff05eab9e2bc4f",
+        "subject-a277d50ad8acc005",
+        "subject-dc109d3c74de2415",
+        "subject-dc301fd4c46a3ab5"
+      ],
+      "subjectLabels": [
+        "國語文能力測驗",
+        "特殊教評量與輔導",
+        "教育原理與制度",
+        "特殊教育課程與教學"
       ],
       "sources": [
         {

@@ -7,6 +7,7 @@ from collections.abc import Iterable, Mapping
 from typing import Any
 
 from app.providers.moea_recruit.evidence import native_file_subject
+from app.providers.teacher_qual.archive import native_member_subject
 
 MAX_SEARCH_ALIASES = 24
 MAX_TAIPOWER_SEARCH_ALIASES = 64
@@ -18,6 +19,7 @@ _GENERIC_SUBJECT_BUNDLE_PREFIXES = (
     "ceec-gsat-",
     "ceec-ast-",
     "tcte-tve-",
+    "teacher-qual-",
 )
 
 _TAIPOWER_SUBJECT_PREFIX = re.compile(
@@ -69,6 +71,18 @@ def publication_paper_subject(paper: Any) -> str:
     """Use exact native evidence without changing retained source wording."""
     provider_id = _field(paper, "provider_id")
     title = _field(paper, "subject_name_raw")
+    if provider_id == "teacher_qual":
+        subject = native_member_subject(
+            source_exam_id=_field(paper, "source_exam_id"),
+            category_code=_field(paper, "category_code"),
+            subject_code=_field(paper, "subject_code"),
+            source_url=_field(paper, "download_url_source"),
+            checksum=_field(paper, "checksum"),
+            file_role=_field(paper, "file_type"),
+            title=title,
+        )
+        if subject is not None:
+            return subject
     if provider_id == "moea_recruit":
         year = (
             paper.get("year_roc")

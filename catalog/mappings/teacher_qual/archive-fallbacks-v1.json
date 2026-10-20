@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "provider_id": "teacher_qual",
+  "fallbacks": [
+    {
+      "year_roc": 102,
+      "selector_value": "10",
+      "subject": "教育原理與制度",
+      "file_role": "question",
+      "conflicting_checksum": "ed84b5f41d6105accad25c6459d85c6a5f71094267cca0cc08e6aa27fc74404f",
+      "archive_checksum": "f71159bfe5320c927efaa7891f2e8ecc007a45573d7854ca8d15bc3a5babb073",
+      "member_path": "102公布用/102幼稚園-教育原理與制度.pdf",
+      "member_checksum": "8ac782a6523fab5c6ccbe00d5fe112889646d709581ad430789f7a53b1f15b1f",
+      "evidence_url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx",
+      "evidence_label": "102年幼兒園類科教育原理與制度：個別考題連結的 PDF 原生頁首為中等學校，原始全部類科 ZIP 的對應 PDF 頁首為幼稚園",
+      "reviewed_at": "2026-10-20",
+      "inspected_pages": [
+        1
+      ],
+      "reason": "Keep the conflicting source reference for provenance. Use the exact kindergarten-labelled native question paper from the checksum-verified combined source archive; do not transfer the secondary-school header into the kindergarten projection.",
+      "conflicting_year_roc": 102
+    },
+    {
+      "year_roc": 100,
+      "selector_value": "10",
+      "subject": "教育原理與制度",
+      "file_role": "question",
+      "conflicting_checksum": "c635fb09910f8a9da8f994d1b5ab22b9753002518b0fedc923aeeaf049112e17",
+      "conflicting_year_roc": 98,
+      "archive_checksum": "8f5f7546e83dd38a56cc18c80b065d0706d8eaabc1eb4523030a83d8b0428f1d",
+      "member_path": "100教檢_試題及選擇題參考答案/100幼稚園-教育原理與制度.pdf",
+      "member_checksum": "4ff9b442a255df9dc7cbec62345c0b816f58a3618b064cb4cdb241584db90a84",
+      "evidence_url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx",
+      "evidence_label": "100年幼兒園教育原理與制度個別連結返回98年題本／答案；100年原始彙整包保留正確100年原生檔案",
+      "reviewed_at": "2026-10-20",
+      "inspected_pages": [
+        1
+      ],
+      "reason": "The individual ROC 100 kindergarten source returns a PDF headed ROC 98. Preserve that conflicting source with its actual native year and use the checksum-verified ROC 100 member from the original combined archive. Do not turn the discovery partition into the PDF examination year."
+    },
+    {
+      "year_roc": 100,
+      "selector_value": "10",
+      "subject": "教育原理與制度",
+      "file_role": "answer",
+      "conflicting_checksum": "a60e86f00cf4847beaa2a2eb685d199e8603ebd18410be213faac3246faf0b31",
+      "conflicting_year_roc": 98,
+      "archive_checksum": "8f5f7546e83dd38a56cc18c80b065d0706d8eaabc1eb4523030a83d8b0428f1d",
+      "member_path": "100教檢_試題及選擇題參考答案/100幼稚園-教育原理與制度選擇題參考答案.pdf",
+      "member_checksum": "82e0a392a239d08b4973d65feb778a04b85968320c6861ac04139ec67de0f5d1",
+      "evidence_url": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx",
+      "evidence_label": "100年幼兒園教育原理與制度個別連結返回98年題本／答案；100年原始彙整包保留正確100年原生檔案",
+      "reviewed_at": "2026-10-20",
+      "inspected_pages": [
+        1
+      ],
+      "reason": "The individual ROC 100 kindergarten source returns a PDF headed ROC 98. Preserve that conflicting source with its actual native year and use the checksum-verified ROC 100 member from the original combined archive. Do not turn the discovery partition into the PDF examination year."
+    }
+  ]
+}

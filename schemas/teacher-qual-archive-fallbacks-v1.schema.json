@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/teacher-qual-archive-fallbacks-v1.schema.json",
+  "title": "Exact teacher qualification source-label fallback evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "fallbacks"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "provider_id": {
+      "const": "teacher_qual"
+    },
+    "fallbacks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "year_roc",
+          "selector_value",
+          "subject",
+          "file_role",
+          "conflicting_checksum",
+          "archive_checksum",
+          "member_checksum",
+          "member_path",
+          "evidence_label",
+          "reason",
+          "evidence_url",
+          "reviewed_at",
+          "inspected_pages",
+          "conflicting_year_roc"
+        ],
+        "properties": {
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "selector_value": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+          },
+          "subject": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file_role": {
+            "enum": [
+              "question",
+              "answer",
+              "question_answer"
+            ]
+          },
+          "conflicting_checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "archive_checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "member_checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "member_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_url": {
+            "const": "https://tqa.rcpet.edu.tw/TEA_Exam/TEA03.aspx"
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "inspected_pages": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "conflicting_year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          }
+        }
+      }
+    }
+  }
+}
