@@ -11,6 +11,7 @@ from app.models import (
     NormalizedCatalog,
     NormalizedPaper,
     ParsedPaper,
+    ReviewItem,
     SourceExamPage,
     SyncFailure,
 )
@@ -141,6 +142,16 @@ def _retain_delisted_papers(
     return merged
 
 
+def _review_key(item: ReviewItem) -> tuple[str, str, int, str, str]:
+    return (
+        item.provider_id,
+        item.source_exam_id,
+        item.year_roc,
+        item.raw_category,
+        item.bundle_id,
+    )
+
+
 def _merge_state(
     existing_raw_pages: list[SourceExamPage],
     existing_catalog: NormalizedCatalog,
@@ -176,10 +187,27 @@ def _merge_state(
         + refreshed_catalog.papers
         + delisted_papers
     )
+    # A missing/failed paper retains its classification obligation along with
+    # its bytes and source record. Refreshing another paper in that event does
+    # not resolve it. Prefer a fresh review for the same identity when present.
+    retained_review_keys = {
+        (
+            paper.provider_id,
+            paper.source_exam_id,
+            paper.year_roc,
+            paper.category_raw,
+            paper.bundle_id,
+        )
+        for paper in delisted_papers
+        if paper.classification_confidence == "review"
+    }
+    retained_review_keys.difference_update(
+        _review_key(item) for item in refreshed_catalog.review_queue
+    )
     merged_review_queue = [
         item
         for item in existing_catalog.review_queue
-        if item.source_exam_id not in replaced_exam_ids
+        if item.source_exam_id not in replaced_exam_ids or _review_key(item) in retained_review_keys
     ] + refreshed_catalog.review_queue
     migrations = _derive_canonical_migrations(
         existing_catalog, refreshed_catalog, replaced_exam_ids

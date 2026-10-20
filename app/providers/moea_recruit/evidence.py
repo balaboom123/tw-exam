@@ -276,8 +276,7 @@ def reviewed_conflict(
     )
 
 
-def native_file_role(
-    file_type: str,
+def _native_file_review(
     *,
     source_exam_id: str,
     year_roc: int,
@@ -287,7 +286,7 @@ def native_file_role(
     title: str,
     source_url: str,
     checksum: str,
-) -> str:
+) -> NativeRoleReview | NativeFile | None:
     review = reviewed_native_role(
         source_exam_id=source_exam_id,
         year_roc=year_roc,
@@ -300,9 +299,7 @@ def native_file_role(
     if review is not None:
         if checksum != review.checksum:
             raise ValueError("MOEA native role has changed or unreviewed bytes")
-        if file_type not in {review.source_role, review.native_role}:
-            raise ValueError("MOEA native role has changed or unreviewed source role")
-        return review.native_role
+        return review
     for fact in source_conflicts():
         if (
             source_exam_id != f"moea-recruit-{fact.year_roc}"
@@ -321,7 +318,67 @@ def native_file_role(
                     raise ValueError(
                         "MOEA source-label conflict has changed or unreviewed native bytes"
                     )
-                if file_type not in {"question", file.native_role}:
-                    raise ValueError("MOEA source-label conflict has an unreviewed file role")
-                return file.native_role
-    return file_type
+                return file
+    return None
+
+
+def native_file_role(
+    file_type: str,
+    *,
+    source_exam_id: str,
+    year_roc: int,
+    category_code: str,
+    category_raw: str,
+    subject_code: str,
+    title: str,
+    source_url: str,
+    checksum: str,
+) -> str:
+    review = _native_file_review(
+        source_exam_id=source_exam_id,
+        year_roc=year_roc,
+        category_code=category_code,
+        category_raw=category_raw,
+        subject_code=subject_code,
+        title=title,
+        source_url=source_url,
+        checksum=checksum,
+    )
+    if review is None:
+        return file_type
+    if isinstance(review, NativeRoleReview):
+        if file_type not in {review.source_role, review.native_role}:
+            raise ValueError("MOEA native role has changed or unreviewed source role")
+    elif file_type not in {"question", review.native_role}:
+        raise ValueError("MOEA source-label conflict has an unreviewed file role")
+    return review.native_role
+
+
+def native_file_subject(
+    file_type: str,
+    *,
+    source_exam_id: str,
+    year_roc: int,
+    category_code: str,
+    category_raw: str,
+    subject_code: str,
+    title: str,
+    source_url: str,
+    checksum: str,
+) -> str | None:
+    """Project exact reviewed content only after its native role is applied."""
+    review = _native_file_review(
+        source_exam_id=source_exam_id,
+        year_roc=year_roc,
+        category_code=category_code,
+        category_raw=category_raw,
+        subject_code=subject_code,
+        title=title,
+        source_url=source_url,
+        checksum=checksum,
+    )
+    if review is None:
+        return None
+    if file_type != review.native_role:
+        raise ValueError("MOEA subject projection requires the reviewed native file role")
+    return review.native_subject

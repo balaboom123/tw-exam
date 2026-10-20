@@ -509,6 +509,67 @@ class DelistedPaperRetentionTests(unittest.TestCase):
         self.assertEqual(merged_raw_pages, [])
         self.assertEqual(merged_catalog.papers, [])
 
+    def test_retained_failed_paper_keeps_its_review_after_event_refresh(self) -> None:
+        paper = replace(
+            self._normalized("failed", "待確認試題"),
+            classification_confidence="review",
+            bundle_id="unresolved-identity",
+        )
+        review = ReviewItem(
+            paper.category_raw, paper.canonical_name, paper.source_exam_id, paper.year_roc,
+            bundle_id=paper.bundle_id, reason="Native content still requires review",
+        )
+        _, catalog, _, _, _ = merge_incremental_state(
+            [self._page([self._parsed("failed", "待確認試題")])],
+            NormalizedCatalog([paper], [review]), [],
+            [self._page([])], NormalizedCatalog([], []),
+        )
+        self.assertEqual(catalog.papers, [paper])
+        self.assertEqual(catalog.review_queue, [review])
+
+    def test_fresh_review_replaces_same_retained_identity_review(self) -> None:
+        paper = replace(self._normalized("old", "舊試題"), classification_confidence="review")
+        old = ReviewItem(paper.category_raw, "candidate", paper.source_exam_id, paper.year_roc)
+        fresh = replace(old, reason="Updated evidence")
+        _, catalog, _, _, _ = merge_incremental_state(
+            [self._page([self._parsed("old", "舊試題")])],
+            NormalizedCatalog([paper], [old]), [],
+            [self._page([])], NormalizedCatalog([], [fresh]),
+        )
+        self.assertEqual(catalog.review_queue, [fresh])
+
+    def test_refreshed_identity_does_not_hide_retained_sibling_review(self) -> None:
+        retained = replace(
+            self._normalized("old", "待確認"), classification_confidence="review",
+            bundle_id="unresolved-identity",
+        )
+        current = replace(self._normalized("new", "已確認"), bundle_id="approved-identity")
+        review = ReviewItem(
+            retained.category_raw, "candidate", retained.source_exam_id, retained.year_roc,
+            bundle_id=retained.bundle_id,
+        )
+        _, catalog, _, _, _ = merge_incremental_state(
+            [self._page([self._parsed("old", "待確認")])],
+            NormalizedCatalog([retained], [review]), [],
+            [self._page([self._parsed("new", "已確認")])], NormalizedCatalog([current], []),
+        )
+        self.assertEqual(catalog.review_queue, [review])
+
+    def test_resolved_or_explicitly_removed_paper_drops_obsolete_review(self) -> None:
+        paper = replace(self._normalized("paper", "試題"), classification_confidence="review")
+        review = ReviewItem(paper.category_raw, "candidate", paper.source_exam_id, paper.year_roc)
+        pages = [self._page([self._parsed("paper", "試題")])]
+        _, resolved, _, _, _ = merge_incremental_state(
+            pages, NormalizedCatalog([paper], [review]), [], pages,
+            NormalizedCatalog([replace(paper, classification_confidence="high")], []),
+        )
+        self.assertEqual(resolved.review_queue, [])
+        _, removed, _, _, _ = merge_targeted_state(
+            pages, NormalizedCatalog([paper], [review]), [], [], NormalizedCatalog([], []),
+            {paper.source_exam_id},
+        )
+        self.assertEqual(removed.review_queue, [])
+
 
 if __name__ == "__main__":
     unittest.main()

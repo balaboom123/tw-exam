@@ -255,7 +255,13 @@ answers, and a multiple-answer item alone is not a dated correction. The
 adapter binds a role fact to its complete event/group/file context before
 cache reuse and checks downloaded bytes before mirror writes. Normalization
 and migration use the same fact; original source labels and paths remain.
-These facts approve the recorded file roles only.
+These facts approve the recorded file content, not examination identity.
+Publication metadata and ZIP entry names use the reviewed native subject only
+when the complete source context, checksum and migrated native role match.
+The mislabeled electrical answer therefore names its actual A subject. Changed
+bytes or an unmigrated role stop the projection for review. ZIP payload sharing
+uses that same subject together with the existing year, role, suffix and
+checksum boundaries; every original source reference remains in the manifest.
 
 The available ROC 100–115 brochures' main purpose, occupation/subject matrices
 and written/retest sections have been inspected. Detailed major appendices,
@@ -302,14 +308,18 @@ linked both 試題說明 and 國文科 to the same Google Drive file on 2026-10-
 A fresh download matched the retained Chinese paper, whereas the retained
 explanation begins 「103 年國中教育會考試題說明」. Keep the last verified
 explanation reference and its bytes; reject conflicting source labels before
-replacing that event. The failure ledger records the unresolved official link.
+replacing that event. On 2026-10-20 the official listing again linked the
+explanation to its separate file, and a fresh download matched the retained
+native explanation exactly. The obsolete failure exception was removed.
 Earlier source references and the rejected metadata remain in provider revision
 recovery, without treating that metadata as proof of the linked payload.
 
 The [ROC 111 reference-test archive](https://cap.rcpet.edu.tw/exam/111c/111practice.html)
 relocated its eight files from Google Drive to Chinese filenames on the official
 site. Fresh encoded requests verified that all eight payloads match the retained
-checksums. Encode request URLs without changing the recorded source spelling.
+checksums. By 2026-10-20 its links had returned to Google Drive; the retained
+payloads still matched. Encode request URLs without changing the recorded
+source spelling.
 
 ## `sfi_cert`
 

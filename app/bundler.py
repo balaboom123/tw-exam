@@ -33,7 +33,7 @@ from app.provider_index import (
 from app.publication_metadata import (
     derive_public_metadata,
     file_subject_label,
-    publication_subject_label,
+    publication_paper_subject,
 )
 from app.source_material import (
     MaterialSummary,
@@ -152,8 +152,8 @@ def _safe_segment(value: str, max_length: int | None = None) -> str:
 def _bundle_arcname(paper: NormalizedPaper) -> str:
     suffix = Path(paper.storage_key).suffix or ".bin"
     subject = paper.subject_name_raw
-    if paper.provider_id == "taipower_recruit":
-        subject = publication_subject_label(subject, provider_id=paper.provider_id)
+    if paper.provider_id in {"taipower_recruit", "moea_recruit"}:
+        subject = publication_paper_subject(paper)
     file_name = "_".join(
         [
             _safe_segment(paper.category_code or "category", max_length=24),
@@ -224,7 +224,9 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
             if paper.source_material is not None
             else str(paper.year_roc),
             paper.file_type,
-            file_subject_label(paper.subject_name_raw),
+            publication_paper_subject(paper)
+            if paper.provider_id == "moea_recruit"
+            else file_subject_label(paper.subject_name_raw),
             Path(paper.storage_key).suffix.lower(),
             paper.checksum,
         )

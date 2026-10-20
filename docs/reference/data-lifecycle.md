@@ -103,6 +103,9 @@ and historical storage locators while retaining the former role in the source
 journal. A subsequent source sync refreshes raw role metadata and assigns
 current mirror locators only to validated downloads. A failed source retains its
 earlier payload and failure evidence without receiving a successful-sync date.
+Retained papers also keep their unresolved classification reviews when another
+paper in the same event refreshes. A fresh review for the same identity replaces
+its earlier review; an explicit event removal removes both records and reviews.
 
 Historical acquisition errors are reviewed alongside the journal rather than
 rewriting it. The source-revision review owner distinguishes a checksum-backed

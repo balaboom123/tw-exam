@@ -6,6 +6,8 @@ import re
 from collections.abc import Iterable, Mapping
 from typing import Any
 
+from app.providers.moea_recruit.evidence import native_file_subject
+
 MAX_SEARCH_ALIASES = 24
 MAX_TAIPOWER_SEARCH_ALIASES = 64
 MAX_SUBJECT_LABELS = 6
@@ -63,6 +65,33 @@ def publication_subject_label(value: str, *, provider_id: str) -> str:
     return file_subject_label(value)
 
 
+def publication_paper_subject(paper: Any) -> str:
+    """Use exact native evidence without changing retained source wording."""
+    provider_id = _field(paper, "provider_id")
+    title = _field(paper, "subject_name_raw")
+    if provider_id == "moea_recruit":
+        year = (
+            paper.get("year_roc")
+            if isinstance(paper, Mapping)
+            else getattr(paper, "year_roc", None)
+        )
+        if type(year) is int:
+            subject = native_file_subject(
+                _field(paper, "file_type"),
+                source_exam_id=_field(paper, "source_exam_id"),
+                year_roc=year,
+                category_code=_field(paper, "category_code"),
+                category_raw=_field(paper, "category_raw"),
+                subject_code=_field(paper, "subject_code"),
+                title=title,
+                source_url=_field(paper, "download_url_source"),
+                checksum=_field(paper, "checksum"),
+            )
+            if subject is not None:
+                return subject
+    return publication_subject_label(title, provider_id=provider_id)
+
+
 def _clean_label(value: str) -> str:
     value = file_subject_label(value)
     value = re.sub(r"\s+專業科目\s*[（(][一二三123]+[）)](?:-[^ ]+)?$", "", value)
@@ -99,9 +128,7 @@ def derive_public_metadata(
     for paper in papers:
         provider_id = _field(paper, "provider_id")
         providers.add(provider_id)
-        raw_subject = publication_subject_label(
-            _field(paper, "subject_name_raw"), provider_id=provider_id
-        )
+        raw_subject = publication_paper_subject(paper)
         for chunk in re.split(r"[；;\n]+", raw_subject):
             label = _clean_label(chunk)
             if label and label != canonical_name and not label.isdigit():
