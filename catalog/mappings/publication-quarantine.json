@@ -17,11 +17,11 @@
     {
       "provider_id": "gept_cert",
       "site_id": "default",
-      "status": "wrong_identity",
-      "reason": "All 34 public records carry a synthetic 2026 event/year identity instead of the official 2022 level events, and three records point at wrong bytes after label collisions.",
+      "status": "redistribution_unresolved",
+      "reason": "Native levels, practice-set variants, material roles and undated dates are corrected, with prior references and verified bytes conserved. The current LTTC terms do not establish permission for this public archive to redistribute those resources. Keep ZIP publication and public mirror snapshots withheld.",
       "evidence_path": "data/providers/gept_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#gept_cert",
-      "review_by": "2026-10-15"
+      "review_by": "2026-11-20"
     },
     {
       "provider_id": "hakka_cert",

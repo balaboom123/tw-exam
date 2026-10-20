@@ -302,8 +302,8 @@
       ],
       "exam_category": "CEEC 學科能力測驗 / GSAT archive",
       "local_state": {
-        "raw_event_pages": 179,
         "normalized_paper_records": 648,
+        "raw_event_pages": 179,
         "sync_failures": 0
       },
       "local_years": [
@@ -369,8 +369,8 @@
       ],
       "exam_category": "CEEC 分科測驗 general-paper archive",
       "local_state": {
-        "raw_event_pages": 39,
         "normalized_paper_records": 217,
+        "raw_event_pages": 39,
         "sync_failures": 0
       },
       "local_years": [
@@ -443,10 +443,10 @@
     },
     {
       "available_years": {
-        "end_ad": 2022,
-        "mode": "observed_range",
-        "note": "Five current level pages expose 34 material records rooted in 2022. A separate July 2009 pretest index listed 108 entries but its index and five level pages are now removed.",
-        "start_ad": 2022
+        "end_ad": null,
+        "mode": "unknown",
+        "note": "Current rolling practice/reference/sample resources are undated. The retained 2022 partition is a compatibility locator. The removed July 2009 pilot listing remains an unenumerated historical coverage gap.",
+        "start_ad": null
       },
       "discovery_snapshot": {
         "coverage": "partial",
@@ -456,14 +456,14 @@
       "evidence": [
         "docs/providers/notes.md#gept_cert"
       ],
-      "exam_category": "GEPT official practice and listening materials by proficiency level",
+      "exam_category": "GEPT five official proficiency levels; undated practice sets, scoring references and sample papers",
       "local_state": {
-        "normalized_paper_records": 34,
-        "raw_event_pages": 1,
-        "sync_failures": 0
+        "normalized_paper_records": 76,
+        "raw_event_pages": 5,
+        "sync_failures": 2
       },
       "local_years": [
-        2026
+        2022
       ],
       "official_source_urls": [
         "https://www.gept.org.tw/Exam_Intro/t01_introduction.asp",
@@ -481,7 +481,7 @@
       ],
       "source_name": "語言訓練測驗中心",
       "status": "partial",
-      "status_reason": "Partial: the current declared source contains proficiency-level practice materials, while retained history includes unsupported process-year identities and unresolved source-to-payload alignment. Publication remains withheld pending source-role, event-identity, and redistribution review."
+      "status_reason": "Partial: corrected native five-level acquisition retains current paper and supporting-source roles, explicit undated material and exact earlier history. Two listed superior PDFs return HTTP 404 but keep verified prior bytes. Removed historical coverage and redistribution consent remain unresolved; public ZIPs and public mirror snapshots are withheld."
     },
     {
       "available_years": {
@@ -1567,10 +1567,10 @@
     },
     {
       "available_years": {
-        "mode": "observed_range",
-        "start_ad": 2018,
         "end_ad": 2026,
-        "note": "Dated current historical-paper listings and official AML history ZIP; complete for the declared listing surface, without asserting every historical TII sitting is available."
+        "mode": "observed_range",
+        "note": "Dated current historical-paper listings and official AML history ZIP; complete for the declared listing surface, without asserting every historical TII sitting is available.",
+        "start_ad": 2018
       },
       "discovery_snapshot": {
         "coverage": "complete",
@@ -1583,8 +1583,8 @@
       ],
       "exam_category": "Taiwan Insurance Institute certification papers and reviewed exam-family boundaries",
       "local_state": {
-        "raw_event_pages": 16,
         "normalized_paper_records": 38,
+        "raw_event_pages": 16,
         "sync_failures": 0
       },
       "local_years": [

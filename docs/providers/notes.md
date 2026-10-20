@@ -53,7 +53,36 @@ and revision blobs locally and use the scheduled workflow's cache-only mode.
 
 ## `gept_cert`
 
-Use official GEPT paper material only when level and event identity are supported by the source. Rolling samples must not acquire a synthetic current-year identity merely because they were fetched recently.
+Use the official GEPT proficiency levels independently of scores within a
+writing rubric. The native 初級、中級、中高級、高級、優級 pages establish the
+level; a rubric's 級分 does not establish another qualification level. Advanced
+practice forms use internal codes that differ from their visible 練習題 labels.
+Keep those practice sets as separate variants, without treating them as levels
+or examination stages.
+
+Rolling practice, scoring examples and superior sample papers have no supported
+examination or publication date. Existing acquisition partitions and event keys
+remain compatibility locators; neither a website directory nor a fetch date
+supplies their material date. Scoring examples are references, oral prompts are
+speaking audio, and transcripts remain distinct from recordings. Retain native
+practice HTML and its source assets as attachments: they contain questions and
+answers that an audio-only crawl misses. This is evidence capture, not a promise
+that a dynamic source application can run offline.
+
+The computer practice download is an installer archive. Preserve the original
+container and its installation instructions separately from papers; inspect
+archive paths and CRCs without running executables. A currently listed PDF that
+returns an HTTP error may retain its earlier checksum-verified bytes in the same
+reviewed context. Keep the failed request visible and do not claim a fresh
+download or successful sync.
+
+The current level pages recorded in the source inventory and their linked
+materials were checked on 2026-10-20. The removed historical
+pilot-paper listing remains a coverage gap. The current
+[LTTC terms](https://www.lttc.ntu.edu.tw/tw/disclaimer) do not establish permission
+for this archive's republication. Keep GEPT publication quarantined and disable
+public mirror snapshots while retaining local recovery evidence. This hold is
+independent of the corrected acquisition and classification.
 
 ## `hakka_cert`
 

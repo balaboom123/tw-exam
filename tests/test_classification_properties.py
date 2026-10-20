@@ -55,6 +55,7 @@ RECORD = st.fixed_dictionaries({
     "canonical_name": SOURCE_TEXT,
     "subject_name_raw": SOURCE_TEXT,
     "subject_code": st.sampled_from(["", "0101", "0102"]),
+    "category_code": st.just("301"),
 })
 
 
@@ -69,7 +70,7 @@ def _paper(provider_id: str, record: dict) -> NormalizedPaper:
         canonical_name=record["canonical_name"],
         subject_name_raw=record["subject_name_raw"],
         subject_code=record["subject_code"],
-        category_code="301",
+        category_code=record["category_code"],
         paper_code=f"301-{record['subject_code']}-question",
         file_type="question",
         download_url_source="https://official.example/question.pdf",
@@ -95,7 +96,7 @@ def test_text_normalization_is_idempotent(normalizer, text: str) -> None:
 @example(record={
     "source_exam_id": "event-115", "year_ad": 2026, "category_raw": "一般行政",
     "exam_name_raw": "教師甄試", "canonical_id": "general-administration", "canonical_name": "一般行政",
-    "subject_name_raw": " \t\u3000", "subject_code": "0101",
+    "subject_name_raw": " \t\u3000", "subject_code": "0101", "category_code": "301",
 })
 @given(record=RECORD)
 def test_classification_survives_projection_and_source_normalization(provider_id: str, record: dict) -> None:

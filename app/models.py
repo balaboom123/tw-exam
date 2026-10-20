@@ -236,7 +236,12 @@ FILE_TYPE_LABELS = {
     "answer_table": "答案表",
     "accessible_bundle": "無障礙題本",
     "source_archive": "來源壓縮包",
+    "source_page": "來源網頁",
+    "source_asset": "來源附屬檔案",
+    "instructions": "使用說明",
+    "scoring_examples": "評分範例",
     "listening_audio": "聽力音檔",
+    "speaking_audio": "口說音檔",
     "listening_transcript": "聽力逐字稿",
 }
 

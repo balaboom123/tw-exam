@@ -35,6 +35,24 @@ _HTML_CHARSET = re.compile(rb"<meta[^>]+charset=['\"]?\s*([a-zA-Z0-9_-]+)", re.I
 _RETRY_STATUSES = {408, 425, 429}
 
 
+def decode_html(raw: bytes, content_type: str = "", *, encoding: str | None = None) -> str:
+    """Decode a retained response with the same charset policy as live HTML."""
+    if encoding is not None:
+        return raw.decode(encoding, "replace")
+    header_match = _HEADER_CHARSET.search(content_type)
+    html_match = _HTML_CHARSET.search(raw[:2048])
+    declared = [header_match.group(1) if header_match else ""]
+    declared.append(html_match.group(1).decode("ascii") if html_match else "")
+    for charset in (*declared, "utf-8", "big5", "cp950"):
+        if not charset:
+            continue
+        try:
+            return raw.decode(charset)
+        except (LookupError, UnicodeDecodeError):
+            continue
+    return raw.decode("utf-8", "replace")
+
+
 class _Links(HTMLParser):
     def __init__(self, base_url: str) -> None:
         super().__init__()
@@ -182,21 +200,7 @@ class Http:
 
     def get_text(self, url: str, *, encoding: str | None = None) -> str:
         raw, headers, _status = self._request(url)
-        if encoding is not None:
-            return raw.decode(encoding, "replace")
-        content_type = headers.get("Content-Type", "")
-        header_match = _HEADER_CHARSET.search(content_type)
-        html_match = _HTML_CHARSET.search(raw[:2048])
-        declared = [header_match.group(1) if header_match else ""]
-        declared.append(html_match.group(1).decode("ascii") if html_match else "")
-        for charset in (*declared, "utf-8", "big5", "cp950"):
-            if not charset:
-                continue
-            try:
-                return raw.decode(charset)
-            except (LookupError, UnicodeDecodeError):
-                continue
-        return raw.decode("utf-8", "replace")
+        return decode_html(raw, headers.get("Content-Type", ""), encoding=encoding)
 
     def post_form(self, url: str, fields: dict[str, str], *, encoding: str | None = None) -> str:
         data = urlencode(fields).encode("ascii")

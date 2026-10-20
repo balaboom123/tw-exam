@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "provider_id": "gept_cert",
+  "exceptions": [
+    {
+      "scope": "file",
+      "provider_id": "gept_cert",
+      "source_exam_id": "gept-cert-superior-2022",
+      "year_ad": 2022,
+      "status": "blocked",
+      "reason_code": "official_listed_pdf_http_404",
+      "reason": "Current source-listed sample PDF is unavailable upstream; retain the reviewed prior bytes and the real failed request. Recheck the exception if the source becomes available or its identity changes.",
+      "source_url": "https://www.gept.org.tw/download/pretest/doc/%E5%84%AA%E7%B4%9A%E6%B8%AC%E9%A9%97%E5%AF%AB%E4%BD%9C%E9%83%A8%E5%88%86%E8%A9%A6%E9%A1%8C%E8%88%87%E4%BD%9C%E7%AD%94%E8%AA%AA%E6%98%8E.pdf",
+      "paper_code": "superior-resource-b00dedc78a5af84a5ecb-question",
+      "file_type": "question",
+      "evidence": {
+        "captured_at": "2026-10-20T13:20:53.818729+00:00",
+        "http_status": 404,
+        "response_bytes": 1161,
+        "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+        "observation": "The current superior introduction still links this PDF, but the official request returns HTTP 404. The exact prior PDF remains locally retained with its recorded checksum; no successful download or sync is claimed.",
+        "retained_pdf_sha256": "817b654025178cf06c2ec8dc431e586c13c9ca5cb32734c015eac313f38afbbc",
+        "source_page_url": "https://www.gept.org.tw/Exam_Intro/t05_introduction.asp"
+      }
+    },
+    {
+      "scope": "file",
+      "provider_id": "gept_cert",
+      "source_exam_id": "gept-cert-superior-2022",
+      "year_ad": 2022,
+      "status": "blocked",
+      "reason_code": "official_listed_pdf_http_404",
+      "reason": "Current source-listed sample PDF is unavailable upstream; retain the reviewed prior bytes and the real failed request. Recheck the exception if the source becomes available or its identity changes.",
+      "source_url": "https://www.gept.org.tw/download/pretest/doc/%E5%84%AA%E7%B4%9A%E6%B8%AC%E9%A9%97%E5%8F%A3%E8%AA%AA%E9%83%A8%E5%88%86%E8%A9%A6%E9%A1%8C%E8%88%87%E4%BD%9C%E7%AD%94%E8%AA%AA%E6%98%8E.pdf",
+      "paper_code": "superior-resource-c9cc61a6e2d37170b895-question",
+      "file_type": "question",
+      "evidence": {
+        "captured_at": "2026-10-20T13:20:53.856191+00:00",
+        "http_status": 404,
+        "response_bytes": 1161,
+        "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+        "observation": "The current superior introduction still links this PDF, but the official request returns HTTP 404. The exact prior PDF remains locally retained with its recorded checksum; no successful download or sync is claimed.",
+        "retained_pdf_sha256": "e2e651c7a5f6961c4a7e8ef8b179e07dafe007c9e51f97b129d958a05e93167c",
+        "source_page_url": "https://www.gept.org.tw/Exam_Intro/t05_introduction.asp"
+      }
+    }
+  ]
+}

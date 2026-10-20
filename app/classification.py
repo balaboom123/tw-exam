@@ -19,6 +19,7 @@ from typing import Any
 
 from app.hakka_identity import hakka_conflict_reason, hakka_dialect, hakka_level
 from app.moex_identity_evidence import resolve_moex_category_identity
+from app.providers.gept_cert.identity import category_identity as gept_category_identity
 from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
@@ -145,7 +146,7 @@ _SERIES_LABELS = {
     "moex-unknown": "MOEX待審核考試",
     "teacher-qualification": "教師資格考試",
     "teacher-recruitment": "教師甄試",
-    "language-gept": "全民英檢",
+    "language-gept": "GEPT全民英檢",
     "language-jlpt": "日本語能力試驗",
     "language-tocfl": "華語文能力測驗",
     "language-hakka": "客語能力認證",
@@ -1749,6 +1750,16 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "gept_cert" and category_code:
+        gept_context = gept_category_identity(source_exam_id, category_code, year_ad)
+        if gept_context is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            confidence = "review"
+            reason = "GEPT level or practice-set context lacks official source evidence"
+        else:
+            level_id, level_label, variant_pairs = gept_context
+            confidence = "high"
+            reason = f"official GEPT source level and practice-set context: {category_code}"
     if provider_id == "teacher_qual" and category_code != str(year_ad - 1911):
         selection = re.fullmatch(rf"{year_ad - 1911}-(\d+)", category_code)
         context_matches = re.fullmatch(rf"teacher-qual-{year_ad - 1911}(?:-[12])?", source_exam_id)
@@ -1959,7 +1970,7 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
-        if provider_id in {"tqc_cert", "hakka_cert"}:
+        if provider_id in {"tqc_cert", "hakka_cert", "gept_cert"}:
             bundle_name = series_label
         if provider_id == "cpc_recruit" and track_id == "cpc-doctoral":
             # Keep the old canonical compatibility key, while the structured
@@ -1988,7 +1999,7 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
-        if provider_id in {"tqc_cert", "hakka_cert", "teacher_qual"}:
+        if provider_id in {"tqc_cert", "hakka_cert", "teacher_qual", "gept_cert"}:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:
                     bundle_name += f"｜{label}"

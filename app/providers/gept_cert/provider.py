@@ -7,6 +7,11 @@ from app.providers.gept_cert.client import GeptCertClient
 
 class GeptCertProvider(SourceProvider):
     provider_id = "gept_cert"
+    max_concurrency = 1
+    refresh_files_on_sync = True
+    download_attachments_on_sync = True
+    # The recorded LTTC redistribution hold also applies to public snapshots.
+    public_mirror_backup_allowed = False
 
     def __init__(self, client: GeptCertClient | None = None) -> None:
         self.client = client or GeptCertClient()

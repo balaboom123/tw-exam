@@ -443,7 +443,7 @@ class RepositoryQuarantineTests(unittest.TestCase):
         entries = load_quarantine(ROOT, site_id="default")
         expected = {
             "cpc_recruit": "2026-11-01",
-            "gept_cert": "2026-10-15",
+            "gept_cert": "2026-11-20",
             "hakka_cert": "2026-12-01",
             "ipas_cert": "2026-11-01",
             "jlpt_cert": "2026-11-01",

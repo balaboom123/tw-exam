@@ -65,6 +65,18 @@ checks: the advertised ZIP format or a ZIP signature invokes validation before
 storage. Unrecognized roles remain ineligible for mirror reuse until their
 payload policy is defined.
 
+Native HTML is accepted only for explicit `source_page` attachments or the
+existing `answer_table` role. Questions, audio and source assets still reject
+HTML placeholders. Capturing a source page does not establish that its dynamic
+application and dependencies form a complete offline examination package.
+
+After a network failure, a refreshed reference may retain its earlier local
+payload only when provider, event, paper, role, URL and material context match,
+the full checksum verifies, and its role's payload validation passes. The failed
+request remains in the failure ledger. Changed context, invalid new content and
+missing or corrupt prior bytes cannot use this fallback. It does not create a
+successful-sync receipt.
+
 When a ZIP-based download has no supported filename or MIME extension,
 acquisition checks its native document parts to distinguish Word, spreadsheet
 and OpenDocument files from ordinary ZIPs. The ordering of a material role's

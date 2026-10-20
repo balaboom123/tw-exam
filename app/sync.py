@@ -13,7 +13,7 @@ from dataclasses import dataclass, replace
 from functools import partial
 from pathlib import Path
 from typing import TypeVar
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.parse import unquote
 
 from app.models import (
@@ -28,6 +28,7 @@ from app.models import (
 from app.normalizer import normalize_papers
 from app.providers.base import SourceProvider
 from app.providers.http import retry_after_seconds
+from app.source_material import SourceMaterial
 from app.storage import MirrorStore
 
 EXTENSION_OVERRIDES = {
@@ -50,12 +51,16 @@ EXPECTED_EXTENSIONS = {
     "answer_sheet": (".pdf",),
     "question_cover": (".pdf", ".doc", ".docx"),
     "scoring_guidelines": (".pdf", ".doc", ".docx"),
+    "scoring_examples": (".pdf", ".doc", ".docx"),
+    "instructions": (".pdf", ".doc", ".docx"),
     "corrected_answer": (".pdf", ".doc", ".zip"),
     "all_answers": (".pdf",),
     "answer_table": (".html", ".htm"),
     "accessible_bundle": (".zip",),
     "source_archive": (".zip",),
+    "source_page": (".html", ".htm"),
     "listening_audio": (".mp3", ".zip", ".rar"),
+    "speaking_audio": (".mp3", ".zip", ".rar"),
 }
 ZIP_SIGNATURES = (b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08")
 ZIP_EXTENSIONS = frozenset({".zip", ".docx", ".xlsx", ".ods"})
@@ -98,11 +103,17 @@ def _strip_bom_prefix(data: bytes) -> bytes:
 
 
 def _looks_like_html(data: bytes) -> bool:
-    head = _strip_bom_prefix(data[:256]).lstrip().lower()
+    head = _strip_bom_prefix(data[:4096]).lower()
+    # Some native pages put a script or comment before their document header.
+    # Recognize those prefixes without treating arbitrary embedded strings in
+    # JavaScript or binary documents as an HTML document.
     return (
-        head.startswith(b"<!doctype html")
-        or head.startswith(b"<html")
-        or head.startswith(b"<!doctype")
+        re.match(
+            rb"(?:\s|<!--.*?-->|<script\b[^>]*>.*?</script>)*(?:<!doctype\b|<html\b)",
+            head,
+            flags=re.DOTALL,
+        )
+        is not None
     )
 
 
@@ -177,7 +188,7 @@ def _detected_zip_extension(data: bytes) -> str:
 def _validated_extension(file_type: str, data: bytes, content_type: str, file_name: str) -> str:
     expected_extensions = _expected_extensions(file_type)
     resolved_extension = _extension_for(content_type, file_name).lower()
-    if _looks_like_html(data) and file_type != "answer_table":
+    if _looks_like_html(data) and file_type not in {"answer_table", "source_page"}:
         joined_extensions = (
             " or ".join(expected_extensions) if expected_extensions else resolved_extension
         )
@@ -219,7 +230,7 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     if not expected_extensions or actual_extension not in expected_extensions:
         return False
     with path.open("rb") as stream:
-        if not _matches_expected_binary(stream.read(8), actual_extension):
+        if not _matches_expected_binary(stream.read(4096), actual_extension):
             return False
     if actual_extension in ZIP_EXTENSIONS:
         try:
@@ -286,6 +297,13 @@ def _download_validated(client: SourceProvider, file_type: str, url: str) -> tup
 
 
 @dataclass(frozen=True)
+class _RetainedSourceFile:
+    storage_key: str
+    checksum: str
+    context: tuple[str, str, SourceMaterial | None]
+
+
+@dataclass(frozen=True)
 class _MirrorRequest:
     prefix: str
     file_type: str
@@ -293,28 +311,109 @@ class _MirrorRequest:
     paper_code: str
     attachment: ExamAttachment | None = None
     paper: ParsedPaper | None = None
+    retained: _RetainedSourceFile | None = None
 
 
-def _retained_source_checksums(
+def _retained_source_files(
     pages: list[SourceExamPage],
-) -> dict[tuple[str, str], str]:
+) -> dict[tuple[str, str], _RetainedSourceFile]:
     """Connect cached bytes to the source URL that supplied them."""
-    checksums: dict[tuple[str, str], str] = {}
+    retained = {}
     for page in pages:
         for attachment in page.attachments:
             if attachment.checksum:
-                checksums[
+                retained[
                     (
                         _mirror_prefix_for_attachment(page, attachment),
                         attachment.download_url_source,
                     )
-                ] = attachment.checksum
+                ] = _RetainedSourceFile(
+                    attachment.storage_key,
+                    attachment.checksum,
+                    (attachment.title, "", attachment.source_material or page.source_material),
+                )
         for paper in page.papers:
             for file_type, url in paper.files.items():
                 checksum = paper.mirror_files.get(file_type, {}).get("checksum", "")
                 if checksum:
-                    checksums[(_mirror_prefix_for_paper(page, paper, file_type), url)] = checksum
-    return checksums
+                    retained[(_mirror_prefix_for_paper(page, paper, file_type), url)] = (
+                        _RetainedSourceFile(
+                            paper.mirror_files[file_type].get("storage_key", ""),
+                            checksum,
+                            (
+                                paper.category_raw,
+                                paper.subject_name_raw,
+                                paper.source_material or page.source_material,
+                            ),
+                        )
+                    )
+    return retained
+
+
+def _request_context(
+    request: _MirrorRequest,
+    page: SourceExamPage,
+) -> tuple[str, str, SourceMaterial | None]:
+    if request.attachment is not None:
+        item = request.attachment
+        return item.title, "", item.source_material or page.source_material
+    assert request.paper is not None
+    paper = request.paper
+    return paper.category_raw, paper.subject_name_raw, paper.source_material or page.source_material
+
+
+def _retained_after_network_failure(
+    request: _MirrorRequest,
+    mirror_store: MirrorStore,
+) -> StoredFile | None:
+    retained = request.retained
+    if retained is None or not retained.storage_key:
+        return None
+    key = Path(retained.storage_key)
+    if key.is_absolute() or ".." in key.parts:
+        return None
+    owner = Path(request.prefix).parts[:2]
+    if owner[0] == "providers" and key.parts[:2] != owner:
+        return None
+    path = mirror_store.root / key
+    try:
+        with path.open("rb") as source:
+            if hashlib.file_digest(source, "sha256").hexdigest() != retained.checksum:
+                return None
+        if _expected_extensions(request.file_type) and not _is_valid_stored_file(
+            path, request.file_type
+        ):
+            return None
+        return StoredFile(retained.storage_key, path, retained.checksum, False, path.stat().st_size)
+    except OSError:
+        return None
+
+
+def _assign_mirrored_file(
+    request: _MirrorRequest,
+    stored: StoredFile,
+    mirror_base_url: str,
+    mirror_metadata: dict[tuple[str, str, str], dict[str, str]],
+) -> None:
+    asset_name = _asset_name_for(stored.storage_key)
+    if request.attachment is not None:
+        item = request.attachment
+        item.storage_key = stored.storage_key
+        item.asset_name = asset_name
+        item.checksum = stored.checksum
+        item.download_url_mirror = (
+            f"{mirror_base_url.rstrip('/')}/{asset_name}" if mirror_base_url else ""
+        )
+        return
+    assert request.paper is not None
+    paper = request.paper
+    metadata = {
+        "storage_key": stored.storage_key,
+        "asset_name": asset_name,
+        "checksum": stored.checksum,
+    }
+    paper.mirror_files[request.file_type] = metadata
+    mirror_metadata[(paper.category_code, paper.subject_code, request.file_type)] = metadata
 
 
 def restore_catalog_files(
@@ -382,7 +481,7 @@ def sync_exam_pages(
     normalized_papers = []
     review_queue = []
     failures: list[SyncFailure] = []
-    retained_checksums = _retained_source_checksums(previous_pages or [])
+    retained_sources = _retained_source_files(previous_pages or [])
 
     for exam_code, year_ad in exam_codes:
         try:
@@ -436,7 +535,8 @@ def sync_exam_pages(
         for request in requests:
             urls_by_prefix.setdefault(request.prefix, set()).add(request.url)
         for index, request in enumerate(requests):
-            checksum = retained_checksums.get((request.prefix, request.url), "")
+            previous = retained_sources.get((request.prefix, request.url))
+            checksum = previous.checksum if previous is not None else ""
             reviewed_checksum = getattr(client, "reviewed_file_checksum", None)
             if callable(reviewed_checksum):
                 checksum = reviewed_checksum(request.url) or checksum
@@ -444,7 +544,10 @@ def sync_exam_pages(
             previously_split = any(prefix_path.parent.glob(f"{prefix_path.name}--source-*"))
             if len(urls_by_prefix[request.prefix]) > 1 or previously_split:
                 digest = hashlib.sha256(request.url.encode("utf-8")).hexdigest()[:16]
-                requests[index] = replace(request, prefix=f"{request.prefix}--source-{digest}")
+                request = replace(request, prefix=f"{request.prefix}--source-{digest}")
+            if previous is not None and previous.context == _request_context(request, page):
+                request = replace(request, retained=previous)
+            requests[index] = request
             expected_checksums[requests[index].prefix] = checksum
 
         max_workers = max(1, min(4, int(getattr(client, "max_concurrency", 4))))
@@ -505,28 +608,17 @@ def sync_exam_pages(
                             )
                             mirror_store.delete_matching_except(request.prefix, stored.storage_key)
                             stored_by_prefix[request.prefix] = stored
-                        if request.attachment is not None:
-                            attachment = request.attachment
-                            attachment.storage_key = stored.storage_key
-                            attachment.asset_name = _asset_name_for(stored.storage_key)
-                            attachment.checksum = stored.checksum
-                            attachment.download_url_mirror = (
-                                f"{mirror_base_url.rstrip('/')}/{attachment.asset_name}"
-                                if mirror_base_url
-                                else ""
-                            )
-                            continue
-                        assert request.paper is not None
-                        paper = request.paper
-                        paper.mirror_files[request.file_type] = {
-                            "storage_key": stored.storage_key,
-                            "asset_name": _asset_name_for(stored.storage_key),
-                            "checksum": stored.checksum,
-                        }
-                        mirror_metadata[
-                            (paper.category_code, paper.subject_code, request.file_type)
-                        ] = paper.mirror_files[request.file_type]
+                        _assign_mirrored_file(request, stored, mirror_base_url, mirror_metadata)
                     except Exception as exc:
+                        # A failed refresh does not invalidate the exact earlier
+                        # bytes for an unchanged source context. Keep the failure
+                        # visible, and never use this path for invalid new content.
+                        if isinstance(exc, (URLError, TimeoutError, ConnectionError)):
+                            retained_file = _retained_after_network_failure(request, mirror_store)
+                            if retained_file is not None:
+                                _assign_mirrored_file(
+                                    request, retained_file, mirror_base_url, mirror_metadata
+                                )
                         failures.append(
                             SyncFailure(
                                 stage="download",

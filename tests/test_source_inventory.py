@@ -768,54 +768,39 @@ class SourceInventoryTests(unittest.TestCase):
                       {r["source_record"]["download_url_source"] for r in revisions["revisions"]})
 
 
-    def test_gept_manifest_exposes_identity_payload_and_history_gaps(self) -> None:
+    def test_gept_manifest_matches_native_roles_undated_material_and_retained_failures(self) -> None:
         manifest = json.loads(
-            (ROOT / "data/providers/gept_cert/source-manifest.json").read_text(
-                encoding="utf-8"
-            )
+            (ROOT / "data/providers/gept_cert/source-manifest.json").read_text(encoding="utf-8")
         )
-
         self.assertEqual(sorted(map(int, manifest["years"])), [2022])
         self.assertEqual(len(manifest["exams"]), 5)
-        self.assertEqual(len(manifest["files"]), 34)
+        self.assertEqual(len(manifest["files"]), 159)
         policy = manifest["probe_policy"]
         self.assertEqual(policy["coverage_status"], "partial")
         self.assertEqual(policy["official_event_count"], 5)
-        self.assertEqual(policy["official_listed_file_count"], 34)
-        self.assertEqual(policy["official_unique_url_count"], 32)
-        self.assertEqual(policy["official_unique_url_bytes"], 183_174_255)
-        self.assertEqual(
-            policy["removed_historical_archive"]["listed_entry_count"],
-            108,
-        )
-        self.assertEqual(
-            policy["removed_historical_archive"]["status"],
-            "blocked_removed_listing",
-        )
-        retained = policy["retained_local_state"]
-        self.assertEqual(retained["mirror_files"], 68)
-        self.assertEqual(retained["unreferenced_mirror_files"], 37)
-        self.assertEqual(
-            policy["publication_risk"]["wrong_event_or_year_records"],
-            34,
-        )
-        self.assertEqual(policy["publication_risk"]["wrong_payload_records"], 3)
-        self.assertEqual(
-            {
-                status: sum(
-                    item["local_status"] == status
-                    for item in manifest["files"].values()
-                )
-                for status in {
-                    "retained_under_wrong_identity",
-                    "retained_under_wrong_identity_with_wrong_bytes",
-                }
-            },
-            {
-                "retained_under_wrong_identity": 31,
-                "retained_under_wrong_identity_with_wrong_bytes": 3,
-            },
-        )
+        self.assertEqual(policy["official_listed_file_count"], 159)
+        self.assertEqual(policy["official_unique_url_count"], 127)
+        self.assertEqual(policy["current_material_counts"], {"practice_collection": 68, "reference": 6, "sample": 2})
+        self.assertEqual(policy["current_role_counts"], {"listening_audio": 60, "listening_transcript": 2, "question": 2, "scoring_examples": 6, "speaking_audio": 6})
+        self.assertEqual(policy["source_attachment_role_counts"], {"instructions": 2, "source_archive": 2, "source_asset": 69, "source_page": 10})
+        self.assertEqual(policy["removed_historical_archive"]["listed_entry_count"], 108)
+        self.assertEqual(policy["removed_historical_archive"]["status"], "blocked_removed_listing")
+        recheck = policy["native_current_recheck"]
+        self.assertEqual(recheck["previous_available_reference_SHA_conflicts"], 0)
+        self.assertEqual(recheck["unavailable_superior_PDF_urls"], 2)
+        self.assertFalse(policy["legal_and_technical"]["public_mirror_backup_allowed"])
+        self.assertEqual(sum(row["status"] == "retained_verified_prior_payload_upstream_404" for row in manifest["files"].values()), 2)
+        from app.paths import provider_paths
+        from app.state import load_provider_state
+        from app.source_revisions import load_source_revisions
+        provider = provider_paths(ROOT, "gept_cert")
+        pages, catalog, failures = load_provider_state(provider)
+        self.assertEqual(len(catalog.papers), 76)
+        self.assertEqual(sum(len(page.attachments) for page in pages), 83)
+        self.assertEqual(len(failures), 2)
+        self.assertEqual(len(load_source_revisions(provider)), 68)
+        self.assertEqual({paper.source_material.date.basis for paper in catalog.papers}, {"undated"})
+        self.assertEqual(len({paper.bundle_id for paper in catalog.papers}), 10)
 
     def test_jlpt_manifest_bounds_exact_workbook_scope_and_rights_blocker(self) -> None:
         manifest = json.loads(

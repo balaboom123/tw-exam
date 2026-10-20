@@ -34,7 +34,7 @@ jobs:
       matrix:
         include:
           - provider_id: gept_cert
-            durable_snapshot: true
+            durable_snapshot: false
             cache_prefix: gept-cert
             timeout_minutes: 30
             publish: false
