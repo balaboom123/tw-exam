@@ -7,6 +7,8 @@ from app.providers.tocfl_cert.client import TocflCertClient
 
 class TocflCertProvider(SourceProvider):
     provider_id = "tocfl_cert"
+    # Rolling-bank URLs can replace their payloads without changing filenames.
+    refresh_files_on_sync = True
 
     def __init__(self, client: TocflCertClient | None = None) -> None:
         self.client = client or TocflCertClient()

@@ -769,21 +769,33 @@ class SourceInventoryTests(unittest.TestCase):
             "operator_or_legal_review_required",
         )
 
-    def test_tocfl_manifest_exposes_runtime_year_identity(self) -> None:
+    def test_tocfl_manifest_separates_native_bank_scope_from_capture_year(self) -> None:
+        from app.paths import provider_paths
+        from app.providers.tocfl_cert.evidence import validate_native_resources
+        from app.provenance import load_sync_status
+
         manifest = json.loads(
             (ROOT / "data/providers/tocfl_cert/source-manifest.json").read_text(
                 encoding="utf-8"
             )
         )
-        self.assertEqual(sorted(map(int, manifest["years"])), [2022, 2024, 2025])
-        self.assertEqual(len(manifest["exams"]), 3)
+        self.assertEqual(sorted(map(int, manifest["years"])), [2026])
+        self.assertEqual(len(manifest["exams"]), 6)
         policy = manifest["probe_policy"]
-        self.assertEqual(policy["official_unique_url_count"], 95)
-        self.assertEqual(policy["adapter_gap"]["wrong_event_or_year_records"], 92)
-        self.assertEqual(
-            policy["retained_local_state"]["source_only_events"],
-            [["tocfl-cert-mock-current", 2025]],
-        )
+        audit = policy["source_audit"]
+        self.assertEqual(audit["accepted_current_native_URLs"], 95)
+        self.assertEqual(audit["source_gaps"]["answer_workbook_question_IDs_absent_from_both_native_RARs"], 52)
+        self.assertEqual(audit["source_gaps"]["listening_questions_without_separate_native_transcript"], 21)
+        self.assertTrue(policy["unreconciled_retained_payloads"]["source_record_provenance_unresolved"])
+        self.assertEqual(len(policy["unreconciled_retained_payloads"]["payloads"]), 61)
+        self.assertIn("adapter_gap", policy["initial_capture_evidence"])
+        self.assertFalse(audit["new_receipts_created"])
+        provider = provider_paths(ROOT, "tocfl_cert")
+        self.assertEqual(load_sync_status(provider), {})
+        native = validate_native_resources(ROOT)
+        self.assertEqual(native["paper_projections"], 132)
+        self.assertEqual(native["reference_attachments"], 7)
+        self.assertEqual(native["retired_source_references"], 95)
 
     def test_taigi_manifest_matches_native_samples_and_retained_archives(self) -> None:
         from app.paths import provider_paths

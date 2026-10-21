@@ -27,6 +27,9 @@ from app.providers.sfi_cert.evidence import native_context as sfi_native_context
 from app.providers.tabf_cert.evidence import native_context as tabf_native_context
 from app.providers.taigi_cert.evidence import CAPTURE_PARTITION_YEAR as TAIGI_CAPTURE_PARTITION_YEAR
 from app.providers.taigi_cert.evidence import native_resource as taigi_native_resource
+from app.providers.tocfl_cert.evidence import CAPTURE_PARTITION_YEAR as TOCFL_CAPTURE_PARTITION_YEAR
+from app.providers.tocfl_cert.evidence import native_catalog as tocfl_native_catalog
+from app.providers.tocfl_cert.evidence import native_resource as tocfl_native_resource
 from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
@@ -1248,7 +1251,14 @@ def _non_moex_level(
         ):
             if marker in text:
                 return level_id, marker, "high", f"skill certification level marker: {marker}"
-    if provider_id in {"gept_cert", "jlpt_cert", "wdasec_skill", "taigi_cert", "tqc_cert"}:
+    if provider_id in {
+        "gept_cert",
+        "jlpt_cert",
+        "wdasec_skill",
+        "taigi_cert",
+        "tqc_cert",
+        "tocfl_cert",
+    }:
         # These programmes have official levels. An absent or unsupported
         # marker is missing evidence, not proof that the dimension is absent.
         return (
@@ -1758,6 +1768,34 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "tocfl_cert":
+        resource = (
+            tocfl_native_resource(source_material.evidence_url, source_checksum)
+            if source_material is not None
+            else None
+        )
+        script = resource.script_for_category(category_code) if resource is not None else None
+        if (
+            resource is None
+            or resource.collection != "question_bank"
+            or script is None
+            or year_ad != TOCFL_CAPTURE_PARTITION_YEAR
+            or source_exam_id != resource.source_exam_id
+            or subject_code != resource.subject_code
+            or subject_name_raw != resource.display_label
+            or source_material != resource.material
+        ):
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            variant_pairs = ()
+            confidence = "review"
+            reason = "TOCFL band, script, unit and role lack matching native URL/checksum evidence"
+        else:
+            band = next(b for b in tocfl_native_catalog().bands if b.code == resource.band_code)
+            level_id, level_label = band.level_id, band.level_label
+            script_label = next(s.label for s in tocfl_native_catalog().scripts if s.code == script)
+            variant_pairs = ((f"script-{script}", script_label),)
+            confidence = "high"
+            reason = f"reviewed native TOCFL bank band/script/unit/role: {resource.id}"
     tabf_context = None
     if provider_id == "tabf_cert":
         source_url = source_material.evidence_url if source_material is not None else ""
@@ -2125,6 +2163,7 @@ def _classify_paper_uncached(
             "sfi_cert",
             "ipas_cert",
             "tabf_cert",
+            "tocfl_cert",
         }:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:

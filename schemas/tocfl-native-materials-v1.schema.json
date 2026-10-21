@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/tocfl-native-materials-v1.schema.json",
+  "title": "TOCFL native bank and vocabulary-reference evidence",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "tocfl_cert"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "listing_urls": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "uniqueItems": true
+    },
+    "programme_evidence_urls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "bank_update_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "bands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "enum": [
+              "novice",
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          "source_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "level_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "outcomes": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "code",
+          "source_label",
+          "level_id",
+          "level_label",
+          "outcomes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "script_variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "enum": [
+              "traditional",
+              "simplified"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "code",
+          "label"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "source_gaps": {
+      "type": "object",
+      "properties": {
+        "landing_page_question_total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "native_workbook_nonempty_answer_rows": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "difference_unresolved": {
+          "type": "boolean"
+        },
+        "missing_question_IDs_in_both_script_archives": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "questions_without_separate_transcript": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "older_retained_RAR_packages_checked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing_companions_found_in_older_packages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "native_instruction_nonportable_member_paths": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "landing_page_question_total",
+        "native_workbook_nonempty_answer_rows",
+        "difference_unresolved",
+        "missing_question_IDs_in_both_script_archives",
+        "questions_without_separate_transcript",
+        "older_retained_RAR_packages_checked",
+        "missing_companions_found_in_older_packages",
+        "native_instruction_nonportable_member_paths"
+      ],
+      "additionalProperties": false
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^tocfl-native-[0-9a-f]{20}-[0-9a-f]{20}$"
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "collection": {
+            "enum": [
+              "question_bank",
+              "bank_instructions",
+              "reference"
+            ]
+          },
+          "programme": {
+            "enum": [
+              "tocfl",
+              "cccc"
+            ]
+          },
+          "band_code": {
+            "enum": [
+              "novice",
+              "a",
+              "b",
+              "c",
+              null
+            ]
+          },
+          "skill": {
+            "enum": [
+              "聽力",
+              "閱讀",
+              "combined",
+              null
+            ]
+          },
+          "unit_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "script_variants": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "traditional",
+                "simplified"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://tocfl\\.edu\\.tw/tocfl/assets/files/(mock_database|vocabulary)/[^/]+\\.(rar|xlsx|xls|pdf|zip)$"
+          },
+          "source_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "display_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file_type": {
+            "enum": [
+              "question",
+              "answer",
+              "listening_audio",
+              "listening_transcript",
+              "reference",
+              "instructions"
+            ]
+          },
+          "payload_format": {
+            "enum": [
+              "rar",
+              "xlsx",
+              "xls",
+              "pdf",
+              "zip"
+            ]
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "publication_year": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1600,
+                "maximum": 9999
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "archive": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "member_count": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "member_inventory_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "formats": {
+                    "type": "object",
+                    "properties": {
+                      "pdf": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "mp3": {
+                        "type": "integer",
+                        "minimum": 1
+                      }
+                    },
+                    "minProperties": 1,
+                    "maxProperties": 1,
+                    "additionalProperties": false
+                  },
+                  "nonportable_paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "member_count",
+                  "member_inventory_sha256",
+                  "formats",
+                  "nonportable_paths"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unavailable_companion_IDs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z][0-9]{8}$"
+            },
+            "uniqueItems": true
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "current",
+          "collection",
+          "programme",
+          "band_code",
+          "skill",
+          "unit_label",
+          "script_variants",
+          "source_url",
+          "source_label",
+          "display_label",
+          "file_type",
+          "payload_format",
+          "checksum",
+          "bytes",
+          "publication_year",
+          "archive",
+          "unavailable_companion_IDs",
+          "reviewed_at",
+          "notes"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "provider_id",
+    "reviewed_at",
+    "listing_urls",
+    "programme_evidence_urls",
+    "bank_update_statement",
+    "bands",
+    "script_variants",
+    "source_gaps",
+    "resources"
+  ],
+  "additionalProperties": false
+}

@@ -654,7 +654,47 @@ mirrors and source revisions for recovery until a republication grant is establi
 
 ## `tocfl_cert`
 
-Use official TOCFL paper and mock-test banks while preserving whether material has a stable event identity. Rolling mock resources must not receive synthetic current-year identities.
+Keep the rolling TOCFL question bank separate from administered sittings and
+reference vocabulary. The [native resource evidence](../../catalog/mappings/tocfl/native-materials-v1.json)
+binds each URL and full payload checksum to its official band, skill, unit,
+writing-script applicability and file role. Bands cover paired proficiency
+outcomes; skills are not selection stages. Novice retains TOCFL's own levels
+and must not inherit another programme's CEFR band.
+
+Traditional and simplified questions have separate publication identities.
+Their common answer workbooks, listening audio and transcripts retain explicit
+applicability to both scripts and can share verified mirror bytes. Preserve
+native workbook coordinates: a prompt can have several answers and separate
+audio segments. An empty answer cell is not an answer, and a question document
+count is not a question count. Native E/F choices in paragraph completion are
+valid source choices.
+
+The instruction RARs contain reference examples and retain their original
+bytes as attachments outside generated paper ZIPs. Native Novice instruction
+folders include trailing spaces, so preserving those originals does not claim
+their internal paths meet the project's portable publication policy. The
+vocabulary ZIP and spreadsheets are references too. CCCC vocabulary belongs to
+the separate children's certification programme and does not establish adult
+TOCFL band identities.
+
+Stable resource-group IDs replace filename/current-year groupings. The retained
+acquisition partition is a storage key. Project only an explicitly printed
+material date; bank update statements, filenames and Office/archive timestamps
+do not date every file. The native catalogue records companion-file gaps and
+the unresolved disagreement between the landing-page total and workbook
+answers. Preserve the complete official packages without inventing missing
+questions or silently dropping unmatched answers.
+
+Unknown links, changed headings and changed payloads require native review.
+Sync refreshes payloads even when a retained file has a valid checksum: cached
+validity does not prove that a rolling source URL still serves those bytes.
+Earlier original source dictionaries remain unchanged in the revision journal;
+independent native history views correct their interpretation. Retained unique
+older payloads without complete source dictionaries remain explicitly unresolved
+in the source manifest. Keep their bytes and original locators without assigning
+URLs, examination years or paper identities from filenames. Routine duplicate
+cleanup preserves them. The copyright/redistribution hold and existing durable
+backup policy remain separate from acquisition correctness.
 
 ## `tqc_cert`
 

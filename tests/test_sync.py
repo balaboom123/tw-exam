@@ -33,6 +33,20 @@ def corrupt_zip_payload() -> bytes:
 
 
 class ZipPayloadValidationTests(unittest.TestCase):
+    def test_instruction_and_transcript_packages_keep_their_native_format(self) -> None:
+        for role in ("instructions", "listening_transcript"):
+            with self.subTest(role=role):
+                self.assertEqual(
+                    _validated_extension(role, b"Rar!\x1a\x07\x00native fixture", "application/vnd.rar", "download.rar"),
+                    ".rar",
+                )
+                with self.assertRaisesRegex(RuntimeError, "container is not supported"):
+                    _validated_extension(role, zip_payload(), "application/zip", "download.zip")
+                with self.assertRaises(RuntimeError):
+                    _validated_extension(role, b"<html>error</html>", "application/vnd.rar", "download.rar")
+                with self.assertRaisesRegex(RuntimeError, "Invalid ZIP container"):
+                    _validated_extension(role, corrupt_zip_payload(), "application/zip", "download.zip")
+
     def test_source_archive_accepts_only_a_readable_zip(self) -> None:
         self.assertEqual(
             _validated_extension("source_archive", zip_payload(), "application/zip", "download"),

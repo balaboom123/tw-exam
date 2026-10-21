@@ -27,6 +27,7 @@ from app.providers.sfi_cert.evidence import native_papers_path as sfi_native_pap
 from app.providers.ipas_cert.evidence import native_documents_path as ipas_native_documents_path, validate_native_documents as validate_ipas_native_documents
 from app.providers.tabf_cert.evidence import native_papers_path as tabf_native_papers_path, validate_native_papers as validate_tabf_native_papers
 from app.providers.taigi_cert.evidence import native_materials_path as taigi_native_materials_path, validate_native_resources as validate_taigi_native_resources
+from app.providers.tocfl_cert.evidence import native_materials_path as tocfl_native_materials_path, validate_native_resources as validate_tocfl_native_resources
 from app.providers.teacher_qual.archive import (
     native_archive_path as teacher_native_archive_path,
     validate_native_archives as validate_teacher_native_archives,
@@ -120,6 +121,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (ipas_native_documents_path(repo_root), "ipas-native-documents-v1.schema.json"),
         (tabf_native_papers_path(repo_root), "tabf-native-papers-v1.schema.json"),
         (taigi_native_materials_path(repo_root), "taigi-native-materials-v1.schema.json"),
+        (tocfl_native_materials_path(repo_root), "tocfl-native-materials-v1.schema.json"),
         (teacher_native_archive_path(repo_root), "teacher-qual-archive-papers-v1.schema.json"),
         (reference_revision_evidence_path(repo_root), "source-revision-reference-v1.schema.json"),
     )
@@ -138,6 +140,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_ipas_native_documents(repo_root)
     validate_tabf_native_papers(repo_root)
     validate_taigi_native_resources(repo_root)
+    validate_tocfl_native_resources(repo_root)
     validate_teacher_native_archives(repo_root)
     validate_reference_revision_evidence(repo_root)
 

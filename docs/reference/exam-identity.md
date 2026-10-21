@@ -169,6 +169,16 @@ conflicting form remains in review; it does not mean that proficiency is
 inapplicable. Resolving this dimension does not establish a date or turn sample
 material into administered exam papers.
 
+TOCFL bank identities likewise distinguish native proficiency bands from their
+paired score outcomes. Its Novice system is separate from CEFR A1–A2. Exact
+[native resource facts](../../catalog/mappings/tocfl/native-materials-v1.json)
+bind band, skill, role, script applicability and source-material facts to each
+URL/checksum. Traditional and simplified questions remain separate variants;
+common answer workbooks, audio and transcripts apply to both. Vocabulary and
+instruction originals remain reference attachments, including the distinct
+CCCC children's programme. A rolling collection update and a capture/storage
+partition do not create administered examination years.
+
 Transport recruitment and transport promotion have different meanings. Railway,
 highway, and port recruitment remain separate programmes even when one source
 event also hosts police, aviation, or patent-exam papers. Recruitment uses the

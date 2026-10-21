@@ -169,7 +169,7 @@ class ProviderHttpTests(unittest.TestCase):
     def test_migrated_clients_preserve_request_methods_headers_and_filenames(self) -> None:
         url = "https://example.test/files/question%20paper.pdf"
         for client_type in (
-            SfiCertClient, CeecGsatClient, TcteTveClient, TocflCertClient,
+            SfiCertClient, CeecGsatClient, TcteTveClient,
             PostRecruitClient, SpecialAdmissionClient,
         ):
             with self.subTest(client=client_type.__name__):
@@ -196,6 +196,29 @@ class ProviderHttpTests(unittest.TestCase):
                     self.assertEqual(downloaded.file_name, "01.pdf" if client_type is SfiCertClient else "question paper.pdf")
                     self.assertEqual(downloaded.data, b"pdf")
                     self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
+
+    def test_tocfl_transport_preserves_native_filename_and_verifies_reviewed_bytes(self) -> None:
+        from app.providers.tocfl_cert.evidence import current_resources
+
+        original = next(r for r in current_resources() if r.payload_format == "pdf")
+        body = b"%PDF-1.7 native transport fixture"
+        reviewed = replace(original, checksum=hashlib.sha256(body).hexdigest(), bytes=len(body))
+        client = TocflCertClient()
+        with patch("app.providers.http.urlopen", return_value=Response(b"page")) as open_url:
+            self.assertEqual(client._fetch_text("https://tocfl.edu.tw/tocfl/index.php/exam/download"), "page")
+            self.assertEqual(open_url.call_args.args[0].get_method(), "GET")
+            self.assertIn("mirror/1.0", open_url.call_args.args[0].get_header("User-agent"))
+            self.assertEqual(open_url.call_args.kwargs["timeout"], 60)
+        with patch("app.providers.tocfl_cert.client.current_resources", return_value=(reviewed,)):
+            with patch("app.providers.http.urlopen", return_value=Response(b"", headers={"Content-Length": "12"})) as open_url:
+                self.assertEqual(client.head(reviewed.source_url).content_length, 12)
+                self.assertEqual(open_url.call_args.args[0].get_method(), "HEAD")
+            response = Response(body, headers={"Content-Type": "application/pdf", "Content-Disposition": 'attachment; filename="wrong.pdf"'})
+            with patch("app.providers.http.urlopen", return_value=response) as open_url:
+                payload = client.download_file(reviewed.source_url)
+                self.assertEqual(payload.data, body)
+                self.assertEqual(payload.file_name, "8000_description_202204.pdf")
+                self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
 
     def test_tabf_transport_preserves_headers_and_native_filename_with_reviewed_bytes(self) -> None:
         from app.providers.tabf_cert.evidence import NativeEvidence, native_evidence

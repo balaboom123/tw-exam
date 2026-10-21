@@ -98,8 +98,8 @@
     {
       "provider_id": "tocfl_cert",
       "site_id": "default",
-      "status": "wrong_identity",
-      "reason": "92 of 95 published assets come from a rolling mock-test bank with no stable year, but are published under an unsupported synthetic 2026 process-year identity.",
+      "status": "redistribution_unresolved",
+      "reason": "Native TOCFL band/script/unit/role and rolling-material identities are corrected with exact URL/checksum evidence. CCCC vocabulary and instruction originals are retained separately; unique older payloads and source companion/count gaps remain explicit. The source limits learning materials to non-commercial use and reserves copyright; no blanket GitHub redistribution grant was established. Keep publication withheld and the existing backup policy unchanged.",
       "evidence_path": "data/providers/tocfl_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#tocfl_cert",
       "review_by": "2026-12-01"

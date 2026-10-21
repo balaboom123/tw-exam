@@ -1626,10 +1626,10 @@
     },
     {
       "available_years": {
-        "end_ad": 2025,
         "mode": "observed_range",
-        "note": "Reference filenames identify 2022/2024; the rolling mock bank declares an October 2025 update, not an AD 2026 exam year",
-        "start_ad": 2022
+        "start_ad": 2022,
+        "end_ad": 2022,
+        "note": "Only the adjustment PDF explicitly prints a 2022 publication date. Rolling-bank materials, instruction originals and vocabulary workbooks/ZIP remain undated; the September 2026 bank update is not an examination or per-file publication date."
       },
       "discovery_snapshot": {
         "coverage": "partial",
@@ -1637,17 +1637,16 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#tocfl_cert"
+        "docs/providers/notes.md#tocfl_cert",
+        "catalog/mappings/tocfl/native-materials-v1.json"
       ],
-      "exam_category": "TOCFL reference and official mock-test question/audio/answer/script materials",
+      "exam_category": "TOCFL rolling bank by native proficiency band and writing script; separate TOCFL/CCCC reference vocabulary",
       "local_state": {
-        "normalized_paper_records": 95,
-        "raw_event_pages": 3,
+        "normalized_paper_records": 132,
+        "raw_event_pages": 6,
         "sync_failures": 0
       },
       "local_years": [
-        2022,
-        2024,
         2026
       ],
       "official_source_urls": [
@@ -1656,13 +1655,15 @@
       ],
       "provider_id": "tocfl_cert",
       "restrictions": [
-        "This is not a complete archive of every administered TOCFL exam; it is a reference and rolling mock-bank scope.",
-        "The official page dates the 2,138-question rolling bank to an October 2025 update, but the adapter assigns synthetic AD 2026 identity to all 92 mock assets.",
+        "The declared scope is the currently linked rolling bank and reference vocabulary; it is not a complete archive of administered TOCFL or CCCC sittings.",
+        "Native reference-only instruction archives remain outside paper downloads. The Novice original has nonportable trailing-space folders; original bytes are preserved.",
+        "The native bank has missing question/transcript companions and an unresolved landing-page/workbook question-total discrepancy; preserve all source originals and unmatched answer rows.",
+        "Earlier unique retained payloads without complete original source dictionaries remain preserved and unresolved in the source manifest.",
         "TOCFL limits the mock materials to learning/non-commercial use and reserves copyright; no blanket GitHub redistribution grant was established."
       ],
       "source_name": "國家華語測驗推動工作委員會",
       "status": "partial",
-      "status_reason": "Partial / all 95 current URLs retained, but 92 rolling-bank assets use unsupported synthetic 2026 identity and redistribution is unresolved"
+      "status_reason": "Partial: current native band/script/unit/role/date and source-format boundaries are reviewed and corrected. Retain unique earlier payloads, source companion gaps and unresolved question totals. Historical completeness and redistribution remain unresolved."
     },
     {
       "available_years": {
