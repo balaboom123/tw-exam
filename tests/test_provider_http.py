@@ -152,8 +152,9 @@ class ProviderHttpTests(unittest.TestCase):
         ):
             with self.subTest(client=client_type.__name__):
                 client = client_type()
+                source_url = "https://examweb.sfi.org.tw/Download/01/01.pdf" if client_type is SfiCertClient else url
                 with patch("app.providers.http.urlopen", return_value=Response(b"hello")) as open_url:
-                    self.assertEqual(client._fetch_text(url), "hello")
+                    self.assertEqual(client._fetch_text(source_url), "hello")
                     request = open_url.call_args.args[0]
                     self.assertEqual(request.get_method(), "GET")
                     self.assertIn("mirror/1.0", request.get_header("User-agent"))
@@ -161,7 +162,7 @@ class ProviderHttpTests(unittest.TestCase):
 
                 head_response = Response(b"", headers={"Content-Length": "12"})
                 with patch("app.providers.http.urlopen", return_value=head_response) as open_url:
-                    self.assertEqual(client.head(url).content_length, 12)
+                    self.assertEqual(client.head(source_url).content_length, 12)
                     self.assertEqual(open_url.call_args.args[0].get_method(), "HEAD")
 
                 download_response = Response(b"pdf", headers={
@@ -169,8 +170,8 @@ class ProviderHttpTests(unittest.TestCase):
                     "Content-Disposition": 'attachment; filename="other.pdf"',
                 })
                 with patch("app.providers.http.urlopen", return_value=download_response) as open_url:
-                    downloaded = client.download_file(url)
-                    self.assertEqual(downloaded.file_name, "question paper.pdf")
+                    downloaded = client.download_file(source_url)
+                    self.assertEqual(downloaded.file_name, "01.pdf" if client_type is SfiCertClient else "question paper.pdf")
                     self.assertEqual(downloaded.data, b"pdf")
                     self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
 

@@ -12,6 +12,7 @@ from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
 from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
+from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
 from app.source_material import SourceMaterial
@@ -74,22 +75,6 @@ _SOE_CANONICAL_MAP = {
 }
 
 _FINANCIAL_CERT_CANONICAL_MAP = {
-    # SFI (證基會) certifications
-    "sfi-cert-securities-dealer-": ("sfi-securities-dealer", "證券商業務員"),
-    "sfi-cert-senior-securities-dealer-": ("sfi-senior-securities-dealer", "證券商高級業務員"),
-    "sfi-cert-futures-dealer-": ("sfi-futures-dealer", "期貨商業務員"),
-    "sfi-cert-securities-analyst-": ("sfi-securities-analyst", "證券投資分析人員"),
-    "sfi-cert-sitca-": ("sfi-sitca", "投信投顧業務員"),
-    "sfi-cert-corporate-internal-control-": (
-        "sfi-corporate-internal-control",
-        "企業內部控制基本能力測驗",
-    ),
-    "sfi-cert-bills-dealer-": ("sfi-bills-dealer", "票券商業務人員"),
-    "sfi-cert-stock-affairs-": ("sfi-stock-affairs", "股務人員"),
-    "sfi-cert-asset-securitization-": ("sfi-asset-securitization", "資產證券化基本能力測驗"),
-    "sfi-cert-business-ethics-": ("sfi-business-ethics", "工商倫理測驗"),
-    "sfi-cert-aml-": ("sfi-aml", "防制洗錢與打擊資恐專業人員測驗"),
-    "sfi-cert-sustainability-": ("sfi-sustainability", "永續發展基礎能力測驗"),
     # TABF (金融研訓院) certifications
     "tabf-cert-bank-internal-control-": ("tabf-bank-internal-control", "銀行內部控制與內部稽核"),
     "tabf-cert-trust-business-": ("tabf-trust-business", "信託業務人員"),
@@ -250,6 +235,10 @@ def _derive_canonical(
     for prefix, (canonical_id, canonical_name) in _SOE_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):
             return canonical_id, canonical_name, canonical_name, False
+    sfi_canonical = sfi_canonical_for_event(source_exam_id)
+    if sfi_canonical is not None:
+        canonical_id, canonical_name = sfi_canonical
+        return canonical_id, canonical_name, canonical_name, False
     for prefix, (canonical_id, canonical_name) in _FINANCIAL_CERT_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):
             return canonical_id, canonical_name, canonical_name, False

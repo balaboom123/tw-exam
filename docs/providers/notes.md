@@ -352,7 +352,38 @@ source spelling.
 
 ## `sfi_cert`
 
-Use official SFI category and event pages, with embedded paper headings as identity evidence when adapter labels conflict. A reachable PDF is not publishable until its official category and event agree.
+Use the native table label and the PDF's own programme, year, round and regional
+form. Download numerals are resource codes, and the seasonal folders are mutable
+slots. The page-wide recent-round headings do not establish every linked PDF's
+event. Reviewed native facts bind each assignment to exact PDF checksums;
+unfamiliar replacement bytes require a new native review before discovery can
+assign an examination event. The client pins those reviewed responses for the
+remainder of its sync so a slot change cannot substitute another sitting.
+
+These are distinct qualification and ability programmes, rather than one common
+grade ladder. Keep 高級 within its official programme name, and distinguish 乙科
+from a certification grade. The current
+[written-test rules](https://www.sfi.org.tw/Node?id=216) distinguish candidate
+routes with different subject counts. The official 投信投顧 download combines
+those routes in one original PDF; retain that collection scope without making
+copies for each route or merging it into the separate law-only programme.
+Sections within a paper are not successive selection stages. The 高雄考區
+paper has its own native context and content variant.
+
+Preserve each original combined PDF and expose its native subject headings.
+Answer files contain the source's selected-choice answers; their availability
+does not establish full worked solutions. Earlier payloads from reused URLs keep
+their actual native events even after leaving the current rolling listing.
+Keep the former wrong assignments in immutable source history, and preserve
+their verified bytes before retiring redundant mirror locators. Earlier sync
+receipts for those wrong assignments cannot credit the corrected events.
+
+The current listing, retained native PDF generations and current programme rules
+were checked on 2026-10-20/21. This establishes the recorded native contexts,
+not complete historical annual eligibility rules or a visual review of every
+paper body. The source remains a rolling archive with a historical coverage
+limit. The recorded intellectual-property notice does not establish permission
+for archive republication; keep site ZIP publication quarantined.
 
 ## `special_admission`
 

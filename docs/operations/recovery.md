@@ -52,6 +52,28 @@ locators from their exact blobs, then write the saved earlier source state throu
 the same writer. A plain generated-state revert would lose newer retained
 evidence. Keep unresolved identity review and publication quarantine throughout.
 
+## Review an unfamiliar SFI PDF
+
+SFI reuses seasonal download slots, and some programmes follow a different
+round calendar from the page heading. An unfamiliar PDF must not receive an
+exam year or programme identity from that slot. Capture a new review directory:
+
+```bash
+uv run python scripts/capture_sfi_review.py --output-dir .tmp/sfi-native-review
+```
+
+The capture saves exact PDFs, the native table, checksums and a review report.
+With `pdftotext` installed, it also saves text for inspecting document and
+subject headings. It does not write provider state or the reviewed catalog.
+Keep the capture private while the source publication hold applies.
+
+Inspect both question and answer headings, their actual year/round, programme,
+regional form and combined subjects before extending the native evidence under
+`catalog/mappings/sfi/`. Preserve existing facts for earlier bytes. A changed
+answer key may need its own correction-role review. Run schema validation and
+normal sync after reviewing the new facts, then audit retained history. The
+provider's existing backup and publication policies still apply independently.
+
 ## Durable provider mirror backup
 
 `.github/scripts/mirror_snapshots.py` stores provider payloads in public prereleases

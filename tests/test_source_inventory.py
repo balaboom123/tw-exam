@@ -551,60 +551,35 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertIn("conflicts", native["remaining"])
         self.assertIn("Fifteen ZIP/RAR", current["role_correction"])
 
-    def test_sfi_manifest_exposes_wrong_identity_publication(self) -> None:
-        manifest = json.loads(
-            (ROOT / "data/providers/sfi_cert/source-manifest.json").read_text(
-                encoding="utf-8"
-            )
-        )
-
+    def test_sfi_manifest_matches_native_events_and_conserves_earlier_papers(self) -> None:
+        from app.paths import provider_paths
+        from app.state import load_provider_state
+        from app.source_revisions import load_source_revisions
+        from app.providers.sfi_cert.evidence import validate_native_papers
+        provider = provider_paths(ROOT, "sfi_cert")
+        manifest = json.loads(provider.source_manifest_path.read_text(encoding="utf-8"))
         self.assertEqual(sorted(map(int, manifest["years"])), [2024, 2025, 2026])
-        self.assertEqual(len(manifest["exams"]), 25)
-        self.assertEqual(len(manifest["files"]), 50)
-        self.assertEqual(
-            sum(item["bytes"] for item in manifest["files"].values()),
-            11_406_623,
-        )
+        self.assertEqual(len(manifest["exams"]), 32)
+        self.assertEqual(len(manifest["files"]), 64)
         policy = manifest["probe_policy"]
         self.assertEqual(policy["coverage_status"], "partial")
         self.assertEqual(policy["official_row_count"], 13)
         self.assertEqual(policy["official_event_count"], 25)
         self.assertEqual(policy["official_file_count"], 50)
-        self.assertEqual(
-            policy["adapter_gap"]["unrecognized_official_codes"],
-            ["04", "34", "36", "53", "99"],
-        )
-        retained = policy["retained_local_state"]
-        self.assertEqual(retained["mirrors_present_and_checksum_valid"], 30)
-        self.assertEqual(retained["retained_files_under_wrong_identity"], 30)
-        self.assertEqual(retained["retained_files_under_correct_identity"], 0)
-        self.assertEqual(len(retained["source_only_events"]), 13)
-        self.assertEqual(
-            retained["local_only_events"],
-            [
-                ["sfi-cert-aml-2025-3", 2025],
-                ["sfi-cert-aml-2026-1", 2026],
-                ["sfi-cert-sustainability-2026-1", 2026],
-            ],
-        )
-        self.assertEqual(
-            sum(
-                item["status"] == "retained_under_wrong_identity"
-                for item in manifest["files"].values()
-            ),
-            30,
-        )
-        self.assertEqual(
-            sum(
-                item["status"] == "source_only"
-                for item in manifest["files"].values()
-            ),
-            20,
-        )
-        self.assertEqual(
-            policy["publication_risk"]["published_files_under_wrong_identity"],
-            30,
-        )
+        self.assertEqual(policy["retained_native_events"], 32)
+        self.assertEqual(policy["retained_native_paper_references"], 64)
+        self.assertEqual(policy["retained_older_native_PDFs"], 14)
+        self.assertEqual(policy["current_programmes"], 12)
+        self.assertEqual(policy["current_native_roles"], {"question": 32, "answer": 32})
+        self.assertEqual(len(policy["retained_historical_event_ids"]), 7)
+        pages, catalog, failures = load_provider_state(provider)
+        self.assertEqual((len(pages), len(catalog.papers), len(failures)), (32, 64, 0))
+        self.assertEqual(len(load_source_revisions(provider)), 46)
+        self.assertEqual(validate_native_papers(ROOT), 64)
+        self.assertEqual(len({p.bundle_id for p in catalog.papers}), 13)
+        self.assertEqual({p.source_material.date.basis for p in catalog.papers}, {"exam_year"})
+        self.assertEqual(sum(r["status"] == "verified_retained_earlier_native_payload" for r in manifest["files"].values()), 14)
+        self.assertNotIn("publication_risk", policy)
 
     def test_twc_manifest_records_exact_archive_and_source_defects(self) -> None:
         manifest = json.loads(

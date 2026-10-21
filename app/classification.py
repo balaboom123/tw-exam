@@ -20,6 +20,7 @@ from typing import Any
 from app.hakka_identity import hakka_conflict_reason, hakka_dialect, hakka_level
 from app.moex_identity_evidence import resolve_moex_category_identity
 from app.providers.gept_cert.identity import category_identity as gept_category_identity
+from app.providers.sfi_cert.evidence import native_context as sfi_native_context
 from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
@@ -1760,6 +1761,23 @@ def _classify_paper_uncached(
             level_id, level_label, variant_pairs = gept_context
             confidence = "high"
             reason = f"official GEPT source level and practice-set context: {category_code}"
+    if provider_id == "sfi_cert" and category_code:
+        sfi_context = sfi_native_context(source_exam_id, year_ad, category_code, source_checksum)
+        material_agrees = source_material is None or (
+            sfi_context is not None
+            and source_material.kind == "administered"
+            and source_material.date == sfi_context.material.date
+        )
+        if sfi_context is None or not material_agrees:
+            track_id, track_label = "sfi-unresolved", "證基會測驗（待確認）"
+            variant_pairs = ()
+            confidence = "review"
+            reason = "SFI programme/event lacks matching native PDF evidence"
+        else:
+            track_id, track_label = sfi_context.programme.canonical_id, sfi_context.programme.label
+            variant_pairs = sfi_context.variants
+            confidence = "high"
+            reason = f"reviewed SFI native programme, event and paper context: {sfi_context.id}"
     if provider_id == "teacher_qual" and category_code != str(year_ad - 1911):
         selection = re.fullmatch(rf"{year_ad - 1911}-(\d+)", category_code)
         context_matches = re.fullmatch(rf"teacher-qual-{year_ad - 1911}(?:-[12])?", source_exam_id)
@@ -1970,6 +1988,8 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
+        if provider_id == "sfi_cert":
+            bundle_name = track_label
         if provider_id in {"tqc_cert", "hakka_cert", "gept_cert"}:
             bundle_name = series_label
         if provider_id == "cpc_recruit" and track_id == "cpc-doctoral":
@@ -1999,7 +2019,7 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
-        if provider_id in {"tqc_cert", "hakka_cert", "teacher_qual", "gept_cert"}:
+        if provider_id in {"tqc_cert", "hakka_cert", "teacher_qual", "gept_cert", "sfi_cert"}:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:
                     bundle_name += f"｜{label}"

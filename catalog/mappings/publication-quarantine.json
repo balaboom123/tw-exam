@@ -62,11 +62,11 @@
     {
       "provider_id": "sfi_cert",
       "site_id": "default",
-      "status": "wrong_identity",
-      "reason": "All 30 retained and published files are assigned to the wrong official category or event; embedded PDF headings contradict every adapter-derived event identity.",
+      "status": "redistribution_unresolved",
+      "reason": "Native programme, event years/rounds, regional form, combined subject-route scope and file roles are corrected, with earlier unique PDFs and exact original source records conserved. The official intellectual-property notice does not establish a licence for this public archive to redistribute the exam PDFs. Keep site ZIP publication withheld.",
       "evidence_path": "data/providers/sfi_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#sfi_cert",
-      "review_by": "2026-11-01"
+      "review_by": "2026-11-21"
     },
     {
       "provider_id": "tabf_cert",

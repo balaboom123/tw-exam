@@ -250,7 +250,7 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
                 errors.append({"revision_id": entry["id"], "blob_storage_key": key})
             else:
                 verified += 1
-    return {
+    report = {
         "revision_count": len(entries),
         "verified_payload_count": verified,
         "unverified_source_reference_count": unverified,
@@ -260,6 +260,15 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
             entries, repo_root=provider.data_dir.parents[2]
         ),
     }
+    if provider.provider_id == "sfi_cert":
+        from app.providers.sfi_cert.evidence import reviewed_native_revisions
+
+        reviewed = reviewed_native_revisions(entries, provider.data_dir.parents[2])
+        report["reviewed_native_paper_references"] = reviewed
+        report["native_paper_review_unresolved"] = sum(
+            row["record_type"] == "paper" for row in entries
+        ) - len(reviewed)
+    return report
 
 
 def _retain_source_payload(provider: ProviderPaths, record: dict[str, Any]) -> str | None:

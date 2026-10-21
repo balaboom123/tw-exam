@@ -932,7 +932,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "The rolling official page currently exposes PDF-derived events from 2024–2026; it is not a historical archive.",
+        "note": "Native PDF headings establish the current rolling listing’s 2024–2026 event years. Seven earlier events survive in verified retained PDFs; the source is not a complete historical archive.",
         "start_ad": 2024
       },
       "discovery_snapshot": {
@@ -947,11 +947,12 @@
       ],
       "exam_category": "SFI rolling written-test questions and selected answers across every current official row",
       "local_state": {
-        "normalized_paper_records": 30,
-        "raw_event_pages": 15,
+        "normalized_paper_records": 64,
+        "raw_event_pages": 32,
         "sync_failures": 0
       },
       "local_years": [
+        2024,
         2025,
         2026
       ],
@@ -961,12 +962,12 @@
       "provider_id": "sfi_cert",
       "restrictions": [
         "Download/01 and Download/02 are mutable slots; the row label and PDF heading are required for event identity.",
-        "The earlier retained sample contained 30 files attached to incorrect official certification or event identities and omitted 20 official URLs. Retained state remains withheld until source identity is reconciled.",
+        "Current native programme, event, material date and role assignments are corrected. All 46 earlier source records remain immutable recovery evidence, and 14 unique older PDFs remain represented under their actual native events.",
         "SFI or other rights holders claim intellectual-property rights in site files/content; no exam-PDF republication license was found."
       ],
       "source_name": "證券暨期貨市場發展基金會",
       "status": "partial",
-      "status_reason": "Partial / retained identity unresolved: the reviewed 25-event/50-file rolling source snapshot has source-only and synthetic local events. Publication is withheld until retained papers agree with their official certification and event identities."
+      "status_reason": "Partial: every current official row is captured under native PDF programme/year/round/venue evidence, alongside uniquely retained earlier papers. Current listing coverage is complete for the checked snapshot; historical archive completeness and redistribution permission remain unresolved. ZIP publication stays withheld."
     },
     {
       "available_years": {

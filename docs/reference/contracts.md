@@ -104,6 +104,12 @@ checksums support optional byte verification. An unmatched source key, changed
 payload or unresolved material/date fact cannot inherit the reviewed disposition.
 This review does not add a retired reference to the current publication catalog.
 
+SFI native-paper facts can also explain an earlier wrong programme/event
+assignment in the history audit. Exact payload, resource-code and file-role
+evidence supplies the independent native programme, date, round, subject scope
+and regional form. The original journal record and its source provenance remain
+immutable; unresolved revisions are reported separately.
+
 Review queues contain unresolved normalization work and remain provider-scoped unless a site explicitly owns cross-provider canonicalization. Failure rows use the shared model and retain enough event, file, URL, and stage information for machine-readable triage and recovery.
 
 The compact review codec preserves original text, classification signatures, source keys, and row order without reclassifying retained evidence. Empty queues remain empty arrays; readers also accept earlier rich record arrays. Use `review-queue` to expand a ledger without loading papers.

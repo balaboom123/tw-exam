@@ -448,7 +448,7 @@ class RepositoryQuarantineTests(unittest.TestCase):
             "ipas_cert": "2026-11-01",
             "jlpt_cert": "2026-11-01",
             "moea_recruit": "2026-11-01",
-            "sfi_cert": "2026-11-01",
+            "sfi_cert": "2026-11-21",
             "tabf_cert": "2026-11-01",
             "taigi_cert": "2026-11-01",
             "tii_cert": "2026-11-01",

@@ -1,0 +1,1504 @@
+{
+  "schema_version": 1,
+  "provider_id": "sfi_cert",
+  "evidence_url": "https://www.sfi.org.tw/Node?id=217",
+  "facts": [
+    {
+      "id": "sfi-native-07b0ccb24549c9f07277",
+      "checksum": "07b0ccb24549c9f07277c665ac512d916cb61a9a3a22d8caf22912745e0f1315",
+      "category_code": "81",
+      "programme_slug": "sustainability",
+      "year_roc": 114,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/81a.pdf"
+      ],
+      "native_heading": "114年第2次 永續發展基礎能力測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-16cb708da8bfd4d52d15",
+      "checksum": "16cb708da8bfd4d52d1599169a96efdae5434eb2976c008491711715e39fd3c3",
+      "category_code": "53",
+      "programme_slug": "securities-law-practice",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/53a.pdf"
+      ],
+      "native_heading": "115年第1次 證券交易相關法規與實務乙科資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-1823ca0d49ec90200af5",
+      "checksum": "1823ca0d49ec90200af59e992cd1d34a005726e3b75c62ad4aa34f7f03dd1adb",
+      "category_code": "53",
+      "programme_slug": "securities-law-practice",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/53a.pdf"
+      ],
+      "native_heading": "115年第2次 證券交易相關法規與實務乙科資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-1f214d4a3ad78639e075",
+      "checksum": "1f214d4a3ad78639e075df963a9e5a931d3a2a873ae843713e24c70ec1ec9559",
+      "category_code": "36",
+      "programme_slug": "corporate-internal-control",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "企業內部控制理論與實務(含相關法規)"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/36.pdf"
+      ],
+      "native_heading": "115 年第 2 次企業內部控制基本能力測驗試題 專業科目：企業內部控制理論與實務(含相關法規)",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 7
+    },
+    {
+      "id": "sfi-native-22bd33df62c00744b0c7",
+      "checksum": "22bd33df62c00744b0c74f4622ecf79cf00d2749355458936c7bac5e323fddf4",
+      "category_code": "34",
+      "programme_slug": "futures-analyst",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨法規與自律規範",
+        "衍生性商品之風險管理",
+        "期貨、選擇權與其他衍生性商品",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/34.pdf"
+      ],
+      "native_heading": "115 年第 1 次期貨交易分析人員資格測驗試題 專業科目：期貨法規與自律規範",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5,
+        9,
+        12
+      ],
+      "page_count": 15
+    },
+    {
+      "id": "sfi-native-23fd065abf0589df93d6",
+      "checksum": "23fd065abf0589df93d63af2f9b3dee4be7e71dcbc7927ea2a18ba3def4cf9e3",
+      "category_code": "01",
+      "programme_slug": "futures-dealer",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨交易法規",
+        "期貨交易理論與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/01a.pdf"
+      ],
+      "native_heading": "114年第3次 期貨業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-27d7aa259a531647d6d8",
+      "checksum": "27d7aa259a531647d6d86975667b7e30512cc139480d6508888453705bfcf508",
+      "category_code": "34",
+      "programme_slug": "futures-analyst",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨法規與自律規範",
+        "衍生性商品之風險管理",
+        "期貨、選擇權與其他衍生性商品",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/34a.pdf"
+      ],
+      "native_heading": "115年第2次 期貨交易分析人員資格測驗選擇題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-29aab462efa35d3e9b2b",
+      "checksum": "29aab462efa35d3e9b2baccec4fb4ef129b68f157118167d7275e07ba7728e22",
+      "category_code": "40",
+      "programme_slug": "sitca-law",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/40.pdf"
+      ],
+      "native_heading": "114 年第 3 次投信投顧相關法規(含自律規範)乙科資格測驗試題 專業科目：投信投顧相關法規（含自律規範）",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 6
+    },
+    {
+      "id": "sfi-native-2b58b8e936a3b442a5a5",
+      "checksum": "2b58b8e936a3b442a5a599954db6f4083dca39376565bbbfdf88869c4a9eb301",
+      "category_code": "81",
+      "programme_slug": "sustainability",
+      "year_roc": 115,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/81.pdf"
+      ],
+      "native_heading": "115 年第 4 次永續發展基礎能力測驗試題 科目：永續發展基礎能力測驗",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 4
+    },
+    {
+      "id": "sfi-native-2e7885f97b4e8844f0af",
+      "checksum": "2e7885f97b4e8844f0afd714373eb26f66b19e7d82b4a1fbae027b812a70ba4c",
+      "category_code": "02",
+      "programme_slug": "securities-dealer",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務",
+        "證券投資與財務分析"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/02.pdf"
+      ],
+      "native_heading": "115 年第 2 次證券商業務員資格測驗試題 專業科目：證券交易相關法規與實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5
+      ],
+      "page_count": 7
+    },
+    {
+      "id": "sfi-native-314c69e346d90f33d127",
+      "checksum": "314c69e346d90f33d127227846c8c611e05c698664702e97436c776ae58bb05d",
+      "category_code": "34",
+      "programme_slug": "futures-analyst",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨法規與自律規範",
+        "衍生性商品之風險管理",
+        "期貨、選擇權與其他衍生性商品",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/34a.pdf"
+      ],
+      "native_heading": "115年第1次 期貨交易分析人員資格測驗選擇題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-36093a3b6eec1c67e2af",
+      "checksum": "36093a3b6eec1c67e2afb7708faa792f4fce9649710970c8386122d37af12b44",
+      "category_code": "02",
+      "programme_slug": "securities-dealer",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務",
+        "證券投資與財務分析"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/02a.pdf"
+      ],
+      "native_heading": "114年第3次 證券商業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-38d2dc1bd53b09ca0d68",
+      "checksum": "38d2dc1bd53b09ca0d68f5d45a091282b37df8a72d401b2a2b5a0393661c8871",
+      "category_code": "99",
+      "programme_slug": "aml",
+      "year_roc": 113,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/99.pdf"
+      ],
+      "native_heading": "（財）證券暨期貨市場發展基金會辦理 113 年第 4 次防制洗錢與打擊資恐專業人員測驗試題 科目：防制洗錢與打擊資恐法令及實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 7
+    },
+    {
+      "id": "sfi-native-3e409e87a4b45871f92f",
+      "checksum": "3e409e87a4b45871f92f5b2a2ae4f7e403270a2171ca0eb9defd829b3b511bed",
+      "category_code": "06",
+      "programme_slug": "sitca",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）",
+        "證券投資與財務分析",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/06.pdf"
+      ],
+      "native_heading": "115 年第 1 次投信投顧業務員資格測驗試題 專業科目：投信投顧相關法規（含自律規範）",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        6,
+        10
+      ],
+      "page_count": 13
+    },
+    {
+      "id": "sfi-native-43abcff69709284592be",
+      "checksum": "43abcff69709284592bebbbadf4af3194269994ce7787d0fd2c93ff5d69bc3bb",
+      "category_code": "06",
+      "programme_slug": "sitca",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）",
+        "證券投資與財務分析",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/06a.pdf"
+      ],
+      "native_heading": "114年第3次投信投顧業務人員資格測驗(一科、二科及三科)試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-4a9536037a470966c1e5",
+      "checksum": "4a9536037a470966c1e5b2fda2c0f4bd7ce6a074401c054c86a641b2fc234e4a",
+      "category_code": "34",
+      "programme_slug": "futures-analyst",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨法規與自律規範",
+        "衍生性商品之風險管理",
+        "期貨、選擇權與其他衍生性商品",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/34.pdf"
+      ],
+      "native_heading": "115 年第 2 次期貨交易分析人員資格測驗試題 專業科目：期貨法規與自律規範",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        6,
+        10,
+        14
+      ],
+      "page_count": 17
+    },
+    {
+      "id": "sfi-native-4bf0a7920d6401b0ee89",
+      "checksum": "4bf0a7920d6401b0ee8964d7edc5c89de3b49abfd7d1ef859e1dba197096dcd0",
+      "category_code": "04",
+      "programme_slug": "securities-analyst",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務(含投信投顧相關法規及自律規範)",
+        "投資學",
+        "會計及財務分析",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/04a.pdf"
+      ],
+      "native_heading": "115年第2次 證券投資分析人員資格測驗選擇題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-4f0f081cf70fb4e26546",
+      "checksum": "4f0f081cf70fb4e265462b3c214408c99eaeaeb7ad9c45e12eeefcde3084d039",
+      "category_code": "59",
+      "programme_slug": "futures-trust-sales",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨信託法規及自律規範"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/59a.pdf"
+      ],
+      "native_heading": "114年第3次 期貨信託基金銷售機構銷售人員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-552f3042461b2c45676c",
+      "checksum": "552f3042461b2c45676cc2d079efb7a34b0091cbcbb373566559e89739ff09af",
+      "category_code": "40",
+      "programme_slug": "sitca-law",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/40.pdf"
+      ],
+      "native_heading": "115 年第 2 次投信投顧相關法規(含自律規範)乙科資格測驗試題 專業科目：投信投顧相關法規（含自律規範）",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 4
+    },
+    {
+      "id": "sfi-native-5868ca918ddfb4a2e1c6",
+      "checksum": "5868ca918ddfb4a2e1c6c5949b0fe58326419801aebc0df74e98fa983806a8e0",
+      "category_code": "59",
+      "programme_slug": "futures-trust-sales",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨信託法規及自律規範"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/59.pdf"
+      ],
+      "native_heading": "115 年第 1 次期貨信託基金銷售機構銷售人員資格測驗試題 專業科目：期貨信託法規及自律規範",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 6
+    },
+    {
+      "id": "sfi-native-59047ecf198aea5fa18d",
+      "checksum": "59047ecf198aea5fa18d2bea12a8b1d6ac4c60117da32bf91a64dd00545c032a",
+      "category_code": "59",
+      "programme_slug": "futures-trust-sales",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨信託法規及自律規範"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/59a.pdf"
+      ],
+      "native_heading": "115年第1次 期貨信託基金銷售機構銷售人員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-59f9ea94a00c1ac6c76b",
+      "checksum": "59f9ea94a00c1ac6c76bf769457fe5a347bd4fa2266bb089925344d09f2900db",
+      "category_code": "02",
+      "programme_slug": "securities-dealer",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務",
+        "證券投資與財務分析"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/02.pdf"
+      ],
+      "native_heading": "114 年第 3 次證券商業務員資格測驗試題 專業科目：證券交易相關法規與實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5
+      ],
+      "page_count": 8
+    },
+    {
+      "id": "sfi-native-5ade040217723045389f",
+      "checksum": "5ade040217723045389f64fe4e11477c95477200f5f3cb18e99aed2a37a755f5",
+      "category_code": "06",
+      "programme_slug": "sitca",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）",
+        "證券投資與財務分析",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/06a.pdf"
+      ],
+      "native_heading": "115年第1次投信投顧業務人員資格測驗(一科、二科及三科)試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-5f2eabfdeb40af8f0c9b",
+      "checksum": "5f2eabfdeb40af8f0c9b9a33f9a2b7a6c7ae6f08dcc5e32217c9bc00f66f51b0",
+      "category_code": "40",
+      "programme_slug": "sitca-law",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/40.pdf"
+      ],
+      "native_heading": "115 年第 1 次投信投顧相關法規(含自律規範)乙科資格測驗試題 專業科目：投信投顧相關法規（含自律規範）",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 5
+    },
+    {
+      "id": "sfi-native-6ca6856702734dc7795a",
+      "checksum": "6ca6856702734dc7795abe6ed7c76a0df5e4a8ba38c649ba8dc9577f408e0507",
+      "category_code": "40",
+      "programme_slug": "sitca-law",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/40a.pdf"
+      ],
+      "native_heading": "115年第1次 投信投顧相關法規乙科測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-76505acf40041891214c",
+      "checksum": "76505acf40041891214c12151f77905a81c57f7c64e1c7304260676641ad1362",
+      "category_code": "81",
+      "programme_slug": "sustainability",
+      "year_roc": 114,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/81.pdf"
+      ],
+      "native_heading": "114 年第 4 次永續發展基礎能力測驗試題 科目：永續發展基礎能力測驗",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 5
+    },
+    {
+      "id": "sfi-native-77c64648044f3cf8e843",
+      "checksum": "77c64648044f3cf8e843cc7d92624177ade76546aff74ff3c2d02c983ce9f8b9",
+      "category_code": "02",
+      "programme_slug": "securities-dealer",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務",
+        "證券投資與財務分析"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/02a.pdf"
+      ],
+      "native_heading": "115年第1次 證券商業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-783f72f1b046db97f048",
+      "checksum": "783f72f1b046db97f048457fd6e0e0ec69f9afbaf10f949d6f839016c9809345",
+      "category_code": "82",
+      "programme_slug": "sustainability",
+      "year_roc": 114,
+      "round_no": 4,
+      "venue": "kaohsiung",
+      "file_type": "question",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/82.pdf"
+      ],
+      "native_heading": "114 年第 4 次永續發展基礎能力測驗試題 (高雄考區) 科目：永續發展基礎能力測驗",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 5
+    },
+    {
+      "id": "sfi-native-78dccbf3f48037079abd",
+      "checksum": "78dccbf3f48037079abd507ffe90b8372768ee217457ad80b7d281473b7cc6ec",
+      "category_code": "40",
+      "programme_slug": "sitca-law",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/40a.pdf"
+      ],
+      "native_heading": "114年第3次 投信投顧相關法規乙科測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-7a549ef045f49ebdc749",
+      "checksum": "7a549ef045f49ebdc74920b240dcfb6bf7cb4bea913f9d768ce3aca59ce75e83",
+      "category_code": "03",
+      "programme_slug": "senior-securities-dealer",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券投資與財務分析－試卷「投資學」",
+        "證券投資與財務分析－試卷「財務分析」",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/03.pdf"
+      ],
+      "native_heading": "115 年第 2 次證券商高級業務員資格測驗試題 專業科目：證券投資與財務分析－試卷「投資學」",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5,
+        9
+      ],
+      "page_count": 12
+    },
+    {
+      "id": "sfi-native-7c24ba063844cad1ae67",
+      "checksum": "7c24ba063844cad1ae674f38329ac0f498aa969c1f53c482044a5d8ed14c126a",
+      "category_code": "01",
+      "programme_slug": "futures-dealer",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨交易法規",
+        "期貨交易理論與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/01a.pdf"
+      ],
+      "native_heading": "115年第2次期貨業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-7df808ff163798af1b5f",
+      "checksum": "7df808ff163798af1b5f622d8c70cab0e867d22a3e8ac71f9f2d86c5e6cb3a6d",
+      "category_code": "40",
+      "programme_slug": "sitca-law",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/40a.pdf"
+      ],
+      "native_heading": "115年第2次 投信投顧相關法規乙科測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-7e3f9f4acf20dbfe3f7b",
+      "checksum": "7e3f9f4acf20dbfe3f7bc11b365c11e021c8dd7643ef87ec0d8b77d79a61286f",
+      "category_code": "03",
+      "programme_slug": "senior-securities-dealer",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券投資與財務分析－試卷「投資學」",
+        "證券投資與財務分析－試卷「財務分析」",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/03a.pdf"
+      ],
+      "native_heading": "115年第2次 證券商高級業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-7ea80fc94976b3dab687",
+      "checksum": "7ea80fc94976b3dab68717070a12880426bcacbfbf112b948f2103c946e6a073",
+      "category_code": "01",
+      "programme_slug": "futures-dealer",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨交易法規",
+        "期貨交易理論與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/01.pdf"
+      ],
+      "native_heading": "114 年第 3 次期貨商業務員資格測驗試題 專業科目：期貨交易法規",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        7
+      ],
+      "page_count": 10
+    },
+    {
+      "id": "sfi-native-8a3a936785cbf8e025a4",
+      "checksum": "8a3a936785cbf8e025a406f3f87f7ddebb64f55c78ebd81090f2daae4c223312",
+      "category_code": "03",
+      "programme_slug": "senior-securities-dealer",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券投資與財務分析－試卷「投資學」",
+        "證券投資與財務分析－試卷「財務分析」",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/03a.pdf"
+      ],
+      "native_heading": "115年第1次 證券商高級業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-8f2cc8642f6b2e6952b1",
+      "checksum": "8f2cc8642f6b2e6952b1bc7aef05a8e35d3dfb671b97d3aa470743ddc29d4090",
+      "category_code": "53",
+      "programme_slug": "securities-law-practice",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/53.pdf"
+      ],
+      "native_heading": "115 年第 2 次證券交易相關法規與實務乙科資格測驗試題 專業科目：證券交易相關法規與實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 4
+    },
+    {
+      "id": "sfi-native-923782e96e443e07733f",
+      "checksum": "923782e96e443e07733ff37b1b1fd8f158661feb59f1b691174af33fd9ae60d7",
+      "category_code": "81",
+      "programme_slug": "sustainability",
+      "year_roc": 115,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/81a.pdf"
+      ],
+      "native_heading": "115年第4次 永續發展基礎能力測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-93d7d9d35c2ab1f66e3e",
+      "checksum": "93d7d9d35c2ab1f66e3e876c61a36e0c50e4dddcaeb4e08196759fe40100956e",
+      "category_code": "04",
+      "programme_slug": "securities-analyst",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務(含投信投顧相關法規及自律規範)",
+        "投資學",
+        "會計及財務分析",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/04.pdf"
+      ],
+      "native_heading": "115 年第 1 次證券投資分析人員資格測驗試題 專業科目：證券交易相關法規與實務(含投信投顧相關法規及自律規範)",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        8,
+        12
+      ],
+      "page_count": 15
+    },
+    {
+      "id": "sfi-native-95a336c0c0a445bc3b43",
+      "checksum": "95a336c0c0a445bc3b433400b2edbdab78effabf1dc4610728f01df19885c9e9",
+      "category_code": "99",
+      "programme_slug": "aml",
+      "year_roc": 114,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/99.pdf"
+      ],
+      "native_heading": "（財）證券暨期貨市場發展基金會辦理 114 年第 4 次防制洗錢與打擊資恐專業人員測驗試題 科目：防制洗錢與打擊資恐法令及實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 7
+    },
+    {
+      "id": "sfi-native-96265aa8b4d2342dc898",
+      "checksum": "96265aa8b4d2342dc898a1e9e6a491fa1a91d31bdc54e8383b3b245dd6fef5b2",
+      "category_code": "02",
+      "programme_slug": "securities-dealer",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務",
+        "證券投資與財務分析"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/02.pdf"
+      ],
+      "native_heading": "115 年第 1 次證券商業務員資格測驗試題 專業科目：證券交易相關法規與實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5
+      ],
+      "page_count": 8
+    },
+    {
+      "id": "sfi-native-9d45c78b061ad765a176",
+      "checksum": "9d45c78b061ad765a17675ad64818784dbcd5eab444e54ec70d0a66d27e53729",
+      "category_code": "59",
+      "programme_slug": "futures-trust-sales",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨信託法規及自律規範"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/59.pdf"
+      ],
+      "native_heading": "114 年第 3 次期貨信託基金銷售機構銷售人員資格測驗試題 專業科目：期貨信託法規及自律規範",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 6
+    },
+    {
+      "id": "sfi-native-9e57fef49bacfe1423b3",
+      "checksum": "9e57fef49bacfe1423b3bf59918ce684e57e9f00f8b1b6908d59bcf636bc1e44",
+      "category_code": "36",
+      "programme_slug": "corporate-internal-control",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "企業內部控制理論與實務(含相關法規)"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/36a.pdf"
+      ],
+      "native_heading": "115年第2次 企業內部控制基本能力測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-a26f16ba7ed78fe896ee",
+      "checksum": "a26f16ba7ed78fe896eed5c47e38c2ebd52392e14840c1c21d4f254f8cc9f451",
+      "category_code": "04",
+      "programme_slug": "securities-analyst",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務(含投信投顧相關法規及自律規範)",
+        "投資學",
+        "會計及財務分析",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/04.pdf"
+      ],
+      "native_heading": "115 年第 2 次證券投資分析人員資格測驗試題 專業科目：證券交易相關法規與實務(含投信投顧相關法規及自律規範)",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5,
+        9,
+        13
+      ],
+      "page_count": 16
+    },
+    {
+      "id": "sfi-native-b10dd120838f6a76a4c5",
+      "checksum": "b10dd120838f6a76a4c55ddbb7bd153630e6eaf72367c843845cabb2de4b61b4",
+      "category_code": "06",
+      "programme_slug": "sitca",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）",
+        "證券投資與財務分析",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/06.pdf"
+      ],
+      "native_heading": "115 年第 2 次投信投顧業務員資格測驗試題 專業科目：投信投顧相關法規（含自律規範）",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5,
+        9
+      ],
+      "page_count": 12
+    },
+    {
+      "id": "sfi-native-b1d692882a97f0736365",
+      "checksum": "b1d692882a97f0736365e339a16e46390711370e108bbd92b93ae742b10ed336",
+      "category_code": "03",
+      "programme_slug": "senior-securities-dealer",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券投資與財務分析－試卷「投資學」",
+        "證券投資與財務分析－試卷「財務分析」",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/03.pdf"
+      ],
+      "native_heading": "114 年第 3 次證券商高級業務員資格測驗試題 專業科目：證券投資與財務分析－試卷「投資學」",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5,
+        9
+      ],
+      "page_count": 12
+    },
+    {
+      "id": "sfi-native-b3792f1af33974a8b4ba",
+      "checksum": "b3792f1af33974a8b4ba29c0f518385f4a1cf936c4118c81b2ac430b5377d715",
+      "category_code": "06",
+      "programme_slug": "sitca",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）",
+        "證券投資與財務分析",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/06a.pdf"
+      ],
+      "native_heading": "115年第2次投信投顧業務人員資格測驗(一科、二科及三科)試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-b37e8746ad845fe52d83",
+      "checksum": "b37e8746ad845fe52d836ef3a1f3ae4f520c4dea3d7f9e7cd4b409ebd51cca0a",
+      "category_code": "01",
+      "programme_slug": "futures-dealer",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨交易法規",
+        "期貨交易理論與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/01a.pdf"
+      ],
+      "native_heading": "115年第1次期貨業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-b6093f191b317a3a52bd",
+      "checksum": "b6093f191b317a3a52bd8ec19c95c370b2ead44734cae7960428bcc416f7960e",
+      "category_code": "03",
+      "programme_slug": "senior-securities-dealer",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券投資與財務分析－試卷「投資學」",
+        "證券投資與財務分析－試卷「財務分析」",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/03a.pdf"
+      ],
+      "native_heading": "114年第3次 證券商高級業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-b666d71d8c64fcb95b73",
+      "checksum": "b666d71d8c64fcb95b73e64bc24a5ec8b0eb9cca652c57722f18faf24607b798",
+      "category_code": "03",
+      "programme_slug": "senior-securities-dealer",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券投資與財務分析－試卷「投資學」",
+        "證券投資與財務分析－試卷「財務分析」",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/03.pdf"
+      ],
+      "native_heading": "115 年第 1 次證券商高級業務員資格測驗試題 專業科目：證券投資與財務分析－試卷「投資學」",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5,
+        9
+      ],
+      "page_count": 12
+    },
+    {
+      "id": "sfi-native-b8e43e2ec43488627b03",
+      "checksum": "b8e43e2ec43488627b033b43287d985e71b4dafbdac31ee6aaa7be350397b38e",
+      "category_code": "04",
+      "programme_slug": "securities-analyst",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務(含投信投顧相關法規及自律規範)",
+        "投資學",
+        "會計及財務分析",
+        "總體經濟及金融市場"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/04a.pdf"
+      ],
+      "native_heading": "115年第1次 證券投資分析人員資格測驗選擇題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-bd3cd21930e5436cd08b",
+      "checksum": "bd3cd21930e5436cd08b1d7195ee8e8e1f693ba31e8f693ec4b4783eb88d7520",
+      "category_code": "36",
+      "programme_slug": "corporate-internal-control",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "企業內部控制理論與實務(含相關法規)"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/36a.pdf"
+      ],
+      "native_heading": "115年第1次 企業內部控制基本能力測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-c03925ed3b895f7748ae",
+      "checksum": "c03925ed3b895f7748ae6a6b21c204224f9ca3b76f140f5f8402c1e91ac08da3",
+      "category_code": "59",
+      "programme_slug": "futures-trust-sales",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨信託法規及自律規範"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/59.pdf"
+      ],
+      "native_heading": "115 年第 2 次期貨信託基金銷售機構銷售人員資格測驗試題 專業科目：期貨信託法規及自律規範",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 6
+    },
+    {
+      "id": "sfi-native-c70d06d8c37649418ff5",
+      "checksum": "c70d06d8c37649418ff5ce28bd6ff3fcd342f055e1189058de095385ec3a0429",
+      "category_code": "99",
+      "programme_slug": "aml",
+      "year_roc": 114,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/99a.pdf"
+      ],
+      "native_heading": "114年第4次 防制洗錢與打擊資恐專業人員測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-c80e46f84abbad78bf76",
+      "checksum": "c80e46f84abbad78bf765261b0da95877756320843694aa8bb0b27b5cc652d8c",
+      "category_code": "81",
+      "programme_slug": "sustainability",
+      "year_roc": 114,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/81.pdf"
+      ],
+      "native_heading": "114 年第 2 次永續發展基礎能力測驗試題 專業科目：永續發展基礎能力測驗",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 4
+    },
+    {
+      "id": "sfi-native-ca234f4e876bfad09083",
+      "checksum": "ca234f4e876bfad09083c6186ba1f87de9b3be09582385495ac4d7a9d8f33833",
+      "category_code": "01",
+      "programme_slug": "futures-dealer",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨交易法規",
+        "期貨交易理論與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/01.pdf"
+      ],
+      "native_heading": "115 年第 2 次期貨商業務員資格測驗試題 專業科目：期貨交易法規",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5
+      ],
+      "page_count": 8
+    },
+    {
+      "id": "sfi-native-cbe5016e1df44816ed0b",
+      "checksum": "cbe5016e1df44816ed0b5f338d024d607fe73d0ba3c046cf95886884c8281af5",
+      "category_code": "01",
+      "programme_slug": "futures-dealer",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "期貨交易法規",
+        "期貨交易理論與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/01.pdf"
+      ],
+      "native_heading": "115 年第 1 次期貨商業務員資格測驗試題 專業科目：期貨交易法規",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        5
+      ],
+      "page_count": 8
+    },
+    {
+      "id": "sfi-native-ce4a48ed4e837e21db57",
+      "checksum": "ce4a48ed4e837e21db571b8232433fa0d738d1fdf73a2d1a2d9c9f4bedf21634",
+      "category_code": "82",
+      "programme_slug": "sustainability",
+      "year_roc": 114,
+      "round_no": 4,
+      "venue": "kaohsiung",
+      "file_type": "answer",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/82a.pdf"
+      ],
+      "native_heading": "114年第4次 永續發展基礎能力測驗(高雄考區)試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-d1ac1d5d0124323f1435",
+      "checksum": "d1ac1d5d0124323f14355a53d161a75d6885e58c651a989b10c81c71533e7987",
+      "category_code": "99",
+      "programme_slug": "aml",
+      "year_roc": 113,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/99a.pdf"
+      ],
+      "native_heading": "113年第4次 防制洗錢與打擊資恐專業人員測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-d945bde99d08dc34d88a",
+      "checksum": "d945bde99d08dc34d88a87445c2d364b0d41d802acecb9db277c993845a74a19",
+      "category_code": "02",
+      "programme_slug": "securities-dealer",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "證券交易相關法規與實務",
+        "證券投資與財務分析"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/02a.pdf"
+      ],
+      "native_heading": "115年第2次 證券商業務員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-dae987d98ff9eadc1021",
+      "checksum": "dae987d98ff9eadc10218fedd3ccac9712eb0072465fbdbad8198a61853f11c2",
+      "category_code": "36",
+      "programme_slug": "corporate-internal-control",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "企業內部控制理論與實務(含相關法規)"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/36.pdf"
+      ],
+      "native_heading": "115 年第 1 次企業內部控制基本能力測驗試題 專業科目：企業內部控制理論與實務(含相關法規)",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 7
+    },
+    {
+      "id": "sfi-native-de81e3ab0594d5b8d09f",
+      "checksum": "de81e3ab0594d5b8d09f616002bb2e69d2511d2e232f11cabd0e1f0af52d703b",
+      "category_code": "59",
+      "programme_slug": "futures-trust-sales",
+      "year_roc": 115,
+      "round_no": 2,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "期貨信託法規及自律規範"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/01/59a.pdf"
+      ],
+      "native_heading": "115年第2次 期貨信託基金銷售機構銷售人員資格測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-f4e634d9a932abfaacda",
+      "checksum": "f4e634d9a932abfaacdaa101122ff8c0ffcf9997ed07295d717f1e6d81443658",
+      "category_code": "81",
+      "programme_slug": "sustainability",
+      "year_roc": 114,
+      "round_no": 4,
+      "venue": "",
+      "file_type": "answer",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/81a.pdf"
+      ],
+      "native_heading": "114年第4次 永續發展基礎能力測驗試題解答",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 1
+    },
+    {
+      "id": "sfi-native-f71a3e83b8fabb3c8c28",
+      "checksum": "f71a3e83b8fabb3c8c282f00f01e92905e83c0818fa4a195b5d2dab6f2c7a52e",
+      "category_code": "06",
+      "programme_slug": "sitca",
+      "year_roc": 114,
+      "round_no": 3,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "投信投顧相關法規（含自律規範）",
+        "證券投資與財務分析",
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/06.pdf"
+      ],
+      "native_heading": "114 年第 3 次投信投顧業務員資格測驗試題 專業科目：投信投顧相關法規（含自律規範）",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1,
+        7,
+        11
+      ],
+      "page_count": 14
+    },
+    {
+      "id": "sfi-native-fd372597946b49a0c390",
+      "checksum": "fd372597946b49a0c390c93a4d19704fe3641c8bbabcf50fe6013fe9194792ca",
+      "category_code": "53",
+      "programme_slug": "securities-law-practice",
+      "year_roc": 115,
+      "round_no": 1,
+      "venue": "",
+      "file_type": "question",
+      "subjects": [
+        "證券交易相關法規與實務"
+      ],
+      "source_urls": [
+        "https://examweb.sfi.org.tw/Download/02/53.pdf"
+      ],
+      "native_heading": "115 年第 1 次證券交易相關法規與實務乙科資格測驗試題 專業科目：證券交易相關法規與實務",
+      "reviewed_at": "2026-10-20",
+      "inspected_header_pages": [
+        1
+      ],
+      "page_count": 4
+    }
+  ]
+}
