@@ -279,6 +279,14 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         report["native_document_date_review_unresolved"] = sum(
             row["material_date"]["basis"] == "unknown" for row in reviewed_documents
         )
+    if provider.provider_id == "tabf_cert":
+        from app.providers.tabf_cert.evidence import (
+            reviewed_native_revisions as tabf_revision_views,
+        )
+
+        reviewed_papers = tabf_revision_views(entries, repo_root=provider.data_dir.parents[2])
+        report["reviewed_native_paper_references"] = reviewed_papers
+        report["native_paper_review_unresolved"] = len(entries) - len(reviewed_papers)
     return report
 
 

@@ -107,6 +107,21 @@ backup policy remain independent of document review.
 
 ## Durable provider mirror backup
 
+For TABF native-context review, run
+`uv run python scripts/capture_tabf_review.py --output-dir .tmp/tabf-review-<date>`.
+The helper captures permitted native listing/detail HTML and verifies existing
+provider-owned local payloads. It records missing bytes and unknown contexts
+without requesting examination PDFs, changing provider state, recording a
+successful sync or approving evidence. Review programme, round, role, date and
+native paper scope together before updating the native evidence owner. Keep
+source restrictions and publication permission separate from identity approval.
+
+During a reviewed identity migration, `retain_verified_sync_receipts` can keep
+existing receipt IDs only after proving that the complete event year and
+URL/checksum/role scope are unchanged. It never creates, renames or advances a
+receipt. Save the original receipt file with the rollback evidence, and keep
+unmatched corrected events without an invented acquisition timestamp.
+
 `.github/scripts/mirror_snapshots.py` stores provider payloads in public prereleases
 named `mirror-<provider_id>` in the source repository. These archives are recovery
 inputs, separate from site release shards and the publication inventory. Public

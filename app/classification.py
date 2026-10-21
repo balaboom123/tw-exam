@@ -24,6 +24,7 @@ from app.providers.ipas_cert.evidence import SourceReference as IpasSourceRefere
 from app.providers.ipas_cert.evidence import native_context as ipas_native_context
 from app.providers.ipas_cert.identity import GRADE_LABELS as IPAS_GRADE_LABELS
 from app.providers.sfi_cert.evidence import native_context as sfi_native_context
+from app.providers.tabf_cert.evidence import native_context as tabf_native_context
 from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
@@ -164,6 +165,7 @@ _SERIES_LABELS = {
     "employment-recruitment": "就業／國營事業甄試",
     "postal-recruitment": "中華郵政職階人員甄試",
     "financial-certification": "金融證照／能力測驗",
+    "financial-aptitude": "金融人員基礎學科測驗（FIT）",
     "professional-certification": "專業能力證照",
 }
 
@@ -1754,6 +1756,40 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    tabf_context = None
+    if provider_id == "tabf_cert":
+        source_url = source_material.evidence_url if source_material is not None else ""
+        tabf_context = tabf_native_context(
+            source_exam_id,
+            year_ad,
+            category_code,
+            source_checksum,
+            source_url,
+        )
+        if tabf_context is not None and (
+            subject_code != tabf_context.paper.subject_code
+            or subject_name_raw != tabf_context.paper.subject_label
+            or source_material != tabf_context.material
+        ):
+            tabf_context = None
+        if tabf_context is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            track_id, track_label = "tabf-unresolved", "金融研訓院測驗（待確認）"
+            variant_pairs = ()
+            confidence = "review"
+            reason = "TABF programme/grade/event lacks matching native paper evidence"
+        else:
+            programme = tabf_context.event.programme
+            level_id, level_label = programme.level_id, programme.level_label
+            track_id, track_label = programme.track_id, programme.track_label
+            variant_pairs = programme.variants
+            confidence = "high"
+            reason = (
+                f"reviewed native TABF programme, event, role and scope: {tabf_context.paper.id}"
+            )
+            if programme.is_aptitude:
+                domain_id, family_id = "employment", "employment-assessment"
+                series_id, series_label = "financial-aptitude", _SERIES_LABELS["financial-aptitude"]
     ipas_context = None
     if provider_id == "ipas_cert":
         ipas_context = ipas_native_context(source_exam_id, year_ad, category_code, source_checksum)
@@ -1890,6 +1926,8 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "tabf_cert":
+        stage_id = NOT_APPLICABLE if tabf_context is not None else "unknown"
     if provider_id == "ipas_cert":
         stage_id = NOT_APPLICABLE if ipas_context is not None else "unknown"
     if provider_id == "moea_recruit":
@@ -2022,7 +2060,7 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
-        if provider_id in {"sfi_cert", "ipas_cert"}:
+        if provider_id in {"sfi_cert", "ipas_cert", "tabf_cert"}:
             bundle_name = track_label
         if provider_id in {"tqc_cert", "hakka_cert", "gept_cert"}:
             bundle_name = series_label
@@ -2060,6 +2098,7 @@ def _classify_paper_uncached(
             "gept_cert",
             "sfi_cert",
             "ipas_cert",
+            "tabf_cert",
         }:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:
@@ -2214,6 +2253,9 @@ def public_facets(identity: ExamIdentity) -> dict[str, str]:
         exam_subclass = identity.series_label
     elif identity.domain_id == "teacher":
         exam_class = "教師考試"
+        exam_subclass = identity.series_label
+    elif identity.exam_series_id == "financial-aptitude":
+        exam_class = "就業能力測驗"
         exam_subclass = identity.series_label
     elif identity.domain_id == "employment":
         exam_class = "國營／就業甄試"

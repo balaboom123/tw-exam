@@ -1,0 +1,3999 @@
+{
+  "schema_version": 1,
+  "provider_id": "tabf_cert",
+  "evidence_url": "https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424",
+  "events": [
+    {
+      "phid": "274",
+      "programme_code": "fit-subject-ii",
+      "ordinal": 1,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第1屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404067-2.pdf",
+      "year_evidence_checksum": "4a590dd69434ea9282783af125d536a3ad985b67d888f996c1c7f2abbd039d97",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC1%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "275",
+      "programme_code": "fit-subject-iii",
+      "ordinal": 1,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第1屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404068-2.pdf",
+      "year_evidence_checksum": "d71b507ee877b370da4f3449ceda15a288d10fe517e1e0a1f28bfa7dad1276ec",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC1%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "276",
+      "programme_code": "fit-subject-iv",
+      "ordinal": 1,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第1屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404069-2.pdf",
+      "year_evidence_checksum": "b4821b70a0ae6c18fdadb920af4a82252c69b8fe69ef5a92b5c57c140b508145",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC1%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "277",
+      "programme_code": "fit-subject-i",
+      "ordinal": 1,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第1屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404066-2.pdf",
+      "year_evidence_checksum": "3f447108b61e844b1cc826a63becbd761f38d2c90cabecd77a91cd407a922a45",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC1%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "278",
+      "programme_code": "fit-subject-iii",
+      "ordinal": 2,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第2屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407080-2.pdf",
+      "year_evidence_checksum": "479a2dc3e2275506c9f96cd73dd9c91ad8c3fd9ac85ffdcdd827f0bf5f065bc2",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC2%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "279",
+      "programme_code": "fit-subject-i",
+      "ordinal": 2,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第2屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407078-2.pdf",
+      "year_evidence_checksum": "2347451c330693c71da8f42ff46abe01684140fa30c7829c4a616b97769dd08e",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC2%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "280",
+      "programme_code": "fit-subject-iv",
+      "ordinal": 2,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第2屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407081-2.pdf",
+      "year_evidence_checksum": "ac50a3e0e936324279567d02a9f95dd59b8dfdd427c306ae2f18f7c2317cc4d5",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC2%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "281",
+      "programme_code": "fit-subject-ii",
+      "ordinal": 2,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第2屆試題",
+      "year_ad": 2020,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407079-2.pdf",
+      "year_evidence_checksum": "c0661ee45411980ca04bb9be6a95516febb55361e8992e0766114837dc881426",
+      "native_year_label": "民國109年試題疑義期間",
+      "calendar_evidence_url": "https://service.tabf.org.tw/fit/doc/%E7%AC%AC2%E5%B1%86FIT%E7%B0%A1%E7%AB%A0.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "381",
+      "programme_code": "credit-advanced",
+      "ordinal": 23,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第23屆試題",
+      "year_ad": 2023,
+      "year_basis": "native_answer_period",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/564744-3.pdf",
+      "year_evidence_checksum": "dd556db3d114ee899e567b5af2994af6c1026c0871d209894217d919a1010b85",
+      "native_year_label": "民國112年試題疑義期間",
+      "calendar_evidence_url": null,
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The native answer for advanced lending round 23 places its answer-objection window in November ROC 112. This is a reviewed event-year inference from the native post-exam period, not an independently established calendar day."
+    },
+    {
+      "phid": "412",
+      "programme_code": "credit-advanced",
+      "ordinal": 24,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第24屆試題",
+      "year_ad": 2024,
+      "year_basis": "native_answer_period_and_handbook",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/605627-3.pdf",
+      "year_evidence_checksum": "fd063d909de12ceb6d67a31ea2fd1b97c90be22d8d656c5748eec61771e38cd8",
+      "native_year_label": "民國113年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/LicenseDocDownload.aspx?Path=ex%2F28807012.pdf",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "416",
+      "programme_code": "family-trust-advisor",
+      "ordinal": 5,
+      "native_ordinal_kind": "期",
+      "listing_label": "第5屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617843-3.pdf",
+      "year_evidence_checksum": "a341768020f3a6cba2b15c73ae655bd27e40fb0c1b32021b36bde7a2e77f7688",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The listing uses 屆; native headings use 期. Preserve the native unit without inventing another grade or event."
+    },
+    {
+      "phid": "418",
+      "programme_code": "fintech",
+      "ordinal": 19,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第19屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617844-2.pdf",
+      "year_evidence_checksum": "4deefb3c40c134aebc08c5006cde263e6265b1e012d2d58492b65dfcb7e5488a",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "419",
+      "programme_code": "bank-internal-control-general",
+      "ordinal": 47,
+      "native_ordinal_kind": "期",
+      "listing_label": "第47期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617841-3.pdf",
+      "year_evidence_checksum": "fa7ea1fad038222e1ca8385b70bee6a949e479b0f8a5646b16ac35702b614e45",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "420",
+      "programme_code": "financial-planning",
+      "ordinal": 46,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第46屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617840-3.pdf",
+      "year_evidence_checksum": "7ce0ffc60ac14760b80848a80beb0f5bea56a39d806755f77a4bbca29ea215ae",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "421",
+      "programme_code": "credit-junior",
+      "ordinal": 45,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第45屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617839-3.pdf",
+      "year_evidence_checksum": "2f22ef491342d20e91b96388a0da77b8ab44d8a494a22c5114cbdf4592eac55f",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "422",
+      "programme_code": "bank-internal-control-consumer",
+      "ordinal": 47,
+      "native_ordinal_kind": "期",
+      "listing_label": "第47期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617842-3.pdf",
+      "year_evidence_checksum": "538beb1b0f1e4a2a2a20c21599a1a3c4ae82e86d961c79aeffc63696ca5dcb86",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "423",
+      "programme_code": "aml",
+      "ordinal": 1,
+      "native_ordinal_kind": "次",
+      "listing_label": "114年第1次試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617845-2.pdf",
+      "year_evidence_checksum": "747a6fab167ab49d3a6405f317dd205c1b776244a35d066de769aab02629d8be",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "424",
+      "programme_code": "trust-business",
+      "ordinal": 60,
+      "native_ordinal_kind": "期",
+      "listing_label": "第60期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-3.pdf",
+      "year_evidence_checksum": "e5dcb37ffc8e9376a7a54694c1c60899aecef2164d690d5b39ad12fbf96768fc",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "425",
+      "programme_code": "trust-law-only",
+      "ordinal": 42,
+      "native_ordinal_kind": "期",
+      "listing_label": "第42期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624446-2.pdf",
+      "year_evidence_checksum": "7a41e26bd3802003605f5cef99047e2a88b0c4b0bf0257813152527d173b9971",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "426",
+      "programme_code": "senior-financial-planning-advisor",
+      "ordinal": 8,
+      "native_ordinal_kind": "期",
+      "listing_label": "第8屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624449-3.pdf",
+      "year_evidence_checksum": "6b8067d03e4e998b2592347ec3dfceabc8828412dd8e7245aecb4da7fdd8eaa2",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The listing uses 屆; native headings use 期. Preserve the native unit without inventing another grade or event."
+    },
+    {
+      "phid": "427",
+      "programme_code": "derivatives-sales",
+      "ordinal": 18,
+      "native_ordinal_kind": "期",
+      "listing_label": "第18期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624448-2.pdf",
+      "year_evidence_checksum": "183634047807fd76a0eb014c337a2f3504c81f65b02f984502626a1977db097e",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "428",
+      "programme_code": "fx-junior",
+      "ordinal": 45,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第45屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624444-5.pdf",
+      "year_evidence_checksum": "414b0fa6c68180fd9399a4bfa3b60777910548073ff9f7bc597788d78265139a",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "429",
+      "programme_code": "risk-management",
+      "ordinal": 20,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第20屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624447-2.pdf",
+      "year_evidence_checksum": "3882e339428d3b30667716e7fe78175ddefdf99e5aca13097249539648838503",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "430",
+      "programme_code": "trust-business",
+      "ordinal": 61,
+      "native_ordinal_kind": "期",
+      "listing_label": "第61期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644262-3.pdf",
+      "year_evidence_checksum": "b61e0bf95dad87d22ed61290a71e323717714ec5ab4e5448716d878e615698ae",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "431",
+      "programme_code": "sustainability",
+      "ordinal": 5,
+      "native_ordinal_kind": "次",
+      "listing_label": "114年第5次試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644267-2.pdf",
+      "year_evidence_checksum": "e0ee9490c32dd072a06113c6866952f3038f163a524d4d4df41706e1b4e05ccb",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "432",
+      "programme_code": "trust-law-only",
+      "ordinal": 43,
+      "native_ordinal_kind": "期",
+      "listing_label": "第43期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644263-2.pdf",
+      "year_evidence_checksum": "fe008902e66dcc06ec54e788318ce0de4592cedf2dd0b88298770e765ce90677",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "433",
+      "programme_code": "family-trust-advisor",
+      "ordinal": 6,
+      "native_ordinal_kind": "期",
+      "listing_label": "第6屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644264-3.pdf",
+      "year_evidence_checksum": "2ee918266861b7d9ab99c7d5287a03213f6fb62255bd7489ef36c52b89e2f894",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The listing uses 屆; native headings use 期. Preserve the native unit without inventing another grade or event."
+    },
+    {
+      "phid": "434",
+      "programme_code": "fintech",
+      "ordinal": 20,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第20屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644266-2.pdf",
+      "year_evidence_checksum": "778fae5bf3e6642095d6deddeb485c4dac0367580e6214a8b87053094f32867d",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "435",
+      "programme_code": "risk-management",
+      "ordinal": 21,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第21屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644265-2.pdf",
+      "year_evidence_checksum": "e7fe625084f53ea1fad8f871c40839dea927872e87bd5d0597177cdaf7c10232",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "436",
+      "programme_code": "fx-junior",
+      "ordinal": 46,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第46屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644261-5.pdf",
+      "year_evidence_checksum": "acb091f24fa3fea78efdeff2dad33b0b34d3b9098655481e74341f3744526850",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "437",
+      "programme_code": "financial-planning",
+      "ordinal": 47,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第47屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647393-3.pdf",
+      "year_evidence_checksum": "994f88dfe8cc52132e49bd182c1c1e42bf3e21c90d2cb18137055c9677f0462e",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "438",
+      "programme_code": "derivatives-sales",
+      "ordinal": 19,
+      "native_ordinal_kind": "期",
+      "listing_label": "第19期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647396-2.pdf",
+      "year_evidence_checksum": "7d41b9a653df4896abc34eb15d8269373b72b2bd0ed3e5c0b09c7ba2c08787bd",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "439",
+      "programme_code": "sustainability",
+      "ordinal": 6,
+      "native_ordinal_kind": "次",
+      "listing_label": "114年第6次試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647398-2.pdf",
+      "year_evidence_checksum": "5d910b57e0fb23b063e74aa48a67f4e2b9ba59a1bf5b7fc64a6386e5193b82dd",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "440",
+      "programme_code": "senior-financial-planning-advisor",
+      "ordinal": 9,
+      "native_ordinal_kind": "期",
+      "listing_label": "第9屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647397-3.pdf",
+      "year_evidence_checksum": "12dcb3ac09fdf4a3983f1ee96ed17d003927869c16374e75b74c02dcf4f662f6",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The listing uses 屆; native headings use 期. Preserve the native unit without inventing another grade or event."
+    },
+    {
+      "phid": "441",
+      "programme_code": "bank-internal-control-general",
+      "ordinal": 48,
+      "native_ordinal_kind": "期",
+      "listing_label": "第48期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647394-3.pdf",
+      "year_evidence_checksum": "4487f2746d78cae7f486c2c386eda4c0dddc978375a298c88cd38844360a6591",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "443",
+      "programme_code": "bank-internal-control-consumer",
+      "ordinal": 48,
+      "native_ordinal_kind": "期",
+      "listing_label": "第48期試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647395-3.pdf",
+      "year_evidence_checksum": "e48e4db8a490221293441ef86c1c9277e021772eb289600467f672c9d50da3d3",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "444",
+      "programme_code": "credit-junior",
+      "ordinal": 46,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第46屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647391-3.pdf",
+      "year_evidence_checksum": "4af80ba113a77cfa4036352d2d05c3d9fa142ba86ff7ce326bcdd11c41e4bb39",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "445",
+      "programme_code": "credit-advanced",
+      "ordinal": 25,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第25屆試題",
+      "year_ad": 2025,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647392-3.pdf",
+      "year_evidence_checksum": "1217a0b013b11f6cb3e243fdc429e68015bc57cee2dd4aef4c2083ceb012320c",
+      "native_year_label": "民國114年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "446",
+      "programme_code": "family-trust-advisor",
+      "ordinal": 7,
+      "native_ordinal_kind": "期",
+      "listing_label": "第7屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663415-3.pdf",
+      "year_evidence_checksum": "966d825510a7919cc43621fa4b03aa4ec3042d33466ae64fea1a1d224522e882",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The listing uses 屆; native headings use 期. Preserve the native unit without inventing another grade or event."
+    },
+    {
+      "phid": "447",
+      "programme_code": "fintech",
+      "ordinal": 21,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第21屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663416-2.pdf",
+      "year_evidence_checksum": "63f5a6301aaff63c8d4e7dd99fa1fcc364763718c7c65339a7bdff29c073a76d",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "448",
+      "programme_code": "credit-junior",
+      "ordinal": 47,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第47屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663410-3.pdf",
+      "year_evidence_checksum": "52057ce59a340828b971c668883cba24ceeb6097605fc68abbb9f9c99aaf921a",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "449",
+      "programme_code": "aml",
+      "ordinal": 1,
+      "native_ordinal_kind": "次",
+      "listing_label": "115年第1次試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663417-2.pdf",
+      "year_evidence_checksum": "f1705bc9f65e8539bfaaae941d980b082b4a0352d3096f3b115b7031b6bea958",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "450",
+      "programme_code": "financial-planning",
+      "ordinal": 48,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第48屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663411-3.pdf",
+      "year_evidence_checksum": "39cdee07b316116a961e9a4053e3b6e20e7233bac2d7ddc0a5259b6e6c388716",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "454",
+      "programme_code": "bank-internal-control-general",
+      "ordinal": 49,
+      "native_ordinal_kind": "期",
+      "listing_label": "第49期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663412-3.pdf",
+      "year_evidence_checksum": "e36870a700d564eb7705144088898eeb654abd23a31123c07fb7e9af71d4528e",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "455",
+      "programme_code": "bank-internal-control-consumer",
+      "ordinal": 49,
+      "native_ordinal_kind": "期",
+      "listing_label": "第49期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663413-3.pdf",
+      "year_evidence_checksum": "57f1e275ab313cab9b3759875cf639be7a0a49e9cb6ffb89f6b212eb3e354695",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "456",
+      "programme_code": "sustainability",
+      "ordinal": 2,
+      "native_ordinal_kind": "次",
+      "listing_label": "115年第2次試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666084-2.pdf",
+      "year_evidence_checksum": "50f356175f5ed6508786957cd7e0eed9681d68c326cedb3c0715091f4640645b",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "457",
+      "programme_code": "trust-business",
+      "ordinal": 62,
+      "native_ordinal_kind": "期",
+      "listing_label": "第62期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666078-3.pdf",
+      "year_evidence_checksum": "efeaf4fb0025c2080e48dea076a9c61205e295b47f50bf47b0045700e4bc73fb",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "458",
+      "programme_code": "trust-law-only",
+      "ordinal": 44,
+      "native_ordinal_kind": "期",
+      "listing_label": "第44期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666080-2.pdf",
+      "year_evidence_checksum": "1448f2273900697acfd8c329187ee15bf6ba5f1412a32ef8145dbabec3c68f80",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "459",
+      "programme_code": "senior-financial-planning-advisor",
+      "ordinal": 10,
+      "native_ordinal_kind": "期",
+      "listing_label": "第10屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666083-3.pdf",
+      "year_evidence_checksum": "dffe8e69db77cf72a5dcb95eeb70e45c3601492d80ec0c92439f7f234f09cc8b",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it. The listing uses 屆; native headings use 期. Preserve the native unit without inventing another grade or event."
+    },
+    {
+      "phid": "460",
+      "programme_code": "risk-management",
+      "ordinal": 22,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第22屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666081-2.pdf",
+      "year_evidence_checksum": "fd5e660cd30624cd211413050164f1743a4da17b4ef2d67d2ee1ee229231a654",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "461",
+      "programme_code": "fx-junior",
+      "ordinal": 47,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第47屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666077-5.pdf",
+      "year_evidence_checksum": "446d3346a9e61b2577ee19df07ff82052d3a03076f859749dda90f5d081d92c5",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "462",
+      "programme_code": "derivatives-sales",
+      "ordinal": 20,
+      "native_ordinal_kind": "期",
+      "listing_label": "第20期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666082-3.pdf",
+      "year_evidence_checksum": "9835e5b7761bdd1d91872a163c41d3f68e049ed9c69578914d08441f1b6a6218",
+      "native_year_label": "民國115年試題疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Project the supported examination year only; upload dates and capture partitions do not establish it."
+    },
+    {
+      "phid": "463",
+      "programme_code": "trust-business",
+      "ordinal": 63,
+      "native_ordinal_kind": "期",
+      "listing_label": "第63期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695007-3.pdf",
+      "year_evidence_checksum": "d0528500fc1054170a3e6f74ee5694806e2f6ffde9e6401ac1f02d78f7ffca90",
+      "native_year_label": "115年10月19日至10月20日疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Reviewed October ROC 115 native answer period and official 115 calendar for this exact programme/round. Bytes recovered from the already-existing hosted sync snapshot 39583595691-1, not newly requested from the examination asset host. Only the event year is projected."
+    },
+    {
+      "phid": "464",
+      "programme_code": "trust-law-only",
+      "ordinal": 45,
+      "native_ordinal_kind": "期",
+      "listing_label": "第45期試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695009-2.pdf",
+      "year_evidence_checksum": "c6143170c511ee808d653b4cf591a1e46a8c65bf904398e4bf98579251558d82",
+      "native_year_label": "115年10月19日至10月20日疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Reviewed October ROC 115 native answer period and official 115 calendar for this exact programme/round. Bytes recovered from the already-existing hosted sync snapshot 39583595691-1, not newly requested from the examination asset host. Only the event year is projected."
+    },
+    {
+      "phid": "465",
+      "programme_code": "family-trust-advisor",
+      "ordinal": 8,
+      "native_ordinal_kind": "期",
+      "listing_label": "第8屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695010-3.pdf",
+      "year_evidence_checksum": "d5b19d112d76124552d318ac4b932e623cb6b2bdd9c0be87bddf21771e493679",
+      "native_year_label": "115年10月19日至10月20日疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Reviewed October ROC 115 native answer period and official 115 calendar for this exact programme/round. Bytes recovered from the already-existing hosted sync snapshot 39583595691-1, not newly requested from the examination asset host. Only the event year is projected. Native paper uses 期 while the index button uses 屆; both refer to family trust round 8."
+    },
+    {
+      "phid": "466",
+      "programme_code": "fintech",
+      "ordinal": 22,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第22屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695011-2.pdf",
+      "year_evidence_checksum": "07af8fc646d8e03710acd1d7e27044d8cf6523fdd86c50e928dd32ee9aad41e2",
+      "native_year_label": "115年10月19日至10月20日疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Reviewed October ROC 115 native answer period and official 115 calendar for this exact programme/round. Bytes recovered from the already-existing hosted sync snapshot 39583595691-1, not newly requested from the examination asset host. Only the event year is projected."
+    },
+    {
+      "phid": "467",
+      "programme_code": "sustainability",
+      "ordinal": 5,
+      "native_ordinal_kind": "次",
+      "listing_label": "115年第5次試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695012-2.pdf",
+      "year_evidence_checksum": "85fc950eef6752044036cf03792f419905b1c3ee5fa9b25b2c04248363ae36cd",
+      "native_year_label": "115年10月19日至10月20日疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Reviewed October ROC 115 native answer period and official 115 calendar for this exact programme/round. Bytes recovered from the already-existing hosted sync snapshot 39583595691-1, not newly requested from the examination asset host. Only the event year is projected."
+    },
+    {
+      "phid": "468",
+      "programme_code": "credit-junior",
+      "ordinal": 48,
+      "native_ordinal_kind": "屆",
+      "listing_label": "第48屆試題",
+      "year_ad": 2026,
+      "year_basis": "native_answer_period_and_calendar",
+      "year_evidence_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695006-3.pdf",
+      "year_evidence_checksum": "e32df2d5aa968af1b66624121df8c338b2dffceb232c950e5ead7a4aa7ef7473",
+      "native_year_label": "115年10月19日至10月20日疑義期間",
+      "calendar_evidence_url": "https://www.tabf.org.tw/StaticPage.aspx?id=18",
+      "reviewed_at": "2026-10-21",
+      "notes": "Reviewed October ROC 115 native answer period and official 115 calendar for this exact programme/round. Bytes recovered from the already-existing hosted sync snapshot 39583595691-1, not newly requested from the examination asset host. Only the event year is projected."
+    }
+  ],
+  "papers": [
+    {
+      "id": "tabf-native-01ac7350a0df439efe3e-50583b05d1437691ee92",
+      "phid": "274",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404067-1.pdf",
+      "checksum": "50583b05d1437691ee92f579fff2f956678fbb2b010f94dd21685946e90381a2",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "票據法",
+        "銀行法（含施行細則）"
+      ],
+      "source_label": "考科II 【票據法+銀行法】(含施行細則)",
+      "native_heading": "台灣金融研訓院第 1 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅱ【票據法+銀行法】（含施行細則）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-4aa64be3018698ea64f2-4a590dd69434ea928278",
+      "phid": "274",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404067-2.pdf",
+      "checksum": "4a590dd69434ea9282783af125d536a3ad985b67d888f996c1c7f2abbd039d97",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "票據法",
+        "銀行法（含施行細則）"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第1屆金融人員基礎學科測驗(考科2)】試題正確答案",
+      "native_subject_label": "票據法；銀行法（含施行細則）",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-32d9c25d154fb21ad3a6-9adf070754cb4bd8e562",
+      "phid": "275",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404068-1.pdf",
+      "checksum": "9adf070754cb4bd8e562a562a5ddbdd88b096d860bac4388e974eeb5f3a68489",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "民法",
+        "民事訴訟法",
+        "強制執行法"
+      ],
+      "source_label": "考科III 【民法+民事訴訟法+強制執行法】",
+      "native_heading": "台灣金融研訓院第 1 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅲ【民法+民事訴訟法+強制執行法】",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-4e44ac62563ad5d0585f-d71b507ee877b370da4f",
+      "phid": "275",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404068-2.pdf",
+      "checksum": "d71b507ee877b370da4f3449ceda15a288d10fe517e1e0a1f28bfa7dad1276ec",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "民法",
+        "民事訴訟法",
+        "強制執行法"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第1屆金融人員基礎學科測驗(考科3)】試題正確答案",
+      "native_subject_label": "民法；民事訴訟法；強制執行法",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-680240e859b83a5d8b43-9f3e6710b096182824c5",
+      "phid": "276",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404069-1.pdf",
+      "checksum": "9f3e6710b096182824c5bbac776a87d4293350bd2887d9bd37355a662f9f1e68",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "邏輯推理",
+        "資訊科技",
+        "創新科技"
+      ],
+      "source_label": "考科IV 【邏輯推理+資訊科技+創新科技】",
+      "native_heading": "台灣金融研訓院第 1 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅳ【邏輯推理+資訊科技+創新科技】",
+      "page_count": 8,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-6e0bc0f08542235d11b5-b4821b70a0ae6c18fdad",
+      "phid": "276",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404069-2.pdf",
+      "checksum": "b4821b70a0ae6c18fdadb920af4a82252c69b8fe69ef5a92b5c57c140b508145",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "邏輯推理",
+        "資訊科技",
+        "創新科技"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第1屆金融人員基礎學科測驗(考科4)】試題正確答案",
+      "native_subject_label": "邏輯推理；資訊科技；創新科技",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-60fe18cf1f756d6bd18c-dd38dc1d9a4d36f20f71",
+      "phid": "277",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404066-1.pdf",
+      "checksum": "dd38dc1d9a4d36f20f71a07a36578ad89adcc66cd9fc4e0452f829535d8344c4",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "會計學",
+        "貨幣銀行學"
+      ],
+      "source_label": "考科I 【會計學+貨幣銀行學】",
+      "native_heading": "台灣金融研訓院第 1 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅰ【會計學+貨幣銀行學】",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-7c8af12e3191e72c08bf-3f447108b61e844b1cc8",
+      "phid": "277",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/404066-2.pdf",
+      "checksum": "3f447108b61e844b1cc826a63becbd761f38d2c90cabecd77a91cd407a922a45",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "會計學",
+        "貨幣銀行學"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第1屆金融人員基礎學科測驗(考科1)】試題正確答案",
+      "native_subject_label": "會計學；貨幣銀行學",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-d89a68672f5adce7b435-977e151fcb3bbabfd5ce",
+      "phid": "278",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407080-1.pdf",
+      "checksum": "977e151fcb3bbabfd5ce654cfc803048ae0d93cea4fccbf10cd315a7e6331431",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "民法",
+        "民事訴訟法",
+        "強制執行法"
+      ],
+      "source_label": "考科III 【民法+民事訴訟法+強制執行法】",
+      "native_heading": "台灣金融研訓院第 2 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅲ【民法+民事訴訟法+強制執行法】",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-93526938a80e265894f4-479a2dc3e2275506c9f9",
+      "phid": "278",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407080-2.pdf",
+      "checksum": "479a2dc3e2275506c9f96cd73dd9c91ad8c3fd9ac85ffdcdd827f0bf5f065bc2",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "民法",
+        "民事訴訟法",
+        "強制執行法"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第2屆金融人員基礎學科測驗(考科3)】試題正確答案",
+      "native_subject_label": "民法；民事訴訟法；強制執行法",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-d2a7e010f2e644f70fc7-838a33b56e7e92dc3a1b",
+      "phid": "279",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407078-1.pdf",
+      "checksum": "838a33b56e7e92dc3a1b20016e820d8236237e447925e42482c29188266a2c84",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "會計學",
+        "貨幣銀行學"
+      ],
+      "source_label": "考科I 【會計學+貨幣銀行學】",
+      "native_heading": "台灣金融研訓院第 2 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅰ：【會計學+貨幣銀行學】",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-c9abcf8bb6d907020b27-2347451c330693c71da8",
+      "phid": "279",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407078-2.pdf",
+      "checksum": "2347451c330693c71da8f42ff46abe01684140fa30c7829c4a616b97769dd08e",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "會計學",
+        "貨幣銀行學"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第2屆金融人員基礎學科測驗(考科1)】試題正確答案",
+      "native_subject_label": "會計學；貨幣銀行學",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-6d97eec5936112858b10-e598f521a8f8040ab99f",
+      "phid": "280",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407081-1.pdf",
+      "checksum": "e598f521a8f8040ab99f322fdf7a3055aa5f376cfd2bf1d6edae220d0f90faa3",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "邏輯推理",
+        "資訊科技",
+        "創新科技"
+      ],
+      "source_label": "考科IV 【邏輯推理+資訊科技+創新科技】",
+      "native_heading": "台灣金融研訓院第 2 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅳ：【邏輯推理+資訊科技+創新科技】",
+      "page_count": 8,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-d16f131106408d488672-ac50a3e0e93632427956",
+      "phid": "280",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407081-2.pdf",
+      "checksum": "ac50a3e0e936324279567d02a9f95dd59b8dfdd427c306ae2f18f7c2317cc4d5",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "邏輯推理",
+        "資訊科技",
+        "創新科技"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第2屆金融人員基礎學科測驗(考科4)】試題正確答案",
+      "native_subject_label": "邏輯推理；資訊科技；創新科技",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-f35a3494000e9ea501b2-c1573a713e2a212cd0dc",
+      "phid": "281",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407079-1.pdf",
+      "checksum": "c1573a713e2a212cd0dc4f762a7a6b6ce311aec6a190a625569aedd33f35d220",
+      "file_type": "question",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "票據法",
+        "銀行法（含施行細則）"
+      ],
+      "source_label": "考科II 【票據法+銀行法】(含施行細則)",
+      "native_heading": "台灣金融研訓院第 2 屆金融人員基礎學科測驗試題",
+      "native_subject_label": "考科Ⅱ：【票據法+銀行法】（含施行細則）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-2c89ad3062b2830dbd31-c0661ee45411980ca04b",
+      "phid": "281",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/407079-2.pdf",
+      "checksum": "c0661ee45411980ca04bb9be6a95516febb55361e8992e0766114837dc881426",
+      "file_type": "answer",
+      "scope_kind": "assessment_module",
+      "subjects": [
+        "票據法",
+        "銀行法（含施行細則）"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第2屆金融人員基礎學科測驗(考科2)】試題正確答案",
+      "native_subject_label": "票據法；銀行法（含施行細則）",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. This is an administered FIT paper retained as a reference, not a synthetic current-year sample or an awarded performance grade."
+    },
+    {
+      "id": "tabf-native-9e764bf9728a1e4195eb-1b8963cb3741d23c2529",
+      "phid": "381",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/564744-1.pdf",
+      "checksum": "1b8963cb3741d23c252962e2dbdb9e0f6ca4bb2eff29a7179cdcd0525f749195",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規(進階)",
+      "native_heading": "台灣金融研訓院第 23 屆進階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-3784b2084c45a1a54a67-ae2d5336f50a8db91a36",
+      "phid": "381",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/564744-2.pdf",
+      "checksum": "ae2d5336f50a8db91a36cb8f20f323b28e9f6e8b5f2e7ecab1327c84fc5d5f29",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務(進階)",
+      "native_heading": "台灣金融研訓院第 23 屆進階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-c72d6c4cdaebb61a4c79-dd556db3d114ee899e56",
+      "phid": "381",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/564744-3.pdf",
+      "checksum": "dd556db3d114ee899e567b5af2994af6c1026c0871d209894217d919a1010b85",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第23屆進階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規；授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-f193aebf53382213efe9-0d894b2b5cca0a42e1d7",
+      "phid": "412",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/605627-1.pdf",
+      "checksum": "0d894b2b5cca0a42e1d7142878b82d2b0d9c8be80311b8d2bc57ff9ae8ba0341",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規(進階)",
+      "native_heading": "台灣金融研訓院第 24 屆進階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-17a541364edb3aec1b9e-8c2ada804e37490a276e",
+      "phid": "412",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/605627-2.pdf",
+      "checksum": "8c2ada804e37490a276e996336b23d0b63eb0c5f1f005dddcc7516dffe5965d0",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務(進階)",
+      "native_heading": "台灣金融研訓院第 24 屆進階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-2d6d693792830242457f-fd063d909de12ceb6d67",
+      "phid": "412",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/605627-3.pdf",
+      "checksum": "fd063d909de12ceb6d67a31ea2fd1b97c90be22d8d656c5748eec61771e38cd8",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第24屆進階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規；授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-ea85e824c75a601fdc9d-9bd53a5fbd9e37a168c6",
+      "phid": "416",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617843-1.pdf",
+      "checksum": "9bd53a5fbd9e37a168c692041b4e3df1d6361080d17a39f38dafb28529233df0",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "家族信託規劃第一節",
+      "native_heading": "第 5 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-2d6bcd21805816bc9f1f-7fd0538df8d6255256d6",
+      "phid": "416",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617843-2.pdf",
+      "checksum": "7fd0538df8d6255256d6f56025eecad8075f39e1c6e2e3c3df2b8532873d0383",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "家族信託規劃第二節",
+      "native_heading": "第 5 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-2e91a02390d5c4200f6a-a341768020f3a6cba2b1",
+      "phid": "416",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617843-3.pdf",
+      "checksum": "a341768020f3a6cba2b15c73ae655bd27e40fb0c1b32021b36bde7a2e77f7688",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第5期家族信託規劃顧問師資格測驗",
+      "native_subject_label": "第一節；第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-eeb3e43b55a0611902f2-ffe363e46298c241cc40",
+      "phid": "418",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617844-1.pdf",
+      "checksum": "ffe363e46298c241cc4064a418cff2f6cd30e89f5385980f9bec275d1f6f8bee",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "金融科技力",
+      "native_heading": "台灣金融研訓院第 19 屆金融科技力知識檢定測驗試題",
+      "native_subject_label": "科目：金融科技力",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-bc9550af1962a87c165b-4deefb3c40c134aebc08",
+      "phid": "418",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617844-2.pdf",
+      "checksum": "4deefb3c40c134aebc08c5006cde263e6265b1e012d2d58492b65dfcb7e5488a",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第19屆金融科技力知識檢定測驗】",
+      "native_subject_label": "金融科技力",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-37bbae591984a761fea8-956fcb4b2af82f91f1d1",
+      "phid": "419",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617841-1.pdf",
+      "checksum": "956fcb4b2af82f91f1d146d05ebb42293903af2c9b8749a3c960c18e846cbb02",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核法規"
+      ],
+      "source_label": "內部控制與內部稽核法規(一般金融)",
+      "native_heading": "台灣金融研訓院第 47 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核法規（一般金融類、消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-a67d10bf41d12777c872-0674c8b15d3c2e2672de",
+      "phid": "419",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617841-2.pdf",
+      "checksum": "0674c8b15d3c2e2672de04c2e452cf1ef3770e6b524c170ae179fd3795dfbef0",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核（一般金融類）"
+      ],
+      "source_label": "內部控制與內部稽核(一般金融)",
+      "native_heading": "台灣金融研訓院第 47 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核（一般金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-5575b1734698ca196d07-fa7ea1fad038222e1ca8",
+      "phid": "419",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617841-3.pdf",
+      "checksum": "fa7ea1fad038222e1ca8385b70bee6a949e479b0f8a5646b16ac35702b614e45",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "銀行內部控制與內部稽核法規",
+        "銀行內部控制與內部稽核"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第47期銀行內部控制與內部稽核測驗（一般金融類）】試題正確答案",
+      "native_subject_label": "銀行內部控制與內部稽核法規；銀行內部控制與內部稽核",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-43c1299c65823c0ab6e4-80da42c0e9699f01864e",
+      "phid": "420",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617840-1.pdf",
+      "checksum": "80da42c0e9699f01864e8cc158f4d623f0c33f3633612f2958eeb5f69920fbb0",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "理財工具"
+      ],
+      "source_label": "理財工具",
+      "native_heading": "台灣金融研訓院第 46 屆理財規劃人員專業能力測驗試題",
+      "native_subject_label": "科目：理財工具",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-69f0ccf5df4195971dbe-b925978ffefcc78b3002",
+      "phid": "420",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617840-2.pdf",
+      "checksum": "b925978ffefcc78b300201783ba99b87be5cf04642f90cf47fb3fb9c3ab5d96d",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "理財規劃實務"
+      ],
+      "source_label": "理財規劃實務",
+      "native_heading": "台灣金融研訓院第 46 屆理財規劃人員專業能力測驗試題",
+      "native_subject_label": "科目：理財規劃實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-aae4e1cbed1fc6ffc5ff-7ce0ffc60ac14760b808",
+      "phid": "420",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617840-3.pdf",
+      "checksum": "7ce0ffc60ac14760b80848a80beb0f5bea56a39d806755f77a4bbca29ea215ae",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "理財工具",
+        "理財規劃實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第46屆理財規劃人員專業能力測驗】試題正確答案",
+      "native_subject_label": "理財工具；理財規劃實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-ad8f6501f748fa21a86f-c3dd07504fbc6275ab5e",
+      "phid": "421",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617839-1.pdf",
+      "checksum": "c3dd07504fbc6275ab5ea47845b0b7faef94c1d68c0ae93412de79d8b2722576",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規",
+      "native_heading": "台灣金融研訓院第 45 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-e1072eedea693851bf0a-7162d12edd6215fb88fb",
+      "phid": "421",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617839-2.pdf",
+      "checksum": "7162d12edd6215fb88fb6c9ec376d3ceeb9c6f620622d02afc668645c6e1f112",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務",
+      "native_heading": "台灣金融研訓院第 45 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-ec4c0daf355bf7b5f1d7-2f22ef491342d20e91b9",
+      "phid": "421",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617839-3.pdf",
+      "checksum": "2f22ef491342d20e91b96388a0da77b8ab44d8a494a22c5114cbdf4592eac55f",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第45屆初階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規；授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-cfb124025f9227fb10a8-956fcb4b2af82f91f1d1",
+      "phid": "422",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617842-1.pdf",
+      "checksum": "956fcb4b2af82f91f1d146d05ebb42293903af2c9b8749a3c960c18e846cbb02",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核法規"
+      ],
+      "source_label": "內部控制與內部稽核法規(消費金融)",
+      "native_heading": "台灣金融研訓院第 47 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核法規（一般金融類、消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-30e8492cb4efc426e013-7940d6b8007283cfe1f4",
+      "phid": "422",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617842-2.pdf",
+      "checksum": "7940d6b8007283cfe1f4c9efb3623c993f6b867abfa5fc49147e4c7e8062a613",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核（消費金融類）"
+      ],
+      "source_label": "內部控制與內部稽核(消費金融)",
+      "native_heading": "台灣金融研訓院第 47 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核（消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-3985bb2a5590952622bb-538beb1b0f1e4a2a2a20",
+      "phid": "422",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617842-3.pdf",
+      "checksum": "538beb1b0f1e4a2a2a20c21599a1a3c4ae82e86d961c79aeffc63696ca5dcb86",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "銀行內部控制與內部稽核法規",
+        "銀行內部控制與內部稽核"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第47期銀行內部控制與內部稽核測驗（消費金融類）】試題正確答案",
+      "native_subject_label": "銀行內部控制與內部稽核法規；銀行內部控制與內部稽核",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-344ad602162da3fb38c2-844046c51bc7570c3bcb",
+      "phid": "423",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617845-1.pdf",
+      "checksum": "844046c51bc7570c3bcb359b4516a2593b331aa3e800e1ac0b2c5da7c50b343c",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_label": "防制洗錢與打擊資恐法令及實務",
+      "native_heading": "台灣金融研訓院辦理 114 年第 1 次防制洗錢與打擊資恐專業人員測驗試題",
+      "native_subject_label": "科目：防制洗錢與打擊資恐法令及實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9014cf997d24987a0484-747a6fab167ab49d3a64",
+      "phid": "423",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/617845-2.pdf",
+      "checksum": "747a6fab167ab49d3a6405f317dd205c1b776244a35d066de769aab02629d8be",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【114年第1次防制洗錢與打擊資恐專業人員測驗】試題正確答案",
+      "native_subject_label": "防制洗錢與打擊資恐法令及實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-5e5fdc4cca22a636fe8e-64d6cbf05f4afb40be77",
+      "phid": "424",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-1.pdf",
+      "checksum": "64d6cbf05f4afb40be7744fb020620e33714a78d5f590e7de7418b26c9ff9c33",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "第 60 期信託業業務人員信託業務專業測驗試題；第 42 期信託業業務人員信託業務專業測驗【信託法規】乙科試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-f85b56f10bd30c41c4cb-f9c0a9275d5ba9557177",
+      "phid": "424",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-2.pdf",
+      "checksum": "f9c0a9275d5ba95571777a21375c4675bd04c75fd5434ccef5e18b54d57cfabd",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託實務"
+      ],
+      "source_label": "信託實務",
+      "native_heading": "第 60 期信託業業務人員信託業務專業測驗試題",
+      "native_subject_label": "科目：信託實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9c3c216e68c2b3ca4de0-e5dcb37ffc8e9376a7a5",
+      "phid": "424",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624445-3.pdf",
+      "checksum": "e5dcb37ffc8e9376a7a54694c1c60899aecef2164d690d5b39ad12fbf96768fc",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "信託法規",
+        "信託實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "第60期信託業業務人員信託業務專業測驗",
+      "native_subject_label": "信託法規；信託實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-44fdb40f5c8474fa9038-64d6cbf05f4afb40be77",
+      "phid": "425",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624446-1.pdf",
+      "checksum": "64d6cbf05f4afb40be7744fb020620e33714a78d5f590e7de7418b26c9ff9c33",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "第 60 期信託業業務人員信託業務專業測驗試題；第 42 期信託業業務人員信託業務專業測驗【信託法規】乙科試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-87d6ba0958f8426cb2f9-7a41e26bd3802003605f",
+      "phid": "425",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624446-2.pdf",
+      "checksum": "7a41e26bd3802003605f5cef99047e2a88b0c4b0bf0257813152527d173b9971",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "答案",
+      "native_heading": "第42期信託業業務人員信託業務專業測驗【信託法規乙科】",
+      "native_subject_label": "信託法規",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-94aff41a5207affdd5d8-8c05bedeace1597a90de",
+      "phid": "426",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624449-1.pdf",
+      "checksum": "8c05bedeace1597a90de7e96150708736bea9813b06108b3c32aaa1821618577",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "高齡金融規劃第一節",
+      "native_heading": "第 8 期高齡金融規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-384b42a8671f042e6f57-b5981b6feac3bdfb0fe1",
+      "phid": "426",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624449-2.pdf",
+      "checksum": "b5981b6feac3bdfb0fe134218b5dd86144c85c627cd104895931822f2e9ca1d1",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "高齡金融規劃第二節",
+      "native_heading": "第 8 期高齡金融規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-74df46e2b4aa8f1569e8-6b8067d03e4e998b2592",
+      "phid": "426",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624449-3.pdf",
+      "checksum": "6b8067d03e4e998b2592347ec3dfceabc8828412dd8e7245aecb4da7fdd8eaa2",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第8期高齡金融規劃顧問師資格測驗",
+      "native_subject_label": "第一節；第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-d7eea3e26e9deb18ae3d-14db43580fc878965409",
+      "phid": "427",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624448-1.pdf",
+      "checksum": "14db43580fc8789654093b743cf53b9be42a64ef46bdbe9ca3bb9b27faa6a23f",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "衍生性金融商品概論與實務"
+      ],
+      "source_label": "衍生性金融商品概論與實務",
+      "native_heading": "台灣金融研訓院第 18 期衍生性金融商品銷售人員資格測驗試題",
+      "native_subject_label": "科目：衍生性金融商品概論與實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-e9c7afd895a5e47993b6-183634047807fd76a0eb",
+      "phid": "427",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624448-2.pdf",
+      "checksum": "183634047807fd76a0eb014c337a2f3504c81f65b02f984502626a1977db097e",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "衍生性金融商品概論與實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第18期衍生性金融商品銷售人員資格測驗】試題正確答案",
+      "native_subject_label": "衍生性金融商品概論與實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-0a70c9cc971e63456851-c69e65b73ebcd7ee46cb",
+      "phid": "428",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624444-3.pdf",
+      "checksum": "c69e65b73ebcd7ee46cb13e03b077cd1e22c9e353774ab9a016b8d90b2846830",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "國外匯兌業務"
+      ],
+      "source_label": "國外匯兌",
+      "native_heading": "台灣金融研訓院第 45 屆初階外匯人員專業能力測驗試題",
+      "native_subject_label": "科目：國外匯兌業務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-5fe4e79d72a54ca12934-ca2994c76aa294bd165b",
+      "phid": "428",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624444-4.pdf",
+      "checksum": "ca2994c76aa294bd165bbf82086921878b8866313d57e3312737ddb5c05a22ee",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "進出口外匯業務"
+      ],
+      "source_label": "進出口外匯",
+      "native_heading": "台灣金融研訓院第 45 屆初階外匯人員專業能力測驗試題",
+      "native_subject_label": "科目：進出口外匯業務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-75164594ada6719eb8e6-414b0fa6c68180fd9399",
+      "phid": "428",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624444-5.pdf",
+      "checksum": "414b0fa6c68180fd9399a4bfa3b60777910548073ff9f7bc597788d78265139a",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "國外匯兌業務",
+        "進出口外匯業務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第45屆初階外匯人員專業能力測驗】試題正確答案",
+      "native_subject_label": "國外匯兌業務；進出口外匯業務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-d245b2cb18bd32c1e800-4c972f284d5c1727ee20",
+      "phid": "429",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624447-1.pdf",
+      "checksum": "4c972f284d5c1727ee200649432a7e2716d221e00ab807eb4a7f9a425a43f73e",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "風險管理制度與實務"
+      ],
+      "source_label": "風險管理制度與實務",
+      "native_heading": "台灣金融研訓院第 20 屆風險管理基本能力測驗試題",
+      "native_subject_label": "科目：風險管理制度與實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-29c0a02811c6337a8264-3882e339428d3b306677",
+      "phid": "429",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/624447-2.pdf",
+      "checksum": "3882e339428d3b30667716e7fe78175ddefdf99e5aca13097249539648838503",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "風險管理制度與實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第20屆風險管理基本能力測驗】試題正確答案",
+      "native_subject_label": "風險管理制度與實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-3ca95c1a00a22836dd17-d98a2c86531b31a60415",
+      "phid": "430",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644262-1.pdf",
+      "checksum": "d98a2c86531b31a60415f5aa93d528d6cf4eddb96d157a3133e9175e79c92dfe",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "第 61 期信託業業務人員信託業務專業測驗試題；第 43 期信託業業務人員信託業務專業測驗【信託法規乙科】試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-a530b71add79018ab0a5-52689d3a25c97e4906bd",
+      "phid": "430",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644262-2.pdf",
+      "checksum": "52689d3a25c97e4906bddd529e3dc0b40dbdd9010fc86166556a2725c4b3fb69",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託實務"
+      ],
+      "source_label": "信託實務",
+      "native_heading": "第 61 期信託業業務人員信託業務專業測驗試題",
+      "native_subject_label": "科目：信託實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-c2019c13e2dce29086b5-b61e0bf95dad87d22ed6",
+      "phid": "430",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644262-3.pdf",
+      "checksum": "b61e0bf95dad87d22ed61290a71e323717714ec5ab4e5448716d878e615698ae",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "信託法規",
+        "信託實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "第61期信託業業務人員信託業務專業測驗",
+      "native_subject_label": "信託法規；信託實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-adbb6b90ce0eb6e6accc-fd07de14ede6abebdc65",
+      "phid": "431",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644267-1.pdf",
+      "checksum": "fd07de14ede6abebdc6526581f07de0de1864e6791c7e8138e38e0a9414a35c2",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "永續發展基礎能力測驗",
+      "native_heading": "台灣金融研訓院辦理 114 年第 5 次永續發展基礎能力測驗試題",
+      "native_subject_label": "科目：永續發展基礎能力測驗",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-5407d5f57f4244ac2bb2-e0ee9490c32dd072a061",
+      "phid": "431",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644267-2.pdf",
+      "checksum": "e0ee9490c32dd072a06113c6866952f3038f163a524d4d4df41706e1b4e05ccb",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【114年第5次永續發展基礎能力測驗】試題正確答案",
+      "native_subject_label": "永續發展基礎能力測驗",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-e64b321658f11b3781ed-d98a2c86531b31a60415",
+      "phid": "432",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644263-1.pdf",
+      "checksum": "d98a2c86531b31a60415f5aa93d528d6cf4eddb96d157a3133e9175e79c92dfe",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "第 61 期信託業業務人員信託業務專業測驗試題；第 43 期信託業業務人員信託業務專業測驗【信託法規乙科】試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-b38542584930e3bc6195-fe008902e66dcc06ec54",
+      "phid": "432",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644263-2.pdf",
+      "checksum": "fe008902e66dcc06ec54e788318ce0de4592cedf2dd0b88298770e765ce90677",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "答案",
+      "native_heading": "第43期信託業業務人員信託業務專業測驗【信託法規乙科】",
+      "native_subject_label": "信託法規",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-0d0b0b100fc3a7bd4cc6-d74b2a18d4ef8adb4731",
+      "phid": "433",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644264-1.pdf",
+      "checksum": "d74b2a18d4ef8adb47310af4a68d5be84493f41dbe01c8a2e31ad8a59ba03eb5",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "家族信託規劃第一節",
+      "native_heading": "第 6 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-a1a358199661a8d77e97-ee2338a127bde77fa324",
+      "phid": "433",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644264-2.pdf",
+      "checksum": "ee2338a127bde77fa324bf5235c865b69566e1ede674cb9c70ada04cd8b852f2",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "家族信託規劃第二節",
+      "native_heading": "第 6 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-4711450284fed0d29e85-2ee918266861b7d9ab99",
+      "phid": "433",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644264-3.pdf",
+      "checksum": "2ee918266861b7d9ab99c7d5287a03213f6fb62255bd7489ef36c52b89e2f894",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第6期家族信託規劃顧問師資格測驗",
+      "native_subject_label": "第一節；第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-0eb540eefa8197748f14-9bd653fecd1aeda37a2b",
+      "phid": "434",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644266-1.pdf",
+      "checksum": "9bd653fecd1aeda37a2b9f2d1c421257cb04377257a67704e07a46cb0457a97a",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "金融科技力",
+      "native_heading": "台灣金融研訓院第 20 屆金融科技力知識檢定測驗試題",
+      "native_subject_label": "科目：金融科技力",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-12ada23d034a1af4c2ce-778fae5bf3e6642095d6",
+      "phid": "434",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644266-2.pdf",
+      "checksum": "778fae5bf3e6642095d6deddeb485c4dac0367580e6214a8b87053094f32867d",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第20屆金融科技力知識檢定測驗】",
+      "native_subject_label": "金融科技力",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-f59f8be3aebaba2ce293-52b71b47be192569e5ce",
+      "phid": "435",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644265-1.pdf",
+      "checksum": "52b71b47be192569e5ce1c5a5fb5555f3b848762e5b59e5838c6c782f1449d15",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "風險管理制度與實務"
+      ],
+      "source_label": "風險管理制度與實務",
+      "native_heading": "台灣金融研訓院第 21 屆風險管理基本能力測驗試題",
+      "native_subject_label": "科目：風險管理制度與實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-2184a8da147b91625de5-e7fe625084f53ea1fad8",
+      "phid": "435",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644265-2.pdf",
+      "checksum": "e7fe625084f53ea1fad8f871c40839dea927872e87bd5d0597177cdaf7c10232",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "風險管理制度與實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第21屆風險管理基本能力測驗】試題正確答案",
+      "native_subject_label": "風險管理制度與實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-006a1856397ac3567b73-4310ac72daafe3ee1777",
+      "phid": "436",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644261-3.pdf",
+      "checksum": "4310ac72daafe3ee1777ff5ec2a76c0436f1fdc185dd0d40ac18c9617fc02c9b",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "國外匯兌業務"
+      ],
+      "source_label": "國外匯兌",
+      "native_heading": "台灣金融研訓院第 46 屆初階外匯人員專業能力測驗試題",
+      "native_subject_label": "科目：國外匯兌業務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9f877185cdc164998ff0-36fecf8de1ba03dcd923",
+      "phid": "436",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644261-4.pdf",
+      "checksum": "36fecf8de1ba03dcd9232535f5b66fbf3cda324eddc7c007c10a9da5a307a7c1",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "進出口外匯業務"
+      ],
+      "source_label": "進出口外匯",
+      "native_heading": "台灣金融研訓院第 46 屆初階外匯人員專業能力測驗試題",
+      "native_subject_label": "科目：進出口外匯業務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-27222aba00a8fb123f53-acb091f24fa3fea78efd",
+      "phid": "436",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/644261-5.pdf",
+      "checksum": "acb091f24fa3fea78efdeff2dad33b0b34d3b9098655481e74341f3744526850",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "國外匯兌業務",
+        "進出口外匯業務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第46屆初階外匯人員專業能力測驗】試題正確答案",
+      "native_subject_label": "國外匯兌業務；進出口外匯業務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-18e7e9f207e4ea80b44d-64fced5ec420b512e521",
+      "phid": "437",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647393-1.pdf",
+      "checksum": "64fced5ec420b512e5214bc9ee90a875a27bf63de0c08d23e18ad49fd9ac2743",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "理財工具"
+      ],
+      "source_label": "理財工具",
+      "native_heading": "台灣金融研訓院第 47 屆理財規劃人員專業能力測驗試題",
+      "native_subject_label": "科目：理財工具",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-1b8784ac5558b14cf3df-c5e99ed3cb487eb1c9c9",
+      "phid": "437",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647393-2.pdf",
+      "checksum": "c5e99ed3cb487eb1c9c901905d03e573b35f1c89b8ac01eeb707d63e5b614256",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "理財規劃實務"
+      ],
+      "source_label": "理財規劃實務",
+      "native_heading": "台灣金融研訓院第 47 屆理財規劃人員專業能力測驗試題",
+      "native_subject_label": "科目：理財規劃實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-1085131c75f6eb25c4ea-994f88dfe8cc52132e49",
+      "phid": "437",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647393-3.pdf",
+      "checksum": "994f88dfe8cc52132e49bd182c1c1e42bf3e21c90d2cb18137055c9677f0462e",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "理財工具",
+        "理財規劃實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第47屆理財規劃人員專業能力測驗】試題正確答案",
+      "native_subject_label": "理財工具；理財規劃實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-923b38d9864d2155798b-ae0b0e432bff75eb2421",
+      "phid": "438",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647396-1.pdf",
+      "checksum": "ae0b0e432bff75eb242105edcb82e8134c141251828e81cfef0626af823297a7",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "衍生性金融商品概論與實務"
+      ],
+      "source_label": "衍生性金融商品概論與實務",
+      "native_heading": "台灣金融研訓院第 19 期衍生性金融商品銷售人員資格測驗試題",
+      "native_subject_label": "科目：衍生性金融商品概論與實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-b415c649166f4d781561-7d41b9a653df4896abc3",
+      "phid": "438",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647396-2.pdf",
+      "checksum": "7d41b9a653df4896abc34eb15d8269373b72b2bd0ed3e5c0b09c7ba2c08787bd",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "衍生性金融商品概論與實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第19期衍生性金融商品銷售人員資格測驗】試題正確答案",
+      "native_subject_label": "衍生性金融商品概論與實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-acba921b8195ed401e78-7e21447228bdb73c2593",
+      "phid": "439",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647398-1.pdf",
+      "checksum": "7e21447228bdb73c2593ba137113ae157a9ab66224a733cc3ad9574f1f84b145",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "永續發展基礎能力測驗",
+      "native_heading": "台灣金融研訓院辦理 114 年第 6 次永續發展基礎能力測驗試題",
+      "native_subject_label": "科目：永續發展基礎能力測驗",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-08f2816f12008853abed-5d910b57e0fb23b063e7",
+      "phid": "439",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647398-2.pdf",
+      "checksum": "5d910b57e0fb23b063e74aa48a67f4e2b9ba59a1bf5b7fc64a6386e5193b82dd",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【114年第6次永續發展基礎能力測驗】試題正確答案",
+      "native_subject_label": "永續發展基礎能力測驗",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-62f9c3f53acec1460f2b-6aba5b1f8988942091e6",
+      "phid": "440",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647397-1.pdf",
+      "checksum": "6aba5b1f8988942091e69e993a9a08fffcb59c607b36021a9e2e389f054e848d",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "高齡金融規劃第一節",
+      "native_heading": "第 9 期高齡金融規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-6fadc68f243d1c53dd15-546fe9a5412ca1301237",
+      "phid": "440",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647397-2.pdf",
+      "checksum": "546fe9a5412ca13012375c7ecb5437a65220f6e69f1cfcc5159a99a7f2126187",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "高齡金融規劃第二節",
+      "native_heading": "第 9 期高齡金融規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-ebfea60df4c59f84ce55-12dcb3ac09fdf4a3983f",
+      "phid": "440",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647397-3.pdf",
+      "checksum": "12dcb3ac09fdf4a3983f1ee96ed17d003927869c16374e75b74c02dcf4f662f6",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第9期高齡金融規劃顧問師資格測驗",
+      "native_subject_label": "第一節；第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-6b080c949ad93cdea7be-7ad8855ebd2547b78bf0",
+      "phid": "441",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647394-1.pdf",
+      "checksum": "7ad8855ebd2547b78bf0b864e3f03e1bf84d17a19f783f3555f7d96d0ffaffb9",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核法規"
+      ],
+      "source_label": "內部控制與內部稽核法規(一般金融)",
+      "native_heading": "台灣金融研訓院第 48 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核法規（一般金融類、消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-8087accb6dfbb49038a5-b6cdb7e06c058c6a2387",
+      "phid": "441",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647394-2.pdf",
+      "checksum": "b6cdb7e06c058c6a2387172e35016c84eaa9353b8d723b256cdf35a9c95f9aae",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核（一般金融類）"
+      ],
+      "source_label": "內部控制與內部稽核(一般金融)",
+      "native_heading": "台灣金融研訓院第 48 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核（一般金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-fc30cf16e1ccb8682c3e-4487f2746d78cae7f486",
+      "phid": "441",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647394-3.pdf",
+      "checksum": "4487f2746d78cae7f486c2c386eda4c0dddc978375a298c88cd38844360a6591",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "銀行內部控制與內部稽核法規",
+        "銀行內部控制與內部稽核"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第48期銀行內部控制與內部稽核測驗（一般金融類）】試題正確答案",
+      "native_subject_label": "銀行內部控制與內部稽核法規；銀行內部控制與內部稽核",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9c516cc453fd3418bd3f-7ad8855ebd2547b78bf0",
+      "phid": "443",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647395-1.pdf",
+      "checksum": "7ad8855ebd2547b78bf0b864e3f03e1bf84d17a19f783f3555f7d96d0ffaffb9",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核法規"
+      ],
+      "source_label": "內部控制與內部稽核法規(消費金融)",
+      "native_heading": "台灣金融研訓院第 48 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核法規（一般金融類、消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-41b7255f6ce6c854cbc3-13037303f69bd3cc3a82",
+      "phid": "443",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647395-2.pdf",
+      "checksum": "13037303f69bd3cc3a823d18aef91288ab0b00f9f26f6503eb3825c23e9d04f7",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核（消費金融類）"
+      ],
+      "source_label": "內部控制與內部稽核(消費金融)",
+      "native_heading": "台灣金融研訓院第 48 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核（消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-46c426c6b16cbe3c29a9-e48e4db8a49022129344",
+      "phid": "443",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647395-3.pdf",
+      "checksum": "e48e4db8a490221293441ef86c1c9277e021772eb289600467f672c9d50da3d3",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "銀行內部控制與內部稽核法規",
+        "銀行內部控制與內部稽核"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第48期銀行內部控制與內部稽核測驗（消費金融類）】試題正確答案",
+      "native_subject_label": "銀行內部控制與內部稽核法規；銀行內部控制與內部稽核",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9162ff1c29b218b15e0a-d723763f148e7935c857",
+      "phid": "444",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647391-1.pdf",
+      "checksum": "d723763f148e7935c857589db9415f05af46b34ff291c1c6ae7225768de8ecb5",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規",
+      "native_heading": "台灣金融研訓院第 46 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-26af5866c645f175b1fc-a9c87778bdf6326c9b8d",
+      "phid": "444",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647391-2.pdf",
+      "checksum": "a9c87778bdf6326c9b8d9ba5d2ae9db73a722b87de60e6bab30786dbdc4fbe8a",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務",
+      "native_heading": "台灣金融研訓院第 46 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-fe16925b3fbbb75bdc6a-4af80ba113a77cfa4036",
+      "phid": "444",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647391-3.pdf",
+      "checksum": "4af80ba113a77cfa4036352d2d05c3d9fa142ba86ff7ce326bcdd11c41e4bb39",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第46屆初階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規；授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-dbb6752c994ba2da5426-5d9c79f8833892a970db",
+      "phid": "445",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647392-1.pdf",
+      "checksum": "5d9c79f8833892a970db2c932339b847b46c6fddc2ef94a4a23b58514547732f",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規(進階)",
+      "native_heading": "台灣金融研訓院第 25 屆進階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-eed9bd7971d4b40715c7-6cdef46ab42b2b9714a8",
+      "phid": "445",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647392-2.pdf",
+      "checksum": "6cdef46ab42b2b9714a8bdeb76fd5fc3c22771a40081c4acb68562a70f540565",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務(進階)",
+      "native_heading": "台灣金融研訓院第 25 屆進階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-aee6059cea59c53722c7-1217a0b013b11f6cb3e2",
+      "phid": "445",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/647392-3.pdf",
+      "checksum": "1217a0b013b11f6cb3e243fdc429e68015bc57cee2dd4aef4c2083ceb012320c",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第25屆進階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規；授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-b52bcea0fd8ae7cb11b5-bbc41297dc76ee7ce29c",
+      "phid": "446",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663415-1.pdf",
+      "checksum": "bbc41297dc76ee7ce29cc3e94d77795a87e2b4009c8dade726c250dc8e18b272",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "家族信託規劃第一節",
+      "native_heading": "第 7 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-7110743eb92127168ec7-6edaec1e750ef123bd85",
+      "phid": "446",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663415-2.pdf",
+      "checksum": "6edaec1e750ef123bd85318a7696f8e76d6ec9b3b6d116d5f74d1737aefee223",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "家族信託規劃第二節",
+      "native_heading": "第 7 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-67e8655057f443aad7e8-966d825510a7919cc436",
+      "phid": "446",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663415-3.pdf",
+      "checksum": "966d825510a7919cc43621fa4b03aa4ec3042d33466ae64fea1a1d224522e882",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第7期家族信託規劃顧問師資格測驗",
+      "native_subject_label": "第一節；第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-99593517c47b183b6166-7868b90bb4bf0dab5a6c",
+      "phid": "447",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663416-1.pdf",
+      "checksum": "7868b90bb4bf0dab5a6c55086c4ff26b409b0da90704d5721859b5cbbe7014d7",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "金融科技力",
+      "native_heading": "台灣金融研訓院第 21 屆金融科技力知識檢定測驗試題",
+      "native_subject_label": "科目：金融科技力",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-981a3b5d82ebe0a09d1c-63f5a6301aaff63c8d4e",
+      "phid": "447",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663416-2.pdf",
+      "checksum": "63f5a6301aaff63c8d4e7dd99fa1fcc364763718c7c65339a7bdff29c073a76d",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第21屆金融科技力知識檢定測驗】",
+      "native_subject_label": "金融科技力",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-f9bc0ac4fb18dad27c58-d4a726d1406b004c28e0",
+      "phid": "448",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663410-1.pdf",
+      "checksum": "d4a726d1406b004c28e05b2182f708b3daa28d59a5136c28992711165ecbc8b2",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規",
+      "native_heading": "台灣金融研訓院第 47 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-cf839670936bf7e46f40-8d6f3f6d9cf4c114319c",
+      "phid": "448",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663410-2.pdf",
+      "checksum": "8d6f3f6d9cf4c114319c329c17a437ed37dc3179139ff0f2da035516df61491e",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務",
+      "native_heading": "台灣金融研訓院第 47 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9ccd12f3d3e9bc6dbf37-52057ce59a340828b971",
+      "phid": "448",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663410-3.pdf",
+      "checksum": "52057ce59a340828b971c668883cba24ceeb6097605fc68abbb9f9c99aaf921a",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第47屆初階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規；授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-c8242fbec7cd2ab83eb0-b248de88e6915328b253",
+      "phid": "449",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663417-1.pdf",
+      "checksum": "b248de88e6915328b2536dff973b16017f0ec964596e36731e105430f62d6e90",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_label": "防制洗錢與打擊資恐法令及實務",
+      "native_heading": "台灣金融研訓院辦理 115 年第 1 次防制洗錢與打擊資恐專業人員測驗試題",
+      "native_subject_label": "科目：防制洗錢與打擊資恐法令及實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-b450c0881d5c961ff296-f1705bc9f65e8539bfaa",
+      "phid": "449",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663417-2.pdf",
+      "checksum": "f1705bc9f65e8539bfaaae941d980b082b4a0352d3096f3b115b7031b6bea958",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "防制洗錢與打擊資恐法令及實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【115年第1次防制洗錢與打擊資恐專業人員測驗】試題正確答案",
+      "native_subject_label": "防制洗錢與打擊資恐法令及實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9a7e931711e713a578f1-68363b3243dd0f9b7a2f",
+      "phid": "450",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663411-1.pdf",
+      "checksum": "68363b3243dd0f9b7a2f32787da7cda4e8949c501e10323d5fb82863cb3222e4",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "理財工具"
+      ],
+      "source_label": "理財工具",
+      "native_heading": "台灣金融研訓院第 48 屆理財規劃人員專業能力測驗試題",
+      "native_subject_label": "科目：理財工具",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-1a4dae2e4c84fcc4ab2e-5304ce02851999ac4319",
+      "phid": "450",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663411-2.pdf",
+      "checksum": "5304ce02851999ac4319ee0c31e305986eeb7957077f052327bf52a2475245f3",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "理財規劃實務"
+      ],
+      "source_label": "理財規劃實務",
+      "native_heading": "台灣金融研訓院第 48 屆理財規劃人員專業能力測驗試題",
+      "native_subject_label": "科目：理財規劃實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-1b7763d2f45c6b314817-39cdee07b316116a961e",
+      "phid": "450",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663411-3.pdf",
+      "checksum": "39cdee07b316116a961e9a4053e3b6e20e7233bac2d7ddc0a5259b6e6c388716",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "理財工具",
+        "理財規劃實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第48屆理財規劃人員專業能力測驗】試題正確答案",
+      "native_subject_label": "理財工具；理財規劃實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-384cb12f5f0594990596-d66372d0d0195c193df7",
+      "phid": "454",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663412-1.pdf",
+      "checksum": "d66372d0d0195c193df7dfbabee776a1b8ae4562b96cfaaca3cdc9693a57ca89",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核法規"
+      ],
+      "source_label": "內部控制與內部稽核法規(一般金融)",
+      "native_heading": "台灣金融研訓院第 49 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核法規（一般金融類、消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-03a56ca829db0821f2b8-1986de5cd80e9753cb05",
+      "phid": "454",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663412-2.pdf",
+      "checksum": "1986de5cd80e9753cb05556e04f307e57748169e7369e7322b582bdccccfdc22",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核（一般金融類）"
+      ],
+      "source_label": "內部控制與內部稽核(一般金融)",
+      "native_heading": "台灣金融研訓院第 49 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核（一般金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-e422ab104d2ab648a07c-e36870a700d564eb7705",
+      "phid": "454",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663412-3.pdf",
+      "checksum": "e36870a700d564eb7705144088898eeb654abd23a31123c07fb7e9af71d4528e",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "銀行內部控制與內部稽核法規",
+        "銀行內部控制與內部稽核"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第49期銀行內部控制與內部稽核測驗（一般金融類）】試題正確答案",
+      "native_subject_label": "銀行內部控制與內部稽核法規；銀行內部控制與內部稽核",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-15eb9a63ae9cf8362416-d66372d0d0195c193df7",
+      "phid": "455",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663413-1.pdf",
+      "checksum": "d66372d0d0195c193df7dfbabee776a1b8ae4562b96cfaaca3cdc9693a57ca89",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核法規"
+      ],
+      "source_label": "內部控制與內部稽核法規(消費金融)",
+      "native_heading": "台灣金融研訓院第 49 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核法規（一般金融類、消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-f49fba49261c7044457e-8ab4639edea7a0aa71d7",
+      "phid": "455",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663413-2.pdf",
+      "checksum": "8ab4639edea7a0aa71d75ec1934ac50646ac9e72571b61001a1c4b3b3c00682f",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "銀行內部控制與內部稽核（消費金融類）"
+      ],
+      "source_label": "內部控制與內部稽核(消費金融)",
+      "native_heading": "台灣金融研訓院第 49 期銀行內部控制與內部稽核測驗試題",
+      "native_subject_label": "科目：銀行內部控制與內部稽核（消費金融類）",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-9952b1b169a3f7278de5-57f1e275ab313cab9b37",
+      "phid": "455",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/663413-3.pdf",
+      "checksum": "57f1e275ab313cab9b3759875cf639be7a0a49e9cb6ffb89f6b212eb3e354695",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "銀行內部控制與內部稽核法規",
+        "銀行內部控制與內部稽核"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第49期銀行內部控制與內部稽核測驗（消費金融類）】試題正確答案",
+      "native_subject_label": "銀行內部控制與內部稽核法規；銀行內部控制與內部稽核",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-bd707c358d626245e3b8-893d1e9d109b049865cf",
+      "phid": "456",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666084-1.pdf",
+      "checksum": "893d1e9d109b049865cfbbeffc9cd43029f0ff1aa704b2a439346e5e28d0070e",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "永續發展基礎能力測驗",
+      "native_heading": "台灣金融研訓院辦理 115 年第 2 次永續發展基礎能力測驗試題",
+      "native_subject_label": "科目：永續發展基礎能力測驗",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-710659d683a91c40a6b0-50f356175f5ed6508786",
+      "phid": "456",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666084-2.pdf",
+      "checksum": "50f356175f5ed6508786957cd7e0eed9681d68c326cedb3c0715091f4640645b",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【115年第2次永續發展基礎能力測驗】試題正確答案",
+      "native_subject_label": "永續發展基礎能力測驗",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-cacdf8dd51d05a4d83fd-660d7974d0f85c451357",
+      "phid": "457",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666078-1.pdf",
+      "checksum": "660d7974d0f85c451357522fd46f96deb9c49c7a09f574263f3003693371af91",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "第 62 期信託業業務人員信託業務專業測驗試題；第 44 期信託業業務人員信託業務專業測驗【信託法規】乙科試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-5ea0c5d52d2475e194c2-e3d4dac01909317b9827",
+      "phid": "457",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666078-2.pdf",
+      "checksum": "e3d4dac01909317b982759e4f05ddb82c709574295cbff9f5d1c020c842290d6",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託實務"
+      ],
+      "source_label": "信託實務",
+      "native_heading": "第 62 期信託業業務人員信託業務專業測驗試題",
+      "native_subject_label": "科目：信託實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-cb724f69d1cfe4846e39-efeaf4fb0025c2080e48",
+      "phid": "457",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666078-3.pdf",
+      "checksum": "efeaf4fb0025c2080e48dea076a9c61205e295b47f50bf47b0045700e4bc73fb",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "信託法規",
+        "信託實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "第62期信託業業務人員信託業務專業測驗",
+      "native_subject_label": "信託法規；信託實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-e854fc41247d1c80ae54-660d7974d0f85c451357",
+      "phid": "458",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666080-1.pdf",
+      "checksum": "660d7974d0f85c451357522fd46f96deb9c49c7a09f574263f3003693371af91",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "第 62 期信託業業務人員信託業務專業測驗試題；第 44 期信託業業務人員信託業務專業測驗【信託法規】乙科試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The identical native payload explicitly serves distinct official contexts; preserve each source reference and qualification variant."
+    },
+    {
+      "id": "tabf-native-84aa7ab24e36dd9b4a95-1448f2273900697acfd8",
+      "phid": "458",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666080-2.pdf",
+      "checksum": "1448f2273900697acfd8c329187ee15bf6ba5f1412a32ef8145dbabec3c68f80",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "答案",
+      "native_heading": "第44期信託業業務人員信託業務專業測驗【信託法規乙科】",
+      "native_subject_label": "信託法規",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-7703af8ddd5d5f867cf1-5f01c2499a56b054c370",
+      "phid": "459",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666083-1.pdf",
+      "checksum": "5f01c2499a56b054c370ee4506854a53de156f8ce3092cddab03ac3e8a8401a8",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "高齡金融規劃第一節",
+      "native_heading": "第 10 期高齡金融規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-45617e51d126c2a27e9b-fcba41b90f38d3989b30",
+      "phid": "459",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666083-2.pdf",
+      "checksum": "fcba41b90f38d3989b30e7d0d841f566e115c0b1818ebe6a2fb1cd7e69d32076",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "高齡金融規劃第二節",
+      "native_heading": "第 10 期高齡金融規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications."
+    },
+    {
+      "id": "tabf-native-bdfb296f361366bb485d-dffe8e69db77cf72a5dc",
+      "phid": "459",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666083-3.pdf",
+      "checksum": "dffe8e69db77cf72a5dcb95eeb70e45c3601492d80ec0c92439f7f234f09cc8b",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第10期高齡金融規劃顧問師資格測驗",
+      "native_subject_label": "第一節；第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context. These are test sections, not exam stages or separately awarded qualifications. The native heading omits an answer label. Its visible answer-key table, native programme/round and official answer link were inspected together."
+    },
+    {
+      "id": "tabf-native-c098ae7d4f38af57380d-23b62f696a43a9e7dee0",
+      "phid": "460",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666081-1.pdf",
+      "checksum": "23b62f696a43a9e7dee034201f3605c5dd3c6590b2d79399df99cdc3f2fb718d",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "風險管理制度與實務"
+      ],
+      "source_label": "風險管理制度與實務",
+      "native_heading": "台灣金融研訓院第 22 屆風險管理基本能力測驗試題",
+      "native_subject_label": "科目：風險管理制度與實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-b78d445fa377c33f8d05-fd5e660cd30624cd2114",
+      "phid": "460",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666081-2.pdf",
+      "checksum": "fd5e660cd30624cd211413050164f1743a4da17b4ef2d67d2ee1ee229231a654",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "風險管理制度與實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第22屆風險管理基本能力測驗】試題正確答案",
+      "native_subject_label": "風險管理制度與實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-a5eaec91984af68ba38a-71207a7e4643e6d26e67",
+      "phid": "461",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666077-3.pdf",
+      "checksum": "71207a7e4643e6d26e676b8de342167f4700330ce4bb62fb22c042e786043c95",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "國外匯兌業務"
+      ],
+      "source_label": "國外匯兌",
+      "native_heading": "台灣金融研訓院第 47 屆初階外匯人員專業能力測驗試題",
+      "native_subject_label": "科目：國外匯兌業務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-a4177d73ad04e1884eaa-f750502dc565880b0aca",
+      "phid": "461",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666077-4.pdf",
+      "checksum": "f750502dc565880b0aca1ffab7c1abbbfb5a8ef581e96c85bf9ddc2778221157",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "進出口外匯業務"
+      ],
+      "source_label": "進出口外匯",
+      "native_heading": "台灣金融研訓院第 47 屆初階外匯人員專業能力測驗試題",
+      "native_subject_label": "科目：進出口外匯業務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-88639c0631ffad2c9d19-446d3346a9e61b2577ee",
+      "phid": "461",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666077-5.pdf",
+      "checksum": "446d3346a9e61b2577ee19df07ff82052d3a03076f859749dda90f5d081d92c5",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "國外匯兌業務",
+        "進出口外匯業務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第47屆初階外匯人員專業能力測驗】試題正確答案",
+      "native_subject_label": "國外匯兌業務；進出口外匯業務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-3ae209990c3aa6ad60f0-ab37ff82061794ae837f",
+      "phid": "462",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666082-1.pdf",
+      "checksum": "ab37ff82061794ae837fb6ffa0ff3ca2e7487f4839c5a18c2c42d56c6ecd93dd",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "衍生性金融商品概論與實務"
+      ],
+      "source_label": "衍生性金融商品概論與實務",
+      "native_heading": "台灣金融研訓院第 20 期衍生性金融商品銷售人員資格測驗試題",
+      "native_subject_label": "科目：衍生性金融商品概論與實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-a06667600549e4083fcd-9835e5b7761bdd1d9187",
+      "phid": "462",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/666082-3.pdf",
+      "checksum": "9835e5b7761bdd1d91872a163c41d3f68e049ed9c69578914d08441f1b6a6218",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "衍生性金融商品概論與實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第20期衍生性金融商品銷售人員資格測驗】試題正確答案",
+      "native_subject_label": "衍生性金融商品概論與實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native paper role and scope reviewed against its programme/PHID source context."
+    },
+    {
+      "id": "tabf-native-afdc2bdad83ea033da4f-c03f5b316923dd90dfe9",
+      "phid": "463",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695007-1.pdf",
+      "checksum": "c03f5b316923dd90dfe988fd8b8b2f5a94565723e65ac421370f87fcdfdfa848",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "台灣金融研訓院接受中華民國信託業商業同業公會委託辦理 第 63 期信託業業務人員信託業務專業測驗試題 第 45 期信託業業務人員信託業務專業測驗【信託法規】乙科試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-8e3e5bcde12b58b7b5d3-fa800fadee2e9abe221b",
+      "phid": "463",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695007-2.pdf",
+      "checksum": "fa800fadee2e9abe221bf4d62379103ff7cc2dcf9261c978a19fbdd9ecdf6eb8",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託實務"
+      ],
+      "source_label": "信託實務",
+      "native_heading": "台灣金融研訓院接受中華民國信託業商業同業公會委託辦理 第 63 期信託業業務人員信託業務專業測驗試題",
+      "native_subject_label": "科目：信託實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-cf560a2b76547341af5f-d0528500fc1054170a3e",
+      "phid": "463",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695007-3.pdf",
+      "checksum": "d0528500fc1054170a3e6f74ee5694806e2f6ffde9e6401ac1f02d78f7ffca90",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "信託法規",
+        "信託實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "第63期信託業業務人員信託業務專業測驗",
+      "native_subject_label": "信託法規、信託實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-3fa480effbe2060e209b-c03f5b316923dd90dfe9",
+      "phid": "464",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695009-1.pdf",
+      "checksum": "c03f5b316923dd90dfe988fd8b8b2f5a94565723e65ac421370f87fcdfdfa848",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "信託法規",
+      "native_heading": "台灣金融研訓院接受中華民國信託業商業同業公會委託辦理 第 63 期信託業業務人員信託業務專業測驗試題 第 45 期信託業業務人員信託業務專業測驗【信託法規】乙科試題",
+      "native_subject_label": "科目：信託法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-354298d64d1a61a56bb1-c6143170c511ee808d65",
+      "phid": "464",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695009-2.pdf",
+      "checksum": "c6143170c511ee808d653b4cf591a1e46a8c65bf904398e4bf98579251558d82",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "信託法規"
+      ],
+      "source_label": "答案",
+      "native_heading": "第45期信託業業務人員信託業務專業測驗【信託法規乙科】",
+      "native_subject_label": "信託法規",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-44b81acebffc3493afd8-79e0332aa33587349e19",
+      "phid": "465",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695010-1.pdf",
+      "checksum": "79e0332aa33587349e193aeb851f649c0fe1799522b36035e337125fabfdf428",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第一節"
+      ],
+      "source_label": "家族信託規劃第一節",
+      "native_heading": "台灣金融研訓院接受中華民國信託業商業同業公會委託辦理 第 8 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第一節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-36afeb443bdd12bb7e79-f4c99cf3c237c6c82ba3",
+      "phid": "465",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695010-2.pdf",
+      "checksum": "f4c99cf3c237c6c82ba3fdad3d740f667b3211c5eda2227ed4d921bf626514d9",
+      "file_type": "question",
+      "scope_kind": "test_section",
+      "subjects": [
+        "第二節"
+      ],
+      "source_label": "家族信託規劃第二節",
+      "native_heading": "台灣金融研訓院接受中華民國信託業商業同業公會委託辦理 第 8 期家族信託規劃顧問師資格測驗試題",
+      "native_subject_label": "節次：第二節",
+      "page_count": 12,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-e419ecb008b4c44a381f-d5b19d112d76124552d3",
+      "phid": "465",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695010-3.pdf",
+      "checksum": "d5b19d112d76124552d318ac4b932e623cb6b2bdd9c0be87bddf21771e493679",
+      "file_type": "answer",
+      "scope_kind": "combined_test_sections",
+      "subjects": [
+        "第一節",
+        "第二節"
+      ],
+      "source_label": "答案",
+      "native_heading": "第8期家族信託規劃顧問師資格測驗",
+      "native_subject_label": "第一節、第二節",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-ab34322b8d25bfc40932-df1bb6e3be12000b3265",
+      "phid": "466",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695011-1.pdf",
+      "checksum": "df1bb6e3be12000b326523e4dcecd5cfc5a9cfa3733cb925d90d1e851c813933",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "金融科技力",
+      "native_heading": "台灣金融研訓院第 22 屆金融科技力知識檢定測驗試題",
+      "native_subject_label": "科目：金融科技力",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-50478cffb3d442bb8d7b-07af8fc646d8e03710ac",
+      "phid": "466",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695011-2.pdf",
+      "checksum": "07af8fc646d8e03710acd1d7e27044d8cf6523fdd86c50e928dd32ee9aad41e2",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "金融科技力"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第22屆金融科技力知識檢定測驗】",
+      "native_subject_label": "金融科技力",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_key_table_and_official_answer_label",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-41a0c80c435954abbd1e-f18865713eaaa7697201",
+      "phid": "467",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695012-1.pdf",
+      "checksum": "f18865713eaaa769720193d37a3f5b553d003fa4c5efe0963a809bc0730a04d3",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "永續發展基礎能力測驗",
+      "native_heading": "台灣金融研訓院辦理 115 年第 5 次永續發展基礎能力測驗試題",
+      "native_subject_label": "科目：永續發展基礎能力測驗",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-9f179245543fc5b44fee-85fc950eef6752044036",
+      "phid": "467",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695012-2.pdf",
+      "checksum": "85fc950eef6752044036cf03792f419905b1c3ee5fa9b25b2c04248363ae36cd",
+      "file_type": "answer",
+      "scope_kind": "subject",
+      "subjects": [
+        "永續發展基礎能力測驗"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【115年第5次永續發展基礎能力測驗】試題正確答案",
+      "native_subject_label": "永續發展基礎能力測驗",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-296527e946d21f218250-8a136cb075eb8d71b9eb",
+      "phid": "468",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695006-1.pdf",
+      "checksum": "8a136cb075eb8d71b9eb1ce6f91ec2f799213a695f8e9b07663ee7c002cf86cb",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信法規"
+      ],
+      "source_label": "授信法規",
+      "native_heading": "台灣金融研訓院第 48 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信法規",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-99fe8231681371108bd2-fc82520718d6e7a8c3e3",
+      "phid": "468",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695006-2.pdf",
+      "checksum": "fc82520718d6e7a8c3e32cd69a70d1c2cc90c5ca40096659ea099e2930e3b662",
+      "file_type": "question",
+      "scope_kind": "subject",
+      "subjects": [
+        "授信實務"
+      ],
+      "source_label": "授信實務",
+      "native_heading": "台灣金融研訓院第 48 屆初階授信人員專業能力測驗試題",
+      "native_subject_label": "科目：授信實務",
+      "page_count": 2,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    },
+    {
+      "id": "tabf-native-41183a553f2664ee9a22-e32df2d5aa968af1b666",
+      "phid": "468",
+      "source_url": "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/695006-3.pdf",
+      "checksum": "e32df2d5aa968af1b66624121df8c338b2dffceb232c950e5ead7a4aa7ef7473",
+      "file_type": "answer",
+      "scope_kind": "combined_subjects",
+      "subjects": [
+        "授信法規",
+        "授信實務"
+      ],
+      "source_label": "答案",
+      "native_heading": "台灣金融研訓院【第48屆初階授信人員專業能力測驗】試題正確答案",
+      "native_subject_label": "授信法規、授信實務",
+      "page_count": 1,
+      "inspected_pages": [
+        1
+      ],
+      "review_basis": "native_text_and_official_row",
+      "reviewed_at": "2026-10-21",
+      "notes": "Native heading/subject or section scope and role manually checked against the captured official event page; exact retained hosted bytes verified. No question-by-question correctness review claimed."
+    }
+  ]
+}

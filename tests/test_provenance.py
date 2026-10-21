@@ -6,7 +6,7 @@ from unittest.mock import patch
 import pytest
 
 from app.paths import provider_paths
-from app.provenance import add_frontend_provenance, load_sync_status, record_successful_sync
+from app.provenance import add_frontend_provenance, load_sync_status, record_successful_sync, retain_verified_sync_receipts
 from scripts.validate_publication import validate_publication
 
 
@@ -28,6 +28,19 @@ def test_successful_event_dates_advance_while_failed_and_untouched_dates_survive
 
 def test_dates_are_not_invented_for_missing_receipts(tmp_path):
     assert load_sync_status(provider_paths(tmp_path, 'example')) == {}
+
+
+def test_reviewed_migration_keeps_valid_receipts_without_renaming_or_advancing_dates(tmp_path):
+    provider=provider_paths(tmp_path,'example')
+    record_successful_sync(provider,[page('same-event'),page('wrong-event')],[],synced_at='2026-09-01T00:00:00Z')
+    assert retain_verified_sync_receipts(provider,['same-event','new-native-event'])==['wrong-event']
+    assert load_sync_status(provider)=={'same-event':'2026-09-01T00:00:00Z'}
+    before=provider.sync_status_path.read_bytes()
+    assert retain_verified_sync_receipts(provider,['same-event'])==[]
+    assert provider.sync_status_path.read_bytes()==before
+    assert retain_verified_sync_receipts(provider,[])==['same-event']
+    assert not provider.sync_status_path.exists()
+    assert retain_verified_sync_receipts(provider,[])==[]
 
 
 @pytest.mark.parametrize('date', ['2026-09-26', '2026-09-26T00:00:00', 'invalid'])

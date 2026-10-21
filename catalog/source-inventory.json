@@ -1026,7 +1026,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "The current rolling page exposes events from 2023–2026 plus the explicit FIT editions 1–2 reference exception from 2020; the range is not continuous.",
+        "note": "Reviewed retained native events span 2020, 2023, 2024, 2025 and 2026; the range is not continuous. Early FIT editions are historical administered papers retained for reference.",
         "start_ad": 2020
       },
       "discovery_snapshot": {
@@ -1038,13 +1038,16 @@
         "data/providers/tabf_cert/source-manifest.json",
         "docs/providers/notes.md#tabf_cert"
       ],
-      "exam_category": "TABF banking/finance certification sample and historical materials",
+      "exam_category": "TABF financial qualifications and FIT employment-assessment historical papers",
       "local_state": {
-        "normalized_paper_records": 252,
-        "raw_event_pages": 99,
+        "normalized_paper_records": 146,
+        "raw_event_pages": 58,
         "sync_failures": 0
       },
       "local_years": [
+        2020,
+        2023,
+        2024,
         2025,
         2026
       ],
@@ -1053,13 +1056,13 @@
       ],
       "provider_id": "tabf_cert",
       "restrictions": [
-        "The official rolling page currently exposes 19 category rows, 50 PHID events, and 127 public PDFs; FIT editions 1–2 are an explicit retained-reference exception, not current-year events.",
-        "The earlier retained sample duplicated 47 PHIDs across 2025 and 2026, flattened 13 of 19 official category rows, omitted PHID 431, and retained stale PHIDs 449 and 456. These identity defects remain under publication quarantine until a reviewed historical migration reconciles them.",
+        "The 2026-10-21 rolling listing exposes 19 native categories, 51 PHID events and 129 document links, all now reviewed against native payloads. Seven older retained events are no longer listed; complete historical coverage is not established.",
+        "Reviewed retained history has 58 native events, 146 URL references and 139 unique PDFs in 19 identity groups. All 280 original source references retain their earliest immutable dictionaries in the revision journal; four later display-label-only observations retain their full dictionaries in the source manifest; synthetic capture-year splits and flattened qualification/module identities are corrected.",
         "The asset host robots policy disallows /BEExam, and no exam-PDF republication license was found; automated mirroring and republication require an approved policy/legal decision."
       ],
       "source_name": "台灣金融研訓院",
       "status": "partial",
-      "status_reason": "Partial / retained identity contamination: reviewed discovery covers 50 events and 127 files, but retained records include duplicated PHIDs, flattened categories, and stale events. Publication is withheld pending corrected category/event identities and redistribution review."
+      "status_reason": "Partial historical coverage: all observed current native events and retained earlier history are reviewed and corrected. Existing bytes are verified without a fresh restricted-asset acquisition claim. Publication remains withheld for unresolved source policy and redistribution permission."
     },
     {
       "available_years": {

@@ -58,6 +58,31 @@ def record_successful_sync(
     events = load_sync_status(provider)
     timestamp = _timestamp(synced_at or datetime.now(UTC).isoformat())
     events.update({event: timestamp for event in successful})
+    _write_sync_status(provider, events)
+
+
+def retain_verified_sync_receipts(
+    provider: ProviderPaths,
+    verified_event_ids: Iterable[str],
+) -> list[str]:
+    """Keep receipt IDs proven to retain their complete acquisition scope.
+
+    This explicit migration operation never creates, renames or advances a
+    receipt. The caller must first verify the unchanged event and file scope.
+    """
+    existing = load_sync_status(provider)
+    keep = set(verified_event_ids)
+    removed = sorted(set(existing) - keep)
+    if removed:
+        retained = {event: timestamp for event, timestamp in existing.items() if event in keep}
+        if retained:
+            _write_sync_status(provider, retained)
+        else:
+            provider.sync_status_path.unlink()
+    return removed
+
+
+def _write_sync_status(provider: ProviderPaths, events: Mapping[str, str]) -> None:
     provider.sync_status_path.parent.mkdir(parents=True, exist_ok=True)
     provider.sync_status_path.write_text(
         json.dumps(

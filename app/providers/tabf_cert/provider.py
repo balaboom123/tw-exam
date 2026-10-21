@@ -9,6 +9,7 @@ class TabfCertProvider(SourceProvider):
     provider_id = "tabf_cert"
     # The official material slots are mutable; local presence is not freshness.
     refresh_files_on_sync = True
+    max_concurrency = 1
 
     def __init__(self, client: TabfCertClient | None = None) -> None:
         self.client = client or TabfCertClient()

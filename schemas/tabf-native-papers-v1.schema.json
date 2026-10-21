@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/tabf-native-papers-v1.schema.json",
+  "title": "Reviewed TABF native paper and event evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "evidence_url",
+    "events",
+    "papers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "tabf_cert"
+    },
+    "evidence_url": {
+      "const": "https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424"
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "papers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/paper"
+      }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "phid",
+        "programme_code",
+        "ordinal",
+        "native_ordinal_kind",
+        "listing_label",
+        "year_ad",
+        "year_basis",
+        "year_evidence_url",
+        "year_evidence_checksum",
+        "native_year_label",
+        "calendar_evidence_url",
+        "reviewed_at",
+        "notes"
+      ],
+      "properties": {
+        "phid": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "programme_code": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]+$"
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "native_ordinal_kind": {
+          "enum": [
+            "期",
+            "屆",
+            "次"
+          ]
+        },
+        "listing_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year_ad": {
+          "type": "integer",
+          "minimum": 1912,
+          "maximum": 2910
+        },
+        "year_basis": {
+          "enum": [
+            "native_answer_period",
+            "native_answer_period_and_calendar",
+            "native_answer_period_and_handbook"
+          ]
+        },
+        "year_evidence_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://service\\.tabf\\.org\\.tw/BEExam/Doc/ExamHistoryEdit/[0-9]+-[0-9]+\\.pdf$"
+        },
+        "year_evidence_checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "native_year_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "calendar_evidence_url": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://(?:www|service)\\.tabf\\.org\\.tw/"
+            }
+          ]
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "paper": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "phid",
+        "source_url",
+        "checksum",
+        "file_type",
+        "scope_kind",
+        "subjects",
+        "source_label",
+        "native_heading",
+        "native_subject_label",
+        "page_count",
+        "inspected_pages",
+        "review_basis",
+        "reviewed_at",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^tabf-native-[0-9a-f]{20}-[0-9a-f]{20}$"
+        },
+        "phid": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "source_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://service\\.tabf\\.org\\.tw/BEExam/Doc/ExamHistoryEdit/[0-9]+-[0-9]+\\.pdf$"
+        },
+        "checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "file_type": {
+          "enum": [
+            "question",
+            "answer"
+          ]
+        },
+        "scope_kind": {
+          "enum": [
+            "subject",
+            "combined_subjects",
+            "test_section",
+            "combined_test_sections",
+            "assessment_module"
+          ]
+        },
+        "subjects": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "native_heading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "native_subject_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "inspected_pages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "review_basis": {
+          "enum": [
+            "native_text_and_official_row",
+            "native_key_table_and_official_answer_label"
+          ]
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

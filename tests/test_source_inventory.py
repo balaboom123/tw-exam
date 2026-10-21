@@ -642,63 +642,32 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertNotIn("twc-recruit-107", receipts)
         self.assertIn("twc-recruit-115", receipts)
 
-    def test_tabf_manifest_exposes_year_and_taxonomy_contamination(self) -> None:
-        manifest = json.loads(
-            (ROOT / "data/providers/tabf_cert/source-manifest.json").read_text(
-                encoding="utf-8"
-            )
-        )
+    def test_tabf_manifest_matches_native_contexts_and_conserved_history(self) -> None:
+        from app.paths import provider_paths
+        from app.provenance import load_sync_status
+        from app.providers.tabf_cert.evidence import validate_native_papers
+        from app.source_revisions import load_source_revisions
+        from app.state import load_provider_state
 
+        provider = provider_paths(ROOT, "tabf_cert")
+        manifest = json.loads(provider.source_manifest_path.read_text())
+        pages, catalog, failures = load_provider_state(provider)
         self.assertEqual(sorted(map(int, manifest["years"])), [2020, 2023, 2024, 2025, 2026])
-        self.assertEqual(len(manifest["exams"]), 50)
-        self.assertEqual(len(manifest["files"]), 127)
-        self.assertEqual(
-            sum(item["bytes"] for item in manifest["files"].values()),
-            58_493_699,
-        )
+        self.assertEqual((len(pages), len(catalog.papers), len(failures)), (58, 146, 0))
+        self.assertEqual((len(manifest["exams"]), len(manifest["files"])), (58, 146))
         policy = manifest["probe_policy"]
-        self.assertEqual(policy["coverage_status"], "partial")
-        self.assertEqual(policy["official_row_count"], 19)
-        self.assertEqual(policy["official_event_count"], 50)
-        self.assertEqual(policy["official_file_count"], 127)
-        adapter_gap = policy["adapter_gap"]
-        self.assertEqual(adapter_gap["rows_exactly_preserved_by_current_subject_classifier"], 6)
-        self.assertEqual(adapter_gap["current_phids_duplicated_across_2025_and_2026"], 47)
-        self.assertEqual(adapter_gap["source_only_phids"], ["431"])
-        self.assertEqual(adapter_gap["local_only_phids"], ["449", "456"])
-        retained = policy["retained_local_state"]
-        self.assertEqual(retained["mirrors_present_and_checksum_valid"], 252)
-        self.assertEqual(retained["current_records_under_correct_identity"], 41)
-        self.assertEqual(retained["current_records_under_wrong_identity"], 205)
-        self.assertEqual(retained["stale_local_only_records"], 6)
-        self.assertEqual(len(retained["source_only_events"]), 34)
-        self.assertEqual(len(retained["local_only_events"]), 82)
-        statuses = {
-            status: sum(item["status"] == status for item in manifest["files"].values())
-            for status in {
-                "source_only",
-                "retained_under_correct_identity",
-                "retained_under_correct_identity_with_duplicate_wrong_identity",
-                "retained_under_wrong_identity",
-            }
-        }
-        self.assertEqual(
-            statuses,
-            {
-                "source_only": 2,
-                "retained_under_correct_identity": 2,
-                "retained_under_correct_identity_with_duplicate_wrong_identity": 39,
-                "retained_under_wrong_identity": 84,
-            },
-        )
-        self.assertEqual(
-            policy["publication_risk"]["published_current_records_under_wrong_identity"],
-            205,
-        )
-        self.assertEqual(
-            policy["publication_risk"]["published_stale_local_only_records"],
-            6,
-        )
+        audit = policy["source_audit"]
+        self.assertEqual(audit["coverage"], "partial")
+        self.assertEqual(audit["current_native_categories"], 19)
+        self.assertEqual(audit["current_native_events"], 51)
+        self.assertEqual(audit["current_document_links"], 129)
+        self.assertEqual(len(audit["current_unreviewed_native_events"]), 0)
+        self.assertEqual(sum(len(e["document_links"]) for e in audit["current_unreviewed_native_events"]), 0)
+        self.assertEqual(audit["source_asset_requests"], 0)
+        self.assertEqual(len(audit["concurrent_same_reference_label_observations"]), 4)
+        self.assertEqual(len(load_source_revisions(provider)), 280)
+        self.assertEqual(len(load_sync_status(provider)), 19)
+        self.assertEqual(validate_native_papers(ROOT)["native_source_anchors"], 146)
         self.assertEqual(
             policy["legal_and_technical"]["automated_mirroring_status"],
             "blocked_pending_robots_policy_decision_or_written_permission",

@@ -14,6 +14,7 @@ from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPape
 from app.providers.ipas_cert.identity import canonical_for_event as ipas_canonical_for_event
 from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
+from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
 from app.source_material import SourceMaterial
@@ -76,19 +77,6 @@ _SOE_CANONICAL_MAP = {
 }
 
 _FINANCIAL_CERT_CANONICAL_MAP = {
-    # TABF (金融研訓院) certifications
-    "tabf-cert-bank-internal-control-": ("tabf-bank-internal-control", "銀行內部控制與內部稽核"),
-    "tabf-cert-trust-business-": ("tabf-trust-business", "信託業務人員"),
-    "tabf-cert-financial-planning-": ("tabf-financial-planning", "理財規劃人員"),
-    "tabf-cert-fx-junior-": ("tabf-fx-junior", "初階外匯人員"),
-    "tabf-cert-fx-senior-": ("tabf-fx-senior", "進階外匯人員"),
-    "tabf-cert-credit-": ("tabf-credit", "授信人員"),
-    "tabf-cert-risk-management-": ("tabf-risk-management", "風險管理基本能力"),
-    "tabf-cert-debt-collection-": ("tabf-debt-collection", "債權催收人員"),
-    "tabf-cert-digital-finance-": ("tabf-digital-finance", "數位金融知識與能力"),
-    "tabf-cert-aml-": ("tabf-aml", "防制洗錢與打擊資恐"),
-    "tabf-cert-fintech-": ("tabf-fintech", "金融科技力知識"),
-    "tabf-cert-asset-valuation-": ("tabf-asset-valuation", "資產評估人員"),
     # TII (保發中心) certifications
     "tii-cert-life-insurance-": ("tii-life-insurance", "人身保險業務員"),
     "tii-cert-property-insurance-": ("tii-property-insurance", "財產保險業務員"),
@@ -239,6 +227,10 @@ def _derive_canonical(
     ipas_canonical = ipas_canonical_for_event(source_exam_id)
     if ipas_canonical is not None:
         canonical_id, canonical_name = ipas_canonical
+        return canonical_id, canonical_name, canonical_name, False
+    tabf_canonical = tabf_canonical_for_event(source_exam_id)
+    if tabf_canonical is not None:
+        canonical_id, canonical_name = tabf_canonical
         return canonical_id, canonical_name, canonical_name, False
     for prefix, (canonical_id, canonical_name) in _FINANCIAL_CERT_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):

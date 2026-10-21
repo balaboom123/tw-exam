@@ -71,8 +71,8 @@
     {
       "provider_id": "tabf_cert",
       "site_id": "default",
-      "status": "wrong_identity",
-      "reason": "242 of 252 published records sit on the 47 PHIDs duplicated across 2025 and 2026, and only 6 of the 19 official category rows survive classification intact. Re-verified against the 2026-08-03 upstream refresh, which restored PHIDs 449 and 456 and so retired the stale-PHID finding of the 2026-08-01 capture.",
+      "status": "redistribution_unresolved",
+      "reason": "Retained native identities, event years, roles, qualification variants and FIT modules are reviewed and corrected, with all earlier source records conserved. Public publication remains withheld because exam-PDF redistribution permission and the /BEExam robots policy remain unresolved.",
       "evidence_path": "data/providers/tabf_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#tabf_cert",
       "review_by": "2026-11-01"
