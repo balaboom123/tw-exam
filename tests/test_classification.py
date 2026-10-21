@@ -497,7 +497,7 @@ class ExamIdentityClassificationTests(unittest.TestCase):
                 identity = classify(f"臺灣台語官方試題範例_{form}卷", "官方範例", provider="taigi_cert")
                 self.assertEqual(identity.level_id, level)
                 self.assertEqual(identity.variant_ids, (f"paper-form-{form.lower()}",))
-                self.assertEqual(identity.confidence, "high")
+                self.assertEqual(identity.confidence, "review")
                 self.assertIn(f"{form}卷", identity.bundle_name)
                 self.assertNotIn("paper-", identity.level_id)
                 identities.append(identity.bundle_id)

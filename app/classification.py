@@ -25,6 +25,8 @@ from app.providers.ipas_cert.evidence import native_context as ipas_native_conte
 from app.providers.ipas_cert.identity import GRADE_LABELS as IPAS_GRADE_LABELS
 from app.providers.sfi_cert.evidence import native_context as sfi_native_context
 from app.providers.tabf_cert.evidence import native_context as tabf_native_context
+from app.providers.taigi_cert.evidence import CAPTURE_PARTITION_YEAR as TAIGI_CAPTURE_PARTITION_YEAR
+from app.providers.taigi_cert.evidence import native_resource as taigi_native_resource
 from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
 from app.tqc_identity_evidence import resolve_tqc_sample_identity, tqc_identity_catalog
@@ -1914,6 +1916,30 @@ def _classify_paper_uncached(
         variant_pairs = (*variant_pairs, ("civil-high-pre-1996", "85年改制前"))
     if provider_id == "taigi_cert":
         form = _taigi_form(normalize_text(f"{category} {subject_name_raw}"))
+        native_resource = (
+            taigi_native_resource(source_material.evidence_url, source_checksum)
+            if source_material is not None
+            else None
+        )
+        if native_resource is not None and (
+            native_resource.file_type == "source_archive"
+            or source_exam_id != native_resource.source_exam_id
+            or year_ad != TAIGI_CAPTURE_PARTITION_YEAR
+            or category_code != native_resource.form_code
+            or subject_code != native_resource.subject_code
+            or subject_name_raw != native_resource.source_label
+            or source_material != native_resource.material
+        ):
+            native_resource = None
+        if native_resource is None:
+            confidence = "review"
+            reason = "Taigi sample role, date and form lack exact native URL/checksum evidence"
+        else:
+            form = native_resource.form_code.upper()
+            level_id, level_label, confidence, _reason = _non_moex_level(
+                provider_id, f"{form}卷", canonical_id, ""
+            )
+            reason = f"reviewed native Taigi sample form/skill/role/date: {native_resource.id}"
         if form is not None:
             variant_pairs = (*variant_pairs, (f"paper-form-{form.lower()}", f"{form}卷"))
     if source_material is not None and source_material.kind != "administered":

@@ -16,6 +16,7 @@ from app.providers.post_recruit.client import PostRecruitClient
 from app.providers.sfi_cert.client import SfiCertClient
 from app.providers.special_admission.client import SpecialAdmissionClient
 from app.providers.tabf_cert.client import TabfCertClient
+from app.providers.taigi_cert.client import TaigiCertClient
 from app.providers.taisugar_recruit.client import TaisugarRecruitClient
 from app.providers.tcte_tve.client import TcteTveClient
 from app.providers.teacher_recruit_central_alliance.client import CentralAllianceRecruitClient
@@ -50,6 +51,25 @@ class Response:
 
 
 class ProviderHttpTests(unittest.TestCase):
+    def test_taigi_native_transport_keeps_headers_and_source_filename(self) -> None:
+        from app.providers.taigi_cert.evidence import native_resources
+
+        body = b"%PDF-1.7 native transport fixture"
+        original = native_resources()[0]
+        resource = replace(original, checksum=hashlib.sha256(body).hexdigest())
+        client = TaigiCertClient()
+        with patch("app.providers.taigi_cert.evidence.native_resources", return_value=(resource,)):
+            with patch("app.providers.http.urlopen", return_value=Response(b"source HTML")) as opened:
+                self.assertEqual(client._fetch_text("https://ttg.moe.edu.tw/tmt/view.php?page=resource"), "source HTML")
+                self.assertEqual(opened.call_args.args[0].get_method(), "GET")
+                self.assertIn("taigi-cert-mirror/1.0", opened.call_args.args[0].get_header("User-agent"))
+                self.assertEqual(opened.call_args.kwargs["timeout"], 60)
+            with patch("app.providers.http.urlopen", return_value=Response(b"", headers={"Content-Length": "12"})) as opened:
+                self.assertEqual(client.head(resource.source_url).content_length, 12)
+                self.assertEqual(opened.call_args.args[0].get_method(), "HEAD")
+            with patch("app.providers.http.urlopen", return_value=Response(body, headers={"Content-Type": "application/pdf", "Content-Disposition": 'attachment; filename="wrong.pdf"'})):
+                self.assertEqual(client.download_file(resource.source_url).file_name, "file_2.pdf")
+
     def test_newtaipei_json_rejects_invalid_utf8(self) -> None:
         with patch(
             "app.providers.http.urlopen",

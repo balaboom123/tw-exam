@@ -1066,10 +1066,10 @@
     },
     {
       "available_years": {
-        "end_ad": null,
-        "mode": "unknown",
-        "note": "The official A/B/C sample-resource groups are undated; AD 2026 is only the adapter capture year",
-        "start_ad": null
+        "mode": "observed_range",
+        "start_ad": 2017,
+        "end_ad": 2017,
+        "note": "Nineteen sample PDFs explicitly print initial publication in 2017; native modification dates (mostly 2023) are separate facts. Sixteen audio, archive and companion resources have no declared date. These are material publication dates, not examination-event years."
       },
       "discovery_snapshot": {
         "coverage": "partial",
@@ -1081,7 +1081,7 @@
       ],
       "exam_category": "Ministry of Education Taiwanese-language certification sample papers/audio",
       "local_state": {
-        "normalized_paper_records": 35,
+        "normalized_paper_records": 32,
         "raw_event_pages": 3,
         "sync_failures": 0
       },
@@ -1094,13 +1094,13 @@
       ],
       "provider_id": "taigi_cert",
       "restrictions": [
-        "All 35 retained A/B/C URLs are current, but the source is undated and all records use an unsupported synthetic 2026 year.",
-        "The classifier now separates the three paper forms from their native paired proficiency bands. Publication remains withheld because undated sample material still uses synthetic event years and source-material roles require a reviewed migration.",
-        "Official robots rules disallow generic crawling and the /tmt/src/ asset path; no explicit redistribution grant was found."
+        "All 35 current source URLs are retained: 32 individual sample files and three original ZIP attachments. Each ZIP member matches an individually linked payload by full SHA; originals are excluded from generated paper ZIPs.",
+        "Stable A/B/C sample IDs preserve paired proficiency bands, distinct question/answer and listening/speaking/dictation roles. Nineteen native PDF publication dates are known; undated companions do not inherit an exam or capture year. All 35 earlier dictionaries remain immutable historical evidence.",
+        "Earlier source policy reported robots restrictions. The 2026-10-21 operator recheck returned HTTP 404 for robots.txt; acquisition policy and public republication permission remain unresolved, with no new native asset requests."
       ],
       "source_name": "教育部臺灣台語語言能力認證考試",
       "status": "partial",
-      "status_reason": "Partial / exact A/B/C sample-source URLs retained and form/proficiency-band identities corrected, but dates are unknown and robots/licensing constrain refresh and redistribution. Publication remains withheld pending source-material roles and event/date review."
+      "status_reason": "Partial historical coverage: current sample roles, forms, native publication dates and original archive contents are reviewed and corrected. Publication remains withheld for unresolved acquisition/redistribution policy; full historical sample completeness and semantic audio listen-through are not claimed."
     },
     {
       "available_years": {

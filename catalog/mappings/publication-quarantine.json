@@ -80,8 +80,8 @@
     {
       "provider_id": "taigi_cert",
       "site_id": "default",
-      "status": "wrong_identity",
-      "reason": "All 35 retained records carry a synthetic 2026 event/year identity for undated source material. The A/B/C paper forms and their paired proficiency bands are now classified separately, but material nature, date evidence, and redistribution constraints remain unresolved.",
+      "status": "redistribution_unresolved",
+      "reason": "Native sample forms, roles, publication/undated facts and source ZIP coverage are reviewed and corrected; all earlier source records remain unchanged. Publication remains withheld pending acquisition/redistribution policy review. A robots.txt HTTP 404 recheck does not resolve permission or alter the existing durable backup policy.",
       "evidence_path": "data/providers/taigi_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#taigi_cert",
       "review_by": "2026-11-01"

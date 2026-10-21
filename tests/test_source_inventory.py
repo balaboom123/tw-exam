@@ -785,22 +785,31 @@ class SourceInventoryTests(unittest.TestCase):
             [["tocfl-cert-mock-current", 2025]],
         )
 
-    def test_taigi_manifest_exposes_undated_identity_and_robots_blocker(self) -> None:
-        manifest = json.loads(
-            (ROOT / "data/providers/taigi_cert/source-manifest.json").read_text(
-                encoding="utf-8"
-            )
-        )
-        self.assertEqual(len(manifest["exams"]), 3)
+    def test_taigi_manifest_matches_native_samples_and_retained_archives(self) -> None:
+        from app.paths import provider_paths
+        from app.providers.taigi_cert.evidence import validate_native_resources
+        from app.provenance import load_sync_status
+        from app.state import load_provider_state
+
+        provider = provider_paths(ROOT, "taigi_cert")
+        manifest = json.loads(provider.source_manifest_path.read_text())
+        pages, catalog, failures = load_provider_state(provider)
+        self.assertEqual((len(pages), len(catalog.papers), len(failures)), (3, 32, 0))
+        self.assertEqual(sum(len(page.attachments) for page in pages), 3)
+        self.assertEqual(len(manifest["files"]), 35)
         policy = manifest["probe_policy"]
-        self.assertEqual(policy["official_listed_resource_count"], 37)
-        self.assertEqual(policy["accepted_exam_resource_count"], 35)
+        audit = policy["source_audit"]
+        self.assertEqual(audit["accepted_source_URLs"], 35)
+        self.assertEqual(audit["archive_members_matching_individual_files"], 32)
+        self.assertEqual(audit["native_initial_publication_dates"], 19)
+        self.assertEqual(audit["resources_without_declared_dates"], 16)
+        self.assertEqual(audit["source_asset_requests"], 0)
         self.assertEqual(len(policy["excluded_non_exam_resources"]), 2)
-        self.assertEqual(policy["adapter_gap"]["source_year_status"], "undated")
-        self.assertEqual(
-            policy["legal_and_technical"]["automated_mirroring_status"],
-            "blocked_pending_written_permission_or_policy_change",
-        )
+        self.assertEqual(validate_native_resources(ROOT)["retired_source_references"], 35)
+        self.assertEqual(load_sync_status(provider), {})
+        self.assertEqual(policy["legal_and_technical"]["robots_recheck_http_status"], 404)
+        self.assertEqual(policy["legal_and_technical"]["automated_mirroring_status"],
+                         "blocked_pending_written_permission_or_policy_change")
 
     def test_tqc_manifest_preserves_old_mismatches_without_claiming_they_are_current(self) -> None:
         manifest = json.loads(

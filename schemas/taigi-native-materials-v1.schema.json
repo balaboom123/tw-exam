@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/taigi-native-materials-v1.schema.json",
+  "title": "Reviewed Taigi sample resources and original archive members v1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "taigi_cert"
+    },
+    "evidence_url": {
+      "const": "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+    },
+    "rules_url": {
+      "const": "https://ttg.moe.edu.tw/tmt/view.php?page=questionBase"
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^taigi-native-[0-9a-f]{20}-[0-9a-f]{20}$"
+          },
+          "current": {
+            "type": "boolean"
+          },
+          "form_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "skill": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://ttg\\.moe\\.edu\\.tw/tmt/src/upload/file/file_[0-9]+\\.(pdf|mp3|zip)$"
+          },
+          "source_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "file_type": {
+            "enum": [
+              "question",
+              "answer",
+              "listening_audio",
+              "speaking_audio",
+              "dictation_audio",
+              "source_archive"
+            ]
+          },
+          "payload_format": {
+            "enum": [
+              "pdf",
+              "mp3",
+              "zip"
+            ]
+          },
+          "native_heading": {
+            "type": "string"
+          },
+          "published_on": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "revised_on": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "page_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "review_basis": {
+            "enum": [
+              "native_archive_and_exact_member_conservation",
+              "official_skill_audio_and_full_MP3_decode",
+              "native_question_instructions",
+              "native_model_answers",
+              "native_answer_table"
+            ]
+          },
+          "archive_members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "native_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://ttg\\.moe\\.edu\\.tw/tmt/src/upload/file/file_[0-9]+\\.(pdf|mp3|zip)$"
+                },
+                "checksum": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "native_name",
+                "source_url",
+                "checksum",
+                "bytes"
+              ],
+              "additionalProperties": false
+            },
+            "uniqueItems": true
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "current",
+          "form_code",
+          "skill",
+          "source_url",
+          "source_label",
+          "checksum",
+          "file_type",
+          "payload_format",
+          "native_heading",
+          "published_on",
+          "revised_on",
+          "page_count",
+          "review_basis",
+          "archive_members",
+          "reviewed_at",
+          "notes"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "provider_id",
+    "evidence_url",
+    "rules_url",
+    "resources"
+  ],
+  "additionalProperties": false
+}

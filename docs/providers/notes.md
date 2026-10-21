@@ -463,7 +463,39 @@ unresolved republication permission continue to withhold public publication.
 
 ## `taigi_cert`
 
-Use official Taiwanese-language certification paper forms while preserving form variants and the absence of stable event years. Fetch time must not become examination time.
+Use the official Taiwanese-language certification resource groups while
+preserving the distinction between paper forms, proficiency outcomes and sample
+materials. The official rules assign A/B/C forms to paired proficiency bands.
+Each candidate chooses one
+form, and the result determines the attained level. Listening, speaking,
+reading and writing are skills within a form, not successive selection stages.
+The current computer-based administration does not turn older downloadable
+examples into administered papers or establish a new date for them.
+
+The [native material facts](../../catalog/mappings/taigi/native-materials-v1.json)
+bind source labels, forms, skills, roles and dates to exact URLs and full
+checksums. Some native PDFs print both an initial publication date and a later
+modification date. Project the explicit original publication year; retain the
+modification date separately and never treat it as an exam year or automatic
+proof of a corrected answer. Undated companion answer tables, audio and ZIPs do
+not inherit dates from a question booklet, archive timestamps or capture time.
+The retained acquisition partition is a storage key; stable sample resource
+IDs and reviewed source-material dates determine meaning.
+
+Reference-answer PDFs remain answers, including booklets that reproduce
+questions alongside model responses. Keep listening, speaking and writing
+dictation audio roles distinct. Original source ZIPs have reviewed portable
+member paths and checksum-bound correspondence with the individually linked
+files. Preserve those originals as provider-owned attachments and exclude them
+from generated paper ZIPs so the same sample material is not packaged twice.
+
+Unknown links, changed labels and replacement bytes require native review.
+An approved new acquisition revision can coexist with older native evidence;
+historical audits project its corrected role/date without rewriting the
+original source dictionary. The source manifest records the dated robots
+recheck separately from the earlier restriction observation. A missing robots
+file does not grant redistribution permission or automatically change the
+existing acquisition or public-backup policy; publication remains withheld.
 
 ## `taipower_recruit`
 

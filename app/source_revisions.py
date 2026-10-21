@@ -287,6 +287,14 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         reviewed_papers = tabf_revision_views(entries, repo_root=provider.data_dir.parents[2])
         report["reviewed_native_paper_references"] = reviewed_papers
         report["native_paper_review_unresolved"] = len(entries) - len(reviewed_papers)
+    if provider.provider_id == "taigi_cert":
+        from app.providers.taigi_cert.evidence import (
+            reviewed_native_revisions as taigi_revision_views,
+        )
+
+        reviewed_resources = taigi_revision_views(entries, repo_root=provider.data_dir.parents[2])
+        report["reviewed_native_resource_references"] = reviewed_resources
+        report["native_resource_review_unresolved"] = len(entries) - len(reviewed_resources)
     return report
 
 

@@ -1,20 +1,28 @@
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from pathlib import Path
 from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 
-from app.models import ExamOption, ParsedPaper, SourceExamPage
+from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.taigi_cert.evidence import (
+    CAPTURE_PARTITION_YEAR,
+    EXCLUDED_LEARNING_RESOURCES,
+    RESOURCE_URL,
+    current_resources,
+    normalized_label,
+    validate_native_payload,
+    validate_resource_url,
+)
 
-DOWNLOAD_URL = "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+DOWNLOAD_URL = RESOURCE_URL
 USER_AGENT = "Mozilla/5.0 (compatible; taigi-cert-mirror/1.0)"
 CANONICAL_CATEGORY = "臺灣台語語言能力認證官方試題範例"
-MATERIALS_YEAR = 2026
+# Compatibility export for the retained acquisition partition, never an exam date.
+MATERIALS_YEAR = CAPTURE_PARTITION_YEAR
 
 
 @dataclass(frozen=True)
@@ -67,55 +75,35 @@ def _quote_url_for_request(url: str) -> str:
     )
 
 
-def _slug(text: str, fallback: str) -> str:
-    ascii_slug = re.sub(r"[^0-9A-Za-z]+", "-", text).strip("-").lower()
-    if ascii_slug:
-        return ascii_slug
-    encoded = text.encode("utf-8").hex()[:24]
-    return encoded or fallback
-
-
-def _subject_code(url: str, label: str, fallback: str) -> str:
-    stem = Path(unquote(urlparse(url).path)).stem
-    label_slug = _slug(label, fallback)
-    return f"{stem}-{label_slug}" if stem and stem != label_slug else label_slug
-
-
-def _form_code(label: str) -> str:
-    if label.startswith("A卷"):
-        return "a"
-    if label.startswith("B卷"):
-        return "b"
-    if label.startswith("C卷"):
-        return "c"
-    return "general"
-
-
-def _exam_code(form_code: str, year_ad: int) -> str:
-    return f"taigi-cert-{form_code}-{year_ad}"
-
-
 def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[TaigiDownload]:
     parser = _AnchorParser()
     parser.feed(html)
     downloads: list[TaigiDownload] = []
-    seen: set[str] = set()
+    known = {resource.source_url: resource for resource in current_resources()}
+    seen: dict[str, str] = {}
     for label, href in parser.links:
         url = _quote_url_for_request(urljoin(base_url, href))
         parsed = urlparse(url)
-        lower_path = parsed.path.lower()
-        if parsed.netloc != "ttg.moe.edu.tw" or not lower_path.startswith("/tmt/src/upload/file/"):
+        if not parsed.path.startswith("/tmt/src/upload/file/"):
             continue
-        if not lower_path.endswith((".pdf", ".mp3", ".zip")) or url in seen:
+        validate_resource_url(url)
+        if url in EXCLUDED_LEARNING_RESOURCES:
+            if normalized_label(label) != normalized_label(EXCLUDED_LEARNING_RESOURCES[url]):
+                raise ValueError("Taigi excluded learning-resource context changed")
             continue
-        seen.add(url)
-        file_type = "listening_audio" if lower_path.endswith(".mp3") else "question"
-        display_label = label or Path(unquote(parsed.path)).name
+        resource = known.get(url)
+        if resource is None or normalized_label(label) != normalized_label(resource.source_label):
+            raise ValueError(f"Taigi resource label/URL requires native review: {url}")
+        if url in seen:
+            if normalized_label(seen[url]) != normalized_label(label):
+                raise ValueError("Conflicting Taigi resource labels")
+            continue
+        seen[url] = label
         downloads.append(
             TaigiDownload(
-                form_code=_form_code(display_label),
-                label=display_label,
-                file_type=file_type,
+                form_code=resource.form_code,
+                label=resource.source_label,
+                file_type=resource.file_type,
                 url=url,
             )
         )
@@ -127,28 +115,34 @@ class TaigiCertClient:
 
     def __init__(self) -> None:
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
+        self._listing: list[TaigiDownload] | None = None
+        self._payloads: dict[str, DownloadedFile] = {}
 
     def _fetch_text(self, url: str) -> str:
         return self.http.get_text(_quote_url_for_request(url), encoding="utf-8")
 
     def _downloads(self) -> list[TaigiDownload]:
-        return parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
+        if self._listing is None:
+            links = parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
+            if {link.url for link in links} != {r.source_url for r in current_resources()}:
+                raise ValueError("Taigi current resource membership requires native review")
+            self._listing = links
+        return self._listing
 
     def discover_available_years(self) -> list[int]:
+        self._downloads()
         return [MATERIALS_YEAR]
 
     def discover_exams(self, year_ad: int) -> list[ExamOption]:
         if year_ad != MATERIALS_YEAR:
             return []
-        forms = {
-            download.form_code for download in self._downloads() if download.form_code != "general"
-        }
+        forms = {download.form_code for download in self._downloads()}
         return [
             ExamOption(
-                code=_exam_code(form_code, year_ad),
+                code=f"taigi-cert-{form_code}-samples",
                 year_ad=year_ad,
                 year_roc=year_ad - 1911,
-                label=f"臺灣台語語言能力認證 {form_code.upper()}卷",
+                label=f"臺灣台語語言能力認證 {form_code.upper()}卷範例資源",
             )
             for form_code in ("a", "b", "c")
             if form_code in forms
@@ -156,35 +150,69 @@ class TaigiCertClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         requested_form = next(
-            (form for form in ("a", "b", "c") if exam_code == _exam_code(form, year_ad)), None
+            (
+                form
+                for form in ("a", "b", "c")
+                if exam_code
+                in {f"taigi-cert-{form}-samples", f"taigi-cert-{form}-{MATERIALS_YEAR}"}
+            ),
+            None,
         )
+        if requested_form is None or year_ad != MATERIALS_YEAR:
+            raise ValueError("Taigi requested resource group lacks a reviewed form/partition")
         downloads = [
-            download
-            for download in self._downloads()
-            if requested_form is None or download.form_code == requested_form
+            download for download in self._downloads() if download.form_code == requested_form
         ]
-        papers = [
-            ParsedPaper(
-                category_raw=f"{CANONICAL_CATEGORY}_{download.form_code.upper()}卷",
-                category_code=download.form_code,
-                subject_code=_subject_code(download.url, download.label, f"download-{index}"),
-                subject_name_raw=download.label,
-                files={download.file_type: download.url},
+        known = {resource.source_url: resource for resource in current_resources()}
+        papers = []
+        attachments = []
+        for download in downloads:
+            resource = known[download.url]
+            if resource.file_type == "source_archive":
+                attachments.append(
+                    ExamAttachment(
+                        title=resource.source_label,
+                        file_type=resource.file_type,
+                        download_url_source=resource.source_url,
+                        source_material=resource.material,
+                    )
+                )
+                continue
+            papers.append(
+                ParsedPaper(
+                    category_raw=f"{CANONICAL_CATEGORY}_{download.form_code.upper()}卷",
+                    category_code=download.form_code,
+                    subject_code=resource.subject_code,
+                    subject_name_raw=download.label,
+                    files={download.file_type: download.url},
+                    source_material=resource.material,
+                )
             )
-            for index, download in enumerate(downloads, start=1)
-        ]
         return SourceExamPage(
-            source_exam_id=exam_code,
+            source_exam_id=f"taigi-cert-{requested_form}-samples",
             year_ad=year_ad,
             year_roc=year_ad - 1911,
-            exam_name_raw=CANONICAL_CATEGORY,
-            attachments=[],
+            exam_name_raw=f"臺灣台語語言能力認證 {requested_form.upper()}卷範例資源",
+            attachments=attachments,
             papers=papers,
             provider_id=self.provider_id,
         )
 
     def head(self, url: str) -> ResponseMetadata:
+        validate_resource_url(url)
+        if not any(r.source_url == url for r in current_resources()):
+            raise ValueError("Unreviewed Taigi resource cannot be requested")
         return self.http.head(_quote_url_for_request(url))
 
     def download_file(self, url: str) -> DownloadedFile:
-        return self.http.download(_quote_url_for_request(url), content_disposition_name=False)
+        validate_resource_url(url)
+        resource = next((r for r in current_resources() if r.source_url == url), None)
+        if resource is None:
+            raise ValueError("Unreviewed Taigi resource cannot be acquired automatically")
+        if url not in self._payloads:
+            payload = self.http.download(
+                _quote_url_for_request(url), content_disposition_name=False
+            )
+            validate_native_payload(resource, payload.data)
+            self._payloads[url] = payload
+        return self._payloads[url]

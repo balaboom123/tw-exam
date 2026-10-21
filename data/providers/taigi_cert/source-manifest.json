@@ -1,39 +1,328 @@
 {
   "exams": {
-    "taigi-cert-a-2026": {
-      "accepted_asset_count": 12,
-      "source_exam_id": "taigi-cert-a-2026",
-      "source_url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+    "taigi-cert-a-samples": {
+      "attachment_count": 1,
+      "exam_name_hash": "sha256:69ad18a0a23164b26bf9843bcf6bf882a3b444f78dadd30ef2d24a79e0631d6c",
+      "file_link_count": 11,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-21T13:06:13.194158+00:00",
+      "paper_count": 11,
+      "paper_url_hash": "sha256:0e2fe9a2b973cb728f6811c215cc8dc15350c7c5d5e32d5a69b98d0401d5787f",
+      "result_url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+      "source_exam_id": "taigi-cert-a-samples",
       "year_ad": 2026,
-      "year_basis": "Synthetic capture year; requires migration to a stable undated identity."
+      "year_roc": 115
     },
-    "taigi-cert-b-2026": {
-      "accepted_asset_count": 12,
-      "source_exam_id": "taigi-cert-b-2026",
-      "source_url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+    "taigi-cert-b-samples": {
+      "attachment_count": 1,
+      "exam_name_hash": "sha256:541d54c092c1d1bf38bd66d5f6a26076e34519b706b7b2d836fce5a256ff7a15",
+      "file_link_count": 11,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-21T13:06:13.194158+00:00",
+      "paper_count": 11,
+      "paper_url_hash": "sha256:03f24132b5d27417f1a7bbc84d356f58fb207221f918f436bb22b42f7fafd81a",
+      "result_url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+      "source_exam_id": "taigi-cert-b-samples",
       "year_ad": 2026,
-      "year_basis": "Synthetic capture year; requires migration to a stable undated identity."
+      "year_roc": 115
     },
-    "taigi-cert-c-2026": {
-      "accepted_asset_count": 11,
-      "source_exam_id": "taigi-cert-c-2026",
-      "source_url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+    "taigi-cert-c-samples": {
+      "attachment_count": 1,
+      "exam_name_hash": "sha256:d2c392c715ee52d15b9243df591ab746c82b24928b45cc86f7b4279a6af3b078",
+      "file_link_count": 10,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-21T13:06:13.194158+00:00",
+      "paper_count": 10,
+      "paper_url_hash": "sha256:3097247b264377aa671ec9724e15b62e1b50530b821e10f222aa4e1cc4624821",
+      "result_url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource",
+      "source_exam_id": "taigi-cert-c-samples",
       "year_ad": 2026,
-      "year_basis": "Synthetic capture year; requires migration to a stable undated identity."
+      "year_roc": 115
     }
   },
-  "files": {},
-  "probe_policy": {
-    "accepted_exam_resource_count": 35,
-    "adapter_gap": {
-      "retained_year": 2026,
-      "root_cause": "The adapter assigns the process date although the official resource groups do not declare an exam or publication year.",
-      "source_year_status": "undated",
-      "synthetically_dated_events": 3
+  "files": {
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/0931291b7d55bc180d2c16df/question.pdf": {
+      "bytes": 511135,
+      "file_type": "question",
+      "sha256": "fd6a7cdf44da2ac7707e986fca88ee9afda0e2fcc7de7eda7ce1ee1fab12df0e",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_32.pdf",
+      "status": "verified_retained_native_sample"
     },
-    "captured_at": "2026-08-01",
-    "coverage_status": "partial",
-    "declared_scope": "The A, B, and C sample-paper and audio groups on the Ministry of Education Taiwanese-language self-learning resource page. Two general learning resources are explicitly excluded as non-exam material.",
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/2fb4fdfbb993d03faa4feaaf/answer.pdf": {
+      "bytes": 141547,
+      "file_type": "answer",
+      "sha256": "c2238e2f61ae9a421e937a9d420be588353c6b1767dadfe3e8ed63dbf00811e4",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_39.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/49e762dfd656c5b95fdb31b1/question.pdf": {
+      "bytes": 724300,
+      "file_type": "question",
+      "sha256": "7518e068d4bbd9f8c524c16ff856ab876ac6184485f1a2505edbf792ca66c737",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_30.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/5db0ae19ee7b614a384ad451/listening_audio.mp3": {
+      "bytes": 26354235,
+      "file_type": "listening_audio",
+      "sha256": "bc6914d612a98e1d7b5ab18556be0767e26c04488a237b6cb43e3d35129cfbda",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_4.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/67bc22a494e45ae1eedb82ba/speaking_audio.mp3": {
+      "bytes": 12159570,
+      "file_type": "speaking_audio",
+      "sha256": "d34d81270f04acba5ae9858fb24ada4f7358d8f37daaf0e122decd7d167a627b",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_101.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/69be710c8e8f465942ee9389/answer.pdf": {
+      "bytes": 788202,
+      "file_type": "answer",
+      "sha256": "63f8966c99b57e4c581358b17bedd215c758b6122ffe6e822bdc3ef40de88e4a",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_42.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/9c7def7b00aa56ae2e04e73c/answer.pdf": {
+      "bytes": 195914,
+      "file_type": "answer",
+      "sha256": "01b876f9bd46de62e5450031730554222985ac47de4909a17fcac2d3fa405fef",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_45.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/c1c2686040e8763ef606c182/question.pdf": {
+      "bytes": 538241,
+      "file_type": "question",
+      "sha256": "7a003ea41f0e0c8beb4e7e28d9d483c79f40ab752b5bf25a346fc28220ee9cfe",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_35.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/ced8c789d52d8bff0e9426b8/answer.pdf": {
+      "bytes": 603813,
+      "file_type": "answer",
+      "sha256": "153488d1818891d66dbe5c13ca08cdf57b11e970e5c0c5d301675c9af00aeac8",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_48.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/f2b7d6a7f013e9e1bdcc42d3/question.pdf": {
+      "bytes": 702897,
+      "file_type": "question",
+      "sha256": "996de12758ae7a0a3d09105b399faadcec284ba4878b01d06af2f9cf8f73d403",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_2.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/a/fc9dc691a1a3b719fcc4af07/dictation_audio.mp3": {
+      "bytes": 5765385,
+      "file_type": "dictation_audio",
+      "sha256": "cba4722263f496812458c3ed5cf5d7aa090815b9a66a61ccc536992388d9348c",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_104.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-a-samples/exam/source_archive.zip": {
+      "bytes": 34980164,
+      "file_type": "source_archive",
+      "sha256": "d81a6bd534e1048930035b2c77c0b59e804926e69a6dab88d3d938497893a29d",
+      "source_exam_id": "taigi-cert-a-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_106.zip",
+      "status": "verified_original_native_archive"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/0d3b881f72c000f5feda6cb0/answer.pdf": {
+      "bytes": 140988,
+      "file_type": "answer",
+      "sha256": "204555acca1d5db28b9555c27e0779d57bb85e373416236bb0b37b67e5a8b21d",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_40.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/539dbc1cff5fcd38c31cf3c2/question.pdf": {
+      "bytes": 766206,
+      "file_type": "question",
+      "sha256": "045bed20523225894b8b00c61d8adcf83c70a4c9c61cf4fce31650d41d5c92ca",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_33.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/55dde7b96f1723cbc6806064/question.pdf": {
+      "bytes": 537879,
+      "file_type": "question",
+      "sha256": "b7a1137f27e59daedebe56b2014009e8b2087731c48006d312fcbc02a7da4c70",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_3.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/5a04adc088b1425b5bfa9660/dictation_audio.mp3": {
+      "bytes": 5698302,
+      "file_type": "dictation_audio",
+      "sha256": "4222d64af9d81ed06c772450d09fe7a99131137bcc2aad8f32bfdd39ee41364e",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_105.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/74a7a7144cf6bb6d05d746fa/answer.pdf": {
+      "bytes": 614770,
+      "file_type": "answer",
+      "sha256": "c8d5ec6df637a1f2599b07e4dc4f3c453437fea710cf5f47462d9317c12ede63",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_49.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/8adac13b4e4809061e180880/listening_audio.mp3": {
+      "bytes": 34893141,
+      "file_type": "listening_audio",
+      "sha256": "767cd7dc08b10d65221f8bb788b69e1b729c185e4cca7687ced58d0d5aa69f0a",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_5.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/95c27931c4a9f3e69f3fd897/question.pdf": {
+      "bytes": 480533,
+      "file_type": "question",
+      "sha256": "74c7f2794780bc637d494c518570a80f7f898cbd7450a734a2d7d4db90c61ca3",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_36.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/979fad91e0fa25d051d3ca75/answer.pdf": {
+      "bytes": 143161,
+      "file_type": "answer",
+      "sha256": "df810b5be78dbaa90174eefa84fdf9f81d090103cf4e3d2933f81a53348c7002",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_46.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/a27586d0bbc741d7d60cc143/question.pdf": {
+      "bytes": 779008,
+      "file_type": "question",
+      "sha256": "eb04ae7d7ee4a0f21868aa3839c580decd2599a78f6f2c2c748ae84ff6af999f",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_12.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/ad48e54d9154ce4259c8503e/answer.pdf": {
+      "bytes": 885782,
+      "file_type": "answer",
+      "sha256": "467bff95f407fe7a6771e2c5c6573092b23ee7102945ffdb74196977f862015e",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_43.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/b/dd789a1b9ff5cad1632f9d0e/speaking_audio.mp3": {
+      "bytes": 19944269,
+      "file_type": "speaking_audio",
+      "sha256": "5e6fbcc511926be7fbff26cfdb450cf2c4b59dfa6486677866abef87e43975c7",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_102.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-b-samples/exam/source_archive.zip": {
+      "bytes": 50237984,
+      "file_type": "source_archive",
+      "sha256": "3fae7ed10e8c4e6fcf563167a589e3466e33042cc0c007297ae90c895d39ce0d",
+      "source_exam_id": "taigi-cert-b-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_107.zip",
+      "status": "verified_original_native_archive"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/37e199e5f04395f48d538291/answer.pdf": {
+      "bytes": 141442,
+      "file_type": "answer",
+      "sha256": "7420faf74886d246bd4517113145d1ede74d1d00a880351a6f2d1ce3f0463b83",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_47.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/3e5abc3db76c7aa640462f01/listening_audio.mp3": {
+      "bytes": 21322842,
+      "file_type": "listening_audio",
+      "sha256": "5fd881337994b6830e807b00cf0c745901574ac2cf035ac7a85f06941a9a991a",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_29.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/4bf93f1cf84d013a7c6bbf0a/answer.pdf": {
+      "bytes": 139308,
+      "file_type": "answer",
+      "sha256": "89f4167d59fd976eddea35e6503fccd473357d9758480d7e54405b0753f7f622",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_41.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/65124ab7e1ffef1ac373813a/question.pdf": {
+      "bytes": 427039,
+      "file_type": "question",
+      "sha256": "9332bfe81e104c4156d8c0fd1ab40ea12226ce922f0b2675d7ea55581b14f017",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_31.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/78c526f358fa589e8fcabfc6/answer.pdf": {
+      "bytes": 568980,
+      "file_type": "answer",
+      "sha256": "5adfeea4b677bc1b4486edcc25fbb25e91d19930159c3c0e2ad45e54884aa18f",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_50.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/88f2c1af9bdabc10b85665fa/answer.pdf": {
+      "bytes": 556409,
+      "file_type": "answer",
+      "sha256": "3f557c6eff75b67f9cdd84796cf5694bff6006eff06520472a7b9cb6bf26af94",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_44.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/8b25c421d244d8dd430bf01a/question.pdf": {
+      "bytes": 396234,
+      "file_type": "question",
+      "sha256": "f4b702e819921992f4ac8794a4ffa2e3f56a18e6b8f04223fa0c029bfec53f91",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_38.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/903922471b9903aeeb98c46a/question.pdf": {
+      "bytes": 463344,
+      "file_type": "question",
+      "sha256": "eaccf0010fe6dd05980e483512cbdcfe9723147b07f2ace0ae79df444d3967fc",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_34.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/e0d953e10d1b4af301228a2b/question.pdf": {
+      "bytes": 479087,
+      "file_type": "question",
+      "sha256": "8d0cd08a03018402b597f15c89e39c20338d899e0bd8f4304614ef41bcbcd009",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_37.pdf",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/c/fcf2069c1a26a1e5d5ddf956/speaking_audio.mp3": {
+      "bytes": 15898006,
+      "file_type": "speaking_audio",
+      "sha256": "10f332de6563e34c60f9f04e21f2f5a289bd6b7a21222e893f52c3857ed2fa24",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_103.mp3",
+      "status": "verified_retained_native_sample"
+    },
+    "providers/taigi_cert/115/taigi-cert-c-samples/exam/source_archive.zip": {
+      "bytes": 30809301,
+      "file_type": "source_archive",
+      "sha256": "9db41cefb0c949c97b055f335a7ed6617d76f4dea731d97b9a64db11c5ae7447",
+      "source_exam_id": "taigi-cert-c-samples",
+      "source_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_108.zip",
+      "status": "verified_original_native_archive"
+    }
+  },
+  "probe_policy": {
     "excluded_non_exam_resources": [
       {
         "label": "學習地圖",
@@ -44,33 +333,45 @@
         "url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_110.pdf"
       }
     ],
+    "initial_legal_and_technical_observation": {
+      "captured_at": "2026-08-01",
+      "policy": {
+        "access_control_bypassed": false,
+        "automated_mirroring_status": "blocked_pending_written_permission_or_policy_change",
+        "redistribution_status": "operator_or_legal_review_required",
+        "robots_status": "Generic agents are disallowed from the whole site; even named allowed search bots are disallowed from /tmt/src/, which contains the downloadable assets.",
+        "robots_url": "https://ttg.moe.edu.tw/robots.txt"
+      }
+    },
     "legal_and_technical": {
       "access_control_bypassed": false,
       "automated_mirroring_status": "blocked_pending_written_permission_or_policy_change",
       "redistribution_status": "operator_or_legal_review_required",
-      "robots_status": "Generic agents are disallowed from the whole site; even named allowed search bots are disallowed from /tmt/src/, which contains the downloadable assets.",
+      "robots_recheck_http_status": 404,
+      "robots_rechecked_at": "2026-10-21T13:06:13.194158+00:00",
+      "robots_status": "Earlier retained policy reported generic-agent and /tmt/src/ restrictions. Operator recheck on 2026-10-21 received HTTP 404 for robots.txt; this is not a redistribution grant or a decision to resume automated mirroring.",
       "robots_url": "https://ttg.moe.edu.tw/robots.txt"
     },
-    "official_listed_resource_count": 37,
-    "official_listing_urls": [
-      "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
-    ],
-    "publication_risk": {
-      "public_bundle_title": "臺灣台語語言能力認證 A卷",
-      "published_bundle_count": 1,
-      "published_file_records": 35,
-      "release_status": "blocked_pending_identity_taxonomy_robots_and_redistribution_decisions",
-      "taxonomy_gap": "The one public A-form bundle contains all A, B, and C records through legacy canonical IDs, obscuring the three source groups.",
-      "wrong_or_unsupported_year_records": 35
-    },
-    "retained_local_state": {
-      "mirror_bytes": 269789418,
-      "mirror_files": 35,
-      "normalized_records": 35,
-      "raw_event_pages": 3,
-      "source_urls_matching_accepted_listing": 35,
-      "sync_failures": 0,
-      "unreferenced_mirror_files": 0
+    "source_audit": {
+      "accepted_source_URLs": 35,
+      "archive_members_matching_individual_files": 32,
+      "checked_at": "2026-10-21T13:06:13.194158+00:00",
+      "coverage": "partial",
+      "coverage_reason": "All current observed resource URLs and retained payloads are reviewed, but historical sample completeness and full semantic audio listen-through are not established.",
+      "date_policy": "Project only the explicitly printed original publication year; retain printed modification dates separately. Do not infer event years, dates for companions/audio/archives, or corrected-answer status from a modification date. The 2026 acquisition partition is never a material date.",
+      "individual_native_files": 32,
+      "mode": "reviewed retained native-byte replay; no fresh native asset requests",
+      "native_evidence_owner": "catalog/mappings/taigi/native-materials-v1.json",
+      "native_initial_publication_dates": 19,
+      "native_modified_2017_documents": 1,
+      "native_modified_2023_documents": 18,
+      "new_receipts_created": false,
+      "official_resource_groups": 3,
+      "original_source_archives": 3,
+      "printed_initial_publication_year": 2017,
+      "purpose_policy": "Official downloadable examples. A/B/C forms each assess a native pair of proficiency levels; the four skills are not selection stages. Current computer-based administration does not redate these historical sample materials.",
+      "resources_without_declared_dates": 16,
+      "source_asset_requests": 0
     }
   },
   "provider_id": "taigi_cert",
@@ -78,13 +379,12 @@
   "years": {
     "2026": {
       "exam_codes": [
-        "taigi-cert-a-2026",
-        "taigi-cert-b-2026",
-        "taigi-cert-c-2026"
+        "taigi-cert-a-samples",
+        "taigi-cert-b-samples",
+        "taigi-cert-c-samples"
       ],
-      "listed_asset_count": 35,
       "year_ad": 2026,
-      "year_basis": "Audit capture year only; the source resources are undated."
+      "year_basis": "Retained acquisition partition only; stable sample resource IDs and per-file native publication dates/undated facts determine source meaning."
     }
   }
 }

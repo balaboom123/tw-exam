@@ -242,6 +242,7 @@ FILE_TYPE_LABELS = {
     "scoring_examples": "評分範例",
     "listening_audio": "聽力音檔",
     "speaking_audio": "口說音檔",
+    "dictation_audio": "聽寫音檔",
     "listening_transcript": "聽力逐字稿",
 }
 
