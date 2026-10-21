@@ -130,6 +130,20 @@ disposition separately; the original role, storage partition and discovery group
 remain traceability evidence. Do not normalize such a reviewed reference into a
 new examination identity or infer its date from the original partition.
 
+History audits distinguish an explicitly reviewed reference-only collection
+from an examination page that lost its normalized papers. Reference collections
+have no paper-publication obligation, but byte checks require every attachment
+to remain within its provider and match its recorded checksum. Unreviewed
+attachments cannot establish this disposition, and pages that actually list
+papers still require normalization. Metadata-only audits explicitly omit byte
+verification.
+
+If earlier imports survive in repository history but no longer appear in current
+state, reconcile their original source dictionaries against verified mirror
+bytes before cleanup. Retain the recovered references and exact legacy fields
+in the revision journal. A file absent from the active catalog is not redundant
+until its unique history and independently recoverable bytes are accounted for.
+
 Successful full, incremental, targeted, and repair syncs record a UTC receipt for each completely refreshed event. Failed and unrefreshed events keep their previous receipt. Discovery, catalog migration, and bundle builds do not advance dates. Retained state may lack receipts; never backfill them from discovery or file modification time.
 
 Failure behavior is owned by [the CLI](../../app/cli.py) and [state merging](../../app/state.py):

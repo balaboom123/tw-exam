@@ -11,6 +11,7 @@ from pathlib import Path
 from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
+from app.providers.ipas_cert.identity import canonical_for_event as ipas_canonical_for_event
 from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.twc_recruit.client import retained_archive_file_role
@@ -136,10 +137,6 @@ _REQUESTED_TOPIC_CANONICAL_MAP = {
     "taigi-cert-c-": ("taigi-cert-c", "臺灣台語語言能力認證 C卷"),
     "taigi-cert-": ("taigi-cert", "臺灣台語語言能力認證"),
     "tqc-cert-": ("tqc-cert", "TQC電腦技能基金會認證"),
-    "ipas-cert-ise-": ("ipas-cert-ise", "iPAS 資訊安全工程師"),
-    "ipas-cert-oia-": ("ipas-cert-oia", "iPAS 營運智慧分析師"),
-    "ipas-cert-aiap-": ("ipas-cert-aiap", "iPAS AI應用規劃師"),
-    "ipas-cert-aiot-": ("ipas-cert-aiot", "iPAS AIoT應用工程師"),
     "ipas-cert-": ("ipas-cert", "iPAS產業人才能力鑑定"),
 }
 
@@ -238,6 +235,10 @@ def _derive_canonical(
     sfi_canonical = sfi_canonical_for_event(source_exam_id)
     if sfi_canonical is not None:
         canonical_id, canonical_name = sfi_canonical
+        return canonical_id, canonical_name, canonical_name, False
+    ipas_canonical = ipas_canonical_for_event(source_exam_id)
+    if ipas_canonical is not None:
+        canonical_id, canonical_name = ipas_canonical
         return canonical_id, canonical_name, canonical_name, False
     for prefix, (canonical_id, canonical_name) in _FINANCIAL_CERT_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):
@@ -351,11 +352,7 @@ def normalize_papers(
             source_metadata = paper.mirror_files.get("question") or mirror_metadata.get(
                 (paper.category_code, paper.subject_code, "question"), {}
             )
-            if (
-                provider_id in {"hakka_cert", "twc_recruit"}
-                and not source_metadata
-                and len(paper.files) == 1
-            ):
+            if not source_metadata and len(paper.files) == 1:
                 role = next(iter(paper.files))
                 source_metadata = paper.mirror_files.get(role) or mirror_metadata.get(
                     (paper.category_code, paper.subject_code, role), {}

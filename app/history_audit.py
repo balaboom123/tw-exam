@@ -8,7 +8,9 @@ events.  It never downloads source files or writes provider state.
 
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from collections.abc import Iterable
 from dataclasses import dataclass, field
@@ -21,7 +23,8 @@ from app.coverage_exceptions import (
     failure_exception_for,
     load_coverage_exceptions,
 )
-from app.paths import provider_paths, site_paths
+from app.models import ExamAttachment
+from app.paths import ProviderPaths, provider_paths, site_paths
 from app.provider_index import (
     PAPER_CODE,
     PAPER_FILE_TYPE,
@@ -38,7 +41,12 @@ from app.providers.registry import get_provider
 from app.publication_quarantine import quarantined_provider_ids
 from app.site_registry import get_site_config
 from app.source_revisions import audit_source_revisions
-from app.state import load_provider_failures, load_provider_state, load_site_bundles
+from app.state import (
+    load_provider_failures,
+    load_provider_pages,
+    load_provider_state,
+    load_site_bundles,
+)
 
 
 def _event_key(source_exam_id: str, year_ad: int) -> tuple[str, int]:
@@ -75,6 +83,31 @@ class _EventPapers:
     bundle_ids: set[str] = field(default_factory=set)
     public_years_by_bundle: dict[str, set[int | None]] = field(default_factory=dict)
     missing_mirror_files: set[str] = field(default_factory=set)
+
+
+def _reference_payload_errors(
+    provider: ProviderPaths, attachments: list[ExamAttachment]
+) -> list[dict[str, str]]:
+    errors = []
+    for attachment in attachments:
+        key = attachment.storage_key
+        path = provider.mirror_dir.parents[1] / key
+        error = ""
+        if not key or not path.is_file():
+            error = "missing payload"
+        elif path.is_symlink() or not path.resolve().is_relative_to(provider.mirror_dir.resolve()):
+            error = "payload outside provider owner"
+        elif re.fullmatch(r"[0-9a-f]{64}", attachment.checksum) is None:
+            error = "unverified checksum"
+        else:
+            with path.open("rb") as stream:
+                if hashlib.file_digest(stream, "sha256").hexdigest() != attachment.checksum:
+                    error = "payload checksum mismatch"
+        if error:
+            errors.append(
+                {"storage_key": key, "source_url": attachment.download_url_source, "error": error}
+            )
+    return errors
 
 
 def _probe_provider(
@@ -204,6 +237,26 @@ def build_history_coverage_audit(
                 failure
             )
 
+        # The compact raw-event flag combines papers and attachments. Resolve
+        # only events with no normalized papers against their full source facts.
+        reference_collections = {}
+        if any(
+            material and not papers_by_event[key].count for key, material in raw_by_event.items()
+        ):
+            for page in load_provider_pages(provider):
+                if (
+                    not page.papers
+                    and page.attachments
+                    and all(
+                        attachment.source_material is not None
+                        and attachment.source_material.kind == "reference"
+                        for attachment in page.attachments
+                    )
+                ):
+                    reference_collections[_event_key(page.source_exam_id, page.year_ad)] = (
+                        page.attachments
+                    )
+
         event_keys = set(raw_by_event) | set(papers_by_event) | set(failures_by_event)
         events: list[dict[str, Any]] = []
         matched_exception_keys: set[tuple[str, str, int, str, str]] = set()
@@ -222,6 +275,10 @@ def build_history_coverage_audit(
                     matched_file_exceptions.append(exception)
                     matched_exception_keys.add(exception.key)
             missing_mirror_files = sorted(papers.missing_mirror_files)
+            reference_attachments = reference_collections.get(event_key, [])
+            reference_errors = (
+                _reference_payload_errors(provider, reference_attachments) if check_mirror else []
+            )
             required_bundle_ids = papers.bundle_ids
             published_bundle_ids = sorted(
                 {
@@ -254,12 +311,14 @@ def build_history_coverage_audit(
                     if has_current_material
                     else event_exception.status
                 )
-            elif missing_mirror_files:
+            elif missing_mirror_files or reference_errors:
                 status = "download_gap"
             elif event_failures and len(matched_file_exceptions) == len(event_failures):
                 status = "partially_blocked" if has_current_material else "blocked"
             elif failure_status is not None:
                 status = failure_status
+            elif reference_attachments and not papers.count:
+                status = "reference_document_collection"
             elif not papers.count and event_key in raw_by_event:
                 # A source page that lists no papers has nothing to normalize, so
                 # calling that a normalization gap is a false positive. It failed
@@ -288,6 +347,8 @@ def build_history_coverage_audit(
                     "raw_page_present": event_key in raw_by_event,
                     "normalized_paper_records": papers.count,
                     "missing_mirror_files": missing_mirror_files,
+                    "reference_attachment_count": len(reference_attachments),
+                    "reference_attachment_errors": reference_errors,
                     "published_bundle_ids": published_bundle_ids,
                     "unpublished_bundle_ids": unpublished_bundle_ids,
                     "failure_count": len(event_failures),

@@ -35,11 +35,11 @@
     {
       "provider_id": "ipas_cert",
       "site_id": "default",
-      "status": "non_paper_role",
-      "reason": "The adapter publishes 46 non-paper PDFs as questions while covering only 4 of 16 official families and omitting 34 paper-like PDFs.",
+      "status": "redistribution_unresolved",
+      "reason": "Current native programme, paper, reference and date roles have been reconciled with exact reviewed bytes, with earlier source history preserved. Complete historical coverage and permission for public ZIP redistribution remain unresolved; keep site publication withheld.",
       "evidence_path": "data/providers/ipas_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#ipas_cert",
-      "review_by": "2026-11-01"
+      "review_by": "2026-11-21"
     },
     {
       "provider_id": "jlpt_cert",

@@ -191,7 +191,39 @@ This provider covers official Tzu Chi University post-baccalaureate medicine ent
 
 ## `ipas_cert`
 
-Treat each official iPAS examination family as its own source boundary. Regulations, announcements, brochures, syllabi, and other paper-like PDFs are not questions or answers.
+The [official purpose](https://ipd.nat.gov.tw/ipas/plan/goal) is industrial
+competency certification. Keep each native programme and its own grade system
+distinct. The [AI application planner rules](https://ipd.nat.gov.tw/ipas/certification/AIAP/exam-info)
+award separate intermediate certificates for data analysis and machine learning;
+their shared first subject belongs to both routes. Optional subjects in another
+programme do not alone establish separate certificates.
+
+The adapter reviews every locally hosted programme exposed by the official home
+page. Its native-document owner binds programme, source URL and full payload
+checksum before assigning a paper role, event, grade, subject or qualification
+route. Unfamiliar bytes or changed programme membership require review. External
+certification brands linked from the home page are separate acquisition sources.
+
+Administered papers, samples and mocks retain their native dates independently
+of storage partitions. Older colour-planning and electric-vehicle samples keep
+their own curriculum edition and subject scope. Worked drawing solutions count
+as answers even when text extraction misses the graphical content. A headerless
+plastics paper uses its exact official listing context plus reviewed native
+structure; this exception cannot approve another payload.
+
+Brochures, rules, application forms, registration spreadsheets and study guides
+are reference attachments in their original PDF, ODT or ODS format. An annual
+edition is not an examination date; unknown reference dates remain unresolved.
+The fixed resource collection partition is not an event-year claim. Earlier
+generic-import records and incorrectly assigned papers remain immutable in the
+source journal, with separate native-role interpretations and verified bytes.
+An older brochure absent from current listings remains retired recovery evidence.
+
+The current source surface was rechecked on 2026-10-21. Its rolling listings do
+not establish a complete historical archive. No blanket republication permission
+has been established, so the corrected source state remains excluded from site
+ZIP publication. Source capture and the existing backup policy are separate
+from this publication disposition.
 
 ## `jlpt_cert`
 

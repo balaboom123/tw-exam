@@ -7,6 +7,10 @@ from app.providers.ipas_cert.client import IpasCertClient
 
 class IpasCertProvider(SourceProvider):
     provider_id = "ipas_cert"
+    # Reuse one verified listing/payload snapshot throughout a sync. An approved
+    # source revision must replace warm cached bytes while conserving history.
+    refresh_files_on_sync = True
+    max_concurrency = 1
 
     def __init__(self, client: IpasCertClient | None = None) -> None:
         self.client = client or IpasCertClient()

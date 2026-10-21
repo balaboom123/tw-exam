@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/ipas-native-documents-v1.schema.json",
+  "title": "Reviewed native iPAS document contexts",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provider_id",
+    "evidence_url",
+    "facts"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "ipas_cert"
+    },
+    "evidence_url": {
+      "const": "https://ipd.nat.gov.tw/ipas/"
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "checksum",
+          "sources",
+          "kind",
+          "file_type",
+          "grade",
+          "session",
+          "subjects",
+          "routes",
+          "date",
+          "edition_label",
+          "document_type",
+          "label",
+          "native_heading",
+          "review_basis",
+          "reviewed_at",
+          "inspected_pages",
+          "page_count",
+          "notes",
+          "payload_format",
+          "native_material_label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ipas-native-[0-9a-f]{20}$"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "programme_code",
+                "url"
+              ],
+              "properties": {
+                "programme_code": {
+                  "enum": [
+                    "3DP",
+                    "AIAP",
+                    "AIOT",
+                    "ANT",
+                    "CPM",
+                    "CV",
+                    "EMC",
+                    "EVM",
+                    "FQA",
+                    "ISE",
+                    "MDMT",
+                    "NZ",
+                    "OIA",
+                    "PCB",
+                    "PMAE",
+                    "SPE"
+                  ]
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://(?:ipd\\.nat\\.gov\\.tw/ipas|www\\.ipas\\.org\\.tw)/api/proxy/uploads/[^?#]+\\.(?:pdf|odt|ods)$"
+                }
+              }
+            }
+          },
+          "kind": {
+            "enum": [
+              "administered",
+              "sample",
+              "mock",
+              "reference"
+            ]
+          },
+          "file_type": {
+            "enum": [
+              "question",
+              "question_answer",
+              "source_asset"
+            ]
+          },
+          "grade": {
+            "enum": [
+              "",
+              "basic",
+              "intermediate",
+              "advanced"
+            ]
+          },
+          "session": {
+            "type": "string",
+            "pattern": "^(?:[1-9][0-9]*)?$"
+          },
+          "subjects": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "routes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "data-analysis",
+                "machine-learning"
+              ]
+            }
+          },
+          "date": {
+            "$ref": "source-material-v1.schema.json#/$defs/date"
+          },
+          "edition_label": {
+            "type": "string"
+          },
+          "document_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "native_heading": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_basis": {
+            "enum": [
+              "native_text",
+              "listing_and_native_structure",
+              "native_text_and_visual_solutions",
+              "native_office_content"
+            ]
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "inspected_pages": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "page_count": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "notes": {
+            "type": "string"
+          },
+          "payload_format": {
+            "enum": [
+              "pdf",
+              "odt",
+              "ods"
+            ]
+          },
+          "native_material_label": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "reference"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "file_type": {
+                  "const": "source_asset"
+                },
+                "grade": {
+                  "const": ""
+                },
+                "session": {
+                  "const": ""
+                },
+                "subjects": {
+                  "maxItems": 0
+                },
+                "routes": {
+                  "maxItems": 0
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "file_type": {
+                  "enum": [
+                    "question",
+                    "question_answer"
+                  ]
+                },
+                "grade": {
+                  "enum": [
+                    "basic",
+                    "intermediate",
+                    "advanced"
+                  ]
+                },
+                "subjects": {
+                  "minItems": 1
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "payload_format": {
+                  "const": "pdf"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "page_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "inspected_pages": {
+                  "minItems": 1
+                },
+                "review_basis": {
+                  "enum": [
+                    "native_text",
+                    "listing_and_native_structure",
+                    "native_text_and_visual_solutions"
+                  ]
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "page_count": {
+                  "type": "null"
+                },
+                "inspected_pages": {
+                  "maxItems": 0
+                },
+                "review_basis": {
+                  "const": "native_office_content"
+                },
+                "kind": {
+                  "const": "reference"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

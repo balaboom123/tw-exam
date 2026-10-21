@@ -20,6 +20,9 @@ from typing import Any
 from app.hakka_identity import hakka_conflict_reason, hakka_dialect, hakka_level
 from app.moex_identity_evidence import resolve_moex_category_identity
 from app.providers.gept_cert.identity import category_identity as gept_category_identity
+from app.providers.ipas_cert.evidence import SourceReference as IpasSourceReference
+from app.providers.ipas_cert.evidence import native_context as ipas_native_context
+from app.providers.ipas_cert.identity import GRADE_LABELS as IPAS_GRADE_LABELS
 from app.providers.sfi_cert.evidence import native_context as sfi_native_context
 from app.providers.twc_recruit.identity import is_outer_archive_context, resolve_archive_identity
 from app.source_material import SourceMaterial, material_label
@@ -1751,6 +1754,35 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    ipas_context = None
+    if provider_id == "ipas_cert":
+        ipas_context = ipas_native_context(source_exam_id, year_ad, category_code, source_checksum)
+        if ipas_context is not None:
+            document = ipas_context.document
+            source_url = source_material.evidence_url if source_material is not None else ""
+            reference = IpasSourceReference(ipas_context.programme.code, source_url)
+            if (
+                reference not in document.sources
+                or subject_code != document.subject_code
+                or subject_name_raw != document.subject_label
+                or source_material != document.material(reference.programme_code, reference.url)
+            ):
+                ipas_context = None
+        if ipas_context is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            variant_pairs = ()
+            confidence = "review"
+            reason = "iPAS programme/grade/event lacks matching native document evidence"
+        else:
+            level_id = f"ipas-{ipas_context.document.grade}"
+            level_label = IPAS_GRADE_LABELS[ipas_context.document.grade]
+            track_id = ipas_context.programme.canonical_id
+            track_label = ipas_context.programme.label
+            variant_pairs = ipas_context.variants
+            confidence = "high"
+            reason = (
+                f"reviewed native iPAS programme, grade, role and date: {ipas_context.document.id}"
+            )
     if provider_id == "gept_cert" and category_code:
         gept_context = gept_category_identity(source_exam_id, category_code, year_ad)
         if gept_context is None:
@@ -1858,6 +1890,8 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "ipas_cert":
+        stage_id = NOT_APPLICABLE if ipas_context is not None else "unknown"
     if provider_id == "moea_recruit":
         # Neither filename A/B periods nor a generic event title establish
         # the selection stage of the retained material.
@@ -1988,7 +2022,7 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
-        if provider_id == "sfi_cert":
+        if provider_id in {"sfi_cert", "ipas_cert"}:
             bundle_name = track_label
         if provider_id in {"tqc_cert", "hakka_cert", "gept_cert"}:
             bundle_name = series_label
@@ -2019,7 +2053,14 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
-        if provider_id in {"tqc_cert", "hakka_cert", "teacher_qual", "gept_cert", "sfi_cert"}:
+        if provider_id in {
+            "tqc_cert",
+            "hakka_cert",
+            "teacher_qual",
+            "gept_cert",
+            "sfi_cert",
+            "ipas_cert",
+        }:
             for _variant_id, label in variant_pairs:
                 if label not in bundle_name:
                     bundle_name += f"｜{label}"

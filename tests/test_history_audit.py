@@ -1,11 +1,53 @@
 import tempfile
 import unittest
+import hashlib
+import json
 from pathlib import Path
 
+import pytest
+
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code
-from app.models import BundleAsset, ExamOption, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage
+from app.models import BundleAsset, ExamAttachment, ExamOption, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage
 from app.paths import provider_paths, site_paths
 from app.publisher import write_provider_state, write_site_state
+from app.source_material import SourceDate, SourceMaterial
+
+
+@pytest.mark.parametrize('condition',['verified','missing','corrupt','unreviewed','paper_also_listed','foreign_owner'])
+def test_reference_collections_require_explicit_material_and_owned_verified_bytes(tmp_path,condition):
+    provider=provider_paths(tmp_path,'moex')
+    key='providers/moex/115/reference-collection/form.pdf'
+    data=b'%PDF-1.7 native application form'
+    path=tmp_path/'mirror'/key
+    if condition!='missing':
+        path.parent.mkdir(parents=True)
+        path.write_bytes(b'%PDF-1.7 corrupt revision' if condition=='corrupt' else data)
+    source='https://example.test/form.pdf'
+    material=SourceMaterial('reference',SourceDate('unknown',None),source,'申請表','Native form has no established date')
+    attachment=ExamAttachment('申請表','source_asset',source,storage_key=key,checksum=hashlib.sha256(data).hexdigest(),source_material=None if condition=='unreviewed' else material)
+    papers=[ParsedPaper('category','101','0101','question',{'question':'https://example.test/paper.pdf'})] if condition=='paper_also_listed' else []
+    page=SourceExamPage('reference-collection',2026,115,'來源文件',[attachment],papers,'moex')
+    write_provider_state(provider,[page],NormalizedCatalog([],[]),[],[],None)
+    if condition=='foreign_owner':
+        foreign_key=key.replace('providers/moex/','providers/other/')
+        foreign_path=tmp_path/'mirror'/foreign_key
+        foreign_path.parent.mkdir(parents=True)
+        foreign_path.write_bytes(data)
+        raw_file=provider.exams_dir/'2026.json'
+        raw=json.loads(raw_file.read_text())
+        raw[0]['attachments'][0]['storage_key']=foreign_key
+        raw_file.write_text(json.dumps(raw))
+    write_site_state(site_paths(tmp_path,'default'),[],[])
+    report=build_history_coverage_audit(tmp_path,provider_ids=['moex'])
+    event=report['providers'][0]['events'][0]
+    expected='reference_document_collection' if condition=='verified' else 'normalization_gap' if condition in {'unreviewed','paper_also_listed'} else 'download_gap'
+    assert event['status']==expected
+    assert history_audit_exit_code(report,strict=True)==(condition!='verified')
+    if condition in {'missing','corrupt','foreign_owner'}:assert event['reference_attachment_errors']
+    if condition=='missing':
+        metadata_only=build_history_coverage_audit(tmp_path,provider_ids=['moex'],check_mirror=False)
+        assert metadata_only['mirror_checked'] is False
+        assert metadata_only['providers'][0]['events'][0]['status']=='reference_document_collection'
 
 
 class _ProbeClient:

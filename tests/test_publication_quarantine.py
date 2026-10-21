@@ -445,7 +445,7 @@ class RepositoryQuarantineTests(unittest.TestCase):
             "cpc_recruit": "2026-11-01",
             "gept_cert": "2026-11-20",
             "hakka_cert": "2026-12-01",
-            "ipas_cert": "2026-11-01",
+            "ipas_cert": "2026-11-21",
             "jlpt_cert": "2026-11-01",
             "moea_recruit": "2026-11-01",
             "sfi_cert": "2026-11-21",

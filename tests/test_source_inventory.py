@@ -875,25 +875,28 @@ class SourceInventoryTests(unittest.TestCase):
         hold = next(row for row in quarantine["quarantine"] if row["provider_id"] == "tqc_cert")
         self.assertEqual(hold["status"], "redistribution_unresolved")
 
-    def test_ipas_manifest_exposes_family_and_document_role_gaps(self) -> None:
+    def test_ipas_manifest_covers_native_formats_and_conserved_history(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/ipas_cert/source-manifest.json").read_text(
                 encoding="utf-8"
             )
         )
-        self.assertEqual(len(manifest["exams"]), 16)
-        policy = manifest["probe_policy"]
-        self.assertEqual(policy["official_pdf_count"], 182)
-        self.assertEqual(policy["adapter_pdf_count"], 62)
-        self.assertEqual(policy["omitted_pdf_count"], 120)
-        self.assertEqual(
-            policy["paper_classification"]["paper_like_pdf_count_in_omitted_families"],
-            34,
-        )
-        self.assertEqual(
-            policy["paper_classification"]["non_paper_pdfs_published_as_question"],
-            46,
-        )
+        from app.paths import provider_paths
+        from app.state import load_provider_state
+        from app.providers.ipas_cert.evidence import validate_native_documents
+
+        pages, catalog, failures = load_provider_state(provider_paths(ROOT, "ipas_cert"))
+        self.assertFalse(failures)
+        self.assertEqual(set(manifest["exams"]), {p.source_exam_id for p in pages})
+        audit = manifest["probe_policy"]["source_audit"]
+        self.assertEqual(audit["current_family_count"], 16)
+        self.assertEqual(audit["current_document_formats"], {"pdf": 194, "odt": 44, "ods": 3})
+        self.assertEqual(audit["current_unique_document_URLs"], 241)
+        self.assertEqual(audit["reference_attachment_count"], sum(len(p.attachments) for p in pages))
+        self.assertEqual(audit["recovered_original_generic_source_records"], 97)
+        self.assertEqual(len(catalog.papers), 70)
+        self.assertEqual(validate_native_documents(ROOT)["retired_source_references"], 164)
+        self.assertTrue(all(p.source_material.kind != "reference" for p in catalog.papers))
 
     @pytest.mark.repo_data
     def test_growth_above_the_reviewed_floor_does_not_gate_the_site(self) -> None:

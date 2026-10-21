@@ -69,8 +69,11 @@ def _validate_provider_notes(repo_root: Path, inventory: dict[str, object]) -> l
     unknown = sorted(markdown_evidence_sections(text) - inventory_ids)
     if unknown:
         errors.append(f"docs/providers/notes.md: unregistered provider sections: {unknown}")
+    # A homepage prefix is also present in every deeper supporting-evidence URL.
+    # Compare complete URLs so citations do not become a second source inventory.
+    cited_urls = set(re.findall(r"https?://[^\s<>\[\]()\"']+", text))
     for provider in inventory["providers"]:
-        if any(url in text for url in provider["official_source_urls"]):
+        if any(url in cited_urls for url in provider["official_source_urls"]):
             errors.append(f"docs/providers/notes.md: official URL for {provider['provider_id']} duplicates inventory")
     return errors
 

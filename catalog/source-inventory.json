@@ -708,15 +708,18 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#ipas_cert"
+        "docs/providers/notes.md#ipas_cert",
+        "data/providers/ipas_cert/source-manifest.json",
+        "catalog/mappings/ipas/native-documents-v1.json"
       ],
-      "exam_category": "iPAS professional certification learning/question materials",
+      "exam_category": "iPAS industrial competency certification: native papers, samples, mocks and reference documents",
       "local_state": {
-        "normalized_paper_records": 62,
-        "raw_event_pages": 4,
+        "normalized_paper_records": 70,
+        "raw_event_pages": 50,
         "sync_failures": 0
       },
       "local_years": [
+        2025,
         2026
       ],
       "official_source_urls": [
@@ -724,13 +727,13 @@
       ],
       "provider_id": "ipas_cert",
       "restrictions": [
-        "The official home page links 16 certification families, but the adapter covers only ISE/OIA/AIAP/AIOT and omits 120 PDFs, including 34 paper-like files.",
-        "The earlier retained sample contained 46 briefs, rules, forms, study guides, or scope references mislabeled as questions; event years were process-date identities. Publication is withheld pending reconciliation of source roles and events.",
-        "No blanket redistribution license was established, and the robots endpoint disconnected during audit."
+        "All 16 current native programme families and 64 source sections were rechecked on 2026-10-21: 241 current document URLs (194 PDF, 44 ODT, 3 ODS) have verified native payloads. External certification brands are separate sources.",
+        "The corrected retained state separates native administered papers, samples and mocks from 175 reference attachments. Two earlier native papers and all 164 original source records, including 97 recovered generic imports, remain conserved with verified bytes.",
+        "Rolling resource listings do not establish complete historical coverage. Unknown reference dates remain unresolved, and no blanket permission for public ZIP redistribution was established; publication remains withheld."
       ],
       "source_name": "經濟部產業人才能力鑑定推動網",
       "status": "partial",
-      "status_reason": "Partial / 12 of 16 official families omitted, 34 paper-like PDFs absent, 46 non-paper PDFs misclassified, and source identity/licensing unresolved; local coverage: synthetic 2026; 4 → 62"
+      "status_reason": "Partial historical coverage / complete reviewed current native document surface; corrected event, grade, route, material role and date context; site redistribution unresolved"
     },
     {
       "available_years": {

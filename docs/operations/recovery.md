@@ -82,6 +82,29 @@ answer key may need its own correction-role review. Run schema validation and
 normal sync after reviewing the new facts, then audit retained history. The
 provider's existing backup and publication policies still apply independently.
 
+## Review an unfamiliar iPAS document
+
+Capture all native programme surfaces and downloadable documents into a new
+private directory before reviewing changed bytes:
+
+```bash
+uv run python scripts/capture_ipas_review.py --output-dir .tmp/ipas-native-review --extract-text
+```
+
+The capture preserves original failures, exact source bytes and checksums. It
+recognizes PDF, ODT and ODS formats, and retains unfamiliar formats for review
+without approving them. It does not write provider state or native facts.
+Retry failed requests in a separate capture; keep both reports as evidence.
+
+Review native headings, material role, actual event or edition, grade, subjects
+and certificate routes before extending `catalog/mappings/ipas/`. Inspect
+graphical solutions where text is insufficient. Keep application forms and
+study references outside examination papers. Preserve earlier facts and source
+records, including recoverable generic imports from repository history; verify
+their exact recorded checksums before adding them to the revision journal.
+Run schema and history gates after normal sync. Publication quarantine and
+backup policy remain independent of document review.
+
 ## Durable provider mirror backup
 
 `.github/scripts/mirror_snapshots.py` stores provider payloads in public prereleases

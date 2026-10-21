@@ -268,6 +268,17 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         report["native_paper_review_unresolved"] = sum(
             row["record_type"] == "paper" for row in entries
         ) - len(reviewed)
+    if provider.provider_id == "ipas_cert":
+        from app.providers.ipas_cert.evidence import (
+            reviewed_native_revisions as ipas_revision_views,
+        )
+
+        reviewed_documents = ipas_revision_views(entries, repo_root=provider.data_dir.parents[2])
+        report["reviewed_native_document_references"] = reviewed_documents
+        report["native_document_review_unresolved"] = len(entries) - len(reviewed_documents)
+        report["native_document_date_review_unresolved"] = sum(
+            row["material_date"]["basis"] == "unknown" for row in reviewed_documents
+        )
     return report
 
 

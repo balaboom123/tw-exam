@@ -38,12 +38,17 @@ def load_provider_state(
     if not provider.data_dir.exists():
         return [], NormalizedCatalog(papers=[], review_queue=[]), []
     return (
-        _load_raw_pages_dir(provider.exams_dir, provider_id=provider.provider_id),
+        load_provider_pages(provider),
         _load_catalog_dir(
             provider.papers_dir, provider.review_queue_path, provider_id=provider.provider_id
         ),
         load_provider_failures(provider),
     )
+
+
+def load_provider_pages(provider: ProviderPaths) -> list[SourceExamPage]:
+    """Read source events and attachments without loading normalized papers."""
+    return _load_raw_pages_dir(provider.exams_dir, provider_id=provider.provider_id)
 
 
 def load_provider_failures(provider: ProviderPaths) -> list[SyncFailure]:

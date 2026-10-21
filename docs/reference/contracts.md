@@ -118,6 +118,17 @@ evidence supplies the independent native programme, date, round, subject scope
 and regional form. The original journal record and its source provenance remain
 immutable; unresolved revisions are reported separately.
 
+iPAS native-document facts bind each programme, exact URL and full checksum to
+its reviewed material role. A paper context includes the native event, grade,
+subject and any qualification route or content edition. Combined question and
+answer files use their actual role's mirror checksum during normalization.
+Reference PDFs and native OpenDocument forms remain attachments, with no exam
+identity inferred from their storage collection. Historical generic-import
+records can receive independent native-role interpretations without changing
+their original dictionaries. Unknown reference dates stay explicitly unresolved.
+The native evidence catalog contains factual labels and source context, not
+question or answer body excerpts.
+
 Review queues contain unresolved normalization work and remain provider-scoped unless a site explicitly owns cross-provider canonicalization. Failure rows use the shared model and retain enough event, file, URL, and stage information for machine-readable triage and recovery.
 
 The compact review codec preserves original text, classification signatures, source keys, and row order without reclassifying retained evidence. Empty queues remain empty arrays; readers also accept earlier rich record arrays. Use `review-queue` to expand a ledger without loading papers.
