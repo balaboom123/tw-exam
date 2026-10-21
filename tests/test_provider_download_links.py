@@ -1,3 +1,4 @@
+import hashlib
 import json
 from dataclasses import asdict
 
@@ -23,7 +24,7 @@ def paper():
         subject_code="0101",
         download_url_source="https://example.test/paper.pdf",
         storage_key="115/paper.pdf",
-        checksum="abc",
+        checksum=hashlib.sha256(b"%PDF-1.7 source paper").hexdigest(),
         download_url_bundle="https://example.test/old-site.zip",
     )
 

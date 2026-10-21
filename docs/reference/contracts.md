@@ -95,6 +95,14 @@ payload. `retained_at` is the UTC retention time, not an examination or edition
 date. Readers reject unsupported versions, mismatched ownership, duplicate ids,
 and inconsistent source keys or blob locators.
 
+When an older mirror generation predates corrected storage paths or revision
+blobs, the provider writer can rehome missing files from recorded current,
+previous or retired locators within that provider. Both the expected checksum
+and the candidate's actual full checksum must match. It copies bytes independently,
+does not overwrite existing files, and creates no successful-download receipt.
+Unrecorded files, foreign provider paths and symbolic-link candidates cannot
+supply recovery bytes.
+
 An old acquisition record may describe a reference document as a paper or audio.
 Keep that record immutable. Exact revision id, source context and checksum can
 anchor a separate reviewed non-paper disposition, exposed by the history audit.

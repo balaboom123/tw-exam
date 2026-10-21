@@ -18,7 +18,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 from app.models import NormalizedPaper, SourceExamPage, to_plain_data
-from app.paths import ProviderPaths
+from app.paths import ProviderPaths, is_provider_mirror_metadata
 from app.source_material import source_material
 from app.source_revision_review import reviewed_reference_revisions
 
@@ -279,19 +279,77 @@ def _retain_source_payload(provider: ProviderPaths, record: dict[str, Any]) -> s
     blob_key = revision_blob_key(provider.provider_id, checksum, Path(storage_key).suffix)
     mirror_root = provider.mirror_dir.parents[1]
     blob = mirror_root / blob_key
-    if not blob.exists():
-        original = mirror_root / storage_key
-        if not original.is_file() and not storage_key.startswith("providers/"):
-            original = provider.mirror_dir / storage_key
-        if not original.is_file() or payload_checksum(original) != checksum:
-            raise ValueError(
-                f"Cannot retain previous source bytes for {record['source_exam_id']}; "
-                "restore the checksum-verified original before refreshing provider state"
-            )
-        _copy_verified_payload(original, blob, checksum)
+    if not blob.is_file():
+        raise ValueError(
+            f"Cannot retain previous source bytes for {record['source_exam_id']}; "
+            "restore the checksum-verified original before refreshing provider state"
+        )
+    if blob.is_symlink() or not blob.resolve().is_relative_to(provider.mirror_dir.resolve()):
+        raise ValueError("Retained source revision must be a regular provider-owned file")
     if payload_checksum(blob) != checksum:
         raise ValueError(f"Retained source revision checksum mismatch: {blob_key}")
     return blob_key
+
+
+def _restore_missing_verified_payloads(
+    provider: ProviderPaths,
+    records: list[dict[str, Any]],
+    candidates: list[dict[str, Any]],
+) -> None:
+    """Recover expected bytes from another recorded locator in this provider.
+
+    Older generations can predate a corrected locator or a journal blob. Only
+    exact checksum matches from recorded source paths are reusable. Existing
+    paths are left alone, and recovery copies remain independent files.
+    """
+    mirror_root = provider.mirror_dir.parents[1]
+    provider_root = provider.mirror_dir.resolve()
+
+    def source_path(record: dict[str, Any]) -> Path | None:
+        key = record.get("storage_key", "")
+        if not isinstance(key, str):
+            raise ValueError("Invalid source recovery locator")
+        if not key:
+            return None
+        _validate_source_record(provider.provider_id, record)
+        path = (
+            mirror_root / key
+            if PurePosixPath(key).parts[0] == "providers"
+            else provider.mirror_dir / key
+        )
+        if not path.resolve().is_relative_to(provider_root):
+            raise ValueError("Source recovery locator escapes its provider directory")
+        return path
+
+    missing: dict[str, list[Path]] = {}
+    for record in records:
+        checksum = record.get("checksum", "")
+        if not checksum:
+            continue
+        target = source_path(record)
+        if target is not None and not target.exists():
+            if target.is_symlink():
+                raise ValueError("Cannot recover source bytes through a symbolic link")
+            missing.setdefault(checksum, []).append(target)
+    if not missing or not provider.mirror_dir.exists():
+        return
+    if provider.mirror_dir.is_symlink():
+        raise ValueError("Cannot recover source bytes through a provider directory symlink")
+    for record in candidates:
+        checksum = record.get("checksum", "")
+        if checksum not in missing:
+            continue
+        candidate = source_path(record)
+        if candidate is None or candidate.is_symlink() or not candidate.is_file():
+            continue
+        if is_provider_mirror_metadata(candidate.relative_to(mirror_root).as_posix()):
+            continue
+        if payload_checksum(candidate) != checksum:
+            continue
+        for target in missing.pop(checksum):
+            _copy_verified_payload(candidate, target, checksum)
+        if not missing:
+            break
 
 
 def retain_superseded_sources(
@@ -303,20 +361,41 @@ def retain_superseded_sources(
 ) -> int:
     """Persist previous source evidence before the provider writer replaces it."""
     entries = load_source_revisions(provider)
-    # Older verified mirror generations can contain the original locator but
-    # predate the journal's immutable recovery copy. Restore that copy only
-    # when the original bytes match the journal's recorded checksum.
-    for entry in entries:
-        _retain_source_payload(provider, entry["source_record"])
-    known = {entry["id"] for entry in entries}
     current_records = _source_records(provider.provider_id, current_pages, current_papers)
     current_keys = {_reference_key(kind, record) for kind, record in current_records}
     current = {
         (_reference_key(kind, record), record.get("checksum", ""))
         for kind, record in current_records
     }
+    previous_records = _source_records(provider.provider_id, previous_pages, previous_papers)
+    recovery_records = [record for _kind, record in current_records]
+    for entry in entries:
+        if entry["blob_storage_key"] is not None:
+            recovery_records.append(
+                {**entry["source_record"], "storage_key": entry["blob_storage_key"]}
+            )
+    for kind, record in previous_records:
+        if (
+            record.get("checksum")
+            and (_reference_key(kind, record), record["checksum"]) not in current
+        ):
+            recovery_records.append(
+                {
+                    **record,
+                    "storage_key": revision_blob_key(
+                        provider.provider_id, record["checksum"], Path(record["storage_key"]).suffix
+                    ),
+                }
+            )
+    candidates = [record for _kind, record in current_records + previous_records]
+    candidates.extend(entry["source_record"] for entry in entries)
+    candidates.extend(recovery_records)
+    _restore_missing_verified_payloads(provider, recovery_records, candidates)
+    for entry in entries:
+        _retain_source_payload(provider, entry["source_record"])
+    known = {entry["id"] for entry in entries}
     retained = 0
-    for kind, record in _source_records(provider.provider_id, previous_pages, previous_papers):
+    for kind, record in previous_records:
         _validate_source_record(provider.provider_id, record)
         key = _reference_key(kind, record)
         checksum = record.get("checksum", "")

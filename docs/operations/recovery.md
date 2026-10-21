@@ -41,6 +41,14 @@ and cannot establish that earlier bytes remain recoverable. Restore a current
 reference from a recovery blob only after checking its recorded checksum and
 source context; never select a blob by URL alone.
 
+An older snapshot may have the exact bytes under paths that predate an identity
+correction. The normal provider writer restores missing current paths and journal
+blobs from checksum-matching recorded locators in the same provider. Rehearse this
+with the older generation plus fresh source inputs before removing transitional
+copies. Verify all current paths and journal blobs afterward; a completed state
+write alone does not prove that every current payload is present. Existing files
+remain untouched, and this local recovery does not create download receipts.
+
 For a confirmed acquisition-owner correction, rehearse replacement in a scoped
 copy using the normalizer and conserving provider writer. Compare the full native
 listing, current and retired metadata, every payload checksum, and affected

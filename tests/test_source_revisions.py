@@ -199,6 +199,89 @@ def test_metadata_only_revision_never_claims_verified_bytes(tmp_path):
     assert load_source_revisions(provider)[0]["blob_storage_key"] is None
 
 
+def test_corrected_locator_recovers_from_recorded_old_cache_path(tmp_path):
+    store = MirrorStore(tmp_path / "mirror")
+    old = paper()
+    store.write_bytes(KEY, ORIGINAL)
+    write_state(tmp_path, [old])
+    corrected = replace(old, source_exam_id="corrected-event", storage_key=KEY.replace("115030", "corrected-event"))
+    write_state(tmp_path, [corrected])
+    provider = provider_paths(tmp_path, "moex")
+    journal_before = revision_journal_path(provider).read_bytes()
+    blob = store.root / load_source_revisions(provider)[0]["blob_storage_key"]
+    target = store.root / corrected.storage_key
+    target.unlink()
+    blob.unlink()
+
+    # The old snapshot predates both the corrected path and the revision blob.
+    write_state(tmp_path, [corrected])
+    assert target.read_bytes() == blob.read_bytes() == ORIGINAL
+    assert not target.samefile(blob)
+    assert not target.samefile(store.root / KEY)
+    assert revision_journal_path(provider).read_bytes() == journal_before
+
+
+@pytest.mark.parametrize("survivor", ["current", "blob"])
+def test_recovery_reuses_exact_recorded_payload_with_independent_copies(tmp_path, survivor):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    old = paper()
+    corrected = replace(old, source_exam_id="corrected-event", storage_key=KEY.replace("115030", "corrected-event"))
+    write_state(tmp_path, [old])
+    write_state(tmp_path, [corrected])
+    provider = provider_paths(tmp_path, "moex")
+    journal_before = revision_journal_path(provider).read_bytes()
+    blob = store.root / load_source_revisions(provider)[0]["blob_storage_key"]
+    target = store.root / corrected.storage_key
+    (store.root / KEY).unlink()
+    (blob if survivor == "current" else target).unlink()
+
+    write_state(tmp_path, [corrected])
+    assert target.read_bytes() == blob.read_bytes() == ORIGINAL
+    assert not target.samefile(blob)
+    target.write_bytes(REVISED)
+    assert blob.read_bytes() == ORIGINAL
+    assert revision_journal_path(provider).read_bytes() == journal_before
+
+
+@pytest.mark.parametrize("unusable", ["wrong_checksum", "unrecorded", "other_provider", "symlink"])
+def test_recovery_refuses_unproven_or_foreign_payload_candidates(tmp_path, unusable):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    old = paper()
+    write_state(tmp_path, [old])
+    provider = provider_paths(tmp_path, "moex")
+    before = {path: path.read_bytes() for path in provider.data_dir.rglob("*.json")}
+    original = store.root / KEY
+    original.unlink()
+    if unusable == "wrong_checksum":
+        original.write_bytes(REVISED)
+    else:
+        alternative = store.root / ("providers/other/paper.pdf" if unusable == "other_provider" else "providers/moex/unrecorded.pdf")
+        alternative.parent.mkdir(parents=True, exist_ok=True)
+        alternative.write_bytes(ORIGINAL)
+        if unusable == "symlink":
+            original.symlink_to(alternative)
+    with pytest.raises(ValueError, match="restore the checksum-verified original"):
+        write_state(tmp_path, [paper(REVISED)])
+    assert {path: path.read_bytes() for path in provider.data_dir.rglob("*.json")} == before
+
+
+def test_recovery_preserves_existing_unknown_current_cache_bytes(tmp_path):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    old = paper()
+    write_state(tmp_path, [old])
+    corrected = replace(old, source_exam_id="corrected-event", storage_key=KEY.replace("115030", "corrected-event"))
+    target = store.root / corrected.storage_key
+    target.parent.mkdir(parents=True)
+    target.write_bytes(REVISED)
+    write_state(tmp_path, [corrected])
+    assert target.read_bytes() == REVISED
+    entry = load_source_revisions(provider_paths(tmp_path, "moex"))[0]
+    assert (store.root / entry["blob_storage_key"]).read_bytes() == ORIGINAL
+
+
 def test_generated_revision_journal_satisfies_versioned_contract(tmp_path):
     provider = provider_paths(tmp_path, "moex")
     MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)

@@ -92,8 +92,12 @@ Full and incremental sync retain previously acquired events and papers that disa
 Before replacing provider state, the scoped writer records superseded paper and
 attachment references in the provider source revision journal. It requires the
 checksum-verified earlier payload or its already retained recovery blob before
-retiring a verified reference. A missing or mismatched earlier payload stops
-the state write and requires restoration. Unverified references retain metadata
+retiring a verified reference. Before this check, the writer can restore missing
+current locators and revision blobs from another recorded source path in the
+same provider, using the expected full checksum. Recovery creates independent
+copies, leaves existing files untouched, and never substitutes today's bytes
+from a reused URL. A missing or mismatched earlier payload stops the state write
+when no recorded, checksum-verified copy remains. Unverified references retain metadata
 only. An explicitly requested discovery manifest is written after the provider
 state succeeds, so a rejected retention write cannot advance that manifest.
 Current publication continues to use the current catalog; retired roles,
