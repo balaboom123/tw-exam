@@ -1066,6 +1066,11 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             f"reclaimed {prune_result.reclaimable_bytes} bytes.",
             flush=True,
         )
+        if prune_result.preserved_unique_files:
+            print(
+                f"Preserved {prune_result.preserved_unique_files} unique unreferenced payload(s).",
+                flush=True,
+            )
     return 0
 
 
@@ -1398,19 +1403,26 @@ def build_parser() -> argparse.ArgumentParser:
     prune_parser = subparsers.add_parser(
         "prune-orphaned-mirror",
         help=(
-            "Remove provider mirror files not referenced "
-            "by current state; refuses incomplete state."
+            "Remove proven duplicate unreferenced provider files; "
+            "preserves unique payloads and refuses incomplete state."
         ),
     )
     prune_parser.add_argument("--provider", required=True)
     prune_parser.add_argument("--data-dir", type=Path, default=repo_root / "data")
     prune_parser.add_argument("--mirror-dir", type=Path, default=repo_root / "mirror")
     prune_parser.add_argument("--apply", action="store_true", default=False)
-    prune_parser.add_argument(
+    prune_mode = prune_parser.add_mutually_exclusive_group()
+    prune_mode.add_argument(
         "--duplicates-only",
         action="store_true",
-        default=False,
-        help="Restrict cleanup to files matching a currently referenced file in the same provider.",
+        default=True,
+        help="Keep unique unreferenced payloads for source-history review (the default).",
+    )
+    prune_mode.add_argument(
+        "--all-unreferenced",
+        action="store_false",
+        dest="duplicates_only",
+        help="Include unique unreferenced payloads in explicitly reviewed cleanup.",
     )
     prune_parser.set_defaults(handler=command_prune_orphaned_mirror)
 
@@ -1450,7 +1462,12 @@ def build_parser() -> argparse.ArgumentParser:
         )
         sync.add_argument("--release-tag", default="", help=_RELEASE_TAG_FALLBACK_HELP)
         sync.add_argument("--write-manifest", action="store_true", default=False)
-        sync.add_argument("--prune-orphaned-mirror", action="store_true", default=False)
+        sync.add_argument(
+            "--prune-orphaned-mirror",
+            action="store_true",
+            default=False,
+            help="Prune proven duplicate unreferenced files after a successful sync.",
+        )
         if name == "sync-full":
             sync.add_argument("--years", nargs="*", type=int, default=None)
         else:

@@ -170,7 +170,9 @@ def test_prune_and_dedupe_protect_immutable_revisions(tmp_path):
     assert not blob.samefile(same_old.path)
     same_old.path.write_bytes(b"accidental in-place modification")
     assert blob.read_bytes() == ORIGINAL
-    result = store.prune_unreferenced_provider("moex", [], NormalizedCatalog([paper(REVISED)], []), apply=True)
+    result = store.prune_unreferenced_provider(
+        "moex", [], NormalizedCatalog([paper(REVISED)], []), apply=True, duplicates_only=False
+    )
     assert result.removed_files == 2
     assert blob.read_bytes() == ORIGINAL
     with pytest.raises(ValueError, match="immutable"):

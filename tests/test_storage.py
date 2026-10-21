@@ -229,7 +229,25 @@ class MirrorStoreTests(unittest.TestCase):
             self.assertTrue(store.dedupe_index_path.exists())
             self.assertEqual(os.stat(first_path).st_ino, os.stat(second_path).st_ino)
 
-    def test_prune_unreferenced_provider_removes_only_state_orphans(self) -> None:
+    def test_default_prune_preserves_unique_earlier_payloads_and_other_providers(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = MirrorStore(Path(directory))
+            active = store.write_bytes('providers/demo/active/question.pdf', b'current native paper')
+            duplicate = store.write_bytes('providers/demo/earlier/question.pdf', b'current native paper')
+            unique = store.write_bytes('providers/demo/unrecorded/question.pdf', b'unique older paper')
+            other = store.write_bytes('providers/other/unrecorded/question.pdf', b'current native paper')
+            with mock.patch.object(store, 'referenced_storage_keys', return_value={active.storage_key}):
+                preview = store.prune_unreferenced_provider('demo', [], NormalizedCatalog([], []))
+                self.assertEqual((preview.removed_files, preview.preserved_unique_files), (1, 1))
+                self.assertTrue(duplicate.path.exists())
+                result = store.prune_unreferenced_provider('demo', [], NormalizedCatalog([], []), apply=True)
+            self.assertEqual((result.removed_files, result.preserved_unique_files), (1, 1))
+            self.assertFalse(duplicate.path.exists())
+            self.assertEqual(unique.path.read_bytes(), b'unique older paper')
+            self.assertEqual(active.path.read_bytes(), b'current native paper')
+            self.assertEqual(other.path.read_bytes(), b'current native paper')
+
+    def test_explicit_all_unreferenced_prune_removes_state_orphans(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
             active_key = "providers/hakka_cert/115/event/101/0101/question.pdf"
@@ -262,11 +280,15 @@ class MirrorStoreTests(unittest.TestCase):
             catalog = NormalizedCatalog(papers=[], review_queue=[])
             store = MirrorStore(root)
 
-            preview = store.prune_unreferenced_provider("hakka_cert", raw_pages, catalog)
+            preview = store.prune_unreferenced_provider(
+                "hakka_cert", raw_pages, catalog, duplicates_only=False
+            )
             self.assertEqual(preview.removed_files, 1)
             self.assertTrue(stale_path.exists())
 
-            applied = store.prune_unreferenced_provider("hakka_cert", raw_pages, catalog, apply=True)
+            applied = store.prune_unreferenced_provider(
+                "hakka_cert", raw_pages, catalog, apply=True, duplicates_only=False
+            )
             self.assertTrue(applied.applied)
             self.assertFalse(stale_path.exists())
             self.assertTrue(active_path.exists())

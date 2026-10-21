@@ -242,17 +242,24 @@ uv run python scripts/validate_publication.py
 
 Do not delete raw pages, retained failures, or source evidence merely to satisfy a gate. Remove an exception when the official source becomes available; strict audits intentionally reject orphaned exceptions.
 
-For redundant mirror paths, preview the restricted cleanup before adding `--apply`:
+For redundant mirror paths, preview cleanup before adding `--apply`:
 
 ```bash
-uv run python -m app prune-orphaned-mirror --provider <provider_id> --duplicates-only
+uv run python -m app prune-orphaned-mirror --provider <provider_id>
 ```
 
-This mode hashes actual files and removes an unreferenced path only when a
+The default hashes actual files and removes an unreferenced path only when a
 currently referenced file in the same provider retains identical bytes. It
 preserves unique unreferenced payloads and the source-revision directory. Review
 those unique payloads separately; absence from current state is not proof that
 historical material is unnecessary.
+
+Sync's optional mirror cleanup uses this same default. The existing
+`--duplicates-only` flag explicitly selects it. After reviewing unique files
+and preserving any historical records and bytes, a standalone
+`prune-orphaned-mirror --all-unreferenced` invocation can include those files;
+preview that separate operation before applying it. Provider recovery blobs
+remain protected in both modes.
 
 ## Scenario 3: catalog or identity audit fails
 

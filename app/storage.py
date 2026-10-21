@@ -427,7 +427,7 @@ class MirrorStore:
         catalog: NormalizedCatalog,
         *,
         apply: bool = False,
-        duplicates_only: bool = False,
+        duplicates_only: bool = True,
     ) -> MirrorPruneResult:
         references = self.referenced_storage_keys(provider_id, raw_pages, catalog)
         if not references:

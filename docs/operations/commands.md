@@ -11,7 +11,7 @@ Use `uv run python -m app` for every application command in local documentation.
 | `sync-targeted` | Sync only changed exams from a probe output file. | `uv run python -m app sync-targeted --help` |
 | `repair-failures` | Re-fetch only source exams with recorded bundle or download failures, preserving partial failures. | `uv run python -m app repair-failures --help` |
 | `dedupe-mirror` | Replace byte-identical mirror payload copies with hard links while preserving every path. | `uv run python -m app dedupe-mirror --help` |
-| `prune-orphaned-mirror` | Remove provider mirror files not referenced by current state; refuses incomplete state. | `uv run python -m app prune-orphaned-mirror --help` |
+| `prune-orphaned-mirror` | Remove proven duplicate unreferenced provider files; preserves unique payloads and refuses incomplete state. | `uv run python -m app prune-orphaned-mirror --help` |
 | `sync-full` | sync-full against the selected provider. | `uv run python -m app sync-full --help` |
 | `sync-incremental` | sync-incremental against the selected provider. | `uv run python -m app sync-incremental --help` |
 | `build-bundles` | Rebuild ZIP bundles from existing local data (no network). | `uv run python -m app build-bundles --help` |

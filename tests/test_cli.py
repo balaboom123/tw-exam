@@ -123,6 +123,16 @@ class CliCommandTests(unittest.TestCase):
         self.assertTrue(prune_args.duplicates_only)
         self.assertTrue(sync_args.prune_orphaned_mirror)
 
+    def test_prune_defaults_to_duplicate_cleanup_and_requires_an_explicit_unique_mode(self) -> None:
+        parser = build_parser()
+        default = parser.parse_args(['prune-orphaned-mirror', '--provider', 'tocfl_cert'])
+        full = parser.parse_args(['prune-orphaned-mirror', '--provider', 'tocfl_cert', '--all-unreferenced'])
+        self.assertTrue(default.duplicates_only)
+        self.assertFalse(full.duplicates_only)
+        with self.assertRaises(SystemExit):
+            parser.parse_args(['prune-orphaned-mirror', '--provider', 'tocfl_cert',
+                               '--duplicates-only', '--all-unreferenced'])
+
     @patch("app.cli.sync_exam_pages")
     def test_command_sync_incremental_limits_to_requested_source_exam_ids(self, sync_exam_pages_mock) -> None:
         class SelectiveClient:
