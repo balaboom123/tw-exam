@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from app.providers.hce_tcu.evidence import annual_papers_path as tcu_annual_papers_path, validate_annual_papers as validate_tcu_annual_papers
 from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
 from app.moex_identity_evidence import moex_evidence_path, validate_moex_category_evidence
@@ -105,6 +106,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     _validate(schemas[f"frontend-bundle-feed-v{version}.schema.json"], frontend, str(frontend_path.relative_to(repo_root)))
 
     artifacts = (
+        (tcu_annual_papers_path(repo_root), "tcu-annual-papers-v1.schema.json"),
         (site_dir / "release-assets.json", "release-assets-v2.schema.json"),
         (repo_root / "catalog" / "source-inventory.json", "source-inventory.schema.json"),
         (moex_evidence_path(repo_root), "moex-category-identity-v1.schema.json"),
@@ -129,6 +131,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
     validate_moex_category_evidence(repo_root)
     validate_tqc_identity_evidence(repo_root)
+    validate_tcu_annual_papers(repo_root)
     validate_archive_identities(repo_root)
     validate_native_archives(repo_root)
     validate_hakka_conflicts(repo_root)

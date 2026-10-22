@@ -11,6 +11,7 @@ from pathlib import Path
 from app.classification import classify_paper, identity_fields
 from app.hakka_identity import hakka_material
 from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem
+from app.providers.hce_tcu.evidence import native_material as tcu_native_material
 from app.providers.ipas_cert.identity import canonical_for_event as ipas_canonical_for_event
 from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
@@ -341,11 +342,11 @@ def normalize_papers(
         identity = None
         fields = {}
         if provider_id:
-            source_metadata = paper.mirror_files.get("question") or mirror_metadata.get(
-                (paper.category_code, paper.subject_code, "question"), {}
-            )
-            if not source_metadata and len(paper.files) == 1:
+            role = "question" if "question" in paper.files else ""
+            if not role and len(paper.files) == 1:
                 role = next(iter(paper.files))
+            source_metadata = {}
+            if role:
                 source_metadata = paper.mirror_files.get(role) or mirror_metadata.get(
                     (paper.category_code, paper.subject_code, role), {}
                 )
@@ -361,6 +362,16 @@ def normalize_papers(
                 )
                 if reviewed_material is not None:
                     material = reviewed_material
+            if provider_id == "hce_tcu" and len(paper.files) == 1:
+                material = tcu_native_material(
+                    source_exam_id=source_exam_id,
+                    year_roc=year_roc,
+                    category_code=paper.category_code,
+                    subject_code=paper.subject_code,
+                    source_url=next(iter(paper.files.values())),
+                    file_type=next(iter(paper.files)),
+                    checksum=source_metadata.get("checksum", ""),
+                )
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -561,6 +572,17 @@ def renormalize_catalog(
             )
             if material is not None:
                 paper = replace(paper, source_material=material, schema_version=3)
+        if paper.provider_id == "hce_tcu":
+            material = tcu_native_material(
+                source_exam_id=paper.source_exam_id,
+                year_roc=paper.year_roc,
+                category_code=paper.category_code,
+                subject_code=paper.subject_code,
+                source_url=paper.download_url_source,
+                checksum=paper.checksum,
+                file_type=paper.file_type,
+            )
+            paper = replace(paper, source_material=material, schema_version=3)
         if paper.provider_id == "hakka_cert" and paper.source_material is None:
             material = hakka_material(
                 paper.subject_name_raw, paper.source_exam_id, paper.download_url_source

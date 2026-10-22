@@ -212,6 +212,18 @@ payloads were refetched or resolve historical selection-stage classification.
 
 This provider covers official Tzu Chi University post-baccalaureate medicine entrance papers exposed by the maintained admission surface. A current-cycle listing is not proof of an enumerable historical archive.
 
+The reviewed domestic annual guide selects applicants by their written results.
+A prior bachelor's degree is an entry requirement, not an examination grade;
+the programme's five-year curriculum is not a paper level. Keep this route
+separate from foreign-student admission and from other universities' staged
+selection. Annual guide and native checksum evidence live in the
+[TCU catalog](../../catalog/mappings/tcu/annual-papers-v1.json). Unreviewed years,
+changed files or mismatched source contexts require review. Refresh native files
+on ordinary synchronization so a key replaced at the same URL is observed;
+retain its previous bytes through the shared revision owner. Each question and
+answer classifies using its own checksum. Publication must conserve the reviewed
+subject papers, original keys and clarification roles for each retained year.
+
 Keep the separately published answer-clarification result notice beside the
 original questions and keys. The `answer_clarification` role covers both upheld
 answers and actual changes; it does not imply that every reviewed answer was

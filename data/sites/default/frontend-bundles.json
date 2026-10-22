@@ -1250,6 +1250,16 @@
       ],
       "fileCount": 9,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/hce-tcu-post-baccalaureate-medical-not-applicable-hce-tcu--c16f3a76faaf.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "admissions",
       "examFamilyId": "university-admission",
       "seriesId": "post-baccalaureate-medical",

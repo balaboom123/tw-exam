@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/tcu-annual-papers-v1.schema.json",
+  "title": "Reviewed TCU domestic annual papers",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "exams"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "provider_id": {
+      "const": "hce_tcu"
+    },
+    "exams": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "year_roc",
+          "source_exam_id",
+          "category_code",
+          "category_raw",
+          "exam_name_raw",
+          "selection_model",
+          "written_test_date",
+          "guide_url",
+          "guide_checksum",
+          "guide_pages",
+          "reviewed_at",
+          "rationale",
+          "papers"
+        ],
+        "properties": {
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "source_exam_id": {
+            "type": "string",
+            "pattern": "^hce-tcu-[0-9]+$"
+          },
+          "category_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category_raw": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exam_name_raw": {
+            "type": "string",
+            "minLength": 1
+          },
+          "selection_model": {
+            "const": "single-written"
+          },
+          "written_test_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "guide_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://admissions\\.tcu\\.edu\\.tw/wp-content/uploads/.+\\.pdf$"
+          },
+          "guide_checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "guide_pages": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "papers": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject_code",
+                "subject_name_raw",
+                "file_type",
+                "source_url",
+                "checksum"
+              ],
+              "properties": {
+                "subject_code": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "subject_name_raw": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "file_type": {
+                  "enum": [
+                    "question",
+                    "answer",
+                    "answer_clarification"
+                  ]
+                },
+                "source_url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://admissions\\.tcu\\.edu\\.tw/wp-content/uploads/.+\\.pdf$"
+                },
+                "checksum": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

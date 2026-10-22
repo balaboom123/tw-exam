@@ -8,7 +8,7 @@
       "file_link_count": 9,
       "head_content_length": null,
       "last_changed_at": "2026-10-22T01:15:53.363941+00:00",
-      "paper_count": 5,
+      "paper_count": 9,
       "paper_url_hash": "sha256:a27fee3fd293eb70d0660d39f0d4aa8dc1d7ca01ab60804b1e739585c59101d6",
       "result_url": "https://admissions.tcu.edu.tw/?p=26534",
       "source_exam_id": "hce-tcu-115",
@@ -165,6 +165,17 @@
   "probe_policy": {
     "accepted_asset_count": 9,
     "accepted_scope": "All native primary paper, reference-answer and answer-clarification result pages currently selected by the official programme archive. Multiple source pages for one academic year are preserved together.",
+    "annual_native_evidence_reconciliation": {
+      "historical_scope": "Current domestic 115 only; unavailable prior years and foreign admissions unresolved or separate.",
+      "logical_file_role_records": 9,
+      "native_files": 9,
+      "native_source_keys_unchanged": true,
+      "new_network_requests_during_reclassification": 0,
+      "new_successful_sync_receipts_created": false,
+      "prior_native_group_count": 5,
+      "reviewed_at": "2026-10-22T14:40:50.865050+00:00",
+      "selection_model": "single-written"
+    },
     "asset_bytes": 3963069,
     "asset_reconciliation_at": "2026-07-30T21:05:32.755555+08:00",
     "category_listing_bytes": 58092,
@@ -273,7 +284,7 @@
       "accepted_asset_count": 9,
       "accepted_asset_urls_hash": "89d0b29c3fadba527879bfd9e6f11fc4e51bbe058b90609d1719c6740ec1b837",
       "accepted_asset_urls_hash_basis": "SHA256 of UTF8 JSON sorted unique native source URLs, compact separators, Unicode preserved",
-      "accepted_paper_group_count": 5,
+      "accepted_paper_group_count": 9,
       "asset_reconciled_at": "2026-10-22T01:27:21.454090+00:00",
       "earlier_observation": {
         "accepted_asset_count": 8,

@@ -321,7 +321,7 @@
       "release_tag": "default-bundles-v2-001",
       "storage_key": "bundles/sites/default/hce-tcu-post-baccalaureate-medical-not-applicable-hce-tcu--c16f3a76faaf.zip",
       "asset_name": "hce-tcu-post-baccalaureate-medical-not-applicable-hce-tcu--c16f3a76faaf.zip",
-      "checksum": "a0485d7fd154e192a5d1a3b9a09922d4fc0b7add5d029fc462f14d7005bde995",
+      "checksum": "9f920542ec174a451ec4931aebc05e56367668f391bf0095821ccf9ad430eceb",
       "bundle_id": "hce-tcu-post-baccalaureate-medical-not-applicable-hce-tcu",
       "domain_id": "admissions",
       "exam_family_id": "university-admission",

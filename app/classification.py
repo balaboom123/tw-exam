@@ -2013,6 +2013,37 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "hce_tcu":
+        from app.providers.hce_tcu.evidence import resolve_native_paper
+
+        native_tcu = resolve_native_paper(
+            source_exam_id=source_exam_id,
+            year_roc=year_ad - 1911,
+            category_code=category_code,
+            subject_code=subject_code,
+            source_url=source_material.evidence_url if source_material is not None else "",
+            checksum=source_checksum,
+        )
+        if (
+            native_tcu is not None
+            and source_material == native_tcu[0].material(native_tcu[1])
+            and (category, normalize_text(subject_name_raw), normalize_text(exam_name))
+            == (
+                native_tcu[0].category_raw,
+                native_tcu[1].subject_name_raw,
+                native_tcu[0].exam_name_raw,
+            )
+        ):
+            stage_id = NOT_APPLICABLE
+            level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+            confidence = "high"
+            reason = (
+                "reviewed TCU domestic single written admission; bachelor degree is eligibility"
+            )
+        else:
+            stage_id = "unknown"
+            confidence = "review"
+            reason = "TCU native paper or annual domestic admission evidence requires review"
     if provider_id == "tabf_cert":
         stage_id = NOT_APPLICABLE if tabf_context is not None else "unknown"
     if provider_id == "ipas_cert":

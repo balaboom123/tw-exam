@@ -3,11 +3,13 @@ from __future__ import annotations
 from app.models import ExamOption, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
 from app.providers.hce_archive import HCE_CONFIGS, HceArchiveClient
+from app.providers.hce_tcu.evidence import separate_file_roles
 
 
 class HceTcuProvider(SourceProvider):
     provider_id = "hce_tcu"
     max_concurrency = 1
+    refresh_files_on_sync = True
 
     def __init__(self, client: HceArchiveClient | None = None) -> None:
         self.client = client or HceArchiveClient(HCE_CONFIGS[self.provider_id])
@@ -25,7 +27,7 @@ class HceTcuProvider(SourceProvider):
         return self.client.build_discovery_exam_url(exam_code, year_ad)
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
-        return self.client.fetch_exam_page(exam_code, year_ad)
+        return separate_file_roles(self.client.fetch_exam_page(exam_code, year_ad))
 
     def head(self, url: str) -> ResponseMetadata:
         return self.client.head(url)

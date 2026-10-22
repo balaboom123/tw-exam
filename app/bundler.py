@@ -912,6 +912,9 @@ def validate_public_materials(
     grouped: dict[str, list[NormalizedPaper]] = {}
     for paper in papers:
         grouped.setdefault(paper.bundle_id or paper.canonical_id, []).append(paper)
+    from app.providers.hce_tcu.evidence import validate_public_papers
+
+    validate_public_papers(paper for records in grouped.values() for paper in records)
     return {
         key: summary
         for key, records in grouped.items()
