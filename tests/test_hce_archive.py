@@ -73,6 +73,42 @@ NSYSU_LISTING_HTML = """
 
 
 class HceArchiveParserTests(unittest.TestCase):
+    def test_cmu_keeps_every_native_page_for_one_historical_year(self) -> None:
+        html = """
+        <a href="/?q=zh-hant/node/15">109學士後中醫學系入學招生考試國文試題</a>
+        <a href="/?q=zh-hant/node/14">109學士後中醫學系入學招生考試化學試題</a>
+        <a href="/?q=zh-hant/node/13">109學士後中醫學系入學招生考試英文試題</a>
+        <a href="/?q=zh-hant/node/12">109學士後中醫學系入學招生考試生物學試題</a>
+        <a href="/?q=zh-hant/node/11">109學士後中醫學系入學招生考試試題參考答案</a>
+        """
+        pages = HCE_CONFIGS["hce_cmu"].parse_listing(html)
+        self.assertEqual(len(pages), 1)
+        self.assertEqual(pages[0].year_ad, 2020)
+        self.assertEqual(len(pages[0].source_pages), 5)
+
+    def test_clarification_role_keeps_results_separate_from_original_answers(self) -> None:
+        config = HCE_CONFIGS["hce_tcu"]
+        listing = TCU_LISTING_HTML + '<a href="/?p=26601">115學年度學士後中醫學系入學招生考試試題答案釋疑結果公告</a>'
+        pages = config.parse_listing(listing)
+        self.assertEqual(len(pages), 1)
+        self.assertEqual(pages[0].url, "https://admissions.tcu.edu.tw/?p=26534")
+        self.assertEqual([p.role for p in pages[0].source_pages], ["papers", "answer_clarification"])
+        results = config.parse_papers(
+            '<a href="/result.pdf">115學年度試題答案釋疑結果公告</a><a href="/form.pdf">答案釋疑申請表</a>',
+            pages[0].additional_pages[0].url,
+            source_role="answer_clarification",
+        )
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].subject_code, "all")
+        self.assertEqual(results[0].files, {"answer_clarification": "https://admissions.tcu.edu.tw/result.pdf"})
+
+    def test_missing_clarification_payload_or_conflicting_subject_urls_stop_review(self) -> None:
+        config = HCE_CONFIGS["hce_cmu"]
+        with self.assertRaisesRegex(ValueError, "no recognized native result"):
+            config.parse_papers('<a href="/form.pdf">答案釋疑申請表</a>', config.listing_url, source_role="answer_clarification")
+        with self.assertRaisesRegex(ValueError, "conflicting URLs"):
+            config.parse_papers('<a href="/old.pdf">115生物學試題.pdf</a><a href="/new.pdf">115生物試題.pdf</a>', config.listing_url)
+
     def test_cmu_native_biology_spellings_share_one_subject(self) -> None:
         for name in ["111後中生物試題.pdf", "112生物.pdf", "113生物試題.pdf", "114生物學試題.pdf"]:
             with self.subTest(name=name):
@@ -225,6 +261,25 @@ class HceArchiveParserTests(unittest.TestCase):
 
 
 class HceArchiveProviderTests(unittest.TestCase):
+    def test_event_merges_pages_across_listing_pagination_without_losing_roles(self) -> None:
+        config = HCE_CONFIGS["hce_cmu"]
+        primary = "https://adm21.cmu.edu.tw/?q=zh-hant/node/641"
+        clarification = "https://adm21.cmu.edu.tw/?q=zh-hant/node/642"
+        page_two = config.listing_url + "&page=1"
+        sources = {
+            config.listing_url: '<a href="/?q=zh-hant/node/642">115學士後中醫學系入學招生考試試題答案釋疑結果公告</a><a href="?q=zh-hant/news_spbcm&amp;page=1">下一頁</a>',
+            page_two: CMU_LISTING_HTML,
+            primary: '<a href="/question.pdf">115國文試題.pdf</a><a href="/answer.pdf">115國文參考答案.pdf</a>',
+            clarification: '<a href="/clarification.pdf">115後中釋疑公告.pdf</a>',
+        }
+        client = HceArchiveClient(config)
+        with patch.object(client, "_fetch_text", side_effect=sources.__getitem__):
+            self.assertEqual(client.discover_available_years(), [2026])
+            self.assertEqual(client.build_discovery_exam_url("hce-cmu-115", 2026), primary)
+            event = client.fetch_exam_page("hce-cmu-115", 2026)
+        self.assertEqual({role for p in event.papers for role in p.files}, {"question", "answer", "answer_clarification"})
+        self.assertEqual(sum(len(p.files) for p in event.papers), 3)
+
     def test_cmu_client_fetches_source_page_from_listing(self) -> None:
         def fake_fetch(url: str) -> str:
             if "news_spbcm" in url:

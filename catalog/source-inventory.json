@@ -536,8 +536,8 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Current official four-page HTML archive exposes six academic-year events, 2021–2026; native biology spelling differences are reconciled.",
-        "start_ad": 2021
+        "note": "The current four-page archive spans 2020–2026. Multiple subject pages and later answer-clarification notices belong to their native academic-year events.",
+        "start_ad": 2020
       },
       "discovery_snapshot": {
         "coverage": "complete",
@@ -549,11 +549,12 @@
       ],
       "exam_category": "CMU post-baccalaureate Chinese medicine entrance papers",
       "local_state": {
-        "normalized_paper_records": 33,
-        "raw_event_pages": 6,
+        "normalized_paper_records": 44,
+        "raw_event_pages": 7,
         "sync_failures": 0
       },
       "local_years": [
+        2020,
         2021,
         2022,
         2023,
@@ -568,12 +569,12 @@
       "provider_id": "hce_cmu",
       "restrictions": [
         "The official archive robots.txt specifies Crawl-delay: 10; the adapter now honors it and deduplicates fragment-only pagination links.",
-        "Current official HTML exposes 33 source files. Three previously omitted biology questions are newly captured and native-header reviewed; the other 30 retained payloads remain checksum verified without a new remote-byte freshness claim.",
+        "Current official HTML exposes 17 source pages grouped into seven academic-year events and 44 source files, including the five separate ROC109 subject/answer pages and six later clarification notices. Existing records and native payloads remain intact; fresh remote bytes are checked only for newly captured files.",
         "No explicit redistribution license or copyright terms were linked from the archive pages; the existing publication and backup policy is unchanged."
       ],
       "source_name": "中國醫藥大學",
       "status": "covered",
-      "status_reason": "All six current official event pages reconcile to 33 retained source files. Resolve 生物 to the native biology subject so ROC 111–113 questions are included. Preserve the original 30 records and payloads; only the three added questions have newly checked remote bytes."
+      "status_reason": "All 17 current native source pages reconcile to 44 retained files in seven academic-year events. The adapter preserves multiple pages per year and separately typed answer-clarification results, resolves the native biology spelling, and rejects within-page file-slot conflicts. Full historical programme/stage/body review and redistribution permission remain unresolved."
     },
     {
       "available_years": {
@@ -675,7 +676,7 @@
       ],
       "exam_category": "Tzu Chi University post-baccalaureate Chinese medicine entrance papers",
       "local_state": {
-        "normalized_paper_records": 8,
+        "normalized_paper_records": 9,
         "raw_event_pages": 1,
         "sync_failures": 0
       },
@@ -688,13 +689,13 @@
       ],
       "provider_id": "hce_tcu",
       "restrictions": [
-        "The current official category and WordPress API expose nine HCE posts but exactly one paper event (2026); all eight live question/answer PDFs total 3,963,069 bytes and match retained SHA-256 checksums.",
+        "The current official category exposes one retained paper event (2026), with eight original question/answer PDFs and a separate eight-page answer-clarification result. The original eight records and payloads remain intact. The newly captured notice records four actual answer changes and upheld answers; its generic role does not describe every reviewed answer as changed.",
         "Three known official 2025 question/clarification URLs now return HTTP 302 to the homepage, and the current category/API exposes no 2025 paper event; historical coverage is source-removed rather than complete.",
         "The site publishes no machine-readable robots policy because /robots.txt returns the WordPress homepage as text/html; default TLS verification succeeds, but no explicit redistribution license or copyright terms were linked from the archive pages."
       ],
       "source_name": "慈濟大學",
       "status": "partial",
-      "status_reason": "Partial / historical source removed; current official category snapshot and all 8 live 2026 assets rechecked 2026-07-30; local coverage: 2026; 1 → 8"
+      "status_reason": "Partial / historical source removed. Current source pages reconcile to nine retained 2026 files, including the separately published clarification results for chemistry and English corrections. Preserve original keys and the complete result notice; only the added notice has freshly checked remote bytes in this repair. Earlier historical coverage remains unavailable."
     },
     {
       "available_years": {

@@ -1,15 +1,46 @@
 {
   "exams": {
     "hce-tcu-115": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T21:04:22.863892+08:00",
       "exam_label": "115學年度慈濟大學學士後中醫學系",
+      "exam_name_hash": "sha256:71f808c7e562bf7fdbf793819a776a31ecd988b37a29fc90a2abf2b73e216718",
+      "file_link_count": 9,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T01:15:53.363941+00:00",
+      "paper_count": 5,
+      "paper_url_hash": "sha256:a27fee3fd293eb70d0660d39f0d4aa8dc1d7ca01ab60804b1e739585c59101d6",
       "result_url": "https://admissions.tcu.edu.tw/?p=26534",
       "source_exam_id": "hce-tcu-115",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://admissions.tcu.edu.tw/?p=26534"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://admissions.tcu.edu.tw/?p=26601"
+        }
+      ],
       "year_ad": 2026,
       "year_roc": 115
     }
   },
   "files": {
+    "providers/hce_tcu/115/hce-tcu-115/post-bacc-chinese-medicine/all/answer_clarification.pdf": {
+      "bytes": 422179,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Official source-page role and native printed programme/year/document heading; complete question-by-question correctness is not claimed.",
+        "native_PDF_pages": 8,
+        "printed_ROC_year": 115,
+        "reviewed_sha256": "edbbe9abbe9324918fae069d1f5d2ae120f54d450b6a637a1f6c4ab17c2effd0"
+      },
+      "sha256": "edbbe9abbe9324918fae069d1f5d2ae120f54d450b6a637a1f6c4ab17c2effd0",
+      "source_exam_id": "hce-tcu-115",
+      "source_url": "https://admissions.tcu.edu.tw/wp-content/uploads/2026/04/【公告】115釋疑結果.pdf",
+      "storage_key": "providers/hce_tcu/115/hce-tcu-115/post-bacc-chinese-medicine/all/answer_clarification.pdf"
+    },
     "providers/hce_tcu/115/hce-tcu-115/post-bacc-chinese-medicine/biology/answer.pdf": {
       "asset_name": "providers__hce_tcu__115__hce-tcu-115__post-bacc-chinese-medicine__biology__answer.pdf",
       "bytes": 63486,
@@ -132,8 +163,8 @@
     }
   },
   "probe_policy": {
-    "accepted_asset_count": 8,
-    "accepted_scope": "all question and reference-answer PDFs on every paper event currently exposed by the official TCU HCE category",
+    "accepted_asset_count": 9,
+    "accepted_scope": "All native primary paper, reference-answer and answer-clarification result pages currently selected by the official programme archive. Multiple source pages for one academic year are preserved together.",
     "asset_bytes": 3963069,
     "asset_reconciliation_at": "2026-07-30T21:05:32.755555+08:00",
     "category_listing_bytes": 58092,
@@ -173,6 +204,64 @@
     "provenance_sha256": "ac689d6b305cdbef5f35211c43dc8b819f067b1e7935af36e05ad7ec3e57501d",
     "provenance_url": "https://admissions.tcu.edu.tw/?page_id=62",
     "robots_policy": "no machine-readable policy: /robots.txt returns the WordPress homepage as text/html",
+    "source_page_reconciliation": {
+      "answer_clarification_references": 1,
+      "checked_at": "2026-10-22T01:15:53.363941+00:00",
+      "earlier_observation": {
+        "accepted_asset_count": 8,
+        "accepted_scope": "all question and reference-answer PDFs on every paper event currently exposed by the official TCU HCE category",
+        "asset_bytes": 3963069,
+        "asset_reconciliation_at": "2026-07-30T21:05:32.755555+08:00",
+        "category_listing_bytes": 58092,
+        "category_listing_sha256": "8d382ad283aab26a4869dffc8aabc47b3b3d2a19057227cd06d208ec3a9a1350",
+        "category_paper_event_count": 1,
+        "discovery_mode": "official-year-exam-listing",
+        "discovery_scope_note": "complete for the current official category/API listing, not a claim of historical archive completeness",
+        "historical_removed_asset_evidence": [
+          {
+            "body_bytes": 214,
+            "body_sha256": "e0b25db21b6541ee5d10d24f0c88e275ed2b3a66ba224eabc6b4310fe64bb616",
+            "location": "https://admissions.tcu.edu.tw/",
+            "status": 302,
+            "url": "https://admissions.tcu.edu.tw/wp-content/uploads/2025/04/114%E5%BE%8C%E4%B8%AD%E9%86%AB_%E5%9C%8B%E6%96%87%E8%A9%A6%E9%A1%8C-%E5%85%AC%E5%91%8A%E7%89%88.pdf"
+          },
+          {
+            "body_bytes": 214,
+            "body_sha256": "e0b25db21b6541ee5d10d24f0c88e275ed2b3a66ba224eabc6b4310fe64bb616",
+            "location": "https://admissions.tcu.edu.tw/",
+            "status": 302,
+            "url": "https://admissions.tcu.edu.tw/wp-content/uploads/2025/04/114%E5%BE%8C%E4%B8%AD%E9%86%AB_%E7%94%9F%E7%89%A9%E5%AD%B8%E8%A9%A6%E9%A1%8C-%E5%85%AC%E5%91%8A%E7%89%88.pdf"
+          },
+          {
+            "body_bytes": 214,
+            "body_sha256": "e0b25db21b6541ee5d10d24f0c88e275ed2b3a66ba224eabc6b4310fe64bb616",
+            "location": "https://admissions.tcu.edu.tw/",
+            "status": 302,
+            "url": "https://admissions.tcu.edu.tw/wp-content/uploads/2025/04/114%E5%AD%B8%E5%A3%AB%E5%BE%8C%E4%B8%AD%E9%86%AB-%E9%87%8B%E7%96%91%E5%85%AC%E5%91%8A.pdf"
+          }
+        ],
+        "historical_source_status": "known AD 2025 official question/clarification URLs now redirect to the homepage and the current category/API exposes no 2025 paper event",
+        "html_fingerprint_scope": "capture evidence only; accepted_asset_urls_hash and live file SHA-256 records are drift keys",
+        "last_discovery_at": "2026-07-30T21:04:22.863892+08:00",
+        "license_status": "no explicit redistribution license or copyright terms linked from the archive pages",
+        "listing_url": "https://admissions.tcu.edu.tw/?cat=23",
+        "provenance_bytes": 46605,
+        "provenance_sha256": "ac689d6b305cdbef5f35211c43dc8b819f067b1e7935af36e05ad7ec3e57501d",
+        "provenance_url": "https://admissions.tcu.edu.tw/?page_id=62",
+        "robots_policy": "no machine-readable policy: /robots.txt returns the WordPress homepage as text/html",
+        "transport_security": "default TLS verification succeeds",
+        "wordpress_category_post_count": 9,
+        "wordpress_rest_url": "https://admissions.tcu.edu.tw/index.php?rest_route=%2Fwp%2Fv2%2Fposts&categories=23&per_page=100&_fields=id%2Cdate%2Clink%2Ctitle"
+      },
+      "existing_references_preserved_exactly": 8,
+      "native_events": 1,
+      "native_source_files": 9,
+      "native_source_page_count": 2,
+      "new_native_source_files": 1,
+      "new_receipts_created": false,
+      "remote_freshness_scope": "Only the twelve newly captured native PDFs across CMU/TCU; older retained bytes are SHA verified but not refetched.",
+      "role_policy": "Clarification results can maintain original answers or change them. Retain the whole official notice beside original keys; the generic role makes no claim that every notice changes an answer."
+    },
     "transport_security": "default TLS verification succeeds",
     "wordpress_category_post_count": 9,
     "wordpress_rest_url": "https://admissions.tcu.edu.tw/index.php?rest_route=%2Fwp%2Fv2%2Fposts&categories=23&per_page=100&_fields=id%2Cdate%2Clink%2Ctitle"
@@ -181,20 +270,43 @@
   "schema_version": 1,
   "years": {
     "2026": {
-      "accepted_asset_count": 8,
-      "accepted_asset_urls_hash": "sha256:6e6cb73bbf04d7bff53ba99728222c207c0e8c53ba42730e9910d92c2e47fbae",
-      "accepted_paper_group_count": 4,
-      "asset_bytes": 3963069,
-      "asset_reconciled_at": "2026-07-30T21:05:32.755555+08:00",
-      "discovered_at": "2026-07-30T21:04:22.863892+08:00",
-      "event_page_bytes": 43436,
-      "event_page_sha256": "865d2f161bed99437175d995ee8b6028c08ccb75a7eb0ff7dd6783ad9797db0e",
+      "accepted_asset_count": 9,
+      "accepted_asset_urls_hash": "89d0b29c3fadba527879bfd9e6f11fc4e51bbe058b90609d1719c6740ec1b837",
+      "accepted_asset_urls_hash_basis": "SHA256 of UTF8 JSON sorted unique native source URLs, compact separators, Unicode preserved",
+      "accepted_paper_group_count": 5,
+      "asset_reconciled_at": "2026-10-22T01:27:21.454090+00:00",
+      "earlier_observation": {
+        "accepted_asset_count": 8,
+        "accepted_asset_urls_hash": "sha256:6e6cb73bbf04d7bff53ba99728222c207c0e8c53ba42730e9910d92c2e47fbae",
+        "accepted_paper_group_count": 4,
+        "asset_bytes": 3963069,
+        "asset_reconciled_at": "2026-07-30T21:05:32.755555+08:00",
+        "discovered_at": "2026-07-30T21:04:22.863892+08:00",
+        "event_page_bytes": 43436,
+        "event_page_sha256": "865d2f161bed99437175d995ee8b6028c08ccb75a7eb0ff7dd6783ad9797db0e",
+        "exam_codes": [
+          "hce-tcu-115"
+        ],
+        "exam_codes_hash": "sha256:7e9c7b952255cf8f9aee070bc202f4be259b685b7116a72734138e3618b07b55",
+        "live_file_inventory_hash": "sha256:f12545bdee0a412a9e457080df5caca013be4598393d80cdc44e553be4bc8783",
+        "search_url": "https://admissions.tcu.edu.tw/?p=26534",
+        "year_ad": 2026,
+        "year_roc": 115
+      },
       "exam_codes": [
         "hce-tcu-115"
       ],
-      "exam_codes_hash": "sha256:7e9c7b952255cf8f9aee070bc202f4be259b685b7116a72734138e3618b07b55",
-      "live_file_inventory_hash": "sha256:f12545bdee0a412a9e457080df5caca013be4598393d80cdc44e553be4bc8783",
       "search_url": "https://admissions.tcu.edu.tw/?p=26534",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://admissions.tcu.edu.tw/?p=26534"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://admissions.tcu.edu.tw/?p=26601"
+        }
+      ],
       "year_ad": 2026,
       "year_roc": 115
     }

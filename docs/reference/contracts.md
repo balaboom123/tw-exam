@@ -42,6 +42,12 @@ reference material. Normalization retains the selected facts in v3 records;
 non-administered kinds are separate identity variants. Unknown or conflicting
 material/date evidence requires a reason and a review disposition.
 
+An answer-clarification result is a distinct file role. It can uphold some
+answers and change others, so it stays alongside original answer keys and must
+not be treated as an interchangeable copy or automatically described as a
+complete corrected key. Its provider owns the source-page context and native
+subject applicability; the shared payload policy validates its PDF format.
+
 The source date states whether a year belongs to an administered examination,
 an edition, or a publication. Undated and unknown dates carry no year. Existing
 `year_ad`/`year_roc` partitions and source keys remain traceability fields and

@@ -1111,9 +1111,10 @@
         113,
         112,
         111,
-        110
+        110,
+        109
       ],
-      "fileCount": 33,
+      "fileCount": 44,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu--ab6c4df6cc4d.zip",
       "domainId": "admissions",
       "examFamilyId": "university-admission",
@@ -1125,6 +1126,7 @@
       "examClass": "升學測驗",
       "examSubclass": "學士後醫學／中醫",
       "searchAliases": [
+        "各科答案釋疑結果",
         "生物學",
         "化學",
         "國文",
@@ -1132,16 +1134,17 @@
         "各科參考答案",
         "115學年度中國醫藥大學學士後中醫學系",
         "post-bacc-chinese-medicine",
+        "all",
         "biology",
         "chemistry",
         "chinese",
         "english",
         "114學年度中國醫藥大學學士後中醫學系",
-        "all",
         "113學年度中國醫藥大學學士後中醫學系",
         "112學年度中國醫藥大學學士後中醫學系",
         "111學年度中國醫藥大學學士後中醫學系",
-        "110學年度中國醫藥大學學士後中醫學系"
+        "110學年度中國醫藥大學學士後中醫學系",
+        "109學年度中國醫藥大學學士後中醫學系"
       ],
       "sources": [
         {
@@ -1245,7 +1248,7 @@
       "years": [
         115
       ],
-      "fileCount": 8,
+      "fileCount": 9,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/hce-tcu-post-baccalaureate-medical-not-applicable-hce-tcu--c16f3a76faaf.zip",
       "domainId": "admissions",
       "examFamilyId": "university-admission",
@@ -1257,12 +1260,14 @@
       "examClass": "升學測驗",
       "examSubclass": "學士後醫學／中醫",
       "searchAliases": [
+        "各科答案釋疑結果",
         "生物學",
         "化學",
         "國文",
         "英文",
         "115學年度慈濟大學學士後中醫學系",
         "post-bacc-chinese-medicine",
+        "all",
         "biology",
         "chemistry",
         "chinese",

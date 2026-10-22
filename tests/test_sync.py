@@ -33,6 +33,18 @@ def corrupt_zip_payload() -> bytes:
 
 
 class ZipPayloadValidationTests(unittest.TestCase):
+    def test_answer_clarification_requires_its_native_PDF_payload(self) -> None:
+        self.assertEqual(
+            _validated_extension("answer_clarification", b"%PDF-1.7 official result", "application/pdf", "result.pdf"),
+            ".pdf",
+        )
+        for body, mime, name in [
+            (b"<html>Not found</html>", "application/pdf", "result.pdf"),
+            (zip_payload(), "application/zip", "result.zip"),
+        ]:
+            with self.subTest(name=name), self.assertRaises(RuntimeError):
+                _validated_extension("answer_clarification", body, mime, name)
+
     def test_instruction_and_transcript_packages_keep_their_native_format(self) -> None:
         for role in ("instructions", "listening_transcript"):
             with self.subTest(role=role):

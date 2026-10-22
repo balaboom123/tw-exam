@@ -232,6 +232,7 @@ FILE_TYPE_LABELS = {
     "question_answer": "試題與答案",
     "answer": "答案",
     "corrected_answer": "更正答案",
+    "answer_clarification": "答案釋疑結果",
     "all_answers": "全部答案",
     "answer_table": "答案表",
     "accessible_bundle": "無障礙題本",

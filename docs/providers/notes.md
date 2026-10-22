@@ -183,6 +183,13 @@ the shorter historical label must not silently drop a question. Keep each
 printed academic year and its original question PDF, together with the
 separate all-subject reference-answer PDF where the source provides one.
 
+An academic year can span separate subject pages and a later clarification
+notice. Discovery retains all of those pages together, including older titles
+without `學年度`, and preserves the primary paper page as the discovery link.
+Conflicting URLs for the same subject and role within a page require review;
+one link must not overwrite another. Exact repeated references are deduplicated
+within the annual event.
+
 ## `hce_nsysu`
 
 This provider covers official NSYSU post-baccalaureate medicine entrance papers reached from the university archive. Schedule, registration, and result notices are supporting context rather than downloadable papers.
@@ -194,6 +201,13 @@ This provider covers official NTHU post-baccalaureate medicine entrance papers a
 ## `hce_tcu`
 
 This provider covers official Tzu Chi University post-baccalaureate medicine entrance papers exposed by the maintained admission surface. A current-cycle listing is not proof of an enumerable historical archive.
+
+Keep the separately published answer-clarification result notice beside the
+original questions and keys. The `answer_clarification` role covers both upheld
+answers and actual changes; it does not imply that every reviewed answer was
+changed. An application form is not a result notice. Preserve the complete
+official document and its all-subject applicability rather than rewriting or
+discarding the original answer sheets.
 
 ## `ipas_cert`
 

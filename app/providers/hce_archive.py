@@ -19,13 +19,45 @@ USER_AGENT = "Mozilla/5.0 (compatible; hce-archive-mirror/1.0)"
 
 
 @dataclass(frozen=True)
+class HceSourcePage:
+    url: str
+    role: str = "papers"
+
+
+@dataclass(frozen=True)
 class HceYearPage:
     year_ad: int
     url: str
+    role: str = "papers"
+    additional_pages: tuple[HceSourcePage, ...] = ()
 
     @property
     def year_roc(self) -> int:
         return self.year_ad - 1911
+
+    @property
+    def source_pages(self) -> tuple[HceSourcePage, ...]:
+        return (HceSourcePage(self.url, self.role), *self.additional_pages)
+
+
+def _merge_year_pages(existing: HceYearPage, incoming: HceYearPage) -> HceYearPage:
+    if existing.year_ad != incoming.year_ad:
+        raise ValueError("Cannot merge different HCE academic years")
+    sources: dict[str, HceSourcePage] = {}
+    for source in (*existing.source_pages, *incoming.source_pages):
+        previous = sources.get(source.url)
+        if previous is not None and previous.role != source.role:
+            raise ValueError("HCE source page has conflicting material roles")
+        sources[source.url] = source
+    primary = next((source for source in sources.values() if source.role == "papers"), None)
+    if primary is None:
+        primary = next(iter(sources.values()))
+    return HceYearPage(
+        existing.year_ad,
+        primary.url,
+        primary.role,
+        tuple(source for source in sources.values() if source.url != primary.url),
+    )
 
 
 @dataclass(frozen=True)
@@ -39,6 +71,7 @@ class HceArchiveConfig:
     subject_slugs: dict[str, str]
     listing_pattern: re.Pattern[str]
     subject_aliases: dict[str, str] = field(default_factory=dict)
+    clarification_pattern: re.Pattern[str] | None = None
     combined_pdf_listing: bool = False
     pagination_param: str | None = None
     embedded_pagination_placeholder: str | None = None
@@ -52,8 +85,10 @@ class HceArchiveConfig:
             return parse_combined_pdf_listing(html, resolved_base_url, self)
         return parse_article_listing(html, resolved_base_url, self)
 
-    def parse_papers(self, html: str, base_url: str) -> list[ParsedPaper]:
-        return parse_subject_file_page(html, base_url, self)
+    def parse_papers(
+        self, html: str, base_url: str, *, source_role: str = "papers"
+    ) -> list[ParsedPaper]:
+        return parse_subject_file_page(html, base_url, self, source_role=source_role)
 
 
 @dataclass
@@ -102,18 +137,21 @@ def _links_from_html(html: str, base_url: str) -> list[_Link]:
 
 
 def parse_article_listing(html: str, base_url: str, config: HceArchiveConfig) -> list[HceYearPage]:
-    pages: list[HceYearPage] = []
-    seen: set[int] = set()
+    pages: dict[int, HceYearPage] = {}
     for link in _links_from_html(html, base_url):
         match = config.listing_pattern.search(link.label)
+        role = "papers"
+        if match is None and config.clarification_pattern is not None:
+            match = config.clarification_pattern.search(link.label)
+            role = "answer_clarification"
         if match is None:
             continue
         year_roc = int(match.group("year"))
-        if year_roc in seen:
-            continue
-        seen.add(year_roc)
-        pages.append(HceYearPage(year_ad=year_roc + 1911, url=link.url))
-    return sorted(pages, key=lambda page: page.year_ad, reverse=True)
+        incoming = HceYearPage(year_ad=year_roc + 1911, url=link.url, role=role)
+        pages[year_roc] = (
+            _merge_year_pages(pages[year_roc], incoming) if year_roc in pages else incoming
+        )
+    return sorted(pages.values(), key=lambda page: page.year_ad, reverse=True)
 
 
 def parse_listing_page_urls(html: str, base_url: str, config: HceArchiveConfig) -> list[str]:
@@ -226,17 +264,24 @@ def _subject_for(label: str, config: HceArchiveConfig) -> tuple[str, str] | None
 
 
 def parse_subject_file_page(
-    html: str, base_url: str, config: HceArchiveConfig
+    html: str, base_url: str, config: HceArchiveConfig, *, source_role: str = "papers"
 ) -> list[ParsedPaper]:
+    if source_role not in {"papers", "answer_clarification"}:
+        raise ValueError("Unsupported HCE source-page role")
     grouped: dict[str, ParsedPaper] = {}
     for link in _links_from_html(html, base_url):
         if not _candidate_file_url(link):
             continue
         kind = _asset_kind(link.label)
         subject = _subject_for(link.label, config)
-        if kind is None and subject is None:
+        if source_role == "answer_clarification":
+            if not any(marker in link.label for marker in ("釋疑", "疑義")) or "申請" in link.label:
+                continue
+            file_type = "answer_clarification"
+            subject_code, subject_name = subject or ("all", "各科答案釋疑結果")
+        elif kind is None and subject is None:
             continue
-        if kind is None:
+        elif kind is None:
             # Some historical CMU pages label a question PDF only as
             # "112國文.pdf" rather than including the word "試題".
             file_type = "question"
@@ -264,7 +309,11 @@ def parse_subject_file_page(
                 files={},
             ),
         )
+        if file_type in paper.files and paper.files[file_type] != link.url:
+            raise ValueError("HCE source page has conflicting URLs for one subject and file role")
         paper.files[file_type] = link.url
+    if source_role == "answer_clarification" and not grouped:
+        raise ValueError("HCE clarification page has no recognized native result PDF")
     return list(grouped.values())
 
 
@@ -350,7 +399,10 @@ class HceArchiveClient:
             seen.add(listing_url)
             html = self._fetch_text(listing_url)
             for page in self.config.parse_listing(html, listing_url):
-                pages_by_year[page.year_ad] = page
+                previous = pages_by_year.get(page.year_ad)
+                pages_by_year[page.year_ad] = (
+                    _merge_year_pages(previous, page) if previous is not None else page
+                )
             for page_url in parse_listing_page_urls(html, listing_url, self.config):
                 if page_url not in seen and page_url not in pending:
                     pending.append(page_url)
@@ -394,11 +446,25 @@ class HceArchiveClient:
             if page.year_ad == year_ad
             and exam_code == f"{self.config.canonical_slug}-{page.year_roc}"
         )
-        papers = (
-            [_combined_pdf_paper(self.config, year_page.url)]
-            if self.config.combined_pdf_listing
-            else self.config.parse_papers(self._fetch_text(year_page.url), year_page.url)
-        )
+        if self.config.combined_pdf_listing:
+            papers = [_combined_pdf_paper(self.config, year_page.url)]
+        else:
+            papers = []
+            seen: set[tuple[str, str, str, str]] = set()
+            for source in year_page.source_pages:
+                parsed = self.config.parse_papers(
+                    self._fetch_text(source.url), source.url, source_role=source.role
+                )
+                for paper in parsed:
+                    files = {}
+                    for role, url in paper.files.items():
+                        key = (paper.category_code, paper.subject_code, role, url)
+                        if key not in seen:
+                            seen.add(key)
+                            files[role] = url
+                    if files:
+                        paper.files = files
+                        papers.append(paper)
         return SourceExamPage(
             source_exam_id=exam_code,
             year_ad=year_ad,
@@ -446,7 +512,12 @@ HCE_CONFIGS = {
             "生物學": "biology",
         },
         subject_aliases={"生物": "生物學"},
-        listing_pattern=re.compile(r"(?P<year>\d{3})學年度學士後中醫學系.*試題及參考答案"),
+        listing_pattern=re.compile(
+            r"(?P<year>\d{3})(?:學年度)?學士後中醫學系.*試題(?:及參考答案|參考答案|$)"
+        ),
+        clarification_pattern=re.compile(
+            r"(?P<year>\d{3})(?:學年度)?學士後中醫學系.*試題答案釋疑結果"
+        ),
         pagination_param="page",
         max_listing_pages=8,
         crawl_delay_seconds=10.0,
@@ -465,6 +536,7 @@ HCE_CONFIGS = {
             "生物學": "biology",
         },
         listing_pattern=re.compile(r"(?P<year>\d{3})學年度學士後中醫學系.*試題及參考答案"),
+        clarification_pattern=re.compile(r"(?P<year>\d{3})學年度學士後中醫學系.*試題答案釋疑結果"),
     ),
     "hce_nsysu": HceArchiveConfig(
         provider_id="hce_nsysu",
