@@ -1188,7 +1188,11 @@ def _taigi_form(text: str) -> str | None:
 
 
 def _non_moex_level(
-    provider_id: str, category: str, canonical_id: str, subject_name: str
+    provider_id: str,
+    category: str,
+    canonical_id: str,
+    subject_name: str,
+    category_code: str = "",
 ) -> tuple[str, str, str, str]:
     text = normalize_text(f"{category} {subject_name}")
     if provider_id == "moea_recruit":
@@ -1216,15 +1220,34 @@ def _non_moex_level(
             if marker in text:
                 return level_id, marker, "high", f"GEPT official level marker: {marker}"
     if provider_id == "jlpt_cert":
-        match = re.search(r"N([1-5])", text, re.IGNORECASE)
-        if match:
-            level_id = f"n{match.group(1)}"
+        if category_code and re.fullmatch(r"n[1-5]", category_code, re.IGNORECASE) is None:
+            return (
+                "unknown",
+                _LEVEL_LABELS["unknown"],
+                "review",
+                "JLPT category code has no supported native level",
+            )
+        levels = set(
+            re.findall(
+                r"(?<![A-Za-z0-9])N(\d+)(?![A-Za-z0-9])", f"{text} {category_code}", re.IGNORECASE
+            )
+        )
+        if len(levels) == 1 and levels <= {"1", "2", "3", "4", "5"}:
+            level = next(iter(levels))
+            level_id = f"n{level}"
             return (
                 level_id,
                 level_id.upper(),
                 "high",
-                f"JLPT official level marker: N{match.group(1)}",
+                f"JLPT official level marker: N{level}",
             )
+        if len(levels) > 1:
+            reason = "JLPT record contains conflicting official level markers"
+        elif levels:
+            reason = "JLPT record contains an unsupported official level marker"
+        else:
+            reason = "jlpt_cert: missing official level evidence in record"
+        return "unknown", _LEVEL_LABELS["unknown"], "review", reason
     if provider_id == "hakka_cert":
         return (
             "unknown",
@@ -1753,7 +1776,7 @@ def _classify_paper_uncached(
             reason = f"{series_label}: missing official grade evidence in record"
     else:
         level_id, level_label, confidence, reason = _non_moex_level(
-            provider_id, category, canonical_id, subject_name_raw
+            provider_id, category, canonical_id, subject_name_raw, category_code
         )
         domain_id, family_id, series_id, series_label = _provider_series(provider_id, canonical_id)
     track_id, track_label = _track_details(

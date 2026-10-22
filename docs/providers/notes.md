@@ -249,6 +249,25 @@ listing's edition sections. An audio URL containing another year does not
 override its workbook edition. Discovery and fetching share one listing
 snapshot per client; an absent edition or mismatched event key is rejected.
 
+Each download must agree with its native table row's proficiency level and
+the workbook's edition heading. Supported question parts, blank answer sheets,
+answer keys, transcripts and numbered audio tasks have explicit roles and
+formats. Unknown filenames or missing/duplicated edition headings stop discovery
+for review. A shared URL can apply to both explicitly listed workbook editions;
+deduplicate repeated links within an edition while preserving both edition
+references. Unsupported or conflicting level markers remain unresolved rather
+than selecting the first numeral or treating `N10` as `N1`.
+
+Checksum-bound native observations in the provider manifest corroborate the
+retained corpus. Original sample covers keep their printed timing and page
+instructions; these examples do not establish today's administration format.
+The native review used retained payloads and a current official HTML listing;
+it does not claim fresh remote payload bytes, full answer correctness or a
+semantic listen-through of every recording. The dated robots observation names
+restricted agents, including GPTBot and ChatGPT-User. It does not change the
+repository's existing acquisition or durable-backup policy, and the
+redistribution hold remains in force.
+
 ## `moea_recruit`
 
 A MOEA recruitment provider must be supported by MOEA-owned recruitment identity and source material. Taipower records cannot stand in for MOEA records even when the subject matter or filenames look compatible.

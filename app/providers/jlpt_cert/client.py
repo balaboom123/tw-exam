@@ -4,7 +4,7 @@ import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
@@ -15,6 +15,15 @@ from app.source_material import SourceDate, SourceMaterial
 DOWNLOAD_URL = "https://www.jlpt.jp/e/samples/sampleindex.html"
 USER_AGENT = "Mozilla/5.0 (compatible; jlpt-cert-mirror/1.0)"
 CANONICAL_CATEGORY = "JLPT Japanese-Language Proficiency Test"
+PDF_PARTS = {
+    "v": ("vocabulary question", "question"),
+    "g": ("grammar question", "question"),
+    "r": ("reading question", "question"),
+    "l": ("listening question", "question"),
+    "sheet": ("sample answer sheet", "answer_sheet"),
+    "answer": ("answers", "answer"),
+    "script": ("listening script", "listening_transcript"),
+}
 
 
 @dataclass(frozen=True)
@@ -30,13 +39,21 @@ class JlptDownload:
 class _AnchorParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
-        self.links: list[tuple[str, str]] = []
+        self.links: list[tuple[str, str, str | None]] = []
         self._in_anchor = False
         self._href = ""
         self._parts: list[str] = []
+        self._row_levels: set[str] = set()
+        self._in_header = False
+        self._header_parts: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag == "a":
+        if tag == "tr":
+            self._row_levels = set()
+        elif tag == "th":
+            self._in_header = True
+            self._header_parts = []
+        elif tag == "a":
             self._in_anchor = True
             self._href = dict(attrs).get("href", "") or ""
             self._parts = []
@@ -46,12 +63,22 @@ class _AnchorParser(HTMLParser):
     def handle_data(self, data: str) -> None:
         if self._in_anchor:
             self._parts.append(data)
+        if self._in_header:
+            self._header_parts.append(data)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "tr":
+            self._row_levels = set()
+        if tag == "th" and self._in_header:
+            heading = "".join(unescape("".join(self._header_parts)).split()).lower()
+            if re.fullmatch(r"n[1-5]", heading):
+                self._row_levels.add(heading)
+            self._in_header = False
         if tag != "a" or not self._in_anchor:
             return
         label = " ".join(unescape("".join(self._parts)).split())
-        self.links.append((label, self._href))
+        row_level = next(iter(self._row_levels)) if len(self._row_levels) == 1 else None
+        self.links.append((label, self._href, row_level))
         self._in_anchor = False
         self._href = ""
         self._parts = []
@@ -74,8 +101,8 @@ def _workbook_sections(html: str) -> list[tuple[int, str]]:
     markers = [
         (match.start(), int(match.group(1))) for match in re.finditer(r"book(20\d{2})\.gif", html)
     ]
-    if not markers:
-        return [(0, html)]
+    if not markers or len({year for _start, year in markers}) != len(markers):
+        raise ValueError("JLPT workbook edition headings are missing or duplicated")
     sections: list[tuple[int, str]] = []
     for index, (start, year_ad) in enumerate(markers):
         end = markers[index + 1][0] if index + 1 < len(markers) else len(html)
@@ -85,35 +112,42 @@ def _workbook_sections(html: str) -> list[tuple[int, str]]:
 
 def _file_parts(url: str) -> tuple[str, str] | None:
     stem = Path(unquote(urlparse(url).path)).stem.lower()
-    match = re.match(r"(n[1-5])(.+)", stem)
+    match = re.fullmatch(r"(n[1-5])(v|g|r|l|sheet|answer|script|q[1-5])", stem)
     if not match:
         return None
-    return match.group(1), match.group(2)
+    level, part = match.groups()
+    extension = Path(unquote(urlparse(url).path)).suffix.lower()
+    if extension != (".pdf" if part in PDF_PARTS else ".mp3"):
+        return None
+    return level, part
 
 
 def _label(level_code: str, part_code: str) -> str:
-    labels = {
-        "v": "vocabulary question",
-        "g": "grammar question",
-        "r": "reading question",
-        "l": "listening question",
-        "sheet": "sample answer sheet",
-        "answer": "answers",
-        "script": "listening script",
-    }
-    return f"{level_code.upper()} {labels.get(part_code, part_code.upper())}"
+    label = PDF_PARTS[part_code][0] if part_code in PDF_PARTS else part_code.upper()
+    return f"{level_code.upper()} {label}"
 
 
-def _file_type(part_code: str, url: str) -> str:
-    if url.lower().endswith(".mp3"):
+def _file_type(part_code: str) -> str:
+    if part_code not in PDF_PARTS:
         return "listening_audio"
-    if part_code == "answer":
-        return "answer"
-    if part_code == "sheet":
-        return "answer_sheet"
-    if part_code == "script":
-        return "listening_transcript"
-    return "question"
+    return PDF_PARTS[part_code][1]
+
+
+def _validate_resource_url(url: str) -> tuple[str, str]:
+    parsed = urlsplit(url)
+    path = unquote(parsed.path)
+    parts = _file_parts(url)
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc != "www.jlpt.jp"
+        or not path.startswith("/samples/")
+        or ".." in PurePosixPath(path).parts
+        or "\\" in path
+        or parsed.fragment
+        or parts is None
+    ):
+        raise ValueError(f"JLPT workbook file requires native endpoint/part review: {url}")
+    return parts
 
 
 def _exam_code(year_ad: int) -> str:
@@ -122,29 +156,33 @@ def _exam_code(year_ad: int) -> str:
 
 def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[JlptDownload]:
     downloads: list[JlptDownload] = []
-    seen: set[str] = set()
+    seen: set[tuple[int, str]] = set()
+    part_urls: dict[tuple[int, str, str], str] = {}
     for year_ad, section in _workbook_sections(html):
         parser = _AnchorParser()
         parser.feed(section)
-        for _label_text, href in parser.links:
+        for _label_text, href, row_level in parser.links:
             url = _quote_url_for_request(urljoin(base_url, href))
             parsed = urlparse(url)
-            if parsed.netloc != "www.jlpt.jp" or not parsed.path.startswith("/samples/"):
+            if not parsed.path.lower().endswith((".pdf", ".mp3")):
                 continue
-            if not parsed.path.lower().endswith((".pdf", ".mp3")) or url in seen:
+            level_code, part_code = _validate_resource_url(url)
+            if row_level != level_code:
+                raise ValueError("JLPT workbook table level disagrees with its file")
+            part = (year_ad, level_code, part_code)
+            if part in part_urls and part_urls[part] != url:
+                raise ValueError("JLPT workbook has conflicting URLs for one native part")
+            part_urls[part] = url
+            if (year_ad, url) in seen:
                 continue
-            parts = _file_parts(url)
-            if parts is None:
-                continue
-            seen.add(url)
-            level_code, part_code = parts
+            seen.add((year_ad, url))
             downloads.append(
                 JlptDownload(
                     year_ad=year_ad,
                     level_code=level_code,
                     part_code=part_code,
                     label=_label(level_code, part_code),
-                    file_type=_file_type(part_code, url),
+                    file_type=_file_type(part_code),
                     url=url,
                 )
             )
@@ -214,7 +252,9 @@ class JlptCertClient:
         )
 
     def head(self, url: str) -> ResponseMetadata:
+        _validate_resource_url(url)
         return self.http.head(_quote_url_for_request(url))
 
     def download_file(self, url: str) -> DownloadedFile:
+        _validate_resource_url(url)
         return self.http.download(_quote_url_for_request(url), content_disposition_name=False)

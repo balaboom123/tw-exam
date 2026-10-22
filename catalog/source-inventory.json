@@ -739,7 +739,7 @@
       "available_years": {
         "end_ad": 2018,
         "mode": "observed_range",
-        "note": "Official sample sections for 2012 and 2018 observed",
+        "note": "Official practice-workbook publication editions, not administered exam years.",
         "start_ad": 2012
       },
       "discovery_snapshot": {
@@ -766,11 +766,13 @@
       "provider_id": "jlpt_cert",
       "restrictions": [
         "The exact declared workbook scope is 2012 and 2018 only and is not an archive of every JLPT sitting.",
+        "Native review uses retained SHA-verified PDFs/audio and current official HTML membership. It does not establish current remote payload-byte freshness or a complete administered-sitting history.",
+        "The dated robots observation explicitly names restricted agents including GPTBot and ChatGPT-User; existing repository acquisition and durable-backup policies are unchanged.",
         "The official copyright policy requires authorization for broader use and separately restricts third-party N1/N2 text and all N1–N5 listening audio; no blanket archive-republication grant was established."
       ],
       "source_name": "日本語能力試驗官方網站",
       "status": "partial",
-      "status_reason": "Source-complete for the exact 2012/2018 official-workbook scope (2 events, 116 URLs), but redistribution remains blocked pending legal/operator approval"
+      "status_reason": "Current official HTML matches all retained workbook references. Native level, edition, role and package boundaries are reviewed with checksum-bound observations; private bundles preserve both editions. Remote byte freshness, broader historical coverage, source-agent policy and redistribution remain unresolved."
     },
     {
       "available_years": {
