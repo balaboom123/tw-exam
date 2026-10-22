@@ -177,6 +177,12 @@ backup restrictions apply equally to recovered originals.
 
 This provider covers official CMU post-baccalaureate medicine entrance papers reached from the university admission archive. General admission notices and forms are not paper records.
 
+The native archive uses both `生物` and `生物學` for biology questions.
+Resolve these source labels to the same biology subject before filtering links;
+the shorter historical label must not silently drop a question. Keep each
+printed academic year and its original question PDF, together with the
+separate all-subject reference-answer PDF where the source provides one.
+
 ## `hce_nsysu`
 
 This provider covers official NSYSU post-baccalaureate medicine entrance papers reached from the university archive. Schedule, registration, and result notices are supporting context rather than downloadable papers.

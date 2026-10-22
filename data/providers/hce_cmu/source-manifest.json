@@ -9,24 +9,45 @@
       "year_roc": 110
     },
     "hce-cmu-111": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T19:57:52.234244+08:00",
       "exam_label": "111學年度中國醫藥大學學士後中醫學系",
+      "exam_name_hash": "sha256:c7722c324bc51978d4bb0d3ad12d233cfad70ce49f038dde545f5c14dfb42b25",
+      "file_link_count": 5,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T00:55:07.769103+00:00",
+      "paper_count": 5,
+      "paper_url_hash": "sha256:4fd286330e5a0a6fbec00a665c7185e968a6cd5c1877336a598e04c81fd40482",
       "result_url": "https://adm21.cmu.edu.tw/?q=zh-hant/node/225",
       "source_exam_id": "hce-cmu-111",
       "year_ad": 2022,
       "year_roc": 111
     },
     "hce-cmu-112": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T19:57:52.234244+08:00",
       "exam_label": "112學年度中國醫藥大學學士後中醫學系",
+      "exam_name_hash": "sha256:e3dd2b1fb0caff083ef7cfb4242346ca9b9e4b32b8e2575b8375bd3207660c82",
+      "file_link_count": 5,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T00:55:07.769103+00:00",
+      "paper_count": 5,
+      "paper_url_hash": "sha256:ce7a67088c483cdab241b2aae6d60256196660f9df6f0b5991e817d9937f2135",
       "result_url": "https://adm21.cmu.edu.tw/?q=zh-hant/node/325",
       "source_exam_id": "hce-cmu-112",
       "year_ad": 2023,
       "year_roc": 112
     },
     "hce-cmu-113": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T19:57:52.234244+08:00",
       "exam_label": "113學年度中國醫藥大學學士後中醫學系",
+      "exam_name_hash": "sha256:2cb20775af4212ded715630205202f61db9cf4cb08b0e463e440abf6cc78e148",
+      "file_link_count": 5,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T00:55:07.769103+00:00",
+      "paper_count": 5,
+      "paper_url_hash": "sha256:b92d274fefc4122a7a4f6a27f37fba6eaf9f7216c002e6cfc42849204a8bd268",
       "result_url": "https://adm21.cmu.edu.tw/?q=zh-hant/node/448",
       "source_exam_id": "hce-cmu-113",
       "year_ad": 2024,
@@ -49,11 +70,60 @@
       "year_roc": 115
     }
   },
-  "files": {},
+  "files": {
+    "providers/hce_cmu/111/hce-cmu-111/post-bacc-chinese-medicine/biology/question.pdf": {
+      "bytes": 872767,
+      "file_type": "question",
+      "native_review": {
+        "PDF_pages": 9,
+        "native_role": "question",
+        "native_subject_heading": "生物學",
+        "printed_ROC_year": 111,
+        "reviewed_at": "2026-10-22T00:55:07.769103+00:00",
+        "reviewed_sha256": "e554d929988927e3377f34421bc9faafd4dc1f58f5910d6f73ec6193da74d17d"
+      },
+      "sha256": "e554d929988927e3377f34421bc9faafd4dc1f58f5910d6f73ec6193da74d17d",
+      "source_exam_id": "hce-cmu-111",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/111%E5%BE%8C%E4%B8%AD%E7%94%9F%E7%89%A9%E8%A9%A6%E9%A1%8C_0.pdf",
+      "storage_key": "providers/hce_cmu/111/hce-cmu-111/post-bacc-chinese-medicine/biology/question.pdf"
+    },
+    "providers/hce_cmu/112/hce-cmu-112/post-bacc-chinese-medicine/biology/question.pdf": {
+      "bytes": 830894,
+      "file_type": "question",
+      "native_review": {
+        "PDF_pages": 9,
+        "native_role": "question",
+        "native_subject_heading": "生物學",
+        "printed_ROC_year": 112,
+        "reviewed_at": "2026-10-22T00:55:07.769103+00:00",
+        "reviewed_sha256": "06a29557a77dd365b0e0d277e93a2a44d218fb5a684f9ba1f1578eb88ccb986b"
+      },
+      "sha256": "06a29557a77dd365b0e0d277e93a2a44d218fb5a684f9ba1f1578eb88ccb986b",
+      "source_exam_id": "hce-cmu-112",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E7%94%9F%E7%89%A9.pdf",
+      "storage_key": "providers/hce_cmu/112/hce-cmu-112/post-bacc-chinese-medicine/biology/question.pdf"
+    },
+    "providers/hce_cmu/113/hce-cmu-113/post-bacc-chinese-medicine/biology/question.pdf": {
+      "bytes": 539603,
+      "file_type": "question",
+      "native_review": {
+        "PDF_pages": 9,
+        "native_role": "question",
+        "native_subject_heading": "生物學",
+        "printed_ROC_year": 113,
+        "reviewed_at": "2026-10-22T00:55:07.769103+00:00",
+        "reviewed_sha256": "2b8f57d22e84aa8bb6e3e0263ce2b30aea07f6fc027b31c906aad63f14067c10"
+      },
+      "sha256": "2b8f57d22e84aa8bb6e3e0263ce2b30aea07f6fc027b31c906aad63f14067c10",
+      "source_exam_id": "hce-cmu-113",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E7%94%9F%E7%89%A9%E8%A9%A6%E9%A1%8C.pdf",
+      "storage_key": "providers/hce_cmu/113/hce-cmu-113/post-bacc-chinese-medicine/biology/question.pdf"
+    }
+  },
   "probe_policy": {
-    "accepted_asset_count": 30,
-    "accepted_scope": "all linked exam questions and reference answers on the six discovered CMU post-baccalaureate Chinese-medicine event pages",
-    "asset_reconciliation_at": "2026-07-30T19:58:39.384776+08:00",
+    "accepted_asset_count": 33,
+    "accepted_scope": "Current official six-event HTML membership: all 33 linked questions and reference answers. Three formerly omitted biology questions are restored; the prior 30 native payloads remain checksum-verified retained bytes.",
+    "asset_reconciliation_at": "2026-10-22T00:55:07.769103+00:00",
     "crawl_delay_seconds": 10,
     "discovery_mode": "official-year-exam-listing",
     "html_fingerprint_scope": "capture evidence only; accepted_asset_urls_hash is the drift key",
@@ -63,7 +133,34 @@
     "listing_url": "https://adm21.cmu.edu.tw/?q=zh-hant/news_spbcm",
     "provenance_url": "https://spbcm.cmu.edu.tw/page/384",
     "robots_policy": "Crawl-delay: 10; archive paths are not disallowed",
-    "transport_security": "default CA verification fails; the existing adapter uses an unverified TLS context only for adm21.cmu.edu.tw"
+    "source_coverage_correction": {
+      "checked_at": "2026-10-22T00:55:07.769103+00:00",
+      "current_HTML_events": 6,
+      "current_HTML_source_URLs": 33,
+      "earlier_observation": {
+        "accepted_asset_count": 30,
+        "accepted_scope": "all linked exam questions and reference answers on the six discovered CMU post-baccalaureate Chinese-medicine event pages",
+        "asset_reconciliation_at": "2026-07-30T19:58:39.384776+08:00",
+        "crawl_delay_seconds": 10,
+        "discovery_mode": "official-year-exam-listing",
+        "html_fingerprint_scope": "capture evidence only; accepted_asset_urls_hash is the drift key",
+        "last_discovery_at": "2026-07-30T19:57:52.234244+08:00",
+        "license_status": "no explicit redistribution license or copyright terms linked from the archive pages",
+        "listing_page_count": 4,
+        "listing_url": "https://adm21.cmu.edu.tw/?q=zh-hant/news_spbcm",
+        "provenance_url": "https://spbcm.cmu.edu.tw/page/384",
+        "robots_policy": "Crawl-delay: 10; archive paths are not disallowed",
+        "transport_security": "default CA verification fails; the existing adapter uses an unverified TLS context only for adm21.cmu.edu.tw"
+      },
+      "native_remote_freshness_scope": "Only the three added biology PDFs; the existing 30 bodies were not refetched.",
+      "new_native_PDF_pages": 27,
+      "new_native_PDFs": 3,
+      "new_native_first_pages_visually_reviewed": 3,
+      "new_sync_receipts_created": false,
+      "prior_current_records_and_payloads_unchanged": 30,
+      "root_cause": "Native 生物 labels were omitted because only 生物學 was recognized."
+    },
+    "transport_security": "Default TLS certificate verification succeeded for the current official HTML and three missing native PDF captures; no unverified SSL context was used."
   },
   "provider_id": "hce_cmu",
   "schema_version": 1,

@@ -73,6 +73,18 @@ NSYSU_LISTING_HTML = """
 
 
 class HceArchiveParserTests(unittest.TestCase):
+    def test_cmu_native_biology_spellings_share_one_subject(self) -> None:
+        for name in ["111後中生物試題.pdf", "112生物.pdf", "113生物試題.pdf", "114生物學試題.pdf"]:
+            with self.subTest(name=name):
+                papers = HCE_CONFIGS["hce_cmu"].parse_papers(
+                    f'<a href="/sites/default/files/{name}">{name}</a>',
+                    HCE_CONFIGS["hce_cmu"].listing_url,
+                )
+                self.assertEqual(len(papers), 1)
+                self.assertEqual(papers[0].subject_code, "biology")
+                self.assertEqual(papers[0].subject_name_raw, "生物學")
+                self.assertEqual(papers[0].files, {"question": f"https://adm21.cmu.edu.tw/sites/default/files/{name}"})
+
     def test_parse_article_listing_extracts_official_article_page(self) -> None:
         pages = parse_article_listing(CMU_LISTING_HTML, "https://adm21.cmu.edu.tw/?q=news_spbcm", HCE_CONFIGS["hce_cmu"])
 

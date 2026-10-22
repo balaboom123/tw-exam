@@ -536,7 +536,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official four-page archive exposes 2021–2026; 6 events rechecked 2026-07-30",
+        "note": "Current official four-page HTML archive exposes six academic-year events, 2021–2026; native biology spelling differences are reconciled.",
         "start_ad": 2021
       },
       "discovery_snapshot": {
@@ -549,7 +549,7 @@
       ],
       "exam_category": "CMU post-baccalaureate Chinese medicine entrance papers",
       "local_state": {
-        "normalized_paper_records": 30,
+        "normalized_paper_records": 33,
         "raw_event_pages": 6,
         "sync_failures": 0
       },
@@ -568,11 +568,12 @@
       "provider_id": "hce_cmu",
       "restrictions": [
         "The official archive robots.txt specifies Crawl-delay: 10; the adapter now honors it and deduplicates fragment-only pagination links.",
-        "All six retained events publish all 30 mirrored papers, but no explicit redistribution license or copyright terms were linked from the archive pages."
+        "Current official HTML exposes 33 source files. Three previously omitted biology questions are newly captured and native-header reviewed; the other 30 retained payloads remain checksum verified without a new remote-byte freshness claim.",
+        "No explicit redistribution license or copyright terms were linked from the archive pages; the existing publication and backup policy is unchanged."
       ],
       "source_name": "中國醫藥大學",
       "status": "covered",
-      "status_reason": "Covered in declared scope; official four-page archive and all 30 accepted assets rechecked 2026-07-30; local coverage: 2021–2026; 6 → 30"
+      "status_reason": "All six current official event pages reconcile to 33 retained source files. Resolve 生物 to the native biology subject so ROC 111–113 questions are included. Preserve the original 30 records and payloads; only the three added questions have newly checked remote bytes."
     },
     {
       "available_years": {

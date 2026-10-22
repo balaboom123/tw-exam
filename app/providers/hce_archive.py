@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 import ssl
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from html import unescape
 from html.parser import HTMLParser
 from http.client import HTTPResponse
@@ -38,6 +38,7 @@ class HceArchiveConfig:
     category_name: str
     subject_slugs: dict[str, str]
     listing_pattern: re.Pattern[str]
+    subject_aliases: dict[str, str] = field(default_factory=dict)
     combined_pdf_listing: bool = False
     pagination_param: str | None = None
     embedded_pagination_placeholder: str | None = None
@@ -215,11 +216,12 @@ def _asset_kind(label: str) -> tuple[str, str, str] | None:
 
 
 def _subject_for(label: str, config: HceArchiveConfig) -> tuple[str, str] | None:
-    for subject, slug in sorted(
-        config.subject_slugs.items(), key=lambda item: len(item[0]), reverse=True
-    ):
-        if subject in label:
-            return slug, subject
+    subject_names = {subject: subject for subject in config.subject_slugs}
+    subject_names.update(config.subject_aliases)
+    for source_label in sorted(subject_names, key=len, reverse=True):
+        if source_label in label:
+            subject = subject_names[source_label]
+            return config.subject_slugs[subject], subject
     return None
 
 
@@ -443,6 +445,7 @@ HCE_CONFIGS = {
             "英文": "english",
             "生物學": "biology",
         },
+        subject_aliases={"生物": "生物學"},
         listing_pattern=re.compile(r"(?P<year>\d{3})學年度學士後中醫學系.*試題及參考答案"),
         pagination_param="page",
         max_listing_pages=8,
