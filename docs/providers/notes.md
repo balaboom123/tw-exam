@@ -198,6 +198,16 @@ This provider covers official NSYSU post-baccalaureate medicine entrance papers 
 
 This provider covers official NTHU post-baccalaureate medicine entrance papers and answers linked from the admission archive. Do not broaden it to unrelated NTHU admissions material.
 
+Keep each year's separate answer-clarification pages with its primary question
+and reference-answer page. Preserve subject-specific clarification results under
+`answer_clarification`, including decisions that uphold the original key, and
+retain the original keys unchanged. The native article route requires a literal
+comma before its category suffix; percent-encoding that comma can redirect to
+the admission homepage. A response without recognized native papers must fail
+rather than replace a retained annual event with an empty result. Current source
+membership and retained checksum verification do not establish that older source
+payloads were refetched or resolve historical selection-stage classification.
+
 ## `hce_tcu`
 
 This provider covers official Tzu Chi University post-baccalaureate medicine entrance papers exposed by the maintained admission surface. A current-cycle listing is not proof of an enumerable historical archive.

@@ -1,42 +1,127 @@
 {
   "exams": {
     "hce-nthu-111": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T20:30:36.277860+08:00",
       "exam_label": "111學年度國立清華大學學士後醫學系",
+      "exam_name_hash": "sha256:8c37ea6a361482b277a1ac986a636a9f439e5835a23225de8c8601441a61b688",
+      "file_link_count": 8,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T02:00:48.351281+00:00",
+      "paper_count": 8,
+      "paper_url_hash": "sha256:27ce092f2e624758b3eaf3f96a92523a6a1937d304fc18c1f2dfebd268f09e87",
       "result_url": "https://adms.site.nthu.edu.tw/p/406-1207-227566,r6125.php?Lang=zh-tw",
       "source_exam_id": "hce-nthu-111",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-227566,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-227974,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2022,
       "year_roc": 111
     },
     "hce-nthu-112": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T20:30:36.277860+08:00",
       "exam_label": "112學年度國立清華大學學士後醫學系",
+      "exam_name_hash": "sha256:07d470da4da4a9936b2a47ab8513388839c76472f0be47d6952f7a05c9b34353",
+      "file_link_count": 8,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T02:00:48.351281+00:00",
+      "paper_count": 8,
+      "paper_url_hash": "sha256:96e2301ed8ee258d6621a2738ef88d2aae6e68a97b495bf3daf0fe4f6f1826be",
       "result_url": "https://adms.site.nthu.edu.tw/p/406-1207-246483,r6125.php?Lang=zh-tw",
       "source_exam_id": "hce-nthu-112",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-246483,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-246843,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2023,
       "year_roc": 112
     },
     "hce-nthu-113": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T20:30:36.277860+08:00",
       "exam_label": "113學年度國立清華大學學士後醫學系",
+      "exam_name_hash": "sha256:1a18f300aa440cbd1ab7dbd72d0ba10478a82dd3f43d124f3c3401d9d753d07b",
+      "file_link_count": 7,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T02:00:48.351281+00:00",
+      "paper_count": 7,
+      "paper_url_hash": "sha256:71b7d5c5347a137ea26512a9d10c93060c8be515b05a14a50e79a49122df246a",
       "result_url": "https://adms.site.nthu.edu.tw/p/406-1207-266837,r6125.php?Lang=zh-tw",
       "source_exam_id": "hce-nthu-113",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-266837,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-266956,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2024,
       "year_roc": 113
     },
     "hce-nthu-114": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T20:30:36.277860+08:00",
       "exam_label": "114學年度國立清華大學學士後醫學系",
+      "exam_name_hash": "sha256:f6bfd3aa01ff6cfd4dc0a9d3ac5b7751b698addffed46f2e88f203a891393ee2",
+      "file_link_count": 7,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T02:00:48.351281+00:00",
+      "paper_count": 7,
+      "paper_url_hash": "sha256:e2a8a3e857708d3b50a6876b815e271181bd263c6312c25cc1f633658d0386ef",
       "result_url": "https://adms.site.nthu.edu.tw/p/406-1207-286149,r6125.php?Lang=zh-tw",
       "source_exam_id": "hce-nthu-114",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-286149,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-286223,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2025,
       "year_roc": 114
     },
     "hce-nthu-115": {
+      "attachment_count": 0,
       "discovered_at": "2026-07-30T20:30:36.277860+08:00",
       "exam_label": "115學年度國立清華大學學士後醫學系",
+      "exam_name_hash": "sha256:847b60e3a1fe4160ac5d5ac39e69cec01b53bc19b97449400f760ec61dbf5224",
+      "file_link_count": 7,
+      "head_content_length": null,
+      "last_changed_at": "2026-10-22T02:00:48.351281+00:00",
+      "paper_count": 7,
+      "paper_url_hash": "sha256:fc4387b2013b208c6eb115c3cbfc9b44400daa78a591f6b0abace723c9426d2f",
       "result_url": "https://adms.site.nthu.edu.tw/p/406-1207-305076,r6125.php?Lang=zh-tw",
       "source_exam_id": "hce-nthu-115",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-305076,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-305075,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2026,
       "year_roc": 115
     }
@@ -57,6 +142,20 @@
       "year_ad": 2022,
       "year_roc": 111
     },
+    "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf": {
+      "bytes": 61397,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 111,
+        "reviewed_sha256": "bbdf37a7f1e7b11481022008078c19078c496c9991e19bca2795c7dc860f57d3"
+      },
+      "sha256": "bbdf37a7f1e7b11481022008078c19078c496c9991e19bca2795c7dc860f57d3",
+      "source_exam_id": "hce-nthu-111",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekkwTDNCMFlWOHhNVGM1TXpCZk16VXlOamcxTTE4eE56QTNNUzV3WkdZPQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05TS04DCWWQOOKTSMOOPB0WSGCNPRLDCA0UWB0WXFGUSCCB5PKPKPOEH25DGA054WSVW30HCLKWSB024MKIHXTML3134DCFCSW34SSCDUS4400XTJH44LKDGGDIGJGLOHCWSROCGXSQPXT04PKYSB4JCDGQO54GHSSLO404521ED10SXMOVWNKHCLKKLB0QL14LPZTQP21UWTSVTKLSS54PKSW",
+      "storage_key": "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf"
+    },
     "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/biology-biochemistry/question.pdf": {
       "asset_name": "providers__hce_nthu__111__hce-nthu-111__post-bacc-medicine__biology-biochemistry__question.pdf",
       "bytes": 5226975,
@@ -72,6 +171,20 @@
       "year_ad": 2022,
       "year_roc": 111
     },
+    "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/chemistry-physics/answer_clarification.pdf": {
+      "bytes": 153227,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 111,
+        "reviewed_sha256": "57451b587693dcf23d3cbfaa9e76b5da36d5230c902dbede988f8b650b8f51eb"
+      },
+      "sha256": "57451b587693dcf23d3cbfaa9e76b5da36d5230c902dbede988f8b650b8f51eb",
+      "source_exam_id": "hce-nthu-111",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekkwTDNCMFlWOHhNVGM1TkRWZk1URTRNamt6Tmw4M09UUTVNQzV3WkdZPQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05TS04DCWWQOOKTSMODGB0QLXWMLXTXWA034MKB001USSSB5PKPKPOEH25DGA0JG14ZSHCDCXSUSB0ZWMPIHGDML3134DCFCSW34SSCDUS4400XTJH44LKDGGDIGJGLOHCWSROCGXSQPXT04PKYSB4JCDGQO54GHSSLO404521ED10SXMOVWNKHCLKKLB0QL14LPZTQP21UWTSVTKLSS54PKSW",
+      "storage_key": "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/chemistry-physics/answer_clarification.pdf"
+    },
     "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/chemistry-physics/question.pdf": {
       "asset_name": "providers__hce_nthu__111__hce-nthu-111__post-bacc-medicine__chemistry-physics__question.pdf",
       "bytes": 5271919,
@@ -86,6 +199,20 @@
       "verified_at": "2026-07-30T20:37:23.690947+08:00",
       "year_ad": 2022,
       "year_roc": 111
+    },
+    "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/computer-science/answer_clarification.pdf": {
+      "bytes": 53353,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 111,
+        "reviewed_sha256": "b08f1ecccfc531779bfa5ef6ccf508d26aeedb8e5b03fab9f9b43d0b7bee3cfd"
+      },
+      "sha256": "b08f1ecccfc531779bfa5ef6ccf508d26aeedb8e5b03fab9f9b43d0b7bee3cfd",
+      "source_exam_id": "hce-nthu-111",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekkwTDNCMFlWOHhNVGM1TkRaZk5UTXdNVFV4TjE4M09UUTVNQzV3WkdZPQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05TS04DCWWQOOKTSMOB0MONKNKTXJDNOTSUWZWCDUWFHTSYWFCWWXW15ZXDGA0DCXTPKDGDCGCUSFGZW35CCGDQPVWUWDCUSA41454STUSIC44150544LKIGYWQOB4RLYSIGROCGKKA1NP04B5UWB4WXB4205401QKXSQOPPKK50A0WTHGDCTW25LKFGB0UW10GGFDA0VSKPNO1145",
+      "storage_key": "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/computer-science/answer_clarification.pdf"
     },
     "providers/hce_nthu/111/hce-nthu-111/post-bacc-medicine/computer-science/question.pdf": {
       "asset_name": "providers__hce_nthu__111__hce-nthu-111__post-bacc-medicine__computer-science__question.pdf",
@@ -132,6 +259,20 @@
       "year_ad": 2023,
       "year_roc": 112
     },
+    "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf": {
+      "bytes": 410261,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 3,
+        "printed_ROC_year": 112,
+        "reviewed_sha256": "0ac4495c0f52426462685b93f654147710d2c7e6d16a8afb74c2b822abeef438"
+      },
+      "sha256": "0ac4495c0f52426462685b93f654147710d2c7e6d16a8afb74c2b822abeef438",
+      "source_exam_id": "hce-nthu-112",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemMxTDNCMFlWOHhNekF6TlROZk16STVOell3TlY4M05qVTROUzV3WkdZPQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf"
+    },
     "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/biology-biochemistry/question.pdf": {
       "asset_name": "providers__hce_nthu__112__hce-nthu-112__post-bacc-medicine__biology-biochemistry__question.pdf",
       "bytes": 1716070,
@@ -146,6 +287,20 @@
       "verified_at": "2026-07-30T20:37:23.690947+08:00",
       "year_ad": 2023,
       "year_roc": 112
+    },
+    "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/chemistry-physics/answer_clarification.pdf": {
+      "bytes": 139446,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 2,
+        "printed_ROC_year": 112,
+        "reviewed_sha256": "26cb253cc73b05950907dcf3289307de7dc277115704db7fb1a5ec35edd3271a"
+      },
+      "sha256": "26cb253cc73b05950907dcf3289307de7dc277115704db7fb1a5ec35edd3271a",
+      "source_exam_id": "hce-nthu-112",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemMxTDNCMFlWOHhNekF6TlRSZk5URTVNREkwTjE4M05qVTROaTV3WkdZPQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/chemistry-physics/answer_clarification.pdf"
     },
     "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/chemistry-physics/question.pdf": {
       "asset_name": "providers__hce_nthu__112__hce-nthu-112__post-bacc-medicine__chemistry-physics__question.pdf",
@@ -177,6 +332,20 @@
       "year_ad": 2023,
       "year_roc": 112
     },
+    "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/english/answer_clarification.pdf": {
+      "bytes": 164623,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 112,
+        "reviewed_sha256": "b3f466a2a763cd4087185215dd893f86c50ddb1c09b4aad65ebedec180192cca"
+      },
+      "sha256": "b3f466a2a763cd4087185215dd893f86c50ddb1c09b4aad65ebedec180192cca",
+      "source_exam_id": "hce-nthu-112",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemMxTDNCMFlWOHhNekF6TlRKZk5UQTROelU0TlY4M05qVTROUzV3WkdZPQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSSW25MORKMOSWNPHDNPYXA5USECOPFG20TSRO54MKDC21JH50B0KPYWFC30WTRLWSA0CGXSMLIDSSFCYSROVSB0DGDCDGDCLOQONP00EDXSNK34OOTWVXICDGUWTSKKLPGDLKTS34DCCD54USHGPKSW",
+      "storage_key": "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/english/answer_clarification.pdf"
+    },
     "providers/hce_nthu/112/hce-nthu-112/post-bacc-medicine/english/question.pdf": {
       "asset_name": "providers__hce_nthu__112__hce-nthu-112__post-bacc-medicine__english__question.pdf",
       "bytes": 2646908,
@@ -207,6 +376,20 @@
       "year_ad": 2024,
       "year_roc": 113
     },
+    "providers/hce_nthu/113/hce-nthu-113/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf": {
+      "bytes": 106674,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 2,
+        "printed_ROC_year": 113,
+        "reviewed_sha256": "83bf7c7da20b95bbac8039f88e11b50f9933a8b5fdade5c999246385cb7464c2"
+      },
+      "sha256": "83bf7c7da20b95bbac8039f88e11b50f9933a8b5fdade5c999246385cb7464c2",
+      "source_exam_id": "hce-nthu-113",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV5TDNCMFlWOHhOVFl6T1RaZk5EZzVNamc1TWw4NU1qVTRNUzV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/113/hce-nthu-113/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf"
+    },
     "providers/hce_nthu/113/hce-nthu-113/post-bacc-medicine/biology-biochemistry/question.pdf": {
       "asset_name": "providers__hce_nthu__113__hce-nthu-113__post-bacc-medicine__biology-biochemistry__question.pdf",
       "bytes": 5545369,
@@ -221,6 +404,20 @@
       "verified_at": "2026-07-30T20:37:23.690947+08:00",
       "year_ad": 2024,
       "year_roc": 113
+    },
+    "providers/hce_nthu/113/hce-nthu-113/post-bacc-medicine/chemistry-physics/answer_clarification.pdf": {
+      "bytes": 55881,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 113,
+        "reviewed_sha256": "2c43f096467128aadccef57650580737f860a316cde8087bd0a7f6c0cfd25d65"
+      },
+      "sha256": "2c43f096467128aadccef57650580737f860a316cde8087bd0a7f6c0cfd25d65",
+      "source_exam_id": "hce-nthu-113",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV5TDNCMFlWOHhOVFl6T1RkZk5EWTJOek01TTE4NU1qVTRNUzV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/113/hce-nthu-113/post-bacc-medicine/chemistry-physics/answer_clarification.pdf"
     },
     "providers/hce_nthu/113/hce-nthu-113/post-bacc-medicine/chemistry-physics/question.pdf": {
       "asset_name": "providers__hce_nthu__113__hce-nthu-113__post-bacc-medicine__chemistry-physics__question.pdf",
@@ -297,6 +494,20 @@
       "year_ad": 2025,
       "year_roc": 114
     },
+    "providers/hce_nthu/114/hce-nthu-114/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf": {
+      "bytes": 148324,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 2,
+        "printed_ROC_year": 114,
+        "reviewed_sha256": "de0f1b3807aa635982bec608f78ec8761fd9d741f249c4bb2178e3c0dbf28c48"
+      },
+      "sha256": "de0f1b3807aa635982bec608f78ec8761fd9d741f249c4bb2178e3c0dbf28c48",
+      "source_exam_id": "hce-nthu-114",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemN6TDNCMFlWOHhOVFkwTUROZk5qRXlNVE13TjE4NU1qWTROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/114/hce-nthu-114/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf"
+    },
     "providers/hce_nthu/114/hce-nthu-114/post-bacc-medicine/biology-biochemistry/question.pdf": {
       "asset_name": "providers__hce_nthu__114__hce-nthu-114__post-bacc-medicine__biology-biochemistry__question.pdf",
       "bytes": 5555023,
@@ -311,6 +522,20 @@
       "verified_at": "2026-07-30T20:37:23.690947+08:00",
       "year_ad": 2025,
       "year_roc": 114
+    },
+    "providers/hce_nthu/114/hce-nthu-114/post-bacc-medicine/chemistry-physics/answer_clarification.pdf": {
+      "bytes": 46947,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 114,
+        "reviewed_sha256": "76ffb466dfed8821e87f7f21b1a2e2cb11da6987cfa606aa2e5d7534d3144e79"
+      },
+      "sha256": "76ffb466dfed8821e87f7f21b1a2e2cb11da6987cfa606aa2e5d7534d3144e79",
+      "source_exam_id": "hce-nthu-114",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemN6TDNCMFlWOHhOVFkwTURSZk1UazFNek0xTlY4NU1qWTROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/114/hce-nthu-114/post-bacc-medicine/chemistry-physics/answer_clarification.pdf"
     },
     "providers/hce_nthu/114/hce-nthu-114/post-bacc-medicine/chemistry-physics/question.pdf": {
       "asset_name": "providers__hce_nthu__114__hce-nthu-114__post-bacc-medicine__chemistry-physics__question.pdf",
@@ -357,6 +582,20 @@
       "year_ad": 2026,
       "year_roc": 115
     },
+    "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf": {
+      "bytes": 75443,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 115,
+        "reviewed_sha256": "3d3157d00d0d03d21bedbc6feb96628113b8d071856551a0c2d45179b1aceaa1"
+      },
+      "sha256": "3d3157d00d0d03d21bedbc6feb96628113b8d071856551a0c2d45179b1aceaa1",
+      "source_exam_id": "hce-nthu-115",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhOamd3TWpaZk16VXdOVEV5T0Y4eU9UVXpNaTV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/biology-biochemistry/answer_clarification.pdf"
+    },
     "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/biology-biochemistry/question.pdf": {
       "asset_name": "providers__hce_nthu__115__hce-nthu-115__post-bacc-medicine__biology-biochemistry__question.pdf",
       "bytes": 997246,
@@ -372,6 +611,20 @@
       "year_ad": 2026,
       "year_roc": 115
     },
+    "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/chemistry-physics/answer_clarification.pdf": {
+      "bytes": 59275,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 115,
+        "reviewed_sha256": "55e224ddbb3e8625eea500cb617ae1fa21b5cf554aed8a912be67721e07c04d8"
+      },
+      "sha256": "55e224ddbb3e8625eea500cb617ae1fa21b5cf554aed8a912be67721e07c04d8",
+      "source_exam_id": "hce-nthu-115",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhOamd3TkRkZk5EazFNVEF4Tmw4ek5qZzVPUzV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+      "storage_key": "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/chemistry-physics/answer_clarification.pdf"
+    },
     "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/chemistry-physics/question.pdf": {
       "asset_name": "providers__hce_nthu__115__hce-nthu-115__post-bacc-medicine__chemistry-physics__question.pdf",
       "bytes": 774024,
@@ -386,6 +639,20 @@
       "verified_at": "2026-07-30T20:37:23.690947+08:00",
       "year_ad": 2026,
       "year_roc": 115
+    },
+    "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/english/answer_clarification.pdf": {
+      "bytes": 63865,
+      "file_type": "answer_clarification",
+      "native_review": {
+        "basis": "Complete native pages visually examined for institution/programme/year/subject, clarification heading and official outcome rows; original keys preserved. Independent answer correctness and historical classification not adjudicated.",
+        "native_PDF_pages": 1,
+        "printed_ROC_year": 115,
+        "reviewed_sha256": "48020a45a47b2cad790b5bc84e4a1de7da88389742955eb1b31075d16a100979"
+      },
+      "sha256": "48020a45a47b2cad790b5bc84e4a1de7da88389742955eb1b31075d16a100979",
+      "source_exam_id": "hce-nthu-115",
+      "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhOamd3TWpWZk5UVTNPVEUxWHpJNU5UTXlMbkJrWmc9PQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSSW25MORKMOSWNPHDNPYXA5USECOPFG20TSRO54MKDC21JH50B0KPYWFC30WTRLWSA0CGXSMLIDSSFCYSROVSB0DGDCDGDCLOQONP00EDXSNK34OOTWVXICDGUWTSKKLPGDLKTS34DCCD54USHGPKSW",
+      "storage_key": "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/english/answer_clarification.pdf"
     },
     "providers/hce_nthu/115/hce-nthu-115/post-bacc-medicine/english/question.pdf": {
       "asset_name": "providers__hce_nthu__115__hce-nthu-115__post-bacc-medicine__english__question.pdf",
@@ -404,8 +671,8 @@
     }
   },
   "probe_policy": {
-    "accepted_asset_count": 24,
-    "accepted_scope": "all linked question papers and reference-answer assets on every NTHU post-baccalaureate medicine event exposed by the four-page official archive",
+    "accepted_asset_count": 37,
+    "accepted_scope": "Native primary papers, reference keys and all official clarification-result PDFs from both source pages for each academic year.",
     "asset_bytes": 76022336,
     "asset_reconciliation_at": "2026-07-30T20:37:23.690947+08:00",
     "discovery_mode": "official-year-exam-listing",
@@ -419,98 +686,243 @@
     "listing_url": "https://adms.site.nthu.edu.tw/p/403-1207-6125-1.php?Lang=zh-tw",
     "pagination_model": "official embedded urlPrefix/totalPage metadata; discovery rejects growth beyond the configured eight-page safety bound",
     "robots_policy": "User-agent: *; Allow: /",
+    "source_page_reconciliation": {
+      "answer_clarification_references": 13,
+      "checked_at": "2026-10-22T02:00:48.351281+00:00",
+      "earlier_observation": {
+        "accepted_asset_count": 24,
+        "accepted_scope": "all linked question papers and reference-answer assets on every NTHU post-baccalaureate medicine event exposed by the four-page official archive",
+        "asset_bytes": 76022336,
+        "asset_reconciliation_at": "2026-07-30T20:37:23.690947+08:00",
+        "discovery_mode": "official-year-exam-listing",
+        "head_request_behavior": "all 24 asset URLs return HTTP 403 to HEAD but succeed via normal GET; availability and checksums are verified with GET",
+        "html_fingerprint_scope": "capture evidence only; accepted_asset_urls_hash and live file SHA-256 records are drift keys",
+        "last_discovery_at": "2026-07-30T20:30:36.277860+08:00",
+        "license_status": "no explicit redistribution license or copyright terms linked from the archive pages",
+        "listing_page_count": 4,
+        "listing_pages_bytes": 168582,
+        "listing_pages_hash": "sha256:671e3f49740fc94f898547a753597a334fbeb77e5dd7fce699bf3d0de71588ac",
+        "listing_url": "https://adms.site.nthu.edu.tw/p/403-1207-6125-1.php?Lang=zh-tw",
+        "pagination_model": "official embedded urlPrefix/totalPage metadata; discovery rejects growth beyond the configured eight-page safety bound",
+        "robots_policy": "User-agent: *; Allow: /",
+        "transport_security": "default TLS verification succeeds"
+      },
+      "existing_references_preserved_exactly": 24,
+      "native_events": 5,
+      "native_source_files": 37,
+      "native_source_page_count": 10,
+      "new_native_source_files": 13,
+      "new_receipts_created": false,
+      "remote_freshness_scope": "Thirteen new official PDFs and current HTML. Earlier 24 retained native payloads were full-SHA verified and current source membership checked; no refetch or whole-event freshness claim.",
+      "role_policy": "Clarification notices include maintained and changed answers; retain complete official results alongside unchanged original keys."
+    },
     "transport_security": "default TLS verification succeeds"
   },
   "provider_id": "hce_nthu",
   "schema_version": 1,
   "years": {
     "2022": {
-      "accepted_asset_count": 5,
-      "accepted_asset_urls_hash": "sha256:4fe945629ba824349183ac78fc49e7a76460160be06d58473643188b7bacbe34",
-      "accepted_paper_group_count": 5,
-      "asset_bytes": 20281255,
-      "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
-      "discovered_at": "2026-07-30T20:30:36.277860+08:00",
-      "event_page_bytes": 44897,
-      "event_page_sha256": "0528e12fe5dfdeca9d8185dbaa76fa84cc5201751072d6a8a44bbb4bf6b21189",
+      "accepted_asset_count": 8,
+      "accepted_asset_urls_hash": "sha256:7f75ea3f2e5e77d5007ceac779c8c9a17398d2901910ebebcecb3a55aa1050b4",
+      "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
+      "accepted_paper_group_count": 8,
+      "earlier_observation": {
+        "accepted_asset_count": 5,
+        "accepted_asset_urls_hash": "sha256:4fe945629ba824349183ac78fc49e7a76460160be06d58473643188b7bacbe34",
+        "accepted_paper_group_count": 5,
+        "asset_bytes": 20281255,
+        "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
+        "discovered_at": "2026-07-30T20:30:36.277860+08:00",
+        "event_page_bytes": 44897,
+        "event_page_sha256": "0528e12fe5dfdeca9d8185dbaa76fa84cc5201751072d6a8a44bbb4bf6b21189",
+        "exam_codes": [
+          "hce-nthu-111"
+        ],
+        "exam_codes_hash": "sha256:ed9f2d1212f377d0a579421b81b57c3cbfc60dc4bfaa1c07deb45927c70d9929",
+        "live_file_inventory_hash": "sha256:9aa88c8c9814247c1547d3f5ade2bbd87fd081c6a6c4af900347cce621c3c12e",
+        "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-227566,r6125.php?Lang=zh-tw",
+        "year_ad": 2022,
+        "year_roc": 111
+      },
       "exam_codes": [
         "hce-nthu-111"
       ],
-      "exam_codes_hash": "sha256:ed9f2d1212f377d0a579421b81b57c3cbfc60dc4bfaa1c07deb45927c70d9929",
-      "live_file_inventory_hash": "sha256:9aa88c8c9814247c1547d3f5ade2bbd87fd081c6a6c4af900347cce621c3c12e",
       "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-227566,r6125.php?Lang=zh-tw",
+      "source_page_reconciled_at": "2026-10-22T02:00:48.351281+00:00",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-227566,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-227974,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2022,
       "year_roc": 111
     },
     "2023": {
-      "accepted_asset_count": 5,
-      "accepted_asset_urls_hash": "sha256:ed22c083436e458f86c4a3bfb4914724d58fc9c26ef4157adf257fdc825fd2f5",
-      "accepted_paper_group_count": 5,
-      "asset_bytes": 7696611,
-      "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
-      "discovered_at": "2026-07-30T20:30:36.277860+08:00",
-      "event_page_bytes": 45000,
-      "event_page_sha256": "4bc343540b71aa041b13bac649ead4c46d0fe8e26a80f4afce1cde78831f7437",
+      "accepted_asset_count": 8,
+      "accepted_asset_urls_hash": "sha256:7d04b894ac7261bdb2f6e890c6570303dc30f3c0fb1010ae30591c0b0f8b6587",
+      "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
+      "accepted_paper_group_count": 8,
+      "earlier_observation": {
+        "accepted_asset_count": 5,
+        "accepted_asset_urls_hash": "sha256:ed22c083436e458f86c4a3bfb4914724d58fc9c26ef4157adf257fdc825fd2f5",
+        "accepted_paper_group_count": 5,
+        "asset_bytes": 7696611,
+        "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
+        "discovered_at": "2026-07-30T20:30:36.277860+08:00",
+        "event_page_bytes": 45000,
+        "event_page_sha256": "4bc343540b71aa041b13bac649ead4c46d0fe8e26a80f4afce1cde78831f7437",
+        "exam_codes": [
+          "hce-nthu-112"
+        ],
+        "exam_codes_hash": "sha256:dd13ef822f76105472fb53be688f567a9ef3ffcdbd427036c33ba7fadacdf30e",
+        "live_file_inventory_hash": "sha256:55641ef9e38c0eeac6328682d29a1f10fcf69f14d959bd5307fcb7d68a57885d",
+        "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-246483,r6125.php?Lang=zh-tw",
+        "year_ad": 2023,
+        "year_roc": 112
+      },
       "exam_codes": [
         "hce-nthu-112"
       ],
-      "exam_codes_hash": "sha256:dd13ef822f76105472fb53be688f567a9ef3ffcdbd427036c33ba7fadacdf30e",
-      "live_file_inventory_hash": "sha256:55641ef9e38c0eeac6328682d29a1f10fcf69f14d959bd5307fcb7d68a57885d",
       "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-246483,r6125.php?Lang=zh-tw",
+      "source_page_reconciled_at": "2026-10-22T02:00:48.351281+00:00",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-246483,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-246843,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2023,
       "year_roc": 112
     },
     "2024": {
-      "accepted_asset_count": 5,
-      "accepted_asset_urls_hash": "sha256:1ba30d57a3484ff14c414378a67465305336f1e9618dcd4561155834bcf17de8",
-      "accepted_paper_group_count": 5,
-      "asset_bytes": 21923774,
-      "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
-      "discovered_at": "2026-07-30T20:30:36.277860+08:00",
-      "event_page_bytes": 45020,
-      "event_page_sha256": "b780e029107eef90e4fe3ee6cb3cef2c4152c8130f6b3d6da0e65ed074a59da4",
+      "accepted_asset_count": 7,
+      "accepted_asset_urls_hash": "sha256:d4d04509ad2e4516cd0b202441eff1e3a8938701398d3238c23eed7fa5cff9e5",
+      "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
+      "accepted_paper_group_count": 7,
+      "earlier_observation": {
+        "accepted_asset_count": 5,
+        "accepted_asset_urls_hash": "sha256:1ba30d57a3484ff14c414378a67465305336f1e9618dcd4561155834bcf17de8",
+        "accepted_paper_group_count": 5,
+        "asset_bytes": 21923774,
+        "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
+        "discovered_at": "2026-07-30T20:30:36.277860+08:00",
+        "event_page_bytes": 45020,
+        "event_page_sha256": "b780e029107eef90e4fe3ee6cb3cef2c4152c8130f6b3d6da0e65ed074a59da4",
+        "exam_codes": [
+          "hce-nthu-113"
+        ],
+        "exam_codes_hash": "sha256:90653115735ea7f5f92f59219db9432e40eed037fac048b12a81ed7531a06337",
+        "live_file_inventory_hash": "sha256:5cef7f7644039d23c8c18a4481fbeee5d46014f8f97c998f2863608a1af859f7",
+        "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-266837,r6125.php?Lang=zh-tw",
+        "year_ad": 2024,
+        "year_roc": 113
+      },
       "exam_codes": [
         "hce-nthu-113"
       ],
-      "exam_codes_hash": "sha256:90653115735ea7f5f92f59219db9432e40eed037fac048b12a81ed7531a06337",
-      "live_file_inventory_hash": "sha256:5cef7f7644039d23c8c18a4481fbeee5d46014f8f97c998f2863608a1af859f7",
       "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-266837,r6125.php?Lang=zh-tw",
+      "source_page_reconciled_at": "2026-10-22T02:00:48.351281+00:00",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-266837,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-266956,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2024,
       "year_roc": 113
     },
     "2025": {
-      "accepted_asset_count": 5,
-      "accepted_asset_urls_hash": "sha256:015989f43645001db0c742aff020d64f06c6326b23f6c56c4381d156c241c8ef",
-      "accepted_paper_group_count": 5,
-      "asset_bytes": 23453039,
-      "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
-      "discovered_at": "2026-07-30T20:30:36.277860+08:00",
-      "event_page_bytes": 45098,
-      "event_page_sha256": "6dbb335c90c99aff12d34d75ab1a3b67490e04722af981447c2836eb4b40528a",
+      "accepted_asset_count": 7,
+      "accepted_asset_urls_hash": "sha256:a191c018e9e7dd300629861830c902439f29d177d74c4cea8d6e3a02fd391384",
+      "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
+      "accepted_paper_group_count": 7,
+      "earlier_observation": {
+        "accepted_asset_count": 5,
+        "accepted_asset_urls_hash": "sha256:015989f43645001db0c742aff020d64f06c6326b23f6c56c4381d156c241c8ef",
+        "accepted_paper_group_count": 5,
+        "asset_bytes": 23453039,
+        "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
+        "discovered_at": "2026-07-30T20:30:36.277860+08:00",
+        "event_page_bytes": 45098,
+        "event_page_sha256": "6dbb335c90c99aff12d34d75ab1a3b67490e04722af981447c2836eb4b40528a",
+        "exam_codes": [
+          "hce-nthu-114"
+        ],
+        "exam_codes_hash": "sha256:54e4c23563c606617ae099e7c4dbc18338c2167d96fd6db9e09741d8d8d5b7bb",
+        "live_file_inventory_hash": "sha256:af5fe65c2a39c4a756051f31ecdc89ba9ad35fd3ba74bb47310cc89344bde0f4",
+        "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-286149,r6125.php?Lang=zh-tw",
+        "year_ad": 2025,
+        "year_roc": 114
+      },
       "exam_codes": [
         "hce-nthu-114"
       ],
-      "exam_codes_hash": "sha256:54e4c23563c606617ae099e7c4dbc18338c2167d96fd6db9e09741d8d8d5b7bb",
-      "live_file_inventory_hash": "sha256:af5fe65c2a39c4a756051f31ecdc89ba9ad35fd3ba74bb47310cc89344bde0f4",
       "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-286149,r6125.php?Lang=zh-tw",
+      "source_page_reconciled_at": "2026-10-22T02:00:48.351281+00:00",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-286149,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-286223,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2025,
       "year_roc": 114
     },
     "2026": {
-      "accepted_asset_count": 4,
-      "accepted_asset_urls_hash": "sha256:a2ce66340d9d80f788b1195a7dbe610f398ef6f31a555865be21f2f3160d2bae",
-      "accepted_paper_group_count": 4,
-      "asset_bytes": 2667657,
-      "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
-      "discovered_at": "2026-07-30T20:30:36.277860+08:00",
-      "event_page_bytes": 44457,
-      "event_page_sha256": "47f4042f53bc8f811a38ea8fc5960d5df8bc3428a5ffb425a7201d6f66cfef6c",
+      "accepted_asset_count": 7,
+      "accepted_asset_urls_hash": "sha256:7f6272fc1c82e46bee1ff923457447712a1bc806d9d8d93b6f0960b25fe19b42",
+      "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
+      "accepted_paper_group_count": 7,
+      "earlier_observation": {
+        "accepted_asset_count": 4,
+        "accepted_asset_urls_hash": "sha256:a2ce66340d9d80f788b1195a7dbe610f398ef6f31a555865be21f2f3160d2bae",
+        "accepted_paper_group_count": 4,
+        "asset_bytes": 2667657,
+        "asset_reconciled_at": "2026-07-30T20:37:23.690947+08:00",
+        "discovered_at": "2026-07-30T20:30:36.277860+08:00",
+        "event_page_bytes": 44457,
+        "event_page_sha256": "47f4042f53bc8f811a38ea8fc5960d5df8bc3428a5ffb425a7201d6f66cfef6c",
+        "exam_codes": [
+          "hce-nthu-115"
+        ],
+        "exam_codes_hash": "sha256:cc22f2f18254f95d4f6cafcdb130b38923c53c19dc58f003e6e98ab86cfbf82e",
+        "live_file_inventory_hash": "sha256:ce1b46281c24016e1a9b6de11dcc101d2585d91014ea991522d9a1964ee80f30",
+        "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-305076,r6125.php?Lang=zh-tw",
+        "year_ad": 2026,
+        "year_roc": 115
+      },
       "exam_codes": [
         "hce-nthu-115"
       ],
-      "exam_codes_hash": "sha256:cc22f2f18254f95d4f6cafcdb130b38923c53c19dc58f003e6e98ab86cfbf82e",
-      "live_file_inventory_hash": "sha256:ce1b46281c24016e1a9b6de11dcc101d2585d91014ea991522d9a1964ee80f30",
       "search_url": "https://adms.site.nthu.edu.tw/p/406-1207-305076,r6125.php?Lang=zh-tw",
+      "source_page_reconciled_at": "2026-10-22T02:00:48.351281+00:00",
+      "source_pages": [
+        {
+          "role": "papers",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-305076,r6125.php?Lang=zh-tw"
+        },
+        {
+          "role": "answer_clarification",
+          "url": "https://adms.site.nthu.edu.tw/p/406-1207-305075,r6125.php?Lang=zh-tw"
+        }
+      ],
       "year_ad": 2026,
       "year_roc": 115
     }

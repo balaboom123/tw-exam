@@ -336,11 +336,12 @@ def _ssl_context_for(url: str) -> ssl.SSLContext | None:
 
 def _request_url(url: str) -> str:
     parts = urlsplit(url)
+    # NTHU's native article routes require the literal comma before the category.
     return urlunsplit(
         (
             parts.scheme,
             parts.netloc,
-            quote(parts.path, safe="/%"),
+            quote(parts.path, safe="/%,"),
             quote(parts.query, safe="=&%"),
             parts.fragment,
         )
@@ -455,6 +456,10 @@ class HceArchiveClient:
                 parsed = self.config.parse_papers(
                     self._fetch_text(source.url), source.url, source_role=source.role
                 )
+                if not parsed:
+                    raise ValueError(
+                        "HCE source page has no recognized native papers; source review required"
+                    )
                 for paper in parsed:
                     files = {}
                     for role, url in paper.files.items():
@@ -564,6 +569,9 @@ HCE_CONFIGS = {
             "進階物理與線性代數": "advanced-physics-linear-algebra",
         },
         listing_pattern=re.compile(r"(?P<year>\d{3})學年度學士後醫學系.*各科試題及參考答案"),
+        clarification_pattern=re.compile(
+            r"(?P<year>\d{3})學年度學士後醫學系.*(?:試題|答案).*釋疑結果"
+        ),
         embedded_pagination_placeholder="PAGE",
         max_listing_pages=8,
     ),

@@ -622,7 +622,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official four-page archive exposes 2022–2026; 5 events and 24 assets rechecked 2026-07-30",
+        "note": "Official four-page archive exposes 2022–2026; five annual events, ten primary/clarification source pages and 37 native file references reconciled 2026-10-22",
         "start_ad": 2022
       },
       "discovery_snapshot": {
@@ -635,7 +635,7 @@
       ],
       "exam_category": "NTHU post-baccalaureate medicine entrance papers",
       "local_state": {
-        "normalized_paper_records": 24,
+        "normalized_paper_records": 37,
         "raw_event_pages": 5,
         "sync_failures": 0
       },
@@ -652,12 +652,12 @@
       "provider_id": "hce_nthu",
       "restrictions": [
         "The official archive uses embedded four-page pagination metadata; discovery follows all declared pages and fails if the source grows beyond the configured eight-page safety bound.",
-        "All 24 asset URLs reject HEAD with HTTP 403 but succeed through ordinary GET; all live files (76,022,336 bytes) match retained SHA-256 checksums, robots.txt allows the archive, and default TLS verification succeeds.",
-        "All five retained events publish all 24 mirrored papers, but no explicit redistribution license or copyright terms were linked from the archive pages."
+        "Earlier review (2026-07-30): original 24 asset URLs rejected HEAD with HTTP 403 but succeeded through ordinary GET. Current review (2026-10-22): default TLS and the existing provider User-Agent retrieved current archive pages and 13 missing native clarification PDFs; the original 24 payloads were SHA-256 verified locally and their current source membership was preserved, without refetch or new successful-sync receipts. Robots.txt allows the archive.",
+        "All five retained events publish 37 mirrored native PDFs, including complete official answer-clarification notices beside unchanged original questions and keys. No explicit redistribution license or copyright terms were linked from reviewed archive pages."
       ],
       "source_name": "國立清華大學",
       "status": "covered",
-      "status_reason": "Covered in declared scope; official four-page archive and all 24 live assets rechecked 2026-07-30; local coverage: 2022–2026; 5 → 24"
+      "status_reason": "Declared source-page coverage repaired 2026-10-22: five annual events, 24 original file records conserved exactly and 13 native clarification PDFs added; complete historical programme/stage classification review remains pending."
     },
     {
       "available_years": {
