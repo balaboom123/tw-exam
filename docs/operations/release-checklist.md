@@ -88,3 +88,25 @@ for this separately authorized operation.
 6. Re-run v2 coverage and verify representative deployed download links. Record
    the deleted IDs and released bytes in the retirement report. Confirm active
    v2 aliases, site assignment metadata, and provider retention are unchanged.
+
+## Preserve existing ZIP URLs during an identity correction
+
+After verifying the original assets and their provider-history anchors, opt in
+for each replaced bundle ID with the site writer:
+
+```bash
+uv run python -m app publish-site --site-id default --repository <owner>/<repo> --retain-existing-download <old-bundle-id>
+```
+
+This captures only an existing published identity with verified original ZIP
+bytes. The ID must disappear from the new primary grouping; its archive remains
+a separately declared historical download. Review the generated site snapshot,
+release inventory, physical capacity plan and full content audit. Restoring or
+removing that snapshot is not a way to bypass a direct-link retirement decision.
+
+The existing Release verification command checks every declared primary and
+frozen download against its digest and still rejects unexpected ZIPs. Upload
+corrected primaries before committing their metadata; verify that retained URLs
+continue to return the exact original bytes. Routine pruning must retain them.
+The [proposed retention decision](../decisions/ADR-2026-10-23-retained-historical-downloads.md)
+records the distinction from speculative compatibility aliases.

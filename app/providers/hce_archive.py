@@ -553,6 +553,7 @@ HCE_CONFIGS = {
         subject_slugs={},
         listing_pattern=re.compile(r"(?P<year>\d{3})(?:年|_|\.pdf)"),
         combined_pdf_listing=True,
+        crawl_delay_seconds=1.0,
     ),
     "hce_nthu": HceArchiveConfig(
         provider_id="hce_nthu",

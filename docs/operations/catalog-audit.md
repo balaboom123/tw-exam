@@ -110,3 +110,11 @@ fetches official retained URLs with provider concurrency limits, validates their
 payloads, and preserves every source record. Failed providers retain their old
 state and produce a nonzero result; verified repair payloads remain reusable for
 a retry. Repeat the file audit before cleanup or uploading archives.
+
+Declared frozen historical downloads are separate from the current identity
+population. The file audit reports their archive, payload and source-reference
+counts explicitly, verifies their exact pinned archive bytes, and joins their
+source keys to retained provider history. They are excluded from unreferenced
+cleanup and isolation even if an older audit report lists their filenames.
+Release-scoped audits include frozen downloads assigned to that shard; use a
+full-site audit to establish conservation of the current multipart population.

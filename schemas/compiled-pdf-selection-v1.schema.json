@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/compiled-pdf-selection-v1.schema.json",
+  "title": "Generated checksum-bound native PDF selection plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "parent_SHA256",
+    "output_SHA256",
+    "output_bytes",
+    "operations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "parent_SHA256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "output_SHA256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "output_bytes": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 104857600
+    },
+    "operations": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100000,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "copy_from",
+              "length"
+            ],
+            "properties": {
+              "copy_from": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "length": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "literal_base64"
+            ],
+            "properties": {
+              "literal_base64": {
+                "type": "string",
+                "minLength": 4,
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

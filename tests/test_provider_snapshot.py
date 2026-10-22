@@ -101,6 +101,22 @@ def test_provider_only_snapshot_removes_a_stale_publication_plan(snapshot_reposi
     assert not stale.exists()
 
 
+def test_nsysu_snapshot_transfers_generated_selection_plans_with_provider_state(snapshot_repository):
+    root, artifact, _base = snapshot_repository
+    for directory in [root, artifact]:
+        (directory / 'data/providers/ceec_ast').rename(directory / 'data/providers/hce_nsysu')
+    git(root, 'add', 'data')
+    git(root, 'commit', '-qm', 'NSYSU provider baseline')
+    base = git(root, 'rev-parse', 'HEAD')
+    plans = artifact / 'data/providers/hce_nsysu/native-selections'
+    plans.mkdir()
+    payload = b'generated provider-owned selection plan\n'
+    (plans / ('1' * 64 + '.json')).write_bytes(payload)
+    snapshot_module.apply_snapshot(root, artifact, 'hce_nsysu', base)
+    restored = root / 'data/providers/hce_nsysu/native-selections' / ('1' * 64 + '.json')
+    assert restored.read_bytes() == payload
+
+
 @pytest.mark.parametrize('disposition', ['deleted', 'rewritten', 'preserved'])
 def test_snapshot_preserves_earlier_revision_journal(snapshot_repository, disposition):
     root, artifact, _base = snapshot_repository

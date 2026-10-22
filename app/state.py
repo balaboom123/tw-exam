@@ -442,6 +442,7 @@ def _load_raw_pages_dir(exams_dir: Path, provider_id: str = "") -> list[SourceEx
                         files=paper.get("files", {}),
                         mirror_files=paper.get("mirror_files", {}),
                         source_material=paper.get("source_material"),
+                        source_category_code=paper.get("source_category_code", ""),
                     )
                     for paper in item.get("papers", [])
                 ],

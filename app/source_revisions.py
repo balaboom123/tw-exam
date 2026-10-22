@@ -303,6 +303,12 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         reviewed_resources = tocfl_revision_views(entries, repo_root=provider.data_dir.parents[2])
         report["reviewed_native_resource_references"] = reviewed_resources
         report["native_resource_review_unresolved"] = len(entries) - len(reviewed_resources)
+    if provider.provider_id == "hce_nsysu":
+        from app.providers.hce_nsysu.evidence import reviewed_native_revisions as nsysu_views
+
+        reviewed = nsysu_views(entries, repo_root=provider.data_dir.parents[2])
+        report["reviewed_native_document_and_selection_references"] = reviewed
+        report["native_selection_review_unresolved"] = len(entries) - len(reviewed)
     return report
 
 

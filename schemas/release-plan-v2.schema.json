@@ -10,7 +10,8 @@
     "release_asset_limit": {"const": 1000},
     "safety_target": {"type": "integer", "maximum": 900},
     "shards": {"type": "array", "items": {"type": "object", "required": ["release_tag", "asset_count"], "properties": {"release_tag": {"type": "string"}, "asset_count": {"type": "integer", "maximum": 1000}}, "additionalProperties": true}},
-    "bundles": {"type": "array", "items": {"type": "object", "required": ["bundle_id", "asset_name", "release_tag"], "properties": {"bundle_id": {"type": "string"}, "asset_name": {"type": "string"}, "release_tag": {"type": "string"}, "legacy_asset_names": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": true}}
+    "bundles": {"type": "array", "items": {"type": "object", "required": ["bundle_id", "asset_name", "release_tag"], "properties": {"bundle_id": {"type": "string"}, "asset_name": {"type": "string"}, "release_tag": {"type": "string"}, "legacy_asset_names": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": true}},
+    "retained_downloads": {"type": "array", "minItems": 1, "items": {"$ref": "retained-downloads-v1.schema.json#/$defs/download"}}
   },
   "additionalProperties": true
 }

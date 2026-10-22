@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 from collections import Counter, defaultdict
 from collections.abc import Iterable
-from dataclasses import replace
+from dataclasses import asdict, replace
 from pathlib import Path
 from typing import Any
 
@@ -525,7 +525,12 @@ def build_release_plan(
 ) -> dict[str, Any]:
     """Build a read-only physical-asset release plan from current site state."""
     site_config = get_site_config(site_id)
-    bundles = load_site_bundles(site_paths(repo_root, site_id))
+    from app.retained_downloads import load_retained_downloads, reserved_asset_names
+
+    site = site_paths(repo_root, site_id)
+    retained_downloads = load_retained_downloads(site)
+    reserved_assets = reserved_asset_names(retained_downloads)
+    bundles = load_site_bundles(site)
     bundles, alias_conflicts = project_release_assets(
         bundles,
         retain_legacy_asset_names=site_config.retain_legacy_asset_names,
@@ -535,9 +540,11 @@ def build_release_plan(
         existing_bundles=bundles,
         bundles=bundles,
         max_assets_per_release=min(max(site_config.release_shard_size, 1), RELEASE_SAFETY_TARGET),
+        reserved_assets=reserved_assets,
     )
-    validate_release_capacity(assigned)
+    validate_release_capacity(assigned, reserved_assets=reserved_assets)
     by_tag: dict[str, set[str]] = defaultdict(set)
+    by_tag.update({tag: set(names) for tag, names in reserved_assets.items()})
     for bundle in assigned:
         by_tag.setdefault(bundle.release_tag, set()).update(physical_asset_names(bundle))
     shards = [
@@ -548,7 +555,7 @@ def build_release_plan(
         }
         for tag, names in sorted(by_tag.items())
     ]
-    return {
+    plan: dict[str, Any] = {
         "schema_version": 2,
         "catalog_version": "exam-identity-v2",
         "site_id": site_id,
@@ -566,6 +573,9 @@ def build_release_plan(
             for bundle in assigned
         ],
     }
+    if retained_downloads:
+        plan["retained_downloads"] = [asdict(download) for download in retained_downloads]
+    return plan
 
 
 def write_release_plan(plan: dict[str, Any], output: Path) -> None:

@@ -1,0 +1,728 @@
+{
+  "schema_version": 1,
+  "provider_id": "hce_nsysu",
+  "events": [
+    {
+      "year_roc": 111,
+      "source_exam_id": "hce-nsysu-111",
+      "written_test_date": "2022-05-01",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-22",
+      "rule_evidence": [
+        {
+          "url": "https://news.nsysu.edu.tw/p/16-1120-278330.php?Lang=zh-tw",
+          "checksum": "69349205d4006ca70b2cb1e5abd2762b4b4574e2f5e0590a62904c3d7c0bace8",
+          "kind": "html",
+          "PDF_pages": [],
+          "label": "2022-03-15國立中山大學首屆學士後公費醫學系招生公告；兩組與選考科目"
+        },
+        {
+          "url": "https://sec.nsysu.edu.tw/static/file/9/1009/img/686381973.pdf",
+          "checksum": "26b45f7155d91fb2fc79acd76783ae05f39776ac9aad253ceb1d5dc5863183f7",
+          "kind": "pdf",
+          "PDF_pages": [
+            1
+          ],
+          "label": "110學年度第2學期第7次行政會議教務處報告；111年5月1日第一階段筆試已完成"
+        }
+      ],
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-general-medicine",
+          "track_id": "hce-nsysu-general-medicine",
+          "label": "一般醫學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "physics-chemistry"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-smart-medical",
+          "track_id": "hce-nsysu-smart-medical",
+          "label": "智慧醫療組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-programming"
+          ]
+        }
+      ],
+      "active_parent_checksum": "117a4d6ca14744f0b435659d3ee4af5de37c9e3666e4a64389c65638a63e12e8",
+      "documents": [
+        {
+          "source_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_111.pdf",
+          "checksum": "117a4d6ca14744f0b435659d3ee4af5de37c9e3666e4a64389c65638a63e12e8",
+          "bytes": 20798630,
+          "page_count": 61,
+          "selections": [
+            {
+              "subject_code": "biology-biochemistry",
+              "subject_name_raw": "普通生物及生化概論",
+              "file_type": "question",
+              "pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17
+              ],
+              "checksum": "b101a07a8a596a1bd73ae73d24d1919e65d92dd8626efbe7aa95a5740a761c67",
+              "bytes": 6703627
+            },
+            {
+              "subject_code": "physics-chemistry",
+              "subject_name_raw": "物理與化學",
+              "file_type": "question",
+              "pages": [
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "checksum": "0d7b8903b23b94cfdda2c86b0752591656d2515c5e36a583830b0ea371e197c2",
+              "bytes": 6473507
+            },
+            {
+              "subject_code": "computer-programming",
+              "subject_name_raw": "計算機概論與程式設計",
+              "file_type": "question",
+              "pages": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53
+              ],
+              "checksum": "336fd66b87bee4736730be138da3292729c2e785e8c7420d291ed0d0188ecb26",
+              "bytes": 5236738
+            },
+            {
+              "subject_code": "english",
+              "subject_name_raw": "英文",
+              "file_type": "question",
+              "pages": [
+                54,
+                55,
+                56,
+                57,
+                58,
+                59
+              ],
+              "checksum": "b41af69f55194dd58a6c6479b522f6f134de05308896873e6f4d568c9c88fc57",
+              "bytes": 2381535
+            },
+            {
+              "subject_code": "all",
+              "subject_name_raw": "各科參考答案",
+              "file_type": "all_answers",
+              "pages": [
+                60,
+                61
+              ],
+              "checksum": "476a1d66b5f757b1bca343b790d065b03cdc434efedda600e55a4e38cdce21c8",
+              "bytes": 414806
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year_roc": 112,
+      "source_exam_id": "hce-nsysu-112",
+      "written_test_date": "2023-03-26",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-22",
+      "rule_evidence": [
+        {
+          "url": "https://oaa.nsysu.edu.tw/static/file/3/1003/attach/94/pta_181828_8575530_98856.pdf",
+          "checksum": "2a40b8304713f6761f19a2524830c8c3fa45bf5cc08f32a5d28821c084e74395",
+          "kind": "pdf",
+          "PDF_pages": [
+            4,
+            5
+          ],
+          "label": "112學年度學士後醫學系招生簡章；目的、資格、分組、科目、階段及日期"
+        }
+      ],
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-general-medicine",
+          "track_id": "hce-nsysu-general-medicine",
+          "label": "一般醫學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "physics-chemistry"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-smart-medical",
+          "track_id": "hce-nsysu-smart-medical",
+          "label": "智慧醫療組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-programming"
+          ]
+        }
+      ],
+      "active_parent_checksum": "dc5667fec8812947faf563e4818f0cd4e35cbc4a78e7b0aabe0dbcd29a1f265f",
+      "documents": [
+        {
+          "source_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_112.pdf",
+          "checksum": "dc5667fec8812947faf563e4818f0cd4e35cbc4a78e7b0aabe0dbcd29a1f265f",
+          "bytes": 5928134,
+          "page_count": 56,
+          "selections": [
+            {
+              "subject_code": "biology-biochemistry",
+              "subject_name_raw": "普通生物及生化概論",
+              "file_type": "question_answer",
+              "pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "checksum": "21aee63e34855854bdaca0fa00522b4e3a612c975e378994d83b179397c4132d",
+              "bytes": 2451501
+            },
+            {
+              "subject_code": "physics-chemistry",
+              "subject_name_raw": "物理與化學",
+              "file_type": "question_answer",
+              "pages": [
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33
+              ],
+              "checksum": "89f7fed3414028364628aacd046d32925438d9568d5dfae06a66ca1ee80a512e",
+              "bytes": 1195408
+            },
+            {
+              "subject_code": "computer-programming",
+              "subject_name_raw": "計算機概論與程式設計",
+              "file_type": "question_answer",
+              "pages": [
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44
+              ],
+              "checksum": "d69efe3d7139632e439b22f270a8f9f2be89b94f60cbc6b2fb94551fade4f24f",
+              "bytes": 651410
+            },
+            {
+              "subject_code": "english",
+              "subject_name_raw": "英文",
+              "file_type": "question_answer",
+              "pages": [
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56
+              ],
+              "checksum": "45b1e1f28b22500713d3cc2c2c8dad723cd33cb1bec85cc81beeb8c6a52cfc00",
+              "bytes": 1856121
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year_roc": 113,
+      "source_exam_id": "hce-nsysu-113",
+      "written_test_date": "2024-03-31",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-22",
+      "rule_evidence": [
+        {
+          "url": "https://exam-acad.nsysu.edu.tw/exam_netlist/pdf_file/aca_medicine/113ele_brief_J1.pdf",
+          "checksum": "dc643476cc29f05ff2cc09ad386292fea6a69414ad4c4eaf75161e413a95f66f",
+          "kind": "pdf",
+          "PDF_pages": [
+            4,
+            5
+          ],
+          "label": "113學年度學士後醫學系招生簡章；目的、資格、分組、科目、階段及日期"
+        }
+      ],
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-general-medicine",
+          "track_id": "hce-nsysu-general-medicine",
+          "label": "一般醫學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "physics-chemistry"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-smart-medical",
+          "track_id": "hce-nsysu-smart-medical",
+          "label": "智慧醫療組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-programming"
+          ]
+        }
+      ],
+      "active_parent_checksum": "ccf5d2b9d45c2fa9a2ed2f53051894ff5bf13382d07e538d4c11d133a13f0c0f",
+      "documents": [
+        {
+          "source_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_113.pdf",
+          "checksum": "ccf5d2b9d45c2fa9a2ed2f53051894ff5bf13382d07e538d4c11d133a13f0c0f",
+          "bytes": 2159511,
+          "page_count": 59,
+          "selections": [
+            {
+              "subject_code": "biology-biochemistry",
+              "subject_name_raw": "普通生物及生化概論",
+              "file_type": "question_answer",
+              "pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "checksum": "1ea85840a0685659d2d720ce99878d59b30c0a6fe045207b48b2cd13b428bb76",
+              "bytes": 840944
+            },
+            {
+              "subject_code": "physics-chemistry",
+              "subject_name_raw": "物理與化學",
+              "file_type": "question_answer",
+              "pages": [
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "checksum": "29b9a3a0162ac41b9879fac07b1de4a50841fbfac6d2159129a63a9716666d61",
+              "bytes": 905778
+            },
+            {
+              "subject_code": "computer-programming",
+              "subject_name_raw": "計算機概論與程式設計",
+              "file_type": "question_answer",
+              "pages": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47
+              ],
+              "checksum": "979f42bd9b6213b7ff40d0a5d9aea83a222a225f443ebf8c9075baa4d9055ff9",
+              "bytes": 853933
+            },
+            {
+              "subject_code": "english",
+              "subject_name_raw": "英文",
+              "file_type": "question_answer",
+              "pages": [
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59
+              ],
+              "checksum": "761235f4ca2a27ed91d8b9cdb135700282bef0a5ade978419954668322afe563",
+              "bytes": 900482
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year_roc": 114,
+      "source_exam_id": "hce-nsysu-114",
+      "written_test_date": "2025-03-30",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-22",
+      "rule_evidence": [
+        {
+          "url": "https://exam-acad.nsysu.edu.tw/exam_netlist/pdf_file/aca_medicine/114ele_brief_J1.pdf",
+          "checksum": "edcb65bbb93e829d717dc2c830d1c515e3f783dcefb5114ef7935ae32990bc87",
+          "kind": "pdf",
+          "PDF_pages": [
+            4,
+            5,
+            6
+          ],
+          "label": "114學年度學士後醫學系招生簡章；目的、資格、分組、科目、階段及日期"
+        }
+      ],
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-general-medicine",
+          "track_id": "hce-nsysu-general-medicine",
+          "label": "一般醫學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "physics-chemistry"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-smart-medical",
+          "track_id": "hce-nsysu-smart-medical",
+          "label": "智慧醫療組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-programming"
+          ]
+        }
+      ],
+      "active_parent_checksum": "d56a9597841918ee7920399613c414af313ee3fc149b4578d3452f9655a8cf27",
+      "documents": [
+        {
+          "source_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_114.pdf",
+          "checksum": "d56a9597841918ee7920399613c414af313ee3fc149b4578d3452f9655a8cf27",
+          "bytes": 3500228,
+          "page_count": 57,
+          "selections": [
+            {
+              "subject_code": "biology-biochemistry",
+              "subject_name_raw": "普通生物及生化概論",
+              "file_type": "question_answer",
+              "pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18
+              ],
+              "checksum": "4106ae1b39667c8a5f911ddf95e02fafc196aaa13ddf5a152511ddde3b54a7c8",
+              "bytes": 1376631
+            },
+            {
+              "subject_code": "physics-chemistry",
+              "subject_name_raw": "物理與化學",
+              "file_type": "question_answer",
+              "pages": [
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34
+              ],
+              "checksum": "c628829c6e812ca7e10d34581bc1395a9a6e3a863c9290f13905b327193f1976",
+              "bytes": 1503542
+            },
+            {
+              "subject_code": "computer-programming",
+              "subject_name_raw": "計算機概論與程式設計",
+              "file_type": "question_answer",
+              "pages": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "checksum": "d9ba19ed587e8b5fd8161c58c1dc0e669f4362adb391f79da2834e02a02f14d6",
+              "bytes": 1165296
+            },
+            {
+              "subject_code": "english",
+              "subject_name_raw": "英文",
+              "file_type": "question_answer",
+              "pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57
+              ],
+              "checksum": "20d823650868aa7d1ba595a06cc453b74a4b3d84f5b02f22409169312698b339",
+              "bytes": 1302455
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "hce-nsysu-115",
+      "written_test_date": "2026-03-29",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-22",
+      "rule_evidence": [
+        {
+          "url": "https://oaa.nsysu.edu.tw/static/file/3/1003/attach/95/pta_236483_4224322_70348.pdf",
+          "checksum": "c4c809b338bb520c71572f947835f39de8e2cc3cd43cc56c475a0785f7063d43",
+          "kind": "pdf",
+          "PDF_pages": [
+            4,
+            5,
+            6
+          ],
+          "label": "115學年度學士後醫學系招生簡章；目的、資格、分組、科目、階段及日期"
+        }
+      ],
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine",
+          "track_id": "hce-nsysu",
+          "label": "",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "physics-chemistry"
+          ]
+        }
+      ],
+      "active_parent_checksum": "76bedaac7bbb58172e7f82ef55099772a44a5267014a6873c07e52ca75d0d8b2",
+      "documents": [
+        {
+          "source_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_115.pdf",
+          "checksum": "76bedaac7bbb58172e7f82ef55099772a44a5267014a6873c07e52ca75d0d8b2",
+          "bytes": 3123374,
+          "page_count": 51,
+          "selections": [
+            {
+              "subject_code": "biology-biochemistry",
+              "subject_name_raw": "普通生物及生化概論",
+              "file_type": "question_answer",
+              "pages": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "checksum": "20d2b60b98d7a51f7cb00e0b473e7591da03f2af5ffeaa7096a08ff14de1ab42",
+              "bytes": 1394386
+            },
+            {
+              "subject_code": "physics-chemistry",
+              "subject_name_raw": "物理與化學",
+              "file_type": "question_answer",
+              "pages": [
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "checksum": "23c29dcb4bbe94d5b510944d53ac6bbf3b00130a5a3a84a6c6694aa56b1bdeac",
+              "bytes": 1495439
+            },
+            {
+              "subject_code": "english",
+              "subject_name_raw": "英文",
+              "file_type": "question_answer",
+              "pages": [
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51
+              ],
+              "checksum": "9ef182a5fc86306f6ed3100469068f81e114c9ddf50f51540eeb42d2c804535d",
+              "bytes": 983218
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

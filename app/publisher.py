@@ -34,6 +34,14 @@ from app.release_tags import (
     project_release_assets,
     validate_release_capacity,
 )
+from app.retained_downloads import (
+    RetainedDownload,
+    load_retained_downloads,
+    reserved_asset_names,
+    snapshot_existing_downloads,
+    validate_primary_separation,
+    write_retained_downloads,
+)
 from app.review_queue import encode_review_queue
 from app.site_registry import get_site_config
 from app.source_material import MaterialSummary
@@ -217,7 +225,12 @@ def write_site_state(
     site: SitePaths,
     bundles: list[BundleAsset],
     frontend_bundles: list[dict[str, Any]],
+    retained_downloads: list[RetainedDownload] | None = None,
 ) -> None:
+    if retained_downloads is None:
+        retained_downloads = load_retained_downloads(site)
+    validate_primary_separation(retained_downloads, bundles)
+    write_retained_downloads(site, retained_downloads, primary_promotions=bundles)
     site.data_dir.mkdir(parents=True, exist_ok=True)
     release_version = 2 if any(_structured_bundle(bundle) for bundle in bundles) else 1
     schema_version = (
@@ -239,10 +252,14 @@ def write_site_state(
         encoding="utf-8",
     )
     release_payload = {
-        "schema_version": release_version,
+        "schema_version": 3 if retained_downloads else release_version,
         "site_id": site.site_id,
         "assets": [_release_asset_record(bundle) for bundle in bundles],
     }
+    if retained_downloads:
+        release_payload["retained_downloads"] = [
+            cast(dict[str, Any], to_plain_data(download)) for download in retained_downloads
+        ]
     if release_version == 2:
         release_payload["catalog_version"] = "exam-identity-v2"
     site.release_assets_path.write_text(
@@ -473,6 +490,7 @@ def publish_site(
     repository: str,
     affected_canonical_ids: set[str] | None = None,
     canonical_aliases: dict[str, list[str]] | None = None,
+    retain_existing_download_ids: set[str] | None = None,
 ) -> tuple[NormalizedCatalog, list[BundleAsset]]:
     site_config = get_site_config(site_id)
     normalized, _provider_failures = load_site_catalog(repo_root, site_id=site_id)
@@ -483,6 +501,19 @@ def publish_site(
             f"Partial publish requires existing site bundle metadata: expected {site.bundles_path}"
         )
     existing_bundles = load_site_bundles(site)
+    retained_ids = retain_existing_download_ids or set()
+    if retained_ids & {paper.bundle_id for paper in normalized.papers}:
+        raise ValueError("Retained downloads must belong to replaced publication identities")
+    retained_downloads = snapshot_existing_downloads(
+        repo_root, site, existing_bundles, retained_ids
+    )
+    if {download.bundle_id for download in retained_downloads} & {
+        paper.bundle_id for paper in normalized.papers
+    }:
+        raise ValueError(
+            "A frozen identity requires an explicit verified ownership transfer before publication"
+        )
+    reserved_assets = reserved_asset_names(retained_downloads)
     if affected_canonical_ids is None:
         preserved_bundles: list[BundleAsset] = []
         rebuild_catalog = normalized
@@ -528,14 +559,16 @@ def publish_site(
         site_scoped_bundles,
         retain_legacy_asset_names=site_config.retain_legacy_asset_names,
     )
+    validate_primary_separation(retained_downloads, release_projection)
     v2_release_prefix = f"{site_config.release_tag_prefix}-v2"
     tagged_bundles = assign_release_tags(
         release_tag_prefix=v2_release_prefix,
         existing_bundles=existing_bundles,
         bundles=release_projection,
         max_assets_per_release=min(site_config.release_shard_size, RELEASE_SAFETY_TARGET),
+        reserved_assets=reserved_assets,
     )
-    validate_release_capacity(tagged_bundles)
+    validate_release_capacity(tagged_bundles, reserved_assets=reserved_assets)
     normalized_with_urls, bundles_with_urls, frontend_bundles = apply_bundle_download_urls(
         normalized,
         tagged_bundles,
@@ -546,5 +579,6 @@ def publish_site(
         site,
         bundles_with_urls,
         frontend_bundles,
+        retained_downloads=retained_downloads,
     )
     return normalized_with_urls, bundles_with_urls

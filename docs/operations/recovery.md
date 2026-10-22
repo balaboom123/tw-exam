@@ -1,5 +1,61 @@
 # Recovery guide
 
+Site-owned retained download snapshots must travel with the site publication
+metadata. Release inventory v3 lists current primary assets and explicit frozen
+historical downloads; use its shared reader when enumerating restoration or
+verification work. A shard containing only historical downloads still requires
+byte verification. Provider snapshots do not own or replace the site's retention
+inventory. Restoring an old website build does not require deleting either the
+original retained ZIPs or newly published current downloads.
+
+For an identity rollback, first snapshot the current successor ZIPs, then restore
+the matching earlier provider records through the conserving provider writer.
+Preserve the newer records in its immutable journal and keep all native payloads.
+Restore the earlier site inventory through the site writer with the successors
+retained. A former historical ZIP can return to primary ownership only with its
+exact original identity, tag, locator and checksum, verified against actual
+bytes and source history. Use matching classification code and rerun the complete
+archive, strict catalog/history and publication gates before deploying recovery.
+
+## NSYSU combined-document selections
+
+Restore missing generated selection plans from the matching Git provider-state
+revision. Provider workflow artifacts include the entire provider directory;
+the plans travel with the records that require them. Mirror backups retain the
+original PDFs and selected PDFs, while Git owns the generated plans. Never
+replace a missing selection with the whole original under its subject name.
+
+If a plan must be reconstructed, first recover the exact original and exact
+reviewed selected PDF from checksum-verified mirror or release bytes. The
+[annual evidence](../../catalog/mappings/nsysu/native-selections-v1.json) owns
+the expected digests and sizes. Compile only these reviewed inputs:
+
+```bash
+uv run python scripts/compile_nsysu_selection.py --parent .tmp/native.pdf --selected .tmp/selected.pdf
+uv run python scripts/validate_schemas.py
+```
+
+The compiler refuses unreviewed inputs and replacement of a differing existing
+plan. It reconstructs and compares the complete output before publishing a plan.
+It does not choose PDF pages or approve their examination meaning.
+
+For a new source revision, capture the full original and annual admission rules
+before changing the evidence. Inspect native subject covers, page numbering,
+answer placement and group applicability. Prepare page selections privately
+with operator PDF tooling, verify complete page coverage and compare every
+selected page with the original. Check PDF cross references and trailer size;
+some Poppler combinations produce incorrect trailer sizes or unstable IDs.
+Do not publish raw tool output or silently change a reviewed output digest when
+a different tool version produces different bytes. Keep the verified output,
+record the new reviewed version in the annual evidence, and compile its plan.
+
+Reconcile complete annual/group history through the conserving provider writer,
+retaining earlier source records and original bytes. Verify cold sync, cached
+sync, refresh, source-change rejection, rollback, and the complete site's ZIP
+coverage before publication. Every sync validates the native parent even with
+a warm mirror; an unknown revision returns to review. An operator replay does
+not create successful-sync receipts or refresh source-observation timestamps.
+
 Preserve retained provider state and evidence first. Use the smallest repair that restores a checked invariant, then rerun the generator and audit that own the affected output.
 
 ## Scenario 1: discovery or sync fails

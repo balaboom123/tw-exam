@@ -1233,22 +1233,160 @@
     },
     {
       "canonical_id": "hce-nsysu",
-      "canonical_name": "國立中山大學學士後醫學系",
+      "canonical_name": "國立中山大學學士後醫學系｜一般醫學組｜初試（筆試）",
       "years": [
-        115,
         114,
         113,
         112,
         111
       ],
-      "file_count": 5,
-      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
-      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
-      "release_tag": "default-bundles-v2-001",
-      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
-      "checksum": "3fcb8a7fd4e39d01df0a1a704e906b70798a690736f7456386664448452cc109",
-      "schema_version": 2,
-      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu",
+      "file_count": 13,
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1--30f395982b39.zip",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1--30f395982b39.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1--30f395982b39.zip",
+      "checksum": "b2f81ba9a4202d94a90e7e496d332dca1bcf21234a571daef1ede61456bb4907",
+      "schema_version": 3,
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nsysu-general-medicine",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed NSYSU annual written-test stage, group and native PDF pages: https://exam-acad.nsysu.edu.tw/exam_netlist/pdf_file/aca_medicine/114ele_brief_J1.pdf",
+      "exam_class": "升學測驗",
+      "exam_subclass": "學士後醫學／中醫",
+      "search_aliases": [
+        "普通生物及生化概論",
+        "英文",
+        "物理與化學",
+        "各科參考答案",
+        "國立中山大學學士後醫學系",
+        "114學年度國立中山大學學士後醫學系",
+        "post-bacc-medicine-general-medicine",
+        "biology-biochemistry",
+        "english",
+        "physics-chemistry",
+        "113學年度國立中山大學學士後醫學系",
+        "112學年度國立中山大學學士後醫學系",
+        "111學年度國立中山大學學士後醫學系",
+        "all"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "hce-nsysu",
+      "canonical_name": "國立中山大學學士後醫學系｜智慧醫療組｜初試（筆試）",
+      "years": [
+        114,
+        113,
+        112,
+        111
+      ],
+      "file_count": 13,
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1--87550f53f6b5.zip",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1--87550f53f6b5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1--87550f53f6b5.zip",
+      "checksum": "472a3302e31664ec9dc67597eb25b87c3384ce52be13d4a97eee4676586a908f",
+      "schema_version": 3,
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nsysu-smart-medical",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed NSYSU annual written-test stage, group and native PDF pages: https://exam-acad.nsysu.edu.tw/exam_netlist/pdf_file/aca_medicine/114ele_brief_J1.pdf",
+      "exam_class": "升學測驗",
+      "exam_subclass": "學士後醫學／中醫",
+      "search_aliases": [
+        "普通生物及生化概論",
+        "計算機概論與程式設計",
+        "英文",
+        "各科參考答案",
+        "國立中山大學學士後醫學系",
+        "114學年度國立中山大學學士後醫學系",
+        "post-bacc-medicine-smart-medical",
+        "biology-biochemistry",
+        "computer-programming",
+        "english",
+        "113學年度國立中山大學學士後醫學系",
+        "112學年度國立中山大學學士後醫學系",
+        "111學年度國立中山大學學士後醫學系",
+        "all"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "hce-nsysu",
+      "canonical_name": "國立中山大學學士後醫學系｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1--fb6af895aa1a.zip",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1--fb6af895aa1a.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1--fb6af895aa1a.zip",
+      "checksum": "ed5c671a2b35198bcd1edd3fd4b50e111d86d7906bd75eb8d03802a3bce2660a",
+      "schema_version": 3,
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1",
       "catalog_version": "exam-identity-v2",
       "domain_id": "admissions",
       "exam_family_id": "university-admission",
@@ -1256,54 +1394,137 @@
       "level_id": "not-applicable",
       "track_id": "hce-nsysu",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2",
-      "classification_confidence": "medium",
-      "classification_reason": "provider policy declares no level dimension",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed NSYSU annual written-test stage, group and native PDF pages: https://oaa.nsysu.edu.tw/static/file/3/1003/attach/95/pta_236483_4224322_70348.pdf",
       "exam_class": "升學測驗",
       "exam_subclass": "學士後醫學／中醫",
       "search_aliases": [
-        "各科試題與參考答案",
+        "普通生物及生化概論",
+        "英文",
+        "物理與化學",
+        "國立中山大學學士後醫學系",
         "115學年度國立中山大學學士後醫學系",
         "post-bacc-medicine",
-        "all",
-        "114學年度國立中山大學學士後醫學系",
-        "113學年度國立中山大學學士後醫學系",
-        "112學年度國立中山大學學士後醫學系",
-        "111學年度國立中山大學學士後醫學系"
+        "biology-biochemistry",
+        "english",
+        "physics-chemistry"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "hce-nthu",
-      "canonical_name": "國立清華大學學士後醫學系",
+      "canonical_name": "國立清華大學學士後醫學系｜智慧資訊科技組｜初試（筆試）",
       "years": [
-        115,
         114,
         113,
         112,
         111
       ],
-      "file_count": 37,
-      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
-      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
-      "release_tag": "default-bundles-v2-001",
-      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
-      "checksum": "51fc03e82e93947e19798ef228bd3eac18ac19593410700d602753dac92948ba",
-      "schema_version": 2,
-      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu",
+      "file_count": 22,
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1--3d2cc925dc54.zip",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1--3d2cc925dc54.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1--3d2cc925dc54.zip",
+      "checksum": "d6a79787c33501f6b2c917cc07dea61a5b881b90364dc9fdd4ca6bed61e94818",
+      "schema_version": 3,
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1",
       "catalog_version": "exam-identity-v2",
       "domain_id": "admissions",
       "exam_family_id": "university-admission",
       "exam_series_id": "post-baccalaureate-medical",
       "level_id": "not-applicable",
-      "track_id": "hce-nthu",
+      "track_id": "hce-nthu-information-technology",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2",
-      "classification_confidence": "medium",
-      "classification_reason": "provider policy declares no level dimension",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed NTHU annual written-test stage and group applicability: https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVE13TVRoZk56WXdNREUxT0Y4d056TTFOQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10VS04MOYWFC14JD34QOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
+      "exam_class": "升學測驗",
+      "exam_subclass": "學士後醫學／中醫",
+      "search_aliases": [
+        "進階物理與線性代數",
+        "各科參考答案",
+        "生物與生化",
+        "英文",
+        "資訊科學",
+        "國立清華大學學士後醫學系",
+        "114學年度國立清華大學學士後醫學系",
+        "post-bacc-medicine-information-technology",
+        "advanced-physics-linear-algebra",
+        "all",
+        "biology-biochemistry",
+        "english",
+        "113學年度國立清華大學學士後醫學系",
+        "computer-science",
+        "112學年度國立清華大學學士後醫學系",
+        "111學年度國立清華大學學士後醫學系"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "hce-nthu",
+      "canonical_name": "國立清華大學學士後醫學系｜自然科學組｜初試（筆試）",
+      "years": [
+        114,
+        113,
+        112,
+        111
+      ],
+      "file_count": 25,
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1--54312aa02a5a.zip",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1--54312aa02a5a.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1--54312aa02a5a.zip",
+      "checksum": "891b0c3271da12d0fb08c25e2993acf2607778589f46902726012cabfa63745d",
+      "schema_version": 3,
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nthu-natural-science",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed NTHU annual written-test stage and group applicability: https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVE13TVRoZk56WXdNREUxT0Y4d056TTFOQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10VS04MOYWFC14JD34QOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
       "exam_class": "升學測驗",
       "exam_subclass": "學士後醫學／中醫",
       "search_aliases": [
@@ -1311,23 +1532,94 @@
         "生物與生化",
         "化學與物理",
         "英文",
-        "進階物理與線性代數",
-        "資訊科學",
+        "國立清華大學學士後醫學系",
+        "114學年度國立清華大學學士後醫學系",
+        "post-bacc-medicine-natural-science",
+        "all",
+        "biology-biochemistry",
+        "chemistry-physics",
+        "english",
+        "113學年度國立清華大學學士後醫學系",
+        "112學年度國立清華大學學士後醫學系",
+        "111學年度國立清華大學學士後醫學系"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "hce-nthu",
+      "canonical_name": "國立清華大學學士後醫學系｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 7,
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1--6d9d824c69d3.zip",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1--6d9d824c69d3.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1--6d9d824c69d3.zip",
+      "checksum": "efab3a9ca68ba62e99d5c405a55354e6fe48245288c9af6ee108e2897c317457",
+      "schema_version": 3,
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nthu",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed NTHU annual written-test stage and group applicability: https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhOalV3TlRGZk9ETXdNVGMyTlY4eU5qQTRNaTV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10VS04MOYWFC14JD34QOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
+      "exam_class": "升學測驗",
+      "exam_subclass": "學士後醫學／中醫",
+      "search_aliases": [
+        "各科參考答案",
+        "生物與生化",
+        "化學與物理",
+        "英文",
+        "國立清華大學學士後醫學系",
         "115學年度國立清華大學學士後醫學系",
         "post-bacc-medicine",
         "all",
         "biology-biochemistry",
         "chemistry-physics",
-        "english",
-        "114學年度國立清華大學學士後醫學系",
-        "advanced-physics-linear-algebra",
-        "113學年度國立清華大學學士後醫學系",
-        "computer-science",
-        "112學年度國立清華大學學士後醫學系",
-        "111學年度國立清華大學學士後醫學系"
+        "english"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "hce-tcu",

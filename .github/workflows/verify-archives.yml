@@ -1,6 +1,6 @@
 name: verify-archives
 
-# Monthly byte-level check of every hosted ZIP against the committed catalog.
+# Monthly byte-level check of declared current and frozen historical downloads.
 on:
   schedule:
     - cron: "40 7 2 * *"
@@ -26,9 +26,12 @@ jobs:
         run: |
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import json
+          from pathlib import Path
+          from app.retained_downloads import release_download_records
 
-          with open("data/sites/default/release-assets.json", encoding="utf-8") as stream:
-              assets = json.load(stream)["assets"]
+          assets = release_download_records(
+              Path("data/sites/default/release-assets.json"), expected_site_id="default"
+          )
           print("tags=" + json.dumps(sorted({asset["release_tag"] for asset in assets})))
           PY
 
@@ -70,6 +73,8 @@ jobs:
           print(f"### {report['release_tag']}")
           print(f"- Archives: {report['archive_count']}")
           print(f"- Files: {report['file_count']}")
+          print(f"- Retained historical archives: {report.get('retained_archive_count', 0)}")
+          print(f"- Retained historical files: {report.get('retained_file_count', 0)}")
           print(f"- Errors: {len(report['errors'])}")
           for error in report["errors"][:20]:
               print(f"  - `{error['asset']}`: {error['error']}")

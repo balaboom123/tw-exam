@@ -580,7 +580,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official library archive exposes 2022–2026; 5 combined PDFs rechecked 2026-07-30",
+        "note": "Official library archive exposes 2022–2026; all five native combined PDFs rechecked byte-for-byte on 2026-10-22. Reviewed subject selections cover all native pages.",
         "start_ad": 2022
       },
       "discovery_snapshot": {
@@ -589,11 +589,12 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#hce_nsysu"
+        "docs/providers/notes.md#hce_nsysu",
+        "catalog/mappings/nsysu/native-selections-v1.json"
       ],
       "exam_category": "NSYSU post-baccalaureate medicine entrance papers",
       "local_state": {
-        "normalized_paper_records": 5,
+        "normalized_paper_records": 29,
         "raw_event_pages": 5,
         "sync_failures": 0
       },
@@ -616,7 +617,7 @@
       ],
       "source_name": "國立中山大學",
       "status": "covered",
-      "status_reason": "Covered in declared combined-PDF scope; official archive and all 5 live files rechecked 2026-07-30; local coverage: 2022–2026; 5 → 5"
+      "status_reason": "Covered in the declared five-native-document scope. Reviewed written-stage and admission-group projection yields 29 logical paper references from 20 selected PDFs; all five complete original PDFs remain source attachments. This is a semantic projection, not discovery of additional official downloads."
     },
     {
       "available_years": {

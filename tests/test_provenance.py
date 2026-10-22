@@ -94,6 +94,9 @@ def test_publication_rejects_provenance_that_has_no_authoritative_evidence(tmp_p
     site.mkdir(parents=True)
     for filename in ('bundles.json', 'release-assets.json'):
         (site / filename).symlink_to(root / 'data/sites/default' / filename)
+    retained = root / 'data/sites/default/retained-downloads.json'
+    if retained.exists():
+        (site / retained.name).symlink_to(retained)
     feed = json.loads((root / 'data/sites/default/frontend-bundles.json').read_text())
     feed['bundles'][0][field] = value
     (site / 'frontend-bundles.json').write_text(json.dumps(feed))

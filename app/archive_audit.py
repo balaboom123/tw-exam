@@ -80,13 +80,21 @@ def audit_site_archives(
     release_tag: str | None = None,
 ) -> dict[str, Any]:
     site = site_paths(repo_root, site_id)
+    from app.retained_downloads import load_retained_downloads, verify_retained_download
+
+    all_retained = load_retained_downloads(site)
+    selected_retained = [
+        download
+        for download in all_retained
+        if release_tag is None or download.release_tag == release_tag
+    ]
     all_bundles = load_site_bundles(site)
     if not all_bundles:
         raise ValueError("Cannot audit an empty publication inventory")
     bundles = [
         bundle for bundle in all_bundles if release_tag is None or bundle.release_tag == release_tag
     ]
-    if not bundles:
+    if not bundles and not selected_retained:
         raise ValueError(f"No archives are assigned to release {release_tag}")
     outside = {
         bundle.bundle_id or bundle.canonical_id
@@ -155,6 +163,19 @@ def audit_site_archives(
             errors.append({"asset": key, "error": "source records/checksums differ from catalog"})
     active = {bundle.asset_name for bundle in bundles}
     active.update(name for bundle in bundles for name in bundle.legacy_asset_names)
+    retained_files = retained_sources = 0
+    for download in selected_retained:
+        try:
+            if download.asset_name in active:
+                raise ValueError("Retained historical download collides with a current primary")
+            manifest = verify_retained_download(
+                repo_root, site, download, verify_content=verify_content
+            )
+            retained_files += manifest["file_count"]
+            retained_sources += len(manifest["papers"])
+        except (OSError, ValueError, KeyError, TypeError, zipfile.BadZipFile) as exc:
+            errors.append({"asset": download.asset_name, "error": str(exc)})
+    active.update(download.asset_name for download in all_retained)
     extras = (
         []
         if release_tag is not None
@@ -165,6 +186,10 @@ def audit_site_archives(
         "release_tag": release_tag,
         "verified_content": verify_content,
         "archive_count": len(bundles),
+        "retained_archive_count": len(selected_retained),
+        "retained_file_count": retained_files,
+        "retained_source_record_count": retained_sources,
+        "total_download_archives": len(bundles) + len(selected_retained),
         "file_count": file_count,
         "source_record_count": source_count,
         "mirror_collision_count": len(collisions),
@@ -183,6 +208,9 @@ def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str,
     ):
         raise ValueError("Cleanup requires a successful full content audit of this site")
     site = site_paths(repo_root, site_id)
+    from app.retained_downloads import load_retained_downloads
+
+    protected = {download.asset_name for download in load_retained_downloads(site)}
     bundles = load_site_bundles(site)
     retained: set[tuple[PaperKey, str]] = set()
     retained_facts: set[tuple[PaperKey, str, str]] = set()
@@ -198,6 +226,9 @@ def prune_redundant_archives(repo_root: Path, *, site_id: str, report: dict[str,
     removed: list[str] = []
     preserved: list[dict[str, str]] = []
     for name in report["unreferenced_archives"]:
+        if name in protected:
+            preserved.append({"asset": name, "reason": "explicitly retained historical download"})
+            continue
         path = site.bundle_dir / name
         try:
             if path.name != name or path.is_symlink():
@@ -245,6 +276,11 @@ def isolate_unreferenced_archives(repo_root: Path, *, site_id: str, report: dict
     ):
         raise ValueError("Isolation requires a successful full content audit of this site")
     site = site_paths(repo_root, site_id)
+    from app.retained_downloads import load_retained_downloads
+
+    protected = {download.asset_name for download in load_retained_downloads(site)}
+    if protected.intersection(report["unreferenced_archives"]):
+        raise ValueError("Cannot isolate an explicitly retained historical download")
     recovery = site.bundle_dir / "recovery"
     if recovery.is_symlink():
         raise ValueError("Recovery directory must not be a symbolic link")

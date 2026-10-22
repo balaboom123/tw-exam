@@ -133,7 +133,7 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     release = load_json(site_dir / "release-assets.json", repo_root=repo_root)
 
     for label, payload in (("site", site), ("frontend", feed), ("release", release)):
-        versions = {2} if label == "release" else {2, 3}
+        versions = {2, 3}
         if type(payload.get("schema_version")) is not int or payload["schema_version"] not in versions:
             fail(f"{label} payload has an unsupported schema_version")
         if payload.get("catalog_version") != "exam-identity-v2":
@@ -196,6 +196,16 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     if len(site_asset_names) != len(set(site_asset_names)):
         fail("site publication contains duplicate asset names")
 
+    from dataclasses import asdict
+    from app.retained_downloads import load_retained_downloads, release_download_records
+    from app.paths import site_paths
+
+    retained = load_retained_downloads(site_paths(repo_root, "default"))
+    if release.get("retained_downloads", []) != [asdict(download) for download in retained]:
+        fail("Release retained downloads differ from the frozen site-owned inventory")
+    all_downloads = release_download_records(site_dir / "release-assets.json")
+    if any(download.asset_name in site_asset_names for download in retained):
+        fail("Retained historical downloads cannot alias current primary bundles")
     release_asset_names = []
     release_counts = Counter()
     for index, row in enumerate(release_rows):
@@ -207,6 +217,7 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
         fail("release inventory and site publication asset sets differ")
     if len(release_asset_names) != len(set(release_asset_names)):
         fail("release inventory contains duplicate asset names")
+    release_counts = Counter(row["release_tag"] for row in all_downloads)
     if any(not tag or count > 900 for tag, count in release_counts.items()):
         fail(f"release shard safety target exceeded: {dict(release_counts)}")
 
@@ -266,7 +277,7 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
 
     validate_distinct_track_titles(feed_rows)
     validate_readable_titles(feed_rows)
-    return len(site_rows), len(feed_rows), len(release_rows)
+    return len(site_rows), len(feed_rows), len(all_downloads)
 
 
 def validate_catalog_and_schema_json_syntax(repo_root: Path = ROOT) -> int:

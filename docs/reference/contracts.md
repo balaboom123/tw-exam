@@ -14,9 +14,12 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Reviewed non-paper revision meaning | [Reference evidence schema](../../schemas/source-revision-reference-v1.schema.json), [review owner](../../app/source_revision_review.py) | `catalog/mappings/source-revisions/reference-material-v1.json` |
 | Material nature and official date evidence | [Material schema](../../schemas/source-material-v1.schema.json), [fact model](../../app/source_material.py) | Provider raw events/papers and normalized records |
 | Reviewed TCU domestic annual admission and native papers | [Evidence schema](../../schemas/tcu-annual-papers-v1.schema.json), [checksum resolver and coverage gate](../../app/providers/hce_tcu/evidence.py) | `catalog/mappings/tcu/annual-papers-v1.json` |
+| Reviewed NTHU annual selection and shared-paper applicability | [Evidence schema](../../schemas/nthu-annual-papers-v1.schema.json), [resolver and evidence gate](../../app/providers/hce_nthu/identity.py) | `catalog/mappings/nthu/annual-papers-v1.json` |
 | Reviewed TQC sample identities | [Evidence schema](../../schemas/tqc-sample-identity-v1.schema.json), [checksum resolver and evidence gate](../../app/tqc_identity_evidence.py) | `catalog/mappings/tqc/sample-identity-v1.json` |
 | Reviewed native Taipower answer corrections | [Evidence schema](../../schemas/taipower-answer-corrections-v1.schema.json), [role resolver and evidence gate](../../app/taipower_file_roles.py) | `catalog/mappings/taipower/answer-corrections-v1.json` |
 | Reviewed Taiwan Water native papers and occupational applicability | [Evidence schema](../../schemas/twc-archive-papers-v1.schema.json), [member/category resolver and conservation gate](../../app/providers/twc_recruit/archive.py) | `catalog/mappings/twc/archive-papers-v1.json` |
+| Reviewed NSYSU native documents, page selections and admission applicability | [Evidence schema](../../schemas/nsysu-native-selections-v1.schema.json), [identity and conservation owner](../../app/providers/hce_nsysu/evidence.py) | `catalog/mappings/nsysu/native-selections-v1.json` |
+| Generated NSYSU PDF reconstruction plans | [Plan schema](../../schemas/compiled-pdf-selection-v1.schema.json), [bounded applicator](../../app/providers/hce_nsysu/selection_plan.py) | `data/providers/hce_nsysu/native-selections/` |
 | Normalized papers | [V3 facts contract](../../schemas/normalized-paper-v3.schema.json), [V2 compatibility contract](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
 | Derived provider index | [V3 material/date index](../../schemas/provider-index-v3.schema.json), [V2 compatibility index](../../schemas/provider-index-v2.schema.json), [V1 compatibility index](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
 | Reviewed source scope and evidence | [Inventory schema](../../schemas/source-inventory.schema.json), [inventory validator](../../app/source_inventory.py) | `catalog/source-inventory.json` |
@@ -24,7 +27,8 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Publication quarantine | [Quarantine loader](../../app/publication_quarantine.py) | `catalog/mappings/publication-quarantine.json` |
 | Site bundles | [V3 material bundle](../../schemas/bundle-v3.schema.json), [V2 compatibility bundle](../../schemas/bundle-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/bundles.json` |
 | Embedded archive manifest | [V4 material manifest](../../schemas/bundle-archive-manifest-v4.schema.json), [V3 compatibility manifest](../../schemas/bundle-archive-manifest-v3.schema.json), [bundler](../../app/bundler.py) | `bundle.json` inside ZIPs |
-| Release assets and plans | [Asset schema](../../schemas/release-assets-v2.schema.json), [plan schema](../../schemas/release-plan-v2.schema.json), [shard policy](../../app/release_tags.py) | `data/sites/<site_id>/` |
+| Retained historical download snapshots | [Snapshot schema](../../schemas/retained-downloads-v1.schema.json), [site owner and source-history verifier](../../app/retained_downloads.py) | `data/sites/<site_id>/retained-downloads.json` |
+| Release assets and plans | [V3 asset schema](../../schemas/release-assets-v3.schema.json), [V2 compatibility schema](../../schemas/release-assets-v2.schema.json), [plan schema](../../schemas/release-plan-v2.schema.json), [shard policy](../../app/release_tags.py) | `data/sites/<site_id>/` |
 | Site frontend feed | [V3 material feed](../../schemas/frontend-bundle-feed-v3.schema.json), [V2 compatibility feed](../../schemas/frontend-bundle-feed-v2.schema.json), [publisher](../../app/publisher.py) | `data/sites/<site_id>/frontend-bundles.json` |
 
 ## Ownership and versioning
@@ -34,6 +38,15 @@ Every persisted contract has one owner. Provider ingestion state and site public
 Public-facing contracts must be versioned, with integer schema versions. A breaking contract change requires a version increment, migration and rollback paths, affected-consumer analysis, tests, and operator procedure updates. An additive change may retain its version when all consumers safely handle unknown fields. Critical readers must reject unsupported versions and provider ownership mismatches. Converting current year-scoped provider arrays to a versioned envelope is a migration, not a documentation-only change.
 
 Raw events preserve enough official-source detail to rebuild normalized records. They must not depend on site publication choices. Normalized records are source-agnostic; provider-specific parser fields require a reviewed shared-contract change before entering those records.
+
+A raw paper may retain its native acquisition category in `source_category_code`
+while `category_code` distinguishes reviewed examination-group applicability.
+Shared acquisition uses the native category for the mirror prefix, still checking
+the exact source URL, file role and checksum. Logical group references do not
+require additional native downloads or mirror copies. The optional field is
+omitted for existing raw records and does not enter normalized publication
+contracts. A single-role paper must use that role's own mirror checksum during
+classification, even when another role shares its category and subject codes.
 
 Reviewed `source_material` facts distinguish material nature from file role.
 The schema owns their vocabulary; questions, answers, corrections, audio and
@@ -48,6 +61,14 @@ answers and change others, so it stays alongside original answer keys and must
 not be treated as an interchangeable copy or automatically described as a
 complete corrected key. Its provider owns the source-page context and native
 subject applicability; the shared payload policy validates its PDF format.
+
+A `source_document` attachment retains an original combined PDF when reviewed
+subject selections become the paper records. A selection locator's fragment
+identifies the parent checksum and native pages; the HTTP observation belongs
+to the complete parent. Generated reconstruction operations are provider-owned
+technical state. Their parent/output digests and sizes must agree with the
+separate reviewed evidence, and applying them must reproduce the exact reviewed
+PDF. They do not supply subject, group, stage, date or identity decisions.
 
 The source date states whether a year belongs to an administered examination,
 an edition, or a publication. Undated and unknown dates carry no year. Existing
@@ -189,3 +210,22 @@ Every uploaded ZIP must remain strictly below GitHub's per-asset byte ceiling. T
 Compatibility outputs require an explicit consumer, owner, removal condition, and test. Retiring public paths or assets requires its own reviewed decision and successful validation of the scoped replacement. Taxonomy changes require historical reclassification and disposition checks before republishing; see [catalog audit](../operations/catalog-audit.md).
 
 For execution and recovery, use [data lifecycle](data-lifecycle.md), [the runbook](../operations/runbook.md), and [the recovery guide](../operations/recovery.md).
+
+A retained historical download preserves an existing published ZIP at its exact
+name, tag and SHA-256 while its former identity is replaced. It is not an alias
+for one successor and does not enter the current bundle/feed population. Its
+original source keys and checksums must remain anchored in current provider state
+or immutable source history. The site snapshot owns retention; the Release
+inventory projects it, capacity planning reserves its physical slot, and complete
+archive audits verify its original bytes separately from current identity
+conservation. Routine publication, local cleanup and Release pruning preserve it.
+A separate retirement operation requires exact asset/checksum authorization.
+Rollback may instead promote a snapshot back to its exact original primary
+identity and locator after verifying its bytes and source anchors. Retain any
+published successors before restoring the earlier current inventory so their
+URLs remain available too.
+
+Release inventories use v3 when frozen downloads are present; inventories without
+them retain their existing contract. Critical release readers reject unsupported
+versions and foreign site ownership before upload or cleanup. Release plans list
+retained downloads explicitly and count all declared physical asset names.

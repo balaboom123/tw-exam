@@ -19,11 +19,16 @@ def physical_asset_names(bundle: BundleAsset) -> set[str]:
 
 
 def validate_release_capacity(
-    bundles: list[BundleAsset], *, limit: int = GITHUB_RELEASE_ASSET_LIMIT
+    bundles: list[BundleAsset],
+    *,
+    limit: int = GITHUB_RELEASE_ASSET_LIMIT,
+    reserved_assets: dict[str, set[str]] | None = None,
 ) -> None:
     if limit < 1 or limit > GITHUB_RELEASE_ASSET_LIMIT:
         raise ValueError(f"release asset limit must be between 1 and {GITHUB_RELEASE_ASSET_LIMIT}")
-    by_tag: dict[str, set[str]] = {}
+    by_tag: dict[str, set[str]] = {
+        tag: set(names) for tag, names in (reserved_assets or {}).items()
+    }
     for bundle in bundles:
         if not bundle.release_tag:
             continue
@@ -44,6 +49,7 @@ def assign_release_tags(
     existing_bundles: list[BundleAsset],
     bundles: list[BundleAsset],
     max_assets_per_release: int = 900,
+    reserved_assets: dict[str, set[str]] | None = None,
 ) -> list[BundleAsset]:
     if max_assets_per_release < 1 or max_assets_per_release > GITHUB_RELEASE_ASSET_LIMIT:
         raise ValueError(
@@ -57,6 +63,8 @@ def assign_release_tags(
     }
     ordered = sorted(bundles, key=lambda item: item.asset_name)
     counts: dict[str, int] = defaultdict(int)
+    for tag, names in (reserved_assets or {}).items():
+        counts[tag] = len(names)
 
     for bundle in ordered:
         release_tag = preserved.get(bundle.asset_name)

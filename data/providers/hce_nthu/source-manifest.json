@@ -673,6 +673,16 @@
   "probe_policy": {
     "accepted_asset_count": 37,
     "accepted_scope": "Native primary papers, reference keys and all official clarification-result PDFs from both source pages for each academic year.",
+    "annual_identity_reconciliation": {
+      "groups": 3,
+      "logical_group_references": 54,
+      "native_mirror_paths_changed": false,
+      "native_payloads_changed": false,
+      "native_source_files": 37,
+      "new_source_requests": 0,
+      "new_successful_sync_receipts_created": false,
+      "reviewed_at": "2026-10-22T02:24:46.686651+00:00"
+    },
     "asset_bytes": 76022336,
     "asset_reconciliation_at": "2026-07-30T20:37:23.690947+08:00",
     "discovery_mode": "official-year-exam-listing",
@@ -725,7 +735,7 @@
       "accepted_asset_count": 8,
       "accepted_asset_urls_hash": "sha256:7f75ea3f2e5e77d5007ceac779c8c9a17398d2901910ebebcecb3a55aa1050b4",
       "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
-      "accepted_paper_group_count": 8,
+      "accepted_paper_group_count": 12,
       "earlier_observation": {
         "accepted_asset_count": 5,
         "accepted_asset_urls_hash": "sha256:4fe945629ba824349183ac78fc49e7a76460160be06d58473643188b7bacbe34",
@@ -766,7 +776,7 @@
       "accepted_asset_count": 8,
       "accepted_asset_urls_hash": "sha256:7d04b894ac7261bdb2f6e890c6570303dc30f3c0fb1010ae30591c0b0f8b6587",
       "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
-      "accepted_paper_group_count": 8,
+      "accepted_paper_group_count": 13,
       "earlier_observation": {
         "accepted_asset_count": 5,
         "accepted_asset_urls_hash": "sha256:ed22c083436e458f86c4a3bfb4914724d58fc9c26ef4157adf257fdc825fd2f5",
@@ -807,7 +817,7 @@
       "accepted_asset_count": 7,
       "accepted_asset_urls_hash": "sha256:d4d04509ad2e4516cd0b202441eff1e3a8938701398d3238c23eed7fa5cff9e5",
       "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
-      "accepted_paper_group_count": 7,
+      "accepted_paper_group_count": 11,
       "earlier_observation": {
         "accepted_asset_count": 5,
         "accepted_asset_urls_hash": "sha256:1ba30d57a3484ff14c414378a67465305336f1e9618dcd4561155834bcf17de8",
@@ -848,7 +858,7 @@
       "accepted_asset_count": 7,
       "accepted_asset_urls_hash": "sha256:a191c018e9e7dd300629861830c902439f29d177d74c4cea8d6e3a02fd391384",
       "accepted_asset_urls_hash_basis": "SHA256 of UTF-8 compact JSON sorted unique native URLs; Unicode preserved",
-      "accepted_paper_group_count": 7,
+      "accepted_paper_group_count": 11,
       "earlier_observation": {
         "accepted_asset_count": 5,
         "accepted_asset_urls_hash": "sha256:015989f43645001db0c742aff020d64f06c6326b23f6c56c4381d156c241c8ef",

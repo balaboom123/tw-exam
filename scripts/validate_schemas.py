@@ -17,6 +17,8 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from app.providers.hce_tcu.evidence import annual_papers_path as tcu_annual_papers_path, validate_annual_papers as validate_tcu_annual_papers
+from app.retained_downloads import retained_downloads_path, load_retained_downloads
+from app.paths import site_paths
 from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
 from app.moex_identity_evidence import moex_evidence_path, validate_moex_category_evidence
@@ -44,6 +46,8 @@ from app.hakka_identity import (
     validate_hakka_conflicts,
     validate_hakka_historical_grades,
 )
+from app.providers.hce_nthu.identity import annual_papers_path, validate_annual_papers
+from app.providers.hce_nsysu.evidence import native_selections_path, validate_native_selections
 from app.paths import provider_paths
 from app.provider_index import load_provider_index
 from app.source_revisions import load_source_revisions, revision_journal_path
@@ -107,10 +111,12 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
 
     artifacts = (
         (tcu_annual_papers_path(repo_root), "tcu-annual-papers-v1.schema.json"),
-        (site_dir / "release-assets.json", "release-assets-v2.schema.json"),
+        (site_dir / "release-assets.json", f"release-assets-v{_read_json(site_dir / 'release-assets.json')['schema_version']}.schema.json"),
         (repo_root / "catalog" / "source-inventory.json", "source-inventory.schema.json"),
         (moex_evidence_path(repo_root), "moex-category-identity-v1.schema.json"),
         (tqc_evidence_path(repo_root), "tqc-sample-identity-v1.schema.json"),
+        (annual_papers_path(repo_root), "nthu-annual-papers-v1.schema.json"),
+        (native_selections_path(repo_root), "nsysu-native-selections-v1.schema.json"),
         (archive_identity_path(repo_root), "twc-archive-identity-v1.schema.json"),
         (native_archive_path(repo_root), "twc-archive-papers-v1.schema.json"),
         (hakka_conflicts_path(repo_root), "hakka-native-conflicts-v1.schema.json"),
@@ -129,9 +135,17 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     )
     for path, schema_name in artifacts:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
+    retained_path = retained_downloads_path(site_paths(repo_root, "default"))
+    if retained_path.exists():
+        _validate(schemas["retained-downloads-v1.schema.json"], _read_json(retained_path), str(retained_path.relative_to(repo_root)))
+        load_retained_downloads(site_paths(repo_root, "default"))
     validate_moex_category_evidence(repo_root)
     validate_tqc_identity_evidence(repo_root)
     validate_tcu_annual_papers(repo_root)
+    validate_annual_papers(repo_root)
+    for plan_path in sorted((repo_root / "data/providers/hce_nsysu/native-selections").glob("*.json")):
+        _validate(schemas["compiled-pdf-selection-v1.schema.json"], _read_json(plan_path), str(plan_path.relative_to(repo_root)))
+    validate_native_selections(repo_root)
     validate_archive_identities(repo_root)
     validate_native_archives(repo_root)
     validate_hakka_conflicts(repo_root)

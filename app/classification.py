@@ -2044,6 +2044,61 @@ def _classify_paper_uncached(
             stage_id = "unknown"
             confidence = "review"
             reason = "TCU native paper or annual domestic admission evidence requires review"
+    nthu_identity = None
+    if provider_id == "hce_nthu":
+        from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
+
+        nthu_identity = resolve_nthu_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            source_material=source_material,
+            checksum=source_checksum,
+        )
+        if nthu_identity is None:
+            stage_id = "unknown"
+            confidence = "review"
+            reason = (
+                "NTHU stage and admission-group applicability lack exact native annual evidence"
+            )
+        else:
+            annual, group = nthu_identity
+            track_id, track_label = group.track_id, group.label or canonical_name
+            stage_id = annual.stage_id
+            confidence = "high"
+            reason = (
+                "Reviewed NTHU annual written-test stage and group applicability: "
+                f"{annual.rule_url}"
+            )
+    nsysu_identity = None
+    if provider_id == "hce_nsysu":
+        from app.providers.hce_nsysu.evidence import resolve_identity as resolve_nsysu_identity
+
+        nsysu_identity = resolve_nsysu_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            source_material=source_material,
+            checksum=source_checksum,
+        )
+        if nsysu_identity is None:
+            stage_id = "unknown"
+            confidence = "review"
+            reason = "NSYSU stage/group lacks an exact reviewed native PDF selection"
+        else:
+            nsysu_annual, nsysu_group = nsysu_identity
+            track_id = nsysu_group.track_id
+            track_label = nsysu_group.label or canonical_name
+            stage_id = nsysu_annual.stage_id
+            confidence = "high"
+            reason = (
+                "Reviewed NSYSU annual written-test stage, group and native PDF pages: "
+                f"{nsysu_annual.rule_urls[0]}"
+            )
     if provider_id == "tabf_cert":
         stage_id = NOT_APPLICABLE if tabf_context is not None else "unknown"
     if provider_id == "ipas_cert":
@@ -2193,6 +2248,14 @@ def _classify_paper_uncached(
                 bundle_name += f"｜{twc_category.label}"
             stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
             bundle_name += f"｜{stage_label}"
+        if provider_id == "hce_nthu":
+            if nthu_identity is not None and nthu_identity[1].label:
+                bundle_name += f"｜{nthu_identity[1].label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+        if provider_id == "hce_nsysu":
+            if nsysu_identity is not None and nsysu_identity[1].label:
+                bundle_name += f"｜{nsysu_identity[1].label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if level_id not in {NOT_APPLICABLE, "unknown"}:
             bundle_name = f"{bundle_name}｜{level_label}"
         # These providers publish separate subject/occupation tracks under a

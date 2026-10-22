@@ -59,6 +59,7 @@ EXPECTED_EXTENSIONS = {
     "answer_table": (".html", ".htm"),
     "accessible_bundle": (".zip",),
     "source_archive": (".zip",),
+    "source_document": (".pdf",),
     "source_page": (".html", ".htm"),
     "listening_audio": (".mp3", ".zip", ".rar"),
     "speaking_audio": (".mp3", ".zip", ".rar"),
@@ -93,9 +94,10 @@ def _mirror_prefix_for_attachment(page: SourceExamPage, attachment: ExamAttachme
 
 
 def _mirror_prefix_for_paper(page: SourceExamPage, paper: ParsedPaper, file_type: str) -> str:
+    category = paper.source_category_code or paper.category_code
     return (
         f"{_provider_storage_prefix(page)}{page.year_roc}/{page.source_exam_id}"
-        f"/{paper.category_code}/{paper.subject_code}/{file_type}"
+        f"/{category}/{paper.subject_code}/{file_type}"
     )
 
 
@@ -641,6 +643,7 @@ def sync_exam_pages(
                 files={file_type: paper.files[file_type] for file_type in paper.mirror_files},
                 mirror_files=paper.mirror_files,
                 source_material=paper.source_material,
+                source_category_code=paper.source_category_code,
             )
             for paper in page.papers
             if paper.mirror_files

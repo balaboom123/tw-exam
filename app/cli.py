@@ -1280,6 +1280,7 @@ def command_publish_site(args: argparse.Namespace) -> int:
             repository=args.repository,
             affected_canonical_ids=affected_canonical_ids,
             canonical_aliases=canonical_aliases,
+            retain_existing_download_ids=set(getattr(args, "retain_existing_download", []) or []),
         )
     except ValueError as exc:
         print(str(exc), flush=True)
@@ -1592,6 +1593,13 @@ def build_parser() -> argparse.ArgumentParser:
     publish_site_parser.add_argument("--site-id", default="default")
     publish_site_parser.add_argument("--repository", default="example/repo")
     publish_site_parser.add_argument("--publish-plan", type=Path, default=None)
+    publish_site_parser.add_argument(
+        "--retain-existing-download",
+        action="append",
+        default=[],
+        metavar="BUNDLE_ID",
+        help="Keep the exact existing ZIP URL and bytes while replacing its publication identity.",
+    )
     publish_site_parser.add_argument(
         "--download-affected-bundles",
         action="store_true",

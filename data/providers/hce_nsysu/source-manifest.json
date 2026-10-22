@@ -1,40 +1,115 @@
 {
   "exams": {
     "hce-nsysu-111": {
+      "attachment_count": 1,
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+      "earlier_native_document_projection": {
+        "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+        "exam_label": "111學年度國立中山大學學士後醫學系",
+        "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_111.pdf",
+        "source_exam_id": "hce-nsysu-111",
+        "year_ad": 2022,
+        "year_roc": 111
+      },
       "exam_label": "111學年度國立中山大學學士後醫學系",
+      "exam_name_hash": "sha256:60d5713635203bd054254bfce86454b4c9a899b2a5bcdbd6cd73c1744d0a287a",
+      "file_link_count": 8,
+      "head_content_length": null,
+      "identity_reconciled_at": "2026-10-22T04:29:05.719036+00:00",
+      "paper_count": 8,
+      "paper_url_hash": "sha256:15ea2feab12aa5458403114b0275e06fc332fe1981ac4bc3b2aea00a3aeff540",
       "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_111.pdf",
       "source_exam_id": "hce-nsysu-111",
       "year_ad": 2022,
       "year_roc": 111
     },
     "hce-nsysu-112": {
+      "attachment_count": 1,
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+      "earlier_native_document_projection": {
+        "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+        "exam_label": "112學年度國立中山大學學士後醫學系",
+        "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_112.pdf",
+        "source_exam_id": "hce-nsysu-112",
+        "year_ad": 2023,
+        "year_roc": 112
+      },
       "exam_label": "112學年度國立中山大學學士後醫學系",
+      "exam_name_hash": "sha256:c982d78db6060b66ce644a3b9fcfeb47ffef101550184056a8da7e3858dc25e0",
+      "file_link_count": 6,
+      "head_content_length": null,
+      "identity_reconciled_at": "2026-10-22T04:29:05.719036+00:00",
+      "paper_count": 6,
+      "paper_url_hash": "sha256:b28e8c8c5e7b7cbc63df582da47249e62e4a5f33b19b7d35d08e3bff42d24ec2",
       "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_112.pdf",
       "source_exam_id": "hce-nsysu-112",
       "year_ad": 2023,
       "year_roc": 112
     },
     "hce-nsysu-113": {
+      "attachment_count": 1,
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+      "earlier_native_document_projection": {
+        "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+        "exam_label": "113學年度國立中山大學學士後醫學系",
+        "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_113.pdf",
+        "source_exam_id": "hce-nsysu-113",
+        "year_ad": 2024,
+        "year_roc": 113
+      },
       "exam_label": "113學年度國立中山大學學士後醫學系",
+      "exam_name_hash": "sha256:be333f3f8d2efb40c70cfbb0cdedce6de722bebe6a997eda6427fbb5892fd350",
+      "file_link_count": 6,
+      "head_content_length": null,
+      "identity_reconciled_at": "2026-10-22T04:29:05.719036+00:00",
+      "paper_count": 6,
+      "paper_url_hash": "sha256:33a6ed6dbba598b06520d4380642942edd13c360235e70f87266042c89e9d02a",
       "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_113.pdf",
       "source_exam_id": "hce-nsysu-113",
       "year_ad": 2024,
       "year_roc": 113
     },
     "hce-nsysu-114": {
+      "attachment_count": 1,
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+      "earlier_native_document_projection": {
+        "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+        "exam_label": "114學年度國立中山大學學士後醫學系",
+        "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_114.pdf",
+        "source_exam_id": "hce-nsysu-114",
+        "year_ad": 2025,
+        "year_roc": 114
+      },
       "exam_label": "114學年度國立中山大學學士後醫學系",
+      "exam_name_hash": "sha256:4f4203cc73ac5906c15b836f08cc203f42cd084b7cbc0bff9cdcf3038e138d72",
+      "file_link_count": 6,
+      "head_content_length": null,
+      "identity_reconciled_at": "2026-10-22T04:29:05.719036+00:00",
+      "paper_count": 6,
+      "paper_url_hash": "sha256:177e9e76e12f84bdbe1ff87a34fb54eeafecf8e18f0b9585b6c059c6f68021f4",
       "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_114.pdf",
       "source_exam_id": "hce-nsysu-114",
       "year_ad": 2025,
       "year_roc": 114
     },
     "hce-nsysu-115": {
+      "attachment_count": 1,
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+      "earlier_native_document_projection": {
+        "discovered_at": "2026-07-30T20:15:01.686306+08:00",
+        "exam_label": "115學年度國立中山大學學士後醫學系",
+        "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_115.pdf",
+        "source_exam_id": "hce-nsysu-115",
+        "year_ad": 2026,
+        "year_roc": 115
+      },
       "exam_label": "115學年度國立中山大學學士後醫學系",
+      "exam_name_hash": "sha256:aa9726970665a19d8cdb6dc88766e4a6f458e708a29546c75073dcb3c9276358",
+      "file_link_count": 3,
+      "head_content_length": null,
+      "identity_reconciled_at": "2026-10-22T04:29:05.719036+00:00",
+      "paper_count": 3,
+      "paper_url_hash": "sha256:c3354db825724298dc5d30941ed88dfd0daf8e97ab7eb8980d2be32a0a968f19",
       "result_url": "https://www3.nsysu.edu.tw/exam/bachelor/med/pbm/pbm_115.pdf",
       "source_exam_id": "hce-nsysu-115",
       "year_ad": 2026,
@@ -45,6 +120,17 @@
   "probe_policy": {
     "accepted_asset_count": 5,
     "accepted_scope": "one official combined question-and-answer PDF for each discovered NSYSU post-baccalaureate medicine year",
+    "annual_identity_reconciliation": {
+      "logical_group_references": 29,
+      "native_source_files": 5,
+      "new_source_requests": 0,
+      "new_successful_sync_receipts_created": false,
+      "original_payloads_changed": false,
+      "reviewed_at": "2026-10-22T04:29:05.719036+00:00",
+      "routes": 3,
+      "selected_physical_PDFs": 20,
+      "source_capture_evidence": "NSYSU-current-archive-capture/current-archive-comparison.json"
+    },
     "asset_reconciliation_at": "2026-07-30T20:15:28.875332+08:00",
     "combined_pdf_bytes": 35509877,
     "discovery_mode": "official-year-exam-listing",
@@ -64,6 +150,7 @@
     "2022": {
       "accepted_asset_count": 1,
       "accepted_asset_urls_hash": "c2faa5ea8d15f6e1dfc937a5b536d9ba398e75c49cd6ea88fb76146542617e2f",
+      "accepted_paper_group_count": 8,
       "asset_reconciled_at": "2026-07-30T20:15:28.875332+08:00",
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
       "exam_codes": [
@@ -80,6 +167,7 @@
     "2023": {
       "accepted_asset_count": 1,
       "accepted_asset_urls_hash": "90d12d89434d3a430886fc5b3cd8c5bee30f2432eb8c635397dc45b266607072",
+      "accepted_paper_group_count": 6,
       "asset_reconciled_at": "2026-07-30T20:15:28.875332+08:00",
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
       "exam_codes": [
@@ -96,6 +184,7 @@
     "2024": {
       "accepted_asset_count": 1,
       "accepted_asset_urls_hash": "2760c426843cac0d3c0f78767b8282cf67a58543565f24fca361dd136095bef6",
+      "accepted_paper_group_count": 6,
       "asset_reconciled_at": "2026-07-30T20:15:28.875332+08:00",
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
       "exam_codes": [
@@ -112,6 +201,7 @@
     "2025": {
       "accepted_asset_count": 1,
       "accepted_asset_urls_hash": "5dd62bd8b5aab2e7b10a0d0d616f330cd5f42abd84e22f4e8c8f956dcf6bba46",
+      "accepted_paper_group_count": 6,
       "asset_reconciled_at": "2026-07-30T20:15:28.875332+08:00",
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
       "exam_codes": [
@@ -128,6 +218,7 @@
     "2026": {
       "accepted_asset_count": 1,
       "accepted_asset_urls_hash": "22abee46ceabeaaaffc9a38b5796a662782692333ff659b138dfb92f5515aa37",
+      "accepted_paper_group_count": 3,
       "asset_reconciled_at": "2026-07-30T20:15:28.875332+08:00",
       "discovered_at": "2026-07-30T20:15:01.686306+08:00",
       "exam_codes": [

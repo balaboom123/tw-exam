@@ -42,7 +42,8 @@ def _scoped_fixture(monkeypatch, tmp_path):
         inspected.append(path.name)
         return manifests[path.stem]
 
-    monkeypatch.setattr(archive_audit, "site_paths", lambda root, site_id: SimpleNamespace(bundle_dir=tmp_path))
+    monkeypatch.setattr(archive_audit, "site_paths", lambda root, site_id: SimpleNamespace(
+        bundle_dir=tmp_path, data_dir=tmp_path / "data", site_id=site_id))
     monkeypatch.setattr(archive_audit, "load_site_bundles",
                         lambda site: [bundle("a", "v2-001"), bundle("b", "v2-002")])
     monkeypatch.setattr(archive_audit, "load_site_catalog",

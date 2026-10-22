@@ -6,12 +6,16 @@ Requires the gh CLI with GH_TOKEN set.
 from __future__ import annotations
 
 import hashlib
-import json
 import os
 import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from app.retained_downloads import release_download_records
 
 RELEASE_TAG = os.environ.get("RELEASE_TAG") or os.environ.get("MOEX_RELEASE_TAG") or ""
 SITE_ID = os.environ.get("SITE_ID", "default")
@@ -24,10 +28,7 @@ HASH_CHUNK_BYTES = 1024 * 1024
 
 
 def _local_assets() -> list[dict]:
-    payload = json.loads(RELEASE_ASSETS_PATH.read_text(encoding="utf-8"))
-    if isinstance(payload, dict):
-        return payload.get("assets", payload)
-    return payload
+    return release_download_records(RELEASE_ASSETS_PATH, expected_site_id=SITE_ID)
 
 
 def _asset_release_tag(asset: dict) -> str:
@@ -315,7 +316,7 @@ def prune() -> int:
 
 
 def primary_only_check() -> int:
-    """Fail closed unless every active Release contains only current primary ZIPs."""
+    """Fail closed unless each Release contains exactly its declared downloads."""
     grouped = _group_assets_by_release_tag()
     if not grouped:
         print("No site Release inventory to verify", file=sys.stderr)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
@@ -45,9 +46,16 @@ class ParsedPaper:
     files: dict[str, str]
     mirror_files: dict[str, dict[str, str]] = field(default_factory=dict)
     source_material: SourceMaterial | None = None
+    # Preserve the native acquisition category when a file serves several groups.
+    source_category_code: str = ""
 
     def __post_init__(self) -> None:
         self.source_material = source_material(self.source_material)
+        if not isinstance(self.source_category_code, str) or (
+            self.source_category_code
+            and re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", self.source_category_code) is None
+        ):
+            raise ValueError("Invalid native source category code")
 
 
 @dataclass
@@ -237,6 +245,7 @@ FILE_TYPE_LABELS = {
     "answer_table": "答案表",
     "accessible_bundle": "無障礙題本",
     "source_archive": "來源壓縮包",
+    "source_document": "來源合併原檔",
     "source_page": "來源網頁",
     "source_asset": "來源附屬檔案",
     "instructions": "使用說明",
@@ -262,7 +271,8 @@ def to_plain_data(value: Any) -> Any:
         return {
             key: to_plain_data(item)
             for key, item in value.items()
-            if key != "source_material" or item is not None
+            if (key != "source_material" or item is not None)
+            and (key != "source_category_code" or item != "")
         }
     if isinstance(value, (list, tuple)):
         return [to_plain_data(item) for item in value]

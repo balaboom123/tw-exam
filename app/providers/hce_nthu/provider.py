@@ -3,6 +3,7 @@ from __future__ import annotations
 from app.models import ExamOption, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
 from app.providers.hce_archive import HCE_CONFIGS, HceArchiveClient
+from app.providers.hce_nthu.identity import project_admission_groups
 
 
 class HceNthuProvider(SourceProvider):
@@ -25,7 +26,7 @@ class HceNthuProvider(SourceProvider):
         return self.client.build_discovery_exam_url(exam_code, year_ad)
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
-        return self.client.fetch_exam_page(exam_code, year_ad)
+        return project_admission_groups(self.client.fetch_exam_page(exam_code, year_ad))
 
     def head(self, url: str) -> ResponseMetadata:
         return self.client.head(url)

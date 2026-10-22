@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "provider_id": "hce_nthu",
+  "events": [
+    {
+      "year_roc": 111,
+      "source_exam_id": "hce-nthu-111",
+      "written_test_date": "2022-04-30",
+      "stage_id": "stage-1",
+      "rule_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Mekk0TDNCMFlWOHhNVGN6TkRkZk1USXhPVGszWHpNeU1qVXpMbkJrWmc9PQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10GG04DC14TWJGLK35WSJCDCGCZTJDSSB5YSB4JGDGPKDCXW50YW10NPZXIGXSNK34KK30RL35KLB0YSGC00YTWSB5FCNKFCEGOOKKA0QKZTCCYX10VSTWDHDH",
+      "rule_checksum": "128c56bb629608a40515362f6ad2595c9bc11b84303eb6af8c73a5fdd8866718",
+      "rule_printed_pages": [
+        1,
+        6,
+        7
+      ],
+      "reviewed_at": "2026-10-22",
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-natural-science",
+          "track_id": "hce-nthu-natural-science",
+          "label": "自然科學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "chemistry-physics"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-information-technology",
+          "track_id": "hce-nthu-information-technology",
+          "label": "智慧資訊科技組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-science"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MelF2Y0hSaFh6RXhOemt5TTE4ek1EYzROak01WHpBME5UazRMbkJrWmc9PQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQKUSOOB5PKYW00GG21DGA0HGZWVWTWDCXSUSFGZW35CCGDPKA0ROECUSQOWSTSRKB0DGTSPLJHEDXWPK10",
+          "checksum": "6d7cf3bf7e5b10004c8633f0cd65fd92ccdaa73c153c0d3f176d80bdd618121c"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MelF2Y0hSaFh6RXhOemt5TkY4ek5URXlOekExWHpBME5UazRMbkJrWmc9PQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQKUSOOYWFCNPPOPPKKDGA0JG14ZSHCDCXS1434MOMK0035QPROYSDCFCDGIGHG01USROXWXTHHDGVWEGICKOJGKKWSQOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
+          "checksum": "08283f8a0ac236ac2971b62e7c5e0662cfc824af79e6378a515076e74d8123b3"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MelF2Y0hSaFh6RXhOemt5TlY4ME9UZzNNekU1WHpBME5UazRMbkJrWmc9PQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQKUSOO45FCUS00FD25DGA0DCXTPKDGDCGC1434MOMK0035QPRO34DCJGPK34A4CDUSICPOHDYXDGVWEGICKOJGKKWSQOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
+          "checksum": "f8c898a72b667004a7ac8d2d8fc457d905e9bc0ae4e70208a3c5934d329f56dc"
+        },
+        {
+          "subject_code": "computer-science",
+          "subject_name_raw": "資訊科學",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MelF2Y0hSaFh6RXhOemt5Tmw4ek1EYzFNelE1WHpBME5UazRMbkJrWmc9PQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQKUSOOCDPKPO44EHJHHCA0UWIGVWKO35XSUSB0USICQPXTQPVWWS30IGB4GGOKA4USICCCTXYXNOFGQKZWXSJGVX2020UWRKMK21GDNLRK",
+          "checksum": "f6644f118fa798ae9b307d2dfca53eec8834e46c4a3d5ac768790fda39dbeaa1"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MelF2Y0hSaFh6RXhOemt5TjE4NU9EUTJOemsxWHpBMU5EY3pMbkJrWmc9PQ==&fname=LOGGROOKYW4441XXEDLKIG24US30WTLOYSB0MPNPCCNP004034YWPPB400OOJGEGSSWWTX252004FCLORKXSKOLKSSROMKWSNPJDLO40YSUSJG505000A0OKTWPO4511EDPOSW34KKJGSWICUS30A110",
+          "checksum": "a1ee73efc4a63b48b28778222639b167599c45c099d208b5d7d53b8825548729"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekkwTDNCMFlWOHhNVGM1TXpCZk16VXlOamcxTTE4eE56QTNNUzV3WkdZPQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05TS04DCWWQOOKTSMOOPB0WSGCNPRLDCA0UWB0WXFGUSCCB5PKPKPOEH25DGA054WSVW30HCLKWSB024MKIHXTML3134DCFCSW34SSCDUS4400XTJH44LKDGGDIGJGLOHCWSROCGXSQPXT04PKYSB4JCDGQO54GHSSLO404521ED10SXMOVWNKHCLKKLB0QL14LPZTQP21UWTSVTKLSS54PKSW",
+          "checksum": "bbdf37a7f1e7b11481022008078c19078c496c9991e19bca2795c7dc860f57d3"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekkwTDNCMFlWOHhNVGM1TkRWZk1URTRNamt6Tmw4M09UUTVNQzV3WkdZPQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05TS04DCWWQOOKTSMODGB0QLXWMLXTXWA034MKB001USSSB5PKPKPOEH25DGA0JG14ZSHCDCXSUSB0ZWMPIHGDML3134DCFCSW34SSCDUS4400XTJH44LKDGGDIGJGLOHCWSROCGXSQPXT04PKYSB4JCDGQO54GHSSLO404521ED10SXMOVWNKHCLKKLB0QL14LPZTQP21UWTSVTKLSS54PKSW",
+          "checksum": "57451b587693dcf23d3cbfaa9e76b5da36d5230c902dbede988f8b650b8f51eb"
+        },
+        {
+          "subject_code": "computer-science",
+          "subject_name_raw": "資訊科學",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekkwTDNCMFlWOHhNVGM1TkRaZk5UTXdNVFV4TjE4M09UUTVNQzV3WkdZPQ==&fname=WW54RPOKRK44A1HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05TS04DCWWQOOKTSMOB0MONKNKTXJDNOTSUWZWCDUWFHTSYWFCWWXW15ZXDGA0DCXTPKDGDCGCUSFGZW35CCGDQPVWUWDCUSA41454STUSIC44150544LKIGYWQOB4RLYSIGROCGKKA1NP04B5UWB4WXB4205401QKXSQOPPKK50A0WTHGDCTW25LKFGB0UW10GGFDA0VSKPNO1145",
+          "checksum": "b08f1ecccfc531779bfa5ef6ccf508d26aeedb8e5b03fab9f9b43d0b7bee3cfd"
+        }
+      ]
+    },
+    {
+      "year_roc": 112,
+      "source_exam_id": "hce-nthu-112",
+      "written_test_date": "2023-04-09",
+      "stage_id": "stage-1",
+      "rule_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Memt2Y0hSaFh6RXlOamN6TlY4MU56RTNNVEV4WHpjNE1ERTBMbkJrWmc9PQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10GG0454NKKK30GD10QOB0WSMP21XTLKB5POMKOPB400SSPKROKK04POPO",
+      "rule_checksum": "85549dde18f94a3e32e5a9bc9c8b64fc61d5c0229bc48f1cde0ce79638b11f39",
+      "rule_printed_pages": [
+        1,
+        6,
+        7
+      ],
+      "reviewed_at": "2026-10-22",
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-natural-science",
+          "track_id": "hce-nthu-natural-science",
+          "label": "自然科學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "chemistry-physics"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-information-technology",
+          "track_id": "hce-nthu-information-technology",
+          "label": "智慧資訊科技組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-science"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Mell2Y0hSaFh6RXpNREkzTkY4Mk5UUXhPVEl4WHpJek16YzJMbkJrWmc9PQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54TXVWKOSS35DGJCYWLKIHXTKKTSSSNKKOA0DGCCFCROPOWWUT10IG04FG34OO30GDB1B430A1A1",
+          "checksum": "aec7f202d5bf8d0bc25adc60130c6767f076fbd6ab7141c13867055f151b7c06"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Mell2Y0hSaFh6RXpNREkzTlY4MU56TXdOams1WHpJek16YzJMbkJrWmc9PQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54NKVWPKJG25WXFCUSIC4435A4VSNK30ZSTWDG0010FCUSQOXT2524LKMO14IG30WTLOFGEG04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "1dc097227bbaa44cb99c419bab01551e24cfd31212a27fce5c26487e9f030035"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Mell2Y0hSaFh6RXpNREk0TUY4MU5UWTJPVGt4WHpJMk5EUTRMbkJrWmc9PQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LKUWLOVWB4JG35SS2440MP41GDQPMLA0B4ZSFGDG0010FCUSQO152550B041GDQOB41025FGIC04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "cfc02d9c35365c31657cb62acb81104377b9294435c8bf475473e9afdbeac54b"
+        },
+        {
+          "subject_code": "computer-science",
+          "subject_name_raw": "資訊科學",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Mell2Y0hSaFh6RXpNREk0TVY4eU5qSTRNVGs1WHpJMk5EUTVMbkJrWmc9PQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2100LK5020ZSKODGYSB0QKMOICHD35MLRKYSQO45TWQOA4JGRONOPOUT0544EGB4GDMO3010HCWSEGRKYS21XTLKB5POMKOPB400SSPKROKK04POPO",
+          "checksum": "b6e39dc21137c74549b9e492c6536da003af40a0ff244029c643ab8df49f3151"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9Mell2Y0hSaFh6RXpNREk0TWw4MU56WTJNall3WHpJMk5EUTVMbkJrWmc9PQ==&fname=LOGGROOKYW4441XXEDLKIG24US3025LORKFGB1NOQP25CC40ZWROGH54WW54KLOKDGKKDHKKDG04FCLOFCOKTS34OPB0NOWSUTXTXWTSYS2030B0GGHGCDTSSS40NPYXJCNO5020VWB4DGYSWXICMO3541GDGGSSUSUSUSUW00A4HHHH",
+          "checksum": "52e5e45eb19b74d59e270c4f0c3dc9653dd1dcb2b3a0cba9e11a48b4d8dc4540"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemMxTDNCMFlWOHhNekF6TlRKZk5UQTROelU0TlY4M05qVTROUzV3WkdZPQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSSW25MORKMOSWNPHDNPYXA5USECOPFG20TSRO54MKDC21JH50B0KPYWFC30WTRLWSA0CGXSMLIDSSFCYSROVSB0DGDCDGDCLOQONP00EDXSNK34OOTWVXICDGUWTSKKLPGDLKTS34DCCD54USHGPKSW",
+          "checksum": "b3f466a2a763cd4087185215dd893f86c50ddb1c09b4aad65ebedec180192cca"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemMxTDNCMFlWOHhNekF6TlROZk16STVOell3TlY4M05qVTROUzV3WkdZPQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "0ac4495c0f52426462685b93f654147710d2c7e6d16a8afb74c2b822abeef438"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemMxTDNCMFlWOHhNekF6TlRSZk5URTVNREkwTjE4M05qVTROaTV3WkdZPQ==&fname=WW54RPOKRK4441HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "26cb253cc73b05950907dcf3289307de7dc277115704db7fb1a5ec35edd3271a"
+        }
+      ]
+    },
+    {
+      "year_roc": 113,
+      "source_exam_id": "hce-nthu-113",
+      "written_test_date": "2024-04-14",
+      "stage_id": "stage-1",
+      "rule_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MelkxTDNCMFlWOHhNems0TUROZk5EazNPVFl5WHpjd01USTNMbkJrWmc9PQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD102004YSXTKK30GD10QOB0WSMP21XTLKB5POMKOPB400SSPKROKK04POPO",
+      "rule_checksum": "c7cb8c6f02d74a314d8ceda2abc4136f3306520491dd7c5e21469d8d24d044e3",
+      "rule_printed_pages": [
+        1,
+        6,
+        7
+      ],
+      "reviewed_at": "2026-10-22",
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-natural-science",
+          "track_id": "hce-nthu-natural-science",
+          "label": "自然科學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "chemistry-physics"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-information-technology",
+          "track_id": "hce-nthu-information-technology",
+          "label": "智慧資訊科技組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "computer-science"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhORE0yT1RKZk1qUTBNRGM0TlY4NE1UUTJOeTV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54TXVWKOSS35DGJCYWLKIHXTKKTSSSNKKOA0DGCCFCROPOWWUT10IG04FG34OO30GDB1B430A1A1",
+          "checksum": "26cd45e3c258ec689155c405dc809a36f6e2a1652bf6e64edb286ef167fe4b61"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhORE0yT1ROZk5UVTROVE16TWw4NE1UUTJOeTV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54NKVWPKJG25WXFCUSIC4435A4VSNK30ZSTWDG0010FCUSQOXT2524LKMO14IG30WTLOFGEG04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "9f17bb13950ff5c999c2fe905683df9c8e5a7612379b0df467f34e6a769502fe"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhORE0yT1RSZk1qUTROek0wTWw4NE1UUTJOeTV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LKUWLOVWB4JG35SS2440MP41GDQPMLA0B4ZSFGDG0010FCUSQO152550B041GDQOB41025FGIC04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "a8fa8f6880ae1028f52a7d7f764b47d19a0ac8093bf44f962539b5ece124848c"
+        },
+        {
+          "subject_code": "computer-science",
+          "subject_name_raw": "資訊科學",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhORE0yT1RWZk5qTTVPVEExTWw4NE1UUTJPQzV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2100LK5020ZSKODGYSB0QKMOICHD35MLRKYSQO45TWQOA4JGRONOPOUT0544EGB4GDMO3010HCWSEGRKYS21XTLKB5POMKOPB400SSPKROKK04POPO",
+          "checksum": "87c8a7fa08f7faa66d981ea7654f214da24d3002d9a40b803096d468c38165bf"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhORE0yT1RaZk56UTBPVFF6TVY4NE1UUTJPQzV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKUSMOVWMOWT34DGJC4010TXJD0040QKA4A0B40054FGSSZTCCCDOOA40430XTRKHCTS34FGMO10LKVXJDDCTSZWB0ZS01US54XSFCSSPOIDYX24XW50YSVWB4WSICWSNO4035CCGDMLA0WSECNKTW20OKROTTYW542100EDXWPK10",
+          "checksum": "c25b6c017336f473e750accca785e65097f2190cdc4037fa2fd59fdea5a288a8"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV5TDNCMFlWOHhOVFl6T1RaZk5EZzVNamc1TWw4NU1qVTRNUzV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "83bf7c7da20b95bbac8039f88e11b50f9933a8b5fdade5c999246385cb7464c2"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV5TDNCMFlWOHhOVFl6T1RkZk5EWTJOek01TTE4NU1qVTRNUzV3WkdZPQ==&fname=WW54RPOKRK4411HHHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "2c43f096467128aadccef57650580737f860a316cde8087bd0a7f6c0cfd25d65"
+        }
+      ]
+    },
+    {
+      "year_roc": 114,
+      "source_exam_id": "hce-nthu-114",
+      "written_test_date": "2025-03-29",
+      "stage_id": "stage-1",
+      "rule_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVE13TVRoZk56WXdNREUxT0Y4d056TTFOQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10VS04MOYWFC14JD34QOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
+      "rule_checksum": "1238e53fa82035a1b0e2fb8c6f067baad1c542a972b739b9b3f93605a898365d",
+      "rule_printed_pages": [
+        1,
+        6,
+        7
+      ],
+      "reviewed_at": "2026-10-22",
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine-natural-science",
+          "track_id": "hce-nthu-natural-science",
+          "label": "自然科學組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "chemistry-physics"
+          ]
+        },
+        {
+          "category_code": "post-bacc-medicine-information-technology",
+          "track_id": "hce-nthu-information-technology",
+          "label": "智慧資訊科技組",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "advanced-physics-linear-algebra"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVFl6TmpaZk1qWTJORE01TWw4ek16azRNaTV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54TXVWKOSS35DGJCYWLKIHXTKKTSSSNKKOA0DGCCFCROPOWWUT10IG04FG34OO30GDB1B430A1A1",
+          "checksum": "aff5021734cc476d5a0562d6342dafb27487327a77e91401081198fad334b16f"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVFl6TmpkZk1qWXpNekE1TkY4ek16azRNeTV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54NKVWPKJG25WXFCUSIC4435A4VSNK30ZSTWDG0010FCUSQOXT2524LKMO14IG30WTLOFGEG04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "67a875ae95340cc1a9c35de396af2759cc152e7d8e421c68d782c31c15e992df"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVFl6TmpoZk1qTTROekU0TTE4ek16azROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LKUWLOVWB4JG35SS2440MP41GDQPMLA0B4ZSFGDG0010FCUSQO152550B041GDQOB41025FGIC04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "0b70477d299bdb93bda44bf378b97784e8150392fa5c13ff679fbd48c3afe879"
+        },
+        {
+          "subject_code": "advanced-physics-linear-algebra",
+          "subject_name_raw": "進階物理與線性代數",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVFl6TmpsZk16VXpNREl3T0Y4ek16azROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2100LK5020VWHCUSWSPKJCQKMPTX35QPSSYSQO45TWFG004550RKPOTX25JCLKA0NKTW1450YS34ICFHIG4435JGA0YS30JCDG20SSDCGHNODCOOHHGGJCJCGDFCMOJG25OPQKNO24UTJDLKA5YSA4FCB4OOKKA0QKZTCCYX10VSTWDHDH",
+          "checksum": "5ef3ac12a037dc20eb7bf568d146ec43acd3bdb16d2646b217fd2cb3b98c054c"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemsyTDNCMFlWOHhOVFl6TnpCZk56ZzVNRGN6T0Y4ek16azROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKUSMOVWMOWT34DGJC4010TXJD0040QKA4A0B40054FGSSZTCCCDOOA40430XTRKHCTS34FGMO10LKVXJDDCTSZWB0ZS01US54XSFCSSPOIDYX24XW50YSVWB4WSICWSNO4035CCGDMLA0WSECNKTW20OKROTTYW542100EDXWPK10",
+          "checksum": "57a3c7b74b2f2b68d9a3c5f65990b21087c25599af929c737b3eba68fcd096d2"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemN6TDNCMFlWOHhOVFkwTUROZk5qRXlNVE13TjE4NU1qWTROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "de0f1b3807aa635982bec608f78ec8761fd9d741f249c4bb2178e3c0dbf28c48"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemN6TDNCMFlWOHhOVFkwTURSZk1UazFNek0xTlY4NU1qWTROQzV3WkdZPQ==&fname=WW54RPOKIC44A1MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "76ffb466dfed8821e87f7f21b1a2e2cb11da6987cfa606aa2e5d7534d3144e79"
+        }
+      ]
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "hce-nthu-115",
+      "written_test_date": "2026-03-21",
+      "stage_id": "stage-1",
+      "rule_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MemczTDNCMFlWOHhOalV3TlRGZk9ETXdNVGMyTlY4eU5qQTRNaTV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT14QO3435HGTX25LK40OKROFCPOWWOOFGOKROPOEH00A404XTJGFCB4TSKOSTICGCLKLPYTXWA034MKB001USSSYWFCRO40XXGDDGA050TXTWMOHC00USB004MPA1GDQPVWA0DCFCEG34HGCDUSZT00GD10VS04MOYWFC14JD34QOJCTWICZTA1LKQPSWYWKORK00SSPKROKK04POPO",
+      "rule_checksum": "9c5403af882a9c90095ed7c70e677db3352bc15e7ec42714e21223a0339ea0bf",
+      "rule_printed_pages": [
+        1,
+        6,
+        7
+      ],
+      "reviewed_at": "2026-10-22",
+      "groups": [
+        {
+          "category_code": "post-bacc-medicine",
+          "track_id": "hce-nthu",
+          "label": "",
+          "subjects": [
+            "english",
+            "biology-biochemistry",
+            "chemistry-physics"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV4TDNCMFlWOHhOamd3TVRKZk16VTJNRGMxTTE4M05qSTFNUzV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54TXVWKOSS35DGJCYWLKIHXTKKTSSSNKKOA0DGCCFCROPOWWUT10IG04FG34OO30GDB1B430A1A1",
+          "checksum": "bd2001d572216667bd148623ce88fb4adfde9e7b6ab213dfda2d5f40cd29b460"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV4TDNCMFlWOHhOamd3TVROZk5USXhPREExT1Y4M05qSTFNUzV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LK54NKVWPKJG25WXFCUSIC4435A4VSNK30ZSTWDG0010FCUSQOXT2524LKMO14IG30WTLOFGEG04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "0a24725d497bd27a44063e0afa56f230a49a36ef89bd352dcd92ac7339462efd"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "question",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV4TDNCMFlWOHhOamd3TVRSZk1qRXhNVEF6TlY4M05qSTFNUzV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05DG04MOHC14MOTSB1IGICLKLOUT35A0TSYSB0JGQK14OORPUSWW44XX2144LKUWLOVWB4JG35SS2440MP41GDQPMLA0B4ZSFGDG0010FCUSQO152550B041GDQOB41025FGIC04HCCCFDSSQP14B0JG45SSPOROFCYWKK41IHWW04DHHG",
+          "checksum": "bd5abb6e55a583bfb4f12da5b5abf3627ac556b6637462a704861012b2a5f68b"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV4TDNCMFlWOHhOamd3TVRWZk5ESTFNVEk0TUY4M05qSTFNUzV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKUSMOVWMOWT34DGJC4010TXJD0040QKA4A0B40054FGSSZTCCCDOOA40430XTRKHCTS34FGMO10LKVXJDDCTSZWB0ZS01US54XSFCSSPOIDYX24XW50YSVWB4WSICWSNO4035CCGDMLA0WSECNKTW20OKROTTYW542100EDXWPK10",
+          "checksum": "fe449123982e196b7742683d9547fb99d943b814e533607dfd9933f6af4ac991"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhOamd3TWpWZk5UVTNPVEUxWHpJNU5UTXlMbkJrWmc9PQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSSW25MORKMOSWNPHDNPYXA5USECOPFG20TSRO54MKDC21JH50B0KPYWFC30WTRLWSA0CGXSMLIDSSFCYSROVSB0DGDCDGDCLOQONP00EDXSNK34OOTWVXICDGUWTSKKLPGDLKTS34DCCD54USHGPKSW",
+          "checksum": "48020a45a47b2cad790b5bc84e4a1de7da88389742955eb1b31075d16a100979"
+        },
+        {
+          "subject_code": "biology-biochemistry",
+          "subject_name_raw": "生物與生化",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhOamd3TWpaZk16VXdOVEV5T0Y4eU9UVXpNaTV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSOKDGICKL240020JDGDMLCCWS30ZWPKDGA4GHFCUSXW21MPIGB0JCZWMOOKFHIC20EG14NPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "3d3157d00d0d03d21bedbc6feb96628113b8d071856551a0c2d45179b1aceaa1"
+        },
+        {
+          "subject_code": "chemistry-physics",
+          "subject_name_raw": "化學與物理",
+          "file_type": "answer_clarification",
+          "source_url": "https://adms.site.nthu.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhOamd3TkRkZk5EazFNVEF4Tmw4ek5qZzVPUzV3WkdZPQ==&fname=WW54RPOKIC4441MPHCLKRKZWQOTWWT142034NO24CCQLLK40KPNKGHFG0054KLSSWW00EH05A40405XTIGNKTS14RKB0B10400RLA4DCYSYW30VS50OORPPKKK44GG2144LKJGWTXSJGHGICKLEGYW2044UXVSB0SW303001DGA4GHFCUSXW21MP20B0NPXWMK14ZTIGWSEGCGNPZTA1NOA5QKB0IGEGDGDCIGUSWWTSNPZXIG04NKGDWW30RLHCIGUWOKHCNPGDCCQPQK20LLTWFHOOROEGPKPOHDLP00ZSGD24IGZWA0XS34B0LKWW0035MLTW14NO1111",
+          "checksum": "55e224ddbb3e8625eea500cb617ae1fa21b5cf554aed8a912be67721e07c04d8"
+        }
+      ]
+    }
+  ]
+}

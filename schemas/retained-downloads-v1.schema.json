@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/retained-downloads-v1.schema.json",
+  "title": "Frozen historical downloads retained at their existing URLs",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "site_id",
+    "downloads"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "site_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "downloads": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/download"
+      }
+    }
+  },
+  "$defs": {
+    "download": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_id",
+        "bundle_id",
+        "release_tag",
+        "asset_name",
+        "storage_key",
+        "checksum",
+        "retained_at"
+      ],
+      "properties": {
+        "bundle_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release_tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_name": {
+          "type": "string",
+          "pattern": "^[^/\\\\]+\\.zip$"
+        },
+        "storage_key": {
+          "type": "string",
+          "pattern": "^bundles/sites/[^/]+/[^/]+\\.zip$"
+        },
+        "checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "retained_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provider_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "site_id": "default",
   "assets": [
     {
@@ -288,33 +288,93 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-001",
-      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
-      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
-      "checksum": "3fcb8a7fd4e39d01df0a1a704e906b70798a690736f7456386664448452cc109",
-      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1--30f395982b39.zip",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1--30f395982b39.zip",
+      "checksum": "b2f81ba9a4202d94a90e7e496d332dca1bcf21234a571daef1ede61456bb4907",
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-general-medicine-stage-1",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nsysu-general-medicine",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1--87550f53f6b5.zip",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1--87550f53f6b5.zip",
+      "checksum": "472a3302e31664ec9dc67597eb25b87c3384ce52be13d4a97eee4676586a908f",
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-smart-medical-stage-1",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nsysu-smart-medical",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1--fb6af895aa1a.zip",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1--fb6af895aa1a.zip",
+      "checksum": "ed5c671a2b35198bcd1edd3fd4b50e111d86d7906bd75eb8d03802a3bce2660a",
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu-stage-1",
       "domain_id": "admissions",
       "exam_family_id": "university-admission",
       "exam_series_id": "post-baccalaureate-medical",
       "level_id": "not-applicable",
       "track_id": "hce-nsysu",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-001",
-      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
-      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
-      "checksum": "51fc03e82e93947e19798ef228bd3eac18ac19593410700d602753dac92948ba",
-      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1--3d2cc925dc54.zip",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1--3d2cc925dc54.zip",
+      "checksum": "d6a79787c33501f6b2c917cc07dea61a5b881b90364dc9fdd4ca6bed61e94818",
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-information-technology-stage-1",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nthu-information-technology",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1--54312aa02a5a.zip",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1--54312aa02a5a.zip",
+      "checksum": "891b0c3271da12d0fb08c25e2993acf2607778589f46902726012cabfa63745d",
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-natural-science-stage-1",
+      "domain_id": "admissions",
+      "exam_family_id": "university-admission",
+      "exam_series_id": "post-baccalaureate-medical",
+      "level_id": "not-applicable",
+      "track_id": "hce-nthu-natural-science",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1--6d9d824c69d3.zip",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1--6d9d824c69d3.zip",
+      "checksum": "efab3a9ca68ba62e99d5c405a55354e6fe48245288c9af6ee108e2897c317457",
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu-stage-1",
       "domain_id": "admissions",
       "exam_family_id": "university-admission",
       "exam_series_id": "post-baccalaureate-medical",
       "level_id": "not-applicable",
       "track_id": "hce-nthu",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
@@ -51008,6 +51068,26 @@
       "variant_ids": [],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
+    }
+  ],
+  "retained_downloads": [
+    {
+      "provider_id": "hce_nsysu",
+      "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu",
+      "release_tag": "default-bundles-v2-001",
+      "asset_name": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
+      "storage_key": "bundles/sites/default/hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu--1a601723a824.zip",
+      "checksum": "3fcb8a7fd4e39d01df0a1a704e906b70798a690736f7456386664448452cc109",
+      "retained_at": "2026-10-22T16:14:36.870596+00:00"
+    },
+    {
+      "provider_id": "hce_nthu",
+      "bundle_id": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu",
+      "release_tag": "default-bundles-v2-001",
+      "asset_name": "hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
+      "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
+      "checksum": "51fc03e82e93947e19798ef228bd3eac18ac19593410700d602753dac92948ba",
+      "retained_at": "2026-10-22T16:14:37.034888+00:00"
     }
   ],
   "catalog_version": "exam-identity-v2"

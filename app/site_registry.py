@@ -80,6 +80,7 @@ _SITES = {
             "ipas-cert": 1,
             "hce-cmu": 1,
             "hce-tcu": 1,
+            "hce-nsysu": 1,
             "hce-nthu": 1,
         },
         required_provider_ids=("moex", "ceec_gsat"),
