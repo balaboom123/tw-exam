@@ -1,10 +1,11 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import call, patch
 from urllib.error import URLError
 from urllib.parse import parse_qs
 
 from app.sync import retry_network
 from app.providers.wdasec_skill.client import (
+    ARCHIVE_CATEGORIES,
     DetailRow,
     ListingRow,
     PAGE_URL,
@@ -319,7 +320,10 @@ class WdasecSkillClientDiscoveryTests(unittest.TestCase):
             self.assertEqual(len(client.discover_all_listing_rows()), 3)
             self.assertEqual(len(client.discover_all_listing_rows()), 3)
 
-        fetch.assert_called_once_with()
+        self.assertEqual(
+            fetch.call_args_list,
+            [call(category=category) for category in ARCHIVE_CATEGORIES],
+        )
 
     def test_discovery_urls_use_main_listing_and_stable_detail_route(self) -> None:
         client = WdasecSkillClient()

@@ -1779,11 +1779,11 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official listing and every declared event detail rechecked 2026-10-08: 145 sessions across 2001–2026; usable paper records span 2001–2026.",
+        "note": "Official national and project archive categories inspected 2026-10-23: 191 source pages across 2001–2026. Retained provider state represents 145 national-archive pages; annual project pages can cover several test dates.",
         "start_ad": 2001
       },
       "discovery_snapshot": {
-        "coverage": "complete",
+        "coverage": "partial",
         "manifest_path": "data/providers/wdasec_skill/source-manifest.json",
         "status": "present"
       },
@@ -1831,12 +1831,13 @@
       "provider_id": "wdasec_skill",
       "restrictions": [
         "The ASP.NET listing requires serialized ViewState postbacks; stable `?yserno=` URLs provide event-level detail evidence.",
+        "Native project categories expose 46 additional source pages not yet retained in provider state. Programme, candidate-population, date, role and paper-header conflicts require review; matching national-archive URLs or bytes do not approve these new contexts.",
         "Eight retained events remain explicit publication-policy exclusions, and event `201309140001` is a reviewed official empty result rechecked 2026-07-30.",
         "Official PDFs are publicly downloadable, but no explicit redistribution license is recorded in the repository."
       ],
       "source_name": "勞動部勞動力發展署技能檢定中心",
       "status": "partial",
-      "status_reason": "Partial / source and publication-policy constraints; all 145 declared official sessions were reconciled on 2026-10-08 and are represented locally by 10,813 records or the exact reviewed empty-result blocker. Hosted-runner discovery still times out while the full local acquisition succeeds."
+      "status_reason": "Partial / prior discovery traversed only the national archive category. Native category listings and all detail pages inspected 2026-10-23 identify 191 source pages, including 46 project pages awaiting retained acquisition and semantic review. Existing provider state represents 145 national-archive pages, including the exact reviewed empty-result blocker. Newly advertised papers and related notices also require acquisition; unreviewed contexts remain excluded from publication."
     }
   ],
   "schema_version": 1,

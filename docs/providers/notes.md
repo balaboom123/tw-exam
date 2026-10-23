@@ -905,6 +905,20 @@ uphold an answer as well as change one, so it is not automatically a replacement
 answer key. Older notices can be native Word documents. An empty related-table
 directory link is a source placeholder, not a downloadable file.
 
+Discovery must traverse each supported native archive category with its own
+submit value, session fields and pagination. An unexpected category button
+requires source-scope review instead of being silently omitted. The source's
+annual project pages can contain several test dates, and different pages can share an annual title;
+use the stable source page identifier rather than a title or row position.
+A menu mentioning a grade does not determine every linked paper's grade.
+Preserve the native row labels, and keep conflicts with paper headers unresolved
+until an exact source-and-byte review supports a correction. Newly discovered
+project contexts require review and cannot inherit approval from a matching
+occupation, file URL or checksum in the national archive. The centre's
+[explanation of project examinations](https://www.wdasec.gov.tw/News_Content.aspx?n=611E645F4BAB689F&s=AA734EAEEBAC3F68&sms=47C68486FEC19CA4)
+distinguishes student, trainee and military projects from the national sessions;
+an archive menu alone does not establish a particular candidate population.
+
 The source's identical occupation/grade labels can link different written papers:
 native headers identify the Chinese masters for the foreign-assistance form.
 These are not published English, Vietnamese or other translated-language files.

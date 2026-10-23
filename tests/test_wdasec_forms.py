@@ -142,3 +142,35 @@ def test_native_form_migration_conserves_previously_public_paper_coverage():
         min_years=config.public_min_years,
         min_years_by_canonical_prefix=config.public_min_years_by_canonical_prefix,
     )
+
+@pytest.mark.parametrize(
+    "event_id,title,year",
+    [
+        ("201201060006", "98年度乙級專案檢定試題及答案", 98),
+        ("202604130001", "115年度在校生（工業類）丙級專案檢定學科試題暨答案", 115),
+    ],
+)
+def test_additional_archive_context_cannot_publish_even_when_reusing_retained_bytes(
+    event_id, title, year
+):
+    from app.bundler import public_bundle_ids
+    from app.models import NormalizedCatalog
+    from app.site_registry import get_site_config
+
+    ordinary = next(form for form in native_forms() if form.form == "ordinary")
+    paper = replace(
+        normalized(ordinary),
+        source_exam_id=event_id,
+        exam_name_raw=title,
+        year_roc=year,
+    )
+    identity = classify_normalized_paper(paper)
+    assert identity.confidence == "review"
+    assert identity.variant_ids == ("paper-form-unknown",)
+    paper.bundle_id = identity.bundle_id
+    config = get_site_config("default")
+    assert not public_bundle_ids(
+        NormalizedCatalog([paper], []),
+        min_years=config.public_min_years,
+        min_years_by_canonical_prefix=config.public_min_years_by_canonical_prefix,
+    )

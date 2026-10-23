@@ -13,6 +13,7 @@ BASE_URL = "https://owinform.wdasec.gov.tw/ExamNet/owInform/"
 PAGE_URL = "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
 USER_AGENT = "Mozilla/5.0 (compatible; wdasec-skill-mirror/1.0)"
 CANONICAL_CATEGORY = "全國技術士技能檢定"
+ARCHIVE_CATEGORIES = ("btnSelectA", "btnSelectB", "btnSelectC")
 
 
 @dataclass(frozen=True)
@@ -65,6 +66,26 @@ class _HiddenFieldParser(HTMLParser):
             name = attr_dict.get("name") or ""
             if name:
                 self.fields[name] = attr_dict.get("value") or ""
+
+
+class _CategoryButtonParser(HTMLParser):
+    """Read the native submit values; ASP.NET validates these with the session."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.buttons: dict[str, str] = {}
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        fields = dict(attrs)
+        name = fields.get("name") or ""
+        if tag != "input" or fields.get("type") != "submit" or not name.startswith("btnSelect"):
+            return
+        if name not in ARCHIVE_CATEGORIES:
+            raise ValueError(f"Unreviewed WDA archive category button: {name}")
+        value = fields.get("value") or ""
+        if not value.strip() or name in self.buttons:
+            raise ValueError(f"Missing or repeated WDA archive button value: {name}")
+        self.buttons[name] = value
 
 
 class _ListingParser(HTMLParser):
@@ -393,8 +414,14 @@ class WdasecSkillClient:
         return self.http.download(url, content_disposition_name=False)
 
     def fetch_category_listing(self, *, category: str = "btnSelectA") -> str:
-        self._get(PAGE_URL)
-        return self._post({category: "全國技能檢定各梯次試題及答案"})
+        if category not in ARCHIVE_CATEGORIES:
+            raise ValueError(f"Unknown WDA archive category: {category}")
+        parser = _CategoryButtonParser()
+        parser.feed(self._get(PAGE_URL))
+        parser.close()
+        if category not in parser.buttons:
+            raise ValueError(f"WDA archive category button not found: {category}")
+        return self._post({category: parser.buttons[category]})
 
     def fetch_listing_page(self, page_number: int) -> str:
         return self._post(
@@ -404,24 +431,28 @@ class WdasecSkillClient:
             }
         )
 
-    def fetch_detail(self, row_index: int) -> str:
-        return self._post(
-            {
-                "__EVENTTARGET": "gvData",
-                "__EVENTARGUMENT": f"order${row_index}",
-            }
-        )
-
     def discover_all_listing_rows(self) -> list[ListingRow]:
         if self._listing_rows_cache is not None:
             return list(self._listing_rows_cache)
-        html = self.fetch_category_listing()
-        all_rows = parse_listing_rows(html)
-        total_pages = parse_page_count(html)
-        for page in range(2, total_pages + 1):
-            html = self.fetch_listing_page(page)
-            all_rows.extend(parse_listing_rows(html))
-        self._listing_rows_cache = tuple(all_rows)
+        by_id: dict[str, ListingRow] = {}
+        for category in ARCHIVE_CATEGORIES:
+            html = self.fetch_category_listing(category=category)
+            total_pages = parse_page_count(html)
+            for page in range(1, total_pages + 1):
+                if page > 1:
+                    html = self.fetch_listing_page(page)
+                rows = parse_listing_rows(html)
+                if not rows:
+                    raise ValueError(f"WDA archive listing has no rows: {category}, page {page}")
+                for row in rows:
+                    previous = by_id.get(row.plaid)
+                    if previous is not None and (previous.year_roc, previous.title) != (
+                        row.year_roc,
+                        row.title,
+                    ):
+                        raise ValueError(f"Conflicting WDA archive event context: {row.plaid}")
+                    by_id.setdefault(row.plaid, row)
+        self._listing_rows_cache = tuple(by_id.values())
         return list(self._listing_rows_cache)
 
     def discover_available_years(self) -> list[int]:

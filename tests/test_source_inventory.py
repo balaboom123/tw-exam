@@ -158,6 +158,7 @@ class SourceInventoryTests(unittest.TestCase):
             [
                 "cpc_recruit",
                 "taisugar_recruit",
+                "wdasec_skill",
                 "sfi_cert",
                 "tabf_cert",
                 "gept_cert",
