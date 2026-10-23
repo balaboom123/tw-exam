@@ -6,7 +6,7 @@ import tailwindcss from "@tailwindcss/vite"
 import path from "path"
 import { resolvePagesBase } from "./build/site-config.ts"
 import { readPublicData } from "./build/public-data.ts"
-import { buildBundlePage, buildSitemap, bundlePagesCss, siteRoot } from "./build/bundle-pages.ts"
+import { buildBundlePage, buildCompatibilityPage, buildSitemap, bundlePagesCss, siteRoot } from "./build/bundle-pages.ts"
 
 const repoRoot = path.resolve(__dirname, "..")
 const frontendSourcePath = path.resolve(repoRoot, "data", "sites", "default", "frontend-bundles.json")
@@ -54,6 +54,12 @@ function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
             const id = requestPath.slice(pagePrefix.length, -5)
             const currentFeed = current.feed
             const bundle = currentFeed.bundles.find((item) => item.id === id)
+            const previous = current.compatibilityPages.find((item) => item.id === id)
+            if (previous) {
+              res.setHeader("Content-Type", "text/html; charset=utf-8")
+              res.end(buildCompatibilityPage(previous, currentFeed.bundles, root))
+              return
+            }
             if (!bundle) { next(); return }
             res.setHeader("Content-Type", "text/html; charset=utf-8")
             res.end(buildBundlePage(bundle, { repo: currentFeed.repo, root }))
@@ -71,7 +77,8 @@ function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
     },
     async generateBundle() {
       const current = await readPublicData(frontendSourcePath)
-      if (current.feedFile !== publicData.feedFile || current.searchFile !== publicData.searchFile) {
+      if (current.feedFile !== publicData.feedFile || current.searchFile !== publicData.searchFile ||
+        JSON.stringify(current.compatibilityPages) !== JSON.stringify(publicData.compatibilityPages)) {
         throw new Error("Frontend bundle source changed while building; restart the build")
       }
       this.emitFile({
@@ -91,6 +98,13 @@ function servedBundlesPlugin(publicData: PublicData, root: string): Plugin {
           type: "asset",
           fileName: `b/${bundle.id}.html`,
           source: buildBundlePage(bundle, { repo: currentFeed.repo, root }),
+        })
+      }
+      for (const previous of current.compatibilityPages) {
+        this.emitFile({
+          type: "asset",
+          fileName: `b/${previous.id}.html`,
+          source: buildCompatibilityPage(previous, currentFeed.bundles, root),
         })
       }
       this.emitFile({ type: "asset", fileName: "sitemap.xml", source: buildSitemap(currentFeed.bundles, root) })

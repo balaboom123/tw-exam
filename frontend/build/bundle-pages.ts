@@ -1,5 +1,6 @@
 import { formatSyncDate, isBundleSource, isSyncTimestamp } from "../src/lib/provenance.ts"
 import type { CompactBundle } from "../src/lib/public-feed.ts"
+import type { CompatibilityPage } from "./public-data.ts"
 import { isMaterialSummary, materialDateLabels, materialLabel, materialMatchesYears } from "../src/lib/source-material.ts"
 
 const safeSegment = /^[A-Za-z0-9._-]+$/
@@ -106,4 +107,23 @@ ${subjectItems ? `<h2>科目</h2><ul class="subjects">${subjectItems}</ul>` : ""
 export function buildSitemap(bundles: CompactBundle[], root: string): string {
   const paths = ["", "about.html", "contact.html", "faq.html", "privacy.html", ...bundles.map((bundle) => `b/${bundle.id}.html`)]
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map((path) => `<url><loc>${escapeHtml(new URL(path, root).href)}</loc></url>`).join("\n")}\n</urlset>\n`
+}
+
+export function buildCompatibilityPage(page: CompatibilityPage, bundles: CompactBundle[], root: string): string {
+  if (!safeSegment.test(page.id)) throw new TypeError("Unsafe previous bundle ID")
+  const successors = page.successorIds.map((id) => {
+    const bundle = bundles.find((item) => item.id === id)
+    if (!bundle || !safeSegment.test(id)) throw new TypeError("Missing compatibility successor")
+    return `<li><a data-successor href="./${escapeHtml(id)}.html">${escapeHtml(bundle.name)}</a></li>`
+  }).join("")
+  const canonical = new URL(`b/${page.id}.html`, root).href
+  return `<!doctype html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${escapeHtml(page.name)} | tw-exam</title><meta name="robots" content="noindex,follow">
+<link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../assets/bundle-pages.css"></head>
+<body><main><nav><a href="../">歷屆試題</a></nav><h1>${escapeHtml(page.name)}</h1>
+<p>這份資料已重新分組，請選擇需要的試卷。</p><ul>${successors}</ul>
+<footer><a href="../">返回 tw-exam</a></footer></main>
+<script>if(new URLSearchParams(location.search).get("unlocked")==="1")for(const a of document.querySelectorAll("a[data-successor]")){const u=new URL(a.href);u.searchParams.set("unlocked","1");a.href=u.href}</script>
+</body></html>`
 }

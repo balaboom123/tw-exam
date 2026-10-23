@@ -385,6 +385,7 @@ def normalize_papers(
                 category_code=paper.category_code,
                 source_material=material,
                 source_checksum=source_metadata.get("checksum", ""),
+                source_url=paper.files.get(role, ""),
             )
             fields = identity_fields(identity)
         if material is not None:
@@ -626,6 +627,7 @@ def renormalize_catalog(
                 category_code=paper.category_code,
                 source_material=paper.source_material,
                 source_checksum=paper.checksum,
+                source_url=paper.download_url_source,
             )
             fields = identity_fields(identity)
         if paper.source_material is not None:

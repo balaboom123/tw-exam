@@ -30,6 +30,37 @@
           "sourceMaterial"
         ]
       }
+    },
+    "compatibilityPages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "successorIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "successorIds": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._-]+$"
+            }
+          }
+        }
+      }
     }
   },
   "$defs": {
@@ -176,12 +207,16 @@
         {
           "if": {
             "not": {
-              "required": ["sourceMaterial"]
+              "required": [
+                "sourceMaterial"
+              ]
             }
           },
           "then": {
             "properties": {
-              "years": {"minItems": 1}
+              "years": {
+                "minItems": 1
+              }
             }
           }
         }

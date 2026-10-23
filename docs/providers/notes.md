@@ -896,4 +896,22 @@ retain their original references while verified equivalent payloads share bytes.
 
 ## `wdasec_skill`
 
-Use official workforce skills-test question-bank material within the declared paper scope. Preserve occupation, level, subject, and source-event distinctions across the large archive.
+The adapter reads the official past-paper archive, which is separate from the
+centre's reference question banks. Preserve occupation, native grade, written
+and practical components, and source-event distinctions. The event's related
+documents include official question/answer doubt decisions and correction
+announcements; retain these independently of the original papers. A notice can
+uphold an answer as well as change one, so it is not automatically a replacement
+answer key. Older notices can be native Word documents. An empty related-table
+directory link is a source placeholder, not a downloadable file.
+
+The source's identical occupation/grade labels can link different written papers:
+native headers identify the Chinese masters for the foreign-assistance form.
+These are not published English, Vietnamese or other translated-language files.
+Exact native contexts and checksums in the paper-form evidence own this boundary;
+changed bytes or unreviewed contexts require review. Ordinary source papers and
+already published practical components remain in the ordinary-paper collection.
+The assisted collection explicitly identifies its written-paper scope; it does
+not describe a separate qualification path or exempt candidates from practical
+requirements. This form review does not approve historical material purpose,
+answer roles, occupation renaming or an annual examination date.

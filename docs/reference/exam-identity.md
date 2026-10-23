@@ -24,6 +24,16 @@ occupation. Regional or disability allocations using identical papers do not
 create additional content variants. The postal evidence catalog is the owner
 of these decisions; source-page order and frontend title parsing are not.
 
+WDA's Chinese masters for foreign-assisted written tests are content-changing
+paper forms. Their native headers, original source contexts and checksums own
+this distinction; a foreign language cannot be assigned from a Chinese master.
+Form evidence covers retained originals without approving other identity or
+material dimensions. Unreviewed source contexts or bytes remain in review.
+Ordinary identities without an assisted counterpart keep their existing IDs.
+The assisted collection explicitly covers written papers; the ordinary
+collection retains already published practical components. This grouping is
+not a separate qualification path or an exemption from practical requirements.
+
 Taiwan Water archive evidence is keyed by programme year, official source URL,
 and original SHA-256 checksum. Reviewed replacements are appended alongside
 retained versions; reviewing new bytes must not remove the old anchor. A source

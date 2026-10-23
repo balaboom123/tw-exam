@@ -177707,8 +177707,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328",
-      "name": "全國技術士技能檢定｜乙級｜建築工程管理",
+      "id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜乙級｜建築工程管理｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-foreign-assistance-master--e0a02eda74ef.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-b",
+      "trackId": "skill-915b33da9328",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "建築工程管理",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "06900",
+        "06900-class_b-question"
+      ],
+      "subjectLabels": [
+        "建築工程管理"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜乙級｜建築工程管理｜一般試卷",
       "years": [
         115,
         114,
@@ -177737,14 +177774,16 @@
         91,
         90
       ],
-      "fileCount": 49,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/wdasec-skill-skill-certification-class-b-skill-915b33da9328--daf66613c748.zip",
+      "fileCount": 48,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-ordinary--821bcf29ab7b.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-b",
       "trackId": "skill-915b33da9328",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -178217,8 +178256,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc",
-      "name": "全國技術士技能檢定｜乙級｜建築塗裝",
+      "id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜乙級｜建築塗裝｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-foreign-assistance-master--c99cd5c14e03.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-b",
+      "trackId": "skill-9a421b2b4adc",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "建築塗裝",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "14800",
+        "14800-class_b-question"
+      ],
+      "subjectLabels": [
+        "建築塗裝"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜乙級｜建築塗裝｜一般試卷",
       "years": [
         115,
         114,
@@ -178247,14 +178323,16 @@
         91,
         90
       ],
-      "fileCount": 36,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc--8271ceff3c41.zip",
+      "fileCount": 35,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-ordinary--b9ef45a8b6fc.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-b",
       "trackId": "skill-9a421b2b4adc",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -178782,8 +178860,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9",
-      "name": "全國技術士技能檢定｜乙級｜建築物室內裝修工程管理",
+      "id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜乙級｜建築物室內裝修工程管理｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        112
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-foreign-assistance-master--989c1571a8a5.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-b",
+      "trackId": "skill-af93d1e87de9",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "建築物室內裝修工程管理",
+        "全國技術士技能檢定",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "12600",
+        "12600-class_b-question"
+      ],
+      "subjectLabels": [
+        "建築物室內裝修工程管理"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜乙級｜建築物室內裝修工程管理｜一般試卷",
       "years": [
         114,
         113,
@@ -178808,14 +178923,16 @@
         94,
         93
       ],
-      "fileCount": 56,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9--6fed798832f1.zip",
+      "fileCount": 55,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-ordinary--43d566ea7a25.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-b",
       "trackId": "skill-af93d1e87de9",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -179434,8 +179551,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e",
-      "name": "全國技術士技能檢定｜乙級｜中餐烹調─葷食",
+      "id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜乙級｜中餐烹調─葷食｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-foreign-assistance-master--dc948b1fceed.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-b",
+      "trackId": "skill-c55d886d734e",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "中餐烹調─葷食",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "07602",
+        "07602-class_b-question"
+      ],
+      "subjectLabels": [
+        "中餐烹調─葷食"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜乙級｜中餐烹調─葷食｜一般試卷",
       "years": [
         115,
         114,
@@ -179450,14 +179604,16 @@
         105,
         104
       ],
-      "fileCount": 23,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-b-skill-c55d886d734e--dd0708923da1.zip",
+      "fileCount": 22,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-ordinary--beddc2e863d0.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-b",
       "trackId": "skill-c55d886d734e",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -181968,8 +182124,47 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1",
-      "name": "全國技術士技能檢定｜丙級｜園藝",
+      "id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜園藝｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-foreign-assistance-master--0b710bd97d1c.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-06eb81317ad1",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "園藝",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "13300",
+        "13300-class_c-question",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "園藝"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜園藝｜一般試卷",
       "years": [
         115,
         114,
@@ -181998,14 +182193,16 @@
         91,
         90
       ],
-      "fileCount": 29,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1--ef7fca8b4643.zip",
+      "fileCount": 27,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-ordinary--9dd61889d5ea.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-06eb81317ad1",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -182103,8 +182300,48 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e",
-      "name": "全國技術士技能檢定｜丙級｜混凝土",
+      "id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜混凝土｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        112
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-foreign-assistance-master--c20ad3cba031.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-0831ceffac0e",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "混凝土",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "17500",
+        "17500-class_c-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "混凝土"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜混凝土｜一般試卷",
       "years": [
         115,
         114,
@@ -182130,14 +182367,16 @@
         94,
         93
       ],
-      "fileCount": 65,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e--7389d9104244.zip",
+      "fileCount": 62,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-ordinary--bcae69461c5e.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-0831ceffac0e",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -185344,8 +185583,48 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f",
-      "name": "全國技術士技能檢定｜丙級｜配電電纜裝修",
+      "id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜配電電纜裝修｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-foreign-assistance-master--669b27c43475.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-4bc06fb95b2f",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "配電電纜裝修",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "07400",
+        "07400-class_c-question",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "配電電纜裝修"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜配電電纜裝修｜一般試卷",
       "years": [
         115,
         114,
@@ -185374,14 +185653,16 @@
         91,
         90
       ],
-      "fileCount": 38,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f--e1411fa42d2b.zip",
+      "fileCount": 35,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-ordinary--efdef923f69c.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-4bc06fb95b2f",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -185555,8 +185836,48 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a",
-      "name": "全國技術士技能檢定｜丙級｜配電線路裝修",
+      "id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜配電線路裝修｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-foreign-assistance-master--e054eb550417.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-4ed2db72e36a",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "配電線路裝修",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "04000",
+        "04000-class_c-question",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "配電線路裝修"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜配電線路裝修｜一般試卷",
       "years": [
         115,
         114,
@@ -185585,14 +185906,16 @@
         91,
         90
       ],
-      "fileCount": 51,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a--f82c65cee04f.zip",
+      "fileCount": 48,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-ordinary--887df32d80c4.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-4ed2db72e36a",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -187124,8 +187447,46 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b",
-      "name": "全國技術士技能檢定｜丙級｜美容",
+      "id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜美容｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-foreign-assistance-master--ad3fd4a0b803.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-77141472de1b",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "美容",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "10000",
+        "10000-class_c-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "美容"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜美容｜一般試卷",
       "years": [
         115,
         114,
@@ -187152,14 +187513,16 @@
         93,
         92
       ],
-      "fileCount": 73,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-77141472de1b--946357f88b25.zip",
+      "fileCount": 71,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-ordinary--c2996ed54d42.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-77141472de1b",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -187201,8 +187564,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976",
-      "name": "全國技術士技能檢定｜丙級｜西餐烹調",
+      "id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜西餐烹調｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-foreign-assistance-master--e902e75fe62e.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-7781a64c8976",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "西餐烹調",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "14000",
+        "14000-class_c-question"
+      ],
+      "subjectLabels": [
+        "西餐烹調"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜西餐烹調｜一般試卷",
       "years": [
         115,
         114,
@@ -187230,14 +187630,16 @@
         92,
         91
       ],
-      "fileCount": 29,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-class-c-skill-7781a64c8976--9f764962e2e2.zip",
+      "fileCount": 28,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-ordinary--7eaff936eb21.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-7781a64c8976",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -188668,24 +189070,21 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb",
-      "name": "全國技術士技能檢定｜丙級｜輸電地下電纜裝修",
+      "id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜輸電地下電纜裝修｜外語輔助學科試卷（中文公告版）",
       "years": [
-        115,
-        96,
-        95,
-        94,
-        93,
-        92
+        115
       ],
-      "fileCount": 6,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb--9959b48c0558.zip",
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-foreign-assistance-master--05e6b9de4330.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-9a9158b073fb",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -188694,8 +189093,48 @@
         "全國技術士技能檢定",
         "115年度全國技術士技能檢定第2梯次學科試題暨答案",
         "16800",
-        "16800-class_c-question",
+        "16800-class_c-question"
+      ],
+      "subjectLabels": [
+        "輸電地下電纜裝修"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜輸電地下電纜裝修｜一般試卷",
+      "years": [
+        96,
+        95,
+        94,
+        93,
+        92
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-ordinary--3fb14aa6b37a.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-9a9158b073fb",
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "輸電地下電纜裝修",
+        "全國技術士技能檢定",
         "96年度全國技能檢定暨勞安衛第2梯次學科試題暨答案",
+        "16800",
+        "16800-class_c-question",
         "95年度全國技能檢定暨勞安衛第2梯次學科試題暨答案",
         "94年度全國檢定第1梯次學科試題暨答案",
         "93年度全國技能檢定第1梯次學科試題暨答案",
@@ -189239,8 +189678,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad",
-      "name": "全國技術士技能檢定｜丙級｜旅館客房服務",
+      "id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜旅館客房服務｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-foreign-assistance-master--0421df8c7597.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-ad94f9570dad",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "旅館客房服務",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "21600",
+        "21600-class_c-question"
+      ],
+      "subjectLabels": [
+        "旅館客房服務"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜旅館客房服務｜一般試卷",
       "years": [
         115,
         114,
@@ -189254,14 +189730,16 @@
         106,
         105
       ],
-      "fileCount": 19,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad--0826f3ff0552.zip",
+      "fileCount": 18,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-ordinary--daf37e8689c6.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-ad94f9570dad",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -189902,8 +190380,50 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c",
-      "name": "全國技術士技能檢定｜丙級｜中餐烹調─葷食",
+      "id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─葷食｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master--39c9f873d04d.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-bd24e86ea68c",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "中餐烹調─葷食",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "07602",
+        "07602-class_c-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "中餐烹調─葷食"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─葷食｜一般試卷",
       "years": [
         115,
         114,
@@ -189918,14 +190438,16 @@
         105,
         104
       ],
-      "fileCount": 46,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c--16ab400ef7a3.zip",
+      "fileCount": 41,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary--fa9085869551.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-bd24e86ea68c",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -190804,26 +191326,22 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028",
-      "name": "全國技術士技能檢定｜丙級｜輸電架空線路裝修",
+      "id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜輸電架空線路裝修｜外語輔助學科試卷（中文公告版）",
       "years": [
         115,
-        114,
-        96,
-        95,
-        94,
-        93,
-        92,
-        91
+        114
       ],
-      "fileCount": 10,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028--d30f9322d8ef.zip",
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-foreign-assistance-master--890a7d3189b2.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-d29a9a3fc028",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -190834,8 +191352,49 @@
         "16900",
         "16900-class_c-question",
         "114年度全國技術士技能檢定第2梯次學科試題暨答案",
-        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）"
+      ],
+      "subjectLabels": [
+        "輸電架空線路裝修"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜輸電架空線路裝修｜一般試卷",
+      "years": [
+        96,
+        95,
+        94,
+        93,
+        92,
+        91
+      ],
+      "fileCount": 7,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-ordinary--5115ad01d28b.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-d29a9a3fc028",
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "輸電架空線路裝修",
+        "全國技術士技能檢定",
         "96年度全國技能檢定暨勞安衛第2梯次學科試題暨答案",
+        "16900",
+        "16900-class_c-question",
         "95年度全國技能檢定暨勞安衛第2梯次學科試題暨答案",
         "95年度全國技能檢定暨勞安衛第3梯次學科試題暨答案",
         "94年度全國檢定第1梯次學科試題暨答案",
@@ -190974,8 +191533,45 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab",
-      "name": "全國技術士技能檢定｜丙級｜女子美髮",
+      "id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜丙級｜女子美髮｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master--ceb4a83784d6.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-d62a66e69aab",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "女子美髮",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "06700",
+        "06700-class_c-question"
+      ],
+      "subjectLabels": [
+        "女子美髮"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜女子美髮｜一般試卷",
       "years": [
         115,
         114,
@@ -191003,14 +191599,16 @@
         92,
         91
       ],
-      "fileCount": 46,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab--e50d7b1d8bc3.zip",
+      "fileCount": 45,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary--9f020e23cac3.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-d62a66e69aab",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -193383,8 +193981,50 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27",
-      "name": "全國技術士技能檢定｜單一級｜重機械操作─挖掘機",
+      "id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─挖掘機｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-foreign-assistance-master--46c94684f551.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-00a50fe2ef27",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "重機械操作─挖掘機",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07002",
+        "07002-single-question",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "重機械操作─挖掘機"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─挖掘機｜一般試卷",
       "years": [
         115,
         114,
@@ -193412,14 +194052,16 @@
         91,
         90
       ],
-      "fileCount": 37,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-single-skill-00a50fe2ef27--a2a289521ad5.zip",
+      "fileCount": 33,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-ordinary--f2b736e7b60e.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-00a50fe2ef27",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -193521,30 +194163,26 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73",
-      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(地面操作)",
+      "id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(地面操作)｜外語輔助學科試卷（中文公告版）",
       "years": [
         115,
         114,
         113,
         112,
         111,
-        110,
-        109,
-        108,
-        107,
-        106,
-        105,
-        104
+        110
       ],
-      "fileCount": 50,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73--4235242275d4.zip",
+      "fileCount": 17,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-foreign-assistance-master--05299f19f3f6.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-0ca5ac1e5e73",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -193568,11 +194206,75 @@
         "111年度全國技術士技能檢定第1梯次學科試題暨答案",
         "111年度全國技術士技能檢定第2梯次學科試題暨答案",
         "111年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "固定式起重機操作─架空式(地面操作)"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(地面操作)｜一般試卷",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104
+      ],
+      "fileCount": 33,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-ordinary--a36c88084f5d.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-0ca5ac1e5e73",
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "固定式起重機操作─架空式(地面操作)",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "06105",
+        "06105-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第3梯次學科試題暨答案",
         "110年度全國技術士技能檢定第1梯次學科試題暨答案",
         "110年度全國技術士技能檢定第2梯次學科試題暨答案",
         "110年度全國技術士技能檢定第3梯次學科試題暨答案",
         "109年度全國技術士技能檢定第1梯次學科試題暨答案",
-        "109年度全國技術士技能檢定第2梯次學科試題暨答案"
+        "109年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "109年度全國技術士技能檢定第3梯次學科試題暨答案"
       ],
       "subjectLabels": [
         "固定式起重機操作─架空式(地面操作)"
@@ -193779,8 +194481,64 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-4d162efd7405",
-      "name": "全國技術士技能檢定｜單一級｜氬氣鎢極電銲",
+      "id": "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜氬氣鎢極電銲｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110
+      ],
+      "fileCount": 15,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-foreign-assistance-master--590f7dbf1e46.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-4d162efd7405",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "氬氣鎢極電銲",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "09100",
+        "09100-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "氬氣鎢極電銲"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜氬氣鎢極電銲｜一般試卷",
       "years": [
         115,
         114,
@@ -193807,14 +194565,16 @@
         91,
         90
       ],
-      "fileCount": 67,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-4d162efd7405--6632087d52fd.zip",
+      "fileCount": 52,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-ordinary--09fb2d83cd97.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-4d162efd7405",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -193856,8 +194616,65 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-520d84214fb6",
-      "name": "全國技術士技能檢定｜單一級｜一般手工電銲",
+      "id": "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜一般手工電銲｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110
+      ],
+      "fileCount": 16,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-foreign-assistance-master--643e023c7312.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-520d84214fb6",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "一般手工電銲",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "00400",
+        "00400-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "一般手工電銲"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜一般手工電銲｜一般試卷",
       "years": [
         115,
         114,
@@ -193884,14 +194701,16 @@
         91,
         90
       ],
-      "fileCount": 70,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-520d84214fb6--70be8c50da1d.zip",
+      "fileCount": 54,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-ordinary--bdf7ae0cb367.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-520d84214fb6",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -194005,8 +194824,57 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-60e53531298b",
-      "name": "全國技術士技能檢定｜單一級｜照顧服務員",
+      "id": "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜照顧服務員｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113,
+        112
+      ],
+      "fileCount": 10,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-foreign-assistance-master--3a025b23a113.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-60e53531298b",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "照顧服務員",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "17800",
+        "17800-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "照顧服務員"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜照顧服務員｜一般試卷",
       "years": [
         115,
         114,
@@ -194028,14 +194896,16 @@
         98,
         97
       ],
-      "fileCount": 43,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-60e53531298b--813dd0eca49a.zip",
+      "fileCount": 33,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-ordinary--97e3eee52d91.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-60e53531298b",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -194349,8 +195219,47 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-a5264c81984c",
-      "name": "全國技術士技能檢定｜單一級｜重機械操作─推土機",
+      "id": "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─推土機｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-foreign-assistance-master--d20d2da1f7b6.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-a5264c81984c",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "重機械操作─推土機",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07001",
+        "07001-single-question",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "重機械操作─推土機"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─推土機｜一般試卷",
       "years": [
         115,
         114,
@@ -194378,14 +195287,16 @@
         91,
         90
       ],
-      "fileCount": 31,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-single-skill-a5264c81984c--fdef77062479.zip",
+      "fileCount": 29,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-ordinary--8174dbdff32a.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-a5264c81984c",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -194427,8 +195338,47 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0",
-      "name": "全國技術士技能檢定｜單一級｜重機械操作─鏟裝機",
+      "id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─鏟裝機｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-foreign-assistance-master--14448a4d8d0d.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-a61ad5d927e0",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "重機械操作─鏟裝機",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07004",
+        "07004-single-question",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "重機械操作─鏟裝機"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─鏟裝機｜一般試卷",
       "years": [
         115,
         114,
@@ -194447,14 +195397,16 @@
         101,
         100
       ],
-      "fileCount": 21,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-single-skill-a61ad5d927e0--1efb2638202e.zip",
+      "fileCount": 19,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-ordinary--741955720fcf.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-a61ad5d927e0",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -194647,8 +195599,51 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe",
-      "name": "全國技術士技能檢定｜單一級｜移動式起重機操作─伸臂可伸縮",
+      "id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜移動式起重機操作─伸臂可伸縮｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-foreign-assistance-master--0cd8e5a768ca.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-b26f5efed9fe",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "移動式起重機操作─伸臂可伸縮",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "06201",
+        "06201-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "移動式起重機操作─伸臂可伸縮"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜移動式起重機操作─伸臂可伸縮｜一般試卷",
       "years": [
         115,
         114,
@@ -194663,14 +195658,16 @@
         105,
         104
       ],
-      "fileCount": 30,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-b26f5efed9fe--1c8ac8b71db2.zip",
+      "fileCount": 25,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-ordinary--aad56aabef82.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-b26f5efed9fe",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -195070,8 +196067,66 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67",
-      "name": "全國技術士技能檢定｜單一級｜半自動電銲",
+      "id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜半自動電銲｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110
+      ],
+      "fileCount": 17,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-foreign-assistance-master--7e045baef341.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-e49f4067ea67",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "半自動電銲",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "09700",
+        "09700-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "半自動電銲"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜半自動電銲｜一般試卷",
       "years": [
         115,
         114,
@@ -195099,14 +196154,16 @@
         91,
         90
       ],
-      "fileCount": 70,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-e49f4067ea67--2f16d7d9ec25.zip",
+      "fileCount": 53,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-ordinary--05e3f162a2f0.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-e49f4067ea67",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -195148,8 +196205,66 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-e54c91282b19",
-      "name": "全國技術士技能檢定｜單一級｜堆高機操作",
+      "id": "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜堆高機操作｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110
+      ],
+      "fileCount": 17,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-foreign-assistance-master--8f0f2991927b.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-e54c91282b19",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "堆高機操作",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "15100",
+        "15100-single-question",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "114年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "113年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "堆高機操作"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜堆高機操作｜一般試卷",
       "years": [
         115,
         114,
@@ -195177,14 +196292,16 @@
         91,
         90
       ],
-      "fileCount": 78,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-e54c91282b19--8bf609bf30c3.zip",
+      "fileCount": 61,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-ordinary--8fa9780ce7fe.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-e54c91282b19",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -195226,8 +196343,50 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-f1135900b10b",
-      "name": "全國技術士技能檢定｜單一級｜重機械操作─一般裝載機",
+      "id": "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─一般裝載機｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-foreign-assistance-master--18c7a7e3f7a6.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-f1135900b10b",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "重機械操作─一般裝載機",
+        "全國技術士技能檢定",
+        "115年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07005",
+        "07005-single-question",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
+        "113年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "重機械操作─一般裝載機"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─一般裝載機｜一般試卷",
       "years": [
         115,
         114,
@@ -195246,14 +196405,16 @@
         101,
         100
       ],
-      "fileCount": 24,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-single-skill-f1135900b10b--684dad3b12a4.zip",
+      "fileCount": 20,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-ordinary--03cdf2fe8316.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-f1135900b10b",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -195295,8 +196456,55 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1",
-      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(機上操作)",
+      "id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-foreign-assistance-master",
+      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(機上操作)｜外語輔助學科試卷（中文公告版）",
+      "years": [
+        113,
+        112,
+        111,
+        110
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-foreign-assistance-master--2caf283212d2.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "single",
+      "trackId": "skill-f842e02ce5f1",
+      "variantIds": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "固定式起重機操作─架空式(機上操作)",
+        "全國技術士技能檢定",
+        "113年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "06104",
+        "06104-single-question",
+        "112年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "112年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第1梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "111年度全國技術士技能檢定第3梯次學科試題暨答案",
+        "110年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "固定式起重機操作─架空式(機上操作)"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(機上操作)｜一般試卷",
       "years": [
         115,
         114,
@@ -195311,14 +196519,16 @@
         105,
         104
       ],
-      "fileCount": 41,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-single-skill-f842e02ce5f1--be8f7e41489b.zip",
+      "fileCount": 33,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-ordinary--b61bb6e57912.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "single",
       "trackId": "skill-f842e02ce5f1",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -195409,5 +196619,223 @@
       "updated": "2026-10-08T01:33:30Z"
     }
   ],
-  "catalog_version": "exam-identity-v2"
+  "catalog_version": "exam-identity-v2",
+  "compatibilityPages": [
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328",
+      "name": "全國技術士技能檢定｜乙級｜建築工程管理",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc",
+      "name": "全國技術士技能檢定｜乙級｜建築塗裝",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9",
+      "name": "全國技術士技能檢定｜乙級｜建築物室內裝修工程管理",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e",
+      "name": "全國技術士技能檢定｜乙級｜中餐烹調─葷食",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1",
+      "name": "全國技術士技能檢定｜丙級｜園藝",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e",
+      "name": "全國技術士技能檢定｜丙級｜混凝土",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f",
+      "name": "全國技術士技能檢定｜丙級｜配電電纜裝修",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a",
+      "name": "全國技術士技能檢定｜丙級｜配電線路裝修",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b",
+      "name": "全國技術士技能檢定｜丙級｜美容",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976",
+      "name": "全國技術士技能檢定｜丙級｜西餐烹調",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb",
+      "name": "全國技術士技能檢定｜丙級｜輸電地下電纜裝修",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad",
+      "name": "全國技術士技能檢定｜丙級｜旅館客房服務",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─葷食",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028",
+      "name": "全國技術士技能檢定｜丙級｜輸電架空線路裝修",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab",
+      "name": "全國技術士技能檢定｜丙級｜女子美髮",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─挖掘機",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73",
+      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(地面操作)",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-4d162efd7405",
+      "name": "全國技術士技能檢定｜單一級｜氬氣鎢極電銲",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-520d84214fb6",
+      "name": "全國技術士技能檢定｜單一級｜一般手工電銲",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-60e53531298b",
+      "name": "全國技術士技能檢定｜單一級｜照顧服務員",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-a5264c81984c",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─推土機",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─鏟裝機",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe",
+      "name": "全國技術士技能檢定｜單一級｜移動式起重機操作─伸臂可伸縮",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67",
+      "name": "全國技術士技能檢定｜單一級｜半自動電銲",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-e54c91282b19",
+      "name": "全國技術士技能檢定｜單一級｜堆高機操作",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-f1135900b10b",
+      "name": "全國技術士技能檢定｜單一級｜重機械操作─一般裝載機",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1",
+      "name": "全國技術士技能檢定｜單一級｜固定式起重機操作─架空式(機上操作)",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-foreign-assistance-master",
+        "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-ordinary"
+      ]
+    }
+  ]
 }

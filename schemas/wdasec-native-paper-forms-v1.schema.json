@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/wdasec-native-paper-forms-v1.schema.json",
+  "title": "Reviewed WDA native written paper forms",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "reviewed_at",
+    "review_notes",
+    "rules",
+    "papers"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "provider_id": {
+      "const": "wdasec_skill"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_notes": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_url",
+          "checksum",
+          "evidence"
+        ],
+        "properties": {
+          "source_url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "papers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "year_roc",
+          "source_exam_id",
+          "exam_name_raw",
+          "category_code",
+          "subject_code",
+          "subject_name_raw",
+          "source_url",
+          "checksum",
+          "form",
+          "native_header"
+        ],
+        "properties": {
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "source_exam_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "exam_name_raw": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_name_raw": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://owinform\\.wdasec\\.gov\\.tw/ExamNet/owInform/DLowFileQ/"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "form": {
+            "enum": [
+              "ordinary",
+              "foreign-assistance-master"
+            ]
+          },
+          "native_header": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1717,6 +1717,7 @@ def _classify_paper_uncached(
     category_code: str = "",
     source_material: SourceMaterial | None = None,
     source_checksum: str = "",
+    source_url: str = "",
 ) -> ExamIdentity:
     provider_id = normalize_text(provider_id) or "unknown-provider"
     category = normalize_text(category_raw)
@@ -1799,6 +1800,26 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "wdasec_skill":
+        from app.providers.wdasec_skill.forms import form_variant
+
+        wda_form = form_variant(
+            year_roc=year_ad - 1911,
+            source_exam_id=source_exam_id,
+            exam_name_raw=exam_name_raw,
+            category_code=category_code,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+        )
+        if wda_form is not None:
+            variant_pairs = (*variant_pairs, wda_form)
+            if wda_form[0] == "paper-form-unknown":
+                confidence = "review"
+                reason = f"WDA paper form lacks exact native source/byte evidence; {reason}"
+            else:
+                reason = f"WDA native paper form verified by source context and SHA-256; {reason}"
     if provider_id == "tocfl_cert":
         resource = (
             tocfl_native_resource(source_material.evidence_url, source_checksum)
@@ -2315,6 +2336,7 @@ def _classify_paper_uncached(
         if provider_id == "post_recruit":
             bundle_name += "｜第一試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
+            "wdasec_skill",
             "tqc_cert",
             "hakka_cert",
             "teacher_qual",
@@ -2414,6 +2436,7 @@ def classify_paper(
     category_code: str = "",
     source_material: SourceMaterial | None = None,
     source_checksum: str = "",
+    source_url: str = "",
 ) -> ExamIdentity:
     if provider_id == "moex" and source_material is None:
         reviewed = resolve_moex_category_identity(
@@ -2442,6 +2465,7 @@ def classify_paper(
         category_code=category_code,
         source_material=source_material,
         source_checksum=source_checksum,
+        source_url=source_url,
     )
 
 
@@ -2459,6 +2483,7 @@ def classify_normalized_paper(paper: Any) -> ExamIdentity:
         category_code=getattr(paper, "category_code", ""),
         source_material=getattr(paper, "source_material", None),
         source_checksum=getattr(paper, "checksum", ""),
+        source_url=getattr(paper, "download_url_source", ""),
     )
 
 

@@ -51,7 +51,10 @@ class SiteRegistryTests(unittest.TestCase):
         self.assertEqual(site.release_shard_size, 900)
         self.assertEqual(site.public_min_years, 2)
         self.assertEqual(
-            site.public_min_years_by_canonical_prefix,
+            {
+                key: value for key, value in site.public_min_years_by_canonical_prefix.items()
+                if not key.startswith("wdasec-")
+            },
             {
                 "sfi-": 1,
                 "tabf-": 1,
@@ -79,6 +82,15 @@ class SiteRegistryTests(unittest.TestCase):
             },
         )
         self.assertEqual(site.required_provider_ids, ("moex", "ceec_gsat"))
+        wda_exceptions = {
+            key: value for key, value in site.public_min_years_by_canonical_prefix.items()
+            if key.startswith("wdasec-")
+        }
+        self.assertEqual(len(wda_exceptions), 9)
+        self.assertTrue(all(
+            key.endswith("-paper-form-foreign-assistance-master") and value == 1
+            for key, value in wda_exceptions.items()
+        ))
 
     def test_default_site_includes_financial_cert_providers(self) -> None:
         config = get_site_config("default")

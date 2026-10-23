@@ -47500,17 +47500,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-010",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-915b33da9328--daf66613c748.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-b-skill-915b33da9328--daf66613c748.zip",
-      "checksum": "18732780dba1a9dd1072fca6fe2af65c3d0ff047ed4eb8977361cb8b8a44ae18",
-      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-foreign-assistance-master--e0a02eda74ef.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-foreign-assistance-master--e0a02eda74ef.zip",
+      "checksum": "536809a023df0b5d2c7ffb86714bed4ac9d14583ca7cc95646864bc9adba4aa1",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-b",
       "track_id": "skill-915b33da9328",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-ordinary--821bcf29ab7b.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-ordinary--821bcf29ab7b.zip",
+      "checksum": "d15ef8ba90c02144b9baa66f3beeebdbc91d04124ff119f737b29f095cc93a52",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-b",
+      "track_id": "skill-915b33da9328",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -47605,17 +47624,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc--8271ceff3c41.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc--8271ceff3c41.zip",
-      "checksum": "9462b71dc9b691fb08decc7040db3c6de4016e6579398e6c1e5fb1ec8c4d7762",
-      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-foreign-assistance-master--c99cd5c14e03.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-foreign-assistance-master--c99cd5c14e03.zip",
+      "checksum": "58e01ede6a6081b81123ea5cfe4ce78c514c87ef9a244b7c00fb1878e2637846",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-b",
       "track_id": "skill-9a421b2b4adc",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-ordinary--b9ef45a8b6fc.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-ordinary--b9ef45a8b6fc.zip",
+      "checksum": "5ce99ad577ac85451762de879f25f767ad6d520121dde611725e27692b5b3c4f",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-b",
+      "track_id": "skill-9a421b2b4adc",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -47740,17 +47778,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-010",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9--6fed798832f1.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9--6fed798832f1.zip",
-      "checksum": "9979e0fe168d601f74294d74ef18418413de49a767d493482345ebed80b83cf7",
-      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-foreign-assistance-master--989c1571a8a5.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-foreign-assistance-master--989c1571a8a5.zip",
+      "checksum": "cceb9f2ef8c8266102bcd266c895c244dcc81e733ce423da47aecce81ac6c935",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-b",
       "track_id": "skill-af93d1e87de9",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-ordinary--43d566ea7a25.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-ordinary--43d566ea7a25.zip",
+      "checksum": "a375f2bb051122f07677ed0d56b9f09bdbb1f10ed876a705edb4d70a25b689d5",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-b",
+      "track_id": "skill-af93d1e87de9",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -47890,17 +47947,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-c55d886d734e--dd0708923da1.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e--dd0708923da1.zip",
-      "checksum": "5ed31d408d965d8c3d86c896b9cc236e3b9971fe6c37e28c5f21f5cead1e9278",
-      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-foreign-assistance-master--dc948b1fceed.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-foreign-assistance-master--dc948b1fceed.zip",
+      "checksum": "f89b2334a2b3d8720f1938083a0dcdc4f3b869bd113768c05c608e6001dfe348",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-b",
       "track_id": "skill-c55d886d734e",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-ordinary--beddc2e863d0.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-ordinary--beddc2e863d0.zip",
+      "checksum": "85ec93b3546f56bac3f8ba217c5a2d784de0da71c3098f3aefbb7d80be559e4b",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-b",
+      "track_id": "skill-c55d886d734e",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -48475,17 +48551,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1--ef7fca8b4643.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1--ef7fca8b4643.zip",
-      "checksum": "62942fe71513fa035a50a0fa6ce27e4a3c2543879d8cde56464053fd7d7d04dd",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-foreign-assistance-master--0b710bd97d1c.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-foreign-assistance-master--0b710bd97d1c.zip",
+      "checksum": "60c1b92af58f17caf962c0cc9bf4b0c5721f8dcb5bd039bce19041124c6d07c8",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-06eb81317ad1",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-ordinary--9dd61889d5ea.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-ordinary--9dd61889d5ea.zip",
+      "checksum": "f4718b389e01008608d4d570d1a7f8176896c9407c1572c50d8854cf49ac30c4",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-06eb81317ad1",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -48505,17 +48600,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e--7389d9104244.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e--7389d9104244.zip",
-      "checksum": "fbae892fe3e0d7c5a41896ebbb0499efe8dd2fe3fc9b9ec9eb62adff98eea868",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-foreign-assistance-master--c20ad3cba031.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-foreign-assistance-master--c20ad3cba031.zip",
+      "checksum": "68ef1f90d5e236e36e5c43c5c784a01210d501af522757f5bf4a6bb9c72ff18b",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-0831ceffac0e",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-ordinary--bcae69461c5e.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-ordinary--bcae69461c5e.zip",
+      "checksum": "c3cb1d2a00ff3581a9d3a30d004d01f5ee5c554149c234781574c62c38076d45",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-0831ceffac0e",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -49270,17 +49384,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f--e1411fa42d2b.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f--e1411fa42d2b.zip",
-      "checksum": "861218611ab9089e204fc910830feaea1fbe74a8af7888fe53a545f653338802",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-foreign-assistance-master--669b27c43475.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-foreign-assistance-master--669b27c43475.zip",
+      "checksum": "4bbffbe6cf44a03f6eb93c7193ae969bc2841fd2cb2ae86534b17ddf79a147e0",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-4bc06fb95b2f",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-ordinary--efdef923f69c.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-ordinary--efdef923f69c.zip",
+      "checksum": "11af35455b3689f81ccb4286d68252441565ba4eb4ca7e0f55e9fde383c76ad7",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-4bc06fb95b2f",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -49315,17 +49448,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a--f82c65cee04f.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a--f82c65cee04f.zip",
-      "checksum": "90095e960c0bae0a8d203527115ab93c0dd9664aaa16c64c6054126e2b560e4f",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-foreign-assistance-master--e054eb550417.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-foreign-assistance-master--e054eb550417.zip",
+      "checksum": "30d32ef085e8d3a36832e9915b34fa7d77e1bdcf55cbff4b5b417242c6dec3f7",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-4ed2db72e36a",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-ordinary--887df32d80c4.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-ordinary--887df32d80c4.zip",
+      "checksum": "a707bbbc03577ab303664e262c94e4e569551c248280e50c2600aa3ee534222d",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-4ed2db72e36a",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -49705,32 +49857,70 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-77141472de1b--946357f88b25.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-77141472de1b--946357f88b25.zip",
-      "checksum": "86f95a5ba38423b9a834db100b6e0219e1eeee8235f51f8fa51b4ec1e653cbb2",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-foreign-assistance-master--ad3fd4a0b803.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-foreign-assistance-master--ad3fd4a0b803.zip",
+      "checksum": "6e770123e2f6a16b19293dc2789606f11a593dd598679f834d5e2197eb32a630",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-77141472de1b",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-7781a64c8976--9f764962e2e2.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976--9f764962e2e2.zip",
-      "checksum": "bee556a86d54759b8c5e73d98017bbb9c88cea7adbdddec42fe643fef8392a41",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-ordinary--c2996ed54d42.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-ordinary--c2996ed54d42.zip",
+      "checksum": "02562ccb9ac3d05a62c2dca62f7e99a3137c4623ef4e3eb5f408863c6cdec35c",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-77141472de1b",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-foreign-assistance-master--e902e75fe62e.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-foreign-assistance-master--e902e75fe62e.zip",
+      "checksum": "de7b8c0b760aa028a307cf5cffd520ad751ee73280d952ebe457f406c85f7957",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-7781a64c8976",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-ordinary--7eaff936eb21.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-ordinary--7eaff936eb21.zip",
+      "checksum": "4c43612836e576d6b8aba33b040b388e1899790ee705b315f00b6da68294a41a",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-7781a64c8976",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -50035,17 +50225,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb--9959b48c0558.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb--9959b48c0558.zip",
-      "checksum": "7575b0b9473976e4bafe84daa36590bd1eab3b4b342350f2f34c4bd2ac517015",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-foreign-assistance-master--05e6b9de4330.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-foreign-assistance-master--05e6b9de4330.zip",
+      "checksum": "769b86ca2048b75543fd73c21587d7f6a3637c024ef302fbcabd411486130c31",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-9a9158b073fb",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-ordinary--3fb14aa6b37a.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-ordinary--3fb14aa6b37a.zip",
+      "checksum": "ce72e4e4a7a6d27a7ecab6cba5efd30a1379f2369fb69fb565a0c6e7edc15573",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-9a9158b073fb",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -50185,17 +50394,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad--0826f3ff0552.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad--0826f3ff0552.zip",
-      "checksum": "7b931950ddfc2a3a7ab37b5df8896e951b6f859d017aa9a1350346f9f5aefc9c",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-foreign-assistance-master--0421df8c7597.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-foreign-assistance-master--0421df8c7597.zip",
+      "checksum": "7ba1f56d35d03c7f8b8f23271da4bc41c4631892149ab6bd8c5ce0a4cc2f4718",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-ad94f9570dad",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-ordinary--daf37e8689c6.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-ordinary--daf37e8689c6.zip",
+      "checksum": "7b43b55d2fcc71f5d19a7b7a4fe11552936e8d20aa28f20bf72b4f783798a8e1",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-ad94f9570dad",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -50335,17 +50563,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c--16ab400ef7a3.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c--16ab400ef7a3.zip",
-      "checksum": "ef99823b619239774d319052b17155ce6db3b70b8ebedc0117f9c0881287aaf9",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master--39c9f873d04d.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master--39c9f873d04d.zip",
+      "checksum": "e12649690b5cc381506d92edeb9a43634c5979ba0d2b1f0a882ab7d137f6c45a",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-bd24e86ea68c",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary--fa9085869551.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary--fa9085869551.zip",
+      "checksum": "6f47fb40e72b0393421037f80142715cb35ef0cd15be400853555700caf51d23",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-bd24e86ea68c",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -50560,17 +50807,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028--d30f9322d8ef.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028--d30f9322d8ef.zip",
-      "checksum": "3fe95654bd4787cf8ceb5453a8b59a78059e98f5f6db6dceb093c411e564d09c",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-foreign-assistance-master--890a7d3189b2.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-foreign-assistance-master--890a7d3189b2.zip",
+      "checksum": "997bd1b53d91bba0210669147b4bec68f1de97ae6be9b628df105bfe2e8d829e",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-d29a9a3fc028",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-ordinary--5115ad01d28b.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-ordinary--5115ad01d28b.zip",
+      "checksum": "0f15dd8f8db32f81a8b4d86b19875a84988291063724828b092320c3ca92922f",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-d29a9a3fc028",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -50605,17 +50871,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab--e50d7b1d8bc3.zip",
-      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab--e50d7b1d8bc3.zip",
-      "checksum": "9e9d9c2a1363311f85ca5e04fb7114ab690b0d3c911d12926491b4f537ba769e",
-      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master--ceb4a83784d6.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master--ceb4a83784d6.zip",
+      "checksum": "c3c2230c12325646173e0d11fdee77fcf3bea2281b443b0afee12cde155baae1",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "class-c",
       "track_id": "skill-d62a66e69aab",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary--9f020e23cac3.zip",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary--9f020e23cac3.zip",
+      "checksum": "60c034c11741edc5f001aa9c904985a00e089853686bab65c4099730cc224f1e",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "class-c",
+      "track_id": "skill-d62a66e69aab",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51160,17 +51445,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-00a50fe2ef27--a2a289521ad5.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27--a2a289521ad5.zip",
-      "checksum": "51b1862eb32bf29da170185b870cfca068fc343b6af326296dd7916fd592f604",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-foreign-assistance-master--46c94684f551.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-foreign-assistance-master--46c94684f551.zip",
+      "checksum": "a782f3c716e5473059ecb2c91e97a464f6be30b64c30439dbbf3d40abc125fd0",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-00a50fe2ef27",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-ordinary--f2b736e7b60e.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-ordinary--f2b736e7b60e.zip",
+      "checksum": "99a96c7bcbef66a84576da963c603d0f85c89dcf4b412dbbec919a892f404d59",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-00a50fe2ef27",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51190,17 +51494,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73--4235242275d4.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73--4235242275d4.zip",
-      "checksum": "5146666eec5f74e0f1c05e5b5e31f68132a7088ce147aafbd93f374f6b828d24",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-foreign-assistance-master--05299f19f3f6.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-foreign-assistance-master--05299f19f3f6.zip",
+      "checksum": "2244544d0fa6f705caef2334555809ef8e4e0a00f88e2ab529fbdeccb1ec9b8c",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-0ca5ac1e5e73",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-ordinary--a36c88084f5d.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-ordinary--a36c88084f5d.zip",
+      "checksum": "fbd27e85d8ffe959a2c19abc4257e5091a90124f41aa388555dfb2100de2242e",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-0ca5ac1e5e73",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51250,32 +51573,70 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-4d162efd7405--6632087d52fd.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-4d162efd7405--6632087d52fd.zip",
-      "checksum": "f4aea773ed3120ac670eccb33d211ba8b5b177964754bae6e8f8855e26b863c5",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-4d162efd7405",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-foreign-assistance-master--590f7dbf1e46.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-foreign-assistance-master--590f7dbf1e46.zip",
+      "checksum": "d08db6d3329a640d9fa142646887dd9e50b5da92356a518044290b33fa41e5d5",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-4d162efd7405",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-520d84214fb6--70be8c50da1d.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-520d84214fb6--70be8c50da1d.zip",
-      "checksum": "23773e90fc6955b49c919051f45cca70e82974d2280d71a8e3461ef5113e28f5",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-520d84214fb6",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-ordinary--09fb2d83cd97.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-ordinary--09fb2d83cd97.zip",
+      "checksum": "18886852f14117a10775c81b0c1185af2dfaba325906ce43f1f7e591226b2074",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-4d162efd7405-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-4d162efd7405",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-foreign-assistance-master--643e023c7312.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-foreign-assistance-master--643e023c7312.zip",
+      "checksum": "23bdb9f6a845e3c59096c25f6bc731a211e028bb2af4f754db348944a748313a",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-520d84214fb6",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-ordinary--bdf7ae0cb367.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-ordinary--bdf7ae0cb367.zip",
+      "checksum": "4457c341a6e2dcf9fe4e19c3b2bca576caa9deb298cf15769e15247e98a8be1f",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-520d84214fb6-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-520d84214fb6",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51295,17 +51656,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-60e53531298b--813dd0eca49a.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-60e53531298b--813dd0eca49a.zip",
-      "checksum": "346f45e12b50f169105709c57f1164747ad85fa3f75580b1699670b7619d400d",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-60e53531298b",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-foreign-assistance-master--3a025b23a113.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-foreign-assistance-master--3a025b23a113.zip",
+      "checksum": "6c59c90a2fef67e4e1391f4dde9c271a7b182180f9e42687463e882706682cee",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-60e53531298b",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-ordinary--97e3eee52d91.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-ordinary--97e3eee52d91.zip",
+      "checksum": "a042a69ba1037dbea1559e62165ed69b374daf1fe49b1d34f974574c5014df48",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-60e53531298b-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-60e53531298b",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51385,32 +51765,70 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a5264c81984c--fdef77062479.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-a5264c81984c--fdef77062479.zip",
-      "checksum": "6c6e3faf16e37933a6a566f6b1d1f0d55d16c438b3a8d6e29d8fb79718546749",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-a5264c81984c",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-foreign-assistance-master--d20d2da1f7b6.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-foreign-assistance-master--d20d2da1f7b6.zip",
+      "checksum": "4f352ce75e33212e03f004dbe6281597ddac4910efac45a93c75dd28cead1390",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-a5264c81984c",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a61ad5d927e0--1efb2638202e.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0--1efb2638202e.zip",
-      "checksum": "aa9b87981c2218835a72457650693d99c6c04aea2f29538a4bec2dc785f8d265",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-ordinary--8174dbdff32a.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-ordinary--8174dbdff32a.zip",
+      "checksum": "af1175e485468447f46e862e85f3c38b0326b2e8e5c12af474f24e78906afc71",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-a5264c81984c-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-a5264c81984c",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-foreign-assistance-master--14448a4d8d0d.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-foreign-assistance-master--14448a4d8d0d.zip",
+      "checksum": "5dbb70b0eef1717229b79a3ffbdd2b17227e17608fa40cf27b18a35a39774f5c",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-a61ad5d927e0",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-ordinary--741955720fcf.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-ordinary--741955720fcf.zip",
+      "checksum": "014baed748b45c4cc2a0236d9749d9b389ec023edf645c00f4c49efaa7903294",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-a61ad5d927e0",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51460,17 +51878,36 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-b26f5efed9fe--1c8ac8b71db2.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe--1c8ac8b71db2.zip",
-      "checksum": "aef5ed22762569473251a3962ac1ebcf2e6d2f177163ed9a2deaf2032a6f9482",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-foreign-assistance-master--0cd8e5a768ca.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-foreign-assistance-master--0cd8e5a768ca.zip",
+      "checksum": "86a4bdf0c7960bdb1476067cbab77876f3ce0605e54575edc168a3d762412ee2",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-b26f5efed9fe",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-ordinary--aad56aabef82.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-ordinary--aad56aabef82.zip",
+      "checksum": "e67c0f3a57fb05f8f3af6259954ea3b7ad1f8e612735eff7b2b92d54493006f8",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-b26f5efed9fe",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51580,62 +52017,138 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e49f4067ea67--2f16d7d9ec25.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-e49f4067ea67--2f16d7d9ec25.zip",
-      "checksum": "502b9762bfdd3971dfcb1761ea9bb682c6bc6981af860afe7eebc50f0b07a13c",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-foreign-assistance-master--7e045baef341.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-foreign-assistance-master--7e045baef341.zip",
+      "checksum": "42a6c8b90bcc5c429bca90f0d155798c5f2af0dbf5e6f4d43a4b100d2f55e23e",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-e49f4067ea67",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e54c91282b19--8bf609bf30c3.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-e54c91282b19--8bf609bf30c3.zip",
-      "checksum": "596965854446a1a0ab9df1c0af2770437519693a43dda25b481e03bb860c06c1",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-e54c91282b19",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-ordinary--05e3f162a2f0.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-ordinary--05e3f162a2f0.zip",
+      "checksum": "f6cea128a3f6f397cb15a73de641a1172d4889cafcac8a9a0bdab1937a9b0a73",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-e49f4067ea67",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-foreign-assistance-master--8f0f2991927b.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-foreign-assistance-master--8f0f2991927b.zip",
+      "checksum": "a359a484aed4293cba2a4f2e65fd7bbed578e30cdd26143a4345517768dae9b9",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-e54c91282b19",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-011",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f1135900b10b--684dad3b12a4.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-f1135900b10b--684dad3b12a4.zip",
-      "checksum": "2bb88411b0d2b652dd0eff53e89dda5b61e5eba5b5810c5a68538fc6e9106b19",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-f1135900b10b",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-ordinary--8fa9780ce7fe.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-ordinary--8fa9780ce7fe.zip",
+      "checksum": "6f247716ed3588a03bcec506ca8c3f77d28403fb23589dc8b9e1a986ed400000",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-e54c91282b19-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-e54c91282b19",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-foreign-assistance-master--18c7a7e3f7a6.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-foreign-assistance-master--18c7a7e3f7a6.zip",
+      "checksum": "92d349088ae7309a6aec44761f676893d1f18412e7cbebfefd94e603b4c3d60f",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-f1135900b10b",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-008",
-      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f842e02ce5f1--be8f7e41489b.zip",
-      "asset_name": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1--be8f7e41489b.zip",
-      "checksum": "ccb0468ee0762bbc271a42e5bf4fe9a71325516c1b371abe2f2d55f916700f49",
-      "bundle_id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-ordinary--03cdf2fe8316.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-ordinary--03cdf2fe8316.zip",
+      "checksum": "9e9eb0013c21fd5301c3bafc70c81ed8ba4dbe472504a32f6b9a24c49b5d691d",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-f1135900b10b-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-f1135900b10b",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-foreign-assistance-master--2caf283212d2.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-foreign-assistance-master--2caf283212d2.zip",
+      "checksum": "e85b180373b068cd410c237e139a921a663c061a8fd3e01b0d9f6d458cc2ba9d",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-foreign-assistance-master",
       "domain_id": "certification",
       "exam_family_id": "skill-certification",
       "exam_series_id": "skill-certification",
       "level_id": "single",
       "track_id": "skill-f842e02ce5f1",
-      "variant_ids": [],
+      "variant_ids": [
+        "paper-form-foreign-assistance-master"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2"
+    },
+    {
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-ordinary--b61bb6e57912.zip",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-ordinary--b61bb6e57912.zip",
+      "checksum": "8090e423238a663a451d55ecb8e90164fefa2e1d27e62793051de41c17f23855",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1-paper-form-ordinary",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "skill-certification",
+      "level_id": "single",
+      "track_id": "skill-f842e02ce5f1",
+      "variant_ids": [
+        "paper-form-ordinary"
+      ],
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
@@ -51682,6 +52195,249 @@
       "storage_key": "bundles/sites/default/post-recruit-postal-recruitment-not-applicable-postal-recruitment--82053bd24d37.zip",
       "checksum": "c8c478d0e3b92de55f6f3d04c138d26b2ca3c96b746d97d25716b262653edadc",
       "retained_at": "2026-10-23T04:32:27.549100+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328",
+      "release_tag": "default-bundles-v2-010",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-915b33da9328--daf66613c748.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-915b33da9328--daf66613c748.zip",
+      "checksum": "18732780dba1a9dd1072fca6fe2af65c3d0ff047ed4eb8977361cb8b8a44ae18",
+      "retained_at": "2026-10-23T08:17:53.053917+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc--8271ceff3c41.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc--8271ceff3c41.zip",
+      "checksum": "9462b71dc9b691fb08decc7040db3c6de4016e6579398e6c1e5fb1ec8c4d7762",
+      "retained_at": "2026-10-23T08:17:53.442360+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9",
+      "release_tag": "default-bundles-v2-010",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9--6fed798832f1.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-af93d1e87de9--6fed798832f1.zip",
+      "checksum": "9979e0fe168d601f74294d74ef18418413de49a767d493482345ebed80b83cf7",
+      "retained_at": "2026-10-23T08:17:53.765463+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-b-skill-c55d886d734e--dd0708923da1.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-c55d886d734e--dd0708923da1.zip",
+      "checksum": "5ed31d408d965d8c3d86c896b9cc236e3b9971fe6c37e28c5f21f5cead1e9278",
+      "retained_at": "2026-10-23T08:17:54.594025+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1--ef7fca8b4643.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-06eb81317ad1--ef7fca8b4643.zip",
+      "checksum": "62942fe71513fa035a50a0fa6ce27e4a3c2543879d8cde56464053fd7d7d04dd",
+      "retained_at": "2026-10-23T08:17:54.932839+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-0831ceffac0e--7389d9104244.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-0831ceffac0e--7389d9104244.zip",
+      "checksum": "fbae892fe3e0d7c5a41896ebbb0499efe8dd2fe3fc9b9ec9eb62adff98eea868",
+      "retained_at": "2026-10-23T08:17:55.273915+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f--e1411fa42d2b.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f--e1411fa42d2b.zip",
+      "checksum": "861218611ab9089e204fc910830feaea1fbe74a8af7888fe53a545f653338802",
+      "retained_at": "2026-10-23T08:17:56.085264+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a--f82c65cee04f.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-4ed2db72e36a--f82c65cee04f.zip",
+      "checksum": "90095e960c0bae0a8d203527115ab93c0dd9664aaa16c64c6054126e2b560e4f",
+      "retained_at": "2026-10-23T08:17:56.477624+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-77141472de1b",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-77141472de1b--946357f88b25.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-77141472de1b--946357f88b25.zip",
+      "checksum": "86f95a5ba38423b9a834db100b6e0219e1eeee8235f51f8fa51b4ec1e653cbb2",
+      "retained_at": "2026-10-23T08:17:56.886242+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-7781a64c8976--9f764962e2e2.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-7781a64c8976--9f764962e2e2.zip",
+      "checksum": "bee556a86d54759b8c5e73d98017bbb9c88cea7adbdddec42fe643fef8392a41",
+      "retained_at": "2026-10-23T08:17:57.742655+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb--9959b48c0558.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-9a9158b073fb--9959b48c0558.zip",
+      "checksum": "7575b0b9473976e4bafe84daa36590bd1eab3b4b342350f2f34c4bd2ac517015",
+      "retained_at": "2026-10-23T08:17:58.126979+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad--0826f3ff0552.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-ad94f9570dad--0826f3ff0552.zip",
+      "checksum": "7b931950ddfc2a3a7ab37b5df8896e951b6f859d017aa9a1350346f9f5aefc9c",
+      "retained_at": "2026-10-23T08:17:58.481871+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c--16ab400ef7a3.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c--16ab400ef7a3.zip",
+      "checksum": "ef99823b619239774d319052b17155ce6db3b70b8ebedc0117f9c0881287aaf9",
+      "retained_at": "2026-10-23T08:17:59.286171+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028--d30f9322d8ef.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d29a9a3fc028--d30f9322d8ef.zip",
+      "checksum": "3fe95654bd4787cf8ceb5453a8b59a78059e98f5f6db6dceb093c411e564d09c",
+      "retained_at": "2026-10-23T08:17:59.657720+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab--e50d7b1d8bc3.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-d62a66e69aab--e50d7b1d8bc3.zip",
+      "checksum": "9e9d9c2a1363311f85ca5e04fb7114ab690b0d3c911d12926491b4f537ba769e",
+      "retained_at": "2026-10-23T08:17:59.983989+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-00a50fe2ef27--a2a289521ad5.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-00a50fe2ef27--a2a289521ad5.zip",
+      "checksum": "51b1862eb32bf29da170185b870cfca068fc343b6af326296dd7916fd592f604",
+      "retained_at": "2026-10-23T08:18:00.784980+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73--4235242275d4.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-0ca5ac1e5e73--4235242275d4.zip",
+      "checksum": "5146666eec5f74e0f1c05e5b5e31f68132a7088ce147aafbd93f374f6b828d24",
+      "retained_at": "2026-10-23T08:18:01.172720+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-4d162efd7405",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-4d162efd7405--6632087d52fd.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-4d162efd7405--6632087d52fd.zip",
+      "checksum": "f4aea773ed3120ac670eccb33d211ba8b5b177964754bae6e8f8855e26b863c5",
+      "retained_at": "2026-10-23T08:18:01.581096+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-520d84214fb6",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-520d84214fb6--70be8c50da1d.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-520d84214fb6--70be8c50da1d.zip",
+      "checksum": "23773e90fc6955b49c919051f45cca70e82974d2280d71a8e3461ef5113e28f5",
+      "retained_at": "2026-10-23T08:18:02.428980+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-60e53531298b",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-60e53531298b--813dd0eca49a.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-60e53531298b--813dd0eca49a.zip",
+      "checksum": "346f45e12b50f169105709c57f1164747ad85fa3f75580b1699670b7619d400d",
+      "retained_at": "2026-10-23T08:18:02.812999+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-a5264c81984c",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-a5264c81984c--fdef77062479.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a5264c81984c--fdef77062479.zip",
+      "checksum": "6c6e3faf16e37933a6a566f6b1d1f0d55d16c438b3a8d6e29d8fb79718546749",
+      "retained_at": "2026-10-23T08:18:03.185136+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-a61ad5d927e0--1efb2638202e.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-a61ad5d927e0--1efb2638202e.zip",
+      "checksum": "aa9b87981c2218835a72457650693d99c6c04aea2f29538a4bec2dc785f8d265",
+      "retained_at": "2026-10-23T08:18:03.960015+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-b26f5efed9fe--1c8ac8b71db2.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-b26f5efed9fe--1c8ac8b71db2.zip",
+      "checksum": "aef5ed22762569473251a3962ac1ebcf2e6d2f177163ed9a2deaf2032a6f9482",
+      "retained_at": "2026-10-23T08:18:04.303446+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-e49f4067ea67",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-e49f4067ea67--2f16d7d9ec25.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e49f4067ea67--2f16d7d9ec25.zip",
+      "checksum": "502b9762bfdd3971dfcb1761ea9bb682c6bc6981af860afe7eebc50f0b07a13c",
+      "retained_at": "2026-10-23T08:18:04.654369+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-e54c91282b19",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-e54c91282b19--8bf609bf30c3.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-e54c91282b19--8bf609bf30c3.zip",
+      "checksum": "596965854446a1a0ab9df1c0af2770437519693a43dda25b481e03bb860c06c1",
+      "retained_at": "2026-10-23T08:18:05.469497+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-f1135900b10b",
+      "release_tag": "default-bundles-v2-011",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-f1135900b10b--684dad3b12a4.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f1135900b10b--684dad3b12a4.zip",
+      "checksum": "2bb88411b0d2b652dd0eff53e89dda5b61e5eba5b5810c5a68538fc6e9106b19",
+      "retained_at": "2026-10-23T08:18:05.853882+00:00"
+    },
+    {
+      "provider_id": "wdasec_skill",
+      "bundle_id": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "wdasec-skill-skill-certification-single-skill-f842e02ce5f1--be8f7e41489b.zip",
+      "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-single-skill-f842e02ce5f1--be8f7e41489b.zip",
+      "checksum": "ccb0468ee0762bbc271a42e5bf4fe9a71325516c1b371abe2f2d55f916700f49",
+      "retained_at": "2026-10-23T08:18:06.217625+00:00"
     }
   ],
   "catalog_version": "exam-identity-v2"

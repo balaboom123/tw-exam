@@ -790,7 +790,9 @@ class ExamIdentityClassificationTests(unittest.TestCase):
         whitespace = classify("甲級", "技能檢定", provider="wdasec_skill", canonical="skill", subject=" \t\u3000")
         self.assertEqual(whitespace, blank)
         self.assertEqual(whitespace.track_id, "0101")
-        self.assertNotEqual(whitespace.confidence, "review")
+        self.assertEqual(whitespace.confidence, "review")
+        self.assertIn("paper-form-unknown", whitespace.variant_ids)
+        self.assertEqual(whitespace.level_id, "class-a")
 
     def test_moex_papers_in_one_category_share_identity_across_subjects(self) -> None:
         base = dict(
@@ -955,7 +957,8 @@ def test_subject_track_titles_are_distinct_without_changing_identity():
             assert identity.bundle_name == f'{canonical}｜{subject}'
     skill = classify('乙級', '技能檢定', provider='wdasec_skill',
                      canonical='全國技術士技能檢定', subject='室內配線 乙級')
-    assert skill.bundle_name == '全國技術士技能檢定｜乙級｜室內配線'
+    assert skill.bundle_name == '全國技術士技能檢定｜乙級｜室內配線｜試卷形式待確認'
+    assert skill.confidence == 'review'
     tve = classify('統測', '115年統測', provider='tcte_tve',
                    canonical='四技二專統一入學測驗', subject='01機械群 專業科目(一)')
     assert tve.bundle_name == '四技二專統一入學測驗｜01機械群'

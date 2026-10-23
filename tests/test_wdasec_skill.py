@@ -8,11 +8,13 @@ from app.providers.wdasec_skill.client import (
     DetailRow,
     ListingRow,
     PAGE_URL,
+    RelatedMaterial,
     WdasecSkillClient,
     parse_detail_rows,
     parse_hidden_fields,
     parse_listing_rows,
     parse_page_count,
+    parse_related_materials,
 )
 
 
@@ -28,6 +30,12 @@ class _FakeResponse:
 
     def read(self) -> bytes:
         return INITIAL_PAGE_HTML.encode("utf-8")
+
+
+def test_rule_amendment_is_not_an_answer_clarification():
+    assert RelatedMaterial("試題答案修正公告", "https://example.test/a.pdf").file_type == "answer_clarification"
+    assert RelatedMaterial("術科試題疑義處理公告", "https://example.test/b.pdf").file_type == "answer_clarification"
+    assert RelatedMaterial("報名作業規定修正公告", "https://example.test/c.pdf").file_type == "instructions"
 
 
 class _CapturingOpener:
@@ -365,3 +373,49 @@ def test_hidden_fields_and_listing_inputs_handle_valueless_attributes():
     assert parse_hidden_fields('<input type="hidden" name="token" value>') == {"token": ""}
     assert parse_hidden_fields('<input type="hidden" name value="ignored">') == {}
     assert parse_listing_rows('<tr><td><input name value></td></tr>') == []
+
+
+def test_related_documents_retain_corrections_and_word_sources_without_becoming_questions():
+    html = '''<table id="gvSub">
+      <tr><td><a href="DLowFileQ/Sub/result.pdf">》115年度學科試題疑義處理修正公告</a></td></tr>
+      <tr><td><a href="DLowFileQ/Sub/older.doc">》92年度答案修正公告</a></td></tr>
+      <tr><td><a href="DLowFileQ/Sub/newer.docx">》101年度術科試題疑義處理結果</a></td></tr>
+      <tr><td><a href="DLowFileQ/Sub/guide.pdf">》應檢人參考說明</a></td></tr>
+      <tr><td><a href="DLowFileQ/Sub/">》</a></td></tr>
+    </table>'''
+    materials = parse_related_materials(html, PAGE_URL + '?yserno=202603160001')
+    assert [m.file_type for m in materials] == [
+        'answer_clarification', 'answer_clarification', 'answer_clarification', 'instructions'
+    ]
+    assert materials[1].source_url.endswith('/DLowFileQ/Sub/older.doc')
+    assert materials[2].source_url.endswith('/DLowFileQ/Sub/newer.docx')
+    client=WdasecSkillClient()
+    client._listing_rows_cache=(ListingRow(115,'115年度第1梯次試題','202603160001',0),)
+    with patch.object(client,'_get',return_value=DETAIL_PAGE_HTML+html):
+        page=client.fetch_exam_page('202603160001',2026)
+    assert len(page.papers)==6
+    assert len(page.attachments)==4
+    assert page.attachments[0].file_type=='answer_clarification'
+    assert page.attachments[0].title=='115年度學科試題疑義處理修正公告'
+
+
+def test_related_materials_ignore_other_tables_and_deduplicate_exact_native_links():
+    link='<a href="DLowFileQ/Sub/result.pdf">》試題疑義處理結果</a>'
+    assert not parse_related_materials('<table id="gvFile">'+link+'</table>',PAGE_URL)
+    assert len(parse_related_materials('<table id="gvSub">'+link+link+'</table>',PAGE_URL))==1
+    import pytest
+    with pytest.raises(ValueError,match='Conflicting'):
+        parse_related_materials('<table id="gvSub">'+link+link.replace('處理結果','修正公告')+'</table>',PAGE_URL)
+
+
+def test_related_materials_reject_lost_labels_and_non_native_sources():
+    import pytest
+    for href,label in [
+        ('https://example.com/result.pdf','答案修正公告'),
+        ('DLowFileQ/Sub/result.exe','答案修正公告'),
+        ('DLowFileQ/Sub/result.pdf#page=1','答案修正公告'),
+        ('','答案修正公告'),
+        ('DLowFileQ/Sub/result.pdf',''),
+    ]:
+        with pytest.raises(ValueError,match='Unrecognized WDA'):
+            parse_related_materials(f'<table id="gvSub"><a href="{href}">{label}</a></table>',PAGE_URL)

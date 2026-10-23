@@ -1,9 +1,10 @@
 # /// script
+# requires-python = ">=3.11"
 # dependencies = ["fonttools[woff]>=4.59"]
 # ///
 """Build small Traditional Chinese WOFF2 fonts from the locally installed OFL Noto CJK faces.
 
-Run with `uv run scripts/build_frontend_fonts.py` after changing public names or UI copy.
+Run with `uv run --frozen scripts/build_frontend_fonts.py` after changing public names or UI copy.
 The source TTCs come from the `fonts-noto-cjk` package; pass --font-dir for another installation.
 """
 from __future__ import annotations

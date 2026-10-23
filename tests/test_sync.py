@@ -33,13 +33,21 @@ def corrupt_zip_payload() -> bytes:
 
 
 class ZipPayloadValidationTests(unittest.TestCase):
-    def test_answer_clarification_requires_its_native_PDF_payload(self) -> None:
-        self.assertEqual(
-            _validated_extension("answer_clarification", b"%PDF-1.7 official result", "application/pdf", "result.pdf"),
-            ".pdf",
-        )
+    def test_answer_clarification_accepts_native_pdf_and_word_documents(self) -> None:
+        for body,mime,name,expected in [
+            (b"%PDF-1.7 official result","application/pdf","result.pdf",".pdf"),
+            (bytes.fromhex('d0cf11e0a1b11ae1')+b'native Word result',"application/msword","result.doc",".doc"),
+            (zip_payload('word/document.xml',b'<document>official result</document>'),
+             "application/vnd.openxmlformats-officedocument.wordprocessingml.document","result.docx",".docx"),
+        ]:
+            with self.subTest(name=name):
+                self.assertEqual(_validated_extension('answer_clarification',body,mime,name),expected)
         for body, mime, name in [
             (b"<html>Not found</html>", "application/pdf", "result.pdf"),
+            (b"<html>Not found</html>", "application/msword", "result.doc"),
+            (b"<html>Not found</html>", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "result.docx"),
+            (b"not a Word document", "application/msword", "result.doc"),
+            (corrupt_zip_payload(),"application/vnd.openxmlformats-officedocument.wordprocessingml.document","result.docx"),
             (zip_payload(), "application/zip", "result.zip"),
         ]:
             with self.subTest(name=name), self.assertRaises(RuntimeError):

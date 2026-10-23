@@ -1,5 +1,12 @@
 # Contracts
 
+When an identity split conserves every native source key and checksum of a
+retained ZIP, the site writer derives its landing-page successors from those
+exact sources. The optional frontend `compatibilityPages` projection contains
+explicit current bundle IDs; the frontend does not infer them from names.
+Partial native overlap cannot approve a successor list. More complex source
+transformations retain their separately reviewed compatibility pages.
+
 Executable fields, types, versions, and vocabularies live in the owners below. This reference defines ownership, traceability, publication boundaries, and compatibility obligations. Identity and bundle purity are defined in [exam identity](exam-identity.md).
 
 ## Contract owners
@@ -69,7 +76,8 @@ An answer-clarification result is a distinct file role. It can uphold some
 answers and change others, so it stays alongside original answer keys and must
 not be treated as an interchangeable copy or automatically described as a
 complete corrected key. Its provider owns the source-page context and native
-subject applicability; the shared payload policy validates its PDF format.
+subject applicability; the shared payload policy validates native PDF and Word
+formats using the same signature and archive-integrity checks as other roles.
 
 A `source_document` attachment retains an original combined PDF when reviewed
 subject selections become the paper records. A selection locator's fragment

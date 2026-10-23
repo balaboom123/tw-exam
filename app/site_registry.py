@@ -83,6 +83,44 @@ _SITES = {
             "hce-nsysu": 1,
             "hce-nthu": 1,
             "post-recruit": 1,
+            # Preserve single-year papers already public before the native
+            # assisted-form split. Other WDA identities retain the default.
+            (
+                "wdasec-skill-skill-certification-class-b-skill-af93d1e87de9-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-b-skill-915b33da9328-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-c-skill-77141472de1b-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-c-skill-7781a64c8976-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-c-skill-9a9158b073fb-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-c-skill-ad94f9570dad-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-b-skill-c55d886d734e-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
+            (
+                "wdasec-skill-skill-certification-class-b-skill-9a421b2b4adc-"
+                "paper-form-foreign-assistance-master"
+            ): 1,
         },
         required_provider_ids=("moex", "ceec_gsat"),
     )

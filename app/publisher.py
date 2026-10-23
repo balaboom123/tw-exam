@@ -36,6 +36,7 @@ from app.release_tags import (
 )
 from app.retained_downloads import (
     RetainedDownload,
+    derive_compatibility_pages,
     load_retained_downloads,
     reserved_asset_names,
     snapshot_existing_downloads,
@@ -226,6 +227,7 @@ def write_site_state(
     bundles: list[BundleAsset],
     frontend_bundles: list[dict[str, Any]],
     retained_downloads: list[RetainedDownload] | None = None,
+    compatibility_pages: list[dict[str, Any]] | None = None,
 ) -> None:
     if retained_downloads is None:
         retained_downloads = load_retained_downloads(site)
@@ -277,6 +279,8 @@ def write_site_state(
     }
     if schema_version >= 2:
         frontend_payload["catalog_version"] = "exam-identity-v2"
+    if compatibility_pages:
+        frontend_payload["compatibilityPages"] = compatibility_pages
     site.frontend_bundles_path.write_text(
         json.dumps(
             frontend_payload,
@@ -584,5 +588,8 @@ def publish_site(
         bundles_with_urls,
         frontend_bundles,
         retained_downloads=retained_downloads,
+        compatibility_pages=derive_compatibility_pages(
+            repo_root, site, retained_downloads, normalized_with_urls.papers, bundles_with_urls
+        ),
     )
     return normalized_with_urls, bundles_with_urls

@@ -2,7 +2,7 @@ import assert from "node:assert/strict"
 import test from "node:test"
 import { runInNewContext } from "node:vm"
 
-import { buildBundlePage, buildSitemap, siteRoot } from "./bundle-pages.ts"
+import { buildBundlePage, buildCompatibilityPage, buildSitemap, siteRoot } from "./bundle-pages.ts"
 
 const bundle = {
   id: "exam-one",
@@ -15,6 +15,22 @@ const bundle = {
   asset: "exam-one.zip",
   subjectLabels: ["數學甲"],
 }
+
+test("a previous page links exact successor IDs and carries an unlocked return", () => {
+  const root = "https://example.github.io/tw-exam/"
+  const html = buildCompatibilityPage({ id: "old-combined", name: "舊 <分組>", successorIds: [bundle.id] }, [bundle], root)
+  assert.match(html, /舊 &lt;分組&gt;/)
+  assert.match(html, /noindex,follow/)
+  assert.match(html, /href="\.\/exam-one\.html"/)
+  assert.doesNotMatch(html, /releases\/download/)
+  const link = { href: `${root}b/exam-one.html` }
+  runInNewContext(html.match(/<script>(.*?)<\/script>/s)[1], {
+    document: { querySelectorAll: () => [link] },
+    location: new URL(`${root}b/old-combined.html?unlocked=1`), URL, URLSearchParams,
+  })
+  assert.equal(link.href, `${root}b/exam-one.html?unlocked=1`)
+  assert.throws(() => buildCompatibilityPage({ id: "old", name: "舊", successorIds: ["missing"] }, [bundle], root))
+})
 
 test("bundle page has a canonical URL, safe metadata, ZIP distribution, and a return path", () => {
   const root = siteRoot({ base: "/tw-exam/", origin: "https://example.github.io" })

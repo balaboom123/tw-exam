@@ -15,7 +15,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, cast
 
-from app.models import BundleAsset
+from app.models import BundleAsset, NormalizedPaper
 from app.paths import SitePaths, provider_paths
 
 
@@ -273,6 +273,48 @@ def snapshot_existing_downloads(
         verify_retained_download(repo_root, site, candidate, verify_content=True)
         by_name[candidate.asset_name] = candidate
     return sorted(by_name.values(), key=lambda download: download.asset_name)
+
+
+def derive_compatibility_pages(
+    repo_root: Path,
+    site: SitePaths,
+    downloads: list[RetainedDownload],
+    papers: list[NormalizedPaper],
+    bundles: list[BundleAsset],
+) -> list[dict[str, Any]]:
+    """Follow exact conserved sources from a frozen ZIP to current groups.
+
+    This is a publication projection, not another identity mapping. More
+    complex source transformations retain their separately reviewed pages.
+    """
+    from app.bundler import _paper_bundle_key
+
+    public = {bundle.bundle_id for bundle in bundles}
+    by_source: dict[tuple[Any, ...], set[str]] = defaultdict(set)
+    for paper in papers:
+        by_source[(paper.provider_id, *_paper_bundle_key(paper), paper.checksum)].add(
+            paper.bundle_id
+        )
+    pages = []
+    for download in downloads:
+        manifest = verify_retained_download(repo_root, site, download, verify_content=False)
+        sources = [
+            (download.provider_id, *_paper_bundle_key(paper), paper["checksum"])
+            for paper in manifest["papers"]
+        ]
+        if not sources or any(key not in by_source for key in sources):
+            continue
+        successors = {bundle_id for key in sources for bundle_id in by_source[key]}
+        if not successors or not successors <= public:
+            continue
+        pages.append(
+            {
+                "id": download.bundle_id,
+                "name": manifest["canonical_name"],
+                "successorIds": sorted(successors),
+            }
+        )
+    return sorted(pages, key=lambda page: page["id"])
 
 
 def release_download_records(

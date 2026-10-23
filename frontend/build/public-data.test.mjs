@@ -4,6 +4,26 @@ import test from "node:test"
 import { buildPublicData } from "./public-data.ts"
 import { formatSyncDate } from "../src/lib/provenance.ts"
 
+test("compatibility pages use explicit published identities and stay out of search results", () => {
+  const source = {
+    schema_version: 2,
+    bundles: [{ id: "current", name: "目前", years: [115], fileCount: 1,
+      examClass: "證照／檢定", examSubclass: "技能檢定",
+      url: "https://github.com/example/exams/releases/download/shard-1/current.zip" }],
+    compatibilityPages: [{ id: "old", name: "舊版", successorIds: ["current"] }],
+  }
+  const data = buildPublicData(source)
+  assert.deepEqual(data.compatibilityPages, source.compatibilityPages)
+  assert.equal(data.feed.bundles.length, 1)
+  assert.equal(data.searchIndex.length, 1)
+  for (const page of [
+    { id: "../old", name: "舊版", successorIds: ["current"] },
+    { id: "old", name: "舊版", successorIds: ["missing"] },
+    { id: "current", name: "舊版", successorIds: ["current"] },
+    { id: "old", name: "舊版", successorIds: ["current", "current"] },
+  ]) assert.throws(() => buildPublicData({ ...source, compatibilityPages: [page] }))
+})
+
 test("public feed keeps download metadata and defers aliases to the search index", () => {
   const source = {
     schema_version: 2,

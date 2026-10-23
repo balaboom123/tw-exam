@@ -11,6 +11,13 @@ export interface PublicData {
   searchText: string
   feedFile: string
   searchFile: string
+  compatibilityPages: CompatibilityPage[]
+}
+
+export interface CompatibilityPage {
+  id: string
+  name: string
+  successorIds: string[]
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -44,7 +51,7 @@ function releaseLocation(rawUrl: unknown): { repo: string; tag: string; asset: s
   }
 }
 
-export function buildPublicData(source: unknown): { feed: CompactFeed; searchIndex: string[] } {
+export function buildPublicData(source: unknown): { feed: CompactFeed; searchIndex: string[]; compatibilityPages: CompatibilityPage[] } {
   if (!isRecord(source) || !Array.isArray(source.bundles) || source.bundles.length === 0) {
     throw new TypeError("Expected a nonempty site frontend bundle feed")
   }
@@ -122,7 +129,24 @@ export function buildPublicData(source: unknown): { feed: CompactFeed; searchInd
   }
   const feed: CompactFeed = { v: source.schema_version, repo, classes: [...classes], bundles }
   parseCompactFeed(feed)
-  return { feed, searchIndex }
+  const compatibilityPages: CompatibilityPage[] = []
+  const publicIds = new Set(bundles.map((bundle) => bundle.id))
+  const previousIds = new Set<string>()
+  if (source.compatibilityPages !== undefined) {
+    if (!Array.isArray(source.compatibilityPages)) throw new TypeError("Invalid compatibility pages")
+    for (const page of source.compatibilityPages) {
+      if (!isRecord(page) || typeof page.id !== "string" || !/^[A-Za-z0-9._-]+$/.test(page.id) ||
+        publicIds.has(page.id) || previousIds.has(page.id) || typeof page.name !== "string" || !page.name.trim() ||
+        !isStringArray(page.successorIds) || !page.successorIds.length ||
+        new Set(page.successorIds).size !== page.successorIds.length ||
+        !page.successorIds.every((id) => publicIds.has(id))) {
+        throw new TypeError("Invalid compatibility identity or successor")
+      }
+      previousIds.add(page.id)
+      compatibilityPages.push({ id: page.id, name: page.name, successorIds: page.successorIds })
+    }
+  }
+  return { feed, searchIndex, compatibilityPages }
 }
 
 function hashedName(prefix: string, source: string): string {
@@ -132,7 +156,7 @@ function hashedName(prefix: string, source: string): string {
 
 export async function readPublicData(sourcePath: string): Promise<PublicData> {
   const source: unknown = JSON.parse(await readFile(sourcePath, "utf8"))
-  const { feed, searchIndex } = buildPublicData(source)
+  const { feed, searchIndex, compatibilityPages } = buildPublicData(source)
   const feedText = JSON.stringify(feed)
   const searchText = JSON.stringify(searchIndex)
   return {
@@ -141,5 +165,6 @@ export async function readPublicData(sourcePath: string): Promise<PublicData> {
     searchText,
     feedFile: hashedName("bundles", feedText),
     searchFile: hashedName("search-index", searchText),
+    compatibilityPages,
   }
 }

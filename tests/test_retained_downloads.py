@@ -86,6 +86,11 @@ def test_split_preserves_frozen_URL_bytes_capacity_and_repeat_publication(tmp_pa
     }
     feed = json.loads(site.frontend_bundles_path.read_text())["bundles"]
     assert len(feed) == 2 and old.bundle_id not in {bundle["id"] for bundle in feed}
+    compatibility = json.loads(site.frontend_bundles_path.read_text())["compatibilityPages"]
+    assert compatibility == [{
+        "id": old.bundle_id, "name": old.canonical_name,
+        "successorIds": sorted(bundle.bundle_id for bundle in new),
+    }]
     assert json.loads(site.release_assets_path.read_text())["schema_version"] == 3
     assert len(release_download_records(site.release_assets_path)) == 3
     report = archive_audit.audit_site_archives(tmp_path, site_id="default", verify_content=True)
@@ -98,6 +103,20 @@ def test_split_preserves_frozen_URL_bytes_capacity_and_repeat_publication(tmp_pa
     publisher.publish_site(tmp_path, site_id="default", repository="example/repo")
     assert retained_downloads_path(site).read_bytes() == frozen
     assert (tmp_path / old.storage_key).read_bytes() == before
+
+
+def test_compatibility_requires_every_exact_native_source_and_public_successor(tmp_path, monkeypatch):
+    from app.retained_downloads import derive_compatibility_pages
+
+    site, old, current = migration(tmp_path, monkeypatch)
+    _, new = publisher.publish_site(
+        tmp_path, site_id="default", repository="example/repo",
+        retain_existing_download_ids={old.bundle_id},
+    )
+    held = load_retained_downloads(site)
+    changed = [replace(current.papers[0], checksum="0" * 64), *current.papers[1:]]
+    assert derive_compatibility_pages(tmp_path, site, held, changed, new) == []
+    assert derive_compatibility_pages(tmp_path, site, held, current.papers, new[:1]) == []
 
 
 def test_missing_or_corrupt_retained_bytes_cannot_pass_audit(tmp_path, monkeypatch):

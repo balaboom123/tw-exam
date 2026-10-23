@@ -3,9 +3,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from urllib.parse import urlencode, urljoin
+from urllib.parse import urlencode, urljoin, urlsplit
 
-from app.models import ExamOption, ParsedPaper, SourceExamPage
+from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
 
@@ -31,6 +31,20 @@ class DetailRow:
     level: str
     question_url: str
     practical_url: str
+
+
+@dataclass(frozen=True)
+class RelatedMaterial:
+    title: str
+    source_url: str
+
+    @property
+    def file_type(self) -> str:
+        if "疑義" in self.title or (
+            "修正" in self.title and ("試題" in self.title or "答案" in self.title)
+        ):
+            return "answer_clarification"
+        return "instructions"
 
 
 # ---------------------------------------------------------------------------
@@ -236,6 +250,66 @@ class _PaginationParser(HTMLParser):
             self._in_pgr = False
 
 
+class _RelatedMaterialParser(HTMLParser):
+    """Read the event's related-documents table independently of its papers."""
+
+    def __init__(self, base_url: str) -> None:
+        super().__init__()
+        self.base_url = base_url
+        self.materials: list[RelatedMaterial] = []
+        self._in_table = False
+        self._href: str | None = None
+        self._label: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if tag == "table" and values.get("id") == "gvSub":
+            self._in_table = True
+        elif self._in_table and tag == "a":
+            self._href = values.get("href") or ""
+            self._label = []
+
+    def handle_data(self, data: str) -> None:
+        if self._in_table and self._href is not None:
+            self._label.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "table":
+            self._in_table = False
+        elif self._in_table and tag == "a" and self._href is not None:
+            url = urljoin(self.base_url, self._href)
+            parsed = urlsplit(url)
+            title = " ".join(unescape(" ".join(self._label)).split()).strip("》> ")
+            self._href = None
+            self._label = []
+            # The source includes an empty gvSub row whose only link is the
+            # directory itself. It provides neither a file nor a notice title.
+            if not title and parsed.path.endswith("/DLowFileQ/Sub/"):
+                return
+            if (
+                parsed.scheme != "https"
+                or parsed.netloc != "owinform.wdasec.gov.tw"
+                or not parsed.path.startswith("/ExamNet/owInform/DLowFileQ/Sub/")
+                or not parsed.path.lower().endswith((".pdf", ".doc", ".docx"))
+                or parsed.fragment
+                or not title
+            ):
+                raise ValueError("Unrecognized WDA related-document source or label")
+            self.materials.append(RelatedMaterial(title, url))
+
+
+def parse_related_materials(html: str, base_url: str) -> list[RelatedMaterial]:
+    parser = _RelatedMaterialParser(base_url)
+    parser.feed(html)
+    parser.close()
+    by_url: dict[str, RelatedMaterial] = {}
+    for material in parser.materials:
+        if material.source_url in by_url and by_url[material.source_url] != material:
+            raise ValueError("Conflicting WDA related-document labels")
+        by_url[material.source_url] = material
+    return list(by_url.values())
+
+
 # ---------------------------------------------------------------------------
 # Public parse functions
 # ---------------------------------------------------------------------------
@@ -394,8 +468,10 @@ class WdasecSkillClient:
         if target_row is None:
             raise ValueError(f"Session not found: {exam_code}")
 
-        detail_html = self._get(self.build_discovery_exam_url(exam_code, year_ad))
+        detail_url = self.build_discovery_exam_url(exam_code, year_ad)
+        detail_html = self._get(detail_url)
         detail_rows = parse_detail_rows(detail_html)
+        related = parse_related_materials(detail_html, detail_url)
 
         year_roc = target_row.year_roc
         papers: list[ParsedPaper] = []
@@ -431,6 +507,8 @@ class WdasecSkillClient:
             year_ad=year_ad,
             year_roc=year_roc,
             exam_name_raw=target_row.title,
-            attachments=[],
+            attachments=[
+                ExamAttachment(item.title, item.file_type, item.source_url) for item in related
+            ],
             papers=papers,
         )

@@ -54,7 +54,7 @@ EXPECTED_EXTENSIONS = {
     "scoring_examples": (".pdf", ".doc", ".docx"),
     "instructions": (".pdf", ".doc", ".docx", ".rar"),
     "corrected_answer": (".pdf", ".doc", ".zip"),
-    "answer_clarification": (".pdf",),
+    "answer_clarification": (".pdf", ".doc", ".docx"),
     "all_answers": (".pdf",),
     "answer_table": (".html", ".htm"),
     "accessible_bundle": (".zip",),
