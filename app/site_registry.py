@@ -82,6 +82,7 @@ _SITES = {
             "hce-tcu": 1,
             "hce-nsysu": 1,
             "hce-nthu": 1,
+            "post-recruit": 1,
         },
         required_provider_ids=("moex", "ceec_gsat"),
     )

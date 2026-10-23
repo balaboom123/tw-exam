@@ -915,6 +915,9 @@ def validate_public_materials(
     from app.providers.hce_tcu.evidence import validate_public_papers
 
     validate_public_papers(paper for records in grouped.values() for paper in records)
+    from app.providers.post_recruit.evidence import validate_public_papers as validate_postal_papers
+
+    validate_postal_papers(paper for records in grouped.values() for paper in records)
     return {
         key: summary
         for key, records in grouped.items()

@@ -1,0 +1,3436 @@
+{
+  "schema_version": 1,
+  "provider_id": "post_recruit",
+  "events": [
+    {
+      "programme_year_roc": 111,
+      "source_exam_id": "post-recruit-111",
+      "programme_name": "中華郵政股份有限公司111年職階人員甄試",
+      "exam_series_id": "postal-recruitment",
+      "written_test_date": "2022-11-12",
+      "stage_id": "stage-1",
+      "rule_urls": [
+        "https://www.cna.com.tw/Postwrite/Chi/322296"
+      ],
+      "reviewed_at": "2026-10-23",
+      "review_notes": "Issuer press release distributed by CNA (2022-08-23) identifies the first written test on 2022-11-12 and subsequent interview/physical stage. Native annual brochure is now HTTP 404; no coaching copy is used. Each PDF employment-grade header, applicant-code range, session, actual subject, printed answer marks and source applicability was reconciled against the official history listing. Regional and disability allocations share these papers and are preserved in source_context, not invented content variants.",
+      "jobs": [
+        {
+          "category_code": "postal-professional-1-general-information",
+          "grade_scope": "專業職(一)",
+          "occupation": "一般資訊",
+          "track_id": "general-information"
+        },
+        {
+          "category_code": "postal-professional-1-general-finance",
+          "grade_scope": "專業職(一)",
+          "occupation": "一般金融",
+          "track_id": "general-finance"
+        },
+        {
+          "category_code": "postal-professional-1-civil-engineering",
+          "grade_scope": "專業職(一)",
+          "occupation": "土木工程",
+          "track_id": "civil-engineering"
+        },
+        {
+          "category_code": "postal-professional-1-life-insurance-underwriting",
+          "grade_scope": "專業職(一)",
+          "occupation": "壽險核保",
+          "track_id": "life-insurance-underwriting"
+        },
+        {
+          "category_code": "postal-professional-1-real-estate-management",
+          "grade_scope": "專業職(一)",
+          "occupation": "房地管理",
+          "track_id": "real-estate-management"
+        },
+        {
+          "category_code": "postal-professional-1-construction-engineering",
+          "grade_scope": "專業職(一)",
+          "occupation": "營建工程",
+          "track_id": "construction-engineering"
+        },
+        {
+          "category_code": "postal-professional-1-programming",
+          "grade_scope": "專業職(一)",
+          "occupation": "程式設計",
+          "track_id": "programming"
+        },
+        {
+          "category_code": "postal-professional-1-systems-operation",
+          "grade_scope": "專業職(一)",
+          "occupation": "系統操作",
+          "track_id": "systems-operation"
+        },
+        {
+          "category_code": "postal-professional-1-statistical-analysis",
+          "grade_scope": "專業職(一)",
+          "occupation": "統計研析",
+          "track_id": "statistical-analysis"
+        },
+        {
+          "category_code": "postal-professional-1-postal-savings-d",
+          "grade_scope": "專業職(一)",
+          "occupation": "郵儲業務丁",
+          "track_id": "postal-savings-d"
+        },
+        {
+          "category_code": "postal-professional-1-postal-savings-a",
+          "grade_scope": "專業職(一)",
+          "occupation": "郵儲業務甲",
+          "track_id": "postal-savings-a"
+        },
+        {
+          "category_code": "postal-professional-1-electronic-maintenance",
+          "grade_scope": "專業職(一)",
+          "occupation": "電子修護",
+          "track_id": "electronic-maintenance"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-foreign-exchange-counter",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "外匯櫃台",
+          "track_id": "indoor-foreign-exchange-counter"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-information-counter",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "櫃台(資訊)",
+          "track_id": "indoor-information-counter"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-counter-services",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "櫃台業務",
+          "track_id": "indoor-counter-services"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-mail-processing",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "郵務處理",
+          "track_id": "indoor-mail-processing"
+        },
+        {
+          "category_code": "postal-professional-2-outdoor-transport-services",
+          "grade_scope": "專業職(二)外勤",
+          "occupation": "運輸業務",
+          "track_id": "outdoor-transport-services"
+        },
+        {
+          "category_code": "postal-professional-2-outdoor-mail-delivery",
+          "grade_scope": "專業職(二)外勤",
+          "occupation": "郵遞業務",
+          "track_id": "outdoor-mail-delivery"
+        },
+        {
+          "category_code": "postal-operational-life-insurance-actuarial",
+          "grade_scope": "營運職",
+          "occupation": "壽險精算",
+          "track_id": "life-insurance-actuarial"
+        },
+        {
+          "category_code": "postal-operational-architectural-design",
+          "grade_scope": "營運職",
+          "occupation": "建築設計",
+          "track_id": "architectural-design"
+        },
+        {
+          "category_code": "postal-operational-data-analysis",
+          "grade_scope": "營運職",
+          "occupation": "數據分析",
+          "track_id": "data-analysis"
+        },
+        {
+          "category_code": "postal-operational-legal-affairs",
+          "grade_scope": "營運職",
+          "occupation": "法務",
+          "track_id": "legal-affairs"
+        },
+        {
+          "category_code": "postal-operational-systems-analysis",
+          "grade_scope": "營運職",
+          "occupation": "系統分析",
+          "track_id": "systems-analysis"
+        },
+        {
+          "category_code": "postal-operational-communications-and-security-management",
+          "grade_scope": "營運職",
+          "occupation": "資通訊與安全管理",
+          "track_id": "communications-and-security-management"
+        },
+        {
+          "category_code": "postal-operational-postal-savings-a",
+          "grade_scope": "營運職",
+          "occupation": "郵儲業務甲",
+          "track_id": "postal-savings-a"
+        },
+        {
+          "category_code": "postal-operational-finance-and-insurance",
+          "grade_scope": "營運職",
+          "occupation": "金融保險",
+          "track_id": "finance-and-insurance"
+        },
+        {
+          "category_code": "postal-operational-electrical-engineering",
+          "grade_scope": "營運職",
+          "occupation": "電機工程",
+          "track_id": "electrical-engineering"
+        }
+      ],
+      "files": [
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14897731096.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "營運職-法務-臺北地區(U3101)；營運職-壽險精算-臺北地區(U3102)；營運職-金融保險-臺北地區(U3103)；營運職-資通訊與安全管理-臺北地區(U3104)；營運職-系統分析-臺北地區(U3105)；營運職-數據分析-臺北地區(U3106)；營運職-電機工程-臺北地區(U3107)；營運職-建築設計(1)-臺北地區(U3108)；營運職-建築設計(2)-臺北地區(工作地點：臺中地區)(U3109)；營運職-郵儲業務甲-北部地區(U3110)；營運職-郵儲業務甲-中部地區(U3111)；營運職-郵儲業務甲-南部地區(U3112)",
+          "native_header": "營運職-全類組【U3101-U3112】｜第四節／共同科目(1)：國文(含作文與公文寫作)",
+          "subject_name_raw": "國文(含作文與公文寫作)",
+          "slot": "common-1",
+          "file_type": "question",
+          "checksum": "c90b69704b7f5d28e969634f3cb16355e07e2897a5339d9eb22af6703ff25984",
+          "applies_to": [
+            "postal-operational-life-insurance-actuarial",
+            "postal-operational-architectural-design",
+            "postal-operational-data-analysis",
+            "postal-operational-legal-affairs",
+            "postal-operational-systems-analysis",
+            "postal-operational-communications-and-security-management",
+            "postal-operational-postal-savings-a",
+            "postal-operational-finance-and-insurance",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14898055034.pdf"
+          ],
+          "source_label": "共同科目",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(U3301)；專業職(二)內勤-櫃台業務-板橋郵局(U3302)；專業職(二)內勤-櫃台業務-桃園郵局(U3303)；專業職(二)內勤-櫃台業務-臺中郵局(U3304)；專業職(二)內勤-櫃台業務-臺南郵局(U3305)；專業職(二)內勤-櫃台業務-高雄郵局(U3306)；專業職(二)內勤-櫃台業務-基隆郵局(U3307)；專業職(二)內勤-櫃台業務-三重郵局(U3308)；專業職(二)內勤-櫃台業務-新竹郵局(U3309)；專業職(二)內勤-櫃台業務-彰化郵局(U3310)；專業職(二)內勤-櫃台業務-嘉義郵局(U3311)；專業職(二)內勤-櫃台業務-苗栗郵局(U3312)；專業職(二)內勤-櫃台業務-南投郵局(U3313)；專業職(二)內勤-櫃台業務-雲林郵局(U3314)；專業職(二)內勤-櫃台業務-屏東郵局(U3315)；專業職(二)內勤-櫃台業務-恆春地區(U3316)；專業職(二)內勤-櫃台業務-宜蘭郵局(U3317)；專業職(二)內勤-櫃台業務-花蓮郵局(U3318)；專業職(二)內勤-櫃台業務-臺東郵局(U3319)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺北郵局(U3320)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-板橋郵局(U3321)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-桃園郵局(U3322)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺中郵局(U3323)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺南郵局(U3324)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-高雄郵局(U3325)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-基隆郵局(U3326)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-三重郵局(U3327)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-新竹郵局(U3328)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-彰化郵局(U3329)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-苗栗郵局(U3330)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-南投郵局(U3331)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-屏東郵局(U3332)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-宜蘭郵局(U3333)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-花蓮郵局(U3334)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺東郵局(U3335)；專業職(二)內勤-櫃台(資訊)-臺北郵局(U3336)；專業職(二)內勤-櫃台(資訊)-臺南郵局(U3337)；專業職(二)內勤-櫃台(資訊)-高雄郵局(U3338)；專業職(二)內勤-櫃台(資訊)-基隆郵局(U3339)；專業職(二)內勤-櫃台(資訊)-南投郵局(U3340)；專業職(二)內勤-櫃台(資訊)-花蓮郵局(U3341)；專業職(二)內勤-外匯櫃台-臺南郵局(U3342)；專業職(二)內勤-外匯櫃台-基隆郵局(U3343)；專業職(二)內勤-郵務處理-臺北郵局(U3401)；專業職(二)內勤-郵務處理-板橋郵局(U3402)；專業職(二)內勤-郵務處理-桃園郵局(U3403)；專業職(二)內勤-郵務處理-臺中郵局(U3404)；專業職(二)內勤-郵務處理-臺南郵局(U3405)；專業職(二)內勤-郵務處理-高雄郵局(U3406)；專業職(二)內勤-郵務處理-基隆郵局(U3407)；專業職(二)內勤-郵務處理-三重郵局(U3408)；專業職(二)內勤-郵務處理-新竹郵局(U3409)；專業職(二)內勤-郵務處理-彰化郵局(U3410)；專業職(二)內勤-郵務處理-嘉義郵局(U3411)；專業職(二)內勤-郵務處理-苗栗郵局(U3412)；專業職(二)內勤-郵務處理-南投郵局(U3413)；專業職(二)內勤-郵務處理-雲林郵局(U3414)；專業職(二)內勤-郵務處理-屏東郵局(U3415)；專業職(二)內勤-郵務處理-宜蘭郵局(U3416)；專業職(二)內勤-郵務處理-花蓮郵局(U3417)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(U3418)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(U3419)",
+          "native_header": "專業職(二)內勤／櫃台業務【U3301-U3319】、 櫃台業務-限身心障礙人士【U3320-U3335】、 櫃台(資訊)【U3336-U3341】、 外匯櫃台【U3342-U3343】、 郵務處理【U3401-U3419】｜第二節／共同科目：國文(含短文寫作)及英文",
+          "subject_name_raw": "國文(含短文寫作)及英文",
+          "slot": "common",
+          "file_type": "question_answer",
+          "checksum": "e4a105729ebfca90bec025effaa23f57080aec343702499e2feb5f9edb46ac10",
+          "applies_to": [
+            "postal-professional-2-indoor-foreign-exchange-counter",
+            "postal-professional-2-indoor-information-counter",
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14899658061.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "營運職-法務-臺北地區(U3101)；營運職-壽險精算-臺北地區(U3102)；營運職-金融保險-臺北地區(U3103)；營運職-資通訊與安全管理-臺北地區(U3104)；營運職-系統分析-臺北地區(U3105)；營運職-數據分析-臺北地區(U3106)；營運職-電機工程-臺北地區(U3107)；營運職-建築設計(1)-臺北地區(U3108)；營運職-建築設計(2)-臺北地區(工作地點：臺中地區)(U3109)；營運職-郵儲業務甲-北部地區(U3110)；營運職-郵儲業務甲-中部地區(U3111)；營運職-郵儲業務甲-南部地區(U3112)",
+          "native_header": "營運職-全類組【U3101-U3112】｜第五節／共同科目(2)：英文(含中翻英、英翻中及閱讀測驗)",
+          "subject_name_raw": "英文(含中翻英、英翻中及閱讀測驗)",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "5e6e165d85c21c1e4ab3127ddbcd73639a73bdeb551d32da0ce0892ee5f612fe",
+          "applies_to": [
+            "postal-operational-life-insurance-actuarial",
+            "postal-operational-architectural-design",
+            "postal-operational-data-analysis",
+            "postal-operational-legal-affairs",
+            "postal-operational-systems-analysis",
+            "postal-operational-communications-and-security-management",
+            "postal-operational-postal-savings-a",
+            "postal-operational-finance-and-insurance",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14900320030.pdf"
+          ],
+          "source_label": "共同科目(3)",
+          "source_context": "營運職-法務-臺北地區(U3101)；營運職-壽險精算-臺北地區(U3102)；營運職-金融保險-臺北地區(U3103)；營運職-資通訊與安全管理-臺北地區(U3104)；營運職-系統分析-臺北地區(U3105)；營運職-數據分析-臺北地區(U3106)；營運職-電機工程-臺北地區(U3107)；營運職-建築設計(1)-臺北地區(U3108)；營運職-建築設計(2)-臺北地區(工作地點：臺中地區)(U3109)；營運職-郵儲業務甲-北部地區(U3110)；營運職-郵儲業務甲-中部地區(U3111)；營運職-郵儲業務甲-南部地區(U3112)",
+          "native_header": "營運職-全類組【U3101-U3112】｜第三節／共同科目(3)：郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+          "subject_name_raw": "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+          "slot": "common-3",
+          "file_type": "question_answer",
+          "checksum": "015c5b0752239fc2f8ded11be7ffef6b6bedcc4a83539c0f4348eafc2834c999",
+          "applies_to": [
+            "postal-operational-life-insurance-actuarial",
+            "postal-operational-architectural-design",
+            "postal-operational-data-analysis",
+            "postal-operational-legal-affairs",
+            "postal-operational-systems-analysis",
+            "postal-operational-communications-and-security-management",
+            "postal-operational-postal-savings-a",
+            "postal-operational-finance-and-insurance",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14901459574.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "專業職(一)-一般金融-臺北地區(U3201)；專業職(一)-一般資訊-臺北地區(U3202)；專業職(一)-統計研析-臺北地區(U3203)；專業職(一)-壽險核保-臺北地區(U3204)；專業職(一)-程式設計(1)-臺北地區(U3205)；專業職(一)-程式設計(2)-臺北地區(工作地點：數位發展推動小組)(U3206)；專業職(一)-程式設計(3)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(U3207)；專業職(一)-程式設計(4)-臺北郵局(工作地點：高雄地區)(U3208)；專業職(一)-系統操作(1)-臺北地區(U3209)；專業職(一)-系統操作(2)-臺北地區(工作地點：臺中地區)(U3210)；專業職(一)-房地管理(1)-臺北地區(U3211)；專業職(一)-房地管理(2)-臺北郵局(U3212)；專業職(一)-房地管理(3)-彰化郵局(U3213)；專業職(一)-房地管理(4)-宜蘭郵局(U3214)；專業職(一)-營建工程(1)-臺北地區(工作地點：高雄地區)(U3215)；專業職(一)-營建工程(2)-高雄郵局(U3216)；專業職(一)-營建工程(3)-新竹郵局(U3217)；專業職(一)-土木工程-三重郵局(U3218)；專業職(一)-電子修護(1)-臺北郵局(U3219)；專業職(一)-電子修護(2)-澎湖郵局(U3220)；專業職(一)-郵儲業務甲-臺北郵局(U3221)；專業職(一)-郵儲業務甲-板橋郵局(U3222)；專業職(一)-郵儲業務甲-桃園郵局(U3223)；專業職(一)-郵儲業務甲-南投郵局(U3224)；專業職(一)-郵儲業務甲-花蓮郵局(U3225)；專業職(一)-郵儲業務丁-臺北郵局(U3226)",
+          "native_header": "專業職(一)-全類組【U3201-U3226】｜第四節／共同科目(1)：國文(短文寫作、閱讀測驗)及英文",
+          "subject_name_raw": "國文(短文寫作、閱讀測驗)及英文",
+          "slot": "common-1",
+          "file_type": "question_answer",
+          "checksum": "3753dc2adbb043234f05027a5c622dcda75c6b4b894365efaa02d83412a8b472",
+          "applies_to": [
+            "postal-professional-1-general-information",
+            "postal-professional-1-general-finance",
+            "postal-professional-1-civil-engineering",
+            "postal-professional-1-life-insurance-underwriting",
+            "postal-professional-1-real-estate-management",
+            "postal-professional-1-construction-engineering",
+            "postal-professional-1-programming",
+            "postal-professional-1-systems-operation",
+            "postal-professional-1-statistical-analysis",
+            "postal-professional-1-postal-savings-d",
+            "postal-professional-1-postal-savings-a",
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14903745344.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "專業職(一)-一般金融-臺北地區(U3201)；專業職(一)-一般資訊-臺北地區(U3202)；專業職(一)-統計研析-臺北地區(U3203)；專業職(一)-壽險核保-臺北地區(U3204)；專業職(一)-程式設計(1)-臺北地區(U3205)；專業職(一)-程式設計(2)-臺北地區(工作地點：數位發展推動小組)(U3206)；專業職(一)-程式設計(3)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(U3207)；專業職(一)-程式設計(4)-臺北郵局(工作地點：高雄地區)(U3208)；專業職(一)-系統操作(1)-臺北地區(U3209)；專業職(一)-系統操作(2)-臺北地區(工作地點：臺中地區)(U3210)；專業職(一)-房地管理(1)-臺北地區(U3211)；專業職(一)-房地管理(2)-臺北郵局(U3212)；專業職(一)-房地管理(3)-彰化郵局(U3213)；專業職(一)-房地管理(4)-宜蘭郵局(U3214)；專業職(一)-營建工程(1)-臺北地區(工作地點：高雄地區)(U3215)；專業職(一)-營建工程(2)-高雄郵局(U3216)；專業職(一)-營建工程(3)-新竹郵局(U3217)；專業職(一)-土木工程-三重郵局(U3218)；專業職(一)-電子修護(1)-臺北郵局(U3219)；專業職(一)-電子修護(2)-澎湖郵局(U3220)；專業職(一)-郵儲業務甲-臺北郵局(U3221)；專業職(一)-郵儲業務甲-板橋郵局(U3222)；專業職(一)-郵儲業務甲-桃園郵局(U3223)；專業職(一)-郵儲業務甲-南投郵局(U3224)；專業職(一)-郵儲業務甲-花蓮郵局(U3225)；專業職(一)-郵儲業務丁-臺北郵局(U3226)",
+          "native_header": "專業職(一)-全類組【U3201-U3226】｜第三節／共同科目(2)：郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+          "subject_name_raw": "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "a2acffc3552cf04574ea0b9ad0ad8c54cb9716a6015be73cfc88be1d4ec4a444",
+          "applies_to": [
+            "postal-professional-1-general-information",
+            "postal-professional-1-general-finance",
+            "postal-professional-1-civil-engineering",
+            "postal-professional-1-life-insurance-underwriting",
+            "postal-professional-1-real-estate-management",
+            "postal-professional-1-construction-engineering",
+            "postal-professional-1-programming",
+            "postal-professional-1-systems-operation",
+            "postal-professional-1-statistical-analysis",
+            "postal-professional-1-postal-savings-d",
+            "postal-professional-1-postal-savings-a",
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14910115018.pdf"
+          ],
+          "source_label": "共同科目",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(U3501)；專業職(二)外勤-郵遞業務-板橋郵局(U3502)；專業職(二)外勤-郵遞業務-桃園郵局(U3503)；專業職(二)外勤-郵遞業務-臺中郵局(U3504)；專業職(二)外勤-郵遞業務-臺南郵局(U3505)；專業職(二)外勤-郵遞業務-基隆郵局(U3506)；專業職(二)外勤-郵遞業務-三重郵局(U3507)；專業職(二)外勤-郵遞業務-新竹郵局(U3508)；專業職(二)外勤-郵遞業務-彰化郵局(U3509)；專業職(二)外勤-郵遞業務-嘉義郵局(U3510)；專業職(二)外勤-郵遞業務-苗栗郵局(U3511)；專業職(二)外勤-郵遞業務-南投郵局(U3512)；專業職(二)外勤-郵遞業務-雲林郵局(U3513)；專業職(二)外勤-郵遞業務-屏東郵局(U3514)；專業職(二)外勤-郵遞業務-恆春地區(U3515)；專業職(二)外勤-郵遞業務-花蓮郵局(U3516)；專業職(二)外勤-郵遞業務-臺東郵局(U3517)；專業職(二)外勤-郵遞業務-澎湖郵局(U3518)；專業職(二)外勤-運輸業務-臺中郵局(U3519)；專業職(二)外勤-運輸業務-臺南郵局(U3520)；專業職(二)外勤-運輸業務-苗栗郵局(U3521)；專業職(二)外勤-運輸業務-臺北郵件處理中心 (臺北地區)(U3522)；專業職(二)外勤-運輸業務-臺北郵件處理中心 (桃園地區)(U3523)",
+          "native_header": "專業職(二)外勤／郵遞業務【U3501-U3518】、 運輸業務【U3519-U3523】｜第二節／共同科目：國文及英文",
+          "subject_name_raw": "國文及英文",
+          "slot": "common",
+          "file_type": "question_answer",
+          "checksum": "eb5acbb21d80c762a549b706cad7892c3a38e8255f5446e3381d474e43d3e2f7",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14905654837.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-法務-臺北地區(U3101)",
+          "native_header": "營運職／法務【U3101】｜第一節／專業科目(1)：民事訴訟法及強制執行法",
+          "subject_name_raw": "民事訴訟法及強制執行法",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "9131882dae46895301b00ede5f8f81df5b7a88e737496b5b25b5577b7dbe7258",
+          "applies_to": [
+            "postal-operational-legal-affairs"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14931714821.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-法務-臺北地區(U3101)",
+          "native_header": "營運職／法務【U3101】｜第二節／專業科目(2)：民法及金融法規(含銀行法、票據法、保險法、公司法及證券交易法)",
+          "subject_name_raw": "民法及金融法規(含銀行法、票據法、保險法、公司法及證券交易法)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "e1802b85c9ebd1d9b05cf781ec235e2e1fee0affe2c3f1186afb9cc1f66a556b",
+          "applies_to": [
+            "postal-operational-legal-affairs"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14906045207.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-壽險精算-臺北地區(U3102)",
+          "native_header": "營運職／壽險精算【U3102】｜第一節／專業科目(1)：保險學及保險數學",
+          "subject_name_raw": "保險學及保險數學",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "fa7c340cdc6f973ca0a368a20b59d92181708d18d8de7f545ed1bd538ab03bf1",
+          "applies_to": [
+            "postal-operational-life-insurance-actuarial"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14932627616.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-壽險精算-臺北地區(U3102)",
+          "native_header": "營運職／壽險精算【U3102】｜第二節／專業科目(2)：Excel VBA 及 Access VBA 程式",
+          "subject_name_raw": "Excel VBA 及 Access VBA 程式",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "e53ebc2e28cab93d2b2711124fd0ea35e2d3a8f1b2690e0ba731fc338ebf57d4",
+          "applies_to": [
+            "postal-operational-life-insurance-actuarial"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14907958002.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-金融保險-臺北地區(U3103)",
+          "native_header": "營運職／金融保險【U3103】｜第一節／專業科目(1)：保險學及保險法規",
+          "subject_name_raw": "保險學及保險法規",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "977451891ad3f8807514f4965137bef777c2bd3efe89dc1843f98a1133d26b7a",
+          "applies_to": [
+            "postal-operational-finance-and-insurance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14933767160.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-金融保險-臺北地區(U3103)",
+          "native_header": "營運職／金融保險【U3103】｜第二節／專業科目(2)：民法及強制執行法",
+          "subject_name_raw": "民法及強制執行法",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "1730e39f12cd612702e9078455ca5063fee7522f583f31eb55870811a7afa7dc",
+          "applies_to": [
+            "postal-operational-finance-and-insurance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14913380014.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-資通訊與安全管理-臺北地區(U3104)",
+          "native_header": "營運職／資通訊與安全管理【U3104】｜第一節／專業科目(1)：資訊系統及網路安全",
+          "subject_name_raw": "資訊系統及網路安全",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "ff3cc634c131900e8eccb682bd651c0acf273fec8890fc2413fa008d0fe1d247",
+          "applies_to": [
+            "postal-operational-communications-and-security-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14934679954.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-資通訊與安全管理-臺北地區(U3104)",
+          "native_header": "營運職／資通訊與安全管理【U3104】｜第二節／專業科目(2)：作業系統與網路管理",
+          "subject_name_raw": "作業系統與網路管理",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "cabec5aed62cc1985cb66d6efaea5d0be1876af88777f287bcb436e10f64a0d2",
+          "applies_to": [
+            "postal-operational-communications-and-security-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14914292809.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-系統分析-臺北地區(U3105)",
+          "native_header": "營運職／系統分析【U3105】｜第一節／專業科目(1)：資訊系統規劃開發(含系統分析、程式設計、開發程序、資料庫系統、 網際網路服務及應用)",
+          "subject_name_raw": "資訊系統規劃開發(含系統分析、程式設計、開發程序、資料庫系統、 網際網路服務及應用)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "0e6cfe3257dec8a9c7f00fb92b42112a690ec29a329f354b935db0bb1db9dcdb",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14935070324.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-系統分析-臺北地區(U3105)",
+          "native_header": "營運職／系統分析【U3105】｜第二節／專業科目(2)：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "75aef06ec1e9581bc77e228a680b1795f8a6eab3815a718a49a6a72d6d1feeae",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14915683178.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-數據分析-臺北地區(U3106)",
+          "native_header": "營運職／數據分析【U3106】｜第一節／專業科目(1)：數據分析及演算法運用",
+          "subject_name_raw": "數據分析及演算法運用",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "252c466e4d85c984c1ee94628e00f94385967db2e93e976cf32ab3473de1fdf1",
+          "applies_to": [
+            "postal-operational-data-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14936624314.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-數據分析-臺北地區(U3106)",
+          "native_header": "營運職／數據分析【U3106】｜第二節／專業科目(2)：邏輯推理及 SQL、R 語言",
+          "subject_name_raw": "邏輯推理及 SQL、R 語言",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "ecc6851f65d54dc5bc97b5ff767e6356b13e094919b408a800a13c26f380f42d",
+          "applies_to": [
+            "postal-operational-data-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14916595973.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-電機工程-臺北地區(U3107)",
+          "native_header": "營運職／電機工程【U3107】｜第一節／專業科目(1)：電力系統與控制系統",
+          "subject_name_raw": "電力系統與控制系統",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "0d76bc15efd55b75958e68c6ece25fece960b7ac3bec8cce056d9376c52c059b",
+          "applies_to": [
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14937537108.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-電機工程-臺北地區(U3107)",
+          "native_header": "營運職／電機工程【U3107】｜第二節／專業科目(2)：電路學與電子學",
+          "subject_name_raw": "電路學與電子學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "697bf9f9555899f4b3a8459bc28aaa846c08cea185eb4ed2685b61a281e3dc98",
+          "applies_to": [
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14917149963.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-建築設計(1)-臺北地區(U3108)；營運職-建築設計(2)-臺北地區(工作地點：臺中地區)(U3109)",
+          "native_header": "營運職／建築設計(1)【U3108】、建築設計(2)【U3109】｜第一節／專業科目(1)：建築設計與建築法規",
+          "subject_name_raw": "建築設計與建築法規",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "bc9bb0cc725b1ad7a03535b7a805eb85215f964c1c041f2b2fb45b9506eda16f",
+          "applies_to": [
+            "postal-operational-architectural-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14938481468.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-建築設計(1)-臺北地區(U3108)；營運職-建築設計(2)-臺北地區(工作地點：臺中地區)(U3109)",
+          "native_header": "營運職／建築設計(1)【U3108】、建築設計(2)【U3109】｜第二節／專業科目(2)：建築營造與建築估價",
+          "subject_name_raw": "建築營造與建築估價",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "1cf07ddae5d156cc0fb2a9e5ace92d1db016f9fbb3f68460931719c7f4ef7832",
+          "applies_to": [
+            "postal-operational-architectural-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14918899137.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-郵儲業務甲-北部地區(U3110)；營運職-郵儲業務甲-中部地區(U3111)；營運職-郵儲業務甲-南部地區(U3112)",
+          "native_header": "營運職／郵儲業務甲【U3110-U3112】｜第一節／專業科目(1)：管理個案分析及行銷管理",
+          "subject_name_raw": "管理個案分析及行銷管理",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "684315bd4071501b5d4d0da245bf1c0f1622e63b824b5f1dd30aa6d45e058383",
+          "applies_to": [
+            "postal-operational-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14939394262.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-郵儲業務甲-北部地區(U3110)；營運職-郵儲業務甲-中部地區(U3111)；營運職-郵儲業務甲-南部地區(U3112)",
+          "native_header": "營運職／郵儲業務甲【U3110-U3112】｜第二節／專業科目(2)：民法及經濟學",
+          "subject_name_raw": "民法及經濟學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "48c1d647bd71a25af23beaccc60c050841fedb3ccde422f0f9575a81ae901ced",
+          "applies_to": [
+            "postal-operational-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14919289507.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-一般金融-臺北地區(U3201)",
+          "native_header": "專業職(一)／一般金融【U3201】｜第一節／專業科目(1)：會計學概要及貨幣銀行學概要",
+          "subject_name_raw": "會計學概要及貨幣銀行學概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "85545eebe714d4b82cfa24e14e4ab835426ab3f5444b320f320fa63c297d7bf8",
+          "applies_to": [
+            "postal-professional-1-general-finance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14940979817.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-一般金融-臺北地區(U3201)",
+          "native_header": "專業職(一)／一般金融【U3201】｜第二節／專業科目(2)：票據法概要",
+          "subject_name_raw": "票據法概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "9ba1c51d07cd20c9795cd971696d5f3585b81257719da01d2e4f7778995840ff",
+          "applies_to": [
+            "postal-professional-1-general-finance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14920756291.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-一般資訊-臺北地區(U3202)",
+          "native_header": "專業職(一)／一般資訊【U3202】｜第一節／專業科目(1)：資訊系統應用概要",
+          "subject_name_raw": "資訊系統應用概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "8e08a4a9b7c23e4f5c5a0659fe828d4802cbfc138e77c3b50372442f15a0d77d",
+          "applies_to": [
+            "postal-professional-1-general-information"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14941892611.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-一般資訊-臺北地區(U3202)",
+          "native_header": "專業職(一)／一般資訊【U3202】｜第二節／專業科目(2)：網際網路服務與應用概要",
+          "subject_name_raw": "網際網路服務與應用概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "602f33bca8322696f5bbac8760d46e78d63c929298b37b7d0e183e0da5958de5",
+          "applies_to": [
+            "postal-professional-1-general-information"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14921146661.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-統計研析-臺北地區(U3203)",
+          "native_header": "專業職(一)／統計研析【U3203】｜第一節／專業科目(1)：管理會計學",
+          "subject_name_raw": "管理會計學",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "0963f03785513ecb82f38e022b4ca3525686018abff27eff0a1a5035791a979e",
+          "applies_to": [
+            "postal-professional-1-statistical-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14942446601.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-統計研析-臺北地區(U3203)",
+          "native_header": "專業職(一)／統計研析【U3203】｜第二節／專業科目(2)：Excel VBA 軟體應用及初級統計學",
+          "subject_name_raw": "Excel VBA 軟體應用及初級統計學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "7e874107629ab7e34f3822f5d9c32c6c82ad1662d2b06c514a313eeb5b96f41c",
+          "applies_to": [
+            "postal-professional-1-statistical-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14922059455.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-壽險核保-臺北地區(U3204)",
+          "native_header": "專業職(一)／壽險核保【U3204】｜第一節／專業科目(1)：人身保險概論",
+          "subject_name_raw": "人身保險概論",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "d3709b0f647cdb26334d6649e7c8e8e89b044e9f775fde5ae34e74b152777982",
+          "applies_to": [
+            "postal-professional-1-life-insurance-underwriting"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14943390960.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-壽險核保-臺北地區(U3204)",
+          "native_header": "專業職(一)／壽險核保【U3204】｜第二節／專業科目(2)：人身保險核保理論與實務",
+          "subject_name_raw": "人身保險核保理論與實務",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "aed0066e50b37e3e7c68b6d6875e2ca94cb842d7228af6edb59a39d27f27ddc4",
+          "applies_to": [
+            "postal-professional-1-life-insurance-underwriting"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14923613445.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-程式設計(1)-臺北地區(U3205)；專業職(一)-程式設計(2)-臺北地區(工作地點：數位發展推動小組)(U3206)；專業職(一)-程式設計(3)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(U3207)；專業職(一)-程式設計(4)-臺北郵局(工作地點：高雄地區)(U3208)",
+          "native_header": "專業職(一)／程式設計(1)【U3205】、程式設計(2)【U3206】、 程式設計(3)【U3207】、程式設計(4)【U3208】｜第一節／專業科目(1)：程式設計概要(含資料結構、演算法、系統分析及資料庫應用)",
+          "subject_name_raw": "程式設計概要(含資料結構、演算法、系統分析及資料庫應用)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "bdc541468fd09820735a2d0dd3a02d7f485f4402956d53050b03fa81dfb59772",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14944303755.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-程式設計(1)-臺北地區(U3205)；專業職(一)-程式設計(2)-臺北地區(工作地點：數位發展推動小組)(U3206)；專業職(一)-程式設計(3)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(U3207)；專業職(一)-程式設計(4)-臺北郵局(工作地點：高雄地區)(U3208)",
+          "native_header": "專業職(一)／程式設計(1)【U3205】、程式設計(2)【U3206】、 程式設計(3)【U3207】、程式設計(4)【U3208】｜第二節／專業科目(2)：資訊科技概要(含作業系統、資訊安全、網路概論)及邏輯推理",
+          "subject_name_raw": "資訊科技概要(含作業系統、資訊安全、網路概論)及邏輯推理",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "6ebbdaa712de86a7ba440d5599df19cdb3fa3edbda88e84afa16c4c962ac7d9e",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14924198999.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-系統操作(1)-臺北地區(U3209)；專業職(一)-系統操作(2)-臺北地區(工作地點：臺中地區)(U3210)",
+          "native_header": "專業職(一)／系統操作(1)【U3209】、系統操作(2)【U3210】｜第一節／專業科目(1)：資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+          "subject_name_raw": "資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "105430b00c6d7e7bc31e24a4afed7da0d55718e02711ce13089cd09a5e4e9824",
+          "applies_to": [
+            "postal-professional-1-systems-operation"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14945889309.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-系統操作(1)-臺北地區(U3209)；專業職(一)-系統操作(2)-臺北地區(工作地點：臺中地區)(U3210)",
+          "native_header": "專業職(一)／系統操作(1)【U3209】、系統操作(2)【U3210】｜第二節／專業科目(2)：作業系統",
+          "subject_name_raw": "作業系統",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "aea663cb1f27d4f788683965583a3091efc3141119c9a8c47e2c79ec74e13e7f",
+          "applies_to": [
+            "postal-professional-1-systems-operation"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14925111794.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-房地管理(1)-臺北地區(U3211)；專業職(一)-房地管理(2)-臺北郵局(U3212)；專業職(一)-房地管理(3)-彰化郵局(U3213)；專業職(一)-房地管理(4)-宜蘭郵局(U3214)",
+          "native_header": "專業職(一)／房地管理(1)【U3211】、房地管理(2)【U3212】 房地管理(3)【U3213】、房地管理(4)【U3214】｜第一節／專業科目(1)：民法概要",
+          "subject_name_raw": "民法概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "aa94d3f6fb1ee677aae383a921c6a4a45d68c71448cdf58d25cf8e76d0aac019",
+          "applies_to": [
+            "postal-professional-1-real-estate-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14946802104.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-房地管理(1)-臺北地區(U3211)；專業職(一)-房地管理(2)-臺北郵局(U3212)；專業職(一)-房地管理(3)-彰化郵局(U3213)；專業職(一)-房地管理(4)-宜蘭郵局(U3214)",
+          "native_header": "專業職(一)／房地管理(1)【U3211】、房地管理(2)【U3212】 房地管理(3)【U3213】、房地管理(4)【U3214】｜第二節／專業科目(2)：土地法規概要(包括土地法、土地稅法、土地登記規則)",
+          "subject_name_raw": "土地法規概要(包括土地法、土地稅法、土地登記規則)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "3ffaaf3319e9fbb0ff43355713f62e396a9534503e7f654e6c16dc8e9bae5555",
+          "applies_to": [
+            "postal-professional-1-real-estate-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14926219774.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-營建工程(1)-臺北地區(工作地點：高雄地區)(U3215)；專業職(一)-營建工程(2)-高雄郵局(U3216)；專業職(一)-營建工程(3)-新竹郵局(U3217)",
+          "native_header": "專業職(一)／營建工程(1)【U3215】、營建工程(2)【U3216】、 營建工程(3)【U3217】｜第一節／專業科目(1)：營建法規與施工估價概要",
+          "subject_name_raw": "營建法規與施工估價概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "a9bfcf078970a46c8e8aaf98ce64bfde9b43cfaea606d771ffdce95d187d115e",
+          "applies_to": [
+            "postal-professional-1-construction-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14947910084.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-營建工程(1)-臺北地區(工作地點：高雄地區)(U3215)；專業職(一)-營建工程(2)-高雄郵局(U3216)；專業職(一)-營建工程(3)-新竹郵局(U3217)",
+          "native_header": "專業職(一)／營建工程(1)【U3215】、營建工程(2)【U3216】、 營建工程(3)【U3217】｜第二節／專業科目(2)：建築設計與圖學概要",
+          "subject_name_raw": "建築設計與圖學概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "8e451ba417d41e9b36435a43643205a911d344c1c468e4c186ce1819d35a9fe6",
+          "applies_to": [
+            "postal-professional-1-construction-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14927968948.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-土木工程-三重郵局(U3218)",
+          "native_header": "專業職(一)／土木工程【U3218】｜第一節／專業科目(1)：工程力學與結構概要",
+          "subject_name_raw": "工程力學與結構概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "e879d4e4b348fb9e9db30c9d5b3c4e59842fab7d31e6672e55d42fe0157dae38",
+          "applies_to": [
+            "postal-professional-1-civil-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14948300453.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-土木工程-三重郵局(U3218)",
+          "native_header": "專業職(一)／土木工程【U3218】｜第二節／專業科目(2)：工程材料概要",
+          "subject_name_raw": "工程材料概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "815b07cfdd0ce2dd3db7457115afc6ae3a1b9e7d9db4f29056617a6200aa842c",
+          "applies_to": [
+            "postal-professional-1-civil-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14928718123.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-電子修護(1)-臺北郵局(U3219)；專業職(一)-電子修護(2)-澎湖郵局(U3220)",
+          "native_header": "專業職(一)／電子修護(1)【U3219】、電子修護(2)【U3220】｜第一節／專業科目(1)：電腦概論(含作業系統)",
+          "subject_name_raw": "電腦概論(含作業系統)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "7ce51a104a8bbfa93fcc12d8e4a66366f010336689ade606e07a896ac3e6eed9",
+          "applies_to": [
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14949213248.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-電子修護(1)-臺北郵局(U3219)；專業職(一)-電子修護(2)-澎湖郵局(U3220)",
+          "native_header": "專業職(一)／電子修護(1)【U3219】、電子修護(2)【U3220】｜第二節／專業科目(2)：基本電學",
+          "subject_name_raw": "基本電學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "48da7aa734158d10e828b21d86b8a02154945e685f1f43a17b0456a4f0081c9a",
+          "applies_to": [
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14929467297.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-郵儲業務甲-臺北郵局(U3221)；專業職(一)-郵儲業務甲-板橋郵局(U3222)；專業職(一)-郵儲業務甲-桃園郵局(U3223)；專業職(一)-郵儲業務甲-南投郵局(U3224)；專業職(一)-郵儲業務甲-花蓮郵局(U3225)",
+          "native_header": "專業職(一)／郵儲業務甲【U3221-U3225】｜第一節／專業科目(1)：消費者行為概要及行銷管理概要",
+          "subject_name_raw": "消費者行為概要及行銷管理概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "50bb7ea559aa88babfdc9d7748e29b33559405c906c4d7f584b9571bc8f86695",
+          "applies_to": [
+            "postal-professional-1-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14950603618.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-郵儲業務甲-臺北郵局(U3221)；專業職(一)-郵儲業務甲-板橋郵局(U3222)；專業職(一)-郵儲業務甲-桃園郵局(U3223)；專業職(一)-郵儲業務甲-南投郵局(U3224)；專業職(一)-郵儲業務甲-花蓮郵局(U3225)",
+          "native_header": "專業職(一)／郵儲業務甲【U3221-U3225】｜第二節／專業科目(2)：民法概要及經濟學概要",
+          "subject_name_raw": "民法概要及經濟學概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "242dbfb72abc42550217a0f429f01aedb366140b150e37e022830c4503b59952",
+          "applies_to": [
+            "postal-professional-1-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14930575277.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-郵儲業務丁-臺北郵局(U3226)",
+          "native_header": "專業職(一)／郵儲業務丁【U3226】｜第一節／專業科目(1)：資訊系統開發概要(含系統分析、程式設計、開發程序、程式語言)",
+          "subject_name_raw": "資訊系統開發概要(含系統分析、程式設計、開發程序、程式語言)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "a05d89977553da245980e2af3d0a269341e053a42f0f5b9a956d3f2eeecc0f34",
+          "applies_to": [
+            "postal-professional-1-postal-savings-d"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14951711597.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-郵儲業務丁-臺北郵局(U3226)",
+          "native_header": "專業職(一)／郵儲業務丁【U3226】｜第二節／專業科目(2)：資訊規劃與管理概要(含作業系統、資料庫系統)及邏輯推理",
+          "subject_name_raw": "資訊規劃與管理概要(含作業系統、資料庫系統)及邏輯推理",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "c2073ff581872e7237769c1001cdd8cdec9ec431dbf9fcc5e10f91c0df810ada",
+          "applies_to": [
+            "postal-professional-1-postal-savings-d"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14902783513.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(U3301)；專業職(二)內勤-櫃台業務-板橋郵局(U3302)；專業職(二)內勤-櫃台業務-桃園郵局(U3303)；專業職(二)內勤-櫃台業務-臺中郵局(U3304)；專業職(二)內勤-櫃台業務-臺南郵局(U3305)；專業職(二)內勤-櫃台業務-高雄郵局(U3306)；專業職(二)內勤-櫃台業務-基隆郵局(U3307)；專業職(二)內勤-櫃台業務-三重郵局(U3308)；專業職(二)內勤-櫃台業務-新竹郵局(U3309)；專業職(二)內勤-櫃台業務-彰化郵局(U3310)；專業職(二)內勤-櫃台業務-嘉義郵局(U3311)；專業職(二)內勤-櫃台業務-苗栗郵局(U3312)；專業職(二)內勤-櫃台業務-南投郵局(U3313)；專業職(二)內勤-櫃台業務-雲林郵局(U3314)；專業職(二)內勤-櫃台業務-屏東郵局(U3315)；專業職(二)內勤-櫃台業務-恆春地區(U3316)；專業職(二)內勤-櫃台業務-宜蘭郵局(U3317)；專業職(二)內勤-櫃台業務-花蓮郵局(U3318)；專業職(二)內勤-櫃台業務-臺東郵局(U3319)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺北郵局(U3320)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-板橋郵局(U3321)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-桃園郵局(U3322)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺中郵局(U3323)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺南郵局(U3324)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-高雄郵局(U3325)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-基隆郵局(U3326)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-三重郵局(U3327)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-新竹郵局(U3328)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-彰化郵局(U3329)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-苗栗郵局(U3330)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-南投郵局(U3331)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-屏東郵局(U3332)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-宜蘭郵局(U3333)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-花蓮郵局(U3334)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺東郵局(U3335)；專業職(二)內勤-外匯櫃台-臺南郵局(U3342)；專業職(二)內勤-外匯櫃台-基隆郵局(U3343)；專業職(二)內勤-郵務處理-臺北郵局(U3401)；專業職(二)內勤-郵務處理-板橋郵局(U3402)；專業職(二)內勤-郵務處理-桃園郵局(U3403)；專業職(二)內勤-郵務處理-臺中郵局(U3404)；專業職(二)內勤-郵務處理-臺南郵局(U3405)；專業職(二)內勤-郵務處理-高雄郵局(U3406)；專業職(二)內勤-郵務處理-基隆郵局(U3407)；專業職(二)內勤-郵務處理-三重郵局(U3408)；專業職(二)內勤-郵務處理-新竹郵局(U3409)；專業職(二)內勤-郵務處理-彰化郵局(U3410)；專業職(二)內勤-郵務處理-嘉義郵局(U3411)；專業職(二)內勤-郵務處理-苗栗郵局(U3412)；專業職(二)內勤-郵務處理-南投郵局(U3413)；專業職(二)內勤-郵務處理-雲林郵局(U3414)；專業職(二)內勤-郵務處理-屏東郵局(U3415)；專業職(二)內勤-郵務處理-宜蘭郵局(U3416)；專業職(二)內勤-郵務處理-花蓮郵局(U3417)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(U3418)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(U3419)",
+          "native_header": "專業職(二)內勤／櫃台業務【U3301-U3319】、 櫃台業務-限身心障礙人士【U3320-U3335】、 外匯櫃台【U3342-U3343】 郵務處理【U3401-U3419】｜第三節／專業科目(1)：企業管理大意及洗錢防制法大意",
+          "subject_name_raw": "企業管理大意及洗錢防制法大意",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "6d22a502df4abcf7be362128f806542ea83af04751c2ac47520b903934466c76",
+          "applies_to": [
+            "postal-professional-2-indoor-foreign-exchange-counter",
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14908348371.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(U3301)；專業職(二)內勤-櫃台業務-板橋郵局(U3302)；專業職(二)內勤-櫃台業務-桃園郵局(U3303)；專業職(二)內勤-櫃台業務-臺中郵局(U3304)；專業職(二)內勤-櫃台業務-臺南郵局(U3305)；專業職(二)內勤-櫃台業務-高雄郵局(U3306)；專業職(二)內勤-櫃台業務-基隆郵局(U3307)；專業職(二)內勤-櫃台業務-三重郵局(U3308)；專業職(二)內勤-櫃台業務-新竹郵局(U3309)；專業職(二)內勤-櫃台業務-彰化郵局(U3310)；專業職(二)內勤-櫃台業務-嘉義郵局(U3311)；專業職(二)內勤-櫃台業務-苗栗郵局(U3312)；專業職(二)內勤-櫃台業務-南投郵局(U3313)；專業職(二)內勤-櫃台業務-雲林郵局(U3314)；專業職(二)內勤-櫃台業務-屏東郵局(U3315)；專業職(二)內勤-櫃台業務-恆春地區(U3316)；專業職(二)內勤-櫃台業務-宜蘭郵局(U3317)；專業職(二)內勤-櫃台業務-花蓮郵局(U3318)；專業職(二)內勤-櫃台業務-臺東郵局(U3319)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺北郵局(U3320)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-板橋郵局(U3321)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-桃園郵局(U3322)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺中郵局(U3323)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺南郵局(U3324)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-高雄郵局(U3325)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-基隆郵局(U3326)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-三重郵局(U3327)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-新竹郵局(U3328)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-彰化郵局(U3329)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-苗栗郵局(U3330)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-南投郵局(U3331)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-屏東郵局(U3332)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-宜蘭郵局(U3333)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-花蓮郵局(U3334)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺東郵局(U3335)；專業職(二)內勤-外匯櫃台-臺南郵局(U3342)；專業職(二)內勤-外匯櫃台-基隆郵局(U3343)；專業職(二)內勤-郵務處理-臺北郵局(U3401)；專業職(二)內勤-郵務處理-板橋郵局(U3402)；專業職(二)內勤-郵務處理-桃園郵局(U3403)；專業職(二)內勤-郵務處理-臺中郵局(U3404)；專業職(二)內勤-郵務處理-臺南郵局(U3405)；專業職(二)內勤-郵務處理-高雄郵局(U3406)；專業職(二)內勤-郵務處理-基隆郵局(U3407)；專業職(二)內勤-郵務處理-三重郵局(U3408)；專業職(二)內勤-郵務處理-新竹郵局(U3409)；專業職(二)內勤-郵務處理-彰化郵局(U3410)；專業職(二)內勤-郵務處理-嘉義郵局(U3411)；專業職(二)內勤-郵務處理-苗栗郵局(U3412)；專業職(二)內勤-郵務處理-南投郵局(U3413)；專業職(二)內勤-郵務處理-雲林郵局(U3414)；專業職(二)內勤-郵務處理-屏東郵局(U3415)；專業職(二)內勤-郵務處理-宜蘭郵局(U3416)；專業職(二)內勤-郵務處理-花蓮郵局(U3417)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(U3418)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(U3419)",
+          "native_header": "專業職(二)內勤／櫃台業務【U3301-U3319】、 櫃台業務-限身心障礙人士【U3320-U3335】、 外匯櫃台【U3342-U3343】、 郵務處理【U3401-U3419】｜第一節／專業科目(2)：郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+          "subject_name_raw": "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "1a722c1240a5654268e816e50a6db312fbd376489d1fbfb4c34439e9f6510a3f",
+          "applies_to": [
+            "postal-professional-2-indoor-foreign-exchange-counter",
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14904188053.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)內勤-櫃台(資訊)-臺北郵局(U3336)；專業職(二)內勤-櫃台(資訊)-臺南郵局(U3337)；專業職(二)內勤-櫃台(資訊)-高雄郵局(U3338)；專業職(二)內勤-櫃台(資訊)-基隆郵局(U3339)；專業職(二)內勤-櫃台(資訊)-南投郵局(U3340)；專業職(二)內勤-櫃台(資訊)-花蓮郵局(U3341)",
+          "native_header": "專業職(二)內勤／櫃台(資訊)【U3336-U3341】｜第三節／專業科目(1)：資訊規劃與管理大意(含作業系統、資料庫系統)及洗錢防制法大意",
+          "subject_name_raw": "資訊規劃與管理大意(含作業系統、資料庫系統)及洗錢防制法大意",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "08dd9e426e3146107c4fcf88f68fa67208960e9397de231e71feaa4b8d3bfdca",
+          "applies_to": [
+            "postal-professional-2-indoor-information-counter"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14909007038.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)內勤-櫃台(資訊)-臺北郵局(U3336)；專業職(二)內勤-櫃台(資訊)-臺南郵局(U3337)；專業職(二)內勤-櫃台(資訊)-高雄郵局(U3338)；專業職(二)內勤-櫃台(資訊)-基隆郵局(U3339)；專業職(二)內勤-櫃台(資訊)-南投郵局(U3340)；專業職(二)內勤-櫃台(資訊)-花蓮郵局(U3341)",
+          "native_header": "專業職(二)內勤／櫃台(資訊)【U3336-U3341】、｜第一節／專業科目(2)：郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)、金融 科技知識及邏輯推理",
+          "subject_name_raw": "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)、金融 科技知識及邏輯推理",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "78308ad415aa94897ae6a5d757b578d931a07f1fa4d5fe3c5ffba9ae386da65e",
+          "applies_to": [
+            "postal-professional-2-indoor-information-counter"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14911721346.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(U3501)；專業職(二)外勤-郵遞業務-板橋郵局(U3502)；專業職(二)外勤-郵遞業務-桃園郵局(U3503)；專業職(二)外勤-郵遞業務-臺中郵局(U3504)；專業職(二)外勤-郵遞業務-臺南郵局(U3505)；專業職(二)外勤-郵遞業務-基隆郵局(U3506)；專業職(二)外勤-郵遞業務-三重郵局(U3507)；專業職(二)外勤-郵遞業務-新竹郵局(U3508)；專業職(二)外勤-郵遞業務-彰化郵局(U3509)；專業職(二)外勤-郵遞業務-嘉義郵局(U3510)；專業職(二)外勤-郵遞業務-苗栗郵局(U3511)；專業職(二)外勤-郵遞業務-南投郵局(U3512)；專業職(二)外勤-郵遞業務-雲林郵局(U3513)；專業職(二)外勤-郵遞業務-屏東郵局(U3514)；專業職(二)外勤-郵遞業務-恆春地區(U3515)；專業職(二)外勤-郵遞業務-花蓮郵局(U3516)；專業職(二)外勤-郵遞業務-臺東郵局(U3517)；專業職(二)外勤-郵遞業務-澎湖郵局(U3518)；專業職(二)外勤-運輸業務-臺中郵局(U3519)；專業職(二)外勤-運輸業務-臺南郵局(U3520)；專業職(二)外勤-運輸業務-苗栗郵局(U3521)；專業職(二)外勤-運輸業務-臺北郵件處理中心 (臺北地區)(U3522)；專業職(二)外勤-運輸業務-臺北郵件處理中心 (桃園地區)(U3523)",
+          "native_header": "專業職(二)外勤／郵遞業務【U3501-U3518】、 運輸業務【U3519-U3523】｜第三節／專業科目(1)：臺灣自然及人文地理",
+          "subject_name_raw": "臺灣自然及人文地理",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "6b7fa458b99e31c009f8db5f1cd7010e8d187d6cbb81966bab2cbb1d195c9f6d",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14912132490.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(U3501)；專業職(二)外勤-郵遞業務-板橋郵局(U3502)；專業職(二)外勤-郵遞業務-桃園郵局(U3503)；專業職(二)外勤-郵遞業務-臺中郵局(U3504)；專業職(二)外勤-郵遞業務-臺南郵局(U3505)；專業職(二)外勤-郵遞業務-基隆郵局(U3506)；專業職(二)外勤-郵遞業務-三重郵局(U3507)；專業職(二)外勤-郵遞業務-新竹郵局(U3508)；專業職(二)外勤-郵遞業務-彰化郵局(U3509)；專業職(二)外勤-郵遞業務-嘉義郵局(U3510)；專業職(二)外勤-郵遞業務-苗栗郵局(U3511)；專業職(二)外勤-郵遞業務-南投郵局(U3512)；專業職(二)外勤-郵遞業務-雲林郵局(U3513)；專業職(二)外勤-郵遞業務-屏東郵局(U3514)；專業職(二)外勤-郵遞業務-恆春地區(U3515)；專業職(二)外勤-郵遞業務-花蓮郵局(U3516)；專業職(二)外勤-郵遞業務-臺東郵局(U3517)；專業職(二)外勤-郵遞業務-澎湖郵局(U3518)；專業職(二)外勤-運輸業務-臺中郵局(U3519)；專業職(二)外勤-運輸業務-臺南郵局(U3520)；專業職(二)外勤-運輸業務-苗栗郵局(U3521)；專業職(二)外勤-運輸業務-臺北郵件處理中心 (臺北地區)(U3522)；專業職(二)外勤-運輸業務-臺北郵件處理中心 (桃園地區)(U3523)",
+          "native_header": "專業職(二)外勤／郵遞業務【U3501-U3518】、 運輸業務【U3519-U3523】｜第一節／專業科目(2)：郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+          "subject_name_raw": "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "dcbcea879f370206f1975d27ea42f8891e2336b5d6de9afcbedd343381e8b354",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 112,
+      "source_exam_id": "post-recruit-112",
+      "programme_name": "中華郵政股份有限公司112年職階人員甄試",
+      "exam_series_id": "postal-recruitment",
+      "written_test_date": "2024-01-07",
+      "stage_id": "stage-1",
+      "rule_urls": [
+        "https://www.cna.com.tw/postwrite/chi/354096",
+        "https://www.motc.gov.tw/ch/app/news_list/view?id=14&module=news&serno=677f07d1-f504-4cd7-9008-7dde48e334cd",
+        "https://www.post.gov.tw/post/FileCenter/post_ww2/Bulletin_File/files/15021002/C51097B0-B68A-430E-8093-F6C6FFE4C05E.pdf"
+      ],
+      "reviewed_at": "2026-10-23",
+      "review_notes": "Issuer press release distributed by CNA (2023-10-17), independently retained MOTC issuer notice text, and the completed 113 annual report (printed p.9) establish that this 112 recruitment programme held its first written test on 2024-01-07. Live MOTC HTTP was 502 and annual brochure 404; the CNA issuer release and completed report were captured successfully. The programme year remains the acquisition partition, while source_material.exam_year is 2024. All native headers and source applicant-code applicability were reconciled. Two PDFs retain their inline answer corrections verbatim.",
+      "jobs": [
+        {
+          "category_code": "postal-professional-1-general-information",
+          "grade_scope": "專業職(一)",
+          "occupation": "一般資訊",
+          "track_id": "general-information"
+        },
+        {
+          "category_code": "postal-professional-1-general-finance",
+          "grade_scope": "專業職(一)",
+          "occupation": "一般金融",
+          "track_id": "general-finance"
+        },
+        {
+          "category_code": "postal-professional-1-real-estate-management",
+          "grade_scope": "專業職(一)",
+          "occupation": "房地管理",
+          "track_id": "real-estate-management"
+        },
+        {
+          "category_code": "postal-professional-1-construction-engineering",
+          "grade_scope": "專業職(一)",
+          "occupation": "營建工程",
+          "track_id": "construction-engineering"
+        },
+        {
+          "category_code": "postal-professional-1-programming",
+          "grade_scope": "專業職(一)",
+          "occupation": "程式設計",
+          "track_id": "programming"
+        },
+        {
+          "category_code": "postal-professional-1-systems-operation",
+          "grade_scope": "專業職(一)",
+          "occupation": "系統操作",
+          "track_id": "systems-operation"
+        },
+        {
+          "category_code": "postal-professional-1-statistical-analysis",
+          "grade_scope": "專業職(一)",
+          "occupation": "統計研析",
+          "track_id": "statistical-analysis"
+        },
+        {
+          "category_code": "postal-professional-1-occupational-safety-services",
+          "grade_scope": "專業職(一)",
+          "occupation": "職業安全衛生業務",
+          "track_id": "occupational-safety-services"
+        },
+        {
+          "category_code": "postal-professional-1-security-and-network-management",
+          "grade_scope": "專業職(一)",
+          "occupation": "資安與網路管理",
+          "track_id": "security-and-network-management"
+        },
+        {
+          "category_code": "postal-professional-1-postal-savings-a",
+          "grade_scope": "專業職(一)",
+          "occupation": "郵儲業務甲",
+          "track_id": "postal-savings-a"
+        },
+        {
+          "category_code": "postal-professional-1-power-engineering",
+          "grade_scope": "專業職(一)",
+          "occupation": "電力工程",
+          "track_id": "power-engineering"
+        },
+        {
+          "category_code": "postal-professional-1-ecommerce-web-design",
+          "grade_scope": "專業職(一)",
+          "occupation": "電子商務(網頁設計)",
+          "track_id": "ecommerce-web-design"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-counter-services",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "櫃台業務",
+          "track_id": "indoor-counter-services"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-mail-processing",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "郵務處理",
+          "track_id": "indoor-mail-processing"
+        },
+        {
+          "category_code": "postal-professional-2-outdoor-transport-services",
+          "grade_scope": "專業職(二)外勤",
+          "occupation": "運輸業務",
+          "track_id": "outdoor-transport-services"
+        },
+        {
+          "category_code": "postal-professional-2-outdoor-mail-delivery",
+          "grade_scope": "專業職(二)外勤",
+          "occupation": "郵遞業務",
+          "track_id": "outdoor-mail-delivery"
+        },
+        {
+          "category_code": "postal-operational-architectural-design",
+          "grade_scope": "營運職",
+          "occupation": "建築設計",
+          "track_id": "architectural-design"
+        },
+        {
+          "category_code": "postal-operational-systems-analysis",
+          "grade_scope": "營運職",
+          "occupation": "系統分析",
+          "track_id": "systems-analysis"
+        },
+        {
+          "category_code": "postal-operational-network-and-security-management",
+          "grade_scope": "營運職",
+          "occupation": "網路與資安管理",
+          "track_id": "network-and-security-management"
+        },
+        {
+          "category_code": "postal-operational-occupational-safety-management",
+          "grade_scope": "營運職",
+          "occupation": "職業安全衛生管理",
+          "track_id": "occupational-safety-management"
+        },
+        {
+          "category_code": "postal-operational-postal-savings-a",
+          "grade_scope": "營運職",
+          "occupation": "郵儲業務甲",
+          "track_id": "postal-savings-a"
+        },
+        {
+          "category_code": "postal-operational-electrical-engineering",
+          "grade_scope": "營運職",
+          "occupation": "電機工程",
+          "track_id": "electrical-engineering"
+        }
+      ],
+      "files": [
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15344895693.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14953152237.pdf"
+          ],
+          "source_label": "共同科目",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(W2001)；專業職(二)內勤-櫃台業務-板橋郵局(W2002)；專業職(二)內勤-櫃台業務-桃園郵局(W2003)；專業職(二)內勤-櫃台業務-臺中郵局(W2004)；專業職(二)內勤-櫃台業務-和平梨山郵局(W2005)；專業職(二)內勤-櫃台業務-臺南郵局(W2006)；專業職(二)內勤-櫃台業務-高雄郵局(W2007)；專業職(二)內勤-櫃台業務-基隆郵局(W2008)；專業職(二)內勤-櫃台業務-三重郵局(W2009)；專業職(二)內勤-櫃台業務-新竹郵局(W2010)；專業職(二)內勤-櫃台業務-彰化郵局(W2011)；專業職(二)內勤-櫃台業務-嘉義郵局(W2012)；專業職(二)內勤-櫃台業務-苗栗郵局(W2013)；專業職(二)內勤-櫃台業務-南投郵局(W2014)；專業職(二)內勤-櫃台業務-雲林郵局(W2015)；專業職(二)內勤-櫃台業務-屏東郵局(W2016)；專業職(二)內勤-櫃台業務-宜蘭郵局(W2017)；專業職(二)內勤-櫃台業務-花蓮郵局(W2018)；專業職(二)內勤-櫃台業務-臺東郵局(W2019)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺北郵局(W2020)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-桃園郵局(W2021)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺中郵局(W2022)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺南郵局(W2023)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-基隆郵局(W2024)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-三重郵局(W2025)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-新竹郵局(W2026)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-彰化郵局(W2027)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-嘉義郵局(W2028)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-苗栗郵局(W2029)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-南投郵局(W2030)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-宜蘭郵局(W2031)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-花蓮郵局(W2032)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺東郵局(W2033)；專業職(二)內勤-郵務處理-臺北郵局(W2101)；專業職(二)內勤-郵務處理-板橋郵局(W2102)；專業職(二)內勤-郵務處理-臺中郵局(W2103)；專業職(二)內勤-郵務處理-臺南郵局(W2104)；專業職(二)內勤-郵務處理-高雄郵局(W2105)；專業職(二)內勤-郵務處理-基隆郵局(W2106)；專業職(二)內勤-郵務處理-三重郵局(W2107)；專業職(二)內勤-郵務處理-新竹郵局(W2108)；專業職(二)內勤-郵務處理-彰化郵局(W2109)；專業職(二)內勤-郵務處理-嘉義郵局(W2110)；專業職(二)內勤-郵務處理-雲林郵局(W2111)；專業職(二)內勤-郵務處理-宜蘭郵局(W2112)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(W2113)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(W2114)",
+          "native_header": "專業職(二)內勤／櫃台業務【W2001-W2019】、 櫃台業務-限身心障礙人士【W2020-W2033】、 郵務處理【W2101-W2114】｜第二節／共同科目：國文(短文寫作、閱讀測驗)及英文",
+          "subject_name_raw": "國文(短文寫作、閱讀測驗)及英文",
+          "slot": "common",
+          "file_type": "question_answer",
+          "checksum": "1763403098da33331f1a5a3712c5a101211740a9d17bbd88b18c72e205731e66",
+          "applies_to": [
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15347770319.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14956347500.pdf"
+          ],
+          "source_label": "共同科目",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(W2201)；專業職(二)外勤-郵遞業務-板橋郵局(W2202)；專業職(二)外勤-郵遞業務-桃園郵局(W2203)；專業職(二)外勤-郵遞業務-臺中郵局(W2204)；專業職(二)外勤-郵遞業務-臺南郵局(W2205)；專業職(二)外勤-郵遞業務-高雄郵局(W2206)；專業職(二)外勤-郵遞業務-基隆郵局(W2207)；專業職(二)外勤-郵遞業務-三重郵局(W2208)；專業職(二)外勤-郵遞業務-新竹郵局(W2209)；專業職(二)外勤-郵遞業務-彰化郵局(W2210)；專業職(二)外勤-郵遞業務-嘉義郵局(W2211)；專業職(二)外勤-郵遞業務-苗栗郵局(W2212)；專業職(二)外勤-郵遞業務-南投郵局(W2213)；專業職(二)外勤-郵遞業務-雲林郵局(W2214)；專業職(二)外勤-郵遞業務-屏東郵局(W2215)；專業職(二)外勤-郵遞業務-宜蘭郵局(W2216)；專業職(二)外勤-郵遞業務-花蓮郵局(W2217)；專業職(二)外勤-郵遞業務-臺東郵局(W2218)；專業職(二)外勤-郵遞業務-臺北郵件處理中心(桃園地區)(W2219)；專業職(二)外勤-運輸業務-臺北郵局(W2220)；專業職(二)外勤-運輸業務-桃園郵局(W2221)；專業職(二)外勤-運輸業務-臺中郵局(W2222)；專業職(二)外勤-運輸業務-臺南郵局(W2223)；專業職(二)外勤-運輸業務-彰化郵局(W2224)；專業職(二)外勤-運輸業務-臺北郵件處理中心(臺北地區)(W2225)",
+          "native_header": "專業職(二)外勤／郵遞業務【W2201-W2219】、 運輸業務【W2220-W2225】｜第二節／共同科目：國文及英文",
+          "subject_name_raw": "國文及英文",
+          "slot": "common",
+          "file_type": "question_answer",
+          "checksum": "ec69ddc72cced85679ed7c32f1352e69c11413e8abe9a8b2c7c3114823943296",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15349767017.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14958950526.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "營運職-網路與資安管理-臺北地區(W1801)；營運職-系統分析-臺北地區(W1802)；營運職-電機工程-臺北郵局(W1803)；營運職-建築設計-臺北郵局(W1804)；營運職-職業安全衛生管理(1)-臺北地區(W1805)；營運職-職業安全衛生管理(2)-臺北郵局(W1806)；營運職-職業安全衛生管理(3)-苗栗郵局(W1807)；營運職-郵儲業務甲-北部地區(W1808)；營運職-郵儲業務甲-中部地區(W1809)；營運職-郵儲業務甲-南部地區(W1810)",
+          "native_header": "營運職-全類組【W1801-W1810】｜第四節／共同科目(1)：國文(含作文與公文寫作)",
+          "subject_name_raw": "國文(含作文與公文寫作)",
+          "slot": "common-1",
+          "file_type": "question",
+          "checksum": "4555c4a37278d764a0260cb81a76e9f6c2e0062376d42df19e9f4de254e5af1a",
+          "applies_to": [
+            "postal-operational-architectural-design",
+            "postal-operational-systems-analysis",
+            "postal-operational-network-and-security-management",
+            "postal-operational-occupational-safety-management",
+            "postal-operational-postal-savings-a",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15350679812.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14959612496.pdf"
+          ],
+          "source_label": "共同科目(3)",
+          "source_context": "營運職-網路與資安管理-臺北地區(W1801)；營運職-系統分析-臺北地區(W1802)；營運職-電機工程-臺北郵局(W1803)；營運職-建築設計-臺北郵局(W1804)；營運職-職業安全衛生管理(1)-臺北地區(W1805)；營運職-職業安全衛生管理(2)-臺北郵局(W1806)；營運職-職業安全衛生管理(3)-苗栗郵局(W1807)；營運職-郵儲業務甲-北部地區(W1808)；營運職-郵儲業務甲-中部地區(W1809)；營運職-郵儲業務甲-南部地區(W1810)",
+          "native_header": "營運職-全類組【W1801-W1810】｜第三節／共同科目(3)：郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+          "subject_name_raw": "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+          "slot": "common-3",
+          "file_type": "question_answer",
+          "checksum": "3716ba40793a34bbb09e3ab4c629fb459627852006358c816ddaa6710f7d515a",
+          "applies_to": [
+            "postal-operational-architectural-design",
+            "postal-operational-systems-analysis",
+            "postal-operational-network-and-security-management",
+            "postal-operational-occupational-safety-management",
+            "postal-operational-postal-savings-a",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15351982976.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14960915660.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "營運職-網路與資安管理-臺北地區(W1801)；營運職-系統分析-臺北地區(W1802)；營運職-電機工程-臺北郵局(W1803)；營運職-建築設計-臺北郵局(W1804)；營運職-職業安全衛生管理(1)-臺北地區(W1805)；營運職-職業安全衛生管理(2)-臺北郵局(W1806)；營運職-職業安全衛生管理(3)-苗栗郵局(W1807)；營運職-郵儲業務甲-北部地區(W1808)；營運職-郵儲業務甲-中部地區(W1809)；營運職-郵儲業務甲-南部地區(W1810)",
+          "native_header": "營運職-全類組【W1801-W1810】｜第五節／共同科目(2)：英文(含中翻英、英翻中及閱讀測驗)",
+          "subject_name_raw": "英文(含中翻英、英翻中及閱讀測驗)",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "3b9767c7d6a029de5352adc49b91017e3d82680c0731cbc44a25db5ddc14f499",
+          "applies_to": [
+            "postal-operational-architectural-design",
+            "postal-operational-systems-analysis",
+            "postal-operational-network-and-security-management",
+            "postal-operational-occupational-safety-management",
+            "postal-operational-postal-savings-a",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15352373346.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14961218824.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "專業職(一)-一般金融-臺北地區(W1901)；專業職(一)-一般資訊-臺北地區(W1902)；專業職(一)-統計研析-臺北地區(W1903)；專業職(一)-資安與網路管理-臺北地區(W1904)；專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(W1905)；專業職(一)-程式設計(2)-臺北地區(工作地點：電子商務室)(W1906)；專業職(一)-系統操作-臺北地區(W1907)；專業職(一)-電子商務(網頁設計)-臺北地區(W1908)；專業職(一)-房地管理(1)-臺北郵局(W1909)；專業職(一)-房地管理(2)-新竹郵局(W1910)；專業職(一)-電力工程(1)-臺北地區(W1911)；專業職(一)-電力工程(2)-臺北地區(工作地點：臺中地區)(W1912)；專業職(一)-營建工程(1)-臺北地區(W1913)；專業職(一)-營建工程(2)-臺北地區(工作地點：高雄地區)(W1914)；專業職(一)-營建工程(3)-板橋郵局(W1915)；專業職(一)-營建工程(4)-新竹郵局(W1916)；專業職(一)-職業安全衛生業務-高雄郵局(W1917)；專業職(一)-郵儲業務甲-臺北郵局(W1918)；專業職(一)-郵儲業務甲-新竹郵局(W1919)；專業職(一)-郵儲業務甲-雲林郵局(W1920)；專業職(一)-郵儲業務甲-宜蘭郵局(W1921)；專業職(一)-郵儲業務甲-花蓮郵局(W1922)；專業職(一)-郵儲業務甲-澎湖郵局(W1923)",
+          "native_header": "專業職(一)-全類組【W1901-W1923】｜第四節／共同科目(1)：國文(短文寫作、閱讀測驗)及英文",
+          "subject_name_raw": "國文(短文寫作、閱讀測驗)及英文",
+          "slot": "common-1",
+          "file_type": "question_answer",
+          "checksum": "1080a4b4b818fd248816c2146b942c524dd3f56e5563968139709f0409db32c1",
+          "applies_to": [
+            "postal-professional-1-general-information",
+            "postal-professional-1-general-finance",
+            "postal-professional-1-real-estate-management",
+            "postal-professional-1-construction-engineering",
+            "postal-professional-1-programming",
+            "postal-professional-1-systems-operation",
+            "postal-professional-1-statistical-analysis",
+            "postal-professional-1-occupational-safety-services",
+            "postal-professional-1-security-and-network-management",
+            "postal-professional-1-postal-savings-a",
+            "postal-professional-1-power-engineering",
+            "postal-professional-1-ecommerce-web-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15353676510.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14962215522.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "專業職(一)-一般金融-臺北地區(W1901)；專業職(一)-一般資訊-臺北地區(W1902)；專業職(一)-統計研析-臺北地區(W1903)；專業職(一)-資安與網路管理-臺北地區(W1904)；專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(W1905)；專業職(一)-程式設計(2)-臺北地區(工作地點：電子商務室)(W1906)；專業職(一)-系統操作-臺北地區(W1907)；專業職(一)-電子商務(網頁設計)-臺北地區(W1908)；專業職(一)-房地管理(1)-臺北郵局(W1909)；專業職(一)-房地管理(2)-新竹郵局(W1910)；專業職(一)-電力工程(1)-臺北地區(W1911)；專業職(一)-電力工程(2)-臺北地區(工作地點：臺中地區)(W1912)；專業職(一)-營建工程(1)-臺北地區(W1913)；專業職(一)-營建工程(2)-臺北地區(工作地點：高雄地區)(W1914)；專業職(一)-營建工程(3)-板橋郵局(W1915)；專業職(一)-營建工程(4)-新竹郵局(W1916)；專業職(一)-職業安全衛生業務-高雄郵局(W1917)；專業職(一)-郵儲業務甲-臺北郵局(W1918)；專業職(一)-郵儲業務甲-新竹郵局(W1919)；專業職(一)-郵儲業務甲-雲林郵局(W1920)；專業職(一)-郵儲業務甲-宜蘭郵局(W1921)；專業職(一)-郵儲業務甲-花蓮郵局(W1922)；專業職(一)-郵儲業務甲-澎湖郵局(W1923)",
+          "native_header": "專業職(一)-全類組【W1901-W1923】｜第三節／共同科目(2)：郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "subject_name_raw": "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "541776f530adbff8f7916a6ed9bb777e7bbfeddf23ddb301fd0583a04de007f9",
+          "applies_to": [
+            "postal-professional-1-general-information",
+            "postal-professional-1-general-finance",
+            "postal-professional-1-real-estate-management",
+            "postal-professional-1-construction-engineering",
+            "postal-professional-1-programming",
+            "postal-professional-1-systems-operation",
+            "postal-professional-1-statistical-analysis",
+            "postal-professional-1-occupational-safety-services",
+            "postal-professional-1-security-and-network-management",
+            "postal-professional-1-postal-savings-a",
+            "postal-professional-1-power-engineering",
+            "postal-professional-1-ecommerce-web-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15354620869.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14963626666.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-網路與資安管理-臺北地區(W1801)",
+          "native_header": "營運職／網路與資安管理【W1801】｜第一節／專業科目(1)：資訊綜合科目(含作業系統、資料庫系統、程式語言)",
+          "subject_name_raw": "資訊綜合科目(含作業系統、資料庫系統、程式語言)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "dbe640339844ad556ca9095c7345a3390a96bde70ffb9ac103caf89a54057b89",
+          "applies_to": [
+            "postal-operational-network-and-security-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15372638342.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14981463124.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-網路與資安管理-臺北地區(W1801)",
+          "native_header": "營運職／網路與資安管理【W1801】｜第二節／專業科目(2)：網路技術與管理暨資通安全技術與管理",
+          "subject_name_raw": "網路技術與管理暨資通安全技術與管理",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "ea2a9f8b70d5eadd0c8406ea29bd8baec978d061583c24e1f5649264f7567e14",
+          "applies_to": [
+            "postal-operational-network-and-security-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15355979674.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14964539461.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-系統分析-臺北地區(W1802)",
+          "native_header": "營運職／系統分析【W1802】｜第一節／專業科目(1)：資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統分 析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全程式 設計))",
+          "subject_name_raw": "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統分 析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全程式 設計))",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "84c1636120a6af9f414e202394d9e78ece45c42cf89605148d3b0b1fb29576c4",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15373833527.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14982853494.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-系統分析-臺北地區(W1802)",
+          "native_header": "營運職／系統分析【W1802】｜第二節／專業科目(2)：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "d91470815157e9aa023890e8d54580735f9eda878942e0a56b8febbf82e6a9f7",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15356174859.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14965929830.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-電機工程-臺北郵局(W1803)",
+          "native_header": "營運職／電機工程【W1803】｜第一節／專業科目(1)：電力系統與控制系統",
+          "subject_name_raw": "電力系統與控制系統",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "8b0335e786b5de7c737e502cd777cdafc4c22d87c6c5899f1c73d47e2e435478",
+          "applies_to": [
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15374192332.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14983710648.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-電機工程-臺北郵局(W1803)",
+          "native_header": "營運職／電機工程【W1803】｜第二節／專業科目(2)：電路學與電子學",
+          "subject_name_raw": "電路學與電子學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "e8f9c3b5555add0a27a4de9566e390d8b74b8ffa7812d6afbe2537191f4074df",
+          "applies_to": [
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15357533664.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14966679005.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-建築設計-臺北郵局(W1804)",
+          "native_header": "營運職／建築設計【W1804】｜第一節／專業科目(1)：建築設計與建築法規",
+          "subject_name_raw": "建築設計與建築法規",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "30ea177f963d6c002925bc5b5c78a67fab39986c87fcd07f6b707019acea8ddd",
+          "applies_to": [
+            "postal-operational-architectural-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15375551137.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14984264637.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-建築設計-臺北郵局(W1804)",
+          "native_header": "營運職／建築設計【W1804】｜第二節／專業科目(2)：建築營造與建築估價",
+          "subject_name_raw": "建築營造與建築估價",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "04d415aa5d75382af04eb107c9bd83a270b6ff1633d08a76f6736e2bfda7f4aa",
+          "applies_to": [
+            "postal-operational-architectural-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15358892469.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14967591800.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-職業安全衛生管理(1)-臺北地區(W1805)；營運職-職業安全衛生管理(2)-臺北郵局(W1806)；營運職-職業安全衛生管理(3)-苗栗郵局(W1807)",
+          "native_header": "營運職／職業安全衛生管理(1)【W1805】、 職業安全衛生管理(2)【W1806】、 職業安全衛生管理(3)【W1807】｜第一節／專業科目(1)：職業安全衛生法規(含一般安全衛生法規、職業安全法規及職業衛生法規)",
+          "subject_name_raw": "職業安全衛生法規(含一般安全衛生法規、職業安全法規及職業衛生法規)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "d8d2e82fc5fc1ccb1f2d3ebb3078f89edf9c35490940843dbbbfa280f1de9f0e",
+          "applies_to": [
+            "postal-operational-occupational-safety-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15376746321.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14985013812.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-職業安全衛生管理(1)-臺北地區(W1805)；營運職-職業安全衛生管理(2)-臺北郵局(W1806)；營運職-職業安全衛生管理(3)-苗栗郵局(W1807)",
+          "native_header": "營運職／職業安全衛生管理(1)【W1805】、 職業安全衛生管理(2)【W1806】、 職業安全衛生管理(3)【W1807】｜第二節／專業科目(2)：工業安全工程(含機電安全及防火防爆)",
+          "subject_name_raw": "工業安全工程(含機電安全及防火防爆)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "49932807920df0e0b0609eca47b007d9162d368298ca237e4a4b07934eeff6c0",
+          "applies_to": [
+            "postal-operational-occupational-safety-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15359087654.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14968536159.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-郵儲業務甲-北部地區(W1808)；營運職-郵儲業務甲-中部地區(W1809)；營運職-郵儲業務甲-南部地區(W1810)",
+          "native_header": "營運職／郵儲業務甲【W1808-W1810】｜第一節／專業科目(1)：管理個案分析及行銷管理",
+          "subject_name_raw": "管理個案分析及行銷管理",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "151a66be31fe013d4504232fa81c2258ca206e662842df23a700cc548a2c2027",
+          "applies_to": [
+            "postal-operational-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15377941506.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14986926607.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-郵儲業務甲-北部地區(W1808)；營運職-郵儲業務甲-中部地區(W1809)；營運職-郵儲業務甲-南部地區(W1810)",
+          "native_header": "營運職／郵儲業務甲【W1808-W1810】｜第二節／專業科目(2)：民法及經濟學",
+          "subject_name_raw": "民法及經濟學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "2f6d97b21214cc813d572e450f5df8c322e1848dfb04c98aa6e5ba870125c7c7",
+          "applies_to": [
+            "postal-operational-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15360282839.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14969285333.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-一般金融-臺北地區(W1901)",
+          "native_header": "專業職(一)／一般金融【W1901】｜第一節／專業科目(1)：會計學概要及貨幣銀行學概要",
+          "subject_name_raw": "會計學概要及貨幣銀行學概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "bdf1e38cc8e590772adf5c99e2c823b7f2ffe933972f2097ea90a9c0619034ef",
+          "applies_to": [
+            "postal-professional-1-general-finance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15378136691.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14987034586.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-一般金融-臺北地區(W1901)",
+          "native_header": "專業職(一)／一般金融【W1901】｜第二節／專業科目(2)：票據法概要",
+          "subject_name_raw": "票據法概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "33cb9e72e6e29d43fecf490c1849a737b1e9d6169a223a4051446ea567dc3764",
+          "applies_to": [
+            "postal-professional-1-general-finance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15361641644.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14970198128.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-一般資訊-臺北地區(W1902)",
+          "native_header": "專業職(一)／一般資訊【W1902】｜第一節／專業科目(1)：資訊系統應用概要",
+          "subject_name_raw": "資訊系統應用概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "44a9ac898a7b78c0b8d7aea1ea302c22815f8ea1c35118458a8780df8321ef7f",
+          "applies_to": [
+            "postal-professional-1-general-information"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15379495496.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14988066151.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-一般資訊-臺北地區(W1902)",
+          "native_header": "專業職(一)／一般資訊【W1902】｜第二節／專業科目(2)：網際網路服務與應用概要",
+          "subject_name_raw": "網際網路服務與應用概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "bfcca9481fe19095a062f2c062cd36c2e9c7c1c01d226c3f31bf3905930645f3",
+          "applies_to": [
+            "postal-professional-1-general-information"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15362836829.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14971752118.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-統計研析-臺北地區(W1903)",
+          "native_header": "專業職(一)／統計研析【W1903】｜第一節／專業科目(1)：管理會計學",
+          "subject_name_raw": "管理會計學",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "0782686161d49de5fce1bd03b92ec34df8ab55215de8c2750b54ed49883184a6",
+          "applies_to": [
+            "postal-professional-1-statistical-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15380854301.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14989978945.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-統計研析-臺北地區(W1903)",
+          "native_header": "專業職(一)／統計研析【W1903】｜第二節／專業科目(2)：Excel VBA 軟體應用及初級統計學",
+          "subject_name_raw": "Excel VBA 軟體應用及初級統計學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "bc720be4e45faa885e010653be27659d74a1480d37f426be1eb31199b58d52d5",
+          "applies_to": [
+            "postal-professional-1-statistical-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15363195634.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14972142487.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-資安與網路管理-臺北地區(W1904)",
+          "native_header": "專業職(一)／資安與網路管理【W1904】｜第一節／專業科目(1)：資訊系統安全管理概要",
+          "subject_name_raw": "資訊系統安全管理概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "fee3c48df73e7c1d4663391f40134522e99d3c472f8976c9353593e6aeabff98",
+          "applies_to": [
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15381690681.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14990369315.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-資安與網路管理-臺北地區(W1904)",
+          "native_header": "專業職(一)／資安與網路管理【W1904】｜第二節／專業科目(2)：通訊與網路安全概要",
+          "subject_name_raw": "通訊與網路安全概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "b8c3ef2ae944ae86b299b45e906471d37a6f704a242fec6a6ce23b3478bf1858",
+          "applies_to": [
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15364032013.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14973696477.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(W1905)；專業職(一)-程式設計(2)-臺北地區(工作地點：電子商務室)(W1906)",
+          "native_header": "專業職(一)／程式設計(1)【W1905】、程式設計(2)【W1906】｜第一節／專業科目(1)：程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+          "subject_name_raw": "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "0b9818d2d87bf3132de52d32f37c84d39ab6eba4a8af9e7f539e8654499ee35e",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15382049486.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14991923305.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(W1905)；專業職(一)-程式設計(2)-臺北地區(工作地點：電子商務室)(W1906)",
+          "native_header": "專業職(一)／程式設計(1)【W1905】、程式設計(2)【W1906】｜第二節／專業科目(2)：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "0b104291590c1e3b420ebe7b4f5b8ba174c877c35ea80e414472c4ada2a94ea9",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15365390818.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14974609272.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-系統操作-臺北地區(W1907)",
+          "native_header": "專業職(一)／系統操作【W1907】｜第一節／專業科目(1)：資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+          "subject_name_raw": "資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "fe0fa4ac1e52b63e780700f34cc7a2201fa09a046e19640edabe76903872f6be",
+          "applies_to": [
+            "postal-professional-1-systems-operation"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15383244670.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14992836099.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-系統操作-臺北地區(W1907)",
+          "native_header": "專業職(一)／系統操作【W1907】｜第二節／專業科目(2)：作業系統",
+          "subject_name_raw": "作業系統",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "d1bef1efcfba89a206edf34f8e941f5d0e04321cf3502a1da246353ed7f56a18",
+          "applies_to": [
+            "postal-professional-1-systems-operation"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15366586003.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14975999641.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-電子商務(網頁設計)-臺北地區(W1908)",
+          "native_header": "專業職(一)／電子商務(網頁設計)【W1908】｜第一節／專業科目(1)：電子商務與網路行銷",
+          "subject_name_raw": "電子商務與網路行銷",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "9334d8b98c91057c230395ae6899b85f7b138a0bb8a4de2a8409eaab997f1418",
+          "applies_to": [
+            "postal-professional-1-ecommerce-web-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15384603475.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14993226469.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-電子商務(網頁設計)-臺北地區(W1908)",
+          "native_header": "專業職(一)／電子商務(網頁設計)【W1908】｜第二節／專業科目(2)：多媒體概論與設計實務",
+          "subject_name_raw": "多媒體概論與設計實務",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "dc8ce971015bc8b2541ef1eb54f450412393e121fa91ec508df398119ed92da9",
+          "applies_to": [
+            "postal-professional-1-ecommerce-web-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15367944808.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14976553631.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-房地管理(1)-臺北郵局(W1909)；專業職(一)-房地管理(2)-新竹郵局(W1910)",
+          "native_header": "專業職(一)／房地管理(1)【W1909】、房地管理(2)【W1910】｜第一節／專業科目(1)：民法概要",
+          "subject_name_raw": "民法概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "4904bbb9197f10d7bfefc75a8c89f4df1373adfa7b2872f97c71206c2dfb8647",
+          "applies_to": [
+            "postal-professional-1-real-estate-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15385439855.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14994780459.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-房地管理(1)-臺北郵局(W1909)；專業職(一)-房地管理(2)-新竹郵局(W1910)",
+          "native_header": "專業職(一)／房地管理(1)【W1909】、房地管理(2)【W1910】｜第二節／專業科目(2)：土地法規概要(包括土地法、土地稅法、土地登記規則)",
+          "subject_name_raw": "土地法規概要(包括土地法、土地稅法、土地登記規則)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "e09317dda9b1613da1cdbb0cca012dcee4942232f3f6076c9f3d72cb8c791967",
+          "applies_to": [
+            "postal-professional-1-real-estate-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15368530362.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14977944001.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-電力工程(1)-臺北地區(W1911)；專業職(一)-電力工程(2)-臺北地區(工作地點：臺中地區)(W1912)",
+          "native_header": "專業職(一)／電力工程(1)【W1911】、電力工程(2)【W1912】｜第一節／專業科目(1)：輸配電學概要",
+          "subject_name_raw": "輸配電學概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "f4e60174fbab4cce2d54919d31868e8e5a57db4609d83c85319417584ac5aa32",
+          "applies_to": [
+            "postal-professional-1-power-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15386157465.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14995693254.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-電力工程(1)-臺北地區(W1911)；專業職(一)-電力工程(2)-臺北地區(工作地點：臺中地區)(W1912)",
+          "native_header": "專業職(一)／電力工程(1)【W1911】、電力工程(2)【W1912】｜第二節／專業科目(2)：基本電學",
+          "subject_name_raw": "基本電學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "a2af42cf1c4dcf5712b0e64e6a61fbc247498ec2e9bd86e32849e15fceacc289",
+          "applies_to": [
+            "postal-professional-1-power-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15369889167.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14978215601.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-營建工程(1)-臺北地區(W1913)；專業職(一)-營建工程(2)-臺北地區(工作地點：高雄地區)(W1914)；專業職(一)-營建工程(3)-板橋郵局(W1915)；專業職(一)-營建工程(4)-新竹郵局(W1916)",
+          "native_header": "專業職(一)／營建工程(1)【W1913】、營建工程(2)【W1914】、 營建工程(3)【W1915】、營建工程(4)【W1916】｜第一節／專業科目(1)：營建法規與施工估價概要",
+          "subject_name_raw": "營建法規與施工估價概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "1557af671ed5fdd67712d7e18686e2be2eea0f06120150c1cbb0b81fe7fdd6b6",
+          "applies_to": [
+            "postal-professional-1-construction-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15387352650.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14996442428.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-營建工程(1)-臺北地區(W1913)；專業職(一)-營建工程(2)-臺北地區(工作地點：高雄地區)(W1914)；專業職(一)-營建工程(3)-板橋郵局(W1915)；專業職(一)-營建工程(4)-新竹郵局(W1916)",
+          "native_header": "專業職(一)／營建工程(1)【W1913】、營建工程(2)【W1914】、 營建工程(3)【W1915】、營建工程(4)【W1916】｜第二節／專業科目(2)：建築設計與圖學概要",
+          "subject_name_raw": "建築設計與圖學概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "6601d5cb90117cfe093660a98d22ffe5031e4c20d8b21b8fd059d770be1d31ec",
+          "applies_to": [
+            "postal-professional-1-construction-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15370084352.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14979964775.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-職業安全衛生業務-高雄郵局(W1917)",
+          "native_header": "專業職(一)／職業安全衛生業務【W1917】｜第一節／專業科目(1)：職業安全衛生法規概要",
+          "subject_name_raw": "職業安全衛生法規概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "f7d22c146e69746294c640ce6716e6c9e71018242750eb5226f6c7f43ab2321f",
+          "applies_to": [
+            "postal-professional-1-occupational-safety-services"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15388547835.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14997550408.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-職業安全衛生業務-高雄郵局(W1917)",
+          "native_header": "專業職(一)／職業安全衛生業務【W1917】｜第二節／專業科目(2)：工業安全工程概要",
+          "subject_name_raw": "工業安全工程概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "623f9c14e747620ed92491220f4a6f78a690704c4884615a2027824f3b78f75c",
+          "applies_to": [
+            "postal-professional-1-occupational-safety-services"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15371443157.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14980518765.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-郵儲業務甲-臺北郵局(W1918)；專業職(一)-郵儲業務甲-新竹郵局(W1919)；專業職(一)-郵儲業務甲-雲林郵局(W1920)；專業職(一)-郵儲業務甲-宜蘭郵局(W1921)；專業職(一)-郵儲業務甲-花蓮郵局(W1922)；專業職(一)-郵儲業務甲-澎湖郵局(W1923)",
+          "native_header": "專業職(一)／郵儲業務甲【W1918-W1923】｜第一節／專業科目(1)：消費者行為概要及行銷管理概要",
+          "subject_name_raw": "消費者行為概要及行銷管理概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "2381689215c9e478e6d1d13d2dc03a1d826a54c12f4e3657f60892f006c3f2df",
+          "applies_to": [
+            "postal-professional-1-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15389906640.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14998940777.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-郵儲業務甲-臺北郵局(W1918)；專業職(一)-郵儲業務甲-新竹郵局(W1919)；專業職(一)-郵儲業務甲-雲林郵局(W1920)；專業職(一)-郵儲業務甲-宜蘭郵局(W1921)；專業職(一)-郵儲業務甲-花蓮郵局(W1922)；專業職(一)-郵儲業務甲-澎湖郵局(W1923)",
+          "native_header": "專業職(一)／郵儲業務甲【W1918-W1923】｜第二節／專業科目(2)：民法概要及經濟學概要",
+          "subject_name_raw": "民法概要及經濟學概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "8fd8e714583b80d79abc7b9e2c966de645e5e79a64341b2c5c57820f044d09fb",
+          "applies_to": [
+            "postal-professional-1-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15345697206.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14954723699.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(W2001)；專業職(二)內勤-櫃台業務-板橋郵局(W2002)；專業職(二)內勤-櫃台業務-桃園郵局(W2003)；專業職(二)內勤-櫃台業務-臺中郵局(W2004)；專業職(二)內勤-櫃台業務-和平梨山郵局(W2005)；專業職(二)內勤-櫃台業務-臺南郵局(W2006)；專業職(二)內勤-櫃台業務-高雄郵局(W2007)；專業職(二)內勤-櫃台業務-基隆郵局(W2008)；專業職(二)內勤-櫃台業務-三重郵局(W2009)；專業職(二)內勤-櫃台業務-新竹郵局(W2010)；專業職(二)內勤-櫃台業務-彰化郵局(W2011)；專業職(二)內勤-櫃台業務-嘉義郵局(W2012)；專業職(二)內勤-櫃台業務-苗栗郵局(W2013)；專業職(二)內勤-櫃台業務-南投郵局(W2014)；專業職(二)內勤-櫃台業務-雲林郵局(W2015)；專業職(二)內勤-櫃台業務-屏東郵局(W2016)；專業職(二)內勤-櫃台業務-宜蘭郵局(W2017)；專業職(二)內勤-櫃台業務-花蓮郵局(W2018)；專業職(二)內勤-櫃台業務-臺東郵局(W2019)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺北郵局(W2020)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-桃園郵局(W2021)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺中郵局(W2022)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺南郵局(W2023)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-基隆郵局(W2024)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-三重郵局(W2025)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-新竹郵局(W2026)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-彰化郵局(W2027)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-嘉義郵局(W2028)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-苗栗郵局(W2029)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-南投郵局(W2030)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-宜蘭郵局(W2031)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-花蓮郵局(W2032)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺東郵局(W2033)；專業職(二)內勤-郵務處理-臺北郵局(W2101)；專業職(二)內勤-郵務處理-板橋郵局(W2102)；專業職(二)內勤-郵務處理-臺中郵局(W2103)；專業職(二)內勤-郵務處理-臺南郵局(W2104)；專業職(二)內勤-郵務處理-高雄郵局(W2105)；專業職(二)內勤-郵務處理-基隆郵局(W2106)；專業職(二)內勤-郵務處理-三重郵局(W2107)；專業職(二)內勤-郵務處理-新竹郵局(W2108)；專業職(二)內勤-郵務處理-彰化郵局(W2109)；專業職(二)內勤-郵務處理-嘉義郵局(W2110)；專業職(二)內勤-郵務處理-雲林郵局(W2111)；專業職(二)內勤-郵務處理-宜蘭郵局(W2112)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(W2113)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(W2114)",
+          "native_header": "專業職(二)內勤／櫃台業務【W2001-W2019】、 櫃台業務-限身心障礙人士【W2020-W2033】、 郵務處理【W2101-W2114】｜第三節／專業科目(1)：企業管理大意及洗錢防制法大意",
+          "subject_name_raw": "企業管理大意及洗錢防制法大意",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "be3c010305c6f0db416fb6388dd3db3a5e14d2d892bd254fef80895ca3203c7d",
+          "applies_to": [
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": [
+            "第34題：答2或3皆給分，未作答者不予計分"
+          ]
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15343930559.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14952354025.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(W2001)；專業職(二)內勤-櫃台業務-板橋郵局(W2002)；專業職(二)內勤-櫃台業務-桃園郵局(W2003)；專業職(二)內勤-櫃台業務-臺中郵局(W2004)；專業職(二)內勤-櫃台業務-和平梨山郵局(W2005)；專業職(二)內勤-櫃台業務-臺南郵局(W2006)；專業職(二)內勤-櫃台業務-高雄郵局(W2007)；專業職(二)內勤-櫃台業務-基隆郵局(W2008)；專業職(二)內勤-櫃台業務-三重郵局(W2009)；專業職(二)內勤-櫃台業務-新竹郵局(W2010)；專業職(二)內勤-櫃台業務-彰化郵局(W2011)；專業職(二)內勤-櫃台業務-嘉義郵局(W2012)；專業職(二)內勤-櫃台業務-苗栗郵局(W2013)；專業職(二)內勤-櫃台業務-南投郵局(W2014)；專業職(二)內勤-櫃台業務-雲林郵局(W2015)；專業職(二)內勤-櫃台業務-屏東郵局(W2016)；專業職(二)內勤-櫃台業務-宜蘭郵局(W2017)；專業職(二)內勤-櫃台業務-花蓮郵局(W2018)；專業職(二)內勤-櫃台業務-臺東郵局(W2019)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺北郵局(W2020)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-桃園郵局(W2021)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺中郵局(W2022)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺南郵局(W2023)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-基隆郵局(W2024)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-三重郵局(W2025)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-新竹郵局(W2026)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-彰化郵局(W2027)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-嘉義郵局(W2028)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-苗栗郵局(W2029)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-南投郵局(W2030)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-宜蘭郵局(W2031)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-花蓮郵局(W2032)；專業職(二)內勤-櫃台業務-限身心障礙人士報考-臺東郵局(W2033)；專業職(二)內勤-郵務處理-臺北郵局(W2101)；專業職(二)內勤-郵務處理-板橋郵局(W2102)；專業職(二)內勤-郵務處理-臺中郵局(W2103)；專業職(二)內勤-郵務處理-臺南郵局(W2104)；專業職(二)內勤-郵務處理-高雄郵局(W2105)；專業職(二)內勤-郵務處理-基隆郵局(W2106)；專業職(二)內勤-郵務處理-三重郵局(W2107)；專業職(二)內勤-郵務處理-新竹郵局(W2108)；專業職(二)內勤-郵務處理-彰化郵局(W2109)；專業職(二)內勤-郵務處理-嘉義郵局(W2110)；專業職(二)內勤-郵務處理-雲林郵局(W2111)；專業職(二)內勤-郵務處理-宜蘭郵局(W2112)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(W2113)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(W2114)",
+          "native_header": "專業職(二)內勤／櫃台業務【W2001-W2019】、 櫃台業務-限身心障礙人士【W2020-W2033】、 郵務處理【W2101-W2114】｜第一節／專業科目(2)：郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "subject_name_raw": "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "9841e7601f8450fd29c6f33768e82102c09c27c5670ef0f2301d20758440f48c",
+          "applies_to": [
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": [
+            "第12題：改2",
+            "第52題：答1或2或4皆給分，未作答者不予計分"
+          ]
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15348909863.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14957344198.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(W2201)；專業職(二)外勤-郵遞業務-板橋郵局(W2202)；專業職(二)外勤-郵遞業務-桃園郵局(W2203)；專業職(二)外勤-郵遞業務-臺中郵局(W2204)；專業職(二)外勤-郵遞業務-臺南郵局(W2205)；專業職(二)外勤-郵遞業務-高雄郵局(W2206)；專業職(二)外勤-郵遞業務-基隆郵局(W2207)；專業職(二)外勤-郵遞業務-三重郵局(W2208)；專業職(二)外勤-郵遞業務-新竹郵局(W2209)；專業職(二)外勤-郵遞業務-彰化郵局(W2210)；專業職(二)外勤-郵遞業務-嘉義郵局(W2211)；專業職(二)外勤-郵遞業務-苗栗郵局(W2212)；專業職(二)外勤-郵遞業務-南投郵局(W2213)；專業職(二)外勤-郵遞業務-雲林郵局(W2214)；專業職(二)外勤-郵遞業務-屏東郵局(W2215)；專業職(二)外勤-郵遞業務-宜蘭郵局(W2216)；專業職(二)外勤-郵遞業務-花蓮郵局(W2217)；專業職(二)外勤-郵遞業務-臺東郵局(W2218)；專業職(二)外勤-郵遞業務-臺北郵件處理中心(桃園地區)(W2219)；專業職(二)外勤-運輸業務-臺北郵局(W2220)；專業職(二)外勤-運輸業務-桃園郵局(W2221)；專業職(二)外勤-運輸業務-臺中郵局(W2222)；專業職(二)外勤-運輸業務-臺南郵局(W2223)；專業職(二)外勤-運輸業務-彰化郵局(W2224)；專業職(二)外勤-運輸業務-臺北郵件處理中心(臺北地區)(W2225)",
+          "native_header": "專業職(二)外勤／郵遞業務【W2201-W2219】、 運輸業務【W2220-W2225】｜第三節／專業科目(1)：臺灣自然及人文地理",
+          "subject_name_raw": "臺灣自然及人文地理",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "283d8dd549db57c3a0478ac80bfa7b6f58e32ba86ff35f989a6e778a5abb063e",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15346108350.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14955382366.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(W2201)；專業職(二)外勤-郵遞業務-板橋郵局(W2202)；專業職(二)外勤-郵遞業務-桃園郵局(W2203)；專業職(二)外勤-郵遞業務-臺中郵局(W2204)；專業職(二)外勤-郵遞業務-臺南郵局(W2205)；專業職(二)外勤-郵遞業務-高雄郵局(W2206)；專業職(二)外勤-郵遞業務-基隆郵局(W2207)；專業職(二)外勤-郵遞業務-三重郵局(W2208)；專業職(二)外勤-郵遞業務-新竹郵局(W2209)；專業職(二)外勤-郵遞業務-彰化郵局(W2210)；專業職(二)外勤-郵遞業務-嘉義郵局(W2211)；專業職(二)外勤-郵遞業務-苗栗郵局(W2212)；專業職(二)外勤-郵遞業務-南投郵局(W2213)；專業職(二)外勤-郵遞業務-雲林郵局(W2214)；專業職(二)外勤-郵遞業務-屏東郵局(W2215)；專業職(二)外勤-郵遞業務-宜蘭郵局(W2216)；專業職(二)外勤-郵遞業務-花蓮郵局(W2217)；專業職(二)外勤-郵遞業務-臺東郵局(W2218)；專業職(二)外勤-郵遞業務-臺北郵件處理中心(桃園地區)(W2219)；專業職(二)外勤-運輸業務-臺北郵局(W2220)；專業職(二)外勤-運輸業務-桃園郵局(W2221)；專業職(二)外勤-運輸業務-臺中郵局(W2222)；專業職(二)外勤-運輸業務-臺南郵局(W2223)；專業職(二)外勤-運輸業務-彰化郵局(W2224)；專業職(二)外勤-運輸業務-臺北郵件處理中心(臺北地區)(W2225)",
+          "native_header": "專業職(二)外勤／郵遞業務【W2201-W2219】、 運輸業務【W2220-W2225】｜第一節／專業科目(2)：郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+          "subject_name_raw": "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "1b518bfe92e09813c36433d8e89e98e8b632e827150188123ed0d3bc6c3463fb",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 113,
+      "source_exam_id": "post-recruit-113",
+      "programme_name": "中華郵政股份有限公司113年職階人員資訊類科甄試",
+      "exam_series_id": "postal-information-recruitment",
+      "written_test_date": "2024-09-21",
+      "stage_id": "stage-1",
+      "rule_urls": [
+        "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1501&control_type=page&group_name=post&news_no=68393&news_type=most_share",
+        "https://www.post.gov.tw/post/FileCenter/post_ww2/Bulletin_File/files/15021002/C51097B0-B68A-430E-8093-F6C6FFE4C05E.pdf"
+      ],
+      "reviewed_at": "2026-10-23",
+      "review_notes": "Native PDF headers explicitly name the IT-specific programme. The issuer announcement dated 2024-07-23 establishes first written test 2024-09-21, later oral test 2024-10-27, two operational and two professional-(1) occupations. Its primary-source body was returned by indexed web search on 2026-10-23; live HTTP returns a custom not-found page, and the annual brochure is 404. The successfully captured completed 113 annual report, printed p.9, independently confirms the IT-specific written test actually took place on 2024-09-21. No successful live announcement/brochure capture is claimed. All 13 native headers and applicability codes agree.",
+      "jobs": [
+        {
+          "category_code": "postal-professional-1-programming",
+          "grade_scope": "專業職(一)",
+          "occupation": "程式設計",
+          "track_id": "programming"
+        },
+        {
+          "category_code": "postal-professional-1-security-and-network-management",
+          "grade_scope": "專業職(一)",
+          "occupation": "資安與網路管理",
+          "track_id": "security-and-network-management"
+        },
+        {
+          "category_code": "postal-operational-systems-analysis",
+          "grade_scope": "營運職",
+          "occupation": "系統分析",
+          "track_id": "systems-analysis"
+        },
+        {
+          "category_code": "postal-operational-systems-management",
+          "grade_scope": "營運職",
+          "occupation": "系統管理",
+          "track_id": "systems-management"
+        }
+      ],
+      "files": [
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15338597204.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15007120950.pdf"
+          ],
+          "source_label": "共同科目(3)",
+          "source_context": "營運職-系統分析-臺北地區(A11106101)；營運職-系統管理-臺北地區(A11106102)",
+          "native_header": "營運職-全類組【A11106101-A11106102】｜第三節／共同科目（3） ：郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科 技知識",
+          "subject_name_raw": "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科 技知識",
+          "slot": "common-3",
+          "file_type": "question_answer",
+          "checksum": "cc0f0f538565a355ed06c54f70402d19223f0a9a54c0c4f958cbb06f45b1f5c8",
+          "applies_to": [
+            "postal-operational-systems-analysis",
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15339628768.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15008065310.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "營運職-系統分析-臺北地區(A11106101)；營運職-系統管理-臺北地區(A11106102)",
+          "native_header": "營運職-全類組【A11106101-A11106102】｜第四節／共同科目（1）：國文(含作文與公文寫作)",
+          "subject_name_raw": "國文(含作文與公文寫作)",
+          "slot": "common-1",
+          "file_type": "question",
+          "checksum": "0dc7201cccf0469e13259adb30862be4e712fcb14942b7301c4cee61195e73c5",
+          "applies_to": [
+            "postal-operational-systems-analysis",
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15340346378.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15009978104.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "營運職-系統分析-臺北地區(A11106101)；營運職-系統管理-臺北地區(A11106102)",
+          "native_header": "營運職-全類組【A11106101-A11106102】｜第五節／共同科目（2）：英文(含中翻英、英翻中及閱讀測驗)",
+          "subject_name_raw": "英文(含中翻英、英翻中及閱讀測驗)",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "89b98f298a8f1ae1476cefa337d47f2d0e4c3c4fdde18b95caddb51871cdb51f",
+          "applies_to": [
+            "postal-operational-systems-analysis",
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15341182758.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15010368474.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "專業職(一)-程式設計-臺北地區(A11106201)；專業職(一)-資安與網路管理-臺北地區(A11106202)",
+          "native_header": "專業職(一)-全類組【A11106201-A11106202】｜第三節／共同科目（2）：郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "subject_name_raw": "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "6b486eea820990e6032da68333e3273631cda9350c390f241102f12a3f8d30b7",
+          "applies_to": [
+            "postal-professional-1-programming",
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15342900368.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15011671638.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "專業職(一)-程式設計-臺北地區(A11106201)；專業職(一)-資安與網路管理-臺北地區(A11106202)",
+          "native_header": "專業職(一)-全類組【A11106201-A11106202】｜第四節／共同科目（1）：國文(短文寫作、閱讀測驗)及英文",
+          "subject_name_raw": "國文(短文寫作、閱讀測驗)及英文",
+          "slot": "common-1",
+          "file_type": "question_answer",
+          "checksum": "2114f19f3e2a95e984fb705b083b8321a81c6eaa2aa6ab480752c20202c988b1",
+          "applies_to": [
+            "postal-professional-1-programming",
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15330220926.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/14999692334.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-系統分析-臺北地區(A11106101)",
+          "native_header": "營運職／系統分析【A11106101】｜第一節／專業科目（1）：資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統 分析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全 程式設計）",
+          "subject_name_raw": "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統 分析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全 程式設計）",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "95385f5ab8395cc861f0d6c61c374f419b8cabbe8e0444d4c38d521eb13179f9",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15336882896.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15005817786.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-系統分析-臺北地區(A11106101)",
+          "native_header": "營運職／系統分析【A11106101】｜第二節／專業科目（2）：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "e3806d23648ea66ffc1c04716952b057980a1ee215840d7d5b416dba0d99a2a7",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15331416111.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15000995498.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-系統管理-臺北地區(A11106102)",
+          "native_header": "營運職／系統管理【A11106102】｜第一節／專業科目（1）：資訊綜合科目(含資料庫系統、網路管理、資通安全、程式語言)",
+          "subject_name_raw": "資訊綜合科目(含資料庫系統、網路管理、資通安全、程式語言)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "95467f246652d0a640b15ea30a4edbda78ee77bb10fe7973586a2adb12026f93",
+          "applies_to": [
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15337879594.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15006208155.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-系統管理-臺北地區(A11106102)",
+          "native_header": "營運職／系統管理【A11106102】｜第二節／專業科目（2）：作業系統管理(Windows／Linux)",
+          "subject_name_raw": "作業系統管理(Windows／Linux)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "b27b80ae5fdfdaeb15207ee4e13ad6b6e9b0e7c9ba2a551a8ed903ccff383864",
+          "applies_to": [
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15332774916.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15001744673.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-程式設計-臺北地區(A11106201)",
+          "native_header": "專業職（一）／程式設計【A11106201】 ：程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)｜第一節／專業科目（1）",
+          "subject_name_raw": "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "f9a0630c1b687f3f9cbca458bb7dec6be0effa35c61eeb8bb8756184987d1734",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15334687711.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15003406642.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-程式設計-臺北地區(A11106201)",
+          "native_header": "專業職（一）／程式設計【A11106201】｜第二節／專業科目（2）：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "9413b4d6840b3cd5082a19c92374cf9f1d4576e2fb933ab02574814365114d7a",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15333133721.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15002493847.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-資安與網路管理-臺北地區(A11106202)",
+          "native_header": "專業職（一）／資安與網路管理【A11106202】｜第一節／專業科目（1）：資訊系統安全管理概要",
+          "subject_name_raw": "資訊系統安全管理概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "874a53273bbb19369f0404d14d30b27bad0f7898c7a88e35076dbaaac60a2b06",
+          "applies_to": [
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15335524091.pdf",
+            "https://svc.tabf.org.tw/_File/Download/114post01/HistoryPaper/15004155817.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-資安與網路管理-臺北地區(A11106202)",
+          "native_header": "專業職（一）／資安與網路管理【A11106202】｜第二節／專業科目（2）：通訊與網路安全概要",
+          "subject_name_raw": "通訊與網路安全概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "d9e950ad7e2ec3ca51e6b0811c34a16f92601c9dbae265b357e8b1e4c2bf1d6c",
+          "applies_to": [
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        }
+      ]
+    },
+    {
+      "programme_year_roc": 114,
+      "source_exam_id": "post-recruit-114",
+      "programme_name": "中華郵政股份有限公司114年職階人員甄試",
+      "exam_series_id": "postal-recruitment",
+      "written_test_date": "2025-05-04",
+      "stage_id": "stage-1",
+      "rule_urls": [
+        "https://svc.tabf.org.tw/_File/Download/114post01/Readme/10419Readme086249.pdf"
+      ],
+      "reviewed_at": "2026-10-23",
+      "review_notes": "Captured native issuer/contractor brochure: cover 114-02-13, timeline printed p.1, grade/job/region tables pp.2-18, first written-test methods pp.22-23. First written test 2025-05-04; later interview/physical stage June 28-29. Employment grades are distinct from eligibility education and paper sessions. Every retained native header and applicant-code range agrees with its source listing. Electronic maintenance and power engineering share basic electrical knowledge but remain distinct occupations; reserved populations and regional allocations share the written papers.",
+      "jobs": [
+        {
+          "category_code": "postal-professional-1-general-information",
+          "grade_scope": "專業職(一)",
+          "occupation": "一般資訊",
+          "track_id": "general-information"
+        },
+        {
+          "category_code": "postal-professional-1-general-finance",
+          "grade_scope": "專業職(一)",
+          "occupation": "一般金融",
+          "track_id": "general-finance"
+        },
+        {
+          "category_code": "postal-professional-1-real-estate-management",
+          "grade_scope": "專業職(一)",
+          "occupation": "房地管理",
+          "track_id": "real-estate-management"
+        },
+        {
+          "category_code": "postal-professional-1-mechanical-equipment",
+          "grade_scope": "專業職(一)",
+          "occupation": "機械設備",
+          "track_id": "mechanical-equipment"
+        },
+        {
+          "category_code": "postal-professional-1-construction-engineering",
+          "grade_scope": "專業職(一)",
+          "occupation": "營建工程",
+          "track_id": "construction-engineering"
+        },
+        {
+          "category_code": "postal-professional-1-programming",
+          "grade_scope": "專業職(一)",
+          "occupation": "程式設計",
+          "track_id": "programming"
+        },
+        {
+          "category_code": "postal-professional-1-systems-operation",
+          "grade_scope": "專業職(一)",
+          "occupation": "系統操作",
+          "track_id": "systems-operation"
+        },
+        {
+          "category_code": "postal-professional-1-statistical-analysis",
+          "grade_scope": "專業職(一)",
+          "occupation": "統計研析",
+          "track_id": "statistical-analysis"
+        },
+        {
+          "category_code": "postal-professional-1-occupational-safety-services",
+          "grade_scope": "專業職(一)",
+          "occupation": "職業安全衛生業務",
+          "track_id": "occupational-safety-services"
+        },
+        {
+          "category_code": "postal-professional-1-security-and-network-management",
+          "grade_scope": "專業職(一)",
+          "occupation": "資安與網路管理",
+          "track_id": "security-and-network-management"
+        },
+        {
+          "category_code": "postal-professional-1-postal-savings-a",
+          "grade_scope": "專業職(一)",
+          "occupation": "郵儲業務甲",
+          "track_id": "postal-savings-a"
+        },
+        {
+          "category_code": "postal-professional-1-power-engineering",
+          "grade_scope": "專業職(一)",
+          "occupation": "電力工程",
+          "track_id": "power-engineering"
+        },
+        {
+          "category_code": "postal-professional-1-electronic-maintenance",
+          "grade_scope": "專業職(一)",
+          "occupation": "電子修護",
+          "track_id": "electronic-maintenance"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-information-counter",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "櫃台(資訊)",
+          "track_id": "indoor-information-counter"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-counter-services",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "櫃台業務",
+          "track_id": "indoor-counter-services"
+        },
+        {
+          "category_code": "postal-professional-2-indoor-mail-processing",
+          "grade_scope": "專業職(二)內勤",
+          "occupation": "郵務處理",
+          "track_id": "indoor-mail-processing"
+        },
+        {
+          "category_code": "postal-professional-2-outdoor-transport-services",
+          "grade_scope": "專業職(二)外勤",
+          "occupation": "運輸業務",
+          "track_id": "outdoor-transport-services"
+        },
+        {
+          "category_code": "postal-professional-2-outdoor-mail-delivery",
+          "grade_scope": "專業職(二)外勤",
+          "occupation": "郵遞業務",
+          "track_id": "outdoor-mail-delivery"
+        },
+        {
+          "category_code": "postal-operational-architectural-design",
+          "grade_scope": "營運職",
+          "occupation": "建築設計",
+          "track_id": "architectural-design"
+        },
+        {
+          "category_code": "postal-operational-legal-affairs",
+          "grade_scope": "營運職",
+          "occupation": "法務",
+          "track_id": "legal-affairs"
+        },
+        {
+          "category_code": "postal-operational-systems-analysis",
+          "grade_scope": "營運職",
+          "occupation": "系統分析",
+          "track_id": "systems-analysis"
+        },
+        {
+          "category_code": "postal-operational-systems-management",
+          "grade_scope": "營運職",
+          "occupation": "系統管理",
+          "track_id": "systems-management"
+        },
+        {
+          "category_code": "postal-operational-occupational-safety-management",
+          "grade_scope": "營運職",
+          "occupation": "職業安全衛生管理",
+          "track_id": "occupational-safety-management"
+        },
+        {
+          "category_code": "postal-operational-database-management",
+          "grade_scope": "營運職",
+          "occupation": "資料庫管理",
+          "track_id": "database-management"
+        },
+        {
+          "category_code": "postal-operational-electrical-engineering",
+          "grade_scope": "營運職",
+          "occupation": "電機工程",
+          "track_id": "electrical-engineering"
+        }
+      ],
+      "files": [
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15278284931.pdf"
+          ],
+          "source_label": "共同科目",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(A11108301)；專業職(二)內勤-櫃台業務-板橋郵局(A11108302)；專業職(二)內勤-櫃台業務-桃園郵局(A11108303)；專業職(二)內勤-櫃台業務-臺中郵局(A11108304)；專業職(二)內勤-櫃台業務-高雄郵局(A11108305)；專業職(二)內勤-櫃台業務-基隆郵局(A11108306)；專業職(二)內勤-櫃台業務-三重郵局(A11108307)；專業職(二)內勤-櫃台業務-新竹郵局(A11108308)；專業職(二)內勤-櫃台業務-彰化郵局(A11108309)；專業職(二)內勤-櫃台業務-嘉義郵局(A11108310)；專業職(二)內勤-櫃台業務-屏東郵局(A11108311)；專業職(二)內勤-櫃台業務-恆春地區(A11108312)；專業職(二)內勤-櫃台業務-苗栗郵局(A11108313)；專業職(二)內勤-櫃台業務-南投郵局(A11108314)；專業職(二)內勤-櫃台業務-雲林郵局(A11108315)；專業職(二)內勤-櫃台業務-宜蘭郵局(A11108316)；專業職(二)內勤-櫃台業務-花蓮郵局(A11108317)；專業職(二)內勤-櫃台業務-臺東郵局(A11108318)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺北郵局(A11108319)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-桃園郵局(A11108320)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺中郵局(A11108321)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺南郵局(A11108322)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-高雄郵局(A11108323)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-基隆郵局(A11108324)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-三重郵局(A11108325)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-新竹郵局(A11108326)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-彰化郵局(A11108327)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-嘉義郵局(A11108328)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-屏東郵局(A11108329)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-苗栗郵局(A11108330)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-南投郵局(A11108331)；專業職(二)內勤-櫃台(資訊)-臺北郵局(A11108332)；專業職(二)內勤-櫃台(資訊)-屏東郵局(A11108333)；專業職(二)內勤-郵務處理-臺北郵局(A11108401)；專業職(二)內勤-郵務處理-板橋郵局(A11108402)；專業職(二)內勤-郵務處理-桃園郵局(A11108403)；專業職(二)內勤-郵務處理-臺中郵局(A11108404)；專業職(二)內勤-郵務處理-臺南郵局(A11108405)；專業職(二)內勤-郵務處理-高雄郵局(A11108406)；專業職(二)內勤-郵務處理-基隆郵局(A11108407)；專業職(二)內勤-郵務處理-三重郵局(A11108408)；專業職(二)內勤-郵務處理-新竹郵局(A11108409)；專業職(二)內勤-郵務處理-彰化郵局(A11108410)；專業職(二)內勤-郵務處理-屏東郵局(A11108411)；專業職(二)內勤-郵務處理-苗栗郵局(A11108412)；專業職(二)內勤-郵務處理-宜蘭郵局(A11108413)；專業職(二)內勤-郵務處理-花蓮郵局(A11108414)；專業職(二)內勤-郵務處理-澎湖郵局(A11108415)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(A11108416)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(A11108417)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-板橋郵局(A11108418)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-基隆郵局(A11108419)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-新竹郵局(A11108420)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-彰化郵局(A11108421)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-嘉義郵局(A11108422)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-宜蘭郵局(A11108423)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-臺北郵件處理中心(臺北地區)(A11108424)",
+          "native_header": "專業職(二)內勤／ 櫃台業務【A11108301-A11108318】、 櫃台業務(限身心障礙人士)【A11108319-A11108331】、 櫃台(資訊)【A11108332-A11108333】、 郵務處理【A11108401-A11108417】、 郵務處理(限身心障礙人士)【A11108418-A11108424】｜第二節／共同科目：國文(含短文寫作)及英文",
+          "subject_name_raw": "國文(含短文寫作)及英文",
+          "slot": "common",
+          "file_type": "question_answer",
+          "checksum": "30925b795194c1aea2ef4c607eacbe74118f403900b3962a0c312847f6ed7fae",
+          "applies_to": [
+            "postal-professional-2-indoor-information-counter",
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15279476814.pdf"
+          ],
+          "source_label": "共同科目",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(A11108501)；專業職(二)外勤-郵遞業務-板橋郵局(A11108502)；專業職(二)外勤-郵遞業務-桃園郵局(A11108503)；專業職(二)外勤-郵遞業務-臺中郵局(A11108504)；專業職(二)外勤-郵遞業務-高雄郵局(A11108505)；專業職(二)外勤-郵遞業務-基隆郵局(A11108506)；專業職(二)外勤-郵遞業務-三重郵局(A11108507)；專業職(二)外勤-郵遞業務-新竹郵局(A11108508)；專業職(二)外勤-郵遞業務-彰化郵局(A11108509)；專業職(二)外勤-郵遞業務-嘉義郵局(A11108510)；專業職(二)外勤-郵遞業務-阿里山郵局(A11108511)；專業職(二)外勤-郵遞業務-恆春地區(A11108512)；專業職(二)外勤-郵遞業務-苗栗郵局(A11108513)；專業職(二)外勤-郵遞業務-南投郵局(A11108514)；專業職(二)外勤-郵遞業務-雲林郵局(A11108515)；專業職(二)外勤-郵遞業務-宜蘭郵局(A11108516)；專業職(二)外勤-郵遞業務-花蓮郵局(A11108517)；專業職(二)外勤-郵遞業務-臺東郵局(A11108518)；專業職(二)外勤-郵遞業務-澎湖郵局(A11108519)；專業職(二)外勤-郵遞業務-臺北郵件處理中心(桃園地區)(A11108520)；專業職(二)外勤-運輸業務-臺北郵局(A11108521)；專業職(二)外勤-運輸業務-板橋郵局(A11108522)；專業職(二)外勤-運輸業務-桃園郵局(A11108523)；專業職(二)外勤-運輸業務-臺中郵局(A11108524)；專業職(二)外勤-運輸業務-臺南郵局(A11108525)；專業職(二)外勤-運輸業務-高雄郵局(A11108526)；專業職(二)外勤-運輸業務-嘉義郵局(A11108527)；專業職(二)外勤-運輸業務-苗栗郵局(A11108528)；專業職(二)外勤-運輸業務-雲林郵局(A11108529)；專業職(二)外勤-運輸業務-臺北郵件處理中心(臺北地區)(A11108530)",
+          "native_header": "專業職(二)外勤／郵遞業務【A11108501-A11108520】、 運輸業務【A11108521-A11108530】｜第二節／共同科目：國文及英文",
+          "subject_name_raw": "國文及英文",
+          "slot": "common",
+          "file_type": "question_answer",
+          "checksum": "d804b4d705770d40b0fd16b42af537c332645cb36c188d81ccf1f61a99ff15ec",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15280246763.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "營運職-法務-臺北地區(A11108101)；營運職-系統分析-臺北地區(A11108102)；營運職-資料庫管理-臺北地區(A11108103)；營運職-系統管理-臺北地區(A11108104)；營運職-電機工程-臺北郵局(A11108105)；營運職-建築設計-臺北郵局(A11108106)；營運職-職業安全衛生管理(1)-板橋郵局(A11108107)；營運職-職業安全衛生管理(2)-高雄郵局(A11108108)；營運職-職業安全衛生管理(3)-基隆郵局(A11108109)；營運職-職業安全衛生管理(4)-彰化郵局(A11108110)；營運職-職業安全衛生管理(5)-南投郵局(A11108111)",
+          "native_header": "營運職-全類組【A11108101-A11108111】｜第四節／共同科目(1)：國文(含作文與公文寫作)",
+          "subject_name_raw": "國文(含作文與公文寫作)",
+          "slot": "common-1",
+          "file_type": "question",
+          "checksum": "2765075e8d0e829fdddbd0c4abf2048b803f40662f0bf61b825accf217e1e00a",
+          "applies_to": [
+            "postal-operational-architectural-design",
+            "postal-operational-legal-affairs",
+            "postal-operational-systems-analysis",
+            "postal-operational-systems-management",
+            "postal-operational-occupational-safety-management",
+            "postal-operational-database-management",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15281386307.pdf"
+          ],
+          "source_label": "共同科目(1)",
+          "source_context": "專業職(一)-一般金融-臺北地區(A11108201)；專業職(一)-一般資訊(1)-臺北地區(A11108202)；專業職(一)-一般資訊(2)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(A11108203)；專業職(一)-一般資訊(3)-臺北地區(工作地點：臺中地區)(A11108204)；專業職(一)-統計研析-臺北地區(A11108205)；專業職(一)-資安與網路管理-臺北地區(A11108206)；專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(A11108207)；專業職(一)-程式設計(2)-臺北地區(工作地點：臺中地區)(A11108208)；專業職(一)-程式設計(3)-臺北地區(工作地點：電子商務室)(A11108209)；專業職(一)-系統操作-臺北地區(A11108210)；專業職(一)-房地管理(1)-臺北郵局(A11108211)；專業職(一)-房地管理(2)-臺中郵局(A11108212)；專業職(一)-房地管理(3)-彰化郵局(A11108213)；專業職(一)-房地管理(4)-屏東郵局(A11108214)；專業職(一)-房地管理(5)-苗栗郵局(A11108215)；專業職(一)-房地管理(6)-雲林郵局(A11108216)；專業職(一)-電力工程(1)-臺北地區(工作地點：勞工安全衛生處)(A11108217)；專業職(一)-電力工程(2)-臺北地區(工作地點：資產營運處)(A11108218)；專業職(一)-營建工程(1)-臺北地區(A11108219)；專業職(一)-營建工程(2)-臺北地區(工作地點：臺中地區)(A11108220)；專業職(一)-營建工程(3)-臺北地區(工作地點：高雄地區)(A11108221)；專業職(一)-機械設備-臺北郵局(A11108222)；專業職(一)-電子修護-臺北郵局(A11108223)；專業職(一)-職業安全衛生業務(1)-板橋郵局(A11108224)；專業職(一)-職業安全衛生業務(2)-三重郵局(A11108225)；專業職(一)-職業安全衛生業務(3)-新竹郵局(A11108226)；專業職(一)-職業安全衛生業務(4)-臺北郵件處理中心(臺北地區)(A11108227)；專業職(一)-郵儲業務甲-臺北郵局(A11108228)；專業職(一)-郵儲業務甲-桃園郵局(A11108229)；專業職(一)-郵儲業務甲-新竹郵局(A11108230)",
+          "native_header": "專業職(一)-全類組【A11108201-A11108230】｜第四節／共同科目(1)：國文(含短文寫作)及英文",
+          "subject_name_raw": "國文(含短文寫作)及英文",
+          "slot": "common-1",
+          "file_type": "question_answer",
+          "checksum": "dbc94746d67bfbebd071eb7b680fd5e6476a57ae50cbba9277af0bf079623312",
+          "applies_to": [
+            "postal-professional-1-general-information",
+            "postal-professional-1-general-finance",
+            "postal-professional-1-real-estate-management",
+            "postal-professional-1-mechanical-equipment",
+            "postal-professional-1-construction-engineering",
+            "postal-professional-1-programming",
+            "postal-professional-1-systems-operation",
+            "postal-professional-1-statistical-analysis",
+            "postal-professional-1-occupational-safety-services",
+            "postal-professional-1-security-and-network-management",
+            "postal-professional-1-postal-savings-a",
+            "postal-professional-1-power-engineering",
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15282546625.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "營運職-法務-臺北地區(A11108101)；營運職-系統分析-臺北地區(A11108102)；營運職-資料庫管理-臺北地區(A11108103)；營運職-系統管理-臺北地區(A11108104)；營運職-電機工程-臺北郵局(A11108105)；營運職-建築設計-臺北郵局(A11108106)；營運職-職業安全衛生管理(1)-板橋郵局(A11108107)；營運職-職業安全衛生管理(2)-高雄郵局(A11108108)；營運職-職業安全衛生管理(3)-基隆郵局(A11108109)；營運職-職業安全衛生管理(4)-彰化郵局(A11108110)；營運職-職業安全衛生管理(5)-南投郵局(A11108111)",
+          "native_header": "營運職-全類組【A11108101-A11108111】｜第五節／共同科目(2)：英文(含中翻英、英翻中及閱讀測驗)",
+          "subject_name_raw": "英文(含中翻英、英翻中及閱讀測驗)",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "3519930c0ed5fb8e813e65fd970d569e0fbde46fa48ed05781bbca61d5fa2f67",
+          "applies_to": [
+            "postal-operational-architectural-design",
+            "postal-operational-legal-affairs",
+            "postal-operational-systems-analysis",
+            "postal-operational-systems-management",
+            "postal-operational-occupational-safety-management",
+            "postal-operational-database-management",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15283654605.pdf"
+          ],
+          "source_label": "共同科目(2)",
+          "source_context": "專業職(一)-一般金融-臺北地區(A11108201)；專業職(一)-一般資訊(1)-臺北地區(A11108202)；專業職(一)-一般資訊(2)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(A11108203)；專業職(一)-一般資訊(3)-臺北地區(工作地點：臺中地區)(A11108204)；專業職(一)-統計研析-臺北地區(A11108205)；專業職(一)-資安與網路管理-臺北地區(A11108206)；專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(A11108207)；專業職(一)-程式設計(2)-臺北地區(工作地點：臺中地區)(A11108208)；專業職(一)-程式設計(3)-臺北地區(工作地點：電子商務室)(A11108209)；專業職(一)-系統操作-臺北地區(A11108210)；專業職(一)-房地管理(1)-臺北郵局(A11108211)；專業職(一)-房地管理(2)-臺中郵局(A11108212)；專業職(一)-房地管理(3)-彰化郵局(A11108213)；專業職(一)-房地管理(4)-屏東郵局(A11108214)；專業職(一)-房地管理(5)-苗栗郵局(A11108215)；專業職(一)-房地管理(6)-雲林郵局(A11108216)；專業職(一)-電力工程(1)-臺北地區(工作地點：勞工安全衛生處)(A11108217)；專業職(一)-電力工程(2)-臺北地區(工作地點：資產營運處)(A11108218)；專業職(一)-營建工程(1)-臺北地區(A11108219)；專業職(一)-營建工程(2)-臺北地區(工作地點：臺中地區)(A11108220)；專業職(一)-營建工程(3)-臺北地區(工作地點：高雄地區)(A11108221)；專業職(一)-機械設備-臺北郵局(A11108222)；專業職(一)-電子修護-臺北郵局(A11108223)；專業職(一)-職業安全衛生業務(1)-板橋郵局(A11108224)；專業職(一)-職業安全衛生業務(2)-三重郵局(A11108225)；專業職(一)-職業安全衛生業務(3)-新竹郵局(A11108226)；專業職(一)-職業安全衛生業務(4)-臺北郵件處理中心(臺北地區)(A11108227)；專業職(一)-郵儲業務甲-臺北郵局(A11108228)；專業職(一)-郵儲業務甲-桃園郵局(A11108229)；專業職(一)-郵儲業務甲-新竹郵局(A11108230)",
+          "native_header": "專業職(一)-全類組【A11108201-A11108230】｜第三節／共同科目(2)：郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "subject_name_raw": "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "slot": "common-2",
+          "file_type": "question_answer",
+          "checksum": "597a9c76005e183461af8d1ae2742181542f2ea39cb092d181653b7f41faae9a",
+          "applies_to": [
+            "postal-professional-1-general-information",
+            "postal-professional-1-general-finance",
+            "postal-professional-1-real-estate-management",
+            "postal-professional-1-mechanical-equipment",
+            "postal-professional-1-construction-engineering",
+            "postal-professional-1-programming",
+            "postal-professional-1-systems-operation",
+            "postal-professional-1-statistical-analysis",
+            "postal-professional-1-occupational-safety-services",
+            "postal-professional-1-security-and-network-management",
+            "postal-professional-1-postal-savings-a",
+            "postal-professional-1-power-engineering",
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15284870564.pdf"
+          ],
+          "source_label": "共同科目(3)",
+          "source_context": "營運職-法務-臺北地區(A11108101)；營運職-系統分析-臺北地區(A11108102)；營運職-資料庫管理-臺北地區(A11108103)；營運職-系統管理-臺北地區(A11108104)；營運職-電機工程-臺北郵局(A11108105)；營運職-建築設計-臺北郵局(A11108106)；營運職-職業安全衛生管理(1)-板橋郵局(A11108107)；營運職-職業安全衛生管理(2)-高雄郵局(A11108108)；營運職-職業安全衛生管理(3)-基隆郵局(A11108109)；營運職-職業安全衛生管理(4)-彰化郵局(A11108110)；營運職-職業安全衛生管理(5)-南投郵局(A11108111)",
+          "native_header": "營運職-全類組【A11108101-A11108111】｜第三節／共同科目(3)：郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+          "subject_name_raw": "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+          "slot": "common-3",
+          "file_type": "question_answer",
+          "checksum": "42d6d4e967befeb73631bc1ea651e076373dfcc1a7522c77d610c34f5d45baf7",
+          "applies_to": [
+            "postal-operational-architectural-design",
+            "postal-operational-legal-affairs",
+            "postal-operational-systems-analysis",
+            "postal-operational-systems-management",
+            "postal-operational-occupational-safety-management",
+            "postal-operational-database-management",
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15285260933.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-法務-臺北地區(A11108101)",
+          "native_header": "營運職／法務【A11108101】｜第一節／專業科目(1)：民事訴訟法及強制執行法",
+          "subject_name_raw": "民事訴訟法及強制執行法",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "4c8dd03a520eadfd976a86faacbaf96a1c0a7de2e31fc37ae402cfdf1f8fdf67",
+          "applies_to": [
+            "postal-operational-legal-affairs"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15308240237.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-法務-臺北地區(A11108101)",
+          "native_header": "營運職／法務【A11108101】｜第二節／專業科目(2)：民法及金融法規(含銀行法、票據法、保險法、公司法及證券交易法)",
+          "subject_name_raw": "民法及金融法規(含銀行法、票據法、保險法、公司法及證券交易法)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "76473ae49ce01945e1acb92332423cd7ce1aea8b7a453836ba985964b59d1f3d",
+          "applies_to": [
+            "postal-operational-legal-affairs"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15286456118.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-系統分析-臺北地區(A11108102)",
+          "native_header": "營運職／系統分析【A11108102】｜第一節／專業科目(1)：資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統分 析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全程式 設計))",
+          "subject_name_raw": "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統分 析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全程式 設計))",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "a4c82504488802f15ac7f97224c514ce147e1564d8c1e20cbd4e9375bd911f46",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15309599042.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-系統分析-臺北地區(A11108102)",
+          "native_header": "營運職／系統分析【A11108102】｜第二節／專業科目(2)：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "7cb15406a381b1ece75831648605f7044038919b41cb3e9fb8273a45cb3211b8",
+          "applies_to": [
+            "postal-operational-systems-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15287814923.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-資料庫管理-臺北地區(A11108103)",
+          "native_header": "營運職／資料庫管理【A11108103】｜第一節／專業科目(1)：資訊綜合科目 B(含作業系統、網路管理、資通安全、程式語言)",
+          "subject_name_raw": "資訊綜合科目 B(含作業系統、網路管理、資通安全、程式語言)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "47c91592b14140d877cd79041585bf7f14d09a3769367f1e4721047ab1bb11db",
+          "applies_to": [
+            "postal-operational-database-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15310435422.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-資料庫管理-臺北地區(A11108103)",
+          "native_header": "營運職／資料庫管理【A11108103】｜第二節／專業科目(2)：資料庫管理暨 SQL 語法",
+          "subject_name_raw": "資料庫管理暨 SQL 語法",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "e68fa8e79ff375ac36962428c79df50ddc5ab9dbc94aca6765e577a52c3c3980",
+          "applies_to": [
+            "postal-operational-database-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15288010108.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-系統管理-臺北地區(A11108104)",
+          "native_header": "營運職／系統管理【A11108104】｜第一節／專業科目(1)：資訊綜合科目 C(含資料庫系統、網路管理、資通安全、程式語言)",
+          "subject_name_raw": "資訊綜合科目 C(含資料庫系統、網路管理、資通安全、程式語言)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "81f15878fab7f830eb17021ce4c8e45926f60e1fff67e0f5690ecc35ac8dbc02",
+          "applies_to": [
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15311794227.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-系統管理-臺北地區(A11108104)",
+          "native_header": "營運職／系統管理【A11108104】｜第二節／專業科目(2)：作業系統管理(Windows/Linux)",
+          "subject_name_raw": "作業系統管理(Windows/Linux)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "db6627c39196bc22ea043b529e8fb2ecb1169bcd0a51e81149afb85df26427f2",
+          "applies_to": [
+            "postal-operational-systems-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15289368913.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-電機工程-臺北郵局(A11108105)",
+          "native_header": "營運職／電機工程【A11108105】｜第一節／專業科目(1)：電力系統與控制系統",
+          "subject_name_raw": "電力系統與控制系統",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "987b05a3be91b49ceb5d5e49fb2e3866b1810f6f80cc4aa9e5e34535937c645b",
+          "applies_to": [
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15312989412.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-電機工程-臺北郵局(A11108105)",
+          "native_header": "營運職／電機工程【A11108105】｜第二節／專業科目(2)：電路學與電子學",
+          "subject_name_raw": "電路學與電子學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "2d150b651b97f242e5175e1e58dfd2d4155b9812fd38b8da59f416e5aeba2687",
+          "applies_to": [
+            "postal-operational-electrical-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15290759282.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-建築設計-臺北郵局(A11108106)",
+          "native_header": "營運職／建築設計【A11108106】｜第一節／專業科目(1)：建築設計與建築法規",
+          "subject_name_raw": "建築設計與建築法規",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "f2918d9a79146596c82095025915ba5eaa88a8a570a1e5ff66c5da06df5669e0",
+          "applies_to": [
+            "postal-operational-architectural-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15313348217.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-建築設計-臺北郵局(A11108106)",
+          "native_header": "營運職／建築設計【A11108106】｜第二節／專業科目(2)：建築營造與建築估價",
+          "subject_name_raw": "建築營造與建築估價",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "7a757f441e3a0fe24533475af359cade111d44a1ce48e98835a3fd09d5f41225",
+          "applies_to": [
+            "postal-operational-architectural-design"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15291118087.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "營運職-職業安全衛生管理(1)-板橋郵局(A11108107)；營運職-職業安全衛生管理(2)-高雄郵局(A11108108)；營運職-職業安全衛生管理(3)-基隆郵局(A11108109)；營運職-職業安全衛生管理(4)-彰化郵局(A11108110)；營運職-職業安全衛生管理(5)-南投郵局(A11108111)",
+          "native_header": "營運職／職業安全衛生管理(1)【A11108107】、 職業安全衛生管理(2)【A11108108】、 職業安全衛生管理(3)【A11108109】、 職業安全衛生管理(4)【A11108110】、 職業安全衛生管理(5)【A11108111】｜第一節／專業科目(1)：職業安全衛生法規(含一般安全衛生法規、職業安全法規及職業衛生法規)",
+          "subject_name_raw": "職業安全衛生法規(含一般安全衛生法規、職業安全法規及職業衛生法規)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "9c71d944edb588de03690af4d06f4cda71b94fe8fd7c49635039bddc1891c1f0",
+          "applies_to": [
+            "postal-operational-occupational-safety-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15314184597.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "營運職-職業安全衛生管理(1)-板橋郵局(A11108107)；營運職-職業安全衛生管理(2)-高雄郵局(A11108108)；營運職-職業安全衛生管理(3)-基隆郵局(A11108109)；營運職-職業安全衛生管理(4)-彰化郵局(A11108110)；營運職-職業安全衛生管理(5)-南投郵局(A11108111)",
+          "native_header": "營運職／職業安全衛生管理(1)【A11108107】、 職業安全衛生管理(2)【A11108108】、 職業安全衛生管理(3)【A11108109】、 職業安全衛生管理(4)【A11108110】、 職業安全衛生管理(5)【A11108111】｜第二節／專業科目(2)：工業安全工程(含機電安全及防火防爆)",
+          "subject_name_raw": "工業安全工程(含機電安全及防火防爆)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "887d4f779d5643ecd4ac26c965989df9bd5e6d550f0893910aed42a51ceed27e",
+          "applies_to": [
+            "postal-operational-occupational-safety-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15292672077.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-一般金融-臺北地區(A11108201)",
+          "native_header": "專業職(一)／一般金融【A11108201】｜第一節／專業科目(1)：會計學概要及貨幣銀行學概要",
+          "subject_name_raw": "會計學概要及貨幣銀行學概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "cd94ca0091427e6d7f66e6056ef9dfdc4a4262a52dec8a658855733334cf1381",
+          "applies_to": [
+            "postal-professional-1-general-finance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15315738586.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-一般金融-臺北地區(A11108201)",
+          "native_header": "專業職(一)／一般金融【A11108201】｜第二節／專業科目(2)：票據法概要",
+          "subject_name_raw": "票據法概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "837cd0705f7a5f96b75404d6d3287cb9782678e77bd93c04b7a8b678569483fc",
+          "applies_to": [
+            "postal-professional-1-general-finance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15293508457.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-一般資訊(1)-臺北地區(A11108202)；專業職(一)-一般資訊(2)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(A11108203)；專業職(一)-一般資訊(3)-臺北地區(工作地點：臺中地區)(A11108204)",
+          "native_header": "專業職(一)／一般資訊(1)【A11108202】、 一般資訊(2)【A11108203】、 一般資訊(3)【A11108204】｜第一節／專業科目(1)：資訊系統應用概要",
+          "subject_name_raw": "資訊系統應用概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "8ca76b007f48a166fb2a97a4d6057784a7048af9ca53e70674ae8f2822b1e3a5",
+          "applies_to": [
+            "postal-professional-1-general-information"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15316097391.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-一般資訊(1)-臺北地區(A11108202)；專業職(一)-一般資訊(2)-臺北郵局(臺北地區及桃園地區-郵政物流園區)(A11108203)；專業職(一)-一般資訊(3)-臺北地區(工作地點：臺中地區)(A11108204)",
+          "native_header": "專業職(一)／一般資訊(1)【A11108202】、 一般資訊(2)【A11108203】、 一般資訊(3)【A11108204】｜第二節／專業科目(2)：網際網路服務與應用概要",
+          "subject_name_raw": "網際網路服務與應用概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "75c256718fc91a6eff978d6265fec467b0342dda882e3e3dea9a7c72c79f5690",
+          "applies_to": [
+            "postal-professional-1-general-information"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15294867262.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-統計研析-臺北地區(A11108205)",
+          "native_header": "專業職(一)／統計研析【A11108205】｜第一節／專業科目(1)：管理會計學",
+          "subject_name_raw": "管理會計學",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "4c9de0570ca4ee8ce6473500a30e7a1363a01e55ed48823797ddfd14ccb6943e",
+          "applies_to": [
+            "postal-professional-1-statistical-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15317651381.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-統計研析-臺北地區(A11108205)",
+          "native_header": "專業職(一)／統計研析【A11108205】｜第二節／專業科目(2)：Excel VBA 軟體應用及初級統計學",
+          "subject_name_raw": "Excel VBA 軟體應用及初級統計學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "31d35ae6f8650eb0fb07b54461e31aebab07b51fd5549a009f1ee3ab792f7ea2",
+          "applies_to": [
+            "postal-professional-1-statistical-analysis"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15295062447.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-資安與網路管理-臺北地區(A11108206)",
+          "native_header": "專業職(一)／資安與網路管理【A11108206】｜第一節／專業科目(1)：資訊系統安全管理概要",
+          "subject_name_raw": "資訊系統安全管理概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "b28327b7520a3b8a96f3e6e98db2842a9364dcaddb513248d8a2141fc0fe65e8",
+          "applies_to": [
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15318487761.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-資安與網路管理-臺北地區(A11108206)",
+          "native_header": "專業職(一)／資安與網路管理【A11108206】｜第二節／專業科目(2)：通訊與網路安全概要",
+          "subject_name_raw": "通訊與網路安全概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "1e4270218acd258b89afb9d067fa59d41fbeed669bf3e6566035a43c9bfe0376",
+          "applies_to": [
+            "postal-professional-1-security-and-network-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15296780057.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(A11108207)；專業職(一)-程式設計(2)-臺北地區(工作地點：臺中地區)(A11108208)；專業職(一)-程式設計(3)-臺北地區(工作地點：電子商務室)(A11108209)",
+          "native_header": "專業職(一)／程式設計(1)【A11108207】、 程式設計(2)【A11108208】、 程式設計(3)【A11108209】｜第一節／專業科目(1)：程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+          "subject_name_raw": "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "64a1f744a6e6501c1cc563f7ba0b1032700440488a20ec530523470ec748f021",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15319846566.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)(A11108207)；專業職(一)-程式設計(2)-臺北地區(工作地點：臺中地區)(A11108208)；專業職(一)-程式設計(3)-臺北地區(工作地點：電子商務室)(A11108209)",
+          "native_header": "專業職(一)／程式設計(1)【A11108207】、 程式設計(2)【A11108208】、 程式設計(3)【A11108209】｜第二節／專業科目(2)：問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "subject_name_raw": "問題解析及處理(問題分析與解決、邏輯推理能力)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "edc9a887129983aa9c9a804739d425211cfa9df68f7ecee5d932474f6c375599",
+          "applies_to": [
+            "postal-professional-1-programming"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15297975241.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-系統操作-臺北地區(A11108210)",
+          "native_header": "專業職(一)／系統操作【A11108210】｜第一節／專業科目(1)：資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+          "subject_name_raw": "資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "58f63c6b7b853a5d5ae7f66edd93b0d7b6dc1d7bed48e7f97da62c8894fab95c",
+          "applies_to": [
+            "postal-professional-1-systems-operation"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15320041751.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-系統操作-臺北地區(A11108210)",
+          "native_header": "專業職(一)／系統操作【A11108210】｜第二節／專業科目(2)：作業系統",
+          "subject_name_raw": "作業系統",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "f8067169a7c2da45a2a1371e5aaaccaab5dad2f522c227ac438ace39645bd895",
+          "applies_to": [
+            "postal-professional-1-systems-operation"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15298170426.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-房地管理(1)-臺北郵局(A11108211)；專業職(一)-房地管理(2)-臺中郵局(A11108212)；專業職(一)-房地管理(3)-彰化郵局(A11108213)；專業職(一)-房地管理(4)-屏東郵局(A11108214)；專業職(一)-房地管理(5)-苗栗郵局(A11108215)；專業職(一)-房地管理(6)-雲林郵局(A11108216)",
+          "native_header": "專業職(一)／房地管理(1)【A11108211】 、房地管理(2)【A11108212】 、 房地管理(3)【A11108213】 、房地管理(4)【A11108214】 、 房地管理(5)【A11108215】 、房地管理(6)【A11108216】｜第一節／專業科目(1)：民法概要",
+          "subject_name_raw": "民法概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "651769c87d26901102d09048cfaa77e8a7f7cadcfae1b275d0bf60d34b4484a7",
+          "applies_to": [
+            "postal-professional-1-real-estate-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15321400556.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-房地管理(1)-臺北郵局(A11108211)；專業職(一)-房地管理(2)-臺中郵局(A11108212)；專業職(一)-房地管理(3)-彰化郵局(A11108213)；專業職(一)-房地管理(4)-屏東郵局(A11108214)；專業職(一)-房地管理(5)-苗栗郵局(A11108215)；專業職(一)-房地管理(6)-雲林郵局(A11108216)",
+          "native_header": "專業職(一)／房地管理(1)【A11108211】 、房地管理(2)【A11108212】 、 房地管理(3)【A11108213】 、房地管理(4)【A11108214】 、 房地管理(5)【A11108215】 、房地管理(6)【A11108216】｜第二節／專業科目(2)：土地法規概要(包括土地法、土地稅法、土地登記規則)",
+          "subject_name_raw": "土地法規概要(包括土地法、土地稅法、土地登記規則)",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "51a3de558fe948ebff3af919f91f09b83f6a482d30a9fb6c11694fd389b1d2b1",
+          "applies_to": [
+            "postal-professional-1-real-estate-management"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15299724416.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-電力工程(1)-臺北地區(工作地點：勞工安全衛生處)(A11108217)；專業職(一)-電力工程(2)-臺北地區(工作地點：資產營運處)(A11108218)",
+          "native_header": "專業職(一)／電力工程(1)【A11108217】、 電力工程(2)【A11108218】｜第一節／專業科目(1)：輸配電學概要",
+          "subject_name_raw": "輸配電學概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "c1f13463c2272fd9c4c1f966d23aca3b3f28ca1ce909591a198e0dc2b76b4b8a",
+          "applies_to": [
+            "postal-professional-1-power-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15322595740.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-電力工程(1)-臺北地區(工作地點：勞工安全衛生處)(A11108217)；專業職(一)-電力工程(2)-臺北地區(工作地點：資產營運處)(A11108218)；專業職(一)-電子修護-臺北郵局(A11108223)",
+          "native_header": "專業職(一)／電力工程(1)【A11108217】、 電力工程(2)【A11108218】、 電子修護【A11108223】｜第二節／專業科目(2)：基本電學",
+          "subject_name_raw": "基本電學",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "a2622d7e9e8eb2d644fa206a149067743342b8952122b424987ba3e773988bc3",
+          "applies_to": [
+            "postal-professional-1-power-engineering",
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15300919601.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-營建工程(1)-臺北地區(A11108219)；專業職(一)-營建工程(2)-臺北地區(工作地點：臺中地區)(A11108220)；專業職(一)-營建工程(3)-臺北地區(工作地點：高雄地區)(A11108221)",
+          "native_header": "專業職(一)／營建工程(1)【A11108219】、 營建工程(2)【A11108220】、 營建工程(3)【A11108221】｜第一節／專業科目(1)：營建法規與施工估價概要",
+          "subject_name_raw": "營建法規與施工估價概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "791d11dc91a695b97a9d42d8879e8e8e91ddc6f07e9ead3648fe2a94d27971c8",
+          "applies_to": [
+            "postal-professional-1-construction-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15323790925.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-營建工程(1)-臺北地區(A11108219)；專業職(一)-營建工程(2)-臺北地區(工作地點：臺中地區)(A11108220)；專業職(一)-營建工程(3)-臺北地區(工作地點：高雄地區)(A11108221)",
+          "native_header": "專業職(一)／營建工程(1)【A11108219】、 營建工程(2)【A11108220】、 營建工程(3)【A11108221】｜第二節／專業科目(2)：建築設計與圖學概要",
+          "subject_name_raw": "建築設計與圖學概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "77abe10cfd26cb4309ffd821e420e6bc2a3a98a08acbbc71403124aa9d2fb7f1",
+          "applies_to": [
+            "postal-professional-1-construction-engineering"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15301473590.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-機械設備-臺北郵局(A11108222)",
+          "native_header": "專業職(一)／機械設備【A11108222】｜第一節／專業科目(1)：機械力學概要",
+          "subject_name_raw": "機械力學概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "b16a66ac95748e3d406e5c5894067794624afd0b5e04931da68d874a392babc1",
+          "applies_to": [
+            "postal-professional-1-mechanical-equipment"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15324149730.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-機械設備-臺北郵局(A11108222)",
+          "native_header": "專業職(一)／機械設備【A11108222】｜第二節／專業科目(2)：機械設計概要",
+          "subject_name_raw": "機械設計概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "33c3b3f92c569fbd8710b94ce488d7d0d084a764bd9bac3d53d8edc7c2fc2aca",
+          "applies_to": [
+            "postal-professional-1-mechanical-equipment"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15302832395.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-電子修護-臺北郵局(A11108223)",
+          "native_header": "專業職(一)／電子修護【A11108223】｜第一節／專業科目(1)：電腦概論(含作業系統)",
+          "subject_name_raw": "電腦概論(含作業系統)",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "d6a97332a2510f0d113c16d8387f4f3aec587d9ff7ced9ede782fb010298ce2b",
+          "applies_to": [
+            "postal-professional-1-electronic-maintenance"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15303668775.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-職業安全衛生業務(1)-板橋郵局(A11108224)；專業職(一)-職業安全衛生業務(2)-三重郵局(A11108225)；專業職(一)-職業安全衛生業務(3)-新竹郵局(A11108226)；專業職(一)-職業安全衛生業務(4)-臺北郵件處理中心(臺北地區)(A11108227)",
+          "native_header": "專業職(一)／職業安全衛生業務(1)【A11108224】、 職業安全衛生業務(2)【A11108225】、 職業安全衛生業務(3)【A11108226】、 職業安全衛生業務(4)【A11108227】｜第一節／專業科目(1)：職業安全衛生法規概要",
+          "subject_name_raw": "職業安全衛生法規概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "33a3525c67d08b66ee6144f71816b7a6532a05beb5b9289ac48294f77baf4f03",
+          "applies_to": [
+            "postal-professional-1-occupational-safety-services"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15325344915.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-職業安全衛生業務(1)-板橋郵局(A11108224)；專業職(一)-職業安全衛生業務(2)-三重郵局(A11108225)；專業職(一)-職業安全衛生業務(3)-新竹郵局(A11108226)；專業職(一)-職業安全衛生業務(4)-臺北郵件處理中心(臺北地區)(A11108227)",
+          "native_header": "專業職(一)／職業安全衛生業務(1)【A11108224】、 職業安全衛生業務(2)【A11108225】、 職業安全衛生業務(3)【A11108226】、 職業安全衛生業務(4)【A11108227】｜第二節／專業科目(2)：工業安全工程概要",
+          "subject_name_raw": "工業安全工程概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "85f7b42b589018cec243c284d6af9170d7316e06056cc0bdbf82251b7bbdf1b5",
+          "applies_to": [
+            "postal-professional-1-occupational-safety-services"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15304222765.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(一)-郵儲業務甲-臺北郵局(A11108228)；專業職(一)-郵儲業務甲-桃園郵局(A11108229)；專業職(一)-郵儲業務甲-新竹郵局(A11108230)",
+          "native_header": "專業職(一)／郵儲業務甲【A11108228-A11108230】｜第一節／專業科目(1)：消費者行為概要及行銷管理概要",
+          "subject_name_raw": "消費者行為概要及行銷管理概要",
+          "slot": "professional-1",
+          "file_type": "question",
+          "checksum": "cb4dc0663e65039582b3ef2867aa3b64d02ccd6ec0d14ad9973c1059ab85c9e6",
+          "applies_to": [
+            "postal-professional-1-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15326540100.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(一)-郵儲業務甲-臺北郵局(A11108228)；專業職(一)-郵儲業務甲-桃園郵局(A11108229)；專業職(一)-郵儲業務甲-新竹郵局(A11108230)",
+          "native_header": "專業職(一)／郵儲業務甲【A11108228-A11108230】｜第二節／專業科目(2)：民法概要及經濟學概要",
+          "subject_name_raw": "民法概要及經濟學概要",
+          "slot": "professional-2",
+          "file_type": "question",
+          "checksum": "0349447c6b81a33b9e829c8888415b6e07c17bba05fc3b94e3d736d7d6fbebc1",
+          "applies_to": [
+            "postal-professional-1-postal-savings-a"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15305417950.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(A11108301)；專業職(二)內勤-櫃台業務-板橋郵局(A11108302)；專業職(二)內勤-櫃台業務-桃園郵局(A11108303)；專業職(二)內勤-櫃台業務-臺中郵局(A11108304)；專業職(二)內勤-櫃台業務-高雄郵局(A11108305)；專業職(二)內勤-櫃台業務-基隆郵局(A11108306)；專業職(二)內勤-櫃台業務-三重郵局(A11108307)；專業職(二)內勤-櫃台業務-新竹郵局(A11108308)；專業職(二)內勤-櫃台業務-彰化郵局(A11108309)；專業職(二)內勤-櫃台業務-嘉義郵局(A11108310)；專業職(二)內勤-櫃台業務-屏東郵局(A11108311)；專業職(二)內勤-櫃台業務-恆春地區(A11108312)；專業職(二)內勤-櫃台業務-苗栗郵局(A11108313)；專業職(二)內勤-櫃台業務-南投郵局(A11108314)；專業職(二)內勤-櫃台業務-雲林郵局(A11108315)；專業職(二)內勤-櫃台業務-宜蘭郵局(A11108316)；專業職(二)內勤-櫃台業務-花蓮郵局(A11108317)；專業職(二)內勤-櫃台業務-臺東郵局(A11108318)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺北郵局(A11108319)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-桃園郵局(A11108320)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺中郵局(A11108321)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺南郵局(A11108322)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-高雄郵局(A11108323)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-基隆郵局(A11108324)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-三重郵局(A11108325)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-新竹郵局(A11108326)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-彰化郵局(A11108327)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-嘉義郵局(A11108328)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-屏東郵局(A11108329)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-苗栗郵局(A11108330)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-南投郵局(A11108331)；專業職(二)內勤-郵務處理-臺北郵局(A11108401)；專業職(二)內勤-郵務處理-板橋郵局(A11108402)；專業職(二)內勤-郵務處理-桃園郵局(A11108403)；專業職(二)內勤-郵務處理-臺中郵局(A11108404)；專業職(二)內勤-郵務處理-臺南郵局(A11108405)；專業職(二)內勤-郵務處理-高雄郵局(A11108406)；專業職(二)內勤-郵務處理-基隆郵局(A11108407)；專業職(二)內勤-郵務處理-三重郵局(A11108408)；專業職(二)內勤-郵務處理-新竹郵局(A11108409)；專業職(二)內勤-郵務處理-彰化郵局(A11108410)；專業職(二)內勤-郵務處理-屏東郵局(A11108411)；專業職(二)內勤-郵務處理-苗栗郵局(A11108412)；專業職(二)內勤-郵務處理-宜蘭郵局(A11108413)；專業職(二)內勤-郵務處理-花蓮郵局(A11108414)；專業職(二)內勤-郵務處理-澎湖郵局(A11108415)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(A11108416)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(A11108417)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-板橋郵局(A11108418)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-基隆郵局(A11108419)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-新竹郵局(A11108420)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-彰化郵局(A11108421)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-嘉義郵局(A11108422)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-宜蘭郵局(A11108423)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-臺北郵件處理中心(臺北地區)(A11108424)",
+          "native_header": "專業職(二)內勤／ 櫃台業務【A11108301-A11108318】、 櫃台業務(限身心障礙人士)【A11108319-A11108331】、 郵務處理【A11108401-A11108417】、 郵務處理(限身心障礙人士)【A11108418-A11108424】｜第三節／專業科目(1)：企業管理大意及洗錢防制法大意",
+          "subject_name_raw": "企業管理大意及洗錢防制法大意",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "15b1c5d07d4187836e207a33fd34d40f96c6f27f544da71ebdd338f526df61ed",
+          "applies_to": [
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15327257710.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)內勤-櫃台業務-臺北郵局(A11108301)；專業職(二)內勤-櫃台業務-板橋郵局(A11108302)；專業職(二)內勤-櫃台業務-桃園郵局(A11108303)；專業職(二)內勤-櫃台業務-臺中郵局(A11108304)；專業職(二)內勤-櫃台業務-高雄郵局(A11108305)；專業職(二)內勤-櫃台業務-基隆郵局(A11108306)；專業職(二)內勤-櫃台業務-三重郵局(A11108307)；專業職(二)內勤-櫃台業務-新竹郵局(A11108308)；專業職(二)內勤-櫃台業務-彰化郵局(A11108309)；專業職(二)內勤-櫃台業務-嘉義郵局(A11108310)；專業職(二)內勤-櫃台業務-屏東郵局(A11108311)；專業職(二)內勤-櫃台業務-恆春地區(A11108312)；專業職(二)內勤-櫃台業務-苗栗郵局(A11108313)；專業職(二)內勤-櫃台業務-南投郵局(A11108314)；專業職(二)內勤-櫃台業務-雲林郵局(A11108315)；專業職(二)內勤-櫃台業務-宜蘭郵局(A11108316)；專業職(二)內勤-櫃台業務-花蓮郵局(A11108317)；專業職(二)內勤-櫃台業務-臺東郵局(A11108318)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺北郵局(A11108319)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-桃園郵局(A11108320)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺中郵局(A11108321)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-臺南郵局(A11108322)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-高雄郵局(A11108323)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-基隆郵局(A11108324)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-三重郵局(A11108325)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-新竹郵局(A11108326)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-彰化郵局(A11108327)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-嘉義郵局(A11108328)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-屏東郵局(A11108329)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-苗栗郵局(A11108330)；專業職(二)內勤-櫃台業務(限身心障礙人士報考)-南投郵局(A11108331)；專業職(二)內勤-郵務處理-臺北郵局(A11108401)；專業職(二)內勤-郵務處理-板橋郵局(A11108402)；專業職(二)內勤-郵務處理-桃園郵局(A11108403)；專業職(二)內勤-郵務處理-臺中郵局(A11108404)；專業職(二)內勤-郵務處理-臺南郵局(A11108405)；專業職(二)內勤-郵務處理-高雄郵局(A11108406)；專業職(二)內勤-郵務處理-基隆郵局(A11108407)；專業職(二)內勤-郵務處理-三重郵局(A11108408)；專業職(二)內勤-郵務處理-新竹郵局(A11108409)；專業職(二)內勤-郵務處理-彰化郵局(A11108410)；專業職(二)內勤-郵務處理-屏東郵局(A11108411)；專業職(二)內勤-郵務處理-苗栗郵局(A11108412)；專業職(二)內勤-郵務處理-宜蘭郵局(A11108413)；專業職(二)內勤-郵務處理-花蓮郵局(A11108414)；專業職(二)內勤-郵務處理-澎湖郵局(A11108415)；專業職(二)內勤-郵務處理-臺北郵件處理中心(臺北地區)(A11108416)；專業職(二)內勤-郵務處理-臺北郵件處理中心(桃園地區)(A11108417)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-板橋郵局(A11108418)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-基隆郵局(A11108419)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-新竹郵局(A11108420)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-彰化郵局(A11108421)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-嘉義郵局(A11108422)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-宜蘭郵局(A11108423)；專業職(二)內勤-郵務處理(限身心障礙人士報考)-臺北郵件處理中心(臺北地區)(A11108424)",
+          "native_header": "專業職(二)內勤／櫃台業務【A11108301-A11108318】、 櫃台業務(限身心障礙人士)【A11108319-A11108331】、 郵務處理【A11108401-A11108417】、 郵務處理(限身心障礙人士)【A11108418-A11108424】｜第一節／專業科目(2)：郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "subject_name_raw": "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "3b4d7c508cbba8370ea90995e4acac06d30ff134ae8b7cebba95a25ac1437f2d",
+          "applies_to": [
+            "postal-professional-2-indoor-counter-services",
+            "postal-professional-2-indoor-mail-processing"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15306578268.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)內勤-櫃台(資訊)-臺北郵局(A11108332)；專業職(二)內勤-櫃台(資訊)-屏東郵局(A11108333)",
+          "native_header": "專業職(二)內勤／櫃台(資訊)【A11108332-A11108333】｜第三節／專業科目(1)：資訊規劃與管理大意(含作業系統、資料庫系統)及洗錢防制法大意 ●入場通知書編號：______________________",
+          "subject_name_raw": "資訊規劃與管理大意(含作業系統、資料庫系統)及洗錢防制法大意",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "ab6f9e061c6ad6f84b76a1f161e406c662dcab887113cc5151a83b6a96a78413",
+          "applies_to": [
+            "postal-professional-2-indoor-information-counter"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15328146428.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)內勤-櫃台(資訊)-臺北郵局(A11108332)；專業職(二)內勤-櫃台(資訊)-屏東郵局(A11108333)",
+          "native_header": "專業職(二)內勤／櫃台(資訊)【A11108332-A11108333】｜第一節／專業科目(2)：郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識及邏輯推理 ●入場通知書編號：_____________________",
+          "subject_name_raw": "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識及邏輯推理",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "9b9804f3978dce1e939cd04543ca28011f45a6deed67c4e1564b13d765b77e14",
+          "applies_to": [
+            "postal-professional-2-indoor-information-counter"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15307937073.pdf"
+          ],
+          "source_label": "專業科目(1)",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(A11108501)；專業職(二)外勤-郵遞業務-板橋郵局(A11108502)；專業職(二)外勤-郵遞業務-桃園郵局(A11108503)；專業職(二)外勤-郵遞業務-臺中郵局(A11108504)；專業職(二)外勤-郵遞業務-高雄郵局(A11108505)；專業職(二)外勤-郵遞業務-基隆郵局(A11108506)；專業職(二)外勤-郵遞業務-三重郵局(A11108507)；專業職(二)外勤-郵遞業務-新竹郵局(A11108508)；專業職(二)外勤-郵遞業務-彰化郵局(A11108509)；專業職(二)外勤-郵遞業務-嘉義郵局(A11108510)；專業職(二)外勤-郵遞業務-阿里山郵局(A11108511)；專業職(二)外勤-郵遞業務-恆春地區(A11108512)；專業職(二)外勤-郵遞業務-苗栗郵局(A11108513)；專業職(二)外勤-郵遞業務-南投郵局(A11108514)；專業職(二)外勤-郵遞業務-雲林郵局(A11108515)；專業職(二)外勤-郵遞業務-宜蘭郵局(A11108516)；專業職(二)外勤-郵遞業務-花蓮郵局(A11108517)；專業職(二)外勤-郵遞業務-臺東郵局(A11108518)；專業職(二)外勤-郵遞業務-澎湖郵局(A11108519)；專業職(二)外勤-郵遞業務-臺北郵件處理中心(桃園地區)(A11108520)；專業職(二)外勤-運輸業務-臺北郵局(A11108521)；專業職(二)外勤-運輸業務-板橋郵局(A11108522)；專業職(二)外勤-運輸業務-桃園郵局(A11108523)；專業職(二)外勤-運輸業務-臺中郵局(A11108524)；專業職(二)外勤-運輸業務-臺南郵局(A11108525)；專業職(二)外勤-運輸業務-高雄郵局(A11108526)；專業職(二)外勤-運輸業務-嘉義郵局(A11108527)；專業職(二)外勤-運輸業務-苗栗郵局(A11108528)；專業職(二)外勤-運輸業務-雲林郵局(A11108529)；專業職(二)外勤-運輸業務-臺北郵件處理中心(臺北地區)(A11108530)",
+          "native_header": "專業職(二)外勤／郵遞業務【A11108501-A11108520】、 運輸業務【A11108521-A11108530】｜第三節／專業科目(1)：臺灣自然及人文地理",
+          "subject_name_raw": "臺灣自然及人文地理",
+          "slot": "professional-1",
+          "file_type": "question_answer",
+          "checksum": "ac1ea87452cbb484e5b5cc51dc73c6fae8ce4ef716be21d01cd063d6a14c1d05",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        },
+        {
+          "source_urls": [
+            "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/15329864038.pdf"
+          ],
+          "source_label": "專業科目(2)",
+          "source_context": "專業職(二)外勤-郵遞業務-臺北郵局(A11108501)；專業職(二)外勤-郵遞業務-板橋郵局(A11108502)；專業職(二)外勤-郵遞業務-桃園郵局(A11108503)；專業職(二)外勤-郵遞業務-臺中郵局(A11108504)；專業職(二)外勤-郵遞業務-高雄郵局(A11108505)；專業職(二)外勤-郵遞業務-基隆郵局(A11108506)；專業職(二)外勤-郵遞業務-三重郵局(A11108507)；專業職(二)外勤-郵遞業務-新竹郵局(A11108508)；專業職(二)外勤-郵遞業務-彰化郵局(A11108509)；專業職(二)外勤-郵遞業務-嘉義郵局(A11108510)；專業職(二)外勤-郵遞業務-阿里山郵局(A11108511)；專業職(二)外勤-郵遞業務-恆春地區(A11108512)；專業職(二)外勤-郵遞業務-苗栗郵局(A11108513)；專業職(二)外勤-郵遞業務-南投郵局(A11108514)；專業職(二)外勤-郵遞業務-雲林郵局(A11108515)；專業職(二)外勤-郵遞業務-宜蘭郵局(A11108516)；專業職(二)外勤-郵遞業務-花蓮郵局(A11108517)；專業職(二)外勤-郵遞業務-臺東郵局(A11108518)；專業職(二)外勤-郵遞業務-澎湖郵局(A11108519)；專業職(二)外勤-郵遞業務-臺北郵件處理中心(桃園地區)(A11108520)；專業職(二)外勤-運輸業務-臺北郵局(A11108521)；專業職(二)外勤-運輸業務-板橋郵局(A11108522)；專業職(二)外勤-運輸業務-桃園郵局(A11108523)；專業職(二)外勤-運輸業務-臺中郵局(A11108524)；專業職(二)外勤-運輸業務-臺南郵局(A11108525)；專業職(二)外勤-運輸業務-高雄郵局(A11108526)；專業職(二)外勤-運輸業務-嘉義郵局(A11108527)；專業職(二)外勤-運輸業務-苗栗郵局(A11108528)；專業職(二)外勤-運輸業務-雲林郵局(A11108529)；專業職(二)外勤-運輸業務-臺北郵件處理中心(臺北地區)(A11108530)",
+          "native_header": "專業職(二)外勤／郵遞業務【A11108501-A11108520】、 運輸業務【A11108521-A11108530】｜第一節／專業科目(2)：郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+          "subject_name_raw": "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+          "slot": "professional-2",
+          "file_type": "question_answer",
+          "checksum": "0ce29fea92c359a730d5639d6d854532b6c4a48d2fd8d2dde0f7932be993b5f9",
+          "applies_to": [
+            "postal-professional-2-outdoor-transport-services",
+            "postal-professional-2-outdoor-mail-delivery"
+          ],
+          "answer_notes": []
+        }
+      ]
+    }
+  ]
+}

@@ -431,6 +431,10 @@ def load_site_catalog(
         _raw_pages, provider_catalog, provider_failures = load_provider_state(provider)
         aliases = load_alias_rules(provider.aliases_path)
         provider_catalog = renormalize_catalog(provider_catalog, aliases, collect_reviews=False)
+        if provider_id == "post_recruit":
+            from app.providers.post_recruit.evidence import validate_public_papers
+
+            validate_public_papers(provider_catalog.papers, complete_history=True)
         aggregated_papers.extend(provider_catalog.papers)
         aggregated_review_queue.extend(provider_catalog.review_queue)
         failures.extend(provider_failures)

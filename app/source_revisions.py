@@ -309,6 +309,12 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         reviewed = nsysu_views(entries, repo_root=provider.data_dir.parents[2])
         report["reviewed_native_document_and_selection_references"] = reviewed
         report["native_selection_review_unresolved"] = len(entries) - len(reviewed)
+    if provider.provider_id == "post_recruit":
+        from app.providers.post_recruit.evidence import reviewed_native_revisions as postal_views
+
+        postal_reviewed = postal_views(entries)
+        report["reviewed_native_paper_references"] = postal_reviewed
+        report["native_paper_review_unresolved"] = len(entries) - len(postal_reviewed)
     return report
 
 

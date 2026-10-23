@@ -159978,50 +159978,2614 @@
       "updated": "2026-10-01T11:05:50Z"
     },
     {
-      "id": "post-recruit-postal-recruitment-not-applicable-postal-recruitment",
-      "name": "中華郵政職階人員甄試",
+      "id": "post-recruit-postal-information-recruitment-postal-operational-systems-analysis-stage-1",
+      "name": "中華郵政職階人員資訊類科甄試｜營運職｜系統分析｜第一試（筆試）",
+      "years": [
+        113
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-information-recruitment-postal-operational-systems-analysis-stage-1--3d224c510270.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-information-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "systems-analysis",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員資訊類科甄試",
+      "searchAliases": [
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科 技知識",
+        "國文(含作文與公文寫作)",
+        "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統 分析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全 程式設計）",
+        "營運職／系統分析",
+        "中華郵政股份有限公司113年職階人員資訊類科甄試",
+        "postal-operational-systems-analysis",
+        "native-3f5d2a12e2ef6879",
+        "native-4104f7771dd7fc0d",
+        "native-4124e46fd44c6892",
+        "native-c509e68211c46591",
+        "native-fd6ecc190622719a"
+      ],
+      "subjectLabels": [
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科 技知識",
+        "國文(含作文與公文寫作)",
+        "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統 分析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全 程式設計）"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-information-recruitment-postal-operational-systems-management-stage-1",
+      "name": "中華郵政職階人員資訊類科甄試｜營運職｜系統管理｜第一試（筆試）",
+      "years": [
+        113
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-information-recruitment-postal-operational-systems-management-stage-1--950c57b8bef0.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-information-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "systems-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員資訊類科甄試",
+      "searchAliases": [
+        "資訊綜合科目(含資料庫系統、網路管理、資通安全、程式語言)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科 技知識",
+        "國文(含作文與公文寫作)",
+        "作業系統管理(Windows／Linux)",
+        "營運職／系統管理",
+        "中華郵政股份有限公司113年職階人員資訊類科甄試",
+        "postal-operational-systems-management",
+        "native-22b8b6b17671c483",
+        "native-4104f7771dd7fc0d",
+        "native-4124e46fd44c6892",
+        "native-c509e68211c46591",
+        "native-e701263d666ef3d3"
+      ],
+      "subjectLabels": [
+        "資訊綜合科目(含資料庫系統、網路管理、資通安全、程式語言)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科 技知識",
+        "國文(含作文與公文寫作)",
+        "作業系統管理(Windows／Linux)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-information-recruitment-postal-professional-1-programming-stage-1",
+      "name": "中華郵政職階人員資訊類科甄試｜專業職(一)｜程式設計｜第一試（筆試）",
+      "years": [
+        113
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-information-recruitment-postal-professional-1-programming-stage-1--7a38158ae5d9.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-information-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "programming",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員資訊類科甄試",
+      "searchAliases": [
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+        "專業職(一)／程式設計",
+        "中華郵政股份有限公司113年職階人員資訊類科甄試",
+        "postal-professional-1-programming",
+        "native-8b834a59e7513134",
+        "native-915610a5d040b5ff",
+        "native-efcc3dc4ce8ff241",
+        "native-fe4ae3120fcb7fc2"
+      ],
+      "subjectLabels": [
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-information-recruitment-postal-professional-1-security-and-network-management-stage-1",
+      "name": "中華郵政職階人員資訊類科甄試｜專業職(一)｜資安與網路管理｜第一試（筆試）",
+      "years": [
+        113
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-information-recruitment-postal-professional-1-security-and-network-management-stage-1--410bacc7883a.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-information-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "security-and-network-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員資訊類科甄試",
+      "searchAliases": [
+        "國文(短文寫作、閱讀測驗)及英文",
+        "資訊系統安全管理概要",
+        "通訊與網路安全概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "專業職(一)／資安與網路管理",
+        "中華郵政股份有限公司113年職階人員資訊類科甄試",
+        "postal-professional-1-security-and-network-management",
+        "native-915610a5d040b5ff",
+        "native-a5a458f96158956e",
+        "native-cc601345731b8711",
+        "native-efcc3dc4ce8ff241"
+      ],
+      "subjectLabels": [
+        "國文(短文寫作、閱讀測驗)及英文",
+        "資訊系統安全管理概要",
+        "通訊與網路安全概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-architectural-design-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜建築設計｜第一試（筆試）",
       "years": [
         114,
         113,
-        112,
         111
       ],
-      "fileCount": 167,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/post-recruit-postal-recruitment-not-applicable-postal-recruitment--82053bd24d37.zip",
+      "fileCount": 15,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-architectural-design-stage-1--ab24cb845222.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "employment",
       "examFamilyId": "employment-exam",
       "seriesId": "postal-recruitment",
-      "levelId": "not-applicable",
-      "trackId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "architectural-design",
       "variantIds": [],
-      "stageId": "not-applicable",
+      "stageId": "stage-1",
       "examClass": "國營／就業甄試",
       "examSubclass": "中華郵政職階人員甄試",
       "searchAliases": [
-        "共同科目",
-        "共同科目(1)",
-        "共同科目(2)",
-        "共同科目(3)",
-        "營運職-法務-臺北地區",
-        "營運職-系統分析-臺北地區",
-        "營運職-資料庫管理-臺北地區",
-        "營運職-系統管理-臺北地區",
-        "營運職-電機工程-臺北郵局",
-        "營運職-建築設計-臺北郵局",
-        "營運職-職業安全衛生管理(1)-板橋郵局",
-        "營運職-職業安全衛生管理(2)-高雄郵局",
-        "營運職-職業安全衛生管理(3)-基隆郵局",
-        "營運職-職業安全衛生管理(4)-彰化郵局",
-        "營運職-職業安全衛生管理(5)-南投郵局",
-        "專業職(一)-一般金融-臺北地區",
-        "專業職(一)-一般資訊(1)-臺北地區",
-        "專業職(一)-一般資訊(2)-臺北郵局(臺北地區及桃園地區-郵政物流園區)",
-        "專業職(一)-一般資訊(3)-臺北地區(工作地點：臺中地區)",
-        "專業職(一)-統計研析-臺北地區",
-        "專業職(一)-資安與網路管理-臺北地區",
-        "專業職(一)-程式設計(1)-臺北地區(工作地點：資訊處)",
-        "專業職(一)-程式設計(2)-臺北地區(工作地點：臺中地區)",
-        "專業職(一)-程式設計(3)-臺北地區(工作地點：電子商務室)"
+        "建築設計與建築法規",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "建築營造與建築估價",
+        "營運職／建築設計",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-architectural-design",
+        "native-2a74669326f8bd18",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-d3f8152ceac8f8e4",
+        "native-f58a35375a8e1f11",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-19e240e7edf2842f",
+        "native-37271947dd734453",
+        "native-77c022796ca3e1cd",
+        "native-afd8b011bef63efe",
+        "native-cc197500e83191b4",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-2c7d0791c30c3b23",
+        "native-53206f56f39d4582",
+        "native-8f6e432e0decac66",
+        "native-b23681ee67f1ed58"
+      ],
+      "subjectLabels": [
+        "建築設計與建築法規",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "建築營造與建築估價"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-communications-and-security-management-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜資通訊與安全管理｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-communications-and-security-management-stage-1--e83a795ec16c.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "communications-and-security-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "資訊系統及網路安全",
+        "作業系統與網路管理",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "營運職／資通訊與安全管理",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-operational-communications-and-security-management",
+        "native-299fe3a334fc9170",
+        "native-29a486eb6770e6ac",
+        "native-2c7d0791c30c3b23",
+        "native-b23681ee67f1ed58",
+        "native-e649c4b3cd408845"
+      ],
+      "subjectLabels": [
+        "資訊系統及網路安全",
+        "作業系統與網路管理",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-data-analysis-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜數據分析｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-data-analysis-stage-1--a82a5ec8c5fe.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "data-analysis",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "數據分析及演算法運用",
+        "邏輯推理及 SQL、R 語言",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "營運職／數據分析",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-operational-data-analysis",
+        "native-2c7d0791c30c3b23",
+        "native-4123046b2cb5f8c1",
+        "native-a12f649d7ce60f21",
+        "native-b23681ee67f1ed58",
+        "native-e649c4b3cd408845"
+      ],
+      "subjectLabels": [
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "數據分析及演算法運用",
+        "邏輯推理及 SQL、R 語言",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-database-management-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜資料庫管理｜第一試（筆試）",
+      "years": [
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-database-management-stage-1--3a9d6ae3e8b4.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "database-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "資料庫管理暨 SQL 語法",
+        "資訊綜合科目 B(含作業系統、網路管理、資通安全、程式語言)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "營運職／資料庫管理",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-database-management",
+        "native-17a02e5293e294ec",
+        "native-2881dc51ac53aca1",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-d3f8152ceac8f8e4"
+      ],
+      "subjectLabels": [
+        "資料庫管理暨 SQL 語法",
+        "資訊綜合科目 B(含作業系統、網路管理、資通安全、程式語言)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-electrical-engineering-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜電機工程｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 15,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-electrical-engineering-stage-1--27a1b5273cce.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "electrical-engineering",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "電路學與電子學",
+        "電力系統與控制系統",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "營運職／電機工程",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-electrical-engineering",
+        "native-071c4374ef22832a",
+        "native-24257b8ac3e94781",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-d3f8152ceac8f8e4",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-19e240e7edf2842f",
+        "native-37271947dd734453",
+        "native-53985c3b2249018b",
+        "native-60a5dcae0146908a",
+        "native-77c022796ca3e1cd",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-2c7d0791c30c3b23",
+        "native-484bf6f1fbed2de3",
+        "native-8acac013867a550d",
+        "native-b23681ee67f1ed58"
+      ],
+      "subjectLabels": [
+        "電路學與電子學",
+        "電力系統與控制系統",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-finance-and-insurance-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜金融保險｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-finance-and-insurance-stage-1--68eb2c23e6f4.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "finance-and-insurance",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "民法及強制執行法",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "保險學及保險法規",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "營運職／金融保險",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-operational-finance-and-insurance",
+        "native-0cb63e32c5f0fcda",
+        "native-2c7d0791c30c3b23",
+        "native-303e59e8c16e7c58",
+        "native-b23681ee67f1ed58",
+        "native-e649c4b3cd408845"
+      ],
+      "subjectLabels": [
+        "民法及強制執行法",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "保險學及保險法規",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-legal-affairs-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜法務｜第一試（筆試）",
+      "years": [
+        114,
+        111
+      ],
+      "fileCount": 10,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-legal-affairs-stage-1--71aa9c137aac.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "legal-affairs",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "民事訴訟法及強制執行法",
+        "民法及金融法規(含銀行法、票據法、保險法、公司法及證券交易法)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "營運職／法務",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-legal-affairs",
+        "native-38c2374486b06179",
+        "native-43a70f6b159f02ce",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-d3f8152ceac8f8e4",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-0a0e77e655dee38f",
+        "native-2c7d0791c30c3b23",
+        "native-6c2494af4ebd96a9",
+        "native-b23681ee67f1ed58",
+        "native-e649c4b3cd408845"
+      ],
+      "subjectLabels": [
+        "民事訴訟法及強制執行法",
+        "民法及金融法規(含銀行法、票據法、保險法、公司法及證券交易法)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-life-insurance-actuarial-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜壽險精算｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-life-insurance-actuarial-stage-1--8ad2d00705f0.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "life-insurance-actuarial",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "Excel VBA 及 Access VBA 程式",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "保險學及保險數學",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "營運職／壽險精算",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-operational-life-insurance-actuarial",
+        "native-0e233752101afbf8",
+        "native-2c7d0791c30c3b23",
+        "native-5c1a0cc58528b7d2",
+        "native-b23681ee67f1ed58",
+        "native-e649c4b3cd408845"
+      ],
+      "subjectLabels": [
+        "Excel VBA 及 Access VBA 程式",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "保險學及保險數學",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-network-and-security-management-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜網路與資安管理｜第一試（筆試）",
+      "years": [
+        113
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-network-and-security-management-stage-1--c221ec60b209.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "network-and-security-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "網路技術與管理暨資通安全技術與管理",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "資訊綜合科目(含作業系統、資料庫系統、程式語言)",
+        "營運職／網路與資安管理",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "postal-operational-network-and-security-management",
+        "native-05a68ba10708745b",
+        "native-19e240e7edf2842f",
+        "native-37271947dd734453",
+        "native-77c022796ca3e1cd",
+        "native-8017ba8c31788293"
+      ],
+      "subjectLabels": [
+        "網路技術與管理暨資通安全技術與管理",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "資訊綜合科目(含作業系統、資料庫系統、程式語言)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-occupational-safety-management-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜職業安全衛生管理｜第一試（筆試）",
+      "years": [
+        114,
+        113
+      ],
+      "fileCount": 10,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-occupational-safety-management-stage-1--b861103cab01.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "occupational-safety-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "工業安全工程(含機電安全及防火防爆)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "職業安全衛生法規(含一般安全衛生法規、職業安全法規及職業衛生法規)",
+        "營運職／職業安全衛生管理",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-occupational-safety-management",
+        "native-6f501cc3befdd281",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-d3f8152ceac8f8e4",
+        "native-f7b5379e78928366",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-19e240e7edf2842f",
+        "native-37271947dd734453",
+        "native-58209c3a805e8e40",
+        "native-70cc3eee2518f892",
+        "native-77c022796ca3e1cd"
+      ],
+      "subjectLabels": [
+        "工業安全工程(含機電安全及防火防爆)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "職業安全衛生法規(含一般安全衛生法規、職業安全法規及職業衛生法規)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-postal-savings-a-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜郵儲業務甲｜第一試（筆試）",
+      "years": [
+        113,
+        111
+      ],
+      "fileCount": 10,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-postal-savings-a-stage-1--ec94d4b1d4fa.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "postal-savings-a",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "管理個案分析及行銷管理",
+        "民法及經濟學",
+        "營運職／郵儲業務甲",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "postal-operational-postal-savings-a",
+        "native-19e240e7edf2842f",
+        "native-37271947dd734453",
+        "native-77c022796ca3e1cd",
+        "native-780f2f05bb60ce9f",
+        "native-df2f5e6a3ec8f633",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-2c7d0791c30c3b23",
+        "native-45c4e421532dab81",
+        "native-b23681ee67f1ed58",
+        "native-ba65747c22a9c38e",
+        "native-e649c4b3cd408845"
+      ],
+      "subjectLabels": [
+        "國文(含作文與公文寫作)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "管理個案分析及行銷管理",
+        "民法及經濟學"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-systems-analysis-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜系統分析｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 15,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-systems-analysis-stage-1--1dce1d0c153d.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "systems-analysis",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統分 析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全程式 設計))",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "資訊系統規劃開發(含系統分析、程式設計、開發程序、資料庫系統、 網際網路服務及應用)",
+        "營運職／系統分析",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-systems-analysis",
+        "native-414d93d4aba63ce3",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-c356566bc647879c",
+        "native-d3f8152ceac8f8e4",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-19e240e7edf2842f",
+        "native-37271947dd734453",
+        "native-500ed00832e80ef1",
+        "native-77c022796ca3e1cd",
+        "native-b12116f97617f751",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-20b3be50abe74a30",
+        "native-2c7d0791c30c3b23",
+        "native-b23681ee67f1ed58"
+      ],
+      "subjectLabels": [
+        "資訊系統規劃開發(含資訊應用系統架構 SSDLC 規劃與設計、系統分 析、程式設計(程式語言以 JAVA、.Net、C#+SQL 為主，含安全程式 設計))",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "資訊系統規劃開發(含系統分析、程式設計、開發程序、資料庫系統、 網際網路服務及應用)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-operational-systems-management-stage-1",
+      "name": "中華郵政職階人員甄試｜營運職｜系統管理｜第一試（筆試）",
+      "years": [
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-operational-systems-management-stage-1--5044b4795515.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-operational",
+      "trackId": "systems-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "資訊綜合科目 C(含資料庫系統、網路管理、資通安全、程式語言)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "作業系統管理(Windows/Linux)",
+        "英文(含中翻英、英翻中及閱讀測驗)",
+        "營運職／系統管理",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-operational-systems-management",
+        "native-38607421a20d29c1",
+        "native-891a34c2884c71a2",
+        "native-97bca8f4f4d27bd7",
+        "native-ccdfcb91b7c32a37",
+        "native-d3f8152ceac8f8e4"
+      ],
+      "subjectLabels": [
+        "資訊綜合科目 C(含資料庫系統、網路管理、資通安全、程式語言)",
+        "郵政三法(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融科技 知識",
+        "國文(含作文與公文寫作)",
+        "作業系統管理(Windows/Linux)",
+        "英文(含中翻英、英翻中及閱讀測驗)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-civil-engineering-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜土木工程｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-civil-engineering-stage-1--31b8c5d51b6c.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "civil-engineering",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "工程材料概要",
+        "工程力學與結構概要",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／土木工程",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-professional-1-civil-engineering",
+        "native-27b1fbdb22b8aa5e",
+        "native-a7ee45c45a18d24d",
+        "native-c413910917b8f5b8",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "工程材料概要",
+        "工程力學與結構概要",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-construction-engineering-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜營建工程｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-construction-engineering-stage-1--ea0782629774.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "construction-engineering",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "營建法規與施工估價概要",
+        "建築設計與圖學概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／營建工程",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-construction-engineering",
+        "native-0c5e7d0797c9e7e1",
+        "native-50d0200bdd849036",
+        "native-aa0989d92a45cec2",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-2c29368ef46743cf",
+        "native-93258b17982c236e",
+        "native-e5b193e5877de9a8",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-6e1619466cae2196",
+        "native-c3475231a4821cef",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "營建法規與施工估價概要",
+        "建築設計與圖學概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-ecommerce-web-design-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜電子商務(網頁設計)｜第一試（筆試）",
+      "years": [
+        113
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-ecommerce-web-design-stage-1--44ad0c7415c8.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "ecommerce-web-design",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "多媒體概論與設計實務",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "電子商務與網路行銷",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "專業職(一)／電子商務(網頁設計)",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "postal-professional-1-ecommerce-web-design",
+        "native-08b8b2bfedb758d7",
+        "native-14f73f0a7c7cfe9a",
+        "native-9a59668645f3dc6d",
+        "native-e5b193e5877de9a8"
+      ],
+      "subjectLabels": [
+        "多媒體概論與設計實務",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "電子商務與網路行銷",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-electronic-maintenance-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜電子修護｜第一試（筆試）",
+      "years": [
+        114,
+        111
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-electronic-maintenance-stage-1--31b63a2ee702.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "electronic-maintenance",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "基本電學",
+        "電腦概論(含作業系統)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／電子修護",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-electronic-maintenance",
+        "native-0c5e7d0797c9e7e1",
+        "native-65cb5b6910ad5b1f",
+        "native-674f50b13a27e002",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-0b7f69a763e847d6",
+        "native-1d0b20064d238fa7",
+        "native-27b1fbdb22b8aa5e",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "基本電學",
+        "電腦概論(含作業系統)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-general-finance-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜一般金融｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-general-finance-stage-1--0d7ec8cd0cfa.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "general-finance",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "票據法概要",
+        "會計學概要及貨幣銀行學概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／一般金融",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-general-finance",
+        "native-0c5e7d0797c9e7e1",
+        "native-6468255db5626634",
+        "native-6d778fb2ed4ce9f7",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-9691adfe69099dbd",
+        "native-b45889221f21fdb6",
+        "native-e5b193e5877de9a8",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-3545b85f42ed31f5",
+        "native-40221dd6c6ad7249",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "票據法概要",
+        "會計學概要及貨幣銀行學概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-general-information-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜一般資訊｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-general-information-stage-1--88ae9f11ecfc.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "general-information",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "網際網路服務與應用概要",
+        "資訊系統應用概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／一般資訊",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-general-information",
+        "native-0c5e7d0797c9e7e1",
+        "native-222beb81cf26b44b",
+        "native-7578af76447147ba",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-013b5a49304cd8eb",
+        "native-14f73f0a7c7cfe9a",
+        "native-bfb0dbc8d50d1c28",
+        "native-e5b193e5877de9a8",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-569cfb5ace007dc8",
+        "native-bf29436554f763b2",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "網際網路服務與應用概要",
+        "資訊系統應用概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-life-insurance-underwriting-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜壽險核保｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-life-insurance-underwriting-stage-1--e5dcee84e3ae.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "life-insurance-underwriting",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "人身保險核保理論與實務",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "人身保險概論",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／壽險核保",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-professional-1-life-insurance-underwriting",
+        "native-1b38ba828dfcdc2c",
+        "native-27b1fbdb22b8aa5e",
+        "native-bb8f6dcc7d091da7",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "人身保險核保理論與實務",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "人身保險概論",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-mechanical-equipment-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜機械設備｜第一試（筆試）",
+      "years": [
+        114
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-mechanical-equipment-stage-1--9b85ec055fd7.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "mechanical-equipment",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "機械力學概要",
+        "機械設計概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "專業職(一)／機械設備",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-mechanical-equipment",
+        "native-0c5e7d0797c9e7e1",
+        "native-1b63b630c7c94d57",
+        "native-4a795d6bd20ec0e5",
+        "native-f519a496672c79e0"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "機械力學概要",
+        "機械設計概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-occupational-safety-services-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜職業安全衛生業務｜第一試（筆試）",
+      "years": [
+        114,
+        113
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-occupational-safety-services-stage-1--c40ecc3c29ad.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "occupational-safety-services",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "工業安全工程概要",
+        "職業安全衛生法規概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／職業安全衛生業務",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-occupational-safety-services",
+        "native-0c5e7d0797c9e7e1",
+        "native-63e851d2c0257a9a",
+        "native-986e9a6ef7541b78",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-18dbae63af28a7f6",
+        "native-a35f56dd2ccc4f9b",
+        "native-e5b193e5877de9a8"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "工業安全工程概要",
+        "職業安全衛生法規概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-postal-savings-a-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜郵儲業務甲｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-postal-savings-a-stage-1--04a788f4f7c5.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "postal-savings-a",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "消費者行為概要及行銷管理概要",
+        "民法概要及經濟學概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／郵儲業務甲",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-postal-savings-a",
+        "native-0c5e7d0797c9e7e1",
+        "native-225bf1dcaaaabea0",
+        "native-49d5b427dde157df",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-150eee2e287dec0f",
+        "native-5d6ced4c2527c65e",
+        "native-e5b193e5877de9a8",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-33f318cc251365e8",
+        "native-4571be808b245df4",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "消費者行為概要及行銷管理概要",
+        "民法概要及經濟學概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-postal-savings-d-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜郵儲業務丁｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-postal-savings-d-stage-1--61cb3200f117.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "postal-savings-d",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "資訊規劃與管理概要(含作業系統、資料庫系統)及邏輯推理",
+        "資訊系統開發概要(含系統分析、程式設計、開發程序、程式語言)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／郵儲業務丁",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-professional-1-postal-savings-d",
+        "native-177f80282ba8d4ca",
+        "native-240955912b0694cb",
+        "native-27b1fbdb22b8aa5e",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "資訊規劃與管理概要(含作業系統、資料庫系統)及邏輯推理",
+        "資訊系統開發概要(含系統分析、程式設計、開發程序、程式語言)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-power-engineering-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜電力工程｜第一試（筆試）",
+      "years": [
+        114,
+        113
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-power-engineering-stage-1--a1677363544d.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "power-engineering",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "基本電學",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "輸配電學概要",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／電力工程",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-power-engineering",
+        "native-0c5e7d0797c9e7e1",
+        "native-65cb5b6910ad5b1f",
+        "native-f519a496672c79e0",
+        "native-f6c0cc0375fe9ab7",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-830ed275de2234d5",
+        "native-a4227665e91f94a8",
+        "native-e5b193e5877de9a8"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "基本電學",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "輸配電學概要",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-programming-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜程式設計｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-programming-stage-1--c32d434e4a64.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "programming",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "程式設計概要(含資料結構、演算法、系統分析及資料庫應用)",
+        "資訊科技概要(含作業系統、資訊安全、網路概論)及邏輯推理",
+        "專業職(一)／程式設計",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-programming",
+        "native-0c5e7d0797c9e7e1",
+        "native-282511c872a50fcc",
+        "native-d09b621dc5faf159",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-695e781d0caac409",
+        "native-6ca4aa652743f3e4",
+        "native-e5b193e5877de9a8",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-2ee574ba090dfb0c",
+        "native-da978ed5c4448298"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "程式設計概要(含系統分析，程式語言以 JAVA、.Net、C#+SQL 為主)",
+        "問題解析及處理(問題分析與解決、邏輯推理能力)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-real-estate-management-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜房地管理｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-real-estate-management-stage-1--6cf1bd10181b.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "real-estate-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "民法概要",
+        "土地法規概要(包括土地法、土地稅法、土地登記規則)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／房地管理",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-real-estate-management",
+        "native-0c5e7d0797c9e7e1",
+        "native-1a37c3f484480880",
+        "native-f09beaa7789bb3aa",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-34b6d1016a08f55d",
+        "native-e5b193e5877de9a8",
+        "native-f1b621ebb091d377",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-78b99d3296802103",
+        "native-ab486fe74c6f2e08",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "民法概要",
+        "土地法規概要(包括土地法、土地稅法、土地登記規則)",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-security-and-network-management-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜資安與網路管理｜第一試（筆試）",
+      "years": [
+        114,
+        113
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-security-and-network-management-stage-1--1ff55ed1c019.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "security-and-network-management",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "通訊與網路安全概要",
+        "資訊系統安全管理概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "專業職(一)／資安與網路管理",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-security-and-network-management",
+        "native-0c5e7d0797c9e7e1",
+        "native-27a34a5de0fa9f58",
+        "native-cfde59ba6b8325fa",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-08e0ad3e3b1a2ad5",
+        "native-14f73f0a7c7cfe9a",
+        "native-a022d0f7deab4271",
+        "native-e5b193e5877de9a8"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "通訊與網路安全概要",
+        "資訊系統安全管理概要",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-statistical-analysis-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜統計研析｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-statistical-analysis-stage-1--63ea92a41d21.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "statistical-analysis",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "管理會計學",
+        "Excel VBA 軟體應用及初級統計學",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／統計研析",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-statistical-analysis",
+        "native-0c5e7d0797c9e7e1",
+        "native-acc016d3e794e4f7",
+        "native-e458b9b43d8acc62",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-0304e98dfc4e4102",
+        "native-09e1c4e16687fe1a",
+        "native-14f73f0a7c7cfe9a",
+        "native-e5b193e5877de9a8",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-08d7fa110cf1d0ce",
+        "native-27b1fbdb22b8aa5e",
+        "native-cbcd489c5d70a0cd",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "管理會計學",
+        "Excel VBA 軟體應用及初級統計學",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-1-systems-operation-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(一)｜系統操作｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 12,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-1-systems-operation-stage-1--cf22793129ed.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-1",
+      "trackId": "systems-operation",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文(含短文寫作)及英文",
+        "資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+        "作業系統",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(一)／系統操作",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-1-systems-operation",
+        "native-0c5e7d0797c9e7e1",
+        "native-a05f9dc0619ef849",
+        "native-a3ea66c42a523e1c",
+        "native-f519a496672c79e0",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-14f73f0a7c7cfe9a",
+        "native-62d32d9059382153",
+        "native-e5b193e5877de9a8",
+        "native-ffc3fa376d3e708d",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-27b1fbdb22b8aa5e",
+        "native-2c9c8eae692482fb",
+        "native-d9c757ab2d065804",
+        "native-fedb100cdf067012"
+      ],
+      "subjectLabels": [
+        "國文(含短文寫作)及英文",
+        "資訊科學概論(含電腦基礎知識、資料結構、網路基本知識、資訊安全)",
+        "作業系統",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法概要(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-2-indoor-counter-services-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(二)｜內勤｜櫃台業務｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-2-indoor-counter-services-stage-1--396e8b22a28e.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-2",
+      "trackId": "indoor-counter-services",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "企業管理大意及洗錢防制法大意",
+        "國文(含短文寫作)及英文",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(二)內勤／櫃台業務",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-2-indoor-counter-services",
+        "native-70df44fc3989e71d",
+        "native-bf129670dee63861",
+        "native-f2efa690fe1e9f4b",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-4e324c3a0da75dcb",
+        "native-91c32c2894a37380",
+        "native-f095cb44deb26fdf",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-945f96aaae5b6ed2",
+        "native-d1f9ccccc228e9ce",
+        "native-e5ef14cfb5c3598b"
+      ],
+      "subjectLabels": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "企業管理大意及洗錢防制法大意",
+        "國文(含短文寫作)及英文",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-2-indoor-foreign-exchange-counter-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(二)｜內勤｜外匯櫃台｜第一試（筆試）",
+      "years": [
+        111
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-2-indoor-foreign-exchange-counter-stage-1--4ccb51846e86.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-2",
+      "trackId": "indoor-foreign-exchange-counter",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "國文(含短文寫作)及英文",
+        "企業管理大意及洗錢防制法大意",
+        "專業職(二)內勤／外匯櫃台",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "postal-professional-2-indoor-foreign-exchange-counter",
+        "native-945f96aaae5b6ed2",
+        "native-d1f9ccccc228e9ce",
+        "native-e5ef14cfb5c3598b"
+      ],
+      "subjectLabels": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "國文(含短文寫作)及英文",
+        "企業管理大意及洗錢防制法大意"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-2-indoor-information-counter-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(二)｜內勤｜櫃台(資訊)｜第一試（筆試）",
+      "years": [
+        114,
+        111
+      ],
+      "fileCount": 6,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-2-indoor-information-counter-stage-1--021804e7dc81.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-2",
+      "trackId": "indoor-information-counter",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識及邏輯推理",
+        "資訊規劃與管理大意(含作業系統、資料庫系統)及洗錢防制法大意",
+        "國文(含短文寫作)及英文",
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)、金融 科技知識及邏輯推理",
+        "專業職(二)內勤／櫃台(資訊)",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-2-indoor-information-counter",
+        "native-7fd25c4721d6e7bc",
+        "native-e3197c03df9d9e69",
+        "native-f2efa690fe1e9f4b",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-37e612d55cb7df9c",
+        "native-ab45adb537069976",
+        "native-d1f9ccccc228e9ce"
+      ],
+      "subjectLabels": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識及邏輯推理",
+        "資訊規劃與管理大意(含作業系統、資料庫系統)及洗錢防制法大意",
+        "國文(含短文寫作)及英文",
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)、金融 科技知識及邏輯推理"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-2-indoor-mail-processing-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(二)｜內勤｜郵務處理｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-2-indoor-mail-processing-stage-1--5dec0776c9b2.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-2",
+      "trackId": "indoor-mail-processing",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "企業管理大意及洗錢防制法大意",
+        "國文(含短文寫作)及英文",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識",
+        "專業職(二)內勤／郵務處理",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-2-indoor-mail-processing",
+        "native-70df44fc3989e71d",
+        "native-bf129670dee63861",
+        "native-f2efa690fe1e9f4b",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-4e324c3a0da75dcb",
+        "native-91c32c2894a37380",
+        "native-f095cb44deb26fdf",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-945f96aaae5b6ed2",
+        "native-d1f9ccccc228e9ce",
+        "native-e5ef14cfb5c3598b"
+      ],
+      "subjectLabels": [
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及金融 科技知識",
+        "企業管理大意及洗錢防制法大意",
+        "國文(含短文寫作)及英文",
+        "國文(短文寫作、閱讀測驗)及英文",
+        "郵政三法大意(含郵政法、郵政儲金匯兌法、簡易人壽保險法)及 金融科技知識"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-2-outdoor-mail-delivery-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(二)｜外勤｜郵遞業務｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-2-outdoor-mail-delivery-stage-1--5e86e801d350.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-2",
+      "trackId": "outdoor-mail-delivery",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文及英文",
+        "臺灣自然及人文地理",
+        "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+        "專業職(二)外勤／郵遞業務",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-2-outdoor-mail-delivery",
+        "native-030dfa334ce46f8b",
+        "native-69439a865c039bfc",
+        "native-70f9887a99750e4c",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-4d61c86769dfc6e8",
+        "native-5ae923f7c9f4d311",
+        "native-a266b4ace69412ae",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-242245df1fc4e0e3",
+        "native-690362a483279169",
+        "native-ae95dce500a5853e"
+      ],
+      "subjectLabels": [
+        "國文及英文",
+        "臺灣自然及人文地理",
+        "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)"
+      ],
+      "sources": [
+        {
+          "name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
+          "url": "https://www.post.gov.tw/post/internet/Group/index.jsp?ID=1467343194090"
+        }
+      ],
+      "updated": "2026-10-17T09:30:00Z"
+    },
+    {
+      "id": "post-recruit-postal-recruitment-postal-professional-2-outdoor-transport-services-stage-1",
+      "name": "中華郵政職階人員甄試｜專業職(二)｜外勤｜運輸業務｜第一試（筆試）",
+      "years": [
+        114,
+        113,
+        111
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/post-recruit-postal-recruitment-postal-professional-2-outdoor-transport-services-stage-1--0ce220f7b402.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "postal-recruitment",
+      "levelId": "postal-professional-2",
+      "trackId": "outdoor-transport-services",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "中華郵政職階人員甄試",
+      "searchAliases": [
+        "國文及英文",
+        "臺灣自然及人文地理",
+        "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)",
+        "專業職(二)外勤／運輸業務",
+        "中華郵政股份有限公司114年職階人員甄試",
+        "postal-professional-2-outdoor-transport-services",
+        "native-030dfa334ce46f8b",
+        "native-69439a865c039bfc",
+        "native-70f9887a99750e4c",
+        "中華郵政股份有限公司112年職階人員甄試",
+        "native-4d61c86769dfc6e8",
+        "native-5ae923f7c9f4d311",
+        "native-a266b4ace69412ae",
+        "中華郵政股份有限公司111年職階人員甄試",
+        "native-242245df1fc4e0e3",
+        "native-690362a483279169",
+        "native-ae95dce500a5853e"
+      ],
+      "subjectLabels": [
+        "國文及英文",
+        "臺灣自然及人文地理",
+        "郵政法規大意(含郵政法及郵件處理規則)及交通安全常識(含道路交通 安全規則第四章、道路交通管理處罰條例及道路交通事故處理辦法)"
       ],
       "sources": [
         {

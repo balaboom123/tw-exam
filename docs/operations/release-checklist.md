@@ -108,5 +108,5 @@ The existing Release verification command checks every declared primary and
 frozen download against its digest and still rejects unexpected ZIPs. Upload
 corrected primaries before committing their metadata; verify that retained URLs
 continue to return the exact original bytes. Routine pruning must retain them.
-The [proposed retention decision](../decisions/ADR-2026-10-23-retained-historical-downloads.md)
+The [retention decision](../decisions/ADR-2026-10-23-retained-historical-downloads.md)
 records the distinction from speculative compatibility aliases.

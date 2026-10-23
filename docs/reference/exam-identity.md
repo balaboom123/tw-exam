@@ -13,6 +13,17 @@ archive filename omits it. Source partitions remain stable when an official
 programme holds its examination in a later year; reviewed material date facts
 drive publication years and year folders independently of those source keys.
 
+Postal recruitment uses its native employment grades, with occupations and
+indoor/outdoor work settings as tracks. Education eligibility and the numbered
+paper sessions do not define grades or selection stages. The IT-specific
+recruitment programme is a separate series from general recruitment. Reviewed
+annual rules establish the first written-test stage, while exact PDF bytes and
+printed applicant codes establish applicability and question/answer roles.
+An occupation remains distinct when it shares every written paper with another
+occupation. Regional or disability allocations using identical papers do not
+create additional content variants. The postal evidence catalog is the owner
+of these decisions; source-page order and frontend title parsing are not.
+
 Taiwan Water archive evidence is keyed by programme year, official source URL,
 and original SHA-256 checksum. Reviewed replacements are appended alongside
 retained versions; reviewing new bytes must not remove the old anchor. A source

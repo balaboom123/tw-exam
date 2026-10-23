@@ -14,6 +14,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Reviewed non-paper revision meaning | [Reference evidence schema](../../schemas/source-revision-reference-v1.schema.json), [review owner](../../app/source_revision_review.py) | `catalog/mappings/source-revisions/reference-material-v1.json` |
 | Material nature and official date evidence | [Material schema](../../schemas/source-material-v1.schema.json), [fact model](../../app/source_material.py) | Provider raw events/papers and normalized records |
 | Reviewed TCU domestic annual admission and native papers | [Evidence schema](../../schemas/tcu-annual-papers-v1.schema.json), [checksum resolver and coverage gate](../../app/providers/hce_tcu/evidence.py) | `catalog/mappings/tcu/annual-papers-v1.json` |
+| Reviewed postal employment grades, job applicability and annual papers | [Evidence schema](../../schemas/post-native-papers-v1.schema.json), [native resolver and coverage gate](../../app/providers/post_recruit/evidence.py) | `catalog/mappings/post/native-papers-v1.json` |
 | Reviewed NTHU annual selection and shared-paper applicability | [Evidence schema](../../schemas/nthu-annual-papers-v1.schema.json), [resolver and evidence gate](../../app/providers/hce_nthu/identity.py) | `catalog/mappings/nthu/annual-papers-v1.json` |
 | Reviewed TQC sample identities | [Evidence schema](../../schemas/tqc-sample-identity-v1.schema.json), [checksum resolver and evidence gate](../../app/tqc_identity_evidence.py) | `catalog/mappings/tqc/sample-identity-v1.json` |
 | Reviewed native Taipower answer corrections | [Evidence schema](../../schemas/taipower-answer-corrections-v1.schema.json), [role resolver and evidence gate](../../app/taipower_file_roles.py) | `catalog/mappings/taipower/answer-corrections-v1.json` |
@@ -47,6 +48,14 @@ require additional native downloads or mirror copies. The optional field is
 omitted for existing raw records and does not enter normalized publication
 contracts. A single-role paper must use that role's own mirror checksum during
 classification, even when another role shares its category and subject codes.
+
+Postal acquisition keys identify native download URLs independently of listing
+order. The provider verifies each command's native payload before applying
+reviewed job, grade, role and date evidence. Shared common papers retain one
+acquisition locator while each occupation receives its own logical reference.
+A changed URL, applicability context or checksum requires review. The full
+postal provider projection must preserve every reviewed job and native paper;
+partial archive builds additionally verify the selected jobs' complete sets.
 
 Reviewed `source_material` facts distinguish material nature from file role.
 The schema owns their vocabulary; questions, answers, corrections, audio and

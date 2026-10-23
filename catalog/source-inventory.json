@@ -845,7 +845,7 @@
       "available_years": {
         "end_ad": 2025,
         "mode": "observed_range",
-        "note": "AD 2022–2025 currently enumerable across two live nationwide general-recruitment history indexes; AD 2026 public paper access remains login-gated",
+        "note": "AD 2022–2025 programme partitions currently enumerable across two commissioned history windows, including the 113 IT-specific programme; the 112 programme written test occurred in AD 2024. AD 2026 public paper access remains login-gated.",
         "start_ad": 2022
       },
       "discovery_snapshot": {
@@ -855,11 +855,12 @@
       },
       "evidence": [
         "data/providers/post_recruit/source-manifest.json",
-        "docs/providers/notes.md#post_recruit"
+        "docs/providers/notes.md#post_recruit",
+        "catalog/mappings/post/native-papers-v1.json"
       ],
       "exam_category": "Chunghwa Post first-test recruitment papers on an explicitly commissioned TABF host",
       "local_state": {
-        "normalized_paper_records": 167,
+        "normalized_paper_records": 321,
         "raw_event_pages": 4,
         "sync_failures": 0
       },
@@ -878,12 +879,13 @@
       "restrictions": [
         "The public AD 2026 paper lookup redirects to login and the history index currently stops at AD 2025.",
         "Known pre-AD 2022 listing/history pages return HTTP 404 while some orphaned official PDFs still return HTTP 200, so older assets are not authoritatively enumerable.",
-        "The checked 115post01 specialist history contributes no unique files: all 19 PDFs are byte-identical subsets of the accepted general-cycle inventory; separate ad-hoc/local/special-purpose recruitments remain outside this provider unless reviewed.",
-        "No redistribution grant was found; Chunghwa Post states that reproduction or reposting of site content requires prior written consent, so public redistribution requires legal review."
+        "The checked 115post01 specialist history contributes no unique files: all 19 PDFs are byte-identical subsets of the accepted inventory. The already-retained 113 IT-specific programme is explicitly distinguished from general recruitment; other ad-hoc/local/special-purpose recruitments remain outside this provider unless reviewed.",
+        "No redistribution grant was found; Chunghwa Post states that reproduction or reposting of site content requires prior written consent, so public redistribution requires legal review.",
+        "On 2026-10-23 all 167 retained native PDFs were freshly downloaded and matched; all 60 alternative URLs in the overlapping history window matched both bytes and applicant contexts. Native printed applicant codes, employment grades, occupations, subjects, choice answers and inline corrections were individually reconciled. The reviewed catalog records annual issuer rules, capture limitations and actual written dates separately from programme partition years. The 167 native payloads project to 321 job references without adding duplicate mirror payloads. Earlier 167 source references remain immutable in provider recovery."
       ],
       "source_name": "中華郵政股份有限公司（委託台灣金融研訓院甄試）",
       "status": "partial",
-      "status_reason": "Partial / bounded live-index coverage; source availability: AD 2022–2025 currently enumerable; local coverage: AD 2022–2025; 4 → 167; AD 2026 is login-gated and pre-2022 history is non-enumerable"
+      "status_reason": "Partial / bounded live-index coverage; source programme partitions: AD 2022–2025; local coverage: four events, 167 native PDFs and 321 logical job references; AD 2026 is login-gated and pre-2022 history is non-enumerable."
     },
     {
       "available_years": {

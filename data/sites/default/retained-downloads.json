@@ -19,6 +19,15 @@
       "storage_key": "bundles/sites/default/hce-nthu-post-baccalaureate-medical-not-applicable-hce-nthu--497a2ca62c44.zip",
       "checksum": "51fc03e82e93947e19798ef228bd3eac18ac19593410700d602753dac92948ba",
       "retained_at": "2026-10-22T16:14:37.034888+00:00"
+    },
+    {
+      "provider_id": "post_recruit",
+      "bundle_id": "post-recruit-postal-recruitment-not-applicable-postal-recruitment",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "post-recruit-postal-recruitment-not-applicable-postal-recruitment--82053bd24d37.zip",
+      "storage_key": "bundles/sites/default/post-recruit-postal-recruitment-not-applicable-postal-recruitment--82053bd24d37.zip",
+      "checksum": "c8c478d0e3b92de55f6f3d04c138d26b2ca3c96b746d97d25716b262653edadc",
+      "retained_at": "2026-10-23T04:32:27.549100+00:00"
     }
   ]
 }

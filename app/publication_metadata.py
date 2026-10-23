@@ -6,6 +6,7 @@ import re
 from collections.abc import Iterable, Mapping
 from typing import Any
 
+from app.classification import TRACK_TITLED_PROVIDERS
 from app.providers.moea_recruit.evidence import native_file_subject
 from app.providers.teacher_qual.archive import native_member_subject
 
@@ -14,12 +15,8 @@ MAX_TAIPOWER_SEARCH_ALIASES = 64
 MAX_SUBJECT_LABELS = 6
 MAX_LABEL_LENGTH = 120
 
-_GENERIC_SUBJECT_BUNDLE_PREFIXES = (
-    "wdasec-skill-",
-    "ceec-gsat-",
-    "ceec-ast-",
-    "tcte-tve-",
-    "teacher-qual-",
+_GENERIC_SUBJECT_BUNDLE_PREFIXES = tuple(
+    sorted(f"{provider.replace('_', '-')}-" for provider in TRACK_TITLED_PROVIDERS)
 )
 
 _TAIPOWER_SUBJECT_PREFIX = re.compile(

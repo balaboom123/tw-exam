@@ -6,7 +6,7 @@ from app.normalizer import normalize_papers
 from app.providers.base import SourceProvider
 from app.providers.registry import get_provider
 
-from app.providers.post_recruit.client import PostRecruitClient, parse_history_page, parse_year_page
+from app.providers.post_recruit.client import PostRecruitClient, parse_history_page, parse_year_page, source_file_code
 
 
 YEAR_HTML = """
@@ -77,8 +77,9 @@ class PostRecruitParserTests(unittest.TestCase):
 
         self.assertEqual(len(papers), 2)
         self.assertEqual(papers[0].category_code, "post-recruit")
-        self.assertEqual(papers[0].subject_code, "paper-001")
-        self.assertEqual(papers[0].subject_name_raw, "營運職-法務-臺北地區 專業科目(1)")
+        self.assertEqual(papers[0].subject_code, source_file_code(papers[0].files["question"]))
+        self.assertEqual(papers[0].category_raw, "營運職-法務-臺北地區(A11108101)")
+        self.assertEqual(papers[0].subject_name_raw, "專業科目(1)")
         self.assertEqual(papers[0].files["question"], "https://svc.tabf.org.tw/_File/Download/115post02/HistoryPaper/one.pdf")
 
     def test_fetch_exam_page_turns_year_into_source_page(self) -> None:

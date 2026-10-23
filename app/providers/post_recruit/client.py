@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
@@ -70,10 +71,105 @@ def _normalize_text(text: str) -> str:
     return " ".join(unescape(text).split())
 
 
-def _clean_title(text: str) -> str:
-    match = _TITLE_RE.match(text)
-    title = match.group("title") if match else text
-    return re.sub(r"\([A-Z]\d+\)", "", title).strip(" -；")
+def source_file_code(url: str) -> str:
+    """Identify the native download independently of listing order or its jobs."""
+    source = urlsplit(url)
+    if (
+        source.scheme != "https"
+        or source.netloc != "svc.tabf.org.tw"
+        or not source.path.startswith("/_File/Download/")
+        or "/HistoryPaper/" not in source.path
+        or not source.path.lower().endswith(".pdf")
+        or source.fragment
+    ):
+        raise ValueError("Postal papers require an official native PDF locator")
+    return "native-" + hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
+
+
+@dataclass(frozen=True)
+class HistoryDownload:
+    label: str
+    source_url: str
+    category_context: str
+
+
+class _HistoryParser(HTMLParser):
+    """Keep the category text beside each native file, including common papers.
+
+    The source omits closing li tags. A following li or closing ul ends the
+    previous row. Common papers put their applicability after the link;
+    professional papers share a preceding annual category heading.
+    """
+
+    def __init__(self, base_url: str) -> None:
+        super().__init__()
+        self.base_url = base_url
+        self.downloads: list[HistoryDownload] = []
+        self._heading = ""
+        self._row_parts: list[str] | None = None
+        self._row_links: list[tuple[str, str]] = []
+        self._href = ""
+        self._label_parts: list[str] = []
+
+    def _finish_row(self) -> None:
+        if self._row_parts is None:
+            return
+        context = _normalize_text(" ".join(self._row_parts)).strip(" ,，;；")
+        match = _TITLE_RE.match(context)
+        if match is not None:
+            context = match.group("title")
+        context = context or self._heading or _CATEGORY_NAME
+        self.downloads.extend(
+            HistoryDownload(label, url, context) for label, url in self._row_links
+        )
+        self._row_parts = None
+        self._row_links = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag == "li":
+            self._finish_row()
+            self._row_parts = []
+        elif tag == "a":
+            self._href = dict(attrs).get("href") or ""
+            self._label_parts = []
+
+    def handle_data(self, data: str) -> None:
+        text = _normalize_text(data)
+        if not text:
+            return
+        if self._href:
+            self._label_parts.append(text)
+        elif self._row_parts is not None:
+            self._row_parts.append(text)
+        else:
+            match = _TITLE_RE.match(text)
+            if match is not None:
+                self._heading = match.group("title")
+            elif text == "共同科目":
+                self._heading = ""
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"li", "ul"}:
+            self._finish_row()
+        elif tag == "a" and self._href:
+            url = urljoin(self.base_url, self._href)
+            if "/_File/Download/" in url and "/HistoryPaper/" in url:
+                label = _normalize_text(" ".join(self._label_parts))
+                source_file_code(url)
+                if not label:
+                    raise ValueError("Postal native paper has no source label")
+                if self._row_parts is None:
+                    self.downloads.append(
+                        HistoryDownload(label, url, self._heading or _CATEGORY_NAME)
+                    )
+                else:
+                    self._row_links.append((label, url))
+            self._href = ""
+            self._label_parts = []
+
+    def close(self) -> None:
+        super().close()
+        self._finish_row()
 
 
 def parse_year_page(html: str, base_url: str) -> list[PostRecruitYear]:
@@ -96,25 +192,26 @@ def parse_year_page(html: str, base_url: str) -> list[PostRecruitYear]:
 
 
 def parse_history_page(html: str, base_url: str) -> list[ParsedPaper]:
-    parser = _TokenParser(base_url)
+    parser = _HistoryParser(base_url)
     parser.feed(html)
+    parser.close()
     papers: list[ParsedPaper] = []
-    current_title = ""
-    for token_type, text, url in parser.tokens:
-        if token_type == "text" and _TITLE_RE.match(text):
-            current_title = _clean_title(text)
+    by_code: dict[str, HistoryDownload] = {}
+    for download in parser.downloads:
+        code = source_file_code(download.source_url)
+        previous = by_code.get(code)
+        if previous is not None:
+            if previous != download:
+                raise ValueError("Postal native file has conflicting source contexts or keys")
             continue
-        if token_type != "link" or "/_File/Download/" not in url:
-            continue
-        index = len(papers) + 1
-        label = text
+        by_code[code] = download
         papers.append(
             ParsedPaper(
-                category_raw=_CATEGORY_NAME,
+                category_raw=download.category_context,
                 category_code="post-recruit",
-                subject_code=f"paper-{index:03d}",
-                subject_name_raw=f"{current_title} {label}".strip(),
-                files={"question": url},
+                subject_code=code,
+                subject_name_raw=download.label,
+                files={"question": download.source_url},
             )
         )
     return papers
@@ -169,12 +266,15 @@ class PostRecruitClient:
         year = next(
             item for item in self._years() if item.code == exam_code and item.year_ad == year_ad
         )
+        papers = parse_history_page(self._fetch_text(year.url), year.url)
+        if not papers:
+            raise ValueError("Postal history page returned no native papers")
         return SourceExamPage(
             source_exam_id=year.code,
             year_ad=year.year_ad,
             year_roc=year.year_roc,
             exam_name_raw=f"{year.year_roc}年{_CATEGORY_NAME}",
             attachments=[],
-            papers=parse_history_page(self._fetch_text(year.url), year.url),
+            papers=papers,
             provider_id=self.provider_id,
         )

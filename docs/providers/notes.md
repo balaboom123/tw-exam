@@ -464,6 +464,29 @@ Accept only Ministry of Examination event listings, result pages, and attachment
 
 Use official Chunghwa Post recruitment event pages and their directly linked examination artifacts. Recruitment announcements without administered papers remain event evidence, not paper records.
 
+The commissioned TABF history windows include both general recruitment and the
+separate IT-specific programme. The postal native evidence owner records annual
+issuer rules, actual written dates, employment grades, occupations, printed
+subjects, file roles and applicant-code applicability against exact PDF digests.
+The programme year is an acquisition partition: the 112 programme held its first
+written test on 113-01-07. Do not move its source keys to a different event or use
+the programme numeral as the ZIP's examination-year folder.
+
+營運職、專業職(一) and 專業職(二) are employment grades. 內勤 and 外勤 qualify
+the occupation; eligibility education, paper sessions and regional allocations
+are separate concepts. Different occupations can share the same common or
+professional paper. Preserve their distinct job identities and share native
+mirror bytes. Reserved disability allocations use the same written papers.
+Question PDFs with printed choice answers use `question_answer`; this does not
+claim an essay solution. Preserve inline corrections within their original PDF.
+
+Some older annual brochures now return 404. Reviewed issuer releases and the
+completed annual report can establish historical dates; the evidence notes
+distinguish captured native documents, indexed issuer announcements and failed
+live requests. A later discovery or changed PDF cannot inherit those facts
+without matching source context and checksum. The original aggregate download
+is retained independently when its replacement job identities are published.
+
 ## `rcpet_cap`
 
 Use the official RCPET CAP archive and its event-linked assessment materials. Provider normalization must preserve the official assessment identity rather than deriving it only from filenames.

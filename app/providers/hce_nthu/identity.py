@@ -1,7 +1,6 @@
-"""Private proposal: reviewed NTHU annual rules and source-file applicability.
+"""Reviewed NTHU annual rules and source-file applicability.
 
-This module is confined to the isolated migration rehearsal; production does
-not import it. Native file storage remains separate from admissions grouping.
+Native file storage remains separate from admissions grouping.
 """
 
 from __future__ import annotations

@@ -291,7 +291,15 @@ STAGE_IDS = frozenset(_STAGE_LABELS)
 # Providers whose public title appends the track label; validate_publication
 # derives its bundle-id prefixes from this set.
 TRACK_TITLED_PROVIDERS = frozenset(
-    {"ceec_gsat", "ceec_ast", "tcte_tve", "wdasec_skill", "tqc_cert", "teacher_qual"}
+    {
+        "ceec_gsat",
+        "ceec_ast",
+        "tcte_tve",
+        "wdasec_skill",
+        "tqc_cert",
+        "teacher_qual",
+        "post_recruit",
+    }
 )
 
 # Official qualification selector values. School/candidate populations are
@@ -2044,6 +2052,38 @@ def _classify_paper_uncached(
             stage_id = "unknown"
             confidence = "review"
             reason = "TCU native paper or annual domestic admission evidence requires review"
+    if provider_id == "post_recruit":
+        from app.providers.post_recruit.evidence import resolve_identity as resolve_postal_identity
+
+        postal_identity = resolve_postal_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            category_code=category_code,
+            category_raw=category,
+            exam_name_raw=exam_name,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_material=source_material,
+            checksum=source_checksum,
+        )
+        variant_pairs = ()
+        variants = ()
+        if postal_identity is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            track_id, track_label = "postal-unknown", "職階與類科待確認"
+            stage_id = "unknown"
+            confidence = "review"
+            reason = "Postal programme, grade, job, stage and role lack exact native evidence"
+        else:
+            postal_exam, postal_job, _postal_paper = postal_identity
+            series_id, series_label = postal_exam.exam_series_id, postal_exam.series_label
+            level_id, level_label = postal_job.level_id, postal_job.level_label
+            track_id, track_label = postal_job.track_id, postal_job.track_label
+            stage_id = "stage-1"
+            confidence = "high"
+            reason = (
+                "Reviewed postal native employment grade, job applicability and first written test"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2235,7 +2275,7 @@ def _classify_paper_uncached(
         bundle_name = _display(canonical_name, track_label)
         if provider_id in {"sfi_cert", "ipas_cert", "tabf_cert"}:
             bundle_name = track_label
-        if provider_id in {"tqc_cert", "hakka_cert", "gept_cert"}:
+        if provider_id in {"tqc_cert", "hakka_cert", "gept_cert", "post_recruit"}:
             bundle_name = series_label
         if provider_id == "cpc_recruit" and track_id == "cpc-doctoral":
             # Keep the old canonical compatibility key, while the structured
@@ -2272,6 +2312,8 @@ def _classify_paper_uncached(
             for _variant, form_label in variant_pairs:
                 if form_label not in bundle_name:
                     bundle_name += f"｜{form_label}"
+        if provider_id == "post_recruit":
+            bundle_name += "｜第一試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
             "tqc_cert",
             "hakka_cert",
