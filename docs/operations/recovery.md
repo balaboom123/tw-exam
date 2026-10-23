@@ -91,6 +91,15 @@ any manual deletion. Recovery blobs follow the provider's existing backup
 policy; they do not authorize public backup or site publication. The mirror
 backup helper checks the adapter's permission before packing or remote work.
 
+Journal v2 also retains earlier source titles and material facts when the
+reference and file bytes are unchanged. Existing v1 entries keep their original
+IDs and review bindings. A write that adds no new evidence leaves the journal
+untouched; the next retained observation upgrades its wrapper to v2. Recovery
+must use a runtime that supports the journal's version. Restore an older source
+projection through the current conserving writer, preserving the v2 journal and
+its blobs. If reverting application code, retain the compatible journal reader
+and writer; downgrading or deleting the journal would discard retained evidence.
+
 After recovery, run `history-audit --strict` with its default mirror checking
 to verify the retained revisions. `--skip-mirror-check` reports metadata only
 and cannot establish that earlier bytes remain recoverable. Restore a current

@@ -281,8 +281,12 @@ def test_complete_cli_migration_preserves_originals_failures_and_previous_identi
     assert sum(paper.stage_id == "stage-1" for paper in migrated.papers) == 6
     assert sum(paper.stage_id == "unknown" for paper in migrated.papers) == 5
     journal = load_source_revisions(provider)
-    assert journal == previous_journal
-    assert len(journal) == 11
+    assert journal[:11] == previous_journal
+    assert len(journal) == 22
+    assert {entry["reason"] for entry in journal[11:]} == {"source_context_changed"}
+    assert {entry["source_record"]["file_type"] for entry in journal[:11]} == {"accessible_bundle"}
+    assert {entry["source_record"]["file_type"] for entry in journal[11:]} == {"question_answer"}
+    assert len({entry["blob_storage_key"] for entry in journal}) == 11
     for before, after in zip(sorted(papers, key=lambda p: p.year_roc),
                              sorted(migrated.papers, key=lambda p: p.year_roc), strict=True):
         for field in ("year_roc", "source_exam_id", "category_code", "subject_code", "paper_code",

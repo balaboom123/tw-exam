@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/provider-source-revisions-v2.schema.json",
+  "title": "Provider source revision journal with source context retention",
+  "type": "object",
+  "required": ["schema_version", "provider_id", "revisions"],
+  "properties": {
+    "schema_version": {"const": 2},
+    "provider_id": {"type": "string", "minLength": 1},
+    "revisions": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {"$ref": "provider-source-revisions-v1.schema.json#/properties/revisions/items"},
+          {"$ref": "#/$defs/contextRevision"}
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "contextRevision": {
+      "type": "object",
+      "required": ["id", "identity_version", "record_type", "source_record", "blob_storage_key", "retained_at", "reason"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "identity_version": {"const": 2},
+        "record_type": {"enum": ["paper", "attachment"]},
+        "source_record": {
+          "$ref": "provider-source-revisions-v1.schema.json#/properties/revisions/items/properties/source_record"
+        },
+        "blob_storage_key": {"type": ["string", "null"]},
+        "retained_at": {"type": "string", "format": "date-time"},
+        "reason": {"enum": ["payload_replaced", "source_reference_retired", "source_context_changed"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

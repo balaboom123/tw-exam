@@ -101,6 +101,27 @@ def _reference_key(record_type: str, record: dict[str, Any]) -> tuple[Any, ...]:
     )
 
 
+def _revision_id(record_type: str, record: dict[str, Any], identity_version: int) -> str:
+    identity = [_reference_key(record_type, record), record.get("checksum", "")]
+    if identity_version == 2:
+        # These source facts can change while the URL and payload stay the same.
+        # Classification and publication fields deliberately do not participate.
+        identity.append(
+            {
+                "exam_name_raw": record.get("exam_name_raw", ""),
+                "category_raw": record.get("category_raw", ""),
+                "subject_name_raw": record.get("subject_name_raw", ""),
+                "title": record.get("title", ""),
+                "source_material": record.get("source_material"),
+            }
+        )
+    return hashlib.sha256(
+        json.dumps(identity, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode(
+            "utf-8"
+        )
+    ).hexdigest()
+
+
 def _source_records(
     provider_id: str, pages: list[SourceExamPage], papers: list[NormalizedPaper]
 ) -> list[tuple[str, dict[str, Any]]]:
@@ -145,6 +166,10 @@ def _validate_source_record(provider_id: str, record: dict[str, Any]) -> None:
         or type(record.get("year_roc")) is not int
         or record["provider_id"] != provider_id
         or re.fullmatch(r"(?:[0-9a-f]{64})?", record["checksum"]) is None
+        or any(
+            not isinstance(record.get(field, ""), str)
+            for field in ("exam_name_raw", "category_raw", "subject_name_raw", "title")
+        )
     ):
         raise ValueError("Invalid source revision reference")
     parts = PurePosixPath(record["storage_key"]).parts
@@ -164,13 +189,14 @@ def load_source_revisions(provider: ProviderPaths) -> list[dict[str, Any]]:
     if (
         not isinstance(document, dict)
         or type(document.get("schema_version")) is not int
-        or document.get("schema_version") != 1
+        or document.get("schema_version") not in {1, 2}
         or document.get("provider_id") != provider.provider_id
         or not isinstance(document.get("revisions"), list)
     ):
         raise ValueError(f"Unsupported source revision journal: {path}")
     entries = document["revisions"]
     ids: set[str] = set()
+    observations: set[str] = set()
     for entry in entries:
         if (
             not isinstance(entry, dict)
@@ -187,6 +213,14 @@ def load_source_revisions(provider: ProviderPaths) -> list[dict[str, Any]]:
         ids.add(revision_id)
         if entry.get("record_type") not in {"paper", "attachment"}:
             raise ValueError(f"Unsupported source revision record type: {path}")
+        identity_version = entry.get("identity_version", 1)
+        if (
+            type(identity_version) is not int
+            or identity_version not in {1, 2}
+            or (document["schema_version"] == 1 and "identity_version" in entry)
+            or ("identity_version" in entry and identity_version != 2)
+        ):
+            raise ValueError(f"Unsupported source revision identity version: {path}")
         material = source_material(entry["source_record"].get("source_material"))
         if entry["record_type"] == "paper":
             version = entry["source_record"].get("schema_version", 1)
@@ -194,7 +228,10 @@ def load_source_revisions(provider: ProviderPaths) -> list[dict[str, Any]]:
                 raise ValueError(f"Unsupported source revision paper version: {path}")
             if (version == 3) != (material is not None):
                 raise ValueError(f"Source revision material facts require paper v3: {path}")
-        if entry.get("reason") not in {"payload_replaced", "source_reference_retired"}:
+        reasons = {"payload_replaced", "source_reference_retired"}
+        if identity_version == 2:
+            reasons.add("source_context_changed")
+        if entry.get("reason") not in reasons:
             raise ValueError(f"Unsupported source revision disposition: {path}")
         try:
             retained_at = datetime.fromisoformat(entry["retained_at"])
@@ -203,15 +240,13 @@ def load_source_revisions(provider: ProviderPaths) -> list[dict[str, Any]]:
         except (KeyError, TypeError, ValueError) as exc:
             raise ValueError(f"Invalid revision retention timestamp: {path}") from exc
         checksum = entry["source_record"].get("checksum", "")
-        expected_id = hashlib.sha256(
-            json.dumps(
-                [_reference_key(entry["record_type"], entry["source_record"]), checksum],
-                ensure_ascii=False,
-                separators=(",", ":"),
-            ).encode("utf-8")
-        ).hexdigest()
+        expected_id = _revision_id(entry["record_type"], entry["source_record"], identity_version)
         if revision_id != expected_id:
             raise ValueError(f"Source revision id does not match its source reference: {path}")
+        observation = _revision_id(entry["record_type"], entry["source_record"], 2)
+        if observation in observations:
+            raise ValueError(f"Duplicate source revision observation: {path}")
+        observations.add(observation)
         if checksum:
             expected = revision_blob_key(
                 provider.provider_id, checksum, Path(entry["source_record"]["storage_key"]).suffix
@@ -410,10 +445,11 @@ def retain_superseded_sources(
     entries = load_source_revisions(provider)
     current_records = _source_records(provider.provider_id, current_pages, current_papers)
     current_keys = {_reference_key(kind, record) for kind, record in current_records}
-    current = {
+    current_payloads = {
         (_reference_key(kind, record), record.get("checksum", ""))
         for kind, record in current_records
     }
+    current = {_revision_id(kind, record, 2) for kind, record in current_records}
     previous_records = _source_records(provider.provider_id, previous_pages, previous_papers)
     recovery_records = [record for _kind, record in current_records]
     for entry in entries:
@@ -422,10 +458,7 @@ def retain_superseded_sources(
                 {**entry["source_record"], "storage_key": entry["blob_storage_key"]}
             )
     for kind, record in previous_records:
-        if (
-            record.get("checksum")
-            and (_reference_key(kind, record), record["checksum"]) not in current
-        ):
+        if record.get("checksum") and _revision_id(kind, record, 2) not in current:
             recovery_records.append(
                 {
                     **record,
@@ -440,28 +473,33 @@ def retain_superseded_sources(
     _restore_missing_verified_payloads(provider, recovery_records, candidates)
     for entry in entries:
         _retain_source_payload(provider, entry["source_record"])
-    known = {entry["id"] for entry in entries}
+    known = {_revision_id(entry["record_type"], entry["source_record"], 2) for entry in entries}
     retained = 0
     for kind, record in previous_records:
         _validate_source_record(provider.provider_id, record)
         key = _reference_key(kind, record)
         checksum = record.get("checksum", "")
-        if (key, checksum) in current:
+        revision_id = _revision_id(kind, record, 2)
+        if revision_id in current:
             continue
-        revision_id = hashlib.sha256(
-            json.dumps([key, checksum], ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-        ).hexdigest()
         if revision_id in known:
             continue
         blob_key = _retain_source_payload(provider, record)
+        if key not in current_keys:
+            reason = "source_reference_retired"
+        elif (key, checksum) in current_payloads:
+            reason = "source_context_changed"
+        else:
+            reason = "payload_replaced"
         entries.append(
             {
                 "id": revision_id,
+                "identity_version": 2,
                 "record_type": kind,
                 "source_record": record,
                 "blob_storage_key": blob_key,
                 "retained_at": datetime.now(UTC).isoformat(),
-                "reason": "payload_replaced" if key in current_keys else "source_reference_retired",
+                "reason": reason,
             }
         )
         known.add(revision_id)
@@ -474,7 +512,7 @@ def retain_superseded_sources(
             staged.write_text(
                 json.dumps(
                     {
-                        "schema_version": 1,
+                        "schema_version": 2,
                         "provider_id": provider.provider_id,
                         "revisions": entries,
                     },

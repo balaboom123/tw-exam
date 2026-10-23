@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 from jsonschema import Draft202012Validator, FormatChecker
+from referencing import Registry, Resource
 
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code
 from app.models import ExamAttachment, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage
@@ -20,7 +21,9 @@ from app.source_revisions import (
     retain_superseded_sources,
     revision_blob_key,
     revision_journal_path,
+    validate_revision_conservation,
 )
+from app.source_material import SourceDate, SourceMaterial
 from app.storage import MirrorStore
 from app.sync import sync_exam_pages
 
@@ -288,9 +291,252 @@ def test_generated_revision_journal_satisfies_versioned_contract(tmp_path):
     provider = provider_paths(tmp_path, "moex")
     MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)
     retain_superseded_sources(provider, [], [paper()], [], [])
-    schema = Path(__file__).resolve().parents[1] / "schemas/provider-source-revisions-v1.schema.json"
-    validator = Draft202012Validator(json.loads(schema.read_text()), format_checker=FormatChecker())
+    validator = revision_validator(2)
     validator.validate(json.loads(revision_journal_path(provider).read_text()))
+
+
+def revision_validator(version):
+    folder = Path(__file__).resolve().parents[1] / "schemas"
+    schemas = [
+        json.loads((folder / f"provider-source-revisions-v{v}.schema.json").read_text())
+        for v in (1, 2)
+    ]
+    registry = Registry().with_resources(
+        (schema["$id"], Resource.from_contents(schema)) for schema in schemas
+    )
+    return Draft202012Validator(
+        schemas[version - 1], registry=registry, format_checker=FormatChecker()
+    )
+
+
+@pytest.mark.parametrize("field", ["exam_name_raw", "category_raw", "subject_name_raw"])
+def test_metadata_only_refresh_keeps_exact_earlier_source_context(tmp_path, field):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    old = paper()
+    changed = replace(old, **{field: getattr(old, field) + "（官方修訂）"})
+    write_state(tmp_path, [old])
+    write_state(tmp_path, [changed])
+    provider = provider_paths(tmp_path, "moex")
+    (entry,) = load_source_revisions(provider)
+    assert entry["reason"] == "source_context_changed"
+    assert entry["source_record"][field] == getattr(old, field)
+    assert entry["source_record"]["checksum"] == changed.checksum
+    blob = store.root / entry["blob_storage_key"]
+    assert blob.read_bytes() == ORIGINAL
+    assert blob.stat().st_ino != (store.root / KEY).stat().st_ino
+    revision_validator(2).validate(json.loads(revision_journal_path(provider).read_text()))
+    before = revision_journal_path(provider).read_bytes()
+    write_state(tmp_path, [changed])
+    assert revision_journal_path(provider).read_bytes() == before
+
+
+def test_multiple_same_payload_contexts_and_reappearance_keep_distinct_history(tmp_path):
+    MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)
+    old = paper()
+    second = replace(old, exam_name_raw="第二個原始標題")
+    third = replace(old, exam_name_raw="第三個原始標題")
+    for current in (old, second, third, old, second, third):
+        write_state(tmp_path, [current])
+    provider = provider_paths(tmp_path, "moex")
+    entries = load_source_revisions(provider)
+    assert len(entries) == 3
+    assert {row["source_record"]["exam_name_raw"] for row in entries} == {
+        old.exam_name_raw,
+        second.exam_name_raw,
+        third.exam_name_raw,
+    }
+    assert len({row["id"] for row in entries}) == 3
+    assert len({row["blob_storage_key"] for row in entries}) == 1
+    assert audit_source_revisions(provider, verify_mirror=True)["verified_payload_count"] == 3
+    before = revision_journal_path(provider).read_bytes()
+    write_state(tmp_path, [])
+    assert revision_journal_path(provider).read_bytes() == before
+
+
+def test_one_surviving_context_does_not_hide_another_retired_context(tmp_path):
+    MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)
+    first = paper()
+    second = replace(first, subject_name_raw="另一個原始科目名稱")
+    provider = provider_paths(tmp_path, "moex")
+    assert retain_superseded_sources(provider, [], [first], [], [first, second]) == 0
+    assert retain_superseded_sources(provider, [], [first, second], [], [first]) == 1
+    entry, = load_source_revisions(provider)
+    assert entry["reason"] == "source_context_changed"
+    assert entry["source_record"]["subject_name_raw"] == second.subject_name_raw
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("canonical_id", "reviewed-name"),
+        ("canonical_name", "Reviewed name"),
+        ("catalog_version", "new-catalog"),
+        ("domain_id", "new-domain"),
+        ("exam_family_id", "new-family"),
+        ("exam_series_id", "new-series"),
+        ("level_id", "new-level"),
+        ("track_id", "new-track"),
+        ("variant_ids", ["reviewed-variant"]),
+        ("stage_id", "new-stage"),
+        ("exam_event_id", "reviewed-event"),
+        ("bundle_id", "new-bundle"),
+        ("bundle_name", "New bundle"),
+        ("bundle_policy_id", "new-policy"),
+        ("classification_confidence", "review"),
+        ("classification_reason", "Review"),
+        ("exam_class", "考試分類"),
+        ("exam_subclass", "考試子分類"),
+        ("paper_code", "reviewed-code"),
+        ("download_url_mirror", "https://example.test/new-mirror.pdf"),
+        ("download_url_bundle", "https://example.test/new-bundle.zip"),
+        ("storage_key", KEY.replace("question.pdf", "recovered.pdf")),
+    ],
+)
+def test_derived_identity_and_delivery_changes_do_not_create_source_history(tmp_path, field, value):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    changed = replace(paper(), **{field: value})
+    if field == "storage_key":
+        store.write_bytes(changed.storage_key, ORIGINAL)
+    write_state(tmp_path, [paper()])
+    write_state(tmp_path, [changed])
+    assert not revision_journal_path(provider_paths(tmp_path, "moex")).exists()
+
+
+@pytest.mark.parametrize("field", ["title", "exam_name_raw", "source_material"])
+def test_attachment_context_and_inherited_material_are_retained(tmp_path, field):
+    MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)
+    old = paper()
+    attachment = ExamAttachment(
+        "原始答案", "all_answers", old.download_url_source, storage_key=KEY, checksum=old.checksum
+    )
+    page = SourceExamPage("115030", 2026, 115, old.exam_name_raw, [attachment], [], "moex")
+    material = SourceMaterial(
+        "administered", SourceDate("exam_year", 2026), "https://example.test/rules", "官方考試日期"
+    )
+    if field == "title":
+        updated = replace(page, attachments=[replace(attachment, title="修訂答案標題")])
+    elif field == "exam_name_raw":
+        updated = replace(page, exam_name_raw="修訂原始考試標題")
+    else:
+        updated = replace(page, source_material=material)
+    write_state(tmp_path, [], [page])
+    write_state(tmp_path, [], [updated])
+    (entry,) = load_source_revisions(provider_paths(tmp_path, "moex"))
+    assert entry["reason"] == "source_context_changed"
+    assert entry["record_type"] == "attachment"
+    assert entry["source_record"]["title"] == attachment.title
+    assert entry["source_record"].get("source_material") is None
+    assert (tmp_path / "mirror" / entry["blob_storage_key"]).read_bytes() == ORIGINAL
+
+
+def test_reviewed_material_change_keeps_previous_facts_and_bytes(tmp_path):
+    MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)
+    material = SourceMaterial(
+        "administered",
+        SourceDate("exam_year", 2026),
+        "https://example.test/rules",
+        "115年官方考試日期",
+    )
+    old = paper(schema_version=3, source_material=material)
+    revised = replace(old, source_material=replace(material, evidence_label="官方修訂日期"))
+    write_state(tmp_path, [old])
+    write_state(tmp_path, [revised])
+    (entry,) = load_source_revisions(provider_paths(tmp_path, "moex"))
+    assert entry["source_record"]["source_material"]["evidence_label"] == material.evidence_label
+    assert entry["reason"] == "source_context_changed"
+
+
+def test_unverified_metadata_context_does_not_claim_retained_bytes(tmp_path):
+    old = paper(checksum="", storage_key="")
+    write_state(tmp_path, [old])
+    write_state(tmp_path, [replace(old, subject_name_raw="新標題")])
+    (entry,) = load_source_revisions(provider_paths(tmp_path, "moex"))
+    assert entry["blob_storage_key"] is None
+    assert entry["reason"] == "source_context_changed"
+
+
+def legacy_journal(tmp_path):
+    provider = provider_paths(tmp_path, "moex")
+    MirrorStore(tmp_path / "mirror").write_bytes(KEY, ORIGINAL)
+    retain_superseded_sources(provider, [], [paper()], [], [])
+    path = revision_journal_path(provider)
+    document = json.loads(path.read_text())
+    entry = document["revisions"][0]
+    entry.pop("identity_version")
+    key = ["paper", "moex", 115, "115030", "101", "0101", "question", paper().download_url_source]
+    entry["id"] = hashlib.sha256(
+        json.dumps([key, paper().checksum], ensure_ascii=False, separators=(",", ":")).encode()
+    ).hexdigest()
+    document["schema_version"] = 1
+    path.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n")
+    revision_validator(1).validate(document)
+    return provider, entry
+
+
+def test_legacy_ids_reviews_and_journal_bytes_survive_new_contexts(tmp_path):
+    provider, legacy = legacy_journal(tmp_path)
+    before = revision_journal_path(provider).read_bytes()
+    second = replace(paper(), exam_name_raw="新的官方標題")
+    write_state(tmp_path, [second])
+    assert revision_journal_path(provider).read_bytes() == before
+    previous = provider_paths(tmp_path / "previous", "moex")
+    previous.data_dir.mkdir(parents=True)
+    revision_journal_path(previous).write_bytes(before)
+    write_state(tmp_path, [replace(second, subject_name_raw="修訂科目")])
+    entries = load_source_revisions(provider)
+    assert len(entries) == 2
+    assert entries[0] == legacy
+    assert entries[1]["identity_version"] == 2
+    assert entries[1]["id"] != legacy["id"]
+    validate_revision_conservation(previous, provider)
+    revision_validator(2).validate(json.loads(revision_journal_path(provider).read_text()))
+    # Re-observing and retiring the legacy context must not duplicate it.
+    retain_superseded_sources(provider, [], [paper()], [], [])
+    assert load_source_revisions(provider) == entries
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    ["title", "identity_version", "identity_type", "legacy_wrapper", "duplicate_observation"],
+)
+def test_context_identity_validation_rejects_changed_or_ambiguous_evidence(tmp_path, mutation):
+    provider, legacy = legacy_journal(tmp_path)
+    second = replace(paper(), exam_name_raw="第二個官方標題")
+    retain_superseded_sources(provider, [], [second], [], [])
+    path = revision_journal_path(provider)
+    document = json.loads(path.read_text())
+    entry = document["revisions"][1]
+    if mutation == "title":
+        entry["source_record"]["exam_name_raw"] += "未保留的改動"
+    elif mutation == "identity_version":
+        entry["identity_version"] = 3
+    elif mutation == "identity_type":
+        entry["identity_version"] = True
+    elif mutation == "legacy_wrapper":
+        document["schema_version"] = 1
+    else:
+        # A valid legacy ID must not also hide the same observation under v2.
+        duplicate = json.loads(json.dumps(entry))
+        duplicate.pop("identity_version")
+        duplicate["id"] = legacy["id"]
+        document["revisions"] = [duplicate, entry]
+    path.write_text(json.dumps(document))
+    with pytest.raises(ValueError):
+        load_source_revisions(provider)
+
+
+def test_missing_original_bytes_stop_metadata_only_write_before_state_changes(tmp_path):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    write_state(tmp_path, [paper()])
+    provider = provider_paths(tmp_path, "moex")
+    before = {path: path.read_bytes() for path in provider.data_dir.rglob("*.json")}
+    (store.root / KEY).unlink()
+    with pytest.raises(ValueError, match="restore the checksum-verified original"):
+        write_state(tmp_path, [replace(paper(), exam_name_raw="新標題")])
+    assert {path: path.read_bytes() for path in provider.data_dir.rglob("*.json")} == before
 
 
 @pytest.mark.parametrize("damage", ["missing", "changed"])

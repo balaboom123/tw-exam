@@ -245,7 +245,7 @@ def test_publication_end_to_end_mixed_history_reuse_and_fact_only_rebuild(tmp_pa
     monkeypatch.setattr("app.publisher.quarantined_provider_ids", lambda *args, **kwargs: set())
     monkeypatch.setattr(checks, "get_site_config", lambda _: config)
     monkeypatch.setattr(checks, "validate_source_inventory", lambda *args, **kwargs: None)
-    paper = material_paper(undated=undated)
+    paper = replace(material_paper(undated=undated), storage_key="providers/jlpt_cert/question.pdf")
     legacy_page = workbook_page()
     legacy_page.source_material = None
     legacy = replace(normalize(legacy_page).papers[0], storage_key=paper.storage_key, checksum=paper.checksum)
@@ -257,7 +257,7 @@ def test_publication_end_to_end_mixed_history_reuse_and_fact_only_rebuild(tmp_pa
 
     save(paper)
     mirror = tmp_path / "mirror"
-    mirror.mkdir()
+    (mirror / paper.storage_key).parent.mkdir(parents=True)
     (mirror / paper.storage_key).write_bytes(PAYLOAD)
     _, first = publish_site(tmp_path, site_id="default", repository="owner/archive")
     site = site_paths(tmp_path, "default")
@@ -275,7 +275,18 @@ def test_publication_end_to_end_mixed_history_reuse_and_fact_only_rebuild(tmp_pa
     _, reused = publish_site(tmp_path, site_id="default", repository="owner/archive")
     assert reused == first
     updated = replace(paper, source_material=replace(paper.source_material, evidence_label="Reviewed official source label"))
+    # Changed source facts require recoverable old bytes even when a public ZIP
+    # can still be reused. Publication reuse must not bypass provider retention.
+    with pytest.raises(ValueError, match="restore the checksum-verified original"):
+        save(updated)
+    (mirror / paper.storage_key).write_bytes(PAYLOAD)
     save(updated)
+    from app.source_revisions import load_source_revisions
+
+    entry, = load_source_revisions(provider)
+    assert entry["reason"] == "source_context_changed"
+    assert entry["source_record"]["source_material"] == to_plain_data(paper.source_material)
+    assert (mirror / entry["blob_storage_key"]).read_bytes() == PAYLOAD
     _, rebuilt = publish_site(tmp_path, site_id="default", repository="owner/archive")
     by_id = {bundle.bundle_id: bundle for bundle in first}
     for bundle in rebuilt:

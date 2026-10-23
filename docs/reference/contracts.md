@@ -21,7 +21,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Raw events, review entries, failures, aliases | [Models](../../app/models.py), [state](../../app/state.py) | `data/providers/<provider_id>/` |
 | Compact review ledger | [Review schema](../../schemas/review-queue-v2.schema.json), [codec](../../app/review_queue.py) | `data/providers/<provider_id>/review-queue.json` |
 | Successful event sync receipts | [Sync status schema](../../schemas/provider-sync-status-v1.schema.json), [provenance](../../app/provenance.py) | `data/providers/<provider_id>/sync-status.json` |
-| Superseded source references and payloads | [Revision schema](../../schemas/provider-source-revisions-v1.schema.json), [retention owner](../../app/source_revisions.py) | `data/providers/<provider_id>/source-revisions.json`, `mirror/providers/<provider_id>/recovery/source-revisions/` |
+| Superseded source references, context and payloads | [Revision v2 schema](../../schemas/provider-source-revisions-v2.schema.json), [legacy v1 schema](../../schemas/provider-source-revisions-v1.schema.json), [retention owner](../../app/source_revisions.py) | `data/providers/<provider_id>/source-revisions.json`, `mirror/providers/<provider_id>/recovery/source-revisions/` |
 | Reviewed non-paper revision meaning | [Reference evidence schema](../../schemas/source-revision-reference-v1.schema.json), [review owner](../../app/source_revision_review.py) | `catalog/mappings/source-revisions/reference-material-v1.json` |
 | Material nature and official date evidence | [Material schema](../../schemas/source-material-v1.schema.json), [fact model](../../app/source_material.py) | Provider raw events/papers and normalized records |
 | Reviewed TCU domestic annual admission and native papers | [Evidence schema](../../schemas/tcu-annual-papers-v1.schema.json), [checksum resolver and coverage gate](../../app/providers/hce_tcu/evidence.py) | `catalog/mappings/tcu/annual-papers-v1.json` |
@@ -134,9 +134,17 @@ classification or publication path.
 Scoped provider writers omit the optional legacy `download_url_bundle` field; current download URLs belong to site publication state. Readers retain compatibility with earlier provider records and default an absent field to an empty string. The legacy root-layout writer remains available for migration consumers.
 
 The source revision journal preserves an earlier normalized paper or attachment
-when its source reference is retired or its payload checksum changes. Its key
+when its source reference is retired, its payload checksum changes, or its
+source context changes while the reference and bytes stay the same. Its key
 includes the provider, native event, year, category, subject, file role, source
-URL, and checksum. Classification changes alone do not create source revisions.
+URL, and checksum. V2 entries additionally bind the original exam, category,
+subject and attachment titles and reviewed source material facts. Classification,
+publication and storage-locator changes alone do not create source revisions.
+Multiple earlier contexts can share one checksum-addressed blob. Repeated
+observations of the same context do not create duplicate journal entries.
+Readers support v1 and v2 journals. Appending a new entry writes a v2 wrapper;
+existing v1 entries, identifiers, timestamps and review bindings remain unchanged.
+An unchanged provider write leaves the original journal bytes untouched.
 The journal retains original source fields and independently copied,
 checksum-addressed bytes; it is recovery evidence outside the current site feed.
 An earlier revision must not satisfy a current download merely because its URL

@@ -90,7 +90,9 @@ Normalization applies reviewed provider aliases and shared identity rules to raw
 Full and incremental sync retain previously acquired events and papers that disappear from current listings, including their source-manifest evidence. Incremental and targeted merging preserve unaffected history. Refreshed names may derive canonical migrations; they must not orphan prior compatibility identities or silently merge distinct official programs.
 
 Before replacing provider state, the scoped writer records superseded paper and
-attachment references in the provider source revision journal. It requires the
+attachment references and superseded source titles or material facts in the
+provider source revision journal, even when the payload bytes have not changed.
+Reclassification alone does not add revisions. It requires the
 checksum-verified earlier payload or its already retained recovery blob before
 retiring a verified reference. Before this check, the writer can restore missing
 current locators and revision blobs from another recorded source path in the

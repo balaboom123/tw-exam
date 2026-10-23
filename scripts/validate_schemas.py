@@ -176,8 +176,9 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
             _validate(schemas[f"provider-index-v{index['schema_version']}.schema.json"], index, str(provider.index_path.relative_to(repo_root)))
         revision_path = revision_journal_path(provider)
         if revision_path.exists():
-            _validate(schemas["provider-source-revisions-v1.schema.json"], _read_json(revision_path), str(revision_path.relative_to(repo_root)))
             load_source_revisions(provider)
+            journal = _read_json(revision_path)
+            _validate(schemas[f"provider-source-revisions-v{journal['schema_version']}.schema.json"], journal, str(revision_path.relative_to(repo_root)))
         review_path = repo_root / "data/providers" / provider_id / "review-queue.json"
         if review_path.exists():
             payload = _read_json(review_path)
