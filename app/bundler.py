@@ -34,6 +34,7 @@ from app.publication_metadata import (
     derive_public_metadata,
     file_subject_label,
     publication_paper_subject,
+    publication_paper_subject_code,
 )
 from app.source_material import (
     MaterialSummary,
@@ -152,12 +153,12 @@ def _safe_segment(value: str, max_length: int | None = None) -> str:
 def _bundle_arcname(paper: NormalizedPaper) -> str:
     suffix = Path(paper.storage_key).suffix or ".bin"
     subject = paper.subject_name_raw
-    if paper.provider_id in {"taipower_recruit", "moea_recruit"}:
+    if paper.provider_id in {"taipower_recruit", "moea_recruit", "wdasec_skill"}:
         subject = publication_paper_subject(paper)
     file_name = "_".join(
         [
             _safe_segment(paper.category_code or "category", max_length=24),
-            _safe_segment(paper.subject_code or "subject", max_length=24),
+            _safe_segment(publication_paper_subject_code(paper) or "subject", max_length=24),
             _safe_segment(subject or "subject", max_length=60),
             _safe_segment(file_type_label(paper.file_type), max_length=20),
         ]
@@ -227,7 +228,7 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
             base[index].rsplit("/", 1)[0],
             paper.file_type,
             publication_paper_subject(paper)
-            if paper.provider_id == "moea_recruit"
+            if paper.provider_id in {"moea_recruit", "wdasec_skill"}
             else file_subject_label(paper.subject_name_raw),
             Path(paper.storage_key).suffix.lower(),
             paper.checksum,

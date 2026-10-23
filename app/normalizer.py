@@ -18,6 +18,7 @@ from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical
 from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
+from app.providers.wdasec_skill.papers import native_file_role as wda_file_role
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
@@ -451,28 +452,32 @@ def normalize_papers(
                 if mirror_base_url and asset_name
                 else ""
             )
-            normalized_papers.append(
-                NormalizedPaper(
-                    canonical_id=canonical_id,
-                    canonical_name=canonical_name,
-                    year_roc=year_roc,
-                    exam_name_raw=exam_name_raw,
-                    category_raw=paper.category_raw,
-                    category_code=paper.category_code,
-                    source_exam_id=source_exam_id,
-                    subject_code=paper.subject_code,
-                    subject_name_raw=paper.subject_name_raw,
-                    paper_code=f"{paper.category_code}-{paper.subject_code}-{normalized_role}",
-                    file_type=normalized_role,
-                    download_url_source=download_url_source,
-                    download_url_mirror=download_url_mirror,
-                    storage_key=storage_key,
-                    checksum=metadata.get("checksum", ""),
-                    provider_id=provider_id,
-                    source_material=material,
-                    **fields,
-                )
+            normalized_paper = NormalizedPaper(
+                canonical_id=canonical_id,
+                canonical_name=canonical_name,
+                year_roc=year_roc,
+                exam_name_raw=exam_name_raw,
+                category_raw=paper.category_raw,
+                category_code=paper.category_code,
+                source_exam_id=source_exam_id,
+                subject_code=paper.subject_code,
+                subject_name_raw=paper.subject_name_raw,
+                paper_code=f"{paper.category_code}-{paper.subject_code}-{normalized_role}",
+                file_type=normalized_role,
+                download_url_source=download_url_source,
+                download_url_mirror=download_url_mirror,
+                storage_key=storage_key,
+                checksum=metadata.get("checksum", ""),
+                provider_id=provider_id,
+                source_material=material,
+                **fields,
             )
+            if provider_id == "wdasec_skill":
+                normalized_paper.file_type = wda_file_role(normalized_paper)
+                normalized_paper.paper_code = (
+                    f"{paper.category_code}-{paper.subject_code}-{normalized_paper.file_type}"
+                )
+            normalized_papers.append(normalized_paper)
     return NormalizedCatalog(
         papers=normalized_papers, review_queue=_deduplicate_review_queue(review_queue)
     )
@@ -522,6 +527,14 @@ def renormalize_catalog(
                 source_url=paper.download_url_source,
                 checksum=paper.checksum,
             )
+            if role != paper.file_type:
+                paper = replace(
+                    paper,
+                    file_type=role,
+                    paper_code=f"{paper.category_code}-{paper.subject_code}-{role}",
+                )
+        elif paper.provider_id == "wdasec_skill":
+            role = wda_file_role(paper)
             if role != paper.file_type:
                 paper = replace(
                     paper,

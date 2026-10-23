@@ -168971,43 +168971,6 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-a-skill-9dd0e2a8b616",
-      "name": "全國技術士技能檢定｜甲級｜鋼琴調音",
-      "years": [
-        93,
-        90
-      ],
-      "fileCount": 2,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-class-a-skill-9dd0e2a8b616--b1b961855155.zip",
-      "domainId": "certification",
-      "examFamilyId": "skill-certification",
-      "seriesId": "skill-certification",
-      "levelId": "class-a",
-      "trackId": "skill-9dd0e2a8b616",
-      "variantIds": [],
-      "stageId": "not-applicable",
-      "examClass": "證照／檢定",
-      "examSubclass": "技術士技能檢定",
-      "searchAliases": [
-        "鋼琴調音",
-        "全國技術士技能檢定",
-        "93年度全國技能檢定第1梯次學科試題暨答案",
-        "06800",
-        "06800-class_a-question",
-        "90年度全國檢定第1梯次學科試題暨答案"
-      ],
-      "subjectLabels": [
-        "鋼琴調音"
-      ],
-      "sources": [
-        {
-          "name": "勞動部勞動力發展署技能檢定中心",
-          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
-        }
-      ],
-      "updated": "2026-10-08T01:33:30Z"
-    },
-    {
       "id": "wdasec-skill-skill-certification-class-a-skill-a114606ddd99",
       "name": "全國技術士技能檢定｜甲級｜網版製版",
       "years": [
@@ -194956,9 +194919,11 @@
         97,
         95,
         94,
-        91
+        93,
+        91,
+        90
       ],
-      "fileCount": 7,
+      "fileCount": 9,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-single-skill-7982cc17114e--89857f7423b9.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
@@ -194980,7 +194945,10 @@
         "97年度全國技能檢定暨勞安衛第1梯次學科試題暨答案.",
         "95年度全國檢定第1梯次學科試題暨答案",
         "94年度全國檢定第1梯次學科試題暨答案",
-        "91年度全國檢定第1梯次學科試題暨答案"
+        "93年度全國技能檢定第1梯次學科試題暨答案",
+        "06800-class_a-question",
+        "91年度全國檢定第1梯次學科試題暨答案",
+        "90年度全國檢定第1梯次學科試題暨答案"
       ],
       "subjectLabels": [
         "鋼琴調音"
@@ -196621,6 +196589,13 @@
   ],
   "catalog_version": "exam-identity-v2",
   "compatibilityPages": [
+    {
+      "id": "wdasec-skill-skill-certification-class-a-skill-9dd0e2a8b616",
+      "name": "全國技術士技能檢定｜甲級｜鋼琴調音",
+      "successorIds": [
+        "wdasec-skill-skill-certification-single-skill-7982cc17114e"
+      ]
+    },
     {
       "id": "wdasec-skill-skill-certification-class-b-skill-915b33da9328",
       "name": "全國技術士技能檢定｜乙級｜建築工程管理",

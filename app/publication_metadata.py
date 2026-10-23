@@ -9,6 +9,7 @@ from typing import Any
 from app.classification import TRACK_TITLED_PROVIDERS
 from app.providers.moea_recruit.evidence import native_file_subject
 from app.providers.teacher_qual.archive import native_member_subject
+from app.providers.wdasec_skill.papers import NativePaper, resolve_native_paper
 
 MAX_SEARCH_ALIASES = 24
 MAX_TAIPOWER_SEARCH_ALIASES = 64
@@ -64,10 +65,39 @@ def publication_subject_label(value: str, *, provider_id: str) -> str:
     return file_subject_label(value)
 
 
+def _wda_native_paper(paper: Any) -> NativePaper | None:
+    if _field(paper, "provider_id") != "wdasec_skill":
+        return None
+    year = paper.get("year_roc") if isinstance(paper, Mapping) else getattr(paper, "year_roc", None)
+    if type(year) is not int:
+        return None
+    return resolve_native_paper(
+        year_roc=year,
+        source_exam_id=_field(paper, "source_exam_id"),
+        exam_name_raw=_field(paper, "exam_name_raw"),
+        category_code=_field(paper, "category_code"),
+        subject_code=_field(paper, "subject_code"),
+        subject_name_raw=_field(paper, "subject_name_raw"),
+        source_url=_field(paper, "download_url_source"),
+        checksum=_field(paper, "checksum"),
+    )
+
+
+def publication_paper_subject_code(paper: Any) -> str:
+    native = _wda_native_paper(paper)
+    if native is not None and native.reviewed_identity is not None:
+        grade = native.reviewed_identity.level_id.replace("-", "_")
+        return f"{native.category_code}-{grade}-question"
+    return _field(paper, "subject_code")
+
+
 def publication_paper_subject(paper: Any) -> str:
     """Use exact native evidence without changing retained source wording."""
     provider_id = _field(paper, "provider_id")
     title = _field(paper, "subject_name_raw")
+    native = _wda_native_paper(paper)
+    if native is not None and native.reviewed_identity is not None:
+        return native.reviewed_identity.subject_label
     if provider_id == "teacher_qual":
         subject = native_member_subject(
             source_exam_id=_field(paper, "source_exam_id"),

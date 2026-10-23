@@ -5,10 +5,16 @@ import pytest
 from app.classification import classify_normalized_paper
 from app.models import NormalizedPaper, ParsedPaper
 from app.normalizer import normalize_papers
-from app.providers.wdasec_skill.forms import FORM_LABELS, NativeForm, form_variant, native_forms
+from app.providers.wdasec_skill.papers import (
+    FORM_LABELS,
+    NativePaper,
+    form_variant,
+    native_papers,
+    resolve_native_paper,
+)
 
 
-def normalized(form: NativeForm) -> NormalizedPaper:
+def normalized(form: NativePaper) -> NormalizedPaper:
     return NormalizedPaper(
         canonical_id="wdasec-skill",
         canonical_name="全國技術士技能檢定",
@@ -28,10 +34,10 @@ def normalized(form: NativeForm) -> NormalizedPaper:
 
 
 def test_distinct_native_questions_keep_occupation_and_grade_but_split_forms():
-    assisted = next(form for form in native_forms() if form.form == "foreign-assistance-master")
+    assisted = next(form for form in native_papers() if form.form == "foreign-assistance-master")
     ordinary = next(
         form
-        for form in native_forms()
+        for form in native_papers()
         if form.form == "ordinary"
         and (form.source_exam_id, form.subject_code)
         == (assisted.source_exam_id, assisted.subject_code)
@@ -62,7 +68,7 @@ def test_distinct_native_questions_keep_occupation_and_grade_but_split_forms():
     ],
 )
 def test_new_source_context_or_bytes_cannot_inherit_an_approved_form(form_name, field, value):
-    form = next(form for form in native_forms() if form.form == form_name)
+    form = next(form for form in native_papers() if form.form == form_name)
     changed = replace(normalized(form), **{field: value})
     identity = classify_normalized_paper(changed)
     assert identity.confidence == "review"
@@ -70,7 +76,7 @@ def test_new_source_context_or_bytes_cannot_inherit_an_approved_form(form_name, 
 
 
 def test_ingestion_and_retained_classification_use_the_same_native_context():
-    form = next(form for form in native_forms() if form.form == "foreign-assistance-master")
+    form = next(form for form in native_papers() if form.form == "foreign-assistance-master")
     raw = ParsedPaper(
         category_raw="全國技術士技能檢定",
         category_code=form.category_code,
@@ -96,9 +102,9 @@ def test_ingestion_and_retained_classification_use_the_same_native_context():
 
 
 def test_new_occupation_cannot_gain_a_form_from_similar_wording():
-    form = next(form for form in native_forms() if form.form == "foreign-assistance-master")
-    assert (
-        form_variant(
+    form = next(form for form in native_papers() if form.form == "foreign-assistance-master")
+    assert form_variant(
+        resolve_native_paper(
             year_roc=form.year_roc,
             source_exam_id=form.source_exam_id,
             exam_name_raw=form.exam_name_raw,
@@ -108,8 +114,7 @@ def test_new_occupation_cannot_gain_a_form_from_similar_wording():
             source_url=form.source_url,
             checksum=form.checksum,
         )
-        == ("paper-form-unknown", "試卷形式待確認")
-    )
+    ) == ("paper-form-unknown", "試卷形式待確認")
 
 
 @pytest.mark.repo_data
@@ -121,9 +126,9 @@ def test_native_form_migration_conserves_previously_public_paper_coverage():
     config = get_site_config("default")
     papers = []
     split_families = {
-        form.family for form in native_forms() if form.form == "foreign-assistance-master"
+        form.family for form in native_papers() if form.form == "foreign-assistance-master"
     }
-    for form in native_forms():
+    for form in native_papers():
         if form.family not in split_families:
             continue
         paper = normalized(form)
@@ -143,6 +148,7 @@ def test_native_form_migration_conserves_previously_public_paper_coverage():
         min_years_by_canonical_prefix=config.public_min_years_by_canonical_prefix,
     )
 
+
 @pytest.mark.parametrize(
     "event_id,title,year",
     [
@@ -157,7 +163,7 @@ def test_additional_archive_context_cannot_publish_even_when_reusing_retained_by
     from app.models import NormalizedCatalog
     from app.site_registry import get_site_config
 
-    ordinary = next(form for form in native_forms() if form.form == "ordinary")
+    ordinary = next(form for form in native_papers() if form.form == "ordinary")
     paper = replace(
         normalized(ordinary),
         source_exam_id=event_id,

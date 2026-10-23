@@ -29,10 +29,18 @@ paper forms. Their native headers, original source contexts and checksums own
 this distinction; a foreign language cannot be assigned from a Chinese master.
 Form evidence covers retained originals without approving other identity or
 material dimensions. Unreviewed source contexts or bytes remain in review.
-Ordinary identities without an assisted counterpart keep their existing IDs.
+The form review keeps existing IDs for ordinary identities without an assisted counterpart.
 The assisted collection explicitly covers written papers; the ordinary
 collection retains already published practical components. This grouping is
 not a separate qualification path or an exemption from practical requirements.
+
+Native-paper evidence can separately correct a source table's grade and file
+role. These corrections require the complete native context and checksum; form
+approval alone cannot supply them. The source fields remain traceability keys.
+For example, piano-tuning files whose headers say 單一級 belong to that native
+grade even when the table says 甲級; files that contain questions and answers
+use the combined role. Public subject labels and archive paths use the reviewed
+facts, while immutable history retains the earlier source-role observation.
 
 Taiwan Water archive evidence is keyed by programme year, official source URL,
 and original SHA-256 checksum. Reviewed replacements are appended alongside

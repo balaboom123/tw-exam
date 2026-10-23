@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path:
 
 from app.providers.hce_tcu.evidence import annual_papers_path as tcu_annual_papers_path, validate_annual_papers as validate_tcu_annual_papers
 from app.providers.post_recruit.evidence import native_papers_path as postal_native_papers_path, validate_native_papers as validate_postal_native_papers
-from app.providers.wdasec_skill.forms import native_forms_path, validate_native_forms
+from app.providers.wdasec_skill.papers import native_papers_path, validate_native_papers
 from app.retained_downloads import retained_downloads_path, load_retained_downloads
 from app.paths import site_paths
 from app.site_registry import get_site_config
@@ -112,7 +112,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     _validate(schemas[f"frontend-bundle-feed-v{version}.schema.json"], frontend, str(frontend_path.relative_to(repo_root)))
 
     artifacts = (
-        (native_forms_path(repo_root), "wdasec-native-paper-forms-v1.schema.json"),
+        (native_papers_path(repo_root), "wdasec-native-paper-facts-v1.schema.json"),
         (postal_native_papers_path(repo_root), "post-native-papers-v1.schema.json"),
         (tcu_annual_papers_path(repo_root), "tcu-annual-papers-v1.schema.json"),
         (site_dir / "release-assets.json", f"release-assets-v{_read_json(site_dir / 'release-assets.json')['schema_version']}.schema.json"),
@@ -147,7 +147,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_tqc_identity_evidence(repo_root)
     validate_tcu_annual_papers(repo_root)
     validate_postal_native_papers(repo_root)
-    validate_native_forms(repo_root)
+    validate_native_papers(repo_root)
     validate_annual_papers(repo_root)
     for plan_path in sorted((repo_root / "data/providers/hce_nsysu/native-selections").glob("*.json")):
         _validate(schemas["compiled-pdf-selection-v1.schema.json"], _read_json(plan_path), str(plan_path.relative_to(repo_root)))

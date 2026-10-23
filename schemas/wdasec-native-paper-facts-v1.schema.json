@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://tw-exam.invalid/schemas/wdasec-native-paper-forms-v1.schema.json",
-  "title": "Reviewed WDA native written paper forms",
+  "$id": "https://tw-exam.invalid/schemas/wdasec-native-paper-facts-v1.schema.json",
+  "title": "Reviewed WDA native paper forms and explicit identity/role evidence",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -116,6 +116,46 @@
           },
           "native_header": {
             "type": "string"
+          },
+          "reviewed_identity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "level_id",
+              "native_grade",
+              "subject_label",
+              "file_role",
+              "evidence"
+            ],
+            "properties": {
+              "level_id": {
+                "enum": [
+                  "class-a",
+                  "class-b",
+                  "class-c",
+                  "single"
+                ]
+              },
+              "native_grade": {
+                "enum": [
+                  "甲級",
+                  "乙級",
+                  "丙級",
+                  "單一級"
+                ]
+              },
+              "subject_label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "file_role": {
+                "const": "question_answer"
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
           }
         }
       }

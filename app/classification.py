@@ -1788,22 +1788,12 @@ def _classify_paper_uncached(
             provider_id, category, canonical_id, subject_name_raw, category_code
         )
         domain_id, family_id, series_id, series_label = _provider_series(provider_id, canonical_id)
-    track_id, track_label = _track_details(
-        provider_id,
-        category,
-        canonical_id,
-        canonical_name,
-        subject_name_raw,
-        subject_code,
-        source_exam_id,
-        exam_name,
-        series_id,
-    )
-    variant_pairs = _variants(category, exam_name)
+    wda_native = None
+    identity_subject = subject_name_raw
     if provider_id == "wdasec_skill":
-        from app.providers.wdasec_skill.forms import form_variant
+        from app.providers.wdasec_skill.papers import resolve_native_paper as wda_native_paper
 
-        wda_form = form_variant(
+        wda_native = wda_native_paper(
             year_roc=year_ad - 1911,
             source_exam_id=source_exam_id,
             exam_name_raw=exam_name_raw,
@@ -1813,6 +1803,29 @@ def _classify_paper_uncached(
             source_url=source_url,
             checksum=source_checksum,
         )
+        if wda_native is not None and wda_native.reviewed_identity is not None:
+            wda_review = wda_native.reviewed_identity
+            level_id, level_label = wda_review.level_id, _LEVEL_LABELS[wda_review.level_id]
+            if level_label != wda_review.native_grade:
+                raise ValueError("WDA native grade differs from its canonical level")
+            identity_subject = wda_review.subject_label
+            reason = "WDA native header grade verified by source context and SHA-256"
+    track_id, track_label = _track_details(
+        provider_id,
+        category,
+        canonical_id,
+        canonical_name,
+        identity_subject,
+        subject_code,
+        source_exam_id,
+        exam_name,
+        series_id,
+    )
+    variant_pairs = _variants(category, exam_name)
+    if provider_id == "wdasec_skill":
+        from app.providers.wdasec_skill.papers import form_variant
+
+        wda_form = form_variant(wda_native)
         if wda_form is not None:
             variant_pairs = (*variant_pairs, wda_form)
             if wda_form[0] == "paper-form-unknown":

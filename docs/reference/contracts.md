@@ -4,7 +4,11 @@ When an identity split conserves every native source key and checksum of a
 retained ZIP, the site writer derives its landing-page successors from those
 exact sources. The optional frontend `compatibilityPages` projection contains
 explicit current bundle IDs; the frontend does not infer them from names.
-Partial native overlap cannot approve a successor list. More complex source
+Partial native overlap cannot approve a successor list. A file-role correction
+can follow an immutable historical source record through the same normalizer
+used for current publication. This requires unchanged source context and bytes,
+an approved resulting identity, and a matching current public record. A shared
+URL or checksum alone cannot establish that relation. More complex source
 transformations retain their separately reviewed compatibility pages.
 
 Executable fields, types, versions, and vocabularies live in the owners below. This reference defines ownership, traceability, publication boundaries, and compatibility obligations. Identity and bundle purity are defined in [exam identity](exam-identity.md).
@@ -24,6 +28,7 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Reviewed postal employment grades, job applicability and annual papers | [Evidence schema](../../schemas/post-native-papers-v1.schema.json), [native resolver and coverage gate](../../app/providers/post_recruit/evidence.py) | `catalog/mappings/post/native-papers-v1.json` |
 | Reviewed NTHU annual selection and shared-paper applicability | [Evidence schema](../../schemas/nthu-annual-papers-v1.schema.json), [resolver and evidence gate](../../app/providers/hce_nthu/identity.py) | `catalog/mappings/nthu/annual-papers-v1.json` |
 | Reviewed TQC sample identities | [Evidence schema](../../schemas/tqc-sample-identity-v1.schema.json), [checksum resolver and evidence gate](../../app/tqc_identity_evidence.py) | `catalog/mappings/tqc/sample-identity-v1.json` |
+| Reviewed WDA native paper forms and explicit grade/role corrections | [Evidence schema](../../schemas/wdasec-native-paper-facts-v1.schema.json), [native resolver and evidence gate](../../app/providers/wdasec_skill/papers.py) | `catalog/mappings/wdasec/native-paper-facts-v1.json` |
 | Reviewed native Taipower answer corrections | [Evidence schema](../../schemas/taipower-answer-corrections-v1.schema.json), [role resolver and evidence gate](../../app/taipower_file_roles.py) | `catalog/mappings/taipower/answer-corrections-v1.json` |
 | Reviewed Taiwan Water native papers and occupational applicability | [Evidence schema](../../schemas/twc-archive-papers-v1.schema.json), [member/category resolver and conservation gate](../../app/providers/twc_recruit/archive.py) | `catalog/mappings/twc/archive-papers-v1.json` |
 | Reviewed NSYSU native documents, page selections and admission applicability | [Evidence schema](../../schemas/nsysu-native-selections-v1.schema.json), [identity and conservation owner](../../app/providers/hce_nsysu/evidence.py) | `catalog/mappings/nsysu/native-selections-v1.json` |

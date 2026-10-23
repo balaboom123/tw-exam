@@ -275,6 +275,52 @@ def snapshot_existing_downloads(
     return sorted(by_name.values(), key=lambda download: download.asset_name)
 
 
+def _reviewed_role_history(
+    repo_root: Path,
+    providers: set[str],
+    current: dict[tuple[Any, ...], list[NormalizedPaper]],
+) -> dict[tuple[Any, ...], list[NormalizedPaper]]:
+    """Use the normalizer's approved role correction on immutable source history."""
+    from app.bundler import _paper_bundle_key
+    from app.models import NormalizedCatalog
+    from app.normalizer import load_alias_rules, renormalize_catalog
+    from app.source_revisions import load_source_revisions
+
+    aliases: dict[tuple[Any, ...], list[NormalizedPaper]] = defaultdict(list)
+    for provider_id in sorted(providers):
+        provider = provider_paths(repo_root, provider_id)
+        rules = load_alias_rules(provider.aliases_path)
+        for entry in load_source_revisions(provider):
+            if entry["record_type"] != "paper":
+                continue
+            previous = NormalizedPaper(**entry["source_record"])
+            old_key = (provider_id, *_paper_bundle_key(previous), previous.checksum)
+            if old_key in current:
+                continue
+            normalized = renormalize_catalog(NormalizedCatalog([previous], []), rules).papers[0]
+            if (
+                normalized.file_type == previous.file_type
+                or normalized.classification_confidence != "high"
+                or normalized.checksum != previous.checksum
+            ):
+                continue
+            new_key = (provider_id, *_paper_bundle_key(normalized), normalized.checksum)
+            # A role change is the only permissible source-key difference.
+            if old_key[:5] != new_key[:5] or old_key[6:] != new_key[6:]:
+                continue
+            for target in current.get(new_key, []):
+                if (
+                    target.bundle_id == normalized.bundle_id
+                    and target.classification_confidence == "high"
+                    and target.exam_name_raw == normalized.exam_name_raw
+                    and target.category_raw == normalized.category_raw
+                    and target.subject_name_raw == normalized.subject_name_raw
+                    and target.source_material == normalized.source_material
+                ):
+                    aliases[old_key].append(target)
+    return aliases
+
+
 def derive_compatibility_pages(
     repo_root: Path,
     site: SitePaths,
@@ -290,11 +336,13 @@ def derive_compatibility_pages(
     from app.bundler import _paper_bundle_key
 
     public = {bundle.bundle_id for bundle in bundles}
-    by_source: dict[tuple[Any, ...], set[str]] = defaultdict(set)
+    owners = {download.provider_id for download in downloads}
+    by_source: dict[tuple[Any, ...], list[NormalizedPaper]] = defaultdict(list)
     for paper in papers:
-        by_source[(paper.provider_id, *_paper_bundle_key(paper), paper.checksum)].add(
-            paper.bundle_id
-        )
+        if paper.provider_id in owners:
+            by_source[(paper.provider_id, *_paper_bundle_key(paper), paper.checksum)].append(paper)
+    for key, role_targets in _reviewed_role_history(repo_root, owners, by_source).items():
+        by_source[key].extend(role_targets)
     pages = []
     for download in downloads:
         manifest = verify_retained_download(repo_root, site, download, verify_content=False)
@@ -304,7 +352,7 @@ def derive_compatibility_pages(
         ]
         if not sources or any(key not in by_source for key in sources):
             continue
-        successors = {bundle_id for key in sources for bundle_id in by_source[key]}
+        successors = {paper.bundle_id for key in sources for paper in by_source[key]}
         if not successors or not successors <= public:
             continue
         pages.append(

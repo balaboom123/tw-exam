@@ -922,10 +922,20 @@ an archive menu alone does not establish a particular candidate population.
 The source's identical occupation/grade labels can link different written papers:
 native headers identify the Chinese masters for the foreign-assistance form.
 These are not published English, Vietnamese or other translated-language files.
-Exact native contexts and checksums in the paper-form evidence own this boundary;
+Exact native contexts and checksums in the native-paper evidence own this boundary;
 changed bytes or unreviewed contexts require review. Ordinary source papers and
 already published practical components remain in the ordinary-paper collection.
 The assisted collection explicitly identifies its written-paper scope; it does
 not describe a separate qualification path or exempt candidates from practical
 requirements. This form review does not approve historical material purpose,
 answer roles, occupation renaming or an annual examination date.
+
+
+The native-paper facts separately approve corrections to piano tuning. Its
+retained files identify 單一級 even where the source table says 甲級, and contain
+questions together with answers. Classification, public subject labels and ZIP
+filenames use those exact native facts. Original table labels, source codes,
+URLs and bytes remain unchanged in provider evidence. The previous role is
+retained in immutable history, so the old grade download stays recoverable and
+its landing page can lead to the conserved single-grade collection. This review
+does not approve other occupations' native grade, purpose, cohort or file role.
