@@ -182580,8 +182580,8 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba",
-      "name": "全國技術士技能檢定｜丙級｜中餐烹調",
+      "id": "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調｜一般試卷",
       "years": [
         103,
         102,
@@ -182596,14 +182596,16 @@
         93,
         92
       ],
-      "fileCount": 45,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-011/wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba--9e9201552722.zip",
+      "fileCount": 36,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba-paper-form-ordinary--4684601aea88.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-0ac8669c5cba",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -182620,7 +182622,6 @@
         "102年度全國技術士技能檢定第3梯次學科試題暨答案",
         "101年度全國技能檢定第1梯次學科試題暨答案",
         "101年度全國技能檢定第2梯次學科試題暨答案",
-        "07600-class_c-practical",
         "101年度全國技能檢定第3梯次學科試題暨答案",
         "100年度全國技能檢定暨勞安衛第3梯次學科試題暨答案",
         "100年度全國技能檢定暨勞安衛第1梯次學科試題暨答案",
@@ -182631,7 +182632,62 @@
         "98年度全國技能檢定暨勞安衛第3梯次學科試題暨答案.",
         "98年度全國技能檢定暨勞安衛第2梯次學科試題暨答案.",
         "98年度全國技能檢定暨勞安衛第1梯次學科試題暨答案.",
-        "97年度全國技能檢定暨勞安衛第3梯次學科試題暨答案"
+        "97年度全國技能檢定暨勞安衛第3梯次學科試題暨答案",
+        "97年度全國技能檢定暨勞安衛第2梯次學科試題暨答案."
+      ],
+      "subjectLabels": [
+        "中餐烹調"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba-paper-form-senior-chef",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調｜資深廚師學科試卷",
+      "years": [
+        103,
+        102,
+        101,
+        100,
+        99,
+        98,
+        97,
+        96,
+        92
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba-paper-form-senior-chef--eadd84f3aae1.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-0ac8669c5cba",
+      "variantIds": [
+        "paper-form-senior-chef"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "中餐烹調",
+        "全國技術士技能檢定",
+        "103年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07600",
+        "07600-class_c-question",
+        "102年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "101年度全國技能檢定第2梯次學科試題暨答案",
+        "07600-class_c-practical",
+        "100年度全國技能檢定暨勞安衛第2梯次學科試題暨答案.",
+        "99年度全國技能檢定暨勞安衛第2梯次學科試題暨答案.",
+        "98年度全國技能檢定暨勞安衛第2梯次學科試題暨答案.",
+        "97年度全國技能檢定暨勞安衛第2梯次學科試題暨答案.",
+        "96年度全國技能檢定暨勞安衛第2梯次學科試題暨答案",
+        "92年度全國檢定第2梯次學科試題暨答案"
       ],
       "subjectLabels": [
         "中餐烹調"
@@ -190401,7 +190457,7 @@
         105,
         104
       ],
-      "fileCount": 41,
+      "fileCount": 36,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary--fa9085869551.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
@@ -190439,6 +190495,52 @@
         "110年度全國技術士技能檢定第3梯次學科試題暨答案",
         "109年度全國技術士技能檢定第1梯次學科試題暨答案",
         "109年度全國技術士技能檢定第2梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "中餐烹調─葷食"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-senior-chef",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─葷食｜資深廚師學科試卷",
+      "years": [
+        108,
+        107,
+        106,
+        105,
+        104
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-senior-chef--0ab45d192d09.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-bd24e86ea68c",
+      "variantIds": [
+        "paper-form-senior-chef"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "中餐烹調─葷食",
+        "全國技術士技能檢定",
+        "108年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07602",
+        "07602-class_c-question",
+        "107年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "106年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07602-class_c-practical",
+        "105年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "104年度全國技術士技能檢定第2梯次學科試題暨答案"
       ],
       "subjectLabels": [
         "中餐烹調─葷食"
@@ -192162,8 +192264,8 @@
       "updated": "2026-10-08T01:33:30Z"
     },
     {
-      "id": "wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b",
-      "name": "全國技術士技能檢定｜丙級｜中餐烹調─素食",
+      "id": "wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b-paper-form-ordinary",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─素食｜一般試卷",
       "years": [
         115,
         114,
@@ -192178,14 +192280,16 @@
         105,
         104
       ],
-      "fileCount": 40,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b--5872d3715b31.zip",
+      "fileCount": 35,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b-paper-form-ordinary--d494b8a0b417.zip",
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
       "levelId": "class-c",
       "trackId": "skill-e6ec3e93408b",
-      "variantIds": [],
+      "variantIds": [
+        "paper-form-ordinary"
+      ],
       "stageId": "not-applicable",
       "examClass": "證照／檢定",
       "examSubclass": "技術士技能檢定",
@@ -192214,6 +192318,52 @@
         "109年度全國技術士技能檢定第1梯次學科試題暨答案",
         "109年度全國技術士技能檢定第2梯次學科試題暨答案",
         "109年度全國技術士技能檢定第3梯次學科試題暨答案"
+      ],
+      "subjectLabels": [
+        "中餐烹調─素食"
+      ],
+      "sources": [
+        {
+          "name": "勞動部勞動力發展署技能檢定中心",
+          "url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx"
+        }
+      ],
+      "updated": "2026-10-08T01:33:30Z"
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b-paper-form-senior-chef",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─素食｜資深廚師學科試卷",
+      "years": [
+        108,
+        107,
+        106,
+        105,
+        104
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b-paper-form-senior-chef--270ce0a4cab7.zip",
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "skill-certification",
+      "levelId": "class-c",
+      "trackId": "skill-e6ec3e93408b",
+      "variantIds": [
+        "paper-form-senior-chef"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "技術士技能檢定",
+      "searchAliases": [
+        "中餐烹調─素食",
+        "全國技術士技能檢定",
+        "108年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07601",
+        "07601-class_c-question",
+        "107年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "106年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "07601-class_c-practical",
+        "105年度全國技術士技能檢定第2梯次學科試題暨答案",
+        "104年度全國技術士技能檢定第2梯次學科試題暨答案"
       ],
       "subjectLabels": [
         "中餐烹調─素食"
@@ -196648,6 +196798,14 @@
       ]
     },
     {
+      "id": "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba-paper-form-ordinary",
+        "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba-paper-form-senior-chef"
+      ]
+    },
+    {
       "id": "wdasec-skill-skill-certification-class-c-skill-4bc06fb95b2f",
       "name": "全國技術士技能檢定｜丙級｜配電電纜裝修",
       "successorIds": [
@@ -196700,7 +196858,8 @@
       "name": "全國技術士技能檢定｜丙級｜中餐烹調─葷食",
       "successorIds": [
         "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-foreign-assistance-master",
-        "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary"
+        "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-ordinary",
+        "wdasec-skill-skill-certification-class-c-skill-bd24e86ea68c-paper-form-senior-chef"
       ]
     },
     {
@@ -196717,6 +196876,14 @@
       "successorIds": [
         "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-foreign-assistance-master",
         "wdasec-skill-skill-certification-class-c-skill-d62a66e69aab-paper-form-ordinary"
+      ]
+    },
+    {
+      "id": "wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b",
+      "name": "全國技術士技能檢定｜丙級｜中餐烹調─素食",
+      "successorIds": [
+        "wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b-paper-form-ordinary",
+        "wdasec-skill-skill-certification-class-c-skill-e6ec3e93408b-paper-form-senior-chef"
       ]
     },
     {

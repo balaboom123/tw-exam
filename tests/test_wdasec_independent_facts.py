@@ -144,7 +144,7 @@ def test_native_evidence_has_one_authoritative_versioned_file(tmp_path):
     folder = tmp_path / "catalog/mappings/wdasec"
     folder.mkdir(parents=True)
     legacy = folder / "native-paper-facts-v1.json"
-    current = folder / "native-paper-facts-v2.json"
+    current = folder / "native-paper-facts-v3.json"
     assert owner.native_papers_path(tmp_path) == current
     legacy.write_text("{}")
     assert owner.native_papers_path(tmp_path) == legacy
@@ -163,6 +163,7 @@ def test_v2_contract_reuses_legacy_native_context_and_validates_separate_approva
     )
     validator = Draft202012Validator(schemas[1], registry=registry)
     payload = document()
+    payload["schema_version"] = 2
     validator.validate(payload)
     payload["papers"][0]["reviewed_role"]["question_count"] = 100
     validator.validate(payload)

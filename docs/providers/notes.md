@@ -957,3 +957,21 @@ native visual inspection when extracted text cannot establish the content.
 Keep the original source role and bytes recoverable when normalizing that
 booklet as questions with answers. This judgment alone does not resolve a
 conflicting occupation, component, year, programme or material purpose.
+
+Retained cooking booklets explicitly headed 資深廚師 contain a different question
+set from their same-event ordinary counterparts. Keep this native paper form
+distinct from ordinary and foreign-assisted masters. The
+[102 official guide](https://skill.tcte.edu.tw/doc/YR102/102Skill_reg_1020808.pdf)
+has a cooking-specific senior application alongside the general senior
+oral-assistance form. Later generic oral-assistance wording about unchanged
+questions does not prove that the actual retained senior-chef booklets are
+ordinary papers. Do not infer a new grade, a universal eligibility rule or a
+practical exemption from this paper-form judgment.
+
+Some native listing rows put these theory booklets in the practical column.
+Independent component evidence corrects public labels and archive paths while
+retaining the original column-derived source fields. Native scanned answer
+reports and original image ZIP members can establish a combined question/answer
+role; unreadable text extraction alone cannot. Preserve original files and
+handwritten corrections. Identical source ZIPs in separate historical events
+retain both source references until their event relationship is established.

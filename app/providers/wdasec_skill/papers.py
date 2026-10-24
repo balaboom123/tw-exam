@@ -1,6 +1,6 @@
 """Source-and-byte-bound WDA paper facts.
 
-Paper form, native grade, displayed subject and file role are independent facts.
+Paper form, native grade, component and file role are independent facts.
 A reviewed form alone does not approve the other dimensions. Original source
 labels remain traceability keys even when the native paper corrects them.
 """
@@ -19,11 +19,13 @@ from app.models import NormalizedPaper
 
 FORM_LABELS = {
     "ordinary": ("paper-form-ordinary", "一般試卷"),
+    "senior-chef": ("paper-form-senior-chef", "資深廚師學科試卷"),
     "foreign-assistance-master": (
         "paper-form-foreign-assistance-master",
         "外語輔助學科試卷（中文公告版）",
     ),
 }
+COMPONENT_LABELS = {"theory": "學科", "practical": "術科"}
 
 
 @dataclass(frozen=True)
@@ -42,6 +44,13 @@ class ReviewedRole:
 
 
 @dataclass(frozen=True)
+class ReviewedComponent:
+    component_id: str
+    native_component: str
+    evidence: str
+
+
+@dataclass(frozen=True)
 class NativePaper:
     year_roc: int
     source_exam_id: str
@@ -55,6 +64,13 @@ class NativePaper:
     native_header: str
     reviewed_grade: ReviewedGrade | None = None
     reviewed_role: ReviewedRole | None = None
+    reviewed_component: ReviewedComponent | None = None
+
+    @property
+    def component_id(self) -> str:
+        if self.reviewed_component is not None:
+            return self.reviewed_component.component_id
+        return "theory" if self.subject_code.endswith("-question") else "practical"
 
     @property
     def key(self) -> tuple[int, str, str, str, str, str, str, str]:
@@ -79,11 +95,11 @@ class NativePaper:
 
 def native_papers_path(repo_root: Path) -> Path:
     folder = repo_root / "catalog/mappings/wdasec"
-    current = folder / "native-paper-facts-v2.json"
-    legacy = folder / "native-paper-facts-v1.json"
-    if current.exists() and legacy.exists():
+    paths = [folder / f"native-paper-facts-v{version}.json" for version in (3, 2, 1)]
+    existing = [path for path in paths if path.exists()]
+    if len(existing) > 1:
         raise ValueError("WDA native paper evidence has competing versioned owners")
-    return legacy if legacy.exists() else current
+    return existing[0] if existing else paths[0]
 
 
 def _read_native_paper(row: object, version: int) -> NativePaper:
@@ -100,9 +116,15 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
         "native_header",
     }
     optional = {"reviewed_identity"} if version == 1 else {"reviewed_grade", "reviewed_role"}
+    if version == 3:
+        optional.add("reviewed_component")
     if not isinstance(row, dict) or not required <= row.keys() <= required | optional:
         raise ValueError("Unsupported WDA native paper evidence fields")
     values = dict(row)
+    if version < 3 and values["form"] == "senior-chef":
+        raise ValueError("Senior-chef paper forms require v3 native evidence")
+    if "reviewed_component" in values and values["reviewed_component"] is None:
+        raise ValueError("Invalid WDA native component evidence")
     if version == 1:
         legacy = values.pop("reviewed_identity", None)
         if legacy is not None:
@@ -123,6 +145,12 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
             }
     grade = values.pop("reviewed_grade", None)
     role = values.pop("reviewed_role", None)
+    component = values.pop("reviewed_component", None)
+    if component is not None and (
+        not isinstance(component, dict)
+        or set(component) != {"component_id", "native_component", "evidence"}
+    ):
+        raise ValueError("Invalid WDA native component evidence")
     if grade is not None and (
         not isinstance(grade, dict)
         or set(grade) != {"level_id", "native_grade", "subject_label", "evidence"}
@@ -145,6 +173,7 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
         **values,
         reviewed_grade=ReviewedGrade(**grade) if grade is not None else None,
         reviewed_role=ReviewedRole(**role) if role is not None else None,
+        reviewed_component=ReviewedComponent(**component) if component is not None else None,
     )
 
 
@@ -154,7 +183,7 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
         set(document)
         != {"schema_version", "provider_id", "reviewed_at", "rules", "review_notes", "papers"}
         or type(document["schema_version"]) is not int
-        or document["schema_version"] not in {1, 2}
+        or document["schema_version"] not in {1, 2, 3}
         or document["provider_id"] != "wdasec_skill"
         or not document["review_notes"].strip()
         or not document["rules"]
@@ -166,7 +195,7 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
         if (
             set(rule) != {"source_url", "checksum", "evidence"}
             or url.scheme != "https"
-            or url.netloc not in {"ws.wda.gov.tw", "news.immigration.gov.tw"}
+            or url.netloc not in {"ws.wda.gov.tw", "news.immigration.gov.tw", "skill.tcte.edu.tw"}
             or url.fragment
             or re.fullmatch(r"[0-9a-f]{64}", rule["checksum"]) is None
             or not rule["evidence"].strip()
@@ -201,6 +230,11 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
             or paper.form not in FORM_LABELS
             or (paper.form == "ordinary" and "外語翻譯" in paper.native_header)
             or (
+                document["schema_version"] == 3
+                and paper.form == "ordinary"
+                and "資深廚師" in paper.native_header
+            )
+            or (
                 not paper.native_header.strip()
                 and paper.year_roc >= 108
                 and paper.subject_code.endswith("-question")
@@ -211,6 +245,17 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
                     "外語翻譯" not in paper.native_header
                     or not url.path.endswith(".pdf")
                     or not paper.subject_code.endswith("-question")
+                )
+            )
+            or (
+                paper.form == "senior-chef"
+                and (
+                    paper.category_code not in {"07600", "07601", "07602"}
+                    or "資深廚師" not in paper.native_header
+                    or "丙級" not in paper.native_header
+                    or "學科" not in paper.native_header
+                    or paper.component_id != "theory"
+                    or not url.path.lower().endswith(".pdf")
                 )
             )
         ):
@@ -238,12 +283,23 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
                 or not paper.subject_code.endswith("-question")
             ):
                 raise ValueError("WDA grade corrections require exact native grade evidence")
+        component = paper.reviewed_component
+        if component is not None and (
+            not isinstance(component.component_id, str)
+            or component.component_id not in COMPONENT_LABELS
+            or component.native_component != COMPONENT_LABELS[component.component_id]
+            or component.native_component not in paper.native_header
+            or not isinstance(component.evidence, str)
+            or not component.evidence.strip()
+            or not paper.subject_name_raw.endswith(tuple(COMPONENT_LABELS.values()))
+        ):
+            raise ValueError("WDA component corrections require exact native component evidence")
         role = paper.reviewed_role
         if role is not None and (
             role.file_role != "question_answer"
             or not isinstance(role.evidence, str)
             or not role.evidence.strip()
-            or not paper.subject_code.endswith("-question")
+            or paper.component_id != "theory"
             or (
                 role.question_count is not None
                 and (type(role.question_count) is not int or not 1 <= role.question_count <= 1000)
@@ -255,10 +311,9 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
     for paper in papers:
         families.setdefault(paper.family, set()).add(paper.form)
     if not papers or any(
-        "foreign-assistance-master" in forms and "ordinary" not in forms
-        for forms in families.values()
+        forms != {"ordinary"} and "ordinary" not in forms for forms in families.values()
     ):
-        raise ValueError("A corrected WDA family requires both ordinary and assisted forms")
+        raise ValueError("A corrected WDA family requires its ordinary counterpart")
     return papers
 
 
@@ -274,9 +329,7 @@ def _index() -> dict[tuple[int, str, str, str, str, str, str, str], NativePaper]
 
 @lru_cache(maxsize=1)
 def _families() -> frozenset[tuple[str, str]]:
-    return frozenset(
-        paper.family for paper in native_papers() if paper.form == "foreign-assistance-master"
-    )
+    return frozenset(paper.family for paper in native_papers() if paper.form != "ordinary")
 
 
 def resolve_native_paper(

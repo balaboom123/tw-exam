@@ -39,16 +39,30 @@ role. Each judgment requires the complete native context and checksum. A role
 review does not approve a grade, subject label or examination identity; a grade
 review does not establish whether answers are present. Form approval alone
 cannot supply either judgment. The source fields remain traceability keys.
-The v2 evidence format stores these judgments separately. Readers can recover
+The v3 evidence format also stores component judgments independently. A source
+table's practical column can contain a native theory booklet. Correct the
+published component only from its exact native evidence; written presentation
+alone does not establish theory, since practical tests can also be written.
+The original source component and code remain traceability keys. Readers can recover
 the earlier v1 combined review as its originally approved grade and role facts,
 without inventing either dimension or changing retained identifiers. Only one
 versioned evidence file may own a repository's current WDA facts.
+The earlier v2 format retains its separate grade and role meanings.
 Recovery pairs the evidence file with a compatible runtime; reverting to an
 older runtime also requires its matching evidence snapshot.
 For example, piano-tuning files whose headers say 單一級 belong to that native
 grade even when the table says 甲級; files that contain questions and answers
 use the combined role. Public subject labels and archive paths use the reviewed
 facts, while immutable history retains the earlier source-role observation.
+
+Cooking papers whose native headers identify 資深廚師 and contain a different
+question set use a separate paper-form variant. Same-event ordinary controls
+establish this content boundary; oral assistance alone does not. Generic senior
+oral-assistance rules can specify unchanged questions, so they cannot supply a
+blanket rule for these retained booklets. The form is independent of the native
+qualification grade and occupation. Historical generic cooking papers that
+explicitly cover both vegetarian and nonvegetarian tracks retain that shared
+scope instead of being assigned to just one later track.
 
 Taiwan Water archive evidence is keyed by programme year, official source URL,
 and original SHA-256 checksum. Reviewed replacements are appended alongside

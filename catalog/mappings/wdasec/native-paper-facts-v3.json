@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "provider_id": "wdasec_skill",
   "reviewed_at": "2026-10-24",
   "rules": [
@@ -12,9 +12,14 @@
       "source_url": "https://news.immigration.gov.tw/NewsSection/Detail/d6de9407-4dcb-4678-81dc-ec866b7cf1a1?category=0&lang=TW",
       "checksum": "95521f82eda36eb4184543e246219949924177f155b4c5ac3d8dc4343bcb8094",
       "evidence": "移民署2025-01-01公告記載勞動部自108年起推動加列外語輔助，114年擴充職類及適用對象；108年前的原始歷史試卷不應標成外語輔助母卷。"
+    },
+    {
+      "source_url": "https://skill.tcte.edu.tw/doc/YR102/102Skill_reg_1020808.pdf",
+      "checksum": "2740b7a2ccf9898b32a76f620f75d9959ca328b71ee4dae7c7ba90ab2a7d35da",
+      "evidence": "102 official national skills guide: printed p29 separately defines cooking 資深廚師 eligibility; printed p68 general senior oral assistance and p69 cooking-specific senior application are separate forms. This corroborates the native label, but does not supply a 20-question rule or establish every historical year eligibility. The exact native papers independently print 資深廚師 and20 questions; their same-event ordinary controls print80/100 questions."
     }
   ],
-  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級. Additional independent role reviews bind complete 80- or 100-question native PDFs with prefilled answers to their exact retained source contexts and checksums. Sparse mathematical and graphical question content was visually verified where text extraction was insufficient. These role facts do not approve grades, programmes, components, events, material purpose or dates; unresolved boundary contexts retain their separate review disposition.",
+  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級. Additional independent role reviews bind complete 80- or 100-question native PDFs with prefilled answers to their exact retained source contexts and checksums. Sparse mathematical and graphical question content was visually verified where text extraction was insufficient. These role facts do not approve grades, programmes, components, events, material purpose or dates; unresolved boundary contexts retain their separate review disposition. Native cooking review distinguishes the 20-question 資深廚師 form from ordinary 80/100-question papers by exact native context and bytes. Original source column labels are preserved; independently reviewed native components correct publication labels without approving any grade or role. The form label describes the actual retained paper, not a new qualification grade or a blanket eligibility rule. The 102 guide separately lists a cooking-specific senior assistance application; 106-108 generic oral-assistance wording does not establish that the retained 20-question papers equal the ordinary papers. Scanned answer reports and original JPEG containers were inspected directly.",
   "papers": [
     {
       "year_roc": 90,
@@ -65654,7 +65659,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/091003/076002.pdf",
       "checksum": "1bde39d31620d80fab2c4affd9b6dc79f0e0fb664f6d3d2085e51792c4e06dee",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "91年度中餐烹調乙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 92,
@@ -65683,7 +65693,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/076002.pdf",
       "checksum": "9adfe093ecab82a60a847a5809c2b6696358470ab6476ccca6a44929fa1d1161",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "93年度中餐烹調乙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 94,
@@ -65695,7 +65710,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/094003/076002.pdf",
       "checksum": "0ad5f55e9f9e76568d588c3e13b4010419be5d0d25ce7f9ed24df745b2393abd",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "94年度中餐烹調乙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 95,
@@ -65940,7 +65960,17 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092002/076003-2.pdf",
       "checksum": "21dee8ddebee10772b8569ea95463a8cd557e6134e5a0052797ed38f1a0aaa14",
       "form": "ordinary",
-      "native_header": "92年度中餐烹調丙級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。"
+      "native_header": "92年度中餐烹調丙級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original native header was visually inspected. The complete sequence of 50 true/false and 50 choice questions was verified with printed answers and question text at every item. The source practical-column label does not describe this theory booklet."
+      }
     },
     {
       "year_roc": 96,
@@ -65951,8 +65981,18 @@
       "subject_name_raw": "中餐烹調 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096003/076003-0.pdf",
       "checksum": "18f562f5e9a76c7529e630d436ae2fbcd08df40ccc8b4048c593fa917d678863",
-      "form": "ordinary",
-      "native_header": "096 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試題有是非及選擇各 10 題，共 20 題，每題 5 分，計 100 分，測試時間為 60 分鐘。"
+      "form": "senior-chef",
+      "native_header": "096 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試題有是非及選擇各 10 題，共 20 題，每題 5 分，計 100 分，測試時間為 60 分鐘。",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-10 true/false and 1-10 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 97,
@@ -65963,8 +66003,18 @@
       "subject_name_raw": "中餐烹調 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/097005/076003-0.pdf",
       "checksum": "13e92b9a391bd364e47423d38295e5b675c4d215b834ecef87f5ff0e72013743",
-      "form": "ordinary",
-      "native_header": "097 年度 07600 中餐烹調（資深廚師）丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 60 分鐘，請在答案卡上作答，答"
+      "form": "senior-chef",
+      "native_header": "097 年度 07600 中餐烹調（資深廚師）丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 60 分鐘，請在答案卡上作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 98,
@@ -65975,8 +66025,18 @@
       "subject_name_raw": "中餐烹調 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/098006/076003-e.pdf",
       "checksum": "581c0982e94dd54fdc4f73aeed755a5cf367a72ba214f967fd47d2bfcc9057ff",
-      "form": "ordinary",
-      "native_header": "098 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答"
+      "form": "senior-chef",
+      "native_header": "098 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 99,
@@ -65987,8 +66047,18 @@
       "subject_name_raw": "中餐烹調 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099006/076003_e.pdf",
       "checksum": "eab771a9f5407cf4d0ef05486e707edb98dd0978d0c7261236d6a7ae4e245bac",
-      "form": "ordinary",
-      "native_header": "099 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答"
+      "form": "senior-chef",
+      "native_header": "099 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 100,
@@ -65999,8 +66069,18 @@
       "subject_name_raw": "中餐烹調 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/100010/076003_e.pdf",
       "checksum": "7c36fdbd2509f3955826200a05103bcb1cc93a65f27c1bf75d04796f744705a8",
-      "form": "ordinary",
-      "native_header": "100 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答"
+      "form": "senior-chef",
+      "native_header": "100 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 101,
@@ -66011,8 +66091,18 @@
       "subject_name_raw": "中餐烹調 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1012A/076003-2.pdf",
       "checksum": "3fde56bc17485f80c64dd584b5b5f5ff192a2f5e1f564123dbf2c3c1a4a66897",
-      "form": "ordinary",
-      "native_header": "101 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答"
+      "form": "senior-chef",
+      "native_header": "101 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 92,
@@ -66024,7 +66114,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092001/076003.zip",
       "checksum": "09c836ae1873de45d2f0daf5253235664d1d5ffbf068f2c10ad2b965c3ad6b7b",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "92年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "All five original JPEG members of the upstream ZIP were directly inspected: one native answer report (50 true/false plus 50 choice answers) and four sequential question pages containing all 100 questions. Retain the original ZIP and both original event references."
+      }
     },
     {
       "year_roc": 92,
@@ -66036,7 +66131,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092001/076003.zip",
       "checksum": "09c836ae1873de45d2f0daf5253235664d1d5ffbf068f2c10ad2b965c3ad6b7b",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "92年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "All five original JPEG members of the upstream ZIP were directly inspected: one native answer report (50 true/false plus 50 choice answers) and four sequential question pages containing all 100 questions. Retain the original ZIP and both original event references."
+      }
     },
     {
       "year_roc": 92,
@@ -66047,8 +66147,13 @@
       "subject_name_raw": "中餐烹調 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092002/076003-1.pdf",
       "checksum": "6eb0c6eab2150236882424732d0ba01f64e8290433d606835e981e9f3198f551",
-      "form": "ordinary",
-      "native_header": ""
+      "form": "senior-chef",
+      "native_header": "92年度中餐烹調(資深廚師)丙級技術士技能檢定學科測驗試題；10題是非、10題選擇，20題；測驗時間60分鐘。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The original two-page scan was inspected directly: an answer report with 10 true/false and 10 choice answers, followed by all 20 native questions. The native cover labels the senior-chef form. Original bytes are retained."
+      }
     },
     {
       "year_roc": 92,
@@ -66111,7 +66216,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/076003.pdf",
       "checksum": "00525c8d02bc28c0f23e761f7b1f5cfa201a441d89047cae72530508c2097234",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "93年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 94,
@@ -66123,7 +66233,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/094001/076003.pdf",
       "checksum": "fda40107a927409a809da7af56c36c2347d7e8f3c7743fa2018e44e32b1939b0",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "94年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 94,
@@ -66135,7 +66250,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/094002/076003.pdf",
       "checksum": "c7f97c738bc3f8f573a0f45a165d8ac824f8d6211d40172f84dca13d32bf4bc9",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "94年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 94,
@@ -66147,7 +66267,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/094003/076003.pdf",
       "checksum": "036340e2e5256d69392be0892b56a6cbcfe3e238ea102f49dca84f89c4f2542f",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "94年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 95,
@@ -66159,7 +66284,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/095002/076003.pdf",
       "checksum": "741a8fbc96e0c86e9fe02b89fbaa80f41e76b3a6e073941a645731a913314012",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "95年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 95,
@@ -66171,7 +66301,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/095001/076003.pdf",
       "checksum": "bd55fd0bcc8f66478d55b131f0f7ed414d9196a9d8282efa18ba4dca71c97796",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "95年度中餐烹調丙級技術士技能檢定學科測驗試題；試題答案列印報表50題是非、50題選擇；原始試題頁共100題。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "The original scanned answer-report page (50 true/false and 50 choice answers), opening question page and final question page were directly inspected. The native heading declares 100 questions; the final page ends with choice 50. Original bytes, including handwritten corrections, are retained."
+      }
     },
     {
       "year_roc": 95,
@@ -66539,8 +66674,13 @@
       "subject_name_raw": "中餐烹調 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201307220923490.pdf",
       "checksum": "58eb7dad5673fa75684381553862c7fc859a44dda25130c115d3119d52ddda58",
-      "form": "ordinary",
-      "native_header": "102 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答"
+      "form": "senior-chef",
+      "native_header": "102 年度 07600 中餐烹調(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 2 0 題，每題 5 分，皆為單選選擇題，測試時間為 10 0 分鐘，請在答案卡上作答，答",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 102,
@@ -66602,8 +66742,13 @@
       "subject_name_raw": "中餐烹調 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201407210942000.pdf",
       "checksum": "b4ab811f8bb6053c0cd742852526bce2b9404397ddf930d4ed3419a67d469007",
-      "form": "ordinary",
-      "native_header": "103 年度 07600 中餐烹調-資深廚師丙級技術士技能檢定學科測試試題\n【本試題適用 07601 中餐烹調-素、07602 中餐烹調-葷】"
+      "form": "senior-chef",
+      "native_header": "103 年度 07600 中餐烹調-資深廚師丙級技術士技能檢定學科測試試題\n【本試題適用 07601 中餐烹調-素、07602 中餐烹調-葷】",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 103,
@@ -66871,8 +67016,18 @@
       "subject_name_raw": "中餐烹調─素食 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1042A/076013-2.pdf",
       "checksum": "75b25db18eabbd220f089a2be986a2626942bb2c5868bfb0448b749e9a8b82f3",
-      "form": "ordinary",
-      "native_header": "104 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答"
+      "form": "senior-chef",
+      "native_header": "104 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 106,
@@ -66883,8 +67038,18 @@
       "subject_name_raw": "中餐烹調─素食 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/076013-2.pdf",
       "checksum": "8b6d9e020ab54ce954ada125739e3477c3bb7b4ea0fb5a26f928c170221ec3cc",
-      "form": "ordinary",
-      "native_header": "106 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答"
+      "form": "senior-chef",
+      "native_header": "106 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 104,
@@ -66980,8 +67145,13 @@
       "subject_name_raw": "中餐烹調─素食 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201607180944070.pdf",
       "checksum": "c460a91d0974b8d82554bcb6d6984c7351b6c548024830b901266b30a008a41b",
-      "form": "ordinary",
-      "native_header": "105 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答"
+      "form": "senior-chef",
+      "native_header": "105 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 105,
@@ -67077,8 +67247,13 @@
       "subject_name_raw": "中餐烹調─素食 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/0716084443C1.pdf",
       "checksum": "69f99928d16e84c75e9b7d6ad9069a11e263761423f1bf50c1027f762e680add",
-      "form": "ordinary",
-      "native_header": "107 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒"
+      "form": "senior-chef",
+      "native_header": "107 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 107,
@@ -67140,8 +67315,13 @@
       "subject_name_raw": "中餐烹調─素食 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201907150001/0715084509C1.pdf",
       "checksum": "149786ad1294096a6c049fe514a28296aa5e1f38a976093de87c33af8c7432b2",
-      "form": "ordinary",
-      "native_header": "108 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒"
+      "form": "senior-chef",
+      "native_header": "108 年度 07601 中餐烹調─素食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 108,
@@ -67802,8 +67982,18 @@
       "subject_name_raw": "中餐烹調─葷食 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1042A/076023-2.pdf",
       "checksum": "d95f7bb7ff08a7985e35ce22ffb3f2f03f365b67a22d1c242a65ff43bf3367c8",
-      "form": "ordinary",
-      "native_header": "104 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答"
+      "form": "senior-chef",
+      "native_header": "104 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 106,
@@ -67814,8 +68004,18 @@
       "subject_name_raw": "中餐烹調─葷食 丙級 術科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/076023-2.pdf",
       "checksum": "b143826aafb6ec31f44a4123c20a87ec0f6a511545f313ea4db25bc900cc9437",
-      "form": "ordinary",
-      "native_header": "106 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答"
+      "form": "senior-chef",
+      "native_header": "106 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答",
+      "reviewed_component": {
+        "component_id": "theory",
+        "native_component": "學科",
+        "evidence": "The exact original PDF header prints 學科測試/測驗試題 and the reviewed question pages contain theory questions. The native listing placed this link in its 術科 column; preserve the original column-derived source label and code, and project the verified native component independently."
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 104,
@@ -67911,8 +68111,13 @@
       "subject_name_raw": "中餐烹調─葷食 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201607180944260.pdf",
       "checksum": "809078f3eecf9089d49f877a8246bce70ffc7672c07a519042cfe9c68d28235d",
-      "form": "ordinary",
-      "native_header": "105 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答"
+      "form": "senior-chef",
+      "native_header": "105 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本 試 卷 有選 擇 題 20 題，每 題 5 分，皆為 單 選 選擇 題，測試 時 間 為 10 0 分鐘，請在 答 案卡 上 作答，答",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 105,
@@ -68008,8 +68213,13 @@
       "subject_name_raw": "中餐烹調─葷食 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/0716084503C1.pdf",
       "checksum": "74d94ea2bd32975163cbeebde6efb43321fea3707982ee6817d399768d40a3eb",
-      "form": "ordinary",
-      "native_header": "107 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒"
+      "form": "senior-chef",
+      "native_header": "107 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 107,
@@ -68071,8 +68281,13 @@
       "subject_name_raw": "中餐烹調─葷食 丙級 學科",
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201907150001/0715084521C1.pdf",
       "checksum": "a09bd59efb9343094d839d5c87f1b8d8046905e50e3a599505ebdd8d48e37194",
-      "form": "ordinary",
-      "native_header": "108 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒"
+      "form": "senior-chef",
+      "native_header": "108 年度 07602 中餐烹調-葷食(資深廚師)丙級技術士技能檢定學科測試試題\n本試卷有選擇題 20 題，每題 5 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不倒",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 20,
+        "evidence": "The complete native 20-question sequence (1-20 choice) and a printed answer at every item were verified. The original first page was visually inspected and explicitly labels the senior-chef form."
+      }
     },
     {
       "year_roc": 108,
