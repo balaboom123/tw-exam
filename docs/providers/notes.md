@@ -949,3 +949,11 @@ The incorrectly listed visual/electronic 甲級 reference and its correctly list
 乙級 reference serve the same native paper in the same event. Preserve both
 original references and share the verified payload only after their native
 grade, subject and combined question/answer role agree.
+
+Independent role facts can identify a native written booklet that already
+contains its answers. Review the complete declared question sequence and the
+printed answer at each item; sparse mathematical or graphical stems require
+native visual inspection when extracted text cannot establish the content.
+Keep the original source role and bytes recoverable when normalizing that
+booklet as questions with answers. This judgment alone does not resolve a
+conflicting occupation, component, year, programme or material purpose.
