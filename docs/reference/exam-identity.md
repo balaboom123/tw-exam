@@ -59,6 +59,11 @@ and role share one ZIP entry while every source context remains in its manifest.
 Different native bytes remain separate. Printed answers can contain multiple
 responses; the combined role requires the actual questions and their answers,
 independently of material/date approval.
+A shared theory paper can apply to distinct qualification tracks. Review the
+archive's applicability together with the annual administrative rules before
+changing a track; a generic heading or transferable component credit alone does
+not establish equivalent qualifications. Preserve the source occupation code
+even when its native paper uses a broader code.
 Recovery pairs the evidence file with a compatible runtime; reverting to an
 older runtime also requires its matching evidence snapshot.
 For example, piano-tuning files whose headers say 單一級 belong to that native

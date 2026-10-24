@@ -939,6 +939,17 @@ papers can print multiple-response answers beside their questions; a filter
 limited to single-digit answers misses these combined question/answer booklets.
 Neither printed answers nor an archive date alone establishes material purpose.
 
+An accounting theory booklet can retain the generic occupation heading after
+the qualification splits into tracks. The official
+[annual briefing](https://skill.tcte.edu.tw/doc/YR100/100F3_Promote.pdf#page=8)
+states that the generic, manual-bookkeeping and information tracks share their
+theory paper, and dates the track split to ROC year 99. Preserve the archive's
+track applicability and its practical components; a common theory heading does
+not merge the qualifications or move a manual-track paper to the generic bundle.
+Likewise, a historical source-code difference alone does not establish a new
+paper identity when the native occupation and grade agree. Preserve both codes
+as source evidence and review the actual scope before changing publication.
+
 
 The native-paper facts separately approve corrections to piano tuning. Its
 retained files identify 單一級 even where the source table says 甲級, and contain
