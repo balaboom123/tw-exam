@@ -52,7 +52,7 @@ jobs:
         run: df -B1 "$GITHUB_WORKSPACE" "$RUNNER_TEMP"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v10.2.0
+        uses: astral-sh/setup-uv@v10.3.1
 
       - name: Install locked dependencies
         run: uv sync --frozen
@@ -92,7 +92,7 @@ jobs:
           python-version: "3.12"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v10.2.0
+        uses: astral-sh/setup-uv@v10.3.1
 
       - name: Install locked dependencies
         run: uv sync --frozen
