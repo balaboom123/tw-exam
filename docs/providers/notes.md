@@ -939,3 +939,13 @@ URLs and bytes remain unchanged in provider evidence. The previous role is
 retained in immutable history, so the old grade download stays recoverable and
 its landing page can lead to the conserved single-grade collection. This review
 does not approve other occupations' native grade, purpose, cohort or file role.
+
+Further exact native reviews correct isolated listing grades for welding,
+forklift operation, massage and visual/electronic skills. These approvals bind
+the reviewed source context and bytes; they do not substitute a single grade
+throughout an occupation's history. The older argon-welding archive itself prints
+丙級 even where adjacent years print 單一級, so preserve that native distinction.
+The incorrectly listed visual/electronic 甲級 reference and its correctly listed
+乙級 reference serve the same native paper in the same event. Preserve both
+original references and share the verified payload only after their native
+grade, subject and combined question/answer role agree.

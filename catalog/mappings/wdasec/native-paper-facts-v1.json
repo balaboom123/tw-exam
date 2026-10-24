@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "provider_id": "wdasec_skill",
-  "reviewed_at": "2026-10-23",
+  "reviewed_at": "2026-10-24",
   "rules": [
     {
       "source_url": "https://ws.wda.gov.tw/Download.ashx?n=MTEz5bm05bqm5YWo5ZyL5oqA6KGT5aOr5oqA6IO95qqi5a6a57Ch56ug56ysMeeJiC5wZGY%3D&u=LzAwMS9VcGxvYWQvMzMxL3JlbGZpbGUvOTc2Ny8xNjUzODgvNzlhZDhiZjItNzE1OC00ODc4LWE1ZTgtMzM3MTkxNWI0M2UwLnBkZg%3D%3D",
@@ -14,7 +14,7 @@
       "evidence": "移民署2025-01-01公告記載勞動部自108年起推動加列外語輔助，114年擴充職類及適用對象；108年前的原始歷史試卷不應標成外語輔助母卷。"
     }
   ],
-  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition.",
+  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級.",
   "papers": [
     {
       "year_roc": 90,
@@ -3278,7 +3278,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093002/004001.pdf",
       "checksum": "c9b499f55999102b92be7838bb5543fbebd76a5b1a615bd720d9dfb1ff68a3b0",
       "form": "ordinary",
-      "native_header": "93年度一般手工電銲單一級技術士技能檢定學科測試試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測試時間為100分鐘。"
+      "native_header": "93年度一般手工電銲單一級技術士技能檢定學科測試試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測試時間為100分鐘。",
+      "reviewed_identity": {
+        "level_id": "single",
+        "native_grade": "單一級",
+        "subject_label": "一般手工電銲 單一級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 90,
@@ -23654,7 +23661,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201201061301130.pdf",
       "checksum": "0093b422d6e4040ea3be85a1b2499e05d96fa6496b47f4f091b408864318e5a1",
       "form": "ordinary",
-      "native_header": "098 年度 02900 視聽電子乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "098 年度 02900 視聽電子乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_identity": {
+        "level_id": "class-b",
+        "native_grade": "乙級",
+        "subject_label": "視聽電子 乙級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 乙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 99,
@@ -23990,7 +24004,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/098004/029002.pdf",
       "checksum": "0093b422d6e4040ea3be85a1b2499e05d96fa6496b47f4f091b408864318e5a1",
       "form": "ordinary",
-      "native_header": "098 年度 02900 視聽電子乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "098 年度 02900 視聽電子乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_identity": {
+        "level_id": "class-b",
+        "native_grade": "乙級",
+        "subject_label": "視聽電子 乙級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 乙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 99,
@@ -48593,7 +48614,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201201091645440.pdf",
       "checksum": "58e9c742c38cf7b6ce2c857b18e2d38ced36c0436441759540669a49db5b2802",
       "form": "ordinary",
-      "native_header": "099 年度 07200 按摩丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099 年度 07200 按摩丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_identity": {
+        "level_id": "class-c",
+        "native_grade": "丙級",
+        "subject_label": "按摩 丙級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 丙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 99,
@@ -63005,7 +63033,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093001/091001.pdf",
       "checksum": "86f5a8fbed14df3dcac1f26ef2b8f1e4690232cb35d948c3e3dc517a41edfeba",
       "form": "ordinary",
-      "native_header": "93年度氬氣鎢極電銲單一級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。"
+      "native_header": "93年度氬氣鎢極電銲單一級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。",
+      "reviewed_identity": {
+        "level_id": "single",
+        "native_grade": "單一級",
+        "subject_label": "氬氣鎢極電銲 單一級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 92,
@@ -95165,7 +95200,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093001/151001.pdf",
       "checksum": "01cee89f57aa5ddb7191d4ec90e915f3dc96b90dc0eb70cd6e0ee12dde278ece",
       "form": "ordinary",
-      "native_header": "93年度堆高機操作單一級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。"
+      "native_header": "93年度堆高機操作單一級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。",
+      "reviewed_identity": {
+        "level_id": "single",
+        "native_grade": "單一級",
+        "subject_label": "堆高機操作 單一級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 99,
@@ -95177,7 +95219,14 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201205151006450.pdf",
       "checksum": "c0cf6491ee13ed3871a93670f82aee69a3a0d3b16877254f7f6b31cd2769aab2",
       "form": "ordinary",
-      "native_header": "099 年度 15100 堆高機操作單一級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099 年度 15100 堆高機操作單一級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_identity": {
+        "level_id": "single",
+        "native_grade": "單一級",
+        "subject_label": "堆高機操作 單一級 學科",
+        "file_role": "question_answer",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      }
     },
     {
       "year_roc": 90,
