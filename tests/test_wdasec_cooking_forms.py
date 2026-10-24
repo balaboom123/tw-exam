@@ -187,8 +187,11 @@ def test_v3_contract_and_v2_recovery_keep_one_owner_and_exact_context(tmp_path):
     registry = Registry().with_resources(
         (schema["$id"], Resource.from_contents(schema)) for schema in schemas
     )
-    Draft202012Validator(schemas[2], registry=registry).validate(document())
     payload = document()
+    payload["schema_version"] = 3
+    for row in payload["papers"]:
+        row.pop("reviewed_material", None)
+    Draft202012Validator(schemas[2], registry=registry).validate(payload)
     payload["schema_version"] = 2
     payload["papers"] = [
         row

@@ -171237,8 +171237,78 @@
         100,
         99
       ],
-      "fileCount": 22,
+      "fileCount": 20,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/wdasec-skill-skill-certification-class-b-skill-02033a2b9222--2e8f1b6a036c.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",
@@ -182829,8 +182899,82 @@
         100,
         99
       ],
-      "fileCount": 23,
+      "fileCount": 21,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/wdasec-skill-skill-certification-class-c-skill-0f32ceaebd85--375d5fc2b050.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "certification",
       "examFamilyId": "skill-certification",
       "seriesId": "skill-certification",

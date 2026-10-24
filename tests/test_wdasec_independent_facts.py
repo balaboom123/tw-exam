@@ -144,7 +144,7 @@ def test_native_evidence_has_one_authoritative_versioned_file(tmp_path):
     folder = tmp_path / "catalog/mappings/wdasec"
     folder.mkdir(parents=True)
     legacy = folder / "native-paper-facts-v1.json"
-    current = folder / "native-paper-facts-v3.json"
+    current = folder / "native-paper-facts-v4.json"
     assert owner.native_papers_path(tmp_path) == current
     legacy.write_text("{}")
     assert owner.native_papers_path(tmp_path) == legacy

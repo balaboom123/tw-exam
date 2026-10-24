@@ -930,6 +930,15 @@ not describe a separate qualification path or exempt candidates from practical
 requirements. This form review does not approve historical material purpose,
 answer roles, occupation renaming or an annual examination date.
 
+Some annual beverage archive pages cross-list identical native papers from
+different years. The reviewed annual heading and footer own the examination
+year; source-event titles and table dates remain provenance. Preserve each
+source context and its original bytes, and use complete-history material/date
+reviews before consolidating equivalent public ZIP entries. Beverage theory
+papers can print multiple-response answers beside their questions; a filter
+limited to single-digit answers misses these combined question/answer booklets.
+Neither printed answers nor an archive date alone establishes material purpose.
+
 
 The native-paper facts separately approve corrections to piano tuning. Its
 retained files identify 單一級 even where the source table says 甲級, and contain

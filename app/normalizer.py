@@ -19,6 +19,8 @@ from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonic
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
 from app.providers.wdasec_skill.papers import native_file_role as wda_file_role
+from app.providers.wdasec_skill.papers import native_paper_for_record as wda_native_record
+from app.providers.wdasec_skill.papers import resolve_native_paper as wda_native_paper
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
@@ -373,6 +375,18 @@ def normalize_papers(
                     file_type=next(iter(paper.files)),
                     checksum=source_metadata.get("checksum", ""),
                 )
+            if provider_id == "wdasec_skill":
+                native = wda_native_paper(
+                    year_roc=year_roc,
+                    source_exam_id=source_exam_id,
+                    exam_name_raw=exam_name_raw,
+                    category_code=paper.category_code,
+                    subject_code=paper.subject_code,
+                    subject_name_raw=paper.subject_name_raw,
+                    source_url=paper.files.get(role, ""),
+                    checksum=source_metadata.get("checksum", ""),
+                )
+                material = native.reviewed_material if native is not None else None
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -534,6 +548,11 @@ def renormalize_catalog(
                     paper_code=f"{paper.category_code}-{paper.subject_code}-{role}",
                 )
         elif paper.provider_id == "wdasec_skill":
+            native = wda_native_record(paper)
+            material = native.reviewed_material if native is not None else None
+            paper = replace(
+                paper, source_material=material, schema_version=3 if material is not None else 2
+            )
             role = wda_file_role(paper)
             if role != paper.file_type:
                 paper = replace(

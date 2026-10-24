@@ -188571,13 +188571,13 @@
         100,
         99
       ],
-      "file_count": 22,
+      "file_count": 20,
       "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-b-skill-02033a2b9222--2e8f1b6a036c.zip",
       "asset_name": "wdasec-skill-skill-certification-class-b-skill-02033a2b9222--2e8f1b6a036c.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/wdasec-skill-skill-certification-class-b-skill-02033a2b9222--2e8f1b6a036c.zip",
-      "checksum": "e33dbd5780b4fa8dcd4fa504cc52e5893a781b84447c12b53330248822447010",
-      "schema_version": 2,
+      "checksum": "a2b0966a1258ed423679005b23cf83068c173aeef0c0cde57be0710cd68f65fa",
+      "schema_version": 3,
       "bundle_id": "wdasec-skill-skill-certification-class-b-skill-02033a2b9222",
       "catalog_version": "exam-identity-v2",
       "domain_id": "certification",
@@ -188589,7 +188589,7 @@
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2",
       "classification_confidence": "high",
-      "classification_reason": "skill certification level marker: 乙級",
+      "classification_reason": "source material: administered; date basis: exam_year; skill certification level marker: 乙級",
       "exam_class": "證照／檢定",
       "exam_subclass": "技術士技能檢定",
       "search_aliases": [
@@ -188621,7 +188621,77 @@
       "subject_labels": [
         "飲料調製"
       ],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "wdasec-skill",
@@ -200875,13 +200945,13 @@
         100,
         99
       ],
-      "file_count": 23,
+      "file_count": 21,
       "storage_key": "bundles/sites/default/wdasec-skill-skill-certification-class-c-skill-0f32ceaebd85--375d5fc2b050.zip",
       "asset_name": "wdasec-skill-skill-certification-class-c-skill-0f32ceaebd85--375d5fc2b050.zip",
       "release_tag": "default-bundles-v2-010",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-010/wdasec-skill-skill-certification-class-c-skill-0f32ceaebd85--375d5fc2b050.zip",
-      "checksum": "05787e44815fb04f6ca0ef56ce93cf3cbeb0c15b2b3dce4b6084a04664fb969b",
-      "schema_version": 2,
+      "checksum": "9a17180b55182833dfad70180187d4aec2b2b499e2a01964574f5cfeba7386e3",
+      "schema_version": 3,
       "bundle_id": "wdasec-skill-skill-certification-class-c-skill-0f32ceaebd85",
       "catalog_version": "exam-identity-v2",
       "domain_id": "certification",
@@ -200893,7 +200963,7 @@
       "stage_id": "not-applicable",
       "bundle_policy_id": "default-bundle-policy-v2",
       "classification_confidence": "high",
-      "classification_reason": "skill certification level marker: 丙級",
+      "classification_reason": "source material: administered; date basis: exam_year; skill certification level marker: 丙級",
       "exam_class": "證照／檢定",
       "exam_subclass": "技術士技能檢定",
       "search_aliases": [
@@ -200925,7 +200995,81 @@
       "subject_labels": [
         "飲料調製"
       ],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2011
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2010
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "wdasec-skill",

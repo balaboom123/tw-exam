@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "provider_id": "wdasec_skill",
   "reviewed_at": "2026-10-24",
   "rules": [
@@ -24,7 +24,7 @@
       "evidence": "Official year 101 third-session briefing, PDF page 3: manual bookkeeping is among practical components administered as written non-multiple-choice tests. A written PDF is therefore not sufficient to classify a paper as theory. The exact native PDF headings independently establish the two reviewed component corrections."
     }
   ],
-  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級. Additional independent role reviews bind complete 80- or 100-question native PDFs with prefilled answers to their exact retained source contexts and checksums. Sparse mathematical and graphical question content was visually verified where text extraction was insufficient. These role facts do not approve grades, programmes, components, events, material purpose or dates; unresolved boundary contexts retain their separate review disposition. Native cooking review distinguishes the 20-question 資深廚師 form from ordinary 80/100-question papers by exact native context and bytes. Original source column labels are preserved; independently reviewed native components correct publication labels without approving any grade or role. The form label describes the actual retained paper, not a new qualification grade or a blanket eligibility rule. The 102 guide separately lists a cooking-specific senior assistance application; 106-108 generic oral-assistance wording does not establish that the retained 20-question papers equal the ordinary papers. Scanned answer reports and original JPEG containers were inspected directly. Exact year 101 manual-bookkeeping PDF reviews correct two upstream theory-column labels to practical. Both originals contain five major practical tasks across two question pages and three candidate response sheets. Response sheets with blanks and supplied data are retained as part of the question file, without approving a combined question/answer role or changing any identity dimension.",
+  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級. Additional independent role reviews bind complete 80- or 100-question native PDFs with prefilled answers to their exact retained source contexts and checksums. Sparse mathematical and graphical question content was visually verified where text extraction was insufficient. These role facts do not approve grades, programmes, components, events, material purpose or dates; unresolved boundary contexts retain their separate review disposition. Native cooking review distinguishes the 20-question 資深廚師 form from ordinary 80/100-question papers by exact native context and bytes. Original source column labels are preserved; independently reviewed native components correct publication labels without approving any grade or role. The form label describes the actual retained paper, not a new qualification grade or a blanket eligibility rule. The 102 guide separately lists a cooking-specific senior assistance application; 106-108 generic oral-assistance wording does not establish that the retained 20-question papers equal the ordinary papers. Scanned answer reports and original JPEG containers were inspected directly. Exact year 101 manual-bookkeeping PDF reviews correct two upstream theory-column labels to practical. Both originals contain five major practical tasks across two question pages and three candidate response sheets. Response sheets with blanks and supplied data are retained as part of the question file, without approving a combined question/answer role or changing any identity dimension. Native beverage annual material/date facts are independently approved against every retained national-archive context and exact original digest. Cross-listed originals keep both source contexts; native annual headings determine public examination-year folders. Printed multiple-response answers are part of the combined question/answer role. Earlier form, grade, component and role approvals retain their original meanings.",
   "papers": [
     {
       "year_roc": 90,
@@ -152983,7 +152983,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738180.pdf",
       "checksum": "7d34efec5284fd721008f09f10bf941395a156f4cd763597a082609b57dfea91",
       "form": "ordinary",
-      "native_header": "100 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "100年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2011
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738180.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 100年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 99,
@@ -152995,11 +153011,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741420.pdf",
       "checksum": "79c7f09746949b3891c39f6488a854ea941e603fbe23eb8deeb8ebc8f52422e9",
       "form": "ordinary",
-      "native_header": "099 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "099年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2010
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741420.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 099年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153012,11 +153039,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738180.pdf",
       "checksum": "7d34efec5284fd721008f09f10bf941395a156f4cd763597a082609b57dfea91",
       "form": "ordinary",
-      "native_header": "100 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "100年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2011
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738180.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 100年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153029,7 +153067,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741420.pdf",
       "checksum": "79c7f09746949b3891c39f6488a854ea941e603fbe23eb8deeb8ebc8f52422e9",
       "form": "ordinary",
-      "native_header": "099 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2010
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741420.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 099年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 101,
@@ -153041,11 +153095,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1012A/206002.pdf",
       "checksum": "fe3f83411bb988f5269a44b60564c886d31c13e3e2c720711fa90af6fab3c238",
       "form": "ordinary",
-      "native_header": "101 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "101年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2012
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1012A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 101年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153058,11 +153123,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1023A/206002.pdf",
       "checksum": "4526d4703968364ab7e513f56a4b112a67823f7773fe39e12b0007ac78739223",
       "form": "ordinary",
-      "native_header": "102 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "102年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2013
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1023A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 102年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153075,11 +153151,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1033A/206002.pdf",
       "checksum": "f8018636ff6498ab9a71764de9465887db7897919b6fe3662c32dd279baacf8f",
       "form": "ordinary",
-      "native_header": "103 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "103年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2014
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1033A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 103年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153092,7 +153179,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1043A/206002.pdf",
       "checksum": "08bb210329116b88bf371c6a847c3e321db8129f6cf6a764ea81f3054d94c4d5",
       "form": "ordinary",
-      "native_header": "104 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題【 單 選 選 擇 題 6 0 題 ， 每 題 1 分 ； 複 選 選 擇 題 2 0 題 ， 每 題 2 分 】， 測 試 時 間 為"
+      "native_header": "104年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2015
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1043A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 104年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 105,
@@ -153104,7 +153207,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1052A/206002.pdf",
       "checksum": "49b579952df4ad5dba3bd3b998e0db20c751a748ccd23b8291a7f857de54c1a2",
       "form": "ordinary",
-      "native_header": "105 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題【 單 選 選 擇 題 6 0 題 ， 每 題 1 分 ； 複 選 選 擇 題 2 0 題 ， 每 題 2 分 】， 測 試 時 間 為"
+      "native_header": "105年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2016
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1052A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 105年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 105,
@@ -153116,7 +153235,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1053A/206002.pdf",
       "checksum": "652df22c9e945c6b5e969ebe96506a1f654cce7386561f09ccb5a0a08a5a700f",
       "form": "ordinary",
-      "native_header": "105 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題【 單 選 選 擇 題 6 0 題 ， 每 題 1 分 ； 複 選 選 擇 題 2 0 題 ， 每 題 2 分 】， 測 試 時 間 為"
+      "native_header": "105年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2016
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1053A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 105年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 106,
@@ -153128,7 +153263,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/206002.pdf",
       "checksum": "5bc640f90ce82cebe3e8f73dc7107c280775e85710878a1ee1ecc3a8d9c1d127",
       "form": "ordinary",
-      "native_header": "106 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題【 單 選 選 擇 題 6 0 題 ， 每 題 1 分 ； 複 選 選 擇 題 2 0 題 ， 每 題 2 分 】， 測 試 時 間 為"
+      "native_header": "106年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2017
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 106年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 106,
@@ -153140,7 +153291,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1063A/206002.pdf",
       "checksum": "26d77c9d19884b8efcc9fb3af9f07b3082774a0690099d2e7006bccd35381655",
       "form": "ordinary",
-      "native_header": "106 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題【 單 選 選 擇 題 6 0 題 ， 每 題 1 分 ； 複 選 選 擇 題 2 0 題 ， 每 題 2 分 】， 測 試 時 間 為"
+      "native_header": "106年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2017
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1063A/206002.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 106年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 107,
@@ -153152,7 +153319,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201803190001/18/206002-1.pdf",
       "checksum": "447945135bacf5608c607a7500edfe10e2dd2e2b8dc72cd7bae747ebb7e0fa17",
       "form": "ordinary",
-      "native_header": "107 年度 2 0 6 0 0 飲 料 調 製 乙 級 技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 80 題 【 單 選 選 擇題 60 題 ， 每題 1 分 ； 複 選 選 擇 題 20 題 ， 每 題 2 分 】 ， 測 試 時 間"
+      "native_header": "107年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2018
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201803190001/18/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 107年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 107,
@@ -153164,7 +153347,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/15/206002-1.pdf",
       "checksum": "8e78bfc960956022153fd3920f84982620391113666248644f721c62f9a7953e",
       "form": "ordinary",
-      "native_header": "107 年度 2 0 6 0 0 飲 料 調 製 乙 級 技術士技能檢定學科測試試題\n本試卷有選擇題 80 題【單選選擇題 6 0 題， 每題 1 分；複 選選擇 題 20 題，每 題 2 分 】，測試 時間 為 100 分"
+      "native_header": "107年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2018
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/15/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 107年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 107,
@@ -153176,7 +153375,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201811050001/04/206002-1.pdf",
       "checksum": "7947709ada088ce7531d7e8bbc39dbb10f672abb13d47ff2f7d6b674d4cd3154",
       "form": "ordinary",
-      "native_header": "107 年度 20600 飲料調製乙級技術士技能檢定學科測試試題\n本試卷有選擇題 80 題【單選選擇題 60 題，每題 1 分；複選選擇題 20 題，每題 2 分】，測試時間為 100 分"
+      "native_header": "107年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2018
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201811050001/04/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 107年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 108,
@@ -153188,7 +153403,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201911040001/03/206002-1.pdf",
       "checksum": "6ef6fa41e7fbcf38eb5b66c6c11994d95ecc605fdd6cf37fe5e60430dd6ea9fb",
       "form": "ordinary",
-      "native_header": "108 年度 2 0 6 0 0 飲 料 調 製 乙 級 技術士技能檢定學科測試試題\n本試卷有選擇題 80 題【單選選擇題 6 0 題， 每題 1 分；複 選選擇 題 20 題，每 題 2 分 】，測試 時間 為 100 分"
+      "native_header": "108年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2019
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201911040001/03/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 108年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 109,
@@ -153200,7 +153431,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202011020001/01/206002-1.pdf",
       "checksum": "696fb0978d8ab4cd54f3ffe8ddee7243999041a679237fdd22df0e5974d29b75",
       "form": "ordinary",
-      "native_header": "109 年度 20600 飲料調製乙級 技術士技能檢定學科測試試題\n本試卷有選擇題 80 題【單選選擇題 60 題，每題 1 分；複選選擇題 20 題，每題 2 分】，測試時間為 100 分"
+      "native_header": "109年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2020
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202011020001/01/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 109年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 110,
@@ -153212,7 +153459,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/206002-1.pdf",
       "checksum": "8d856eac6c038a0552f99439371f868fb4ddbbddb6b0d2e855c78a9cca839a99",
       "form": "ordinary",
-      "native_header": "110 年度 20600 飲料調製乙級 技術士技能檢定學科測試試題\n本試卷有選擇題 80 題【單選選擇題 60 題，每題 1 分；複選選擇題 20 題，每題 2 分】，測試時間為 100 分"
+      "native_header": "110年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2021
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 110年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 111,
@@ -153224,7 +153487,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202211070001/06/206002-1.pdf",
       "checksum": "59ff4675ecde82de6850da9a877d05bc76a060eb5931a18de3ed0f5f0f05f412",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 3 梯次\n111 年度 2 0 6 0 0 飲料調製乙級 技術士技能檢定學科測試試題"
+      "native_header": "111年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2022
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202211070001/06/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 111年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 112,
@@ -153236,7 +153515,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/206002-1.pdf",
       "checksum": "45a7609563f950a6e55c9c06dbbece9fbd96d7d6080657b70484a5d96c24ad47",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 3 梯次\n112 年度 20600 飲料調製乙級 技術士技能檢定學科測試試題"
+      "native_header": "112年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2023
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 112年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 113,
@@ -153248,7 +153543,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/206002-1.pdf",
       "checksum": "59b9c9a9f4ec4cb0fce622d2f477b6aa6498731549c0071d92d7003e7beaacbf",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 3 梯次\n113 年度 20600 飲料調製乙級 技術士技能檢定學科測試試題"
+      "native_header": "113年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2024
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 113年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 114,
@@ -153260,7 +153571,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/206002-1.pdf",
       "checksum": "766792bed8fa0a230f74540c27362d5c479c4501e3e368529b3f62694a5e920d",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 3 梯次\n114 年度 20600 飲料調製乙級 技術士技能檢定學科測試試題"
+      "native_header": "114年度 20600 飲料調製乙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2025
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/206002-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 114年度 飲料調製乙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 99,
@@ -153272,7 +153599,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738181.pdf",
       "checksum": "94984fa4e756f723cfd38253c66eef8a9c44c0d5c6dd1d51f89b8ebfad853283",
       "form": "ordinary",
-      "native_header": "100 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "100年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2011
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738181.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 100年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 99,
@@ -153284,11 +153627,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741421.pdf",
       "checksum": "f54be33daa91b2cfcc81aaee973d397b7194870864b2f2908e15b65f3f52fe70",
       "form": "ordinary",
-      "native_header": "099 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "099年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2010
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741421.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 099年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153301,11 +153655,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738181.pdf",
       "checksum": "94984fa4e756f723cfd38253c66eef8a9c44c0d5c6dd1d51f89b8ebfad853283",
       "form": "ordinary",
-      "native_header": "100 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "100年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2011
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230738181.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 100年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153318,7 +153683,23 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741421.pdf",
       "checksum": "f54be33daa91b2cfcc81aaee973d397b7194870864b2f2908e15b65f3f52fe70",
       "form": "ordinary",
-      "native_header": "099 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2010
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204230741421.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 099年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
+      },
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "Exact original PDF contains all 80 question stems with printed answers; full question sequence verified, including multiple-response answers where present. Native cover and relevant multiple-response or annual-footer pages visually reviewed. This role approval is independent of material purpose, native year, grade and paper form."
+      }
     },
     {
       "year_roc": 101,
@@ -153330,11 +153711,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1012A/206003.pdf",
       "checksum": "439c7c2c3d8961028c1c51bdfa6570a477c8f8141e789cc26684b6cf60118861",
       "form": "ordinary",
-      "native_header": "101 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "101年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2012
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1012A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 101年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153347,11 +153739,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1014/206003.pdf",
       "checksum": "3d9936fe62ab5b834c833919444ef2ccad3a10f19c3211d7fbfa8d16b26de367",
       "form": "ordinary",
-      "native_header": "101 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "101年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2012
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1014/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 101年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153364,11 +153767,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1021A/206003.pdf",
       "checksum": "a6eedbc166d792bef4efe4c9f9ac3ab6a5ec183943d1ecbe5f5c876c344b295f",
       "form": "ordinary",
-      "native_header": "102 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "102年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2013
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1021A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 102年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153381,11 +153795,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1022A/206003.pdf",
       "checksum": "9c822b686d1bc1e91dd81dbc0ddedafbbdc77c64ca798d8f21ae9a6e1d256c5e",
       "form": "ordinary",
-      "native_header": "102 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "102年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2013
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1022A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 102年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153398,11 +153823,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1023A/206003.pdf",
       "checksum": "6a832a3d0e502332087d7dc51b31653ed2dc4303a117d50f52281aab108ce7a0",
       "form": "ordinary",
-      "native_header": "102 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "102年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2013
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1023A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 102年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153415,11 +153851,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1032A/206003.pdf",
       "checksum": "1a3575f23f29f29d09d77bd273f770df3783ea9a104a9be7877750f4b87e6e83",
       "form": "ordinary",
-      "native_header": "103 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "103年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2014
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1032A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 103年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153432,11 +153879,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1042A/206003.pdf",
       "checksum": "8fed2c7be0cca3b2dfb1a86ff43fce4822cfa06a383ae7c64ba43503609a5b44",
       "form": "ordinary",
-      "native_header": "104 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "104年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2015
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1042A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 104年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153449,11 +153907,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1052A/206003.pdf",
       "checksum": "f012f03c4b07fc47509ea4ede30bccbf61142362e7d5eaa1f445e8139e86ecb7",
       "form": "ordinary",
-      "native_header": "105 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "105年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2016
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1052A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 105年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153466,11 +153935,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/206003.pdf",
       "checksum": "f9ae8b0df1e431c8201d7b5e9a9fde4d156f70b55664d4098c0c3e6d009ca8a6",
       "form": "ordinary",
-      "native_header": "106 年度 20600 飲料調製丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "native_header": "106年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2017
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/206003.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 106年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153483,11 +153963,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/15/206003-1.pdf",
       "checksum": "208cffe04b7c442b8858f39697e739fe5ef5e18954072186b5de7fb0e8e92aee",
       "form": "ordinary",
-      "native_header": "107 年度 2 0 6 0 0 飲 料 調 製 丙 級 技術士技能檢定學科測試試題\n本試卷有 選擇 題 80 題， 每題 1.25 分，皆 為單選 選擇題， 測試時 間為 100 分鐘， 請在答 案 卡上作答 ，答錯 不",
+      "native_header": "107年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2018
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/15/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 107年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153500,11 +153991,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201907150001/14/206003-1.pdf",
       "checksum": "f62c4d58fd5af3074724b5c96164f8a807b33c6f5e4f97c0b410a44fc24b0d70",
       "form": "ordinary",
-      "native_header": "108 年度 2 0 6 0 0 飲 料 調 製 丙 級 技術士技能檢定學科測試試題\n本試卷有 選擇 題 80 題， 每題 1.25 分，皆 為單選 選擇題， 測試時 間為 100 分鐘， 請在答 案 卡上作答 ，答錯 不",
+      "native_header": "108年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2019
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201907150001/14/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 108年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153517,11 +154019,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202007130001/12/206003-1.pdf",
       "checksum": "e29c5174180ebe437af09124b2dbf678eae99e4ab06c50e1b66da5428786bc25",
       "form": "ordinary",
-      "native_header": "109 年度 20600 飲料調製丙級 技術士技能檢定學科測試試題\n本試卷有選擇題 80 題，每題 1.25 分，皆為單選選擇題，測試時間為 100 分鐘，請在答案卡上作答，答錯不",
+      "native_header": "109年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2020
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202007130001/12/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 109年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153534,11 +154047,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202109270001/07/206003-1.pdf",
       "checksum": "9fdb2d8bfe07978a3dd976b6428ad0a39e7ce6bad9f0ca5f8dda032b8b89bd23",
       "form": "ordinary",
-      "native_header": "110 年度 2 0 6 0 0 飲料調製丙級 技術士技能檢定學科測試試題\n本試卷有選擇題 80 題，每題 1.25 分，皆 為單 選選擇 題，測 試時間 為 100 分 鐘，請 在答案卡 上作答 ，答錯",
+      "native_header": "110年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2021
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202109270001/07/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 110年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153551,11 +154075,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202207110001/10/206003-1.pdf",
       "checksum": "1e24bf8996200303cacad9877cfba0b8cafb71bb7e4ff9141d77874ed4901f6f",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 2 梯次\n111 年度 2 0 6 0 0 飲料調製丙級 技術士技能檢定學科測試試題",
+      "native_header": "111年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2022
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202207110001/10/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 111年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153568,11 +154103,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202307100001/09/206003-1.pdf",
       "checksum": "d00fde706ae37b7ca1e3b63b2801a5d2683131d25729ca0a0873cee13032532e",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 2 梯次\n112 年度 20600 飲料調製丙級 技術士技能檢定學科測試試題",
+      "native_header": "112年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2023
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202307100001/09/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 112年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153585,11 +154131,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202407080001/07/206003-1.pdf",
       "checksum": "a6850e675dcafc30372d9c0986db5ad68bb19aaeb6869e83f5760d2f3d07245c",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 2 梯次\n113 年度 20600 飲料調製丙級 技術士技能檢定學科測試試題",
+      "native_header": "113年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2024
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202407080001/07/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 113年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153602,11 +154159,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202507070001/06/206003-1.pdf",
       "checksum": "5abfb67d24974fda9e04f8c055924e280fcc808ecd928535ec2890b17f47b16b",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 2 梯次\n114 年度 20600 飲料調製丙級 技術士技能檢定學科測試試題",
+      "native_header": "114年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2025
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202507070001/06/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 114年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153619,11 +154187,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202508250001/24/206003-1.pdf",
       "checksum": "010b03db94d9d5c78c959832bcc595115a46598b8fb522ea610934113a43a75e",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 2 梯次\n114 年度 20600 飲料調製丙級 技術士技能檢定學科測試試題",
+      "native_header": "114年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2025
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202508250001/24/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 114年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {
@@ -153636,11 +154215,22 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202607060001/05/206003-1.pdf",
       "checksum": "d939d6e471a30825cedc46a3c4bbd1001f8be9c9123d9b8bf3bc4739a91dd5e6",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 2 梯次\n115 年度 20600 飲料調製丙級 技術士技能檢定學科測試試題",
+      "native_header": "115年度 20600 飲料調製丙級技術士技能檢定學科測試試題",
       "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Native PDF declares 80 questions and contains that complete numbered sequence with a printed answer at every item. Question body text and filled answer markers were verified throughout the declared sequence. This exact source-context and SHA-256 review approves the combined question/answer role only; it supplies no grade, subject, programme, component, event or material-purpose correction.",
         "question_count": 80
+      },
+      "reviewed_material": {
+        "schema_version": 1,
+        "kind": "administered",
+        "date": {
+          "basis": "exam_year",
+          "year_ad": 2026
+        },
+        "evidence_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202607060001/05/206003-1.pdf",
+        "evidence_label": "Exact retained national-archive PDF: native 115年度 飲料調製丙級 學科測試試題 annual heading and examination instructions visually reviewed; all 80 numbered question stems and printed answers verified from the complete original. Source partition and table dates remain provenance, not the native exam year.",
+        "review_reason": ""
       }
     },
     {

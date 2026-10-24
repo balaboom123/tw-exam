@@ -48,6 +48,17 @@ the earlier v1 combined review as its originally approved grade and role facts,
 without inventing either dimension or changing retained identifiers. Only one
 versioned evidence file may own a repository's current WDA facts.
 The earlier v2 format retains its separate grade and role meanings.
+The v4 format adds independently reviewed material and date facts through the
+shared source-material contract. A native annual heading can establish an
+administered paper's examination year even when the archive cross-lists it under
+another annual event. Keep the original partition year, event, storage key and
+source reference; publish the reviewed date only after reviewing the complete
+bundle history. A table date or upload filename alone does not establish an
+examination year. Identical native payloads with the same reviewed year, subject
+and role share one ZIP entry while every source context remains in its manifest.
+Different native bytes remain separate. Printed answers can contain multiple
+responses; the combined role requires the actual questions and their answers,
+independently of material/date approval.
 Recovery pairs the evidence file with a compatible runtime; reverting to an
 older runtime also requires its matching evidence snapshot.
 For example, piano-tuning files whose headers say 單一級 belong to that native

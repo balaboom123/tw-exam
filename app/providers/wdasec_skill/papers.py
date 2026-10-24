@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import re
+import unicodedata
 from dataclasses import dataclass
 from datetime import date
 from functools import lru_cache
@@ -16,6 +17,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from app.models import NormalizedPaper
+from app.source_material import SourceMaterial
 
 FORM_LABELS = {
     "ordinary": ("paper-form-ordinary", "一般試卷"),
@@ -65,6 +67,7 @@ class NativePaper:
     reviewed_grade: ReviewedGrade | None = None
     reviewed_role: ReviewedRole | None = None
     reviewed_component: ReviewedComponent | None = None
+    reviewed_material: SourceMaterial | None = None
 
     @property
     def component_id(self) -> str:
@@ -95,7 +98,7 @@ class NativePaper:
 
 def native_papers_path(repo_root: Path) -> Path:
     folder = repo_root / "catalog/mappings/wdasec"
-    paths = [folder / f"native-paper-facts-v{version}.json" for version in (3, 2, 1)]
+    paths = [folder / f"native-paper-facts-v{version}.json" for version in (4, 3, 2, 1)]
     existing = [path for path in paths if path.exists()]
     if len(existing) > 1:
         raise ValueError("WDA native paper evidence has competing versioned owners")
@@ -116,8 +119,10 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
         "native_header",
     }
     optional = {"reviewed_identity"} if version == 1 else {"reviewed_grade", "reviewed_role"}
-    if version == 3:
+    if version >= 3:
         optional.add("reviewed_component")
+    if version >= 4:
+        optional.add("reviewed_material")
     if not isinstance(row, dict) or not required <= row.keys() <= required | optional:
         raise ValueError("Unsupported WDA native paper evidence fields")
     values = dict(row)
@@ -125,6 +130,8 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
         raise ValueError("Senior-chef paper forms require v3 native evidence")
     if "reviewed_component" in values and values["reviewed_component"] is None:
         raise ValueError("Invalid WDA native component evidence")
+    if "reviewed_material" in values and values["reviewed_material"] is None:
+        raise ValueError("Invalid WDA native material evidence")
     if version == 1:
         legacy = values.pop("reviewed_identity", None)
         if legacy is not None:
@@ -146,6 +153,7 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
     grade = values.pop("reviewed_grade", None)
     role = values.pop("reviewed_role", None)
     component = values.pop("reviewed_component", None)
+    material = values.pop("reviewed_material", None)
     if component is not None and (
         not isinstance(component, dict)
         or set(component) != {"component_id", "native_component", "evidence"}
@@ -174,6 +182,7 @@ def _read_native_paper(row: object, version: int) -> NativePaper:
         reviewed_grade=ReviewedGrade(**grade) if grade is not None else None,
         reviewed_role=ReviewedRole(**role) if role is not None else None,
         reviewed_component=ReviewedComponent(**component) if component is not None else None,
+        reviewed_material=SourceMaterial.from_data(material) if material is not None else None,
     )
 
 
@@ -183,7 +192,7 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
         set(document)
         != {"schema_version", "provider_id", "reviewed_at", "rules", "review_notes", "papers"}
         or type(document["schema_version"]) is not int
-        or document["schema_version"] not in {1, 2, 3}
+        or document["schema_version"] not in {1, 2, 3, 4}
         or document["provider_id"] != "wdasec_skill"
         or not document["review_notes"].strip()
         or not document["rules"]
@@ -230,7 +239,7 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
             or paper.form not in FORM_LABELS
             or (paper.form == "ordinary" and "外語翻譯" in paper.native_header)
             or (
-                document["schema_version"] == 3
+                document["schema_version"] >= 3
                 and paper.form == "ordinary"
                 and "資深廚師" in paper.native_header
             )
@@ -306,6 +315,19 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
             )
         ):
             raise ValueError("WDA role corrections require exact native question/answer evidence")
+        material = paper.reviewed_material
+        if material is not None:
+            header = "".join(unicodedata.normalize("NFKC", paper.native_header).split())
+            year = re.search(r"(?<!\d)([0-9]{1,3})年度", header)
+            if (
+                material.needs_review
+                or material.evidence_url != paper.source_url
+                or (
+                    material.date.basis == "exam_year"
+                    and (year is None or int(year[1]) != material.date.year_roc)
+                )
+            ):
+                raise ValueError("WDA material dates require their exact native annual evidence")
         keys.add(paper.key)
     families: dict[tuple[str, str], set[str]] = {}
     for paper in papers:
