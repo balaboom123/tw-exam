@@ -975,3 +975,13 @@ reports and original image ZIP members can establish a combined question/answer
 role; unreadable text extraction alone cannot. Preserve original files and
 handwritten corrections. Identical source ZIPs in separate historical events
 retain both source references until their event relationship is established.
+
+The year-101 manual-bookkeeping papers linked from the native theory column
+explicitly identify the practical component in their original headings. Each
+contains two question pages followed by three candidate response sheets. Blank
+response areas and supplied financial data do not establish worked answers, so
+these files retain their question role. The
+[official third-session briefing](https://skill.tcte.edu.tw/doc/YR101/101F3_Promote.pdf)
+also lists manual bookkeeping among practical components delivered as written
+non-multiple-choice tests. Exact component facts correct the public subject
+labels and ZIP paths without changing grades, tracks or retained source fields.

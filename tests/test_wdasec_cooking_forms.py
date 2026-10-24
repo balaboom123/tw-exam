@@ -17,7 +17,13 @@ from tests.test_wdasec_forms import normalized
 
 ROOT = Path(__file__).resolve().parents[1]
 SENIOR = [paper for paper in owner.native_papers() if paper.form == "senior-chef"]
-COMPONENTS = [paper for paper in owner.native_papers() if paper.reviewed_component is not None]
+COMPONENTS = [
+    paper
+    for paper in owner.native_papers()
+    if paper.category_code in {"07600", "07601", "07602"}
+    and paper.reviewed_component is not None
+    and paper.reviewed_component.component_id == "theory"
+]
 
 
 @pytest.mark.parametrize("senior", SENIOR, ids=lambda p: f"{p.year_roc}-{p.category_code}")
@@ -115,7 +121,11 @@ def test_native_practical_component_does_not_turn_a_written_paper_into_theory(
     matching = [
         paper
         for paper in owner.read_native_papers(path)
-        if paper.reviewed_component is not None and paper.component_id == "practical"
+        if paper.source_exam_id == row["source_exam_id"]
+        and paper.source_url == row["source_url"]
+        and paper.checksum == row["checksum"]
+        and paper.reviewed_component is not None
+        and paper.component_id == "practical"
     ]
     assert len(matching) == 1
     assert matching[0].reviewed_role is None
