@@ -24,7 +24,7 @@
       "evidence": "Official year 101 third-session briefing, PDF page 3: manual bookkeeping is among practical components administered as written non-multiple-choice tests. A written PDF is therefore not sufficient to classify a paper as theory. The exact native PDF headings independently establish the two reviewed component corrections."
     }
   ],
-  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級. Additional independent role reviews bind complete 80- or 100-question native PDFs with prefilled answers to their exact retained source contexts and checksums. Sparse mathematical and graphical question content was visually verified where text extraction was insufficient. These role facts do not approve grades, programmes, components, events, material purpose or dates; unresolved boundary contexts retain their separate review disposition. Native cooking review distinguishes the 20-question 資深廚師 form from ordinary 80/100-question papers by exact native context and bytes. Original source column labels are preserved; independently reviewed native components correct publication labels without approving any grade or role. The form label describes the actual retained paper, not a new qualification grade or a blanket eligibility rule. The 102 guide separately lists a cooking-specific senior assistance application; 106-108 generic oral-assistance wording does not establish that the retained 20-question papers equal the ordinary papers. Scanned answer reports and original JPEG containers were inspected directly. Exact year 101 manual-bookkeeping PDF reviews correct two upstream theory-column labels to practical. Both originals contain five major practical tasks across two question pages and three candidate response sheets. Response sheets with blanks and supplied data are retained as part of the question file, without approving a combined question/answer role or changing any identity dimension. Native beverage annual material/date facts are independently approved against every retained national-archive context and exact original digest. Cross-listed originals keep both source contexts; native annual headings determine public examination-year folders. Printed multiple-response answers are part of the combined question/answer role. Earlier form, grade, component and role approvals retain their original meanings.",
+  "review_notes": "此證據僅核定試卷形式，並未核定所有歷史檔案的施測年份、題庫性質、學術科標示、答案角色或職類沿革。外語輔助母卷由原始PDF的「外語翻譯」標頭辨識，與同次一般學科試卷的首題逐一比對有142組不同。較早影像及原始容器保留普通原卷形式；術科不是外語輔助學科母卷，仍留在一般原卷資料中，並不表示外語輔助應檢人免術科或缺少術科資格路徑。未審核的網址、原始標示或新位元組不得繼承本次已核定形式。 Native identity/role review is explicit and independent of form review: the complete retained piano-tuning history is 單一級 and each file includes questions with answers. Original source labels and source URLs remain unchanged. Other occupations have no identity/role approval from this addition. Exact native covers and complete question/answer sequences additionally review six grade conflicts and the equivalent same-event visual/electronic B-grade reference. Historical native grade changes are not inferred across years: the 92-year argon-welding archive prints 丙級 and retains that identity even though adjacent retained years print 單一級. Additional independent role reviews bind complete 80- or 100-question native PDFs with prefilled answers to their exact retained source contexts and checksums. Sparse mathematical and graphical question content was visually verified where text extraction was insufficient. These role facts do not approve grades, programmes, components, events, material purpose or dates; unresolved boundary contexts retain their separate review disposition. Native cooking review distinguishes the 20-question 資深廚師 form from ordinary 80/100-question papers by exact native context and bytes. Original source column labels are preserved; independently reviewed native components correct publication labels without approving any grade or role. The form label describes the actual retained paper, not a new qualification grade or a blanket eligibility rule. The 102 guide separately lists a cooking-specific senior assistance application; 106-108 generic oral-assistance wording does not establish that the retained 20-question papers equal the ordinary papers. Scanned answer reports and original JPEG containers were inspected directly. Exact year 101 manual-bookkeeping PDF reviews correct two upstream theory-column labels to practical. Both originals contain five major practical tasks across two question pages and three candidate response sheets. Response sheets with blanks and supplied data are retained as part of the question file, without approving a combined question/answer role or changing any identity dimension. Native beverage annual material/date facts are independently approved against every retained national-archive context and exact original digest. Cross-listed originals keep both source contexts; native annual headings determine public examination-year folders. Printed multiple-response answers are part of the combined question/answer role. Earlier form, grade, component and role approvals retain their original meanings. Historical ROC year 99 source/native occupation-code contexts were reviewed separately from file roles. Shared accounting theory does not merge qualification tracks. Three exact native booklets independently contain questions together with printed answers; original occupation codes, source labels and applicability remain unchanged.",
   "papers": [
     {
       "year_roc": 90,
@@ -20309,7 +20309,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099004/016013.pdf",
       "checksum": "7310a0a18f644487512b119f9e8d054df7bf0281d994bafc982834acf2e3f752",
       "form": "ordinary",
-      "native_header": "099 年度 01600 自來水管配管丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099 年度 01600 自來水管配管丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "The exact original PDF from ROC year 99 contains all 80 numbered question stems and printed answers. The complete sequence and nonempty question text were verified; the native cover and footer were visually reviewed. Fresh source rows and annual administrative evidence resolve the broader native occupation-code context without changing qualification applicability. This role approval is independent of grade, track, form, component and material/date facts."
+      }
     },
     {
       "year_roc": 90,
@@ -117081,7 +117086,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099004/149012_1.pdf",
       "checksum": "8d570e8b0c228526a03f232053e5a1a93a3addbd15349e1680ee70d4715d5b69",
       "form": "ordinary",
-      "native_header": "099 年度 14900 會計事務乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099 年度 14900 會計事務乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "The exact original PDF from ROC year 99 contains all 80 numbered question stems and printed answers. The complete sequence and nonempty question text were verified; the native cover and footer were visually reviewed. Fresh source rows and annual administrative evidence resolve the broader native occupation-code context without changing qualification applicability. This role approval is independent of grade, track, form, component and material/date facts."
+      }
     },
     {
       "year_roc": 100,
@@ -117451,7 +117461,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099004/149013_1.pdf",
       "checksum": "ded8b47d5284c2fb26be9cec6d2a1b643943524cf499224272d951c28ae33644",
       "form": "ordinary",
-      "native_header": "099 年度 14900 會計事務丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "099 年度 14900 會計事務丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 80,
+        "evidence": "The exact original PDF from ROC year 99 contains all 80 numbered question stems and printed answers. The complete sequence and nonempty question text were verified; the native cover and footer were visually reviewed. Fresh source rows and annual administrative evidence resolve the broader native occupation-code context without changing qualification applicability. This role approval is independent of grade, track, form, component and material/date facts."
+      }
     },
     {
       "year_roc": 100,
