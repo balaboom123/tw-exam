@@ -1803,8 +1803,8 @@ def _classify_paper_uncached(
             source_url=source_url,
             checksum=source_checksum,
         )
-        if wda_native is not None and wda_native.reviewed_identity is not None:
-            wda_review = wda_native.reviewed_identity
+        if wda_native is not None and wda_native.reviewed_grade is not None:
+            wda_review = wda_native.reviewed_grade
             level_id, level_label = wda_review.level_id, _LEVEL_LABELS[wda_review.level_id]
             if level_label != wda_review.native_grade:
                 raise ValueError("WDA native grade differs from its canonical level")

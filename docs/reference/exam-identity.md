@@ -34,9 +34,17 @@ The assisted collection explicitly covers written papers; the ordinary
 collection retains already published practical components. This grouping is
 not a separate qualification path or an exemption from practical requirements.
 
-Native-paper evidence can separately correct a source table's grade and file
-role. These corrections require the complete native context and checksum; form
-approval alone cannot supply them. The source fields remain traceability keys.
+Native-paper evidence can independently correct a source table's grade and file
+role. Each judgment requires the complete native context and checksum. A role
+review does not approve a grade, subject label or examination identity; a grade
+review does not establish whether answers are present. Form approval alone
+cannot supply either judgment. The source fields remain traceability keys.
+The v2 evidence format stores these judgments separately. Readers can recover
+the earlier v1 combined review as its originally approved grade and role facts,
+without inventing either dimension or changing retained identifiers. Only one
+versioned evidence file may own a repository's current WDA facts.
+Recovery pairs the evidence file with a compatible runtime; reverting to an
+older runtime also requires its matching evidence snapshot.
 For example, piano-tuning files whose headers say 單一級 belong to that native
 grade even when the table says 甲級; files that contain questions and answers
 use the combined role. Public subject labels and archive paths use the reviewed

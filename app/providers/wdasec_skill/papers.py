@@ -27,12 +27,18 @@ FORM_LABELS = {
 
 
 @dataclass(frozen=True)
-class ReviewedIdentity:
+class ReviewedGrade:
     level_id: str
     native_grade: str
     subject_label: str
+    evidence: str
+
+
+@dataclass(frozen=True)
+class ReviewedRole:
     file_role: str
     evidence: str
+    question_count: int | None = None
 
 
 @dataclass(frozen=True)
@@ -47,7 +53,8 @@ class NativePaper:
     checksum: str
     form: str
     native_header: str
-    reviewed_identity: ReviewedIdentity | None = None
+    reviewed_grade: ReviewedGrade | None = None
+    reviewed_role: ReviewedRole | None = None
 
     @property
     def key(self) -> tuple[int, str, str, str, str, str, str, str]:
@@ -64,14 +71,81 @@ class NativePaper:
 
     @property
     def family(self) -> tuple[str, str]:
-        if self.reviewed_identity is not None:
-            grade = self.reviewed_identity.level_id.replace("-", "_")
+        if self.reviewed_grade is not None:
+            grade = self.reviewed_grade.level_id.replace("-", "_")
             return self.category_code, f"{self.category_code}-{grade}"
         return self.category_code, self.subject_code.rsplit("-", 1)[0]
 
 
 def native_papers_path(repo_root: Path) -> Path:
-    return repo_root / "catalog/mappings/wdasec/native-paper-facts-v1.json"
+    folder = repo_root / "catalog/mappings/wdasec"
+    current = folder / "native-paper-facts-v2.json"
+    legacy = folder / "native-paper-facts-v1.json"
+    if current.exists() and legacy.exists():
+        raise ValueError("WDA native paper evidence has competing versioned owners")
+    return legacy if legacy.exists() else current
+
+
+def _read_native_paper(row: object, version: int) -> NativePaper:
+    required = {
+        "year_roc",
+        "source_exam_id",
+        "exam_name_raw",
+        "category_code",
+        "subject_code",
+        "subject_name_raw",
+        "source_url",
+        "checksum",
+        "form",
+        "native_header",
+    }
+    optional = {"reviewed_identity"} if version == 1 else {"reviewed_grade", "reviewed_role"}
+    if not isinstance(row, dict) or not required <= row.keys() <= required | optional:
+        raise ValueError("Unsupported WDA native paper evidence fields")
+    values = dict(row)
+    if version == 1:
+        legacy = values.pop("reviewed_identity", None)
+        if legacy is not None:
+            if not isinstance(legacy, dict) or set(legacy) != {
+                "level_id",
+                "native_grade",
+                "subject_label",
+                "file_role",
+                "evidence",
+            }:
+                raise ValueError("Invalid legacy WDA identity evidence")
+            values["reviewed_grade"] = {
+                key: value for key, value in legacy.items() if key != "file_role"
+            }
+            values["reviewed_role"] = {
+                "file_role": legacy["file_role"],
+                "evidence": legacy["evidence"],
+            }
+    grade = values.pop("reviewed_grade", None)
+    role = values.pop("reviewed_role", None)
+    if grade is not None and (
+        not isinstance(grade, dict)
+        or set(grade) != {"level_id", "native_grade", "subject_label", "evidence"}
+    ):
+        raise ValueError("Invalid WDA native grade evidence")
+    if role is not None and (
+        not isinstance(role, dict)
+        or not {"file_role", "evidence"}
+        <= role.keys()
+        <= {
+            "file_role",
+            "evidence",
+            "question_count",
+        }
+    ):
+        raise ValueError("Invalid WDA native role evidence")
+    if role is not None and "question_count" in role and type(role["question_count"]) is not int:
+        raise ValueError("WDA native question count requires an integer")
+    return NativePaper(
+        **values,
+        reviewed_grade=ReviewedGrade(**grade) if grade is not None else None,
+        reviewed_role=ReviewedRole(**role) if role is not None else None,
+    )
 
 
 def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
@@ -80,7 +154,7 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
         set(document)
         != {"schema_version", "provider_id", "reviewed_at", "rules", "review_notes", "papers"}
         or type(document["schema_version"]) is not int
-        or document["schema_version"] != 1
+        or document["schema_version"] not in {1, 2}
         or document["provider_id"] != "wdasec_skill"
         or not document["review_notes"].strip()
         or not document["rules"]
@@ -98,17 +172,9 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
             or not rule["evidence"].strip()
         ):
             raise ValueError("WDA paper forms require their native policy evidence")
-    parsed = []
-    for row in document["papers"]:
-        values = dict(row)
-        review = values.pop("reviewed_identity", None)
-        parsed.append(
-            NativePaper(
-                **values,
-                reviewed_identity=ReviewedIdentity(**review) if review is not None else None,
-            )
-        )
-    papers = tuple(parsed)
+    papers = tuple(
+        _read_native_paper(row, document["schema_version"]) for row in document["papers"]
+    )
     keys = set()
     for paper in papers:
         url = urlsplit(paper.source_url)
@@ -149,21 +215,41 @@ def read_native_papers(path: Path) -> tuple[NativePaper, ...]:
             )
         ):
             raise ValueError("Invalid or duplicate WDA native paper context")
-        review = paper.reviewed_identity
+        review = paper.reviewed_grade
         if review is not None:
             from app.classification import _LEVEL_LABELS
 
             if (
-                review.level_id not in {"class-a", "class-b", "class-c", "single"}
+                any(
+                    not isinstance(value, str)
+                    for value in (
+                        review.level_id,
+                        review.native_grade,
+                        review.subject_label,
+                        review.evidence,
+                    )
+                )
+                or review.level_id not in {"class-a", "class-b", "class-c", "single"}
                 or _LEVEL_LABELS.get(review.level_id) != review.native_grade
                 or review.native_grade not in {"甲級", "乙級", "丙級", "單一級"}
                 or review.native_grade not in paper.native_header
                 or review.native_grade not in review.subject_label
                 or not review.evidence.strip()
-                or review.file_role != "question_answer"
                 or not paper.subject_code.endswith("-question")
             ):
-                raise ValueError("WDA identity corrections require native grade and role evidence")
+                raise ValueError("WDA grade corrections require exact native grade evidence")
+        role = paper.reviewed_role
+        if role is not None and (
+            role.file_role != "question_answer"
+            or not isinstance(role.evidence, str)
+            or not role.evidence.strip()
+            or not paper.subject_code.endswith("-question")
+            or (
+                role.question_count is not None
+                and (type(role.question_count) is not int or not 1 <= role.question_count <= 1000)
+            )
+        ):
+            raise ValueError("WDA role corrections require exact native question/answer evidence")
         keys.add(paper.key)
     families: dict[tuple[str, str], set[str]] = {}
     for paper in papers:
@@ -287,7 +373,7 @@ def native_paper_for_record(paper: NormalizedPaper) -> NativePaper | None:
 
 def native_file_role(paper: NormalizedPaper) -> str:
     native = native_paper_for_record(paper)
-    if native is not None and native.reviewed_identity is not None:
+    if native is not None and native.reviewed_role is not None:
         if paper.file_type in {"question", "question_answer"}:
-            return native.reviewed_identity.file_role
+            return native.reviewed_role.file_role
     return paper.file_type

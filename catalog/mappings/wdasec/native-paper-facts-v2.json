@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "provider_id": "wdasec_skill",
   "reviewed_at": "2026-10-24",
   "rules": [
@@ -3279,10 +3279,13 @@
       "checksum": "c9b499f55999102b92be7838bb5543fbebd76a5b1a615bd720d9dfb1ff68a3b0",
       "form": "ordinary",
       "native_header": "93年度一般手工電銲單一級技術士技能檢定學科測試試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測試時間為100分鐘。",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "一般手工電銲 單一級 學科",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }
@@ -23662,10 +23665,13 @@
       "checksum": "0093b422d6e4040ea3be85a1b2499e05d96fa6496b47f4f091b408864318e5a1",
       "form": "ordinary",
       "native_header": "098 年度 02900 視聽電子乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "class-b",
         "native_grade": "乙級",
         "subject_label": "視聽電子 乙級 學科",
+        "evidence": "Reviewed native cover prints 乙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 乙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }
@@ -24005,10 +24011,13 @@
       "checksum": "0093b422d6e4040ea3be85a1b2499e05d96fa6496b47f4f091b408864318e5a1",
       "form": "ordinary",
       "native_header": "098 年度 02900 視聽電子乙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "class-b",
         "native_grade": "乙級",
         "subject_label": "視聽電子 乙級 學科",
+        "evidence": "Reviewed native cover prints 乙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 乙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }
@@ -44856,10 +44865,13 @@
       "checksum": "a719a292be91070b49072dc5142c61f1f40d3449f251c1aa0041ca5918a85f2a",
       "form": "ordinary",
       "native_header": "90年度鋼琴調音單一級技術士技能檢定學科測驗試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44875,10 +44887,13 @@
       "checksum": "bad3a41e89d8fa9ec87b83f19d1403613694eb4fb2b8b902e00e84b143d25976",
       "form": "ordinary",
       "native_header": "93年度鋼琴調音單一級技術士技能檢定學科測驗試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44894,10 +44909,13 @@
       "checksum": "ad8a9981c52568fcf5a2c804e0fcac9a890ee699b73e3066eb36ac299d822269",
       "form": "ordinary",
       "native_header": "91年度鋼琴調音單一級技術士技能檢定學科測驗試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44913,10 +44931,13 @@
       "checksum": "803b8efe15ac37f7a69ef7b38c207da76e3ebc6de1c8f61ddf43568118e1f030",
       "form": "ordinary",
       "native_header": "094年度06800鋼琴調音單一級技術士技能檢定學科測試試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44932,10 +44953,13 @@
       "checksum": "a38146d660d41ac39a2b092cc8c3bff44d567abfdaff68309acdb0f0b0a30b59",
       "form": "ordinary",
       "native_header": "095年度06800鋼琴調音單一級技術士技能檢定學科測試試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The first page contains the answer list; subsequent pages contain the written questions. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44951,10 +44975,13 @@
       "checksum": "565ffe2c6cf284a9dae05d53334cddbb98d0b7ac45b87caf5934c2fff6a75c8e",
       "form": "ordinary",
       "native_header": "097 年度 06800 鋼琴調音單一級技術士技能檢定學科測試試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44970,10 +44997,13 @@
       "checksum": "93f5eb36b58624287060eafefa740f3226f68f3525f99178cea5d8c3a331f4b8",
       "form": "ordinary",
       "native_header": "098 年度 06800 鋼琴調音單一級技術士技能檢定學科測試試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -44989,10 +45019,13 @@
       "checksum": "f5e3f84198b08b805c3eff1d63b5fda4a5a0476f2a9e0c22f6e6096f6c62ca29",
       "form": "ordinary",
       "native_header": "099 年度 06800 鋼琴調音單一級技術士技能檢定學科測試試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -45008,10 +45041,13 @@
       "checksum": "73fe9878b000fe12cc3da63498e2b31a193946507f526f0b67b49959bd7dd6c5",
       "form": "ordinary",
       "native_header": "100 年度 06800 鋼琴調音單一級技術士技能檢定學科測試試題",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "鋼琴調音 單一級 學科",
+        "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "The native header identifies piano tuning as 單一級. The written questions include their printed answers. The source table incorrectly labels the ROC90 and ROC93 records 甲級. Preserve that source wording and its checksum; classify and display the native single grade. Fresh official bytes checked 2026-10-23 match this checksum."
       }
@@ -48615,10 +48651,13 @@
       "checksum": "58e9c742c38cf7b6ce2c857b18e2d38ced36c0436441759540669a49db5b2802",
       "form": "ordinary",
       "native_header": "099 年度 07200 按摩丙級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "class-c",
         "native_grade": "丙級",
         "subject_label": "按摩 丙級 學科",
+        "evidence": "Reviewed native cover prints 丙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 丙級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }
@@ -63034,10 +63073,13 @@
       "checksum": "86f5a8fbed14df3dcac1f26ef2b8f1e4690232cb35d948c3e3dc517a41edfeba",
       "form": "ordinary",
       "native_header": "93年度氬氣鎢極電銲單一級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "氬氣鎢極電銲 單一級 學科",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }
@@ -95201,10 +95243,13 @@
       "checksum": "01cee89f57aa5ddb7191d4ec90e915f3dc96b90dc0eb70cd6e0ee12dde278ece",
       "form": "ordinary",
       "native_header": "93年度堆高機操作單一級技術士技能檢定學科測驗試題\n本試題有是非及選擇各50題，共100題，每題1分，計100分，測驗時間為100分鐘。",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "堆高機操作 單一級 學科",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 單一級; the complete paper has 100 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }
@@ -95220,10 +95265,13 @@
       "checksum": "c0cf6491ee13ed3871a93670f82aee69a3a0d3b16877254f7f6b31cd2769aab2",
       "form": "ordinary",
       "native_header": "099 年度 15100 堆高機操作單一級技術士技能檢定學科測試試題\n本 試 卷 有 選 擇 題 8 0 題，每 題 1 . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
-      "reviewed_identity": {
+      "reviewed_grade": {
         "level_id": "single",
         "native_grade": "單一級",
         "subject_label": "堆高機操作 單一級 學科",
+        "evidence": "Reviewed native cover prints 單一級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
+      },
+      "reviewed_role": {
         "file_role": "question_answer",
         "evidence": "Reviewed native cover prints 單一級; the complete paper has 80 numbered questions with filled answers. Original listing grade and subject code remain source evidence; this judgment binds this exact event, label, URL and SHA-256 only."
       }

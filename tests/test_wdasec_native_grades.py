@@ -14,7 +14,7 @@ from tests.test_wdasec_forms import normalized
 REVIEWED = [
     paper
     for paper in native_papers()
-    if paper.reviewed_identity is not None and paper.category_code != "06800"
+    if paper.reviewed_grade is not None and paper.category_code != "06800"
 ]
 TARGETS = {
     "09100": (
@@ -58,13 +58,13 @@ def test_reviewed_grade_and_combined_role_rejoin_the_exact_existing_identity(nat
     assert {key: getattr(paper, key) for key in SOURCE_FIELDS} == {
         key: getattr(original, key) for key in SOURCE_FIELDS
     }
-    assert publication_paper_subject(paper) == native.reviewed_identity.subject_label
+    assert publication_paper_subject(paper) == native.reviewed_grade.subject_label
     assert (
         publication_paper_subject_code(paper)
         == f"{native.category_code}-{paper.level_id.replace('-', '_')}-question"
     )
     path = _bundle_arcname(paper)
-    assert native.reviewed_identity.native_grade in path
+    assert native.reviewed_grade.native_grade in path
     assert file_type_label("question_answer") in path
     assert asdict(renormalize_catalog(result, []).papers[0]) == asdict(paper)
 
@@ -114,4 +114,4 @@ def test_older_argon_welding_native_c_grade_survives_adjacent_single_grade_revie
     result = renormalize_catalog(NormalizedCatalog([normalized(row) for row in native], []), [])
     assert {paper.level_id for paper in result.papers} == {"class-c"}
     assert not result.review_queue
-    assert all(row.reviewed_identity is None for row in native)
+    assert all(row.reviewed_grade is None for row in native)

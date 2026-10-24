@@ -119,7 +119,8 @@ def test_native_identity_requires_complete_independent_grade_and_role_evidence(
     document["papers"] = [
         next(row for row in document["papers"] if row["category_code"] == "06800")
     ]
-    document["papers"][0]["reviewed_identity"][field] = value
+    dimension = "reviewed_role" if field == "file_role" else "reviewed_grade"
+    document["papers"][0][dimension][field] = value
     path = tmp_path / "facts.json"
     path.write_text(json.dumps(document))
     with pytest.raises(ValueError):

@@ -111,8 +111,11 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         raise ValueError("Unsupported frontend feed version")
     _validate(schemas[f"frontend-bundle-feed-v{version}.schema.json"], frontend, str(frontend_path.relative_to(repo_root)))
 
+    validate_native_papers(repo_root)
+    wda_evidence_path = native_papers_path(repo_root)
+    wda_evidence = _read_json(wda_evidence_path)
     artifacts = (
-        (native_papers_path(repo_root), "wdasec-native-paper-facts-v1.schema.json"),
+        (wda_evidence_path, f"wdasec-native-paper-facts-v{wda_evidence['schema_version']}.schema.json"),
         (postal_native_papers_path(repo_root), "post-native-papers-v1.schema.json"),
         (tcu_annual_papers_path(repo_root), "tcu-annual-papers-v1.schema.json"),
         (site_dir / "release-assets.json", f"release-assets-v{_read_json(site_dir / 'release-assets.json')['schema_version']}.schema.json"),
@@ -147,7 +150,6 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_tqc_identity_evidence(repo_root)
     validate_tcu_annual_papers(repo_root)
     validate_postal_native_papers(repo_root)
-    validate_native_papers(repo_root)
     validate_annual_papers(repo_root)
     for plan_path in sorted((repo_root / "data/providers/hce_nsysu/native-selections").glob("*.json")):
         _validate(schemas["compiled-pdf-selection-v1.schema.json"], _read_json(plan_path), str(plan_path.relative_to(repo_root)))

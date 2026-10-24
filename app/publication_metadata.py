@@ -85,8 +85,8 @@ def _wda_native_paper(paper: Any) -> NativePaper | None:
 
 def publication_paper_subject_code(paper: Any) -> str:
     native = _wda_native_paper(paper)
-    if native is not None and native.reviewed_identity is not None:
-        grade = native.reviewed_identity.level_id.replace("-", "_")
+    if native is not None and native.reviewed_grade is not None:
+        grade = native.reviewed_grade.level_id.replace("-", "_")
         return f"{native.category_code}-{grade}-question"
     return _field(paper, "subject_code")
 
@@ -96,8 +96,8 @@ def publication_paper_subject(paper: Any) -> str:
     provider_id = _field(paper, "provider_id")
     title = _field(paper, "subject_name_raw")
     native = _wda_native_paper(paper)
-    if native is not None and native.reviewed_identity is not None:
-        return native.reviewed_identity.subject_label
+    if native is not None and native.reviewed_grade is not None:
+        return native.reviewed_grade.subject_label
     if provider_id == "teacher_qual":
         subject = native_member_subject(
             source_exam_id=_field(paper, "source_exam_id"),
