@@ -939,6 +939,16 @@ papers can print multiple-response answers beside their questions; a filter
 limited to single-digit answers misses these combined question/answer booklets.
 Neither printed answers nor an archive date alone establishes material purpose.
 
+Historical software-design originals can contain a common first booklet and a
+language-specific second booklet in one PDF, each restarting question numbering.
+Later originals can publish the booklets separately. Preserve the actual native
+packaging and the distinct common, Java and C++ track contexts; shared first-booklet
+content does not make the combined originals interchangeable. Reviewed question
+counts describe the whole original, while the combined question/answer role is
+independent of qualification identity. Inconsistent native footer totals do not
+justify deleting a final page or inventing a replacement; retain the exact official
+bytes, including continued question content.
+
 An accounting theory booklet can retain the generic occupation heading after
 the qualification splits into tracks. The official
 [annual briefing](https://skill.tcte.edu.tw/doc/YR100/100F3_Promote.pdf#page=8)

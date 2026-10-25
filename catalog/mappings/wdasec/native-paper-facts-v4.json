@@ -107606,7 +107606,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093002/119002.pdf",
       "checksum": "f3fc238b609cf6cd13bf0ae761fccb3dc4568be90a19ef859bfa0fb8550a9a67",
       "form": "ordinary",
-      "native_header": "93年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第一堂)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘"
+      "native_header": "93年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第一堂)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "The original booklet contains a complete 1–70 question sequence. Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF page 1 was visually inspected; the native question pages show questions together with filled answers. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 93,
@@ -107666,7 +107671,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096003/119002.pdf",
       "checksum": "9a49d566e7668e0abd02a090a59a267e3aecec984570a4113ad5b183631dc23d",
       "form": "ordinary",
-      "native_header": "096 年度 11900 電腦軟體設計乙級技術士技能檢定學科測試試題\n本試題為單選題，共 70 題，每題 0.5 分，計 35 分，答錯不倒扣分數，測試時間為 100 分鐘。"
+      "native_header": "096 年度 11900 電腦軟體設計乙級技術士技能檢定學科測試試題\n本試題為單選題，共 70 題，每題 0.5 分，計 35 分，答錯不倒扣分數，測試時間為 100 分鐘。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "The original booklet contains a complete 1–70 question sequence. Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF page 1 was visually inspected; the native question pages show questions together with filled answers. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 90,
@@ -108083,7 +108093,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092003/119012.pdf",
       "checksum": "c330693d0482f077f3776d987093139058f6be7ee6c6f59339a53df355e88578",
       "form": "ordinary",
-      "native_header": "92年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第一堂)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘。"
+      "native_header": "92年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第一堂)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 140,
+        "evidence": "The original combines first/common and second/language-specific booklets, each with its own complete 1–70 sequence (140 questions total). Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF pages 1, 7, 8, 17 were visually inspected; the native question pages show questions together with filled answers. Original footer totals are inconsistent with physical pagination; preserve all native pages including the final question content. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 93,
@@ -108095,7 +108110,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093002/119012.pdf",
       "checksum": "d7bd1ce49d137b80540803f286eb3c52ac6d0e1f55c113b2e879304044737293",
       "form": "ordinary",
-      "native_header": "93年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第二堂-Java)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘"
+      "native_header": "93年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第二堂-Java)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "The original booklet contains a complete 1–70 question sequence. Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF pages 1, 10 were visually inspected; the native question pages show questions together with filled answers. Original footer totals are inconsistent with physical pagination; preserve all native pages including the final question content. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 93,
@@ -108155,7 +108175,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096003/119012.pdf",
       "checksum": "d84d66272fd302c81ecbf6f9d1e239948fbbaab011ad739826127329d578e6eb",
       "form": "ordinary",
-      "native_header": "096 年度 11901 電腦軟體設計(第二堂－JAVA)乙級技術士技能檢定學科測試試題\n本試題有單選題與複選題，共 70 題，單選題每題 0.5 分，複選題每題 1 分，計 65 分，測試時間為"
+      "native_header": "096 年度 11901 電腦軟體設計(第二堂－JAVA)乙級技術士技能檢定學科測試試題\n本試題有單選題與複選題，共 70 題，單選題每題 0.5 分，複選題每題 1 分，計 65 分，測試時間為",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "The original booklet contains a complete 1–70 question sequence. Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF page 1 was visually inspected; the native question pages show questions together with filled answers. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 97,
@@ -108473,7 +108498,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092003/119022.pdf",
       "checksum": "fced52626fec82f6ce3f30cd1bfc9c9d95d937b11dea07d3cfcdbf08d66e1afa",
       "form": "ordinary",
-      "native_header": "92年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第一堂)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘。"
+      "native_header": "92年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第一堂)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘。",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 140,
+        "evidence": "The original combines first/common and second/language-specific booklets, each with its own complete 1–70 sequence (140 questions total). Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF pages 1, 7, 8, 18 were visually inspected; the native question pages show questions together with filled answers. Original footer totals are inconsistent with physical pagination; preserve all native pages including the final question content. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 93,
@@ -108485,7 +108515,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093002/119022.pdf",
       "checksum": "b3776f02305583925ed25637d444811eaec1566ee4fb7a05817e06968443ab11",
       "form": "ordinary",
-      "native_header": "93年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第二堂-C++)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘"
+      "native_header": "93年度電腦軟體設計乙級技術士技能檢定學科測驗試題(第二堂-C++)\n本試題有單選題與複選題，共70題，單選每題0.5分，複選每題0.75分，計50分，測試時間為120分鐘",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "The original booklet contains a complete 1–70 question sequence. Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF page 1 was visually inspected; the native question pages show questions together with filled answers. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 93,
@@ -108545,7 +108580,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096003/119022.pdf",
       "checksum": "2a59238457d4d08b8f0ef28555ed56ee322aa2ae6c67d4deb2340533dcc5dd49",
       "form": "ordinary",
-      "native_header": "096 年度 11902 電腦軟體設計(第二堂－C++)乙級技術士技能檢定學科測試試題\n本試題有單選題與複選題，共 70 題，單選題每題 0.5 分，複選題每題 1 分，計 65 分，測試時間為"
+      "native_header": "096 年度 11902 電腦軟體設計(第二堂－C++)乙級技術士技能檢定學科測試試題\n本試題有單選題與複選題，共 70 題，單選題每題 0.5 分，複選題每題 1 分，計 65 分，測試時間為",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "The original booklet contains a complete 1–70 question sequence. Fresh full-document text and every numbered printed answer were verified against this exact SHA-256, which also matches a fresh official-source download. Native PDF page 1 was visually inspected; the native question pages show questions together with filled answers. Only the combined question/answer role is approved; retain the original booklets and distinct common, Java and C++ qualification tracks. No change to grade, programme, paper form, component, event, material purpose or dates."
+      }
     },
     {
       "year_roc": 97,
