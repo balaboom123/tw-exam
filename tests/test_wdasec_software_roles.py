@@ -11,19 +11,21 @@ from tests.test_wdasec_forms import normalized
 
 
 @pytest.mark.parametrize(
-    ("year", "category", "question_count"),
-    [(92, "11901", 140), (92, "11902", 140)]
-    + [(year, category, 70) for year in (93, 96) for category in ("11900", "11901", "11902")],
+    ("year", "source_exam_id", "category", "question_count"),
+    [(92, "201201050005", "11901", 140), (92, "201201050005", "11902", 140)]
+    + [
+        (year, event, category, 70)
+        for year, event in [(93, "201201050007"), (93, "201201050008"), (96, "201201050016")]
+        for category in ("11900", "11901", "11902")
+    ],
 )
 def test_reviewed_software_role_preserves_booklets_and_qualification_tracks(
-    monkeypatch, year, category, question_count
+    monkeypatch, year, source_exam_id, category, question_count
 ):
     native = next(
         p
         for p in owner.native_papers()
-        if p.year_roc == year
-        and p.category_code == category
-        and p.source_exam_id in {"201201050005", "201201050007", "201201050016"}
+        if p.year_roc == year and p.category_code == category and p.source_exam_id == source_exam_id
     )
     assert native.reviewed_role is not None
     assert native.reviewed_role.question_count == question_count

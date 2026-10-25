@@ -107623,7 +107623,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/119002.pdf",
       "checksum": "f4a5a026aa419c4ca9c3fb0b3eb278e13469c2e4945b29b4c9e9ad4bfe3891c0",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "All 8 native scanned PDF pages were visually inspected. Page 1 is the ROC-year-93 occupation 11900 (第一堂) answer report for set 1-1, with all 70 numbered answers. The following 7 pages contain the complete declared 70 questions, including continued options, tables, diagrams and code. Native year, occupation/booklet and set identifiers match the answer report. The full original combines questions and answers; its PDF text extraction is empty. The exact source-context SHA-256 also matches a fresh official-source download. This review approves the combined file role and preserves the distinct common, Java and C++ qualifications, original bytes, source fields and other identity/material facts."
+      }
     },
     {
       "year_roc": 94,
@@ -108127,7 +108132,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/119012.pdf",
       "checksum": "c03bb397369de625b65dfbc0affd4446ae5ace5009b203a8aaf31a8a9d7df1b8",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "All 11 native scanned PDF pages were visually inspected. Page 1 is the ROC-year-93 occupation 11901 (第二堂-Java) answer report for set 1-4, with all 70 numbered answers. The following 10 pages contain the complete declared 70 questions, including continued options, tables, diagrams and code. Native year, occupation/booklet and set identifiers match the answer report. The full original combines questions and answers; its PDF text extraction is empty. The exact source-context SHA-256 also matches a fresh official-source download. This review approves the combined file role and preserves the distinct common, Java and C++ qualifications, original bytes, source fields and other identity/material facts."
+      }
     },
     {
       "year_roc": 94,
@@ -108532,7 +108542,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/119022.pdf",
       "checksum": "b02faf8c76de742f2b332abc878c955014f3e9870dc155b31ae40686777923eb",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 70,
+        "evidence": "All 13 native scanned PDF pages were visually inspected. Page 1 is the ROC-year-93 occupation 11902 (第二堂-C++) answer report for set 1-1, with all 70 numbered answers. The following 12 pages contain the complete declared 70 questions, including continued options, tables, diagrams and code. Native year, occupation/booklet and set identifiers match the answer report. The full original combines questions and answers; its PDF text extraction is empty. The exact source-context SHA-256 also matches a fresh official-source download. This review approves the combined file role and preserves the distinct common, Java and C++ qualifications, original bytes, source fields and other identity/material facts."
+      }
     },
     {
       "year_roc": 94,

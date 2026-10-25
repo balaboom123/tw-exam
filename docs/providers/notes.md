@@ -1001,6 +1001,10 @@ Some original PDFs combine a text answer key with scanned question pages. Review
 the complete native document before assigning its role: an answer-only text
 extraction can omit every question image. Keep the original combined file and
 bind its independently reviewed role to the exact source context and checksum.
+Fully scanned originals can likewise combine a printed answer report with
+unfilled question pages. Match the native year, occupation, booklet and set
+across both parts; an empty text extraction establishes neither missing questions
+nor an answer-only original.
 
 Retained cooking booklets explicitly headed 資深廚師 contain a different question
 set from their same-event ordinary counterparts. Keep this native paper form
