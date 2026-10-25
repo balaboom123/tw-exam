@@ -179518,12 +179518,12 @@
         103,
         102
       ],
-      "file_count": 216,
+      "file_count": 252,
       "storage_key": "bundles/sites/default/special-admission-admission-special-not-applicable-special-admission--b5daac01a941.zip",
       "asset_name": "special-admission-admission-special-not-applicable-special-admission--b5daac01a941.zip",
       "release_tag": "default-bundles-v2-008",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/special-admission-admission-special-not-applicable-special-admission--b5daac01a941.zip",
-      "checksum": "e62f74517e9556088812020d7b4c0f16433c79f074631ee4f0ccf68edb6a02f6",
+      "checksum": "d2e2c4907b76675137546e9a50cb103196cc034f84fc39b126340494baa6cb13",
       "schema_version": 2,
       "bundle_id": "special-admission-admission-special-not-applicable-special-admission",
       "catalog_version": "exam-identity-v2",
@@ -179549,6 +179549,8 @@
         "數學A",
         "數學B",
         "物理",
+        "數學甲",
+        "數學乙",
         "115學年度身心障礙學生升學大專校院甄試",
         "university-common",
         "biology",
@@ -179561,9 +179563,7 @@
         "math-b",
         "physics",
         "114學年度身心障礙學生升學大專校院甄試",
-        "113學年度身心障礙學生升學大專校院甄試",
-        "112學年度身心障礙學生升學大專校院甄試",
-        "111學年度身心障礙學生升學大專校院甄試"
+        "113學年度身心障礙學生升學大專校院甄試"
       ],
       "subject_labels": [],
       "legacy_canonical_ids": []

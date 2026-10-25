@@ -546,7 +546,25 @@ for archive republication; keep site ZIP publication quarantined.
 
 ## `special_admission`
 
-Use the official special-admission examination archive and its event-linked papers. General admissions content outside that archive is not part of this provider.
+This provider covers the university academic branch of the entrance examination
+for students with disabilities. Its accepted papers are the archive's 大學組 /
+共同 rows; other school groups and arts/practical papers have separate source
+scope. The programme is distinct from general university special selection.
+
+Keep the source-native 數學甲/乙 subjects separate from 數學A/B. The official
+[historical mathematics scope](https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=383&row=0)
+and the [scope applying from ROC111](https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=894&row=0)
+describe different curriculum coverage. A whitelist containing only the modern
+names omits historical papers; aliasing the old names to the new ones would hide
+that distinction. Preserve each original subject label, annual event, source
+URL and native PDF. Shared CEEC authorship does not make these papers part of
+the separate national university entrance programmes.
+
+An advertised selector year can have no papers yet. Retain that observed event
+as awaiting papers, without creating a paper download or claiming an
+administered sitting. Blank unused rows in an original answer-table template
+do not establish missing questions; preserve the original PDF and any inline
+correction notes.
 
 ## `tabf_cert`
 

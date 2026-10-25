@@ -5,13 +5,11 @@ from app.models import NormalizedCatalog
 from app.normalizer import normalize_papers
 from app.providers.base import SourceProvider
 from app.providers.registry import get_provider
-
 from app.providers.special_admission.client import (
     SpecialAdmissionClient,
     parse_available_years,
     parse_question_page,
 )
-
 
 QUESTION_HTML = """
 <html><body>
@@ -40,18 +38,71 @@ QUESTION_HTML = """
 
 
 class SpecialAdmissionParserTests(unittest.TestCase):
+    def test_historical_mathematics_keeps_native_names_and_both_file_roles(self) -> None:
+        rows = []
+        for subject in ("數學甲", "數學乙"):
+            rows.append(
+                f"<tr><td>110</td><td>大學組</td><td>共同</td><td>{subject}</td>"
+                f'<td><a href="/{subject}-question.pdf">{subject}試題.pdf</a>'
+                f'<a href="/{subject}-answer.pdf">{subject}參考答案.pdf</a></td></tr>'
+            )
+        html = "<table>" + "".join(rows) + "</table>"
+        papers = parse_question_page(html, "https://cis.ncu.edu.tw/EnableSys/")
+
+        self.assertEqual(
+            [(p.subject_name_raw, p.subject_code) for p in papers],
+            [("數學甲", "math-jia"), ("數學乙", "math-yi")],
+        )
+        self.assertTrue(all(set(p.files) == {"question", "answer"} for p in papers))
+
+    def test_historical_mathematics_does_not_merge_with_new_curriculum_or_other_tracks(
+        self,
+    ) -> None:
+        rows = []
+        for year, school, subject in (
+            (110, "大學組", "數學甲"),
+            (110, "大學組", "數學乙"),
+            (111, "大學組", "數學A"),
+            (111, "大學組", "數學B"),
+            (110, "四技二專組", "數學(A)"),
+            (110, "二技組", "數學甲"),
+        ):
+            rows.append(
+                f"<tr><td>{year}</td><td>{school}</td><td>共同</td><td>{subject}</td>"
+                f'<td><a href="/{year}-{school}-{subject}.pdf">{subject}試題.pdf</a></td></tr>'
+            )
+        papers = parse_question_page(
+            "<table>" + "".join(rows) + "</table>", "https://cis.ncu.edu.tw/EnableSys/"
+        )
+        self.assertEqual(
+            [(p.subject_name_raw, p.subject_code) for p in papers],
+            [
+                ("數學甲", "math-jia"),
+                ("數學乙", "math-yi"),
+                ("數學A", "math-a"),
+                ("數學B", "math-b"),
+            ],
+        )
+
     def test_parse_available_years_reads_select_options(self) -> None:
         self.assertEqual(parse_available_years(QUESTION_HTML), [2026, 2025])
 
     def test_parse_question_page_keeps_university_common_subject_assets(self) -> None:
-        papers = parse_question_page(QUESTION_HTML, "https://cis.ncu.edu.tw/EnableSys/admissionInfo/examInfo/question?year=114")
+        papers = parse_question_page(
+            QUESTION_HTML,
+            "https://cis.ncu.edu.tw/EnableSys/admissionInfo/examInfo/question?year=114",
+        )
 
         self.assertEqual(len(papers), 1)
         self.assertEqual(papers[0].category_raw, "身心障礙學生升學大專校院甄試")
         self.assertEqual(papers[0].category_code, "university-common")
         self.assertEqual(papers[0].subject_code, "chinese")
-        self.assertEqual(papers[0].files["question"], "https://cis.ncu.edu.tw/EnableSys/file/A2301國文試題.pdf")
-        self.assertEqual(papers[0].files["answer"], "https://cis.ncu.edu.tw/EnableSys/file/A2301國文參考答案.pdf")
+        self.assertEqual(
+            papers[0].files["question"], "https://cis.ncu.edu.tw/EnableSys/file/A2301國文試題.pdf"
+        )
+        self.assertEqual(
+            papers[0].files["answer"], "https://cis.ncu.edu.tw/EnableSys/file/A2301國文參考答案.pdf"
+        )
 
     def test_fetch_exam_page_turns_year_into_source_page(self) -> None:
         with patch.object(SpecialAdmissionClient, "_fetch_text", return_value=QUESTION_HTML):
@@ -64,7 +115,9 @@ class SpecialAdmissionParserTests(unittest.TestCase):
         self.assertEqual(len(page.papers), 1)
 
     def test_discovery_builders_reuse_one_listing_fetch(self) -> None:
-        with patch.object(SpecialAdmissionClient, "_fetch_text", return_value=QUESTION_HTML) as fetch:
+        with patch.object(
+            SpecialAdmissionClient, "_fetch_text", return_value=QUESTION_HTML
+        ) as fetch:
             client = SpecialAdmissionClient()
 
             self.assertEqual(client.discover_available_years(), [2026, 2025])
@@ -104,7 +157,10 @@ class SpecialAdmissionParserTests(unittest.TestCase):
             for file_type in paper.files:
                 mirror_metadata[(paper.category_code, paper.subject_code, file_type)] = {
                     "checksum": f"{paper.subject_code}-{file_type}",
-                    "storage_key": f"providers/special_admission/114/{page.source_exam_id}/{paper.category_code}/{paper.subject_code}/{file_type}.pdf",
+                    "storage_key": (
+                        f"providers/special_admission/114/{page.source_exam_id}/"
+                        f"{paper.category_code}/{paper.subject_code}/{file_type}.pdf"
+                    ),
                 }
 
         normalized = normalize_papers(
@@ -119,7 +175,9 @@ class SpecialAdmissionParserTests(unittest.TestCase):
 
         self.assertIsInstance(normalized, NormalizedCatalog)
         self.assertEqual({paper.canonical_id for paper in normalized.papers}, {"special-admission"})
-        self.assertEqual({paper.canonical_name for paper in normalized.papers}, {"身心障礙學生升學大專校院甄試"})
+        self.assertEqual(
+            {paper.canonical_name for paper in normalized.papers}, {"身心障礙學生升學大專校院甄試"}
+        )
         self.assertEqual(normalized.review_queue, [])
 
 

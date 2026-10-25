@@ -16,6 +16,8 @@ _CATEGORY_NAME = "身心障礙學生升學大專校院甄試"
 _SUBJECT_SLUGS = {
     "國文": "chinese",
     "英文": "english",
+    "數學甲": "math-jia",
+    "數學乙": "math-yi",
     "數學A": "math-a",
     "數學B": "math-b",
     "歷史": "history",

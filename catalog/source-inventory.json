@@ -981,9 +981,9 @@
     },
     {
       "available_years": {
-        "end_ad": 2026,
+        "end_ad": 2027,
         "mode": "observed_range",
-        "note": "Official selector exposes 2013–2026; 14 events rechecked 2026-07-30",
+        "note": "Live official selector checked 2026-10-25; ROC 116 is advertised but has no papers yet. Published university academic papers currently span ROC 102–115.",
         "start_ad": 2013
       },
       "discovery_snapshot": {
@@ -994,10 +994,10 @@
       "evidence": [
         "docs/providers/notes.md#special_admission"
       ],
-      "exam_category": "University special-admission / special-selection papers in the accepted 大學組 / 共同 scope",
+      "exam_category": "University/common academic papers of the entrance examination for students with disabilities, preserving historical mathematics subjects separately from the new curriculum.",
       "local_state": {
-        "normalized_paper_records": 216,
-        "raw_event_pages": 14,
+        "raw_event_pages": 15,
+        "normalized_paper_records": 252,
         "sync_failures": 0
       },
       "local_years": [
@@ -1014,20 +1014,21 @@
         2023,
         2024,
         2025,
-        2026
+        2026,
+        2027
       ],
       "official_source_urls": [
         "https://cis.ncu.edu.tw/EnableSys/admissionInfo/examInfo/question"
       ],
       "provider_id": "special_admission",
       "restrictions": [
-        "Declared scope is only 大學組 / 共同 and nine Shuati-listed subjects; official 二技組 and 四技二專組 rows are intentionally excluded because they belong to different archive families.",
+        "Accepted scope is 大學組 / 共同 academic papers, preserving 數學甲/乙 and 數學A/B as separate source-native subjects. 二技組, 四技二專組 and arts/practical papers remain outside this accepted university-academic scope.",
         "robots.txt explicitly allows /EnableSys/, but no blanket redistribution license or copyright terms were linked from the archive page; retain official-source attribution and takedown readiness.",
         "No third-party mirrors are accepted."
       ],
       "source_name": "身心障礙學生升學大專校院甄試",
       "status": "covered",
-      "status_reason": "Covered in declared scope; official selector and all 216 accepted assets rechecked 2026-07-30; local coverage: 2013–2026, 14 buckets; 14 → 216"
+      "status_reason": "Declared academic scope rechecked 2026-10-25: 252 official files across 14 published annual events; 36 previously omitted historical mathematics files restored. The additional ROC 116 selector event awaits papers."
     },
     {
       "available_years": {

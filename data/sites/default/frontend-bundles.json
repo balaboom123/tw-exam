@@ -162678,7 +162678,7 @@
         103,
         102
       ],
-      "fileCount": 216,
+      "fileCount": 252,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/special-admission-admission-special-not-applicable-special-admission--b5daac01a941.zip",
       "domainId": "admissions",
       "examFamilyId": "special-admission",
@@ -162699,6 +162699,8 @@
         "數學A",
         "數學B",
         "物理",
+        "數學甲",
+        "數學乙",
         "115學年度身心障礙學生升學大專校院甄試",
         "university-common",
         "biology",
@@ -162711,9 +162713,7 @@
         "math-b",
         "physics",
         "114學年度身心障礙學生升學大專校院甄試",
-        "113學年度身心障礙學生升學大專校院甄試",
-        "112學年度身心障礙學生升學大專校院甄試",
-        "111學年度身心障礙學生升學大專校院甄試"
+        "113學年度身心障礙學生升學大專校院甄試"
       ],
       "sources": [
         {
@@ -162721,7 +162721,7 @@
           "url": "https://cis.ncu.edu.tw/EnableSys/admissionInfo/examInfo/question"
         }
       ],
-      "updated": "2026-10-24T08:22:17Z"
+      "updated": "2026-10-25T07:52:48Z"
     },
     {
       "id": "taipower-recruit-employment-recruitment-not-applicable-taipower-recruit",
