@@ -15,6 +15,23 @@ uv run python -m app plan-release --repo-root . --site-id default --output .tmp/
 
 With the persistent mirror available, do not use `--skip-mirror-check`.
 
+For a manual provider migration, preserve the complete revision journal and its
+independent mirror blobs together with the current originals before pushing the
+new provider metadata. A site ZIP or a warm cache does not establish durable
+coverage of those earlier source references. For a provider that permits public
+mirror backup, save and verify the new generation through the
+[durable backup procedure](recovery.md#durable-provider-mirror-backup), then test
+a clean restore against the matching provider state with the strict history
+audit above. Keep the previous generation available for pinned workflow retries
+and rollback. Providers that prohibit public backup retain their verified local
+recovery copies and cache-only policy.
+
+The provider writer can reconstruct a missing revision blob from another
+recorded locator with exactly matching bytes. This recovery makes an older
+generation usable when it still contains the required payload; it does not
+establish that missing or changed historical bytes are available. Complete the
+restore and byte checks before relying on that recovery during a release.
+
 ## Build the site projection
 
 ```bash
