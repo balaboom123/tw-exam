@@ -987,6 +987,11 @@ paper form or a new qualification track from the answer digits. Later booklets
 can also start their multiple-response section after question 61; the printed
 sequence owns that boundary.
 
+Some original PDFs combine a text answer key with scanned question pages. Review
+the complete native document before assigning its role: an answer-only text
+extraction can omit every question image. Keep the original combined file and
+bind its independently reviewed role to the exact source context and checksum.
+
 Retained cooking booklets explicitly headed 資深廚師 contain a different question
 set from their same-event ordinary counterparts. Keep this native paper form
 distinct from ordinary and foreign-assisted masters. The
