@@ -1213,7 +1213,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Official listing exposes ROC 90–115 / AD 2001–2026; the exact padded ROC 90/91 pages were rechecked 2026-07-30 and returned HTTP 200",
+        "note": "The current official listing exposes ROC 90–115 / AD 2001–2026. All 26 native annual pages were rechecked, including the exact padded ROC 90/91 routes and every source-labeled mathematics button.",
         "start_ad": 2001
       },
       "discovery_snapshot": {
@@ -1227,7 +1227,7 @@
       ],
       "exam_category": "TCTE 四技二專統一入學測驗 / TVE archive",
       "local_state": {
-        "normalized_paper_records": 3079,
+        "normalized_paper_records": 3161,
         "raw_event_pages": 26,
         "sync_failures": 0
       },
@@ -1265,11 +1265,12 @@
       "provider_id": "tcte_tve",
       "restrictions": [
         "The ROC 91 XLS answer is intentionally excluded as a duplicate format of the retained official PDF.",
-        "The official archive says historical papers and answers are reference material; no explicit redistribution license is recorded."
+        "The official archive says historical papers and answers are reference material; no explicit redistribution license is recorded.",
+        "Historical numeric group identifiers are reused for different native categories. Programme/track reconciliation remains required; this acquisition repair does not approve numeric-only cross-year grouping."
       ],
       "source_name": "技專校院入學測驗中心",
       "status": "covered",
-      "status_reason": "Covered in declared paper/answer scope; 26/26 official listing events are manifest-represented and local, with 3,079 mirrored normalized assets across AD 2001–2026 and zero failures"
+      "status_reason": "Covered in the declared paper/answer acquisition scope: all 26 official annual listings reconcile to 3,161 retained file references with zero failures. The button-label repair restores 82 omitted mathematics originals while preserving every earlier URL and payload. Historical numeric category reuse still requires a separate track-identity migration; this acquisition coverage does not establish semantic grouping correctness."
     },
     {
       "available_years": {

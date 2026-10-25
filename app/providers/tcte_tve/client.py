@@ -119,11 +119,13 @@ class _TableParser(HTMLParser):
                 self._link_label_parts = []
             return
         if tag == "input" and self._cell is not None:
-            onclick = dict(attrs).get("onclick", "") or ""
+            self._finish_link()
+            attributes = dict(attrs)
+            onclick = attributes.get("onclick", "") or ""
             match = _ONCLICK_RE.search(onclick)
             if match is not None:
                 self._cell.links.append(urljoin(self.base_url, match.group("href")))
-                self._cell.link_labels.append("")
+                self._cell.link_labels.append(_normalize_text(attributes.get("value", "") or ""))
 
     def handle_data(self, data: str) -> None:
         if self._cell is not None:
@@ -256,7 +258,7 @@ def parse_listing_page(html: str) -> list[TcteYearPage]:
     return sorted(pages, key=lambda page: page.year_ad, reverse=True)
 
 
-_MATH_VARIANT_RE = re.compile(r"數學\s*[（(]\s*([ABC])\s*[）)]")
+_MATH_VARIANT_RE = re.compile(r"數學\s*[（(]\s*([A-Z])\s*[）)]", re.IGNORECASE)
 
 
 def _math_variant(label: str) -> str:
@@ -268,42 +270,55 @@ def _cell_link_label(cell: _Cell, index: int) -> str:
     return cell.link_labels[index] if index < len(cell.link_labels) else ""
 
 
+def _math_form_links(cell: _Cell) -> dict[str, str]:
+    forms: dict[str, str] = {}
+    for index, url in enumerate(cell.links):
+        form = _math_variant(_cell_link_label(cell, index))
+        if not form:
+            continue
+        if form in forms and forms[form] != url:
+            raise ValueError(f"Conflicting native mathematics links for {form}")
+        forms[form] = url
+    return forms
+
+
 def _paper_links(
     question_cell: _Cell, answer_cell: _Cell, base_subject: str
 ) -> list[tuple[str, str, str | None]]:
-    """Pair old anchor-based paper links with answer links.
+    """Pair source-labeled mathematics forms across anchors and buttons.
 
     The 2002–2005 pages use anchors instead of the newer JavaScript inputs.
     Some years publish one shared mathematics question with three variant
     answer links, while 2005 publishes three matching question/answer links.
     """
-    question_links = list(enumerate(question_cell.links))
-    answer_links = list(enumerate(answer_cell.links))
+    question_links = question_cell.links
+    answer_links = answer_cell.links
     if not question_links:
         return []
 
-    question_variants = {
-        _math_variant(_cell_link_label(question_cell, index)): index
-        for index, _url in question_links
-        if _math_variant(_cell_link_label(question_cell, index))
-    }
-    answer_variants = {
-        _math_variant(_cell_link_label(answer_cell, index)): index
-        for index, _url in answer_links
-        if _math_variant(_cell_link_label(answer_cell, index))
-    }
+    question_variants = _math_form_links(question_cell)
+    answer_variants = _math_form_links(answer_cell)
     variants = list(dict.fromkeys([*question_variants, *answer_variants]))
     if not variants:
-        question_url = question_links[0][1]
-        answer_url = answer_links[0][1] if answer_links else None
-        return [(base_subject, question_url, answer_url)]
+        if (
+            "數學" in base_subject
+            and not _math_variant(base_subject)
+            and (len(set(question_links)) > 1 or len(set(answer_links)) > 1)
+        ):
+            raise ValueError("Unlabeled native mathematics forms require review")
+        first_question_url = question_links[0]
+        first_answer_url = answer_links[0] if answer_links else None
+        return [(base_subject, first_question_url, first_answer_url)]
 
     paired: list[tuple[str, str, str | None]] = []
     for variant in variants:
-        question_index = question_variants.get(variant, question_links[0][0])
-        answer_index = answer_variants.get(variant)
-        answer_url = answer_links[answer_index][1] if answer_index is not None else None
-        paired.append((variant, question_cell.links[question_index], answer_url))
+        question_url = question_variants.get(variant)
+        if question_url is None:
+            shared_questions = set(question_cell.links)
+            if len(shared_questions) != 1 or question_variants:
+                raise ValueError(f"Unpaired native mathematics answer for {variant}")
+            question_url = next(iter(shared_questions))
+        paired.append((variant, question_url, answer_variants.get(variant)))
     return paired
 
 

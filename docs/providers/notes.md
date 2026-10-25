@@ -704,6 +704,21 @@ Use official Taiwan Sugar recruitment examination listings and their administere
 
 Use the official TCTE technological and vocational examination archive, retaining its official program and subject distinctions. Do not merge programs solely because display labels overlap.
 
+Historical mathematics links can share one table cell. The visible form label
+belongs to each anchor or download button's `value`; reading only anchor text
+silently keeps the first button and drops the other forms. Pair questions and
+answers by that native label, including the historical D and S forms. Preserve
+the earlier shared question book when the source supplies one question link and
+separate form-specific keys. Conflicting links for one form, or a key without a
+matching book among several distinct question links, require review rather than
+substituting another form's question.
+
+When repairing the former generic mathematics slot, keep its exact source URL
+and checksum in provider history before replacing its subject context with the
+native form. Existing correctly named subjects and the common-subject download
+URL remain stable. Original answer PDFs retain their correction notes and blank
+unused table rows; neither should be removed as redundant material.
+
 ## `teacher_qual`
 
 Use official teacher-qualification assessment events and paper artifacts. Teacher recruitment exams are owned by separate providers and must not be folded into this qualification series.
