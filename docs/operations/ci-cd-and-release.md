@@ -40,8 +40,13 @@ The frontend build emits a compact, content-hashed bundle feed, a lazy search in
 
 Release cleanup verifies every primary archive's hosted checksum across all
 shards before deleting the first obsolete ZIP. Missing, stale, or unverifiable
-primaries block cleanup. Upload also rejects a missing local ZIP unless the
-hosted archive already matches its expected checksum. After an interrupted bulk
+primaries block cleanup. Upload checks every selected shard before replacing
+the first ZIP. A missing or corrupt required local file, an oversized asset,
+an exceeded shard limit or an unavailable inventory stops the upload preflight.
+The preceding ensure step creates required releases; upload requires their
+inventories to be readable and does not treat a failed lookup as an empty release.
+A local ZIP is unnecessary when the hosted archive already matches its expected
+checksum. After an interrupted bulk
 upload, rerun upload to skip matching archives, then verify coverage before
 pruning and deploying the corresponding site feed.
 

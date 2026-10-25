@@ -207,8 +207,9 @@ def coverage() -> int:
 def upload() -> int:
     missing = []
     drifted = []
+    planned_uploads: list[tuple[str, list[str]]] = []
     for release_tag, assets in sorted(_group_assets_by_release_tag().items()):
-        release_digests = _release_zip_digests(release_tag, allow_missing=True)
+        release_digests = _release_zip_digests(release_tag)
         remote_names = set(release_digests)
         if len(remote_names) > GITHUB_RELEASE_ASSET_LIMIT:
             print(
@@ -263,19 +264,23 @@ def upload() -> int:
                 file=sys.stderr,
             )
             return 1
-        for start in range(0, len(upload_specs), UPLOAD_BATCH_SIZE):
-            batch = upload_specs[start:start + UPLOAD_BATCH_SIZE]
-            subprocess.run(["gh", "release", "upload", release_tag, *batch, "--clobber"], check=True)
+        planned_uploads.append((release_tag, upload_specs))
     if missing:
         print("Missing expected bundle files before upload:\n" + "\n".join(missing), file=sys.stderr)
-        return 1
     if drifted:
         print(
             "Bundle files disagree with the checksums the site catalog publishes; "
             "regenerate the catalog before uploading:\n" + "\n".join(drifted),
             file=sys.stderr,
         )
+    if missing or drifted:
         return 1
+    # A known bad input in any shard must stop the whole upload before an
+    # earlier shard's live assets can be replaced.
+    for release_tag, upload_specs in planned_uploads:
+        for start in range(0, len(upload_specs), UPLOAD_BATCH_SIZE):
+            batch = upload_specs[start:start + UPLOAD_BATCH_SIZE]
+            subprocess.run(["gh", "release", "upload", release_tag, *batch, "--clobber"], check=True)
     return 0
 
 
