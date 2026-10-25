@@ -12,7 +12,7 @@ from email.message import Message
 from email.utils import parsedate_to_datetime
 from html import unescape
 from html.parser import HTMLParser
-from http.client import HTTPResponse
+from http.client import HTTPResponse, IncompleteRead
 from http.cookiejar import CookieJar
 from pathlib import Path
 from threading import Lock
@@ -185,13 +185,15 @@ class Http:
                 if delay is not None and delay > 120:
                     raise
                 error.close()
-            except (URLError, TimeoutError) as error:
+            except (IncompleteRead, URLError, TimeoutError) as error:
                 if attempt + 1 == self.max_attempts:
                     location = urlparse(url)._replace(query="", fragment="").geturl()
                     message = f"{method} {location}: {error}"
-                    if isinstance(error, URLError):
-                        raise URLError(message) from error
-                    raise TimeoutError(message) from error
+                    if isinstance(error, TimeoutError):
+                        raise TimeoutError(message) from error
+                    # Sync-owned retries and verified-byte fallback handle
+                    # network errors, including an exhausted partial body.
+                    raise URLError(message) from error
                 delay = None
             time.sleep(
                 delay if delay is not None else min(30.0, 2**attempt + random.uniform(0, 0.5))

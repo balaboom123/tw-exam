@@ -56,6 +56,13 @@ recovery metadata; payload scanning, deduplication and pruning exclude them.
 
 Source pages are fetched serially. Independent files may download with bounded concurrency, while mirror writes remain serial; stateful or rate-limited providers restrict concurrency. Shared HTTP adapters relying on sync retries use one transport attempt to avoid multiplying retries. Transient discovery/fetch requests use bounded retries and honor `Retry-After`.
 
+An interrupted HTTP response body uses that same retry budget. Each attempt
+reads a fresh complete response; partial bytes never reach payload validation
+or storage. Exhaustion remains a network failure, allowing the sync owner to
+retain an exact, checksum-verified earlier file while recording the failed
+refresh. A complete response that fails native payload validation remains a
+validation failure.
+
 An unavailable year listing preserves retained provider state, returns failure, and produces no publish plan. Payload validation rejects HTML placeholders and signatures inconsistent with the expected file role. ZIP-based downloads (including OpenXML and ODS files) must also have a readable container and valid CRCs for every entry, both when downloaded and before mirror reuse. Failed validation leaves retained evidence intact and records a download failure. The [sync implementation](../../app/sync.py) owns these checks; acceptance of an outer archive does not establish the integrity of its nested papers or the internal contents of a RAR.
 
 Original ZIP attachments use the `source_archive` role and the same container
