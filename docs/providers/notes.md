@@ -978,6 +978,15 @@ Keep the original source role and bytes recoverable when normalizing that
 booklet as questions with answers. This judgment alone does not resolve a
 conflicting occupation, component, year, programme or material purpose.
 
+Printed answers can contain several accepted option digits, including in older
+booklets whose covers describe all questions as single-choice. Inspect the
+actual numbered questions and answer markers; this layout establishes a combined
+question/answer file role without establishing why several answers were accepted.
+Keep correction notices separate, and do not infer cancellation, a different
+paper form or a new qualification track from the answer digits. Later booklets
+can also start their multiple-response section after question 61; the printed
+sequence owns that boundary.
+
 Retained cooking booklets explicitly headed 資深廚師 contain a different question
 set from their same-event ordinary counterparts. Keep this native paper form
 distinct from ordinary and foreign-assisted masters. The
