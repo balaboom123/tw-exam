@@ -7161,7 +7161,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/095002/007002.pdf",
       "checksum": "267a52f8da9d575b55ab004580325d5766bf40198ed0bed4855a7096de09b194",
       "form": "ordinary",
-      "native_header": "095 年度 00700 室內配線─屋內線路裝修乙級技術士技能檢定學科測試試題\n本 試 題 有 選 擇 題 8 0 題，每 題 １ . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，"
+      "native_header": "095 年度 00700 室內配線─屋內線路裝修乙級技術士技能檢定學科測試試題\n本 試 題 有 選 擇 題 8 0 題，每 題 １ . 2 5 分，皆 為 單 選 選 擇 題，測 試 時 間 為 1 0 0 分 鐘，請 在 答 案 卡 上 作 答 ，",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "All five native PDF pages were visually inspected. The ROC-year-95 occupation 00700 class-B set 002 cover describes 80 single-choice questions, but its body contains complete true/false 1–50 and choice 1–50 sections, with a printed answer for every item. The source therefore contains 100 answered questions; preserve both sections, diagrams, continued choices and the conflicting original cover. Its exact source-context SHA-256 matches a fresh official-source download. Only the combined question/answer role and actual present-item count are approved; identity, grade, form, component, event, purpose, dates, source fields and original bytes remain unchanged."
+      }
     },
     {
       "year_roc": 95,
@@ -31568,7 +31573,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/027023-1.pdf",
       "checksum": "efb451d2a0c9e7eb83eadb4c392e178136de950cd00c9d4176ba983b87c555f3",
       "form": "ordinary",
-      "native_header": "全國技術士技能檢定第 3 梯次\n112 年度 02702 重機械修護(引擎)丙級 技術士技能檢定學科測試試題"
+      "native_header": "全國技術士技能檢定第 3 梯次\n112 年度 02702 重機械修護(引擎)丙級 技術士技能檢定學科測試試題",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 79,
+        "evidence": "All four native PDF pages were visually inspected. The ROC-year-112 occupation 02702 class-C set 002 header declares 80 questions, but the original contains only numbered items 1–44 and 46–80, each with its printed answer. Printed question 45 is absent across the page-2/page-3 boundary. The same original SHA-256 is still served by the official source. The current event theory/practical clarification notices do not explain this omission; its cause, any cancellation/scoring treatment and completeness of the 80-question sitting remain unresolved. This exact source-context review approves only the combined question/answer role for the 79 actual items, not a complete 80-question booklet. Preserve the original bytes and all other source, identity and material facts; do not invent the missing question."
+      }
     },
     {
       "year_roc": 113,

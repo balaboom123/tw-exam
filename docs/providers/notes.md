@@ -988,6 +988,13 @@ Keep the original source role and bytes recoverable when normalizing that
 booklet as questions with answers. This judgment alone does not resolve a
 conflicting occupation, component, year, programme or material purpose.
 
+Native cover counts can conflict with the actual numbered sections. Record the
+items actually present and preserve the original header and section boundaries.
+A combined question/answer role does not establish complete question coverage.
+If the official original skips an item, keep that omission explicit and check
+the related official notices; do not infer cancellation or scoring, or fill the
+gap from another booklet or question bank.
+
 Printed answers can contain several accepted option digits, including in older
 booklets whose covers describe all questions as single-choice. Inspect the
 actual numbered questions and answer markers; this layout establishes a combined
