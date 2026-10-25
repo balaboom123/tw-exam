@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "provider_id": "special_admission",
+  "facts": [
+    {
+      "source_exam_id": "special-admission-107",
+      "year_roc": 107,
+      "category_code": "university-common",
+      "subject_code": "history",
+      "title": "歷史",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=137&row=1",
+      "checksum": "4381bd6f53bb175b3b3272c7217b12ca61c9e546c1bd96e4c7fe2efc0d2c7a3e",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 107年度 歷史, corrected answer cell Q12: 註 1:107 年 4 月 17 日原解答 B 更正為 A 或 B。"
+    },
+    {
+      "source_exam_id": "special-admission-106",
+      "year_roc": 106,
+      "category_code": "university-common",
+      "subject_code": "chemistry",
+      "title": "化學",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=181&row=1",
+      "checksum": "d1d96f75d85ceb1c7a67f251e6cecacd2bdd0374957a89cf94aba04a678bdc9a",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 106年度 化學, corrected answer cell Q7: 註 1:106 年 4 月 13 日原解答 B 更正為無標準答案。"
+    },
+    {
+      "source_exam_id": "special-admission-105",
+      "year_roc": 105,
+      "category_code": "university-common",
+      "subject_code": "math-yi",
+      "title": "數學乙",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=218&row=1",
+      "checksum": "ec4d07b70413dd7950fe1fb4f73ce1594159c10924bf02890948c145f461e9dd",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 105年度 數學乙, corrected answer cell Q9: 註 1:105 年 4 月 15 日原解答 C 更正為無標準答案。"
+    },
+    {
+      "source_exam_id": "special-admission-105",
+      "year_roc": 105,
+      "category_code": "university-common",
+      "subject_code": "history",
+      "title": "歷史",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=219&row=1",
+      "checksum": "f97d028391ae762023349b85d9154de740da7811dc3e25fb506b42e67da76112",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 105年度 歷史, corrected answer cell Q14: 註 1:105 年 4 月 15 日原解答 C 更正為 C 或 D 任一答案均可。"
+    },
+    {
+      "source_exam_id": "special-admission-104",
+      "year_roc": 104,
+      "category_code": "university-common",
+      "subject_code": "geography",
+      "title": "地理",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=261&row=1",
+      "checksum": "aa660081dbdd9dea8d855a78257fc0b0a1029002fc3def844efd8b577960aa7a",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 104年度 地理, corrected answer cell Q31: 註 1:104 年 4 月 16 日原解答 D 更正為無標準答案。"
+    },
+    {
+      "source_exam_id": "special-admission-102",
+      "year_roc": 102,
+      "category_code": "university-common",
+      "subject_code": "chemistry",
+      "title": "化學",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=345&row=1",
+      "checksum": "87661593965364ddf963402d4352812bf80f3811b0a68ad507864f4f25a851c9",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 102年度 化學, corrected answer cell Q38: 註 1:102 年 4 月 12 日原解答 C 更正為 B、C 任一答案均可。"
+    },
+    {
+      "source_exam_id": "special-admission-113",
+      "year_roc": 113,
+      "category_code": "university-common",
+      "subject_code": "math-a",
+      "title": "數學A",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=852&row=1",
+      "checksum": "934ef8f1bd2545e3d550ba4acde9877159ec7768349df14b0577c5c8b0666e6f",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 113年度 數學A, corrected answer cell Q6: 註 1:113 年 4 月 26 日原參考答案 B 更正為無標準答案。"
+    },
+    {
+      "source_exam_id": "special-admission-113",
+      "year_roc": 113,
+      "category_code": "university-common",
+      "subject_code": "physics",
+      "title": "物理",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=856&row=1",
+      "checksum": "616ad2a6c8d8c99a5d13cb01c3855cc97715e35d408248dabe24c1ba3409dba7",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 113年度 物理, corrected answer cell Q10: 註 1:113 年 4 月 26 日原參考答案 B 更正為 B 或 C。"
+    },
+    {
+      "source_exam_id": "special-admission-108",
+      "year_roc": 108,
+      "category_code": "university-common",
+      "subject_code": "geography",
+      "title": "地理",
+      "source_url": "https://cis.ncu.edu.tw/EnableSys/home/readExamInfoFile?examInfoId=94&row=1",
+      "checksum": "bccea244eb6739a62643b7c5ef5d63332a8bce2c0b679f1049e28c1cea8e6d10",
+      "native_page": 1,
+      "reviewed_at": "2026-10-25",
+      "reason": "Native first page, 108年度 地理, corrected answer cell Q28: 註 1:108 年 4 月 16 日原解答 D 更正為 B 或 D。"
+    }
+  ]
+}

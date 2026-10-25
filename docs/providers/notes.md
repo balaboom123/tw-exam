@@ -566,6 +566,16 @@ administered sitting. Blank unused rows in an original answer-table template
 do not establish missing questions; preserve the original PDF and any inline
 correction notes.
 
+The provider's reviewed answer-correction evidence binds the full source context
+and original checksum to native correction notes. The archive's generic answer
+label and filename are insufficient: some corrected PDFs have neither a revised
+filename nor a separate correction link. Acquisition retains the original answer
+slot and mirror path; both fresh and retained normalization project the reviewed
+role as `corrected_answer`. A different payload at a reviewed slot requires a new
+native review. Preserve previous role records through the source-revision writer;
+the evidence does not reconstruct an unavailable earlier answer version or infer
+scoring rules from the words 無標準答案.
+
 ## `tabf_cert`
 
 Use official TABF category and event rows and their linked artifacts. A PHID or other page key is not a cross-year identity unless the official category and event context also agrees.

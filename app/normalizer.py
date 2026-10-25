@@ -15,6 +15,7 @@ from app.providers.hce_tcu.evidence import native_material as tcu_native_materia
 from app.providers.ipas_cert.identity import canonical_for_event as ipas_canonical_for_event
 from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
+from app.providers.special_admission.evidence import file_role as special_admission_file_role
 from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
@@ -426,8 +427,13 @@ def normalize_papers(
                 (paper.category_code, paper.subject_code, file_type), {}
             )
             normalized_role = file_type
-            if provider_id == "taipower_recruit":
-                normalized_role = taipower_file_role(
+            if provider_id in {"taipower_recruit", "special_admission"}:
+                resolve_role = (
+                    taipower_file_role
+                    if provider_id == "taipower_recruit"
+                    else special_admission_file_role
+                )
+                normalized_role = resolve_role(
                     file_type,
                     source_exam_id=source_exam_id,
                     year_roc=year_roc,
@@ -530,8 +536,13 @@ def renormalize_catalog(
         else set()
     )
     for paper in catalog.papers:
-        if paper.provider_id == "taipower_recruit":
-            role = taipower_file_role(
+        if paper.provider_id in {"taipower_recruit", "special_admission"}:
+            resolve_role = (
+                taipower_file_role
+                if paper.provider_id == "taipower_recruit"
+                else special_admission_file_role
+            )
+            role = resolve_role(
                 paper.file_type,
                 source_exam_id=paper.source_exam_id,
                 year_roc=paper.year_roc,
