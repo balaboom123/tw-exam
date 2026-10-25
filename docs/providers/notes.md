@@ -1012,6 +1012,10 @@ Fully scanned originals can likewise combine a printed answer report with
 unfilled question pages. Match the native year, occupation, booklet and set
 across both parts; an empty text extraction establishes neither missing questions
 nor an answer-only original.
+OCR prefix screening can miss an answer-report header and individual answer
+labels. Use it to select originals for review, then check the complete native
+document, including restarted section numbering and page continuations, before
+approving its role or question count.
 
 Retained cooking booklets explicitly headed 資深廚師 contain a different question
 set from their same-event ordinary counterparts. Keep this native paper form

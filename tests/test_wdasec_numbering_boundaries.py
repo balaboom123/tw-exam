@@ -15,9 +15,11 @@ from tests.test_wdasec_forms import normalized
     [
         ("267a52f8da9d575b55ab004580325d5766bf40198ed0bed4855a7096de09b194", 100),
         ("efb451d2a0c9e7eb83eadb4c392e178136de950cd00c9d4176ba983b87c555f3", 79),
+        ("12e5ec0a934c11bc207d87d76d16106451d6046c4dac795f37f89c2452fb8544", 100),
+        ("579b99318dc73b363b9da2dd681d7327efec46f57b4f8ec97bc891c34ec5cd0e", 100),
     ],
 )
-def test_exact_native_role_uses_present_questions_without_claiming_a_complete_80_items(
+def test_exact_native_role_uses_reviewed_present_questions_and_preserves_other_facts(
     monkeypatch, checksum, actual_count
 ):
     native = next(p for p in owner.native_papers() if p.checksum == checksum)

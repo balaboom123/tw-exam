@@ -25488,7 +25488,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/091002/020001.pdf",
       "checksum": "579b99318dc73b363b9da2dd681d7327efec46f57b4f8ec97bc891c34ec5cd0e",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "All 6 actual native pages were visually inspected. This fully scanned ROC-year-91 automobile repair class-A set-1 original combines one printed answer report with 5 unfilled question pages. Native year, occupation, grade and set agree across both parts. The report supplies complete true/false 1–50 and choice 1–50 answer tables, matching all 100 actual questions. Continued stems, choices and diagrams across physical page boundaries were checked and preserved. There is no extractable native text; OCR screening did not approve the role or count and missed the answer-report header. A fresh official-source download matches the retained original SHA-256. This exact source-context review approves only the combined question/answer role and actual present-question count; all identity, grade, form, component, event, material, date, source fields and original bytes retain their previous facts and unresolved dispositions."
+      }
     },
     {
       "year_roc": 92,
@@ -39772,7 +39777,12 @@
       "source_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/091001/039001.pdf",
       "checksum": "12e5ec0a934c11bc207d87d76d16106451d6046c4dac795f37f89c2452fb8544",
       "form": "ordinary",
-      "native_header": ""
+      "native_header": "",
+      "reviewed_role": {
+        "file_role": "question_answer",
+        "question_count": 100,
+        "evidence": "All 7 actual native pages were visually inspected. This fully scanned ROC-year-91 door/window woodworking class-A set-1 original combines one printed answer report with 6 unfilled question pages. Native year, occupation, grade and set agree across both parts. The report supplies complete true/false 1–50 and choice 1–50 answer tables, matching all 100 actual questions. Continued stems, choices and diagrams across physical page boundaries were checked and preserved. There is no extractable native text; OCR screening did not approve the role or count and missed the answer-report header. A fresh official-source download matches the retained original SHA-256. This exact source-context review approves only the combined question/answer role and actual present-question count; all identity, grade, form, component, event, material, date, source fields and original bytes retain their previous facts and unresolved dispositions."
+      }
     },
     {
       "year_roc": 92,
