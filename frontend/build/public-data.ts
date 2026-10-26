@@ -18,6 +18,7 @@ export interface CompatibilityPage {
   id: string
   name: string
   successorIds: string[]
+  partial?: true
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -139,11 +140,14 @@ export function buildPublicData(source: unknown): { feed: CompactFeed; searchInd
         publicIds.has(page.id) || previousIds.has(page.id) || typeof page.name !== "string" || !page.name.trim() ||
         !isStringArray(page.successorIds) || !page.successorIds.length ||
         new Set(page.successorIds).size !== page.successorIds.length ||
+        (page.partial !== undefined && page.partial !== true) ||
         !page.successorIds.every((id) => publicIds.has(id))) {
         throw new TypeError("Invalid compatibility identity or successor")
       }
       previousIds.add(page.id)
-      compatibilityPages.push({ id: page.id, name: page.name, successorIds: page.successorIds })
+      compatibilityPages.push({ id: page.id, name: page.name, successorIds: page.successorIds,
+        ...(page.partial === true ? { partial: true as const } : {}),
+      })
     }
   }
   return { feed, searchIndex, compatibilityPages }

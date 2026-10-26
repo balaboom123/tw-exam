@@ -545,7 +545,8 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#hce_cmu"
+        "docs/providers/notes.md#hce_cmu",
+        "catalog/mappings/cmu/annual-papers-v1.json"
       ],
       "exam_category": "CMU post-baccalaureate Chinese medicine entrance papers",
       "local_state": {
@@ -573,8 +574,8 @@
         "No explicit redistribution license or copyright terms were linked from the archive pages; the existing publication and backup policy is unchanged."
       ],
       "source_name": "中國醫藥大學",
-      "status": "covered",
-      "status_reason": "All 17 current native source pages reconcile to 44 retained files in seven academic-year events. The adapter preserves multiple pages per year and separately typed answer-clarification results, resolves the native biology spelling, and rejects within-page file-slot conflicts. Full historical programme/stage/body review and redistribution permission remain unresolved."
+      "status": "partial",
+      "status_reason": "All current native source pages reconcile to the retained files and annual events. Exact native annual evidence confirms the first written selection stage for reviewed years; earlier years remain explicitly under stage review. A historical institutional report references an answer-doubt correction notice absent from the retained archive, so current discovery completeness is not full historical coverage. Full native-body review and redistribution permission remain unresolved."
     },
     {
       "available_years": {

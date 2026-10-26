@@ -175,7 +175,7 @@ backup restrictions apply equally to recovered originals.
 
 ## `hce_cmu`
 
-This provider covers official CMU post-baccalaureate medicine entrance papers reached from the university admission archive. General admission notices and forms are not paper records.
+This provider covers official CMU post-baccalaureate Chinese medicine degree-admission papers reached from the university admission archive. General admission notices and forms are not paper records.
 
 The native archive uses both `生物` and `生物學` for biology questions.
 Resolve these source labels to the same biology subject before filtering links;
@@ -189,6 +189,30 @@ without `學年度`, and preserves the primary paper page as the discovery link.
 Conflicting URLs for the same subject and role within a page require review;
 one link must not overwrite another. Exact repeated references are deduplicated
 within the annual event.
+
+Annual selection-stage facts belong to the CMU native-paper mapping. A numbered
+interview stage selected by written results establishes the preceding written
+stage for that academic year; a later guide must not supply historical rules.
+The institutional report's embedded historical calendar supports a sequence,
+but does not establish formal numbered selection-stage conditions. Such years
+remain explicitly under review. A bachelor degree is an admission prerequisite,
+not a native examination grade. These papers are degree admission, not medical
+licensing or graduate research selection.
+
+Each question, reference-answer book and answer-doubt clarification requires its
+own exact source context and checksum, including paired question/answer links.
+Clarifications remain alongside original keys: they can uphold or change an
+answer without replacing the entire key. Combined answer books preserve their
+subject sections. Scanned pages without extractable text remain original pages.
+The historical report references an answer-doubt correction notice absent from
+the retained archive; current listing completeness does not close that gap.
+Supporting admission notices and reports establish identity only and are not
+published as exam-file downloads.
+Unresolved annual candidates stay isolated by event and below the ordinary
+site minimum-year requirement; the redundant CMU single-year exception is
+removed. Their source records and the previous all-years download remain
+recoverable while the current listing contains the supported written-stage
+group. Do not lower that requirement to publish unresolved stage candidates.
 
 ## `hce_nsysu`
 

@@ -117,12 +117,15 @@ export function buildCompatibilityPage(page: CompatibilityPage, bundles: Compact
     return `<li><a data-successor href="./${escapeHtml(id)}.html">${escapeHtml(bundle.name)}</a></li>`
   }).join("")
   const canonical = new URL(`b/${page.id}.html`, root).href
+  const explanation = page.partial
+    ? "部分原始資料目前未提供新版下載，以下僅列出目前可用的試卷。"
+    : "這份資料已重新分組，請選擇需要的試卷。"
   return `<!doctype html>
 <html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(page.name)} | tw-exam</title><meta name="robots" content="noindex,follow">
 <link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../assets/bundle-pages.css"></head>
 <body><main><nav><a href="../">歷屆試題</a></nav><h1>${escapeHtml(page.name)}</h1>
-<p>這份資料已重新分組，請選擇需要的試卷。</p><ul>${successors}</ul>
+<p>${explanation}</p><ul>${successors}</ul>
 <footer><a href="../">返回 tw-exam</a></footer></main>
 <script>if(new URLSearchParams(location.search).get("unlocked")==="1")for(const a of document.querySelectorAll("a[data-successor]")){const u=new URL(a.href);u.searchParams.set("unlocked","1");a.href=u.href}</script>
 </body></html>`

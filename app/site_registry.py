@@ -78,7 +78,6 @@ _SITES = {
             "taigi-cert": 1,
             "tqc-cert": 1,
             "ipas-cert": 1,
-            "hce-cmu": 1,
             "hce-tcu": 1,
             "hce-nsysu": 1,
             "hce-nthu": 1,

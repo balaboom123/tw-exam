@@ -199,6 +199,13 @@ Final download URLs identify ungated Release artifacts. Frontend download gates 
 
 The frontend consumes structured identity and classification from the feed. It must not reconstruct official identity from display-name regexes or read raw provider crawl fields. Its compact build projection may replace URLs with repository/tag/asset locators and defer search aliases to an index, provided reconstructed URLs are identical and index positions match bundle order. Both hashed assets come from one build.
 
+Compatibility pages follow exact retained native sources to current published
+successors. The optional `partial: true` marker identifies a navigation subset
+when other resolved successors are withheld; rendering must explain that the
+list is incomplete. It neither aliases the old ZIP nor publishes a withheld
+candidate. Missing source anchors still prevent inference. See the
+[partial-navigation decision](../decisions/ADR-2026-10-26-partial-compatibility-navigation.md).
+
 Optional source entries project reviewed names and official HTTPS URLs from the inventory. Optional `updated` is the latest successful sync timestamp among contributing events; it is not the source's publication date. Both projections are validated against their owners before commit. These additive fields require no ZIP or identity migration; missing historical receipts remain unknown.
 
 Multipart bundles share one logical identity and have distinct physical assets. The frontend presents one logical row, sums its file counts, and provides a control for each part. A legacy alias must not present a partial ZIP as a complete archive; aliases are retained only for unsplit assets, with older Releases remaining the compatibility source.

@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "provider_id": "hce_cmu",
+  "references": [
+    {
+      "id": "interview-112",
+      "year_roc": 112,
+      "kind": "annual_interview_notice",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E5%BE%8C%E4%B8%AD%E9%86%AB%E9%9D%A2%E8%A9%A6%E5%90%8D%E5%96%AE%E5%8F%8A%E9%9D%A2%E8%A9%A6%E7%9B%B8%E9%97%9C%E4%BA%8B%E5%AE%9C.pdf",
+      "checksum": "48d00e912f1a6999f092a91f39b31fb7989b33e5acc8d8efd2e83b2ae77a4f19",
+      "pdf_pages": [
+        1
+      ],
+      "finding": "第二階段面試依四科筆試成績選取；確認此前筆試為第一階段。"
+    },
+    {
+      "id": "interview-113",
+      "year_roc": 113,
+      "kind": "annual_interview_notice",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E5%BE%8C%E4%B8%AD%E9%86%AB%E9%9D%A2%E8%A9%A6%E5%90%8D%E5%96%AE%E5%8F%8A%E9%9D%A2%E8%A9%A6%E7%9B%B8%E9%97%9C%E4%BA%8B%E5%AE%9C.pdf",
+      "checksum": "e6a6de8971b34cfe9ccbf803758274ffb8707ace63595b529773f34c31a5b9ce",
+      "pdf_pages": [
+        1
+      ],
+      "finding": "第二階段面試依四科筆試成績選取；確認此前筆試為第一階段。"
+    },
+    {
+      "id": "interview-114",
+      "year_roc": 114,
+      "kind": "annual_interview_notice",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E5%BE%8C%E4%B8%AD%E9%86%AB%E9%9D%A2%E8%A9%A6%E5%90%8D%E5%96%AE%E5%8F%8A%E9%9D%A2%E8%A9%A6%E7%9B%B8%E9%97%9C%E4%BA%8B%E5%AE%9C.pdf",
+      "checksum": "b2eb33c1b153de3b60f68bdf5ea46517040c40ddce9c803d734853d0aadb1db1",
+      "pdf_pages": [
+        1
+      ],
+      "finding": "第二階段面試依四科筆試成績選取；確認此前筆試為第一階段。"
+    },
+    {
+      "id": "guide-115",
+      "year_roc": 115,
+      "kind": "annual_admission_guide",
+      "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E5%BE%8C%E4%B8%AD%E7%B0%A1%E7%AB%A0.pdf",
+      "checksum": "ff2fe6f01a0cc0497e991a3a2b6c62b43a502d82445878bf6885f6a3e324dc2b",
+      "pdf_pages": [
+        4,
+        9,
+        10
+      ],
+      "finding": "明定第一階段筆試、第二階段面試；學士學歷為報名資格，並非考試等級。"
+    },
+    {
+      "id": "report-109-context",
+      "year_roc": 109,
+      "kind": "historical_context",
+      "source_url": "https://evaluation.cmu.edu.tw/sites/evaluation.cmu.edu.tw/files/imce/u40/11.1100511_%E5%AD%B8%E5%A3%AB%E5%BE%8C%E4%B8%AD%E9%86%AB%E5%AD%B8%E7%B3%BB%E8%87%AA%E6%88%91%E8%A9%95%E9%91%91%E5%A0%B1%E5%91%8A.pdf",
+      "checksum": "4de540987d8644a4ec4bdf79d0da5cd8e976d586f7a4aada148a9eb4c99229e3",
+      "pdf_pages": [
+        43,
+        44,
+        45
+      ],
+      "finding": "內嵌109年行事曆排列筆試與面試，未明定第一階段甄選條件；不足以核定階段。並提及目前考古題清單未收錄的109試題疑義更正公告。"
+    }
+  ],
+  "events": [
+    {
+      "year_roc": 109,
+      "source_exam_id": "hce-cmu-109",
+      "stage_id": "unknown",
+      "reviewed_at": "2026-10-26",
+      "reason": "Annual written selection stage remains unresolved; current rules are not applied backwards. Institutional report supports a written/interview sequence only; numbering remains an inference. Referenced answer-doubt correction notice is absent from the retained archive.",
+      "evidence_ids": [
+        "report-109-context"
+      ],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/109%E5%9C%8B%E6%96%87-%E5%85%AC%E5%91%8A%E7%94%A8.pdf",
+          "checksum": "4c87e69656dace5776fcede10fbd4f57125248e5565e46c35101597513798e60"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/109%E5%8C%96%E5%AD%B8-%E5%85%AC%E5%91%8A%E7%94%A8.pdf",
+          "checksum": "defcc5fcd44b14f7d4182b2deb712704338016448a10742dbe5b54f4b57c59e8"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/109%E8%8B%B1%E6%96%87-%E5%85%AC%E5%91%8A%E7%94%A8.pdf",
+          "checksum": "f31b30103121391db7679ff28ecb699e5510516230281f9fcce45f0f6f5b7a2d"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/109%E7%94%9F%E7%89%A9%E5%AD%B8-%E5%85%AC%E5%91%8A%E7%94%A8.pdf",
+          "checksum": "e5ef4c0b2532280c67be5bf9b0737b8e9930a2003574fd461b1d2cd06a0087df"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/%E5%85%AC%E5%91%8A%E7%94%A8-109%E5%BE%8C%E4%B8%AD%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "8de44c3bac34124089c6d64664f861a0d5bfa0d8d7273db82539a44d36675486"
+        }
+      ]
+    },
+    {
+      "year_roc": 110,
+      "source_exam_id": "hce-cmu-110",
+      "stage_id": "unknown",
+      "reviewed_at": "2026-10-26",
+      "reason": "Annual written selection stage remains unresolved; current rules are not applied backwards.",
+      "evidence_ids": [],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/110%E5%9C%8B%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "7b97f49fa1b71ee39f34a6ed636a33c62f765d114824dc8763f4ee8ebf3e18fd"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/110%E5%8C%96%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "d1702ddb8cdebe0c99511bea9e639165d429d47a3f12e468dd31d11c1e923f10"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/110%E8%8B%B1%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "183a8faf68bbf50b876763bbcaae4b5b0d34d318b04c05f9830bf00446efa551"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/110%E7%94%9F%E7%89%A9%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "2beb77dfc4391e8d44255e27992a132c86a659b3835fef8625e3b1c58664dfc5"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/110%E8%A9%A6%E9%A1%8C%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "77eadec766922d77be1c1d40afb72f8a45ff980d96a2883ca6b414b19e8fe86d"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科答案釋疑結果",
+          "file_type": "answer_clarification",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/110%E9%87%8B%E7%96%91%E7%B5%90%E6%9E%9C%E5%85%AC%E5%91%8A.pdf",
+          "checksum": "2b4854df03a55f20e1cc0ea7089c7e84c734bdcd1e2c58246106af04210c9ecd"
+        }
+      ]
+    },
+    {
+      "year_roc": 111,
+      "source_exam_id": "hce-cmu-111",
+      "stage_id": "unknown",
+      "reviewed_at": "2026-10-26",
+      "reason": "Annual written selection stage remains unresolved; current rules are not applied backwards.",
+      "evidence_ids": [],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/111%E5%BE%8C%E4%B8%AD%E5%9C%8B%E6%96%87%E8%A9%A6%E9%A1%8C_0.pdf",
+          "checksum": "05d7494f57071589f952d729ea292ca1e7a51ee7c39e936e6d3110fe2e1143e5"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/111%E5%BE%8C%E4%B8%AD%E5%8C%96%E5%AD%B8%E8%A9%A6%E9%A1%8C_0.pdf",
+          "checksum": "c86d3272fc5c40dbdaff3da61d3d020efc061ef939245ab5c5359d41821d521c"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/111%E5%BE%8C%E4%B8%AD%E8%8B%B1%E6%96%87%E8%A9%A6%E9%A1%8C_0.pdf",
+          "checksum": "f2b04f9ebbc9cf8e729024ee723bf7d2da06d2541f743db0c4db1936270810e8"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/111%E5%BE%8C%E4%B8%AD%E7%94%9F%E7%89%A9%E8%A9%A6%E9%A1%8C_0.pdf",
+          "checksum": "e554d929988927e3377f34421bc9faafd4dc1f58f5910d6f73ec6193da74d17d"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/%E5%85%AC%E5%91%8A%E7%94%A8-111%E5%BE%8C%E4%B8%AD%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88_0.pdf",
+          "checksum": "8986125715b7a56d0c9d6ce79c02fceebcbe5c74729946bf418ec2e35fb43e8d"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科答案釋疑結果",
+          "file_type": "answer_clarification",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/111%E5%BE%8C%E4%B8%AD%E9%87%8B%E7%96%91%E5%85%AC%E5%91%8A.pdf",
+          "checksum": "e7e8158e39cb656dcebc5bafeb15f469be11573f0e5eb08d6a6801f75387f1c0"
+        }
+      ]
+    },
+    {
+      "year_roc": 112,
+      "source_exam_id": "hce-cmu-112",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-26",
+      "reason": "Native annual notice establishes the first written selection stage.",
+      "evidence_ids": [
+        "interview-112"
+      ],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E5%9C%8B%E6%96%87.pdf",
+          "checksum": "ee813078f6a2a6f7c7d0e85de446d3ddbf4019c13b31226ea9134e7009bb8b6d"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E5%8C%96%E5%AD%B8.pdf",
+          "checksum": "d6a5268ad1e69db0afa4068f72214c8233fbec6ee571a5f5a7dc8fd96d4fed34"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E8%8B%B1%E6%96%87.pdf",
+          "checksum": "59efca810630d5d995fabd702719f1ea0910e5291d3a309c92b9a375aec4fc32"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E7%94%9F%E7%89%A9.pdf",
+          "checksum": "06a29557a77dd365b0e0d277e93a2a44d218fb5a684f9ba1f1578eb88ccb986b"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/%E5%85%AC%E5%91%8A%E7%94%A8-112%E5%BE%8C%E4%B8%AD%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "81466187e001129d8b8936a34cff680b5893b8fc1da2ba9a7a94f41ed720e2e0"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科答案釋疑結果",
+          "file_type": "answer_clarification",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/112%E5%BE%8C%E4%B8%AD%E9%87%8B%E7%96%91%E5%85%AC%E5%91%8A.pdf",
+          "checksum": "082734f21f6b292203de92109b7e5a16c637724a9cb9026652f6301a3ecdd046"
+        }
+      ]
+    },
+    {
+      "year_roc": 113,
+      "source_exam_id": "hce-cmu-113",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-26",
+      "reason": "Native annual notice establishes the first written selection stage.",
+      "evidence_ids": [
+        "interview-113"
+      ],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E5%9C%8B%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "1a23250953aee240694c245fed5a34624cd0f60598256a49179e04e3f2d57025"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E5%8C%96%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "c1f6ec070248299734e052aa605bc375f989f2d5b3090378a9a9c3e01a4c836e"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E8%8B%B1%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "65d569d290d0b336e7593ea5aa0a8c4ff531103cf0bceeb99d6220f335ec1eb7"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E7%94%9F%E7%89%A9%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "2b8f57d22e84aa8bb6e3e0263ce2b30aea07f6fc027b31c906aad63f14067c10"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E8%A9%A6%E9%A1%8C%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "40148db237a18d62dfeedc3b375db521cc715b00bb3fc4d7106474a3166dce95"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科答案釋疑結果",
+          "file_type": "answer_clarification",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/113%E5%BE%8C%E4%B8%AD%E9%87%8B%E7%96%91%E5%85%AC%E5%91%8A.pdf",
+          "checksum": "fea0bf0231d7ef95acd019d4993819e968a33303c826b3faff5e7d62be14a4fd"
+        }
+      ]
+    },
+    {
+      "year_roc": 114,
+      "source_exam_id": "hce-cmu-114",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-26",
+      "reason": "Native annual notice establishes the first written selection stage.",
+      "evidence_ids": [
+        "interview-114"
+      ],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E5%9C%8B%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "4ef5b5aa6480766b7f78f79d5d783ee7a56259cf7d0075e08e20417e55f2b63a"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E5%8C%96%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "ee3cc54cf98fbebb077587340d75e34c46fea4e4c712f14c9f6af80d95e822e7"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E8%8B%B1%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "7aae906951050349a915eddba1b5ca4cdbe07f36345106f5b6592ce78e314c3d"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E7%94%9F%E7%89%A9%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "6e46f6c172436ff06c479c0732b6c3a9dc8e7642326466e7860b3258f0090e27"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科參考答案",
+          "file_type": "all_answers",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E8%A9%A6%E9%A1%8C%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "c20f71517855d837ae875a113625d4c8c598e3dd893ba96579118a080860418c"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科答案釋疑結果",
+          "file_type": "answer_clarification",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/114%E5%BE%8C%E4%B8%AD%E9%87%8B%E7%96%91%E5%85%AC%E5%91%8A.pdf",
+          "checksum": "91e2f534bfae0d185f3aab36404e6d70375ccb6043d211780e77ee39786cd6fb"
+        }
+      ]
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "hce-cmu-115",
+      "stage_id": "stage-1",
+      "reviewed_at": "2026-10-26",
+      "reason": "Native annual notice establishes the first written selection stage.",
+      "evidence_ids": [
+        "guide-115"
+      ],
+      "files": [
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E5%9C%8B%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "9479960b597a4a2d0e4b9cf625dfc98f877d34b8a756589b649333a19a5b7f62"
+        },
+        {
+          "subject_code": "chinese",
+          "subject_name_raw": "國文",
+          "file_type": "answer",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E5%9C%8B%E6%96%87%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "e244b9c0f69fcf84bbbf861524eac038df6b3728243c81cb84095e30ae3a6587"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E5%8C%96%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "72f57ff89dd50ad474fa0bed146dfd858ad0efd2ca3c851bcd8bdfcc693d806c"
+        },
+        {
+          "subject_code": "chemistry",
+          "subject_name_raw": "化學",
+          "file_type": "answer",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E5%8C%96%E5%AD%B8%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "1054b71265ee265ad3b715e0fb16e4ebb5c4c76945f48543f61c63b05b3bf282"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E8%8B%B1%E6%96%87%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "3a277afb3d9331881355142e7580ae7a948db818a484f93bc56aa12dbed5e764"
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英文",
+          "file_type": "answer",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E8%8B%B1%E6%96%87%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "58ded99a86d32857bccd9675e1df3d39be486ea89cdfae2ca57b7236021ee7cf"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "question",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E7%94%9F%E7%89%A9%E5%AD%B8%E8%A9%A6%E9%A1%8C.pdf",
+          "checksum": "a72835cabc958b49f826d3ddbc0344380b643917898de5fad2dba741d925474d"
+        },
+        {
+          "subject_code": "biology",
+          "subject_name_raw": "生物學",
+          "file_type": "answer",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E7%94%9F%E7%89%A9%E5%AD%B8%E5%8F%83%E8%80%83%E7%AD%94%E6%A1%88.pdf",
+          "checksum": "91de20642079e7bf2bab6a24abe733f47016904f3fb68a189c11285b6fa21429"
+        },
+        {
+          "subject_code": "all",
+          "subject_name_raw": "各科答案釋疑結果",
+          "file_type": "answer_clarification",
+          "source_url": "https://adm21.cmu.edu.tw/sites/default/files/115%E5%BE%8C%E4%B8%AD%E9%87%8B%E7%96%91%E5%85%AC%E5%91%8A.pdf",
+          "checksum": "1cdc547e055346e0d1d4ead37f876e20e3c3e1d428033892c8ca547bda54c289"
+        }
+      ]
+    }
+  ]
+}

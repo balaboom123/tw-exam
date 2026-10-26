@@ -105,7 +105,7 @@ def test_split_preserves_frozen_URL_bytes_capacity_and_repeat_publication(tmp_pa
     assert (tmp_path / old.storage_key).read_bytes() == before
 
 
-def test_compatibility_requires_every_exact_native_source_and_public_successor(tmp_path, monkeypatch):
+def test_compatibility_requires_every_exact_native_source_and_marks_partial_publication(tmp_path, monkeypatch):
     from app.retained_downloads import derive_compatibility_pages
 
     site, old, current = migration(tmp_path, monkeypatch)
@@ -116,7 +116,12 @@ def test_compatibility_requires_every_exact_native_source_and_public_successor(t
     held = load_retained_downloads(site)
     changed = [replace(current.papers[0], checksum="0" * 64), *current.papers[1:]]
     assert derive_compatibility_pages(tmp_path, site, held, changed, new) == []
-    assert derive_compatibility_pages(tmp_path, site, held, current.papers, new[:1]) == []
+    assert derive_compatibility_pages(tmp_path, site, held, current.papers, new[:1]) == [{
+        "id": old.bundle_id, "name": old.canonical_name,
+        "successorIds": [new[0].bundle_id], "partial": True,
+    }]
+    assert derive_compatibility_pages(tmp_path, site, held, current.papers, []) == []
+    assert derive_compatibility_pages(tmp_path, site, held, changed, new[:1]) == []
 
 
 def test_missing_or_corrupt_retained_bytes_cannot_pass_audit(tmp_path, monkeypatch):

@@ -273,18 +273,18 @@
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
-      "release_tag": "default-bundles-v2-001",
-      "storage_key": "bundles/sites/default/hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu--ab6c4df6cc4d.zip",
-      "asset_name": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu--ab6c4df6cc4d.zip",
-      "checksum": "fc36c22fde609539105f1e10f1df40eec0300941e5b6415a438e258ed818656a",
-      "bundle_id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu",
+      "release_tag": "default-bundles-v2-002",
+      "storage_key": "bundles/sites/default/hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1--ed1c6e4af535.zip",
+      "asset_name": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1--ed1c6e4af535.zip",
+      "checksum": "cead67f580892e66a06b6a580acd5235447249eab564d677f79991dbf0ffb390",
+      "bundle_id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1",
       "domain_id": "admissions",
       "exam_family_id": "university-admission",
       "exam_series_id": "post-baccalaureate-medical",
       "level_id": "not-applicable",
       "track_id": "hce-cmu",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2"
     },
     {
@@ -52359,6 +52359,15 @@
     }
   ],
   "retained_downloads": [
+    {
+      "provider_id": "hce_cmu",
+      "bundle_id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu",
+      "release_tag": "default-bundles-v2-001",
+      "asset_name": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu--ab6c4df6cc4d.zip",
+      "storage_key": "bundles/sites/default/hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu--ab6c4df6cc4d.zip",
+      "checksum": "fc36c22fde609539105f1e10f1df40eec0300941e5b6415a438e258ed818656a",
+      "retained_at": "2026-10-26T03:00:18.828279+00:00"
+    },
     {
       "provider_id": "hce_nsysu",
       "bundle_id": "hce-nsysu-post-baccalaureate-medical-not-applicable-hce-nsysu",

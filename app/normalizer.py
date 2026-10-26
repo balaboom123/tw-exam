@@ -338,6 +338,10 @@ def normalize_papers(
     year_roc = year_ad - 1911
     normalized_papers: list[NormalizedPaper] = []
     review_queue: list[ReviewItem] = []
+    if provider_id == "hce_cmu":
+        from app.providers.hce_cmu.identity import normalization_papers
+
+        papers = normalization_papers(papers)
     for paper in papers:
         material = paper.source_material or source_material
         if provider_id == "hakka_cert" and material is None:

@@ -2071,6 +2071,28 @@ def _classify_paper_uncached(
         )
     variants = tuple(variant_id for variant_id, _label in variant_pairs)
     stage_id = _stage_id(category, exam_name)
+    if provider_id == "hce_cmu":
+        from app.providers.hce_cmu.identity import resolve_identity as resolve_cmu_identity
+
+        cmu_identity = resolve_cmu_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            category_code=category_code,
+            category_raw=category,
+            exam_name_raw=exam_name,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+        )
+        stage_id = cmu_identity.stage_id if cmu_identity is not None else "unknown"
+        level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+        confidence = "high" if stage_id == "stage-1" else "review"
+        reason = (
+            cmu_identity.reason
+            if cmu_identity is not None
+            else "CMU native file or annual written selection stage requires review"
+        )
     if provider_id == "hce_tcu":
         from app.providers.hce_tcu.evidence import resolve_native_paper
 
@@ -2338,6 +2360,12 @@ def _classify_paper_uncached(
                 bundle_name += f"｜{twc_category.label}"
             stage_label = "初試（筆試）" if stage_id == "stage-1" else _STAGE_LABELS[stage_id]
             bundle_name += f"｜{stage_label}"
+        if provider_id == "hce_cmu":
+            bundle_name += (
+                "｜初試（筆試）"
+                if stage_id == "stage-1"
+                else f"｜{year_ad - 1911}學年度｜階段待確認"
+            )
         if provider_id == "hce_nthu":
             if nthu_identity is not None and nthu_identity[1].label:
                 bundle_name += f"｜{nthu_identity[1].label}"

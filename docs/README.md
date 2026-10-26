@@ -40,6 +40,7 @@ uv run python scripts/validate_docs.py --check
 | [`decisions/ADR-2026-09-26-v1-release-retirement.md`](decisions/ADR-2026-09-26-v1-release-retirement.md) | ADR-2026-09-26: retire original v1 bundle Releases |
 | [`decisions/ADR-2026-09-27-unused-v2-release-aliases.md`](decisions/ADR-2026-09-27-unused-v2-release-aliases.md) | ADR-2026-09-27: retire unpublished v2 alias metadata |
 | [`decisions/ADR-2026-10-23-retained-historical-downloads.md`](decisions/ADR-2026-10-23-retained-historical-downloads.md) | ADR-2026-10-23: retain existing historical ZIP URLs during identity corrections |
+| [`decisions/ADR-2026-10-26-partial-compatibility-navigation.md`](decisions/ADR-2026-10-26-partial-compatibility-navigation.md) | ADR-2026-10-26: preserve navigation when some corrected groups are withheld |
 | [`operations/catalog-audit.md`](operations/catalog-audit.md) | Catalog audit |
 | [`operations/ci-cd-and-release.md`](operations/ci-cd-and-release.md) | CI/CD and release |
 | [`operations/commands.md`](operations/commands.md) | Command reference |

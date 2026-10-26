@@ -16,11 +16,15 @@ test("compatibility pages use explicit published identities and stay out of sear
   assert.deepEqual(data.compatibilityPages, source.compatibilityPages)
   assert.equal(data.feed.bundles.length, 1)
   assert.equal(data.searchIndex.length, 1)
+  const partial = { ...source.compatibilityPages[0], partial: true }
+  assert.deepEqual(buildPublicData({ ...source, compatibilityPages: [partial] }).compatibilityPages, [partial])
   for (const page of [
     { id: "../old", name: "舊版", successorIds: ["current"] },
     { id: "old", name: "舊版", successorIds: ["missing"] },
     { id: "current", name: "舊版", successorIds: ["current"] },
     { id: "old", name: "舊版", successorIds: ["current", "current"] },
+    { id: "old", name: "舊版", successorIds: ["current"], partial: false },
+    { id: "old", name: "舊版", successorIds: ["current"], partial: "true" },
   ]) assert.throws(() => buildPublicData({ ...source, compatibilityPages: [page] }))
 })
 

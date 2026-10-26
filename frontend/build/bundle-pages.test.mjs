@@ -30,6 +30,11 @@ test("a previous page links exact successor IDs and carries an unlocked return",
   })
   assert.equal(link.href, `${root}b/exam-one.html?unlocked=1`)
   assert.throws(() => buildCompatibilityPage({ id: "old", name: "舊", successorIds: ["missing"] }, [bundle], root))
+  const partial = buildCompatibilityPage({ id: "old-partial", name: "舊版", successorIds: [bundle.id], partial: true }, [bundle], root)
+  assert.match(partial, /部分原始資料目前未提供新版下載/)
+  assert.match(partial, /以下僅列出目前可用的試卷/)
+  assert.doesNotMatch(partial, /這份資料已重新分組|http-equiv="refresh"|releases\/download/)
+  assert.match(partial, /href="\.\/exam-one\.html"/)
 })
 
 test("bundle page has a canonical URL, safe metadata, ZIP distribution, and a return path", () => {

@@ -353,15 +353,17 @@ def derive_compatibility_pages(
         if not sources or any(key not in by_source for key in sources):
             continue
         successors = {paper.bundle_id for key in sources for paper in by_source[key]}
-        if not successors or not successors <= public:
+        available = successors & public
+        if not available:
             continue
-        pages.append(
-            {
-                "id": download.bundle_id,
-                "name": manifest["canonical_name"],
-                "successorIds": sorted(successors),
-            }
-        )
+        page: dict[str, Any] = {
+            "id": download.bundle_id,
+            "name": manifest["canonical_name"],
+            "successorIds": sorted(available),
+        }
+        if successors - public:
+            page["partial"] = True
+        pages.append(page)
     return sorted(pages, key=lambda page: page["id"])
 
 

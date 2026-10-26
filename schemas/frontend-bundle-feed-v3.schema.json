@@ -58,6 +58,10 @@
               "type": "string",
               "pattern": "^[A-Za-z0-9._-]+$"
             }
+          },
+          "partial": {
+            "type": "boolean",
+            "const": true
           }
         }
       }

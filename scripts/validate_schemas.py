@@ -49,6 +49,7 @@ from app.hakka_identity import (
     validate_hakka_historical_grades,
 )
 from app.providers.hce_nthu.identity import annual_papers_path, validate_annual_papers
+from app.providers.hce_cmu.identity import annual_papers_path as cmu_annual_papers_path, validate_annual_papers as validate_cmu_annual_papers
 from app.providers.hce_nsysu.evidence import native_selections_path, validate_native_selections
 from app.paths import provider_paths
 from app.provider_index import load_provider_index
@@ -134,6 +135,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (moex_evidence_path(repo_root), "moex-category-identity-v1.schema.json"),
         (tqc_evidence_path(repo_root), "tqc-sample-identity-v1.schema.json"),
         (annual_papers_path(repo_root), "nthu-annual-papers-v1.schema.json"),
+        (cmu_annual_papers_path(repo_root), "cmu-annual-papers-v1.schema.json"),
         (native_selections_path(repo_root), "nsysu-native-selections-v1.schema.json"),
         (archive_identity_path(repo_root), "twc-archive-identity-v1.schema.json"),
         (native_archive_path(repo_root), "twc-archive-papers-v1.schema.json"),
@@ -165,6 +167,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_tcu_annual_papers(repo_root)
     validate_postal_native_papers(repo_root)
     validate_annual_papers(repo_root)
+    validate_cmu_annual_papers(repo_root)
     for plan_path in sorted((repo_root / "data/providers/hce_nsysu/native-selections").glob("*.json")):
         _validate(schemas["compiled-pdf-selection-v1.schema.json"], _read_json(plan_path), str(plan_path.relative_to(repo_root)))
     validate_native_selections(repo_root)

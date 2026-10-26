@@ -1103,26 +1103,23 @@
       "updated": "2026-10-24T08:16:41Z"
     },
     {
-      "id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu",
-      "name": "中國醫藥大學學士後中醫學系",
+      "id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1",
+      "name": "中國醫藥大學學士後中醫學系｜初試（筆試）",
       "years": [
         115,
         114,
         113,
-        112,
-        111,
-        110,
-        109
+        112
       ],
-      "fileCount": 44,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-001/hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu--ab6c4df6cc4d.zip",
+      "fileCount": 27,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1--ed1c6e4af535.zip",
       "domainId": "admissions",
       "examFamilyId": "university-admission",
       "seriesId": "post-baccalaureate-medical",
       "levelId": "not-applicable",
       "trackId": "hce-cmu",
       "variantIds": [],
-      "stageId": "not-applicable",
+      "stageId": "stage-1",
       "examClass": "升學測驗",
       "examSubclass": "學士後醫學／中醫",
       "searchAliases": [
@@ -1132,6 +1129,7 @@
         "國文",
         "英文",
         "各科參考答案",
+        "中國醫藥大學學士後中醫學系",
         "115學年度中國醫藥大學學士後中醫學系",
         "post-bacc-chinese-medicine",
         "all",
@@ -1141,10 +1139,7 @@
         "english",
         "114學年度中國醫藥大學學士後中醫學系",
         "113學年度中國醫藥大學學士後中醫學系",
-        "112學年度中國醫藥大學學士後中醫學系",
-        "111學年度中國醫藥大學學士後中醫學系",
-        "110學年度中國醫藥大學學士後中醫學系",
-        "109學年度中國醫藥大學學士後中醫學系"
+        "112學年度中國醫藥大學學士後中醫學系"
       ],
       "sources": [
         {
@@ -197270,6 +197265,14 @@
   ],
   "catalog_version": "exam-identity-v2",
   "compatibilityPages": [
+    {
+      "id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu",
+      "name": "中國醫藥大學學士後中醫學系",
+      "successorIds": [
+        "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1"
+      ],
+      "partial": true
+    },
     {
       "id": "tcte-tve-admission-tcte-not-applicable-tcte-group-06",
       "name": "四技二專統一入學測驗｜06土木與建築群",
