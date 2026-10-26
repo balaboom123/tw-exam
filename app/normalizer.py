@@ -17,6 +17,7 @@ from app.providers.moea_recruit.evidence import native_file_role as moea_file_ro
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.special_admission.evidence import file_role as special_admission_file_role
 from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
+from app.providers.tcte_tve.evidence import file_role as tcte_file_role
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
 from app.providers.wdasec_skill.papers import native_file_role as wda_file_role
@@ -24,6 +25,12 @@ from app.providers.wdasec_skill.papers import native_paper_for_record as wda_nat
 from app.providers.wdasec_skill.papers import resolve_native_paper as wda_native_paper
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
+
+_REVIEWED_ANSWER_ROLES = {
+    "taipower_recruit": taipower_file_role,
+    "special_admission": special_admission_file_role,
+    "tcte_tve": tcte_file_role,
+}
 
 KNOWN_CANONICAL_IDS = {
     "護理師": "nurse",
@@ -427,12 +434,8 @@ def normalize_papers(
                 (paper.category_code, paper.subject_code, file_type), {}
             )
             normalized_role = file_type
-            if provider_id in {"taipower_recruit", "special_admission"}:
-                resolve_role = (
-                    taipower_file_role
-                    if provider_id == "taipower_recruit"
-                    else special_admission_file_role
-                )
+            if provider_id in _REVIEWED_ANSWER_ROLES:
+                resolve_role = _REVIEWED_ANSWER_ROLES[provider_id]
                 normalized_role = resolve_role(
                     file_type,
                     source_exam_id=source_exam_id,
@@ -536,12 +539,8 @@ def renormalize_catalog(
         else set()
     )
     for paper in catalog.papers:
-        if paper.provider_id in {"taipower_recruit", "special_admission"}:
-            resolve_role = (
-                taipower_file_role
-                if paper.provider_id == "taipower_recruit"
-                else special_admission_file_role
-            )
+        if paper.provider_id in _REVIEWED_ANSWER_ROLES:
+            resolve_role = _REVIEWED_ANSWER_ROLES[paper.provider_id]
             role = resolve_role(
                 paper.file_type,
                 source_exam_id=paper.source_exam_id,

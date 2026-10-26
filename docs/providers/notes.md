@@ -719,6 +719,15 @@ native form. Existing correctly named subjects and the common-subject download
 URL remain stable. Original answer PDFs retain their correction notes and blank
 unused table rows; neither should be removed as redundant material.
 
+Reviewed native correction notes override the generic standard-answer download
+label only for the exact event, form, source URL and payload checksum in the
+provider's answer-correction catalogue. Apply the same resolver to fresh and
+retained records. Keep acquisition answer slots and original mirror paths;
+preserve the earlier published role through the source-revision writer. An
+explicit statement that an answer changed establishes a correction, while an
+isolated 送分 cell does not prove a superseded key. This review neither recovers
+an unavailable earlier key nor changes historical group identities.
+
 ## `teacher_qual`
 
 Use official teacher-qualification assessment events and paper artifacts. Teacher recruitment exams are owned by separate providers and must not be folded into this qualification series.

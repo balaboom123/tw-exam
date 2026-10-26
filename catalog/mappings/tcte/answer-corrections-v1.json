@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "provider_id": "tcte_tve",
+  "facts": [
+    {
+      "source_exam_id": "tcte-tve-99",
+      "year_roc": 99,
+      "category_code": "common",
+      "subject_code": "math-c",
+      "title": "共同科目 數學(C)",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/099_4y/downloader.php?obj=OTktNHktMDAtbWMtc3RhbmRhcmQucGRm",
+      "checksum": "5c03f9c8b1f2a0bfc1ffdc13ee7a95939a5ad7dccccb9b9c47be63ae55d54e20",
+      "native_page": 1,
+      "reviewed_at": "2026-10-26",
+      "reason": "Native first page explicitly states an answer change: 備註:第12題變更為「CD」。. This reviews the complete present key as corrected, without reconstructing an earlier answer version."
+    },
+    {
+      "source_exam_id": "tcte-tve-103",
+      "year_roc": 103,
+      "category_code": "common",
+      "subject_code": "math-a",
+      "title": "共同科目 數學(A)",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/103_4y/downloader.php?obj=MTAzLTR5LTAwLW1hLXN0YW5kYXJkLnBkZg==",
+      "checksum": "8e68891189a70ab7e9cee1b99626cf615529cd20ca559957f69a692819b6c229",
+      "native_page": 1,
+      "reviewed_at": "2026-10-26",
+      "reason": "Native first page explicitly states an answer change: 備註:第 4 題變更為送分. This reviews the complete present key as corrected, without reconstructing an earlier answer version."
+    },
+    {
+      "source_exam_id": "tcte-tve-109",
+      "year_roc": 109,
+      "category_code": "common",
+      "subject_code": "math-b",
+      "title": "共同科目 數學(B)",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/109_4y/downloader.php?obj=MTA5LTR5LTAwLW1iLXN0YW5kYXJkLnBkZg==",
+      "checksum": "73059a1b4e6d345a2df5fa6baa7e730605587167f7a3e1d35d11179baecf67a1",
+      "native_page": 1,
+      "reviewed_at": "2026-10-26",
+      "reason": "Native first page explicitly states an answer change: 備註:第 2 題公告答案變更為送分. This reviews the complete present key as corrected, without reconstructing an earlier answer version."
+    }
+  ]
+}

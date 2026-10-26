@@ -122,6 +122,11 @@ cross-year grouping or lift publication quarantine. A replay of retained origina
 does not create a successful-sync receipt. Retired source metadata stays immutable
 even when its earlier provider, event or role assignment was wrong.
 
+Native answer-correction reviews share exact context and checksum validation.
+Each provider retains its own official URL and source-key rules. Both fresh and
+retained normalization use the same provider resolver; a changed payload at a
+reviewed slot requires new evidence before receiving the correction role.
+
 Provider-owned material-role corrections apply during ingestion and catalog
 migration through the same resolver. Migration preserves source URLs, checksums
 and historical storage locators while retaining the former role in the source

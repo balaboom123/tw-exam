@@ -60,6 +60,11 @@ from app.providers.special_admission.evidence import (
     validate_corrections as validate_special_admission_corrections,
 )
 
+from app.providers.tcte_tve.evidence import (
+    corrections_path as tcte_corrections_path,
+    validate_corrections as validate_tcte_corrections,
+)
+
 
 def _read_json(path: Path) -> Any:
     try:
@@ -134,6 +139,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (hakka_historical_grades_path(repo_root), "hakka-historical-grades-v1.schema.json"),
         (taipower_corrections_path(repo_root), "taipower-answer-corrections-v1.schema.json"),
         (special_admission_corrections_path(repo_root), "special-admission-answer-corrections-v1.schema.json"),
+        (tcte_corrections_path(repo_root), "tcte-answer-corrections-v1.schema.json"),
         (source_conflicts_path(repo_root), "moea-source-label-conflicts-v1.schema.json"),
         (native_roles_path(repo_root), "moea-native-file-roles-v1.schema.json"),
         (fallback_path(repo_root), "teacher-qual-archive-fallbacks-v1.schema.json"),
@@ -165,6 +171,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_hakka_historical_grades(repo_root)
     validate_taipower_corrections(repo_root)
     validate_special_admission_corrections(repo_root)
+    validate_tcte_corrections(repo_root)
     validate_native_role_evidence(repo_root)
     validate_archive_fallbacks(repo_root)
     validate_sfi_native_papers(repo_root)
