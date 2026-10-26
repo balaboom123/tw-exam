@@ -133,6 +133,7 @@ The v2 rule is catalog-wide:
 | MOEX level and promotion rules | app/classification.py |
 | Reviewed exact historical MOEX category facts | catalog/mappings/moex/category-identity-v1.json |
 | Reviewed TQC sample subjects, native grade coverage and content editions | catalog/mappings/tqc/sample-identity-v1.json |
+| Reviewed TCTE annual native groups, constituent groups and historical correspondence | catalog/mappings/tcte/group-identity-v1.json |
 | Provider membership and publication policy | app/site_registry.py and catalog/mappings/publication-quarantine.json |
 | Deterministic identity resolution | app/classification.py |
 | Normalized paper contract | schemas/normalized-paper-v2.schema.json |

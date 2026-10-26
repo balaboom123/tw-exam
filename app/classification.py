@@ -27,6 +27,7 @@ from app.providers.sfi_cert.evidence import native_context as sfi_native_context
 from app.providers.tabf_cert.evidence import native_context as tabf_native_context
 from app.providers.taigi_cert.evidence import CAPTURE_PARTITION_YEAR as TAIGI_CAPTURE_PARTITION_YEAR
 from app.providers.taigi_cert.evidence import native_resource as taigi_native_resource
+from app.providers.tcte_tve.identity import resolve_group as tcte_group
 from app.providers.tocfl_cert.evidence import CAPTURE_PARTITION_YEAR as TOCFL_CAPTURE_PARTITION_YEAR
 from app.providers.tocfl_cert.evidence import native_catalog as tocfl_native_catalog
 from app.providers.tocfl_cert.evidence import native_resource as tocfl_native_resource
@@ -406,13 +407,6 @@ def _track_details(
         value = normalize_text(subject_name) or normalize_text(subject_code)
         value = re.sub(r"\s*(?:甲級|乙級|丙級|單一級|學科|術科)\s*$", "", value)
         return _slug(value, prefix="skill"), value
-    if provider_id == "tcte_tve":
-        match = re.search(r"(\d{2}[^ ]*(?:群|類))", normalize_text(subject_name))
-        if match:
-            value = match.group(1)
-            group_code = value[:2]
-            return f"tcte-group-{group_code}", value
-        return "common-subject", "共同科目"
     if provider_id in {"ceec_gsat", "ceec_ast"}:
         value = normalize_text(exam_name).split("－", 1)[-1]
         value = re.sub(r"^\d+(?:學年度|年度)?\s*", "", value)
@@ -1822,6 +1816,28 @@ def _classify_paper_uncached(
         series_id,
     )
     variant_pairs = _variants(category, exam_name)
+    if provider_id == "tcte_tve":
+        tcte_native_group = tcte_group(
+            source_exam_id=source_exam_id,
+            year_roc=year_ad - 1911,
+            category_code=category_code,
+            subject_code=subject_code,
+            subject_name=subject_name_raw,
+        )
+        if tcte_native_group is None:
+            tcte_native_label = normalize_text(subject_name_raw).partition(" ")[0]
+            track_label = tcte_native_label or f"類群待確認({category_code or '無代碼'})"
+            tcte_unreviewed_key = f"{year_ad - 1911}|{category_code}|{tcte_native_label}"
+            if not tcte_native_label or not category_code:
+                tcte_unreviewed_key += f"|{subject_code}|{normalize_text(subject_name_raw)}"
+            track_id = f"{_slug(tcte_unreviewed_key, prefix='tcte-group')}-unknown"
+            confidence = "review"
+            reason = "TCTE annual group context is missing, conflicting or unreviewed"
+        else:
+            track_id, track_label = tcte_native_group.id, tcte_native_group.label
+            if tcte_native_group.kind != "common":
+                confidence = "high"
+                reason = f"reviewed TCTE annual candidate group: {tcte_native_group.id}"
     if provider_id == "wdasec_skill":
         from app.providers.wdasec_skill.papers import form_variant
 

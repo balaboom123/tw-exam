@@ -876,18 +876,22 @@ class ExamIdentityClassificationTests(unittest.TestCase):
         self.assertEqual(skill.exam_series_id, "skill-certification")
 
     def test_historical_tcte_classes_are_professional_tracks(self) -> None:
-        identity = classify(
-            "四技二專統一入學測驗",
-            "90學年度四技二專統一入學測驗",
-            source="tcte-tve-90",
-            provider="tcte_tve",
-            canonical="tcte-tve",
-            subject="01機械類 專業科目(一)",
+        identity = classify_paper(
+            provider_id="tcte_tve",
+            source_exam_id="tcte-tve-90",
+            year_ad=2001,
+            category_raw="四技二專統一入學測驗",
+            exam_name_raw="90學年度四技二專統一入學測驗",
+            canonical_id="tcte-tve",
+            canonical_name="四技二專統一入學測驗",
+            category_code="01",
+            subject_code="professional-1",
+            subject_name_raw="01機械類 專業科目(一)",
         )
 
         self.assertEqual(identity.exam_series_id, "admission-tcte")
         self.assertEqual(identity.track_id, "tcte-group-01")
-        self.assertEqual(identity.track_label, "01機械類")
+        self.assertEqual(identity.track_label, "機械群")
 
     def test_ast_multi_subject_notices_reuse_historical_subject_tracks(self) -> None:
         historical = classify(
@@ -959,9 +963,19 @@ def test_subject_track_titles_are_distinct_without_changing_identity():
                      canonical='全國技術士技能檢定', subject='室內配線 乙級')
     assert skill.bundle_name == '全國技術士技能檢定｜乙級｜室內配線｜試卷形式待確認'
     assert skill.confidence == 'review'
-    tve = classify('統測', '115年統測', provider='tcte_tve',
-                   canonical='四技二專統一入學測驗', subject='01機械群 專業科目(一)')
-    assert tve.bundle_name == '四技二專統一入學測驗｜01機械群'
+    tve = classify_paper(
+        provider_id="tcte_tve",
+        source_exam_id="tcte-tve-115",
+        year_ad=2026,
+        category_raw="四技二專統一入學測驗",
+        exam_name_raw="115年統測",
+        canonical_id="tcte-tve",
+        canonical_name="四技二專統一入學測驗",
+        category_code="01",
+        subject_code="professional-1",
+        subject_name_raw="01機械群 專業科目(一)",
+    )
+    assert tve.bundle_name == '四技二專統一入學測驗｜機械群'
 
 
 def test_mixed_script_occupation_names_cannot_collapse_to_ascii_fragment():

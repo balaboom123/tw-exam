@@ -1,0 +1,1080 @@
+{
+  "schema_version": 1,
+  "provider_id": "tcte_tve",
+  "reviewed_at": "2026-10-26",
+  "references": [
+    {
+      "id": "historical-crosswalk",
+      "url": "https://www.ceec.edu.tw/files/file_pool/1/0L104584383520359905/06-%E7%AC%AC%E5%85%AD%E6%9C%9F.pdf",
+      "checksum": "ed59714d29866f57d5a95d04e883bac9454d255107fcf384cd3cf53442858826",
+      "pdf_pages": [
+        134,
+        135,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145
+      ],
+      "purpose": "TCTE-authored historical comparison and candidate-group changes. Only historical descriptions are used; the proposed future ROC102 subject plan is not adopted-rule evidence."
+    },
+    {
+      "id": "native-groups-092",
+      "url": "https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F092majtype_4Y",
+      "checksum": "784d9eb74d3f8fb97201d533276e39979c5e75bd84d9d601cf2165ea4d479b49",
+      "pdf_pages": [],
+      "purpose": "Official historical group names and numbers."
+    },
+    {
+      "id": "native-groups-098",
+      "url": "https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F098majtype_4Y",
+      "checksum": "b05a9bbdb224593efc0ea1381cc5e126ebb1f4ca0b614417ed5644e8d902618d",
+      "pdf_pages": [],
+      "purpose": "Official post-reform group names and numbers."
+    },
+    {
+      "id": "native-groups-101",
+      "url": "https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F101majtype_4Y",
+      "checksum": "87b53df50b4b1703301a6dfeeee71260a1fe071f71914d72627943fe32b5a82a",
+      "pdf_pages": [],
+      "purpose": "Official group names before ROC102 changes."
+    },
+    {
+      "id": "native-groups-102",
+      "url": "https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F102majtype_4Y",
+      "checksum": "fa27fa63e56451ffee323aa24a36f46e98fee6d13aa8c445c20b89a1838bc7bf",
+      "pdf_pages": [],
+      "purpose": "Official adopted group names from ROC102; not the earlier proposal."
+    },
+    {
+      "id": "native-subjects-115",
+      "url": "https://www.tcte.edu.tw/index.php?mod=TVETest%2Finfo4y",
+      "checksum": "e9313d7384f66bc1042e74ca6f9922dea10a083cd7cb71746bd5b403e7d28856",
+      "pdf_pages": [],
+      "purpose": "Official native single and composite group subject applicability for ROC115."
+    }
+  ],
+  "annual_sources": [
+    {
+      "year_roc": 90,
+      "source_exam_id": "tcte-tve-90",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/090_4y/",
+      "checksum": "1c3c337e6aaf49786082c14c0ddb7926aac6a3036a30c555f1f776c4222feca2"
+    },
+    {
+      "year_roc": 91,
+      "source_exam_id": "tcte-tve-91",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/091_4y/",
+      "checksum": "21a9b934ec0b4f122f800d523e6ee2d9981db62f9d1639a31df73ea9a636af2f"
+    },
+    {
+      "year_roc": 92,
+      "source_exam_id": "tcte-tve-92",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/092_4y/",
+      "checksum": "feceba885bd6b0dcafb4ee41a1498b847448eed598ff05edac2921bd8d141179"
+    },
+    {
+      "year_roc": 93,
+      "source_exam_id": "tcte-tve-93",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/093_4y/",
+      "checksum": "cd2c97d12d4cb26d4cdeade3f50c4e4709864ce6ea7e84ed83995766edee5919"
+    },
+    {
+      "year_roc": 94,
+      "source_exam_id": "tcte-tve-94",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/094_4y/",
+      "checksum": "2652f8b0d7984d470a5f8c5991765894456bb166d64eb3b451cbd29bd6b25145"
+    },
+    {
+      "year_roc": 95,
+      "source_exam_id": "tcte-tve-95",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/095_4y/",
+      "checksum": "fb2bb000641dfa1a96ba6475674fdabb91480d5d2d663e40510f1a7da0b6ead9"
+    },
+    {
+      "year_roc": 96,
+      "source_exam_id": "tcte-tve-96",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/096_4y/",
+      "checksum": "fbd6b47737f7686db31b24e89dd064e0ab61c293aecd7f31c9a96aa371af792c"
+    },
+    {
+      "year_roc": 97,
+      "source_exam_id": "tcte-tve-97",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/097_4y/",
+      "checksum": "2b218daa4950b5fc6f54948b02568e47b1a5afa4f2ed0664339f2ae3d0191e1f"
+    },
+    {
+      "year_roc": 98,
+      "source_exam_id": "tcte-tve-98",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/098_4y/",
+      "checksum": "94b89f9370051715892a47cba3d62f40c2a01b3d4365f0f294ecf0ad53750fea"
+    },
+    {
+      "year_roc": 99,
+      "source_exam_id": "tcte-tve-99",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/099_4y/",
+      "checksum": "d0189d90736178af4d09f4cd08fe79919f62e26b5071bbabb5c54929f9bee232"
+    },
+    {
+      "year_roc": 100,
+      "source_exam_id": "tcte-tve-100",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/100_4y/",
+      "checksum": "7a397d9ffcb50f438f9dbdc6063f06fb02795818b658a359fd90c551862501c7"
+    },
+    {
+      "year_roc": 101,
+      "source_exam_id": "tcte-tve-101",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/101_4y/",
+      "checksum": "a94f29a20ee64926f042a1b61d26574dbbd46871978558372bfff3ece75cd20a"
+    },
+    {
+      "year_roc": 102,
+      "source_exam_id": "tcte-tve-102",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/102_4y/",
+      "checksum": "eaefb560defd7aa377db4b24eec12f5851c96132c5123409e8257983d2b480c6"
+    },
+    {
+      "year_roc": 103,
+      "source_exam_id": "tcte-tve-103",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/103_4y/",
+      "checksum": "0255891124647ef49b818e292fd9da6086765d3bb29d70a81a9818826cf338a9"
+    },
+    {
+      "year_roc": 104,
+      "source_exam_id": "tcte-tve-104",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/104_4y/",
+      "checksum": "af70b5d32b43438f42fc653acf5fc5efb67d0850fe7d0e0dc97c09d3115469b0"
+    },
+    {
+      "year_roc": 105,
+      "source_exam_id": "tcte-tve-105",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/105_4y/",
+      "checksum": "05981984f704b4426dc376ded9f292cf55bd38c5b659fe7199b2a779c7a287aa"
+    },
+    {
+      "year_roc": 106,
+      "source_exam_id": "tcte-tve-106",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/106_4y/",
+      "checksum": "a0bbdd0dce4d32133709bd4fde46b066bd8780d6cedd8f854309fd3ebee763af"
+    },
+    {
+      "year_roc": 107,
+      "source_exam_id": "tcte-tve-107",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/107_4y/",
+      "checksum": "e0dc56eaa6d8a09d829b0477745cea9ebf700c7041f77053186f496645a332d8"
+    },
+    {
+      "year_roc": 108,
+      "source_exam_id": "tcte-tve-108",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/108_4y/",
+      "checksum": "2a24b495dfe82e59dfe27a2c7a94a864bea6dd7910e4fc45b63076e3779a7195"
+    },
+    {
+      "year_roc": 109,
+      "source_exam_id": "tcte-tve-109",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/109_4y/",
+      "checksum": "5f5470b953bcbaf8bb6ecccfbd43ed8f997d0f781bdf135ba03430425ed4bb10"
+    },
+    {
+      "year_roc": 110,
+      "source_exam_id": "tcte-tve-110",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/110_4y/",
+      "checksum": "4a34d7de2d1f4ab4a85cb3a3cecdc83977aaffb5723613d23acfbbb7e8935a3c"
+    },
+    {
+      "year_roc": 111,
+      "source_exam_id": "tcte-tve-111",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/111_4y/",
+      "checksum": "4a7746a6e1f2b442a98fbc1b477ca1e2a0cf348357a56a3f9bef6be48de0feea"
+    },
+    {
+      "year_roc": 112,
+      "source_exam_id": "tcte-tve-112",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/112_4y/",
+      "checksum": "a7f4061595a95d1189624522132d41ab1f00bbb66bef5af73c93a17f65d8e5db"
+    },
+    {
+      "year_roc": 113,
+      "source_exam_id": "tcte-tve-113",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/113_4y/",
+      "checksum": "7be76c4c1c0a70c52ad1896f70fa00a23f7631ee41450bb54f3f771c4742b8d2"
+    },
+    {
+      "year_roc": 114,
+      "source_exam_id": "tcte-tve-114",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/114_4y/",
+      "checksum": "e6a44ca0fc8b2945924c6d6f553df19904784dadfd693263fe427c5fc94302e2"
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "tcte-tve-115",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/115_4y/",
+      "checksum": "ce4d0b1c73d393c34f7a8e9409fcde3bc012739cbd36f700e5d7fdcfe046588c"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "tcte-group-01",
+      "label": "機械群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "01",
+          "source_label": "01機械類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "01",
+          "source_label": "01機械群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-group-02",
+      "label": "動力機械群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "02",
+          "source_label": "02汽車類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "02",
+          "source_label": "02動力機械群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-group-03",
+      "label": "電機與電子群電機類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "03",
+          "source_label": "03電機類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "03",
+          "source_label": "03電機與電子群電機類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-group-04",
+      "label": "電機與電子群資電類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "04",
+          "source_label": "04電子類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "04",
+          "source_label": "04電機與電子群電子類",
+          "from_year_roc": 98,
+          "through_year_roc": 101
+        },
+        {
+          "category_code": "04",
+          "source_label": "04電機與電子群資電類",
+          "from_year_roc": 102,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-group-05",
+      "label": "化工群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "05",
+          "source_label": "05化工類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "05",
+          "source_label": "05化工群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-hygiene",
+      "label": "衛生類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "06",
+          "source_label": "06衛生類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "This exact native candidate group retains its own scope. A later merger, split or reused number does not make its historical papers interchangeable with another group."
+    },
+    {
+      "id": "tcte-nursing",
+      "label": "護理類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "11",
+          "source_label": "11護理類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "This exact native candidate group retains its own scope. A later merger, split or reused number does not make its historical papers interchangeable with another group."
+    },
+    {
+      "id": "tcte-hygiene-nursing",
+      "label": "衛生與護理類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [
+        "tcte-hygiene",
+        "tcte-nursing"
+      ],
+      "source_groups": [
+        {
+          "category_code": "10",
+          "source_label": "10衛生與護理類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "The native ROC97-to-98 comparison identifies predecessor groups or the earlier combined route. This resulting group remains distinct from those earlier candidate populations; numerical reuse is not identity."
+    },
+    {
+      "id": "tcte-civil-architecture",
+      "label": "土木與建築群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "07",
+          "source_label": "07土木建築類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "06",
+          "source_label": "06土木與建築群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-industrial-design",
+      "label": "工業設計類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "08",
+          "source_label": "08工業設計類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "This exact native candidate group retains its own scope. A later merger, split or reused number does not make its historical papers interchangeable with another group."
+    },
+    {
+      "id": "tcte-commercial-design",
+      "label": "商業設計類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "15",
+          "source_label": "15商業設計類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "14",
+          "source_label": "14商業設計類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-design",
+      "label": "設計群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [
+        "tcte-industrial-design",
+        "tcte-commercial-design"
+      ],
+      "source_groups": [
+        {
+          "category_code": "07",
+          "source_label": "07設計群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "The native ROC97-to-98 comparison identifies predecessor groups or the earlier combined route. This resulting group remains distinct from those earlier candidate populations; numerical reuse is not identity."
+    },
+    {
+      "id": "tcte-engineering",
+      "label": "工程與管理類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "09",
+          "source_label": "09工程與管理類工程組",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "08",
+          "source_label": "08工程與管理類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-engineering-management",
+      "label": "工程與管理類管理組",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "10",
+          "source_label": "10工程與管理類管理組",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "This exact native candidate group retains its own scope. A later merger, split or reused number does not make its historical papers interchangeable with another group."
+    },
+    {
+      "id": "tcte-commerce",
+      "label": "商業類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "14",
+          "source_label": "14商業類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "13",
+          "source_label": "13商業類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-business-management",
+      "label": "商業與管理群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [
+        "tcte-engineering-management",
+        "tcte-commerce"
+      ],
+      "source_groups": [
+        {
+          "category_code": "09",
+          "source_label": "09商管群",
+          "from_year_roc": 98,
+          "through_year_roc": 101
+        },
+        {
+          "category_code": "09",
+          "source_label": "09商業與管理群",
+          "from_year_roc": 102,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "The native ROC97-to-98 comparison identifies predecessor groups or the earlier combined route. This resulting group remains distinct from those earlier candidate populations; numerical reuse is not identity."
+    },
+    {
+      "id": "tcte-food",
+      "label": "食品群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "12",
+          "source_label": "12食品類",
+          "from_year_roc": 90,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "11",
+          "source_label": "11食品群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-childcare",
+      "label": "家政群幼保類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "16",
+          "source_label": "16幼保類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "15",
+          "source_label": "15幼保類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "12",
+          "source_label": "12家政群幼保類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-beauty",
+      "label": "美容類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "17",
+          "source_label": "17美容類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "16",
+          "source_label": "16美容類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-home-economics",
+      "label": "家政類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "18",
+          "source_label": "18家政類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "17",
+          "source_label": "17家政類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-home-living",
+      "label": "家政群生活應用類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [
+        "tcte-beauty",
+        "tcte-home-economics"
+      ],
+      "source_groups": [
+        {
+          "category_code": "13",
+          "source_label": "13家政群生活應用類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "The native ROC97-to-98 comparison identifies predecessor groups or the earlier combined route. This resulting group remains distinct from those earlier candidate populations; numerical reuse is not identity."
+    },
+    {
+      "id": "tcte-agriculture",
+      "label": "農業群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "19",
+          "source_label": "19農業類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "18",
+          "source_label": "18農業類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "14",
+          "source_label": "14農業群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-english",
+      "label": "外語群英語類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "20",
+          "source_label": "20語文類英文組",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "19",
+          "source_label": "19語文類英文組",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "15",
+          "source_label": "15外語群英語類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-japanese",
+      "label": "外語群日語類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "21",
+          "source_label": "21語文類日文組",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "20",
+          "source_label": "20語文類日文組",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "16",
+          "source_label": "16外語群日語類",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-hospitality",
+      "label": "餐旅群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "22",
+          "source_label": "22餐旅類",
+          "from_year_roc": 91,
+          "through_year_roc": 91
+        },
+        {
+          "category_code": "21",
+          "source_label": "21餐旅類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "17",
+          "source_label": "17餐旅群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Reviewed native annual labels and the historical correspondence establish one continuing candidate group across renumbering or a one-to-one name change. Ordinary annual subject changes do not create a new track."
+    },
+    {
+      "id": "tcte-maritime-fisheries",
+      "label": "海事水產類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "13",
+          "source_label": "13海事水產類",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        }
+      ],
+      "reason": "This exact native candidate group retains its own scope. A later merger, split or reused number does not make its historical papers interchangeable with another group."
+    },
+    {
+      "id": "tcte-maritime",
+      "label": "海事群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [
+        "tcte-maritime-fisheries"
+      ],
+      "source_groups": [
+        {
+          "category_code": "22",
+          "source_label": "22海事類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "18",
+          "source_label": "18海事群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "The native ROC97-to-98 comparison identifies predecessor groups or the earlier combined route. This resulting group remains distinct from those earlier candidate populations; numerical reuse is not identity."
+    },
+    {
+      "id": "tcte-group-23",
+      "label": "水產群",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [
+        "tcte-maritime-fisheries"
+      ],
+      "source_groups": [
+        {
+          "category_code": "23",
+          "source_label": "23水產類",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "19",
+          "source_label": "19水產群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "The native ROC97-to-98 comparison identifies predecessor groups or the earlier combined route. This resulting group remains distinct from those earlier candidate populations; numerical reuse is not identity."
+    },
+    {
+      "id": "tcte-arts-film",
+      "label": "藝術群影視類",
+      "kind": "single",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "20",
+          "source_label": "20藝術群影視類",
+          "from_year_roc": 99,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "This exact native candidate group retains its own scope. A later merger, split or reused number does not make its historical papers interchangeable with another group."
+    },
+    {
+      "id": "tcte-group-51",
+      "label": "電機與電子群",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-group-03",
+        "tcte-group-04"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "51",
+          "source_label": "51電機電子群",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "51",
+          "source_label": "51電機與電子群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 電機與電子群電機類, 電機與電子群資電類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-commerce-english",
+      "label": "商業語文群(一)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-commerce",
+        "tcte-english"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "52",
+          "source_label": "52商業語文群(一)",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 商業類, 外語群英語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-commerce-japanese",
+      "label": "商業語文群(二)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-commerce",
+        "tcte-japanese"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "53",
+          "source_label": "53商業語文群(二)",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 商業類, 外語群日語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-english-japanese",
+      "label": "商管外語群(三)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-english",
+        "tcte-japanese"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "54",
+          "source_label": "54商業語文群(三)",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        },
+        {
+          "category_code": "55",
+          "source_label": "55商管外語群(三)",
+          "from_year_roc": 102,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 外語群英語類, 外語群日語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups. Both historical and current row labels identify only the continuing English/Japanese pair; the changed group number and ordinal prefix do not create another combination."
+    },
+    {
+      "id": "tcte-commerce-english-japanese",
+      "label": "商業語文群(四)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-commerce",
+        "tcte-english",
+        "tcte-japanese"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "55",
+          "source_label": "55商業語文群(四)",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 商業類, 外語群英語類, 外語群日語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-home-beauty",
+      "label": "家政美容群",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-home-economics",
+        "tcte-beauty"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "56",
+          "source_label": "56家政美容群",
+          "from_year_roc": 92,
+          "through_year_roc": 97
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 家政類, 美容類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-childcare-living",
+      "label": "家政群",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-childcare",
+        "tcte-home-living"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "52",
+          "source_label": "52家政群",
+          "from_year_roc": 98,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 家政群幼保類, 家政群生活應用類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-business-english",
+      "label": "商管外語群(一)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-business-management",
+        "tcte-english"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "53",
+          "source_label": "53商管外語群(一)",
+          "from_year_roc": 102,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 商業與管理群, 外語群英語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-business-japanese",
+      "label": "商管外語群(二)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-business-management",
+        "tcte-japanese"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "54",
+          "source_label": "54商管外語群(二)",
+          "from_year_roc": 102,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 商業與管理群, 外語群日語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "tcte-business-english-japanese",
+      "label": "商管外語群(四)",
+      "kind": "composite",
+      "member_tracks": [
+        "tcte-business-management",
+        "tcte-english",
+        "tcte-japanese"
+      ],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "56",
+          "source_label": "56商管外語群(四)",
+          "from_year_roc": 102,
+          "through_year_roc": 115
+        }
+      ],
+      "reason": "Native professional-second-paper allocations establish the combination of 商業與管理群, 外語群英語類, 外語群日語類. Shared professional-first-paper bytes do not make this combination one of its constituent groups."
+    },
+    {
+      "id": "common-subject",
+      "label": "共同科目",
+      "kind": "common",
+      "member_tracks": [],
+      "predecessor_tracks": [],
+      "source_groups": [
+        {
+          "category_code": "common",
+          "source_label": "共同科目",
+          "from_year_roc": 90,
+          "through_year_roc": 115
+        },
+        {
+          "category_code": "common",
+          "source_label": "各科標準答案",
+          "from_year_roc": 90,
+          "through_year_roc": 91
+        }
+      ],
+      "reason": "The common-subject rows and the original combined answer resources are shared source resources, independent of any individual professional candidate group. Paper forms and answer roles remain source fields."
+    }
+  ]
+}

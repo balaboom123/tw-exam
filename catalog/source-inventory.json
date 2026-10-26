@@ -1223,7 +1223,9 @@
       },
       "evidence": [
         "catalog/source-coverage/tcte_tve.json",
-        "docs/providers/notes.md#tcte_tve"
+        "docs/providers/notes.md#tcte_tve",
+        "catalog/mappings/tcte/group-identity-v1.json",
+        "catalog/mappings/tcte/answer-corrections-v1.json"
       ],
       "exam_category": "TCTE 四技二專統一入學測驗 / TVE archive",
       "local_state": {
@@ -1266,11 +1268,11 @@
       "restrictions": [
         "The ROC 91 XLS answer is intentionally excluded as a duplicate format of the retained official PDF.",
         "The official archive says historical papers and answers are reference material; no explicit redistribution license is recorded.",
-        "Historical numeric group identifiers are reused for different native categories. Programme/track reconciliation remains required; this acquisition repair does not approve numeric-only cross-year grouping."
+        "Historical numeric group identifiers are reused for different native categories. The reviewed group catalogue matches the annual event, category key, full native caption and professional subject part; an unreviewed future or conflicting context remains isolated for review."
       ],
       "source_name": "技專校院入學測驗中心",
       "status": "covered",
-      "status_reason": "Covered in the declared paper/answer acquisition scope: all 26 official annual listings reconcile to 3,161 retained file references with zero failures. The button-label repair restores 82 omitted mathematics originals while preserving every earlier URL and payload. Historical numeric category reuse still requires a separate track-identity migration; this acquisition coverage does not establish semantic grouping correctness."
+      "status_reason": "The retained provider state reconciles every captured annual listing in the declared acquisition scope. Reviewed native group meanings preserve renumbering continuity and distinct historical mergers, splits and candidate combinations. Source-role corrections retain original acquisition bytes and independent history."
     },
     {
       "available_years": {

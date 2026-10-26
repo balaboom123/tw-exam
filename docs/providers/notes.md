@@ -704,6 +704,37 @@ Use official Taiwan Sugar recruitment examination listings and their administere
 
 Use the official TCTE technological and vocational examination archive, retaining its official program and subject distinctions. Do not merge programs solely because display labels overlap.
 
+Native group numbers belong to annual source rows. The
+[TCTE-authored historical comparison](https://www.ceec.edu.tw/files/file_pool/1/0L104584383520359905/06-%E7%AC%AC%E5%85%AD%E6%9C%9F.pdf#page=144)
+and official [historical](https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F092majtype_4Y)
+and [post-reform](https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F098majtype_4Y)
+group tables distinguish renumbering from mergers and splits. Preserve the
+separate predecessor groups when a later programme combines their scope. A
+one-to-one correspondence or renumbering retains its reviewed identity.
+
+The [group catalogue](../../catalog/mappings/tcte/group-identity-v1.json) owns
+these meanings and their exact annual source captions, including parenthesized
+composite-group ordinals. A composite group retains its complete candidate
+combination even when its papers are shared with individual constituent groups.
+The older commerce component stays distinct from the later combined business
+and management group; combinations containing those components remain distinct.
+The continuing English/Japanese-only combination retains one identity across
+its number change and the observed publication gap, without inventing events.
+
+Match the event, year, category key, complete native caption and professional
+subject part in both fresh and retained classification. A missing or conflicting
+context remains in an event-specific review identity. The historical article's
+prospective subject plan does not establish adopted ROC102 rules; use the
+[actual official annual groups](https://www.tcte.edu.tw/index.php?mod=TVETest%2Fmajtype%2FPage%2F102majtype_4Y).
+Later selective-subject rules do not establish historical applicability.
+
+Public titles use the reviewed group meaning, while native numbers remain in
+source records, archive entries and search aliases. Preserve coherent existing
+IDs. Replaced mixed identities leave current website results; their existing
+ZIP URLs remain byte-pinned historical downloads under the site's explicit
+retention policy. Identity migration preserves all original payloads and source
+roles, and does not create source-sync receipts.
+
 Historical mathematics links can share one table cell. The visible form label
 belongs to each anchor or download button's `value`; reading only anchor text
 silently keeps the first button and drops the other forms. Pair questions and
