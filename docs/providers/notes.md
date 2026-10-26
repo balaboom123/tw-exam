@@ -543,6 +543,10 @@ unfamiliar replacement bytes require a new native review before discovery can
 assign an examination event. The client pins those reviewed responses for the
 remainder of its sync so a slot change cannot substitute another sitting.
 
+Each answer cites its own native PDF fact. A paired question establishes neither
+the answer's checksum nor its evidence record; shared normalization evaluates
+the roles independently while preserving the original acquisition pair.
+
 These are distinct qualification and ability programmes, rather than one common
 grade ladder. Keep 高級 within its official programme name, and distinguish 乙科
 from a certification grade. The current

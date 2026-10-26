@@ -4,14 +4,12 @@ from __future__ import annotations
 
 import json
 import re
-from collections.abc import Iterable, Iterator
-from dataclasses import dataclass, replace
+from dataclasses import dataclass
 from datetime import date
 from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from app.models import ParsedPaper
 from app.providers.hce_archive import HCE_CONFIGS
 
 
@@ -144,19 +142,6 @@ def read_annual_exams(path: Path) -> tuple[AnnualExam, ...]:
 @lru_cache(maxsize=1)
 def annual_exams() -> tuple[AnnualExam, ...]:
     return read_annual_exams(annual_papers_path(Path(__file__).resolve().parents[3]))
-
-
-def normalization_papers(papers: Iterable[ParsedPaper]) -> Iterator[ParsedPaper]:
-    """Classify each version independently without altering paired acquisition rows."""
-    for paper in papers:
-        for role, url in paper.files.items():
-            yield replace(
-                paper,
-                files={role: url},
-                mirror_files={role: dict(paper.mirror_files[role])}
-                if role in paper.mirror_files
-                else {},
-            )
 
 
 def resolve_identity(

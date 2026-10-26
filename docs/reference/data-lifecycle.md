@@ -94,6 +94,12 @@ format unsupported by that role fails validation.
 
 Normalization applies reviewed provider aliases and shared identity rules to raw events; unresolved cases enter the provider review queue. Full provider writes also regenerate a compact index. Index readers fall back to source files when an index is missing or its source snapshot is stale; the catalog audit still reclassifies full records. The index must remain rebuildable, and [its check](../../scripts/build_provider_indexes.py) compares complete contents against source files.
 
+A parsed subject can carry several file roles. The shared normalizer evaluates
+each file with its own source URL and mirror metadata before assigning its
+identity and evidence. A known question cannot approve an unreviewed paired
+answer or supply its checksum-bound provenance. Raw acquisition pairs remain
+intact; provider-owned native facts still decide the meaning of each version.
+
 Full and incremental sync retain previously acquired events and papers that disappear from current listings, including their source-manifest evidence. Incremental and targeted merging preserve unaffected history. Refreshed names may derive canonical migrations; they must not orphan prior compatibility identities or silently merge distinct official programs.
 
 Before replacing provider state, the scoped writer records superseded paper and

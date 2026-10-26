@@ -4,7 +4,7 @@ import hashlib
 import json
 import re
 import unicodedata
-from collections.abc import Iterable
+from collections.abc import Iterable, Iterator
 from dataclasses import replace
 from pathlib import Path
 
@@ -324,6 +324,22 @@ def _deduplicate_review_queue(items: list[ReviewItem]) -> list[ReviewItem]:
     return [selected[item_key] for item_key in sorted(selected)]
 
 
+def _individual_file_papers(papers: Iterable[ParsedPaper]) -> Iterator[ParsedPaper]:
+    """Give each normalized file its own metadata without changing acquisition rows."""
+    for paper in papers:
+        if len(paper.files) <= 1:
+            yield paper
+            continue
+        for role, url in paper.files.items():
+            yield replace(
+                paper,
+                files={role: url},
+                mirror_files={role: dict(paper.mirror_files[role])}
+                if role in paper.mirror_files
+                else {},
+            )
+
+
 def normalize_papers(
     source_exam_id: str,
     year_ad: int,
@@ -338,11 +354,7 @@ def normalize_papers(
     year_roc = year_ad - 1911
     normalized_papers: list[NormalizedPaper] = []
     review_queue: list[ReviewItem] = []
-    if provider_id == "hce_cmu":
-        from app.providers.hce_cmu.identity import normalization_papers
-
-        papers = normalization_papers(papers)
-    for paper in papers:
+    for paper in _individual_file_papers(papers):
         material = paper.source_material or source_material
         if provider_id == "hakka_cert" and material is None:
             material = hakka_material(
@@ -357,9 +369,7 @@ def normalize_papers(
         identity = None
         fields = {}
         if provider_id:
-            role = "question" if "question" in paper.files else ""
-            if not role and len(paper.files) == 1:
-                role = next(iter(paper.files))
+            role = next(iter(paper.files), "")
             source_metadata = {}
             if role:
                 source_metadata = paper.mirror_files.get(role) or mirror_metadata.get(
