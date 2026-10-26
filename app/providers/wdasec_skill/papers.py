@@ -366,6 +366,10 @@ def resolve_native_paper(
     checksum: str,
 ) -> NativePaper | None:
     """A URL or digest alone never approves a different source context."""
+    # These are necessary conditions of every validated native evidence row.
+    # Incomplete acquisition metadata cannot match and must not load the index.
+    if not checksum or not source_exam_id.isdigit() or len(category_code) != 5:
+        return None
     return _index().get(
         (
             year_roc,
