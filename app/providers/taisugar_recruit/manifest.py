@@ -88,6 +88,9 @@ def refresh_retained_files(
             "source_archives": sum(
                 a.file_type == "source_archive" for page in pages for a in page.attachments
             ),
+            "reference_documents": sum(
+                a.file_type == "instructions" for page in pages for a in page.attachments
+            ),
             "all_originals_SHA256_verified": True,
         },
     )

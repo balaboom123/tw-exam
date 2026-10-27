@@ -27,6 +27,7 @@ from app.providers.sfi_cert.evidence import native_context as sfi_native_context
 from app.providers.tabf_cert.evidence import native_context as tabf_native_context
 from app.providers.taigi_cert.evidence import CAPTURE_PARTITION_YEAR as TAIGI_CAPTURE_PARTITION_YEAR
 from app.providers.taigi_cert.evidence import native_resource as taigi_native_resource
+from app.providers.taisugar_recruit.annual import resolve_written_exam as taisugar_written_exam
 from app.providers.tcte_tve.identity import resolve_group as tcte_group
 from app.providers.tocfl_cert.evidence import CAPTURE_PARTITION_YEAR as TOCFL_CAPTURE_PARTITION_YEAR
 from app.providers.tocfl_cert.evidence import native_catalog as tocfl_native_catalog
@@ -2299,7 +2300,23 @@ def _classify_paper_uncached(
         # research-presentation stage.
         stage_id = "stage-1"
     if provider_id == "taisugar_recruit":
-        stage_id = "unknown"
+        taisugar_annual = taisugar_written_exam(
+            source_exam_id=source_exam_id,
+            year_roc=year_ad - 1911,
+            exam_name_raw=exam_name_raw,
+            category_code=category_code,
+            category_raw=category_raw,
+            subject_code=subject_code,
+            title=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+        )
+        stage_id = "stage-1" if taisugar_annual is not None else "unknown"
+        if taisugar_annual is not None:
+            reason = (
+                f"Reviewed annual initial written stage: {taisugar_annual.rule_url}; "
+                "compound original occupation and applicant applicability require review"
+            )
     if provider_id == "moex":
         professional = _moex_professional_qualification(category, exam_name)
         if professional is not None:

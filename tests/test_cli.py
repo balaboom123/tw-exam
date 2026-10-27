@@ -192,11 +192,25 @@ class CliCommandTests(unittest.TestCase):
 
     def test_parser_accepts_publish_site_command(self) -> None:
         parser = build_parser()
-        args = parser.parse_args(["publish-site", "--site-id", "default", "--publish-plan", ".tmp/site-publish-plan.json"])
+        args = parser.parse_args(["publish-site", "--site-id", "default", "--repository", "balaboom123/tw-exam", "--publish-plan", ".tmp/site-publish-plan.json"])
 
         self.assertEqual(args.site_id, "default")
-        self.assertEqual(args.repository, "example/repo")
+        self.assertEqual(args.repository, "balaboom123/tw-exam")
         self.assertEqual(args.publish_plan, Path(".tmp/site-publish-plan.json"))
+
+    @patch("app.cli.publish_site")
+    def test_publication_requires_a_repository_before_any_site_write(self, publish_mock) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            sentinel = root / "existing-site.json"
+            sentinel.write_text('{"download_url":"https://github.com/owner/archive/releases/download/tag/paper.zip"}')
+            before = sentinel.read_bytes()
+            with self.assertRaises(SystemExit) as result:
+                main(["publish-site", "--repo-root", str(root)])
+            self.assertEqual(result.exception.code, 2)
+            publish_mock.assert_not_called()
+            self.assertEqual(sentinel.read_bytes(), before)
+            self.assertEqual(list(root.iterdir()), [sentinel])
 
     def test_discover_can_write_manifest_without_clobbering_probe_fields(self) -> None:
         class DiscoveryClient:
@@ -1036,6 +1050,7 @@ class CliCommandTests(unittest.TestCase):
         publish_mock.side_effect = lambda *a, **kw: calls.append("publish")
         args = build_parser().parse_args([
             "publish-site", "--repo-root", "/tmp/publication-test",
+            "--repository", "example/repo",
             "--download-affected-bundles", "--publish-plan", "/tmp/plan.json",
         ])
 

@@ -1608,7 +1608,7 @@ def build_parser() -> argparse.ArgumentParser:
     publish_site_parser.add_argument("--site-id", default="default")
     publish_site_parser.add_argument(
         "--repository",
-        default="example/repo",
+        required=True,
         help="Repository name used to generate download URLs in local metadata.",
     )
     publish_site_parser.add_argument("--publish-plan", type=Path, default=None)

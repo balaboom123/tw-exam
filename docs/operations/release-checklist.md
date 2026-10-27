@@ -34,6 +34,9 @@ restore and byte checks before relying on that recovery during a release.
 
 ## Build the site projection
 
+`publish-site` requires the destination repository explicitly. This prevents a
+local rebuild from replacing every download URL with an example repository.
+
 ```bash
 uv run python -m app publish-site --site-id default --repository <owner>/<repo>
 uv run python -m app plan-release --repo-root . --site-id default --output .tmp/release-plan.json

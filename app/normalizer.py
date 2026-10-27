@@ -18,6 +18,7 @@ from app.providers.moex.file_roles import file_role as moex_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.special_admission.evidence import file_role as special_admission_file_role
 from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
+from app.providers.taisugar_recruit.annual import resolve_written_exam as taisugar_written_exam
 from app.providers.taisugar_recruit.evidence import file_role as taisugar_file_role
 from app.providers.tcte_tve.evidence import file_role as tcte_file_role
 from app.providers.twc_recruit.client import retained_archive_file_role
@@ -413,6 +414,20 @@ def normalize_papers(
                     checksum=source_metadata.get("checksum", ""),
                 )
                 material = native.reviewed_material if native is not None else None
+            if provider_id == "taisugar_recruit":
+                annual = taisugar_written_exam(
+                    source_exam_id=source_exam_id,
+                    year_roc=year_roc,
+                    exam_name_raw=exam_name_raw,
+                    category_code=paper.category_code,
+                    category_raw=paper.category_raw,
+                    subject_code=paper.subject_code,
+                    title=paper.subject_name_raw,
+                    source_url=paper.files.get(role, ""),
+                    checksum=source_metadata.get("checksum", ""),
+                )
+                if annual is not None:
+                    material = annual.material
             identity = classify_paper(
                 provider_id=provider_id,
                 source_exam_id=source_exam_id,
@@ -633,6 +648,20 @@ def renormalize_catalog(
             )
             if material is not None:
                 paper = replace(paper, source_material=material, schema_version=3)
+        if paper.provider_id == "taisugar_recruit":
+            annual = taisugar_written_exam(
+                source_exam_id=paper.source_exam_id,
+                year_roc=paper.year_roc,
+                exam_name_raw=paper.exam_name_raw,
+                category_code=paper.category_code,
+                category_raw=paper.category_raw,
+                subject_code=paper.subject_code,
+                title=paper.subject_name_raw,
+                source_url=paper.download_url_source,
+                checksum=paper.checksum,
+            )
+            if annual is not None:
+                paper = replace(paper, source_material=annual.material, schema_version=3)
         if paper.provider_id == "hce_tcu":
             material = tcu_native_material(
                 source_exam_id=paper.source_exam_id,

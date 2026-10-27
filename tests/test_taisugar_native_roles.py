@@ -67,7 +67,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.download_url_source == before.download_url_source
         assert after.subject_code == before.subject_code
         assert after.track_id == "taisugar-worker-unknown"
-        assert after.stage_id == "unknown"
+        assert after.stage_id == "stage-1"
         assert after.classification_confidence == "review"
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
