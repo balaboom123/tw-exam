@@ -91380,12 +91380,12 @@
         83,
         82
       ],
-      "file_count": 119,
+      "file_count": 118,
       "storage_key": "bundles/sites/default/moex-professional-navigation-special-maritime-principal-navigation-driver--5ef9f4321cc4.zip",
       "asset_name": "moex-professional-navigation-special-maritime-principal-navigation-driver--5ef9f4321cc4.zip",
       "release_tag": "default-bundles-v2-002",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-navigation-special-maritime-principal-navigation-driver--5ef9f4321cc4.zip",
-      "checksum": "66b320f32be1f1dc9908b47918216e8da45225abe9ab38e0da05e46d8344bd63",
+      "checksum": "f9089c4ea9e3f3f001bd3a5f12aa052270f6355658c4463de72df4f6d88d4b34",
       "schema_version": 2,
       "bundle_id": "moex-professional-navigation-special-maritime-principal-navigation-driver",
       "catalog_version": "exam-identity-v2",
@@ -179711,12 +179711,12 @@
         91,
         90
       ],
-      "file_count": 278,
+      "file_count": 274,
       "storage_key": "bundles/sites/default/tcte-tve-admission-tcte-not-applicable-common-subject--ee88b8f6a849.zip",
       "asset_name": "tcte-tve-admission-tcte-not-applicable-common-subject--ee88b8f6a849.zip",
       "release_tag": "default-bundles-v2-008",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/tcte-tve-admission-tcte-not-applicable-common-subject--ee88b8f6a849.zip",
-      "checksum": "a80b837c357a9986c19a5c00ca105fdee47344bea2c71db7affcff1a95f721a2",
+      "checksum": "2f8f87218d38c49667fe8663efc10a9443082b71f824e7ac3f693139d663ec71",
       "schema_version": 2,
       "bundle_id": "tcte-tve-admission-tcte-not-applicable-common-subject",
       "catalog_version": "exam-identity-v2",
@@ -179740,6 +179740,7 @@
         "共同科目 數學(C)",
         "共同科目 數學(S)",
         "共同科目 數學(D)",
+        "共同科目 數學(A、B、C)合訂本",
         "各科標準答案",
         "共同科目 數學科",
         "四技二專統一入學測驗",
@@ -179755,8 +179756,7 @@
         "112學年度四技二專統一入學測驗",
         "111學年度四技二專統一入學測驗",
         "110學年度四技二專統一入學測驗",
-        "s",
-        "109學年度四技二專統一入學測驗"
+        "s"
       ],
       "subject_labels": [
         "共同科目 國文科",

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "provider_id": "tcte_tve",
+  "facts": [
+    {
+      "year_roc": 92,
+      "source_exam_id": "tcte-tve-92",
+      "exam_name_raw": "92學年度四技二專統一入學測驗",
+      "category_code": "common",
+      "category_raw": "四技二專統一入學測驗",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/092_4y/92-4y-00-m.pdf",
+      "checksum": "15e513ba50cc75f1e64926c8241412e933583d1cd08dfa0061f4b775ff14ad35",
+      "page_count": 8,
+      "inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "common_pages": [
+        2
+      ],
+      "members": [
+        {
+          "form": "A",
+          "first_page": 3,
+          "last_page": 4
+        },
+        {
+          "form": "B",
+          "first_page": 5,
+          "last_page": 6
+        },
+        {
+          "form": "C",
+          "first_page": 7,
+          "last_page": 8
+        }
+      ],
+      "reviewed_at": "2026-10-26",
+      "reason": "Native cover and all8pages retain common questions1-5 and distinct A/B/C questions6-25 in one original booklet."
+    },
+    {
+      "year_roc": 93,
+      "source_exam_id": "tcte-tve-93",
+      "exam_name_raw": "93學年度四技二專統一入學測驗",
+      "category_code": "common",
+      "category_raw": "四技二專統一入學測驗",
+      "source_url": "https://web1.tcte.edu.tw/EXAM/093_4y/93-4y-00-m.pdf",
+      "checksum": "bf3fcf90a50dcc1b56d38c0c4a8a3aea3c76aa55b9c4c9dd74f0a89e5dd4888f",
+      "page_count": 8,
+      "inspected_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "common_pages": [
+        2
+      ],
+      "members": [
+        {
+          "form": "A",
+          "first_page": 3,
+          "last_page": 4
+        },
+        {
+          "form": "B",
+          "first_page": 5,
+          "last_page": 6
+        },
+        {
+          "form": "C",
+          "first_page": 7,
+          "last_page": 8
+        }
+      ],
+      "reviewed_at": "2026-10-26",
+      "reason": "Native cover and all8pages retain common questions1-5 and distinct A/B/C questions6-25 in one original booklet."
+    }
+  ]
+}

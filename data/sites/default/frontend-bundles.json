@@ -82848,7 +82848,7 @@
         83,
         82
       ],
-      "fileCount": 119,
+      "fileCount": 118,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/moex-professional-navigation-special-maritime-principal-navigation-driver--5ef9f4321cc4.zip",
       "domainId": "professional",
       "examFamilyId": "professional-exam",
@@ -162861,7 +162861,7 @@
         91,
         90
       ],
-      "fileCount": 278,
+      "fileCount": 274,
       "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/tcte-tve-admission-tcte-not-applicable-common-subject--ee88b8f6a849.zip",
       "domainId": "admissions",
       "examFamilyId": "technical-admission",
@@ -162880,6 +162880,7 @@
         "共同科目 數學(C)",
         "共同科目 數學(S)",
         "共同科目 數學(D)",
+        "共同科目 數學(A、B、C)合訂本",
         "各科標準答案",
         "共同科目 數學科",
         "四技二專統一入學測驗",
@@ -162895,8 +162896,7 @@
         "112學年度四技二專統一入學測驗",
         "111學年度四技二專統一入學測驗",
         "110學年度四技二專統一入學測驗",
-        "s",
-        "109學年度四技二專統一入學測驗"
+        "s"
       ],
       "subjectLabels": [
         "共同科目 國文科",

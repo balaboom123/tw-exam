@@ -1,4 +1,4 @@
-"""Native answer corrections reviewed independently of archive filenames."""
+"""Reviewed corrections to source answer references, independent of archive filenames."""
 
 from __future__ import annotations
 
@@ -97,16 +97,18 @@ def file_role(
     title: str,
     source_url: str,
     checksum: str,
+    reviewed_role: str = "corrected_answer",
+    require_reviewed_role: bool = True,
 ) -> str:
-    if file_type not in {"answer", "corrected_answer"}:
+    if file_type not in {"answer", reviewed_role}:
         return file_type
     key = (source_exam_id, year_roc, category_code, subject_code, title, source_url, checksum)
     for fact in facts:
         if fact.source_key[:-1] == key[:-1]:
             if checksum != fact.checksum:
                 raise ValueError("Native answer correction has changed or unreviewed bytes")
-            return "corrected_answer"
-    if file_type == "corrected_answer":
+            return reviewed_role
+    if require_reviewed_role and file_type == reviewed_role:
         raise ValueError("Corrected answer has unreviewed source evidence")
     return file_type
 
@@ -117,6 +119,7 @@ def validate_corrections(
     provider_id: str,
     facts: tuple[AnswerCorrection, ...],
     verify_mirror: bool = False,
+    allowed_roles: frozenset[str] = frozenset({"answer", "corrected_answer"}),
 ) -> int:
     """Require each review to retain its original current or historical payload."""
     from app.bundler import resolve_mirror_storage_path
@@ -138,7 +141,7 @@ def validate_corrections(
         matches = [
             key
             for paper, key in records
-            if paper["file_type"] in {"answer", "corrected_answer"}
+            if paper["file_type"] in allowed_roles
             and (
                 paper["source_exam_id"],
                 paper["year_roc"],

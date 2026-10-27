@@ -1587,11 +1587,19 @@ def build_parser() -> argparse.ArgumentParser:
     migrate_catalog_parser.set_defaults(handler=command_migrate_catalog)
 
     publish_site_parser = subparsers.add_parser(
-        "publish-site", help="Aggregate provider outputs and publish one site."
+        "publish-site",
+        help="Build local site ZIPs and metadata without uploading or deploying.",
+        description=(
+            "Build local site ZIPs and metadata. Upload and deployment are separate operations."
+        ),
     )
     publish_site_parser.add_argument("--repo-root", type=Path, default=repo_root)
     publish_site_parser.add_argument("--site-id", default="default")
-    publish_site_parser.add_argument("--repository", default="example/repo")
+    publish_site_parser.add_argument(
+        "--repository",
+        default="example/repo",
+        help="Repository name used to generate download URLs in local metadata.",
+    )
     publish_site_parser.add_argument("--publish-plan", type=Path, default=None)
     publish_site_parser.add_argument(
         "--retain-existing-download",

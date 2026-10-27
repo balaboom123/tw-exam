@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/moex-native-question-references-v1.schema.json",
+  "title": "Reviewed TCTE native mathematics answer corrections v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "facts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "moex"
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_exam_id",
+          "year_roc",
+          "category_code",
+          "subject_code",
+          "title",
+          "source_url",
+          "checksum",
+          "native_page",
+          "reviewed_at",
+          "reason"
+        ],
+        "properties": {
+          "source_exam_id": {
+            "type": "string",
+            "pattern": "^[0-9]{6}$"
+          },
+          "category_code": {
+            "type": "string",
+            "pattern": "^[0-9]{3}$"
+          },
+          "subject_code": {
+            "type": "string",
+            "pattern": "^[a-z][0-9]{3}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://wwwq\\.moex\\.gov\\.tw/exam/wHandExamQandA_File\\.ashx\\?"
+          },
+          "checksum": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "native_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          }
+        }
+      }
+    }
+  }
+}

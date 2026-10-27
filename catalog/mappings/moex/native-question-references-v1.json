@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "provider_id": "moex",
+  "facts": [
+    {
+      "source_exam_id": "084140",
+      "year_roc": 84,
+      "category_code": "013",
+      "subject_code": "c131",
+      "title": "國文",
+      "source_url": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=S&code=084140&c=013&s=c131&q=1",
+      "checksum": "b3c32068b2bcd4025bb30740468213872c9549836704b3368eff459e13d81be3",
+      "native_page": 1,
+      "reviewed_at": "2026-10-26",
+      "reason": "The full original one-page PDF contains only the essay question 同舟共濟, shared by正駕駛/正司機; no answer or model essay is present. The source answer endpoint serves the same question bytes."
+    }
+  ]
+}

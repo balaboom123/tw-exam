@@ -21,7 +21,7 @@ Use `uv run python -m app` for every application command in local documentation.
 | `audit-files` | Verify local ZIP structure, catalog coverage, and optional checksums. | `uv run python -m app audit-files --help` |
 | `history-audit` | Audit event-level raw, normalized, mirror, publication, and optional official-source coverage. | `uv run python -m app history-audit --help` |
 | `migrate-catalog` | Reclassify all retained provider state into exam-identity-v2 without network access. | `uv run python -m app migrate-catalog --help` |
-| `publish-site` | Aggregate provider outputs and publish one site. | `uv run python -m app publish-site --help` |
+| `publish-site` | Build local site ZIPs and metadata without uploading or deploying. | `uv run python -m app publish-site --help` |
 | `review-queue` | Expand one provider's review records without loading papers. | `uv run python -m app review-queue --help` |
 
 For task-oriented sequences, use the [runbook](runbook.md), [workflow guide](workflows.md), and [recovery guide](recovery.md).

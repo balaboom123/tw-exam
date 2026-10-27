@@ -217,8 +217,12 @@ multiple URLs for the same paper. Every retained source record remains in
 `papers`; equivalent payloads for the same
 subject, year, and file role may share one `bundle_entry` when their SHA-256
 checksums and extensions match. `file_count` counts physical payloads, excluding
-`bundle.json`, rather than source references. Revised bytes, different subjects,
-years, and roles remain separate. Multipart construction keeps all references to
+`bundle.json`, rather than source references. Revised bytes, years, and roles
+remain separate. Different subject references can share an original combined
+booklet only when provider-owned native evidence binds every covered form to
+its exact source context and checksum. Its publication filename names the
+complete booklet; original subject references remain distinct. Unreviewed
+subject combinations remain separate. Multipart construction keeps all references to
 a shared entry in the same part. ZIP paths must be relative, unique even on
 case-insensitive filesystems, and portable to Windows and UTF-8 filesystems.
 Readers recover entries from manifest v1 through v4. Legacy publication rebuilds
@@ -226,7 +230,7 @@ older manifests into v3; reviewed material uses v4, retaining each native source
 key and full material evidence. Reviewed ZIP roots use the official date basis:
 ROC exam years, `edition-<Gregorian year>`, `published-<Gregorian year>`, or
 `undated`. Storage/acquisition years stay in source keys rather than becoming
-public dates. Equivalent payload sharing uses the reviewed date folder, subject,
+public dates. Equivalent payload sharing uses the reviewed date folder, native publication subject,
 role, extension and checksum, while retaining every source reference and its
 evidence. Cleanup preserves archives containing unique material evidence.
 

@@ -14,6 +14,7 @@ from app.models import AliasRule, NormalizedCatalog, NormalizedPaper, ParsedPape
 from app.providers.hce_tcu.evidence import native_material as tcu_native_material
 from app.providers.ipas_cert.identity import canonical_for_event as ipas_canonical_for_event
 from app.providers.moea_recruit.evidence import native_file_role as moea_file_role
+from app.providers.moex.file_roles import file_role as moex_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.special_admission.evidence import file_role as special_admission_file_role
 from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
@@ -27,6 +28,7 @@ from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
 _REVIEWED_ANSWER_ROLES = {
+    "moex": moex_file_role,
     "taipower_recruit": taipower_file_role,
     "special_admission": special_admission_file_role,
     "tcte_tve": tcte_file_role,

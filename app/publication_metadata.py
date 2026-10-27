@@ -8,6 +8,7 @@ from typing import Any
 
 from app.classification import TRACK_TITLED_PROVIDERS
 from app.providers.moea_recruit.evidence import native_file_subject
+from app.providers.tcte_tve.booklets import NativeBooklet, resolve_booklet
 from app.providers.teacher_qual.archive import native_member_subject
 from app.providers.wdasec_skill.papers import NativePaper, resolve_native_paper
 
@@ -83,7 +84,34 @@ def _wda_native_paper(paper: Any) -> NativePaper | None:
     )
 
 
+def _tcte_native_booklet(paper: Any) -> NativeBooklet | None:
+    if _field(paper, "provider_id") != "tcte_tve" or _field(paper, "file_type") != "question":
+        return None
+    year = paper.get("year_roc") if isinstance(paper, Mapping) else getattr(paper, "year_roc", None)
+    material = (
+        paper.get("source_material")
+        if isinstance(paper, Mapping)
+        else getattr(paper, "source_material", None)
+    )
+    if type(year) is not int or material is not None:
+        return None
+    return resolve_booklet(
+        year_roc=year,
+        source_exam_id=_field(paper, "source_exam_id"),
+        exam_name_raw=_field(paper, "exam_name_raw"),
+        category_code=_field(paper, "category_code"),
+        category_raw=_field(paper, "category_raw"),
+        subject_code=_field(paper, "subject_code"),
+        title=_field(paper, "subject_name_raw"),
+        source_url=_field(paper, "download_url_source"),
+        checksum=_field(paper, "checksum"),
+    )
+
+
 def publication_paper_subject_code(paper: Any) -> str:
+    booklet = _tcte_native_booklet(paper)
+    if booklet is not None:
+        return booklet.publication_code
     native = _wda_native_paper(paper)
     if native is not None and (
         native.reviewed_grade is not None or native.reviewed_component is not None
@@ -97,6 +125,9 @@ def publication_paper_subject(paper: Any) -> str:
     """Use exact native evidence without changing retained source wording."""
     provider_id = _field(paper, "provider_id")
     title = _field(paper, "subject_name_raw")
+    booklet = _tcte_native_booklet(paper)
+    if booklet is not None:
+        return booklet.publication_title
     native = _wda_native_paper(paper)
     if native is not None and native.reviewed_grade is not None:
         title = native.reviewed_grade.subject_label
@@ -140,6 +171,16 @@ def publication_paper_subject(paper: Any) -> str:
             if subject is not None:
                 return subject
     return publication_subject_label(title, provider_id=provider_id)
+
+
+def publication_paper_filename_subject(paper: Any) -> str:
+    """Preserve native filenames unless a reviewed publication label applies."""
+    booklet = _tcte_native_booklet(paper)
+    if booklet is not None:
+        return booklet.publication_title
+    if _field(paper, "provider_id") in {"taipower_recruit", "moea_recruit", "wdasec_skill"}:
+        return publication_paper_subject(paper)
+    return _field(paper, "subject_name_raw")
 
 
 def _clean_label(value: str) -> str:

@@ -33,6 +33,7 @@ from app.provider_index import (
 from app.publication_metadata import (
     derive_public_metadata,
     file_subject_label,
+    publication_paper_filename_subject,
     publication_paper_subject,
     publication_paper_subject_code,
 )
@@ -152,9 +153,7 @@ def _safe_segment(value: str, max_length: int | None = None) -> str:
 
 def _bundle_arcname(paper: NormalizedPaper) -> str:
     suffix = Path(paper.storage_key).suffix or ".bin"
-    subject = paper.subject_name_raw
-    if paper.provider_id in {"taipower_recruit", "moea_recruit", "wdasec_skill"}:
-        subject = publication_paper_subject(paper)
+    subject = publication_paper_filename_subject(paper)
     file_name = "_".join(
         [
             _safe_segment(paper.category_code or "category", max_length=24),
@@ -219,7 +218,8 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
                 counter += 1
     # Retain every source record in the manifest, but store an identical
     # subject/year/role payload only once. Never merge revised answers,
-    # different years, different subjects, or records without real hashes.
+    # different years or roles, or records without real hashes. Cross-subject
+    # originals require an exact reviewed native publication subject.
     payloads: dict[tuple[str, str, str, str, str], str] = {}
     for index, paper in enumerate(ordered):
         if not re.fullmatch(r"[0-9a-f]{64}", paper.checksum):
@@ -228,7 +228,7 @@ def _resolve_arcnames(ordered: list[NormalizedPaper]) -> list[str]:
             base[index].rsplit("/", 1)[0],
             paper.file_type,
             publication_paper_subject(paper)
-            if paper.provider_id in {"moea_recruit", "wdasec_skill"}
+            if paper.provider_id in {"moea_recruit", "wdasec_skill", "tcte_tve"}
             else file_subject_label(paper.subject_name_raw),
             Path(paper.storage_key).suffix.lower(),
             paper.checksum,

@@ -484,6 +484,12 @@ records into a newly acquired staff archive or lift publication quarantine.
 
 Accept only Ministry of Examination event listings, result pages, and attachments directly linked by those pages. Preserve source-side placeholder and expired-result evidence instead of substituting unofficial copies.
 
+An official answer endpoint can expose the original question instead. Correct
+that reference only with exact native source context and checksum evidence;
+retain its acquisition URL, original reference in immutable history and the
+original bytes. A shared essay does not merge the distinct qualifications named
+on its cover, and an empty text extraction does not establish a blank document.
+
 ## `post_recruit`
 
 Use official Chunghwa Post recruitment event pages and their directly linked examination artifacts. Recruitment announcements without administered papers remain event evidence, not paper records.
@@ -731,6 +737,13 @@ Use official Taiwan Sugar recruitment examination listings and their administere
 ## `tcte_tve`
 
 Use the official TCTE technological and vocational examination archive, retaining its official program and subject distinctions. Do not merge programs solely because display labels overlap.
+
+Some native mathematics PDFs combine common questions and separate A/B/C forms
+in one original booklet. The reviewed booklet evidence binds its complete page
+structure and each form reference to exact source context and SHA-256. Store that
+original once under a combined-form publication filename while preserving every
+form reference and its separate answer key. Unreviewed files retain ordinary
+subject grouping; matching bytes alone do not approve cross-subject sharing.
 
 Native group numbers belong to annual source rows. The
 [TCTE-authored historical comparison](https://www.ceec.edu.tw/files/file_pool/1/0L104584383520359905/06-%E7%AC%AC%E5%85%AD%E6%9C%9F.pdf#page=144)

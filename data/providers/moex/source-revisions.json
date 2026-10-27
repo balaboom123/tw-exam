@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "provider_id": "moex",
+  "revisions": [
+    {
+      "id": "97205c8830a5408e5ad425653b7fa33577503bddacaddeb29b8f80312dacee88",
+      "identity_version": 2,
+      "record_type": "paper",
+      "source_record": {
+        "canonical_id": "canonical-dde5eaa12e4af9f4",
+        "canonical_name": "正駕駛",
+        "year_roc": 84,
+        "exam_name_raw": "084年特種考試第二次航海人員引水人考試",
+        "category_raw": "正駕駛",
+        "subject_name_raw": "國文",
+        "paper_code": "013-c131-answer",
+        "file_type": "answer",
+        "download_url_source": "https://wwwq.moex.gov.tw/exam/wHandExamQandA_File.ashx?t=S&code=084140&c=013&s=c131&q=1",
+        "category_code": "013",
+        "source_exam_id": "084140",
+        "subject_code": "c131",
+        "download_url_mirror": "",
+        "storage_key": "84/084140/013/c131/answer.pdf",
+        "checksum": "b3c32068b2bcd4025bb30740468213872c9549836704b3368eff459e13d81be3",
+        "provider_id": "moex",
+        "schema_version": 2,
+        "catalog_version": "exam-identity-v2",
+        "domain_id": "professional",
+        "exam_family_id": "professional-exam",
+        "exam_series_id": "professional-navigation-special",
+        "level_id": "maritime-principal",
+        "track_id": "navigation-driver",
+        "variant_ids": [],
+        "stage_id": "not-applicable",
+        "exam_event_id": "084140",
+        "bundle_id": "moex-professional-navigation-special-maritime-principal-navigation-driver",
+        "bundle_name": "航海人員特考｜正｜駕駛",
+        "bundle_policy_id": "default-bundle-policy-v2",
+        "classification_confidence": "high",
+        "classification_reason": "native navigation qualification: 正駕駛",
+        "exam_class": "專技人員考試",
+        "exam_subclass": "航海人員特考"
+      },
+      "blob_storage_key": "providers/moex/recovery/source-revisions/b3c32068b2bcd4025bb30740468213872c9549836704b3368eff459e13d81be3.pdf",
+      "retained_at": "2026-10-27T06:37:31.450506+00:00",
+      "reason": "source_reference_retired"
+    }
+  ]
+}
