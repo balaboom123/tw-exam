@@ -6,10 +6,11 @@ from pathlib import Path
 
 import pytest
 
-from app.models import NormalizedCatalog
+from app.models import NormalizedCatalog, NormalizedPaper
 from app.normalizer import renormalize_catalog
 from app.paths import provider_paths
 from app.providers.taisugar_recruit.evidence import file_role, native_roles, validate_native_roles
+from app.source_revisions import load_source_revisions, revision_journal_path
 from app.state import load_provider_state
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +35,7 @@ def context(fact):
 def test_only_exact_reviewed_originals_approve_the_combined_role(fact):
     values = context(fact)
     assert file_role("source_document", **values) == "question_answer"
+    assert file_role("question", **values) == "question_answer"
     assert file_role("question_answer", **values) == "question_answer"
     with pytest.raises(ValueError, match="changed or unreviewed bytes"):
         file_role("source_document", **{**values, "checksum": "0" * 64})
@@ -47,6 +49,7 @@ def test_only_exact_reviewed_originals_approve_the_combined_role(fact):
     ):
         changed = {**values, field: value}
         assert file_role("source_document", **changed) == "source_document"
+        assert file_role("question", **changed) == "question"
         with pytest.raises(ValueError, match="unreviewed source evidence"):
             file_role("question_answer", **changed)
 
@@ -56,7 +59,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 2
+    assert len(originals) == 12
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
@@ -72,7 +75,42 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 2
+    assert validate_native_roles(ROOT) == 12
+
+
+@pytest.mark.repo_data
+def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_it():
+    owner = provider_paths(ROOT, "taisugar_recruit")
+    journal = revision_journal_path(owner)
+    before = journal.read_bytes()
+    facts = {f.source_key for f in native_roles()}
+    selected = []
+    for revision in load_source_revisions(owner):
+        row = revision["source_record"]
+        if revision["record_type"] != "paper":
+            continue
+        key = (
+            row["source_exam_id"],
+            row["year_roc"],
+            row["category_code"],
+            row["subject_code"],
+            row["subject_name_raw"],
+            row["download_url_source"],
+            row["checksum"],
+        )
+        if key in facts:
+            selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
+    assert len(selected) == 26
+    assert sum(p.file_type == "question" for p in selected) == 12
+    reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
+    for original, current in zip(selected, reviewed, strict=True):
+        assert current.file_type == "question_answer" and current.stage_id == "stage-1"
+        assert current.storage_key == original.storage_key
+        assert current.checksum == original.checksum
+        assert current.download_url_source == original.download_url_source
+        assert current.track_id == "taisugar-worker-unknown"
+        assert current.classification_confidence == "review"
+    assert journal.read_bytes() == before
 
 
 def test_native_member_roles_require_the_exact_parent_version_path_and_member_bytes(

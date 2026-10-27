@@ -755,14 +755,22 @@ questions have published model answers. Preserve each complete original and its
 native booklet boundaries; its first subject header cannot classify the whole
 collection as one occupation. Role approval leaves stage, occupational identity
 and publication eligibility subject to their own evidence and review.
+The same exact native evidence can reinterpret earlier question-only references
+without rewriting their immutable source records. Verify every matching current
+and historical locator; a valid current copy does not establish that the retained
+historical copy is intact.
 
-The [annual written-stage evidence](../../catalog/mappings/taisugar/annual-written-exams-v1.json)
-binds the fully reviewed compound originals to the matching official timetable
+The [annual written-stage evidence](../../catalog/mappings/taisugar/annual-written-exams-v2.json)
+binds each reviewed original to the matching official timetable
 and subject tables. It establishes the initial written stage and examination
 year only for those exact source contexts and checksums. Preserve the annual
 rules as checksum-guarded `instructions` attachments with reference material and
 publication dates. A rule's later practical, physical or oral assessment date,
 or its certificate-eligibility deadline, must not date the written paper.
+Keep each annual rule once, with its exact reviewed paper versions. Initial
+publication and printed revision dates remain separate; a later official
+revision can document an earlier sitting. Conflicting later-stage wording
+does not establish a second written-test date and remains unresolved.
 School prerequisites, question difficulty and prerequisite certificate grades
 do not establish a recruitment grade. Shared common papers also cover
 disability-restricted applicants; keep occupation and applicant applicability

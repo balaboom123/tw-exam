@@ -122,7 +122,7 @@ def validate_corrections(
     verify_mirror: bool = False,
     allowed_roles: frozenset[str] = frozenset({"answer", "corrected_answer"}),
 ) -> int:
-    """Require each review to retain its original current or historical payload."""
+    """Verify every current or historical locator matching a reviewed original."""
     from app.bundler import resolve_mirror_storage_path
     from app.paths import provider_paths
     from app.source_revisions import load_source_revisions
@@ -157,13 +157,12 @@ def validate_corrections(
         if not matches:
             raise ValueError(f"{fact.source_exam_id}/{fact.subject_code}: native anchor missing")
         if verify_mirror:
-            path = resolve_mirror_storage_path(
-                repo_root / "mirror", matches[0], provider.provider_id
-            )
-            if path is None:
-                raise ValueError("Native answer correction mirror is missing")
-            with path.open("rb") as stream:
-                checksum = hashlib.file_digest(stream, "sha256").hexdigest()
-            if checksum != fact.checksum:
-                raise ValueError("Native answer correction mirror checksum differs")
+            for key in dict.fromkeys(matches):
+                path = resolve_mirror_storage_path(repo_root / "mirror", key, provider.provider_id)
+                if path is None:
+                    raise ValueError("Native answer correction mirror is missing")
+                with path.open("rb") as stream:
+                    checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+                if checksum != fact.checksum:
+                    raise ValueError("Native answer correction mirror checksum differs")
     return len(facts)

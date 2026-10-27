@@ -12,7 +12,7 @@ from pathlib import Path
 
 import pytest
 
-from app.models import NormalizedCatalog
+from app.models import NormalizedCatalog, to_plain_data
 from app.paths import provider_paths
 from app.state import load_provider_state
 
@@ -40,7 +40,7 @@ def native_inputs(provider_id):
 
         path = native_roles_path(ROOT)
         document = json.loads(path.read_text())
-        return path, document, document["facts"], validate_native_roles, 2
+        return path, document, document["facts"], validate_native_roles, 12
     from app.providers.hce_cmu.identity import annual_papers_path, validate_annual_papers
 
     path = annual_papers_path(ROOT)
@@ -67,7 +67,7 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
         selected = [p for p in catalog.papers if p.checksum in payloads]
     assert (
         len(selected)
-        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 2}[provider_id]
+        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 12}[provider_id]
     )
     locators = set()
     papers = []
@@ -82,13 +82,32 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
         papers.append(replace(paper, checksum=hashlib.sha256(payload).hexdigest()))
     for fact in facts:
         fact["checksum"] = hashlib.sha256(payloads[fact["checksum"]]).hexdigest()
+    revisions = []
+    if provider_id == "taisugar_recruit":
+        # A valid current copy must not hide a missing or corrupt reviewed
+        # historical copy. The retained question role predates native review.
+        for paper in papers:
+            payload = (tmp_path / "mirror" / paper.storage_key).read_bytes()
+            key = f"providers/{provider_id}/recovery/source-revisions/{paper.checksum}.pdf"
+            target = tmp_path / "mirror" / key
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+            locators.add(target)
+            old = replace(paper, file_type="question")
+            revisions.append(
+                {
+                    "record_type": "paper",
+                    "source_record": to_plain_data(old),
+                    "blob_storage_key": key,
+                }
+            )
     target_facts = tmp_path / path.relative_to(ROOT)
     target_facts.parent.mkdir(parents=True, exist_ok=True)
     target_facts.write_text(json.dumps(document, ensure_ascii=False))
     monkeypatch.setattr(
         state, "load_provider_state", lambda _: ([], NormalizedCatalog(papers, []), [])
     )
-    monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: [])
+    monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
     assert validate(tmp_path, verify_mirror=True) == expected_count
     for locator in locators:
         original = locator.read_bytes()

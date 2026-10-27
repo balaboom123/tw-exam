@@ -62,6 +62,8 @@ def file_role(
     source_url: str,
     checksum: str,
 ) -> str:
+    # Earlier retained references predate neutral source_document intake.
+    # Interpret their legacy role through the same exact native evidence.
     return reviewed_file_role(
         file_type,
         facts=native_roles(),
@@ -72,7 +74,7 @@ def file_role(
         title=title,
         source_url=source_url,
         checksum=checksum,
-        source_role="source_document",
+        source_role="question" if file_type == "question" else "source_document",
         reviewed_role="question_answer",
     )
 
@@ -83,5 +85,5 @@ def validate_native_roles(repo_root: Path, *, verify_mirror: bool = False) -> in
         provider_id="taisugar_recruit",
         facts=read_native_roles(native_roles_path(repo_root)),
         verify_mirror=verify_mirror,
-        allowed_roles=frozenset({"source_document", "question_answer"}),
+        allowed_roles=frozenset({"question", "source_document", "question_answer"}),
     )

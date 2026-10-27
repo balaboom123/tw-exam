@@ -1,4 +1,4 @@
-"""Annual written-stage evidence, independent of compound-paper occupations."""
+"""Annual rules own stages; exact native PDFs own their applicability anchors."""
 
 from __future__ import annotations
 
@@ -15,22 +15,28 @@ from app.source_material import SourceDate, SourceMaterial
 
 
 @dataclass(frozen=True)
-class WrittenExam:
-    year_roc: int
-    source_exam_id: str
-    exam_name_raw: str
+class NativePaper:
     subject_code: str
     title: str
     source_url: str
     checksum: str
+
+
+@dataclass(frozen=True)
+class WrittenExam:
+    year_roc: int
+    source_exam_id: str
+    exam_name_raw: str
     rule_title: str
     rule_url: str
     rule_checksum: str
     rule_publication_date: str
+    rule_revision_date: str | None
     written_test_date: str
     rule_pdf_pages: tuple[int, ...]
     reviewed_at: str
     reason: str
+    papers: tuple[NativePaper, ...]
 
     @property
     def material(self) -> SourceMaterial:
@@ -43,15 +49,14 @@ class WrittenExam:
         )
 
     def rule_attachment(self) -> ExamAttachment:
+        edition_date = self.rule_revision_date or self.rule_publication_date
         return ExamAttachment(
             title=self.rule_title,
             file_type="instructions",
             download_url_source=self.rule_url,
             source_material=SourceMaterial(
                 kind="reference",
-                date=SourceDate(
-                    "publication_year", date.fromisoformat(self.rule_publication_date).year
-                ),
+                date=SourceDate("publication_year", date.fromisoformat(edition_date).year),
                 evidence_url=self.rule_url,
                 evidence_label=self.rule_title,
             ),
@@ -59,7 +64,7 @@ class WrittenExam:
 
 
 def annual_exams_path(repo_root: Path) -> Path:
-    return repo_root / "catalog/mappings/taisugar/annual-written-exams-v1.json"
+    return repo_root / "catalog/mappings/taisugar/annual-written-exams-v2.json"
 
 
 def _official_pdf(url: str) -> None:
@@ -74,55 +79,81 @@ def _official_pdf(url: str) -> None:
         raise ValueError("Taiwan Sugar annual evidence requires an exact official PDF URL")
 
 
+def _checksum(value: str) -> None:
+    if not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{64}", value) is None:
+        raise ValueError("Taiwan Sugar annual evidence requires SHA-256 checksums")
+
+
+def _native_date(value: str) -> None:
+    if not isinstance(value, str) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", value) is None:
+        raise ValueError("Taiwan Sugar annual evidence requires ISO dates")
+    date.fromisoformat(value)
+
+
 def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
     from app.providers.taisugar_recruit.client import source_subject_code
 
     document = json.loads(path.read_text(encoding="utf-8"))
     if (
-        set(document) != {"schema_version", "provider_id", "facts"}
+        set(document) != {"schema_version", "provider_id", "events"}
         or type(document["schema_version"]) is not int
-        or document["schema_version"] != 1
+        or document["schema_version"] != 2
         or document["provider_id"] != "taisugar_recruit"
-        or not isinstance(document["facts"], list)
-        or not document["facts"]
+        or not isinstance(document["events"], list)
+        or not document["events"]
     ):
         raise ValueError("Unsupported Taiwan Sugar annual written evidence")
-    facts = []
-    contexts = set()
-    for row in document["facts"]:
+    exams = []
+    years = set()
+    for row in document["events"]:
         if set(row) != set(WrittenExam.__dataclass_fields__):
             raise ValueError("Invalid Taiwan Sugar annual evidence fields")
-        fact = WrittenExam(**{**row, "rule_pdf_pages": tuple(row["rule_pdf_pages"])})
-        for url in (fact.source_url, fact.rule_url):
-            _official_pdf(url)
-        for checksum in (fact.checksum, fact.rule_checksum):
-            if not isinstance(checksum, str) or re.fullmatch(r"[0-9a-f]{64}", checksum) is None:
-                raise ValueError("Taiwan Sugar annual evidence requires SHA-256 checksums")
+        papers = []
+        source_slots = set()
+        for item in row["papers"]:
+            if set(item) != set(NativePaper.__dataclass_fields__):
+                raise ValueError("Invalid Taiwan Sugar native paper evidence fields")
+            paper = NativePaper(**item)
+            _official_pdf(paper.source_url)
+            _checksum(paper.checksum)
+            if (
+                paper.subject_code != source_subject_code(paper.source_url)
+                or not isinstance(paper.title, str)
+                or not paper.title.strip()
+                or paper.subject_code in source_slots
+            ):
+                raise ValueError("Invalid or duplicate Taiwan Sugar native paper context")
+            source_slots.add(paper.subject_code)
+            papers.append(paper)
+        fact = WrittenExam(
+            **{**row, "papers": tuple(papers), "rule_pdf_pages": tuple(row["rule_pdf_pages"])}
+        )
+        _official_pdf(fact.rule_url)
+        _checksum(fact.rule_checksum)
         for value in (fact.rule_publication_date, fact.written_test_date, fact.reviewed_at):
-            if not isinstance(value, str) or re.fullmatch(r"\d{4}-\d{2}-\d{2}", value) is None:
-                raise ValueError("Taiwan Sugar annual evidence requires ISO dates")
-            date.fromisoformat(value)
+            _native_date(value)
+        if fact.rule_revision_date is not None:
+            _native_date(fact.rule_revision_date)
         if (
             type(fact.year_roc) is not int
             or not 1 <= fact.year_roc <= 999
+            or fact.year_roc in years
             or fact.source_exam_id != f"taisugar-recruit-{fact.year_roc}"
-            or fact.subject_code != source_subject_code(fact.source_url)
+            or not fact.papers
             or not fact.rule_pdf_pages
             or any(type(p) is not int or p < 1 for p in fact.rule_pdf_pages)
             or len(set(fact.rule_pdf_pages)) != len(fact.rule_pdf_pages)
-            or fact.rule_publication_date > fact.written_test_date
             or any(
                 not isinstance(value, str) or not value.strip()
-                for value in (fact.title, fact.exam_name_raw, fact.rule_title, fact.reason)
+                for value in (fact.exam_name_raw, fact.rule_title, fact.reason)
             )
         ):
-            raise ValueError("Invalid Taiwan Sugar annual source context")
-        context = fact.source_exam_id, fact.subject_code, fact.source_url, fact.checksum
-        if context in contexts:
-            raise ValueError("Duplicate Taiwan Sugar annual source context")
-        contexts.add(context)
-        facts.append(fact)
-    return tuple(facts)
+            raise ValueError("Invalid or duplicate Taiwan Sugar annual source context")
+        # A later official revision can document an earlier sitting. Neither
+        # the initial publication nor the revision date dates the paper.
+        years.add(fact.year_roc)
+        exams.append(fact)
+    return tuple(exams)
 
 
 @lru_cache(maxsize=1)
@@ -144,37 +175,49 @@ def resolve_written_exam(
 ) -> WrittenExam | None:
     if category_code != str(year_roc) or category_raw != "台糖新進工員甄試":
         return None
-    return next(
-        (
-            f
-            for f in written_exams()
-            if (
-                f.source_exam_id,
-                f.year_roc,
-                f.exam_name_raw,
-                f.subject_code,
-                f.title,
-                f.source_url,
-                f.checksum,
-            )
-            == (
-                source_exam_id,
-                year_roc,
-                exam_name_raw,
-                subject_code,
-                title,
-                source_url,
-                checksum,
-            )
-        ),
-        None,
-    )
+    for annual in written_exams():
+        if (annual.source_exam_id, annual.year_roc, annual.exam_name_raw) != (
+            source_exam_id,
+            year_roc,
+            exam_name_raw,
+        ):
+            continue
+        if any(
+            (p.subject_code, p.title, p.source_url, p.checksum)
+            == (subject_code, title, source_url, checksum)
+            for p in annual.papers
+        ):
+            return annual
+    return None
+
+
+def _verify_anchor(repo_root: Path, storage_key: str, checksum: str) -> None:
+    key = PurePosixPath(storage_key)
+    if (
+        key.is_absolute()
+        or ".." in key.parts
+        or "\\" in storage_key
+        or key.parts[:2] != ("providers", "taisugar_recruit")
+    ):
+        raise ValueError("Taiwan Sugar annual evidence has an invalid mirror locator")
+    path = repo_root / "mirror" / storage_key
+    provider_root = repo_root / "mirror/providers/taisugar_recruit"
+    if (
+        not path.resolve().is_relative_to(provider_root.resolve())
+        or path.is_symlink()
+        or not path.is_file()
+    ):
+        raise ValueError("Taiwan Sugar annual evidence has missing or changed mirror bytes")
+    from app.source_revisions import payload_checksum
+
+    if payload_checksum(path) != checksum:
+        raise ValueError("Taiwan Sugar annual evidence has missing or changed mirror bytes")
 
 
 def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> int:
-    """Match exact native papers and retained rule attachments, including history."""
+    """Match every exact paper and the one retained annual rule, including history."""
     from app.paths import provider_paths
-    from app.source_revisions import load_source_revisions, payload_checksum
+    from app.source_revisions import load_source_revisions
     from app.state import load_provider_state
 
     provider = provider_paths(repo_root, "taisugar_recruit")
@@ -237,54 +280,42 @@ def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> i
                 )
             )
     count = 0
-    for fact in read_written_exams(annual_exams_path(repo_root)):
-        expected = (
-            fact.source_exam_id,
-            fact.year_roc,
-            fact.exam_name_raw,
-            str(fact.year_roc),
-            "台糖新進工員甄試",
-            fact.subject_code,
-            fact.title,
-            fact.source_url,
-            fact.checksum,
-        )
-        matching_papers = [row for row in papers if row[:-1] == expected]
+    for annual in read_written_exams(annual_exams_path(repo_root)):
         expected_rule = (
-            fact.source_exam_id,
-            fact.year_roc,
-            fact.rule_title,
+            annual.source_exam_id,
+            annual.year_roc,
+            annual.rule_title,
             "instructions",
-            fact.rule_url,
-            fact.rule_checksum,
+            annual.rule_url,
+            annual.rule_checksum,
         )
         matching_rules = [row for row in rules if row[:-1] == expected_rule]
-        if not matching_papers or not matching_rules:
+        if not matching_rules:
             raise ValueError(
                 "Taiwan Sugar annual evidence lacks a retained original or rule anchor"
             )
         if verify_mirror:
-            for row in [*matching_papers, *matching_rules]:
-                storage_key = row[-1]
-                if not isinstance(storage_key, str):
-                    raise ValueError("Taiwan Sugar annual evidence has an invalid mirror locator")
-                key = PurePosixPath(storage_key)
-                if (
-                    key.is_absolute()
-                    or ".." in key.parts
-                    or "\\" in storage_key
-                    or key.parts[:2] != ("providers", "taisugar_recruit")
-                ):
-                    raise ValueError("Taiwan Sugar annual evidence has an invalid mirror locator")
-                path = repo_root / "mirror" / storage_key
-                if (
-                    not path.resolve().is_relative_to(provider.mirror_dir.resolve())
-                    or path.is_symlink()
-                    or not path.is_file()
-                    or payload_checksum(path) != row[-2]
-                ):
-                    raise ValueError(
-                        "Taiwan Sugar annual evidence has missing or changed mirror bytes"
-                    )
-        count += 1
+            for rule_row in matching_rules:
+                _verify_anchor(repo_root, rule_row[-1], rule_row[-2])
+        for paper in annual.papers:
+            expected = (
+                annual.source_exam_id,
+                annual.year_roc,
+                annual.exam_name_raw,
+                str(annual.year_roc),
+                "台糖新進工員甄試",
+                paper.subject_code,
+                paper.title,
+                paper.source_url,
+                paper.checksum,
+            )
+            matching_papers = [row for row in papers if row[:-1] == expected]
+            if not matching_papers:
+                raise ValueError(
+                    "Taiwan Sugar annual evidence lacks a retained original or rule anchor"
+                )
+            if verify_mirror:
+                for paper_row in matching_papers:
+                    _verify_anchor(repo_root, paper_row[-1], paper_row[-2])
+            count += 1
     return count
