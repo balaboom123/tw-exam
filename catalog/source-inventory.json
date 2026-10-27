@@ -211,7 +211,7 @@
       "status_reason": "Intentionally out of scope as a source; available range: Not an official source; local coverage: None"
     }
   ],
-  "captured_at": "2026-10-27T07:56:01.564490+00:00",
+  "captured_at": "2026-10-27T16:15:09.756467+00:00",
   "inventory_version": "source-scope-v1",
   "providers": [
     {
@@ -1210,14 +1210,14 @@
       "provider_id": "taisugar_recruit",
       "restrictions": [
         "The official ASP.NET archive currently has 38 rows over two postback pages; query-string page values are ignored. Nine accepted worker-paper events expose 50 checksum-verified originals totaling 78,044,859 bytes.",
-        "All 50 originals are retained: 44 individual PDFs and six original ZIPs. The ZIPs retain 140 further PDF members, projected byte-identically through parent-checksum-bound locators. All 184 PDFs use neutral source_document intake roles pending native subject, applicant-group and question/answer-role review.",
+        "All 50 originals are retained: 44 individual PDFs and six original ZIPs. The ZIPs retain 140 further PDF members projected byte-identically through parent-checksum-bound locators. All 184 PDFs remain retained. Two complete scanned originals have checksum-bound combined question/answer role reviews; the other 182 PDFs retain neutral source_document intake roles. Native occupation, applicant group and selection-stage review remains open.",
         "The company published ROC115 papers on 2026-10-20. A public 8,135,655-byte ZIP is now available from the official announcement. The earlier contractor login redirect remains historical route evidence and is no longer a blocker to acquiring these originals.",
         "Original ZIPs use the source_archive attachment role. Direct PDF keys follow exact source URLs; member keys follow the parent URL and decoded native member path. Archive-version checksums stay in member locators. Legacy Windows CP950 names are decoded before safety checks; originals remain unchanged. Former references and independent bytes remain in immutable provider history.",
         "Two doctoral-paper rows are outside the new-worker source family. MOEA joint staff recruitment is separate. Taiwan Sugar's CC0 declaration retains its intellectual-property, personal-data, specially excluded work, moral-rights, integrity and endorsement caveats."
       ],
       "source_name": "台灣糖業股份有限公司",
       "status": "partial",
-      "status_reason": "Partial: all nine declared worker-paper events and 50 original PDF/ZIP files are retained with verified bytes. All 184 PDFs, including 140 exact archive members, are represented as unreviewed source documents. The defective legacy identity and listing-label roles remain quarantined until native subject, applicant-group and question/answer-role facts are implemented."
+      "status_reason": "Partial: all nine declared worker-paper events and 50 original PDF/ZIP files are retained with verified bytes. All 184 PDFs, including 140 exact archive members, are represented. Two complete scanned originals have reviewed combined question/answer roles; occupational, applicant-group and stage boundaries remain quarantined until independent native and annual-rule evidence replaces the defective legacy mapping."
     },
     {
       "available_years": {

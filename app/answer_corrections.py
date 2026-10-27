@@ -1,4 +1,4 @@
-"""Reviewed corrections to source answer references, independent of archive filenames."""
+"""Reviewed corrections to native file roles, independent of archive filenames."""
 
 from __future__ import annotations
 
@@ -97,19 +97,20 @@ def file_role(
     title: str,
     source_url: str,
     checksum: str,
+    source_role: str = "answer",
     reviewed_role: str = "corrected_answer",
     require_reviewed_role: bool = True,
 ) -> str:
-    if file_type not in {"answer", reviewed_role}:
+    if file_type not in {source_role, reviewed_role}:
         return file_type
     key = (source_exam_id, year_roc, category_code, subject_code, title, source_url, checksum)
     for fact in facts:
         if fact.source_key[:-1] == key[:-1]:
             if checksum != fact.checksum:
-                raise ValueError("Native answer correction has changed or unreviewed bytes")
+                raise ValueError("Native file-role review has changed or unreviewed bytes")
             return reviewed_role
     if require_reviewed_role and file_type == reviewed_role:
-        raise ValueError("Corrected answer has unreviewed source evidence")
+        raise ValueError("Reviewed file role has unreviewed source evidence")
     return file_type
 
 

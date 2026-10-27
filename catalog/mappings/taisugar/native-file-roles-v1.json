@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "provider_id": "taisugar_recruit",
+  "facts": [
+    {
+      "source_exam_id": "taisugar-recruit-106",
+      "year_roc": 106,
+      "category_code": "106",
+      "subject_code": "taisugar-file-f5591be1a263e85d",
+      "title": "106年新進工員甄試考題(2Mb)(.PDF)",
+      "source_url": "https://www.taisugar.com.tw/upload/UserFiles/News/6900/636590558039020000.pdf",
+      "checksum": "98d09a838f097720da7e3bedcc7d05d6b7b4570eea555aa038eebf2ca78f1140",
+      "native_page": 1,
+      "reviewed_at": "2026-10-28",
+      "reason": "Complete original 20-page scanned PDF visually reviewed. It contains 10 separate two-page native booklets, including common and occupation-specific subjects, with the original category-code applicability. All booklets contain 80 selective questions with inline answer annotations. Approve only the combined question/answer role of this complete original; do not infer one occupation, a selection stage, cross-year equivalence or publication eligibility."
+    },
+    {
+      "source_exam_id": "taisugar-recruit-107",
+      "year_roc": 107,
+      "category_code": "107",
+      "subject_code": "taisugar-file-79b3f49a98b42f15",
+      "title": "107年新進工員甄試考題(1Mb)(.PDF)",
+      "source_url": "https://www.taisugar.com.tw/upload/UserFiles/News/7845/636951594095379257.pdf",
+      "checksum": "88d389c10320f19e789ded9ca6a09ef2444b6728409f65ae7657344d953056ac",
+      "native_page": 1,
+      "reviewed_at": "2026-10-28",
+      "reason": "Complete original 18-page scanned PDF visually reviewed. It contains 9 separate two-page native booklets, including common and occupation-specific subjects, with the original category-code applicability. Each booklet contains 46 selective questions with inline answer annotations and two open questions without printed model answers. Approve only the combined question/answer role of this complete original; do not infer one occupation, a selection stage, cross-year equivalence or publication eligibility."
+    }
+  ]
+}

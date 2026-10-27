@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/taisugar-native-file-roles-v1.schema.json",
+  "title": "Reviewed Taiwan Sugar whole-original question and answer roles v1",
+  "allOf": [
+    {
+      "$ref": "https://tw-exam.invalid/schemas/native-file-role-reviews-v1.schema.json"
+    },
+    {
+      "properties": {
+        "provider_id": {
+          "const": "taisugar_recruit"
+        },
+        "facts": {
+          "items": {
+            "properties": {
+              "source_exam_id": {
+                "type": "string",
+                "pattern": "^taisugar-recruit-[0-9]{1,3}$"
+              },
+              "category_code": {
+                "type": "string",
+                "pattern": "^[0-9]{1,3}$"
+              },
+              "subject_code": {
+                "type": "string",
+                "pattern": "^taisugar-(file|member)-[0-9a-f]{16}$"
+              },
+              "source_url": {
+                "type": "string",
+                "format": "uri",
+                "anyOf": [
+                  {
+                    "pattern": "^https://www\\.taisugar\\.com\\.tw/upload/UserFiles/News/[0-9]+/[^/?#]+\\.[pP][dD][fF]$"
+                  },
+                  {
+                    "pattern": "^https://www\\.taisugar\\.com\\.tw/upload/UserFiles/News/[0-9]+/[^/?#]+\\.[zZ][iI][pP]#archive-sha256=[0-9a-f]{64}&member=.+$"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

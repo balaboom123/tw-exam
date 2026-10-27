@@ -18,6 +18,7 @@ from app.providers.moex.file_roles import file_role as moex_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.special_admission.evidence import file_role as special_admission_file_role
 from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
+from app.providers.taisugar_recruit.evidence import file_role as taisugar_file_role
 from app.providers.tcte_tve.evidence import file_role as tcte_file_role
 from app.providers.twc_recruit.client import retained_archive_file_role
 from app.providers.twc_recruit.identity import archive_material
@@ -27,11 +28,12 @@ from app.providers.wdasec_skill.papers import resolve_native_paper as wda_native
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
-_REVIEWED_ANSWER_ROLES = {
+_REVIEWED_FILE_ROLES = {
     "moex": moex_file_role,
     "taipower_recruit": taipower_file_role,
     "special_admission": special_admission_file_role,
     "tcte_tve": tcte_file_role,
+    "taisugar_recruit": taisugar_file_role,
 }
 
 KNOWN_CANONICAL_IDS = {
@@ -450,8 +452,8 @@ def normalize_papers(
                 (paper.category_code, paper.subject_code, file_type), {}
             )
             normalized_role = file_type
-            if provider_id in _REVIEWED_ANSWER_ROLES:
-                resolve_role = _REVIEWED_ANSWER_ROLES[provider_id]
+            if provider_id in _REVIEWED_FILE_ROLES:
+                resolve_role = _REVIEWED_FILE_ROLES[provider_id]
                 normalized_role = resolve_role(
                     file_type,
                     source_exam_id=source_exam_id,
@@ -555,8 +557,8 @@ def renormalize_catalog(
         else set()
     )
     for paper in catalog.papers:
-        if paper.provider_id in _REVIEWED_ANSWER_ROLES:
-            resolve_role = _REVIEWED_ANSWER_ROLES[paper.provider_id]
+        if paper.provider_id in _REVIEWED_FILE_ROLES:
+            resolve_role = _REVIEWED_FILE_ROLES[paper.provider_id]
             role = resolve_role(
                 paper.file_type,
                 source_exam_id=paper.source_exam_id,

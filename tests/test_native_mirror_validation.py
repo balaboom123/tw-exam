@@ -35,6 +35,12 @@ def native_inputs(provider_id):
         path = question_references_path(ROOT)
         document = json.loads(path.read_text())
         return path, document, document["facts"], validate_question_references, 1
+    if provider_id == "taisugar_recruit":
+        from app.providers.taisugar_recruit.evidence import native_roles_path, validate_native_roles
+
+        path = native_roles_path(ROOT)
+        document = json.loads(path.read_text())
+        return path, document, document["facts"], validate_native_roles, 2
     from app.providers.hce_cmu.identity import annual_papers_path, validate_annual_papers
 
     path = annual_papers_path(ROOT)
@@ -43,7 +49,7 @@ def native_inputs(provider_id):
     return path, document, facts, validate_annual_papers, 44
 
 
-@pytest.mark.parametrize("provider_id", ["tcte_tve", "moex", "hce_cmu"])
+@pytest.mark.parametrize("provider_id", ["tcte_tve", "moex", "hce_cmu", "taisugar_recruit"])
 def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_anchor(
     tmp_path, monkeypatch, provider_id
 ):
@@ -59,7 +65,10 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
         selected = [p for p in catalog.papers if p.download_url_source == reviewed_url]
     else:
         selected = [p for p in catalog.papers if p.checksum in payloads]
-    assert len(selected) == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44}[provider_id]
+    assert (
+        len(selected)
+        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 2}[provider_id]
+    )
     locators = set()
     papers = []
     for paper in selected:

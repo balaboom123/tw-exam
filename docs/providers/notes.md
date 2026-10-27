@@ -747,6 +747,15 @@ their subject keys use the parent URL and member path, so a changed parent versi
 retains the earlier bytes without renumbering the reference. The original ZIP
 and its exact PDF members remain independently recoverable.
 
+Some scanned originals combine several occupational booklets in one PDF.
+The [native role reviews](../../catalog/mappings/taisugar/native-file-roles-v1.json)
+approve a combined question/answer role only for an exact source context and
+checksum. Choice answers printed beside the questions do not establish that open
+questions have published model answers. Preserve each complete original and its
+native booklet boundaries; its first subject header cannot classify the whole
+collection as one occupation. Role approval leaves stage, occupational identity
+and publication eligibility subject to their own evidence and review.
+
 Older Windows archives use CP950 filename bytes without the ZIP UTF-8 flag.
 Decode those native names before checking portable paths; when a Unicode Path
 extra field is present, require agreement. Reject traversal, collisions, symlinks,
