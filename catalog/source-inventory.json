@@ -211,7 +211,7 @@
       "status_reason": "Intentionally out of scope as a source; available range: Not an official source; local coverage: None"
     }
   ],
-  "captured_at": "2026-08-01",
+  "captured_at": "2026-10-27T07:56:01.564490+00:00",
   "inventory_version": "source-scope-v1",
   "providers": [
     {
@@ -1176,7 +1176,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "observed_range",
-        "note": "Current public archive exposes ROC 106–112 and 114 / AD 2017–2023 and 2025 paper events; ROC 115 / AD 2026 is an official contractor cycle whose paper route redirects to login",
+        "note": "Current company archive exposes ROC 106–112 and 114–115 / AD 2017–2023 and 2025–2026 worker-paper events; ROC115 papers were publicly announced on 2026-10-20.",
         "start_ad": 2017
       },
       "discovery_snapshot": {
@@ -1189,26 +1189,35 @@
       ],
       "exam_category": "Taisugar recruitment paper announcements",
       "local_state": {
-        "normalized_paper_records": 1,
-        "raw_event_pages": 1,
+        "normalized_paper_records": 184,
+        "raw_event_pages": 9,
         "sync_failures": 0
       },
       "local_years": [
-        2025
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2025,
+        2026
       ],
       "official_source_urls": [
         "https://www.taisugar.com.tw/chinese/News_Index.aspx?p=3&n=10080"
       ],
       "provider_id": "taisugar_recruit",
       "restrictions": [
-        "The official ASP.NET archive has 35 rows over two postback pages; query-string page values are ignored. Eight new-worker paper events expose 49 byte-verified PDF/ZIP files totaling 69,909,204 bytes.",
-        "Only ROC 114 is retained locally. Seven public paper events and 48 public files are absent; the retained 6,060,841-byte ZIP exactly matches its live SHA-256.",
-        "The ROC 115 contractor paper route redirects unauthenticated users to login, and no ROC 115 paper announcement is yet present in the Taiwan Sugar archive. No access control was bypassed.",
-        "Two doctoral-paper rows are intentionally excluded from the new-worker identity. Taiwan Sugar's CC0 declaration has intellectual-property, personal-data, specially excluded work, moral-rights, integrity, and endorsement caveats."
+        "The official ASP.NET archive currently has 38 rows over two postback pages; query-string page values are ignored. Nine accepted worker-paper events expose 50 checksum-verified originals totaling 78,044,859 bytes.",
+        "All 50 originals are retained: 44 individual PDFs and six original ZIPs. The ZIPs retain 140 further PDF members, projected byte-identically through parent-checksum-bound locators. All 184 PDFs use neutral source_document intake roles pending native subject, applicant-group and question/answer-role review.",
+        "The company published ROC115 papers on 2026-10-20. A public 8,135,655-byte ZIP is now available from the official announcement. The earlier contractor login redirect remains historical route evidence and is no longer a blocker to acquiring these originals.",
+        "Original ZIPs use the source_archive attachment role. Direct PDF keys follow exact source URLs; member keys follow the parent URL and decoded native member path. Archive-version checksums stay in member locators. Legacy Windows CP950 names are decoded before safety checks; originals remain unchanged. Former references and independent bytes remain in immutable provider history.",
+        "Two doctoral-paper rows are outside the new-worker source family. MOEA joint staff recruitment is separate. Taiwan Sugar's CC0 declaration retains its intellectual-property, personal-data, specially excluded work, moral-rights, integrity and endorsement caveats."
       ],
       "source_name": "台灣糖業股份有限公司",
       "status": "partial",
-      "status_reason": "Partial: current public source discovery is byte-reconciled for eight worker-paper events/49 files, but local state has only ROC 114 / one file, ROC 115 papers are login-gated, and the sole retained event is excluded by publication policy."
+      "status_reason": "Partial: all nine declared worker-paper events and 50 original PDF/ZIP files are retained with verified bytes. All 184 PDFs, including 140 exact archive members, are represented as unreviewed source documents. The defective legacy identity and listing-label roles remain quarantined until native subject, applicant-group and question/answer-role facts are implemented."
     },
     {
       "available_years": {

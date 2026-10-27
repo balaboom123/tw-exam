@@ -87,6 +87,15 @@
       "review_by": "2026-11-01"
     },
     {
+      "provider_id": "taisugar_recruit",
+      "site_id": "default",
+      "status": "wrong_identity",
+      "reason": "The former accessibility-labelled ZIP projection is retired, and all current public originals are retained. Their native PDFs distinguish general-worker and industry-school applicants, shared multi-occupation subjects and combined question/answer material. The legacy single worker identity and listing-label roles do not encode those differences. Keep the paper projection withheld until checksum-bound native applicability, roles and archive-member identities replace that defective mapping.",
+      "evidence_path": "data/providers/taisugar_recruit/source-manifest.json",
+      "spec_path": "docs/providers/notes.md#taisugar_recruit",
+      "review_by": "2026-11-03"
+    },
+    {
       "provider_id": "tii_cert",
       "site_id": "default",
       "status": "redistribution_unresolved",

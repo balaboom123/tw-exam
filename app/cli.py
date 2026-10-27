@@ -1030,6 +1030,17 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         # persisted, in the same commit, so a newly announced exam year cannot
         # block the deploy gate. write_provider_state does the writing.
         provider_manifest = _refresh_manifest_from_sync(args, provider, provider_id, discoveries)
+    refresh_source_manifest = getattr(provider, "refresh_source_manifest", None)
+    if not failures and callable(refresh_source_manifest):
+        current_manifest = provider_manifest or load_source_manifest(
+            provider_state.source_manifest_path, provider_id=provider_id
+        )
+        provider_manifest = refresh_source_manifest(
+            current_manifest,
+            provider_raw_pages,
+            args.mirror_dir,
+            datetime.now().astimezone().isoformat(),
+        )
     write_provider_state(
         provider_state,
         raw_pages=provider_raw_pages,

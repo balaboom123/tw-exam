@@ -28,8 +28,12 @@ Detail pages contain PDF or ZIP links under a "相關檔案：" heading:
 
 An event may expose one combined ZIP or multiple PDF/ZIP subject assets.
 """
+import io
 import unittest
+import zipfile
 from unittest.mock import MagicMock, patch
+
+from app.providers.base import DownloadedFile
 
 from app.providers.taisugar_recruit.client import (
     TaisugarRecruitClient,
@@ -522,6 +526,12 @@ class TaisugarRecruitClientTests(unittest.TestCase):
     ) -> TaisugarRecruitClient:
         """Return a client with deterministic listing and detail responses."""
         client = TaisugarRecruitClient()
+        data = io.BytesIO()
+        with zipfile.ZipFile(data, "w") as z:
+            z.writestr("original.pdf", b"%PDF-1.4\nfixture\n%%EOF")
+        client.http.download = MagicMock(
+            return_value=DownloadedFile(data.getvalue(), "application/zip", "papers.zip")
+        )
 
         def fake_fetch(url: str) -> str:
             if "News_Index" in url:
@@ -570,51 +580,56 @@ class TaisugarRecruitClientTests(unittest.TestCase):
         self.assertEqual(page.year_ad, 2022)
         self.assertEqual(page.year_roc, 111)
 
-    def test_fetch_exam_page_two_zips_produces_two_papers(self) -> None:
-        """Each ZIP file becomes a separate ParsedPaper."""
+    def test_fetch_exam_page_two_zips_preserves_two_source_archives(self) -> None:
+        """Original containers remain attachments until native papers are reviewed."""
         client = self._make_client_with_listing_and_detail(
             LISTING_PAGE_HTML, DETAIL_PAGE_TWO_ZIPS_HTML
         )
         page = client.fetch_exam_page("taisugar-recruit-111", 2022)
 
         self.assertEqual(len(page.papers), 2)
+        self.assertTrue(all(set(p.files) == {"source_document"} for p in page.papers))
+        self.assertEqual(len(page.attachments), 2)
 
-    def test_fetch_exam_page_combined_archives_have_question_answer_file_type(self) -> None:
+    def test_fetch_exam_page_combined_archives_have_source_archive_role(self) -> None:
         client = self._make_client_with_listing_and_detail(
             LISTING_PAGE_HTML, DETAIL_PAGE_TWO_ZIPS_HTML
         )
         page = client.fetch_exam_page("taisugar-recruit-111", 2022)
 
-        for paper in page.papers:
-            self.assertIn("question_answer", paper.files)
+        self.assertEqual([a.file_type for a in page.attachments], ["source_archive"] * 2)
 
-    def test_fetch_exam_page_paper_url_points_to_zip(self) -> None:
+    def test_fetch_exam_page_archive_url_points_to_official_zip(self) -> None:
         client = self._make_client_with_listing_and_detail(
             LISTING_PAGE_HTML, DETAIL_PAGE_TWO_ZIPS_HTML
         )
         page = client.fetch_exam_page("taisugar-recruit-111", 2022)
 
-        for paper in page.papers:
-            url = paper.files["question_answer"]
+        self.assertEqual(len(page.attachments), 2)
+        for attachment in page.attachments:
+            url = attachment.download_url_source
             self.assertTrue(url.endswith(".zip"))
             self.assertIn("taisugar.com.tw", url)
 
-    def test_fetch_exam_page_paper_category_raw(self) -> None:
+    def test_fetch_exam_page_archives_keep_unresolved_native_review_context(self) -> None:
         client = self._make_client_with_listing_and_detail(
             LISTING_PAGE_HTML, DETAIL_PAGE_TWO_ZIPS_HTML
         )
         page = client.fetch_exam_page("taisugar-recruit-111", 2022)
 
-        for paper in page.papers:
-            self.assertEqual(paper.category_raw, "台糖新進工員甄試")
+        self.assertEqual(len(page.attachments), 2)
+        self.assertTrue(page.source_material.needs_review)
+        self.assertTrue(all(a.source_material == page.source_material for a in page.attachments))
 
-    def test_fetch_exam_page_one_zip_produces_one_paper(self) -> None:
+    def test_fetch_exam_page_one_zip_preserves_one_source_archive(self) -> None:
         client = self._make_client_with_listing_and_detail(
             LISTING_PAGE_HTML, DETAIL_PAGE_ONE_ZIP_HTML
         )
         page = client.fetch_exam_page("taisugar-recruit-114", 2025)
 
         self.assertEqual(len(page.papers), 1)
+        self.assertEqual(set(page.papers[0].files), {"source_document"})
+        self.assertEqual(len(page.attachments), 1)
 
     def test_fetch_exam_page_rejects_cross_detail_asset_path(self) -> None:
         detail_html = DETAIL_PAGE_ONE_ZIP_HTML.replace(

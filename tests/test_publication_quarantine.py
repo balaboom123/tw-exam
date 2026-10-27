@@ -451,6 +451,7 @@ class RepositoryQuarantineTests(unittest.TestCase):
             "sfi_cert": "2026-11-21",
             "tabf_cert": "2026-11-01",
             "taigi_cert": "2026-11-01",
+            "taisugar_recruit": "2026-11-03",
             "tii_cert": "2026-11-01",
             "tocfl_cert": "2026-12-01",
             "tqc_cert": "2026-11-01",

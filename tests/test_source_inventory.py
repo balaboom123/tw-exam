@@ -433,28 +433,34 @@ class SourceInventoryTests(unittest.TestCase):
              for row in corrected},
         )
 
-    def test_taisugar_manifest_records_public_assets_and_login_blocker(self) -> None:
+    def test_taisugar_manifest_records_retained_originals_and_historical_route(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/taisugar_recruit/source-manifest.json").read_text(
                 encoding="utf-8"
             )
         )
 
-        self.assertEqual(len(manifest["years"]), 8)
-        self.assertEqual(len(manifest["exams"]), 8)
-        self.assertEqual(len(manifest["files"]), 49)
+        self.assertEqual(len(manifest["years"]), 9)
+        self.assertEqual(len(manifest["exams"]), 9)
+        self.assertEqual(len(manifest["files"]), 190)
         self.assertEqual(
-            sum(item["bytes"] for item in manifest["files"].values()),
-            69_909_204,
+            sum(item["bytes"] for item in manifest["files"].values()
+                if "#archive-sha256=" not in item["source_url"]),
+            78_044_859,
         )
         policy = manifest["probe_policy"]
         self.assertEqual(policy["coverage_status"], "partial")
-        self.assertEqual(policy["listing_evidence"]["declared_row_count"], 35)
-        self.assertEqual(policy["current_cycle_blocker"]["status"], "login_required")
+        self.assertEqual(policy["listing_evidence"]["declared_row_count"], 38)
+        self.assertNotIn("current_cycle_blocker", policy)
+        self.assertEqual(policy["previous_cycle_route_observation"]["route_evidence"]["status"], "login_required")
         self.assertEqual(len(policy["excluded_paper_rows"]), 2)
         self.assertTrue(
-            policy["retained_local_state"]["retained_asset_matches_live_sha256"]
+            policy["retained_local_state"]["all_originals_SHA256_verified"]
         )
+        self.assertEqual(policy["retained_local_state"]["source_archives"], 6)
+        self.assertEqual(policy["retained_local_state"]["paper_references"], 184)
+        self.assertEqual(policy["retained_local_state"]["archive_member_references"], 140)
+        self.assertEqual(policy["native_identity_status"], "review_pending")
 
     def test_hakka_manifest_exposes_both_official_surfaces_and_identity_gaps(self) -> None:
         manifest = json.loads(

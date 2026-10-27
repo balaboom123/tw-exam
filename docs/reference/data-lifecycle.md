@@ -54,6 +54,12 @@ excluded, and duplicate-only pruning preserves unique unreferenced history.
 Provider snapshot origin markers and their temporary writes are operational
 recovery metadata; payload scanning, deduplication and pruning exclude them.
 
+A provider may project its verified current files into its source manifest after
+a successful sync. That provider owns its source-specific discovery and coverage
+fields. The shared sync invokes the projection before the conserving state write;
+a failed sync or rejected retention write cannot advance the manifest. An operator
+reconciliation of retained paths does not create a new discovery observation.
+
 Source pages are fetched serially. Independent files may download with bounded concurrency, while mirror writes remain serial; stateful or rate-limited providers restrict concurrency. Shared HTTP adapters relying on sync retries use one transport attempt to avoid multiplying retries. Transient discovery/fetch requests use bounded retries and honor `Retry-After`.
 
 An interrupted HTTP response body uses that same retry budget. Each attempt

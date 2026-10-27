@@ -734,6 +734,40 @@ the revision journal and its original payloads with the refreshed mirror.
 
 Use official Taiwan Sugar recruitment examination listings and their administered paper artifacts. Current-cycle recruitment pages do not establish an unobserved historical range.
 
+Original ZIPs are source containers, retained as `source_archive` attachments.
+A combined question/answer download label does not establish an accessibility
+format, a native subject, or one applicant population. Review the individual
+members before assigning question/answer roles and publication identities; keep
+general-worker and industry-school applicability explicit. A PDF named standard answers may contain full questions
+and visible answer letters, so its filename does not establish an answer-only role.
+
+Intake preserves each PDF as a neutral `source_document` until its native role
+and applicability are reviewed. ZIP members have parent-checksum-bound locators;
+their subject keys use the parent URL and member path, so a changed parent version
+retains the earlier bytes without renumbering the reference. The original ZIP
+and its exact PDF members remain independently recoverable.
+
+Older Windows archives use CP950 filename bytes without the ZIP UTF-8 flag.
+Decode those native names before checking portable paths; when a Unicode Path
+extra field is present, require agreement. Reject traversal, collisions, symlinks,
+unknown formats, corrupt CRCs and oversized expansions. Derive member PDFs from
+the original in memory rather than extracting source-controlled paths onto disk.
+
+Acquire the required containers during ordinary sync. Refresh ensures the parent
+version inspected by the adapter is the version stored with its members. Direct
+PDF acquisition keys follow their exact source URLs, independent of order and display labels. A change
+from an earlier paper/container assignment is a conserving migration: prove the
+replacement's URL and complete checksum, retain the earlier reference and
+independent recovery bytes, then reconcile the current manifest through its owner.
+Source acquisition alone does not approve unresolved native paper identities.
+
+The [company's public paper announcement](https://www.taisugar.com.tw/chinese/News_detail.aspx?n=10080&p=3&s=15158)
+is a different delivery route from the contractor's earlier login redirect.
+Retain the dated route observation, and recheck the company archive before
+carrying that restriction into a current coverage claim. The provider's sync
+manifest projection derives current file paths, checksums and counts from the
+verified retained originals; discovery timestamps remain separate observations.
+
 ## `tcte_tve`
 
 Use the official TCTE technological and vocational examination archive, retaining its official program and subject distinctions. Do not merge programs solely because display labels overlap.

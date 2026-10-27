@@ -245,7 +245,7 @@ FILE_TYPE_LABELS = {
     "answer_table": "答案表",
     "accessible_bundle": "無障礙題本",
     "source_archive": "來源壓縮包",
-    "source_document": "來源合併原檔",
+    "source_document": "來源原檔",
     "source_page": "來源網頁",
     "source_asset": "來源附屬檔案",
     "instructions": "使用說明",

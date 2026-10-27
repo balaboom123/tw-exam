@@ -1967,6 +1967,13 @@ def _classify_paper_uncached(
             variant_pairs = sfi_context.variants
             confidence = "high"
             reason = f"reviewed SFI native programme, event and paper context: {sfi_context.id}"
+    if provider_id == "taisugar_recruit":
+        track_id, track_label = "taisugar-worker-unknown", "新進工員類別待確認"
+        variant_pairs = ()
+        confidence = "review"
+        reason = (
+            "Taiwan Sugar native occupation, applicant population and selection stage need review"
+        )
     if provider_id == "teacher_qual" and category_code != str(year_ad - 1911):
         selection = re.fullmatch(rf"{year_ad - 1911}-(\d+)", category_code)
         context_matches = re.fullmatch(rf"teacher-qual-{year_ad - 1911}(?:-[12])?", source_exam_id)
@@ -2291,6 +2298,8 @@ def _classify_paper_uncached(
         # official brochures distinguish this from the later interview and
         # research-presentation stage.
         stage_id = "stage-1"
+    if provider_id == "taisugar_recruit":
+        stage_id = "unknown"
     if provider_id == "moex":
         professional = _moex_professional_qualification(category, exam_name)
         if professional is not None:

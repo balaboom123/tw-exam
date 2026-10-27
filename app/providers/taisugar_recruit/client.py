@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
+from threading import Lock
 from urllib.parse import (
     parse_qs,
     urlencode,
@@ -13,9 +15,16 @@ from urllib.parse import (
     urlsplit,
 )
 
-from app.models import ExamOption, ParsedPaper, SourceExamPage
+from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.taisugar_recruit.archives import (
+    member_locator,
+    member_subject_code,
+    parse_member_locator,
+    read_pdf_members,
+)
+from app.source_material import SourceDate, SourceMaterial
 
 BASE_URL = "https://www.taisugar.com.tw/"
 LISTING_URL = "https://www.taisugar.com.tw/chinese/News_Index.aspx?p=3&n=10080"
@@ -70,6 +79,11 @@ def _normalize_text(text: str) -> str:
 def _normalize_news_title(text: str) -> str:
     title = _normalize_text(text)
     return title.removeprefix("連結 ").strip()
+
+
+def source_subject_code(source_url: str) -> str:
+    """An acquisition locator follows its source URL, independent of list order."""
+    return "taisugar-file-" + hashlib.sha256(source_url.encode("utf-8")).hexdigest()[:16]
 
 
 def _is_worker_paper_title(title: str) -> bool:
@@ -325,6 +339,10 @@ class TaisugarRecruitClient:
     def __init__(self) -> None:
         self._cached_items: list[TaisugarNewsItem] | None = None
         self._event_urls: dict[tuple[str, int], str] = {}
+        self.listing_rows: list[tuple[str, str]] = []
+        self.listing_page_count = 0
+        self._archives: dict[str, tuple[DownloadedFile, str, dict[str, bytes]]] = {}
+        self._archive_lock = Lock()
         self.http = Http(
             self.provider_id,
             max_attempts=1,
@@ -372,9 +390,29 @@ class TaisugarRecruitClient:
         return self._decode_html(raw)
 
     def head(self, url: str) -> ResponseMetadata:
+        if urlsplit(url).fragment:
+            file = self.download_file(url)
+            return ResponseMetadata(url, 200, len(file.data), file.content_type)
         return self.http.head(url)
 
+    def _archive(self, url: str) -> tuple[DownloadedFile, str, dict[str, bytes]]:
+        with self._archive_lock:
+            if url not in self._archives:
+                original = self.http.download(url, content_disposition_name=False)
+                members = read_pdf_members(original.data)
+                checksum = hashlib.sha256(original.data).hexdigest()
+                self._archives[url] = original, checksum, members
+            return self._archives[url]
+
     def download_file(self, url: str) -> DownloadedFile:
+        if urlsplit(url).fragment:
+            source_url, checksum, name = parse_member_locator(url)
+            _, observed, members = self._archive(source_url)
+            if observed != checksum or name not in members:
+                raise ValueError("Taiwan Sugar native archive version or member changed")
+            return DownloadedFile(members[name], "application/pdf", Path(name).name)
+        if Path(urlsplit(url).path).suffix.lower() == ".zip":
+            return self._archive(url)[0]
         return self.http.download(url, content_disposition_name=False)
 
     def _iter_listing_items(self) -> list[TaisugarNewsItem]:
@@ -382,6 +420,7 @@ class TaisugarRecruitClient:
         if self._cached_items is not None:
             return self._cached_items
         items: list[TaisugarNewsItem] = []
+        listing_rows: list[tuple[str, str]] = []
         seen_urls: set[str] = set()
         html = self._fetch_text(LISTING_URL)
         metadata = parse_listing_metadata(html)
@@ -411,6 +450,7 @@ class TaisugarRecruitClient:
                 if detail_url in seen_urls:
                     raise ValueError(f"Taisugar listing repeats detail URL: {detail_url}")
                 seen_urls.add(detail_url)
+            listing_rows.extend(rows)
             items.extend(parse_news_listing(html))
         if len(seen_urls) != expected_rows:
             raise ValueError(
@@ -427,6 +467,8 @@ class TaisugarRecruitClient:
             code = f"taisugar-recruit-{item.year_roc}"
             self._event_urls[(code, item.year_roc + 1911)] = item.detail_url
         self._cached_items = items
+        self.listing_rows = listing_rows
+        self.listing_page_count = expected_pages
         return items
 
     def _fetch_downloads(self, detail_url: str) -> list[TaisugarDownload]:
@@ -497,21 +539,51 @@ class TaisugarRecruitClient:
         if news_item is None:
             raise ValueError(f"No Taisugar recruitment event for {exam_code} ({year_ad})")
         downloads = self._fetch_downloads(news_item.detail_url)
+        # A source listing confirms an administered event, but its download
+        # labels do not establish the native subject, applicant population or
+        # file role. Keep this boundary explicit until that evidence is reviewed.
+        material = SourceMaterial(
+            kind="administered",
+            date=SourceDate("exam_year", year_ad),
+            evidence_url=news_item.detail_url,
+            evidence_label=news_item.title,
+            review_reason=(
+                "Taiwan Sugar native subject, applicant group and file role require review"
+            ),
+        )
+        attachments: list[ExamAttachment] = []
         papers: list[ParsedPaper] = []
-        for index, dl in enumerate(downloads, start=1):
-            if "答案" in dl.label and "試題" not in dl.label:
-                file_type = "answer"
-            elif "解答" in dl.label or ("試題" in dl.label and "答案" in dl.label):
-                file_type = "question_answer"
-            else:
-                file_type = "question"
+        for dl in downloads:
+            if Path(urlsplit(dl.url).path).suffix.lower() == ".zip":
+                attachments.append(
+                    ExamAttachment(
+                        title=dl.label,
+                        file_type="source_archive",
+                        download_url_source=dl.url,
+                        source_material=material,
+                    )
+                )
+                _, checksum, members = self._archive(dl.url)
+                for name in members:
+                    papers.append(
+                        ParsedPaper(
+                            category_raw=CANONICAL_CATEGORY,
+                            category_code=str(news_item.year_roc),
+                            subject_code=member_subject_code(dl.url, name),
+                            subject_name_raw=Path(name).name,
+                            files={"source_document": member_locator(dl.url, checksum, name)},
+                            source_material=material,
+                        )
+                    )
+                continue
             papers.append(
                 ParsedPaper(
                     category_raw=CANONICAL_CATEGORY,
                     category_code=str(news_item.year_roc),
-                    subject_code=f"taisugar-recruit-{news_item.year_roc}-{index:02d}",
+                    subject_code=source_subject_code(dl.url),
                     subject_name_raw=dl.label,
-                    files={file_type: dl.url},
+                    files={"source_document": dl.url},
+                    source_material=material,
                 )
             )
         return SourceExamPage(
@@ -519,7 +591,8 @@ class TaisugarRecruitClient:
             year_ad=year_ad,
             year_roc=news_item.year_roc,
             exam_name_raw=news_item.title,
-            attachments=[],
+            attachments=attachments,
             papers=papers,
             provider_id=self.provider_id,
+            source_material=material,
         )
