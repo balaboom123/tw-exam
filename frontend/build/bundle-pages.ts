@@ -55,9 +55,10 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
     `<a class="button download" href="${escapeHtml(joinUrl)}" data-zip="${escapeHtml(downloads[index])}">加入後下載 ${escapeHtml("label" in part ? part.label : "ZIP")}</a>`,
   ).join("")
   const title = bundle.sourceMaterial ? `${bundle.name} ZIP 下載 | tw-exam` : `${bundle.name} 歷屆試題 ZIP 下載 | tw-exam`
-  const description = bundle.sourceMaterial
-    ? `${bundle.name}，${materialLabel(bundle.sourceMaterial)}；${materialDateLabels(bundle.sourceMaterial).join("；")}，共 ${bundle.fileCount} 份檔案。`
-    : `${bundle.name}歷屆試題，收錄民國 ${bundle.years.join("、")} 年，共 ${bundle.fileCount} 份檔案。`
+  const summary = bundle.sourceMaterial
+    ? `${materialLabel(bundle.sourceMaterial)}；${materialDateLabels(bundle.sourceMaterial).join("；")}，共 ${bundle.fileCount} 份檔案。`
+    : `歷屆試題，收錄民國 ${bundle.years.join("、")} 年，共 ${bundle.fileCount} 份檔案。`
+  const description = `${bundle.name}，${summary}`
   const structuredData = [
     {
       "@context": "https://schema.org", "@type": "BreadcrumbList",
@@ -93,7 +94,7 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
 <script type="application/ld+json">${safeJson(structuredData)}</script></head>
 <body><main><nav aria-label="麵包屑"><a href="../">歷屆試題</a> / ${escapeHtml(bundle.name)}</nav>
 <p class="eyebrow">${escapeHtml(bundle.examClass)} · ${escapeHtml(bundle.examSubclass)}</p><h1>${escapeHtml(bundle.name)}</h1>
-<p class="meta">${escapeHtml(description)}</p>
+<p class="meta">${escapeHtml(summary)}</p>
 ${sources ? `<p class="meta">來源：${sources}</p>` : ""}<p class="meta">${syncDate}</p>
 <h2>${bundle.sourceMaterial ? "收錄年份" : "收錄年度"}</h2><ul>${yearItems}</ul>
 ${subjectItems ? `<h2>科目摘要</h2><ul class="subjects">${subjectItems}</ul>` : ""}
