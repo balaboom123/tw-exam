@@ -59,7 +59,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 13
+    assert len(originals) == 44
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
@@ -75,7 +75,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 13
+    assert validate_native_roles(ROOT) == 44
 
 
 @pytest.mark.repo_data
@@ -100,8 +100,8 @@ def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_i
         )
         if key in facts:
             selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
-    assert len(selected) == 28
-    assert sum(p.file_type == "question" for p in selected) == 13
+    assert len(selected) == 90
+    assert sum(p.file_type == "question" for p in selected) == 44
     reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
     for original, current in zip(selected, reviewed, strict=True):
         assert current.file_type == "question_answer" and current.stage_id == "stage-1"

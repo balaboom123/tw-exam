@@ -13,6 +13,13 @@ archive filename omits it. Source partitions remain stable when an official
 programme holds its examination in a later year; reviewed material date facts
 drive publication years and year folders independently of those source keys.
 
+One retained source event can collect independently governed recruitment
+programmes in the same year. Taiwan Sugar annual evidence binds each primary
+rule to a disjoint set of exact native paper slots. Neither the year nor the
+listing event alone selects the applicable rule. The reader rejects repeated
+rule URLs and paper slots across groups so resolution cannot depend on row
+order. Shared questions do not merge applicant populations or occupations.
+
 Postal recruitment uses its native employment grades, with occupations and
 indoor/outdoor work settings as tracks. Education eligibility and the numbered
 paper sessions do not define grades or selection stages. The IT-specific

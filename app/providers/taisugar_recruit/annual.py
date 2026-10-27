@@ -104,7 +104,8 @@ def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
     ):
         raise ValueError("Unsupported Taiwan Sugar annual written evidence")
     exams = []
-    years = set()
+    rule_urls: set[str] = set()
+    paper_contexts: set[tuple[str, int, str, str]] = set()
     for row in document["events"]:
         if set(row) != set(WrittenExam.__dataclass_fields__):
             raise ValueError("Invalid Taiwan Sugar annual evidence fields")
@@ -137,7 +138,7 @@ def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
         if (
             type(fact.year_roc) is not int
             or not 1 <= fact.year_roc <= 999
-            or fact.year_roc in years
+            or fact.rule_url in rule_urls
             or fact.source_exam_id != f"taisugar-recruit-{fact.year_roc}"
             or not fact.papers
             or not fact.rule_pdf_pages
@@ -151,7 +152,20 @@ def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
             raise ValueError("Invalid or duplicate Taiwan Sugar annual source context")
         # A later official revision can document an earlier sitting. Neither
         # the initial publication nor the revision date dates the paper.
-        years.add(fact.year_roc)
+        # One retained source event may collect independently governed recruitment
+        # programmes. Their primary rules and native paper slots must be disjoint;
+        # otherwise resolution would silently depend on configuration order.
+        for paper in fact.papers:
+            context = (
+                fact.source_exam_id,
+                fact.year_roc,
+                fact.exam_name_raw,
+                paper.subject_code,
+            )
+            if context in paper_contexts:
+                raise ValueError("Duplicate Taiwan Sugar native paper rule context")
+            paper_contexts.add(context)
+        rule_urls.add(fact.rule_url)
         exams.append(fact)
     return tuple(exams)
 
@@ -215,7 +229,7 @@ def _verify_anchor(repo_root: Path, storage_key: str, checksum: str) -> None:
 
 
 def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> int:
-    """Match every exact paper and the one retained annual rule, including history."""
+    """Match every exact paper and its retained primary rule, including history."""
     from app.paths import provider_paths
     from app.source_revisions import load_source_revisions
     from app.state import load_provider_state

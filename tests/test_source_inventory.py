@@ -442,7 +442,7 @@ class SourceInventoryTests(unittest.TestCase):
 
         self.assertEqual(len(manifest["years"]), 9)
         self.assertEqual(len(manifest["exams"]), 9)
-        self.assertEqual(len(manifest["files"]), 194)
+        self.assertEqual(len(manifest["files"]), 196)
         self.assertEqual(
             sum(item["bytes"] for item in manifest["files"].values()
                 if "#archive-sha256=" not in item["source_url"]
@@ -460,9 +460,9 @@ class SourceInventoryTests(unittest.TestCase):
         )
         self.assertEqual(policy["retained_local_state"]["source_archives"], 6)
         self.assertEqual(policy["retained_local_state"]["paper_references"], 184)
-        self.assertEqual(policy["retained_local_state"]["reference_documents"], 4)
+        self.assertEqual(policy["retained_local_state"]["reference_documents"], 6)
         rules = [row for row in manifest["files"].values() if row["file_type"] == "instructions"]
-        self.assertEqual(sum(row["bytes"] for row in rules), 3_150_184)
+        self.assertEqual(sum(row["bytes"] for row in rules), 5_360_246)
         self.assertEqual(policy["retained_local_state"]["archive_member_references"], 140)
         self.assertEqual(policy["native_identity_status"], "review_pending")
 

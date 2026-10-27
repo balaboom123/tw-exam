@@ -1,4 +1,4 @@
-"""One annual rule guards every exact native PDF without merging occupations."""
+"""Each exact native PDF resolves to its own primary rule without merging programmes."""
 
 import hashlib
 import json
@@ -104,7 +104,7 @@ def test_fresh_and_retained_normalization_agree_without_guessing_occupation():
             assert reviewed.source_material == exam.material
             assert reviewed.download_url_source == paper.download_url_source
             assert reviewed.storage_key == paper.storage_key and reviewed.checksum == paper.checksum
-    assert validate_written_exams(ROOT) == 13
+    assert validate_written_exams(ROOT) == 44
 
 
 @pytest.mark.parametrize("corrupt_rule", [False, True])
@@ -204,7 +204,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         return hashlib.sha256(data).hexdigest()
 
     for exam in written_exams():
-        rule_key = f"providers/taisugar_recruit/{exam.year_roc}/rule.pdf"
+        rule_key = f"providers/taisugar_recruit/{exam.year_roc}/{exam.rule_checksum}/rule.pdf"
         rule_checksum = store(
             rule_key, b"%PDF-1.4\nrule " + exam.rule_checksum.encode() + b"\n%%EOF"
         )
@@ -247,7 +247,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             )
         else:
             current_pages.append(page)
-    assert len(targets) == 17  # Thirteen originals, four annual rules.
+    assert len(targets) == 50  # Forty-four originals, six primary rules.
     path = annual_exams_path(tmp_path)
     path.parent.mkdir(parents=True)
     path.write_text(
@@ -259,7 +259,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         lambda _: (current_pages, NormalizedCatalog(current_papers, []), []),
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
-    assert validate_written_exams(tmp_path, verify_mirror=True) == 13
+    assert validate_written_exams(tmp_path, verify_mirror=True) == 44
     for path in targets:
         original = path.read_bytes()
         path.write_bytes(original + b"corrupt")
@@ -332,9 +332,9 @@ def test_v2_contract_rejects_missing_fields_and_invalid_evidence(tmp_path):
         path.write_text(json.dumps(changed))
         with pytest.raises(ValueError):
             annual.read_written_exams(path)
-    for duplicate_year in [False, True]:
+    for duplicate_rule in [False, True]:
         changed = deepcopy(document)
-        if duplicate_year:
+        if duplicate_rule:
             changed["events"].append(deepcopy(changed["events"][0]))
         else:
             changed["events"][2]["papers"].append(deepcopy(changed["events"][2]["papers"][0]))
@@ -342,3 +342,118 @@ def test_v2_contract_rejects_missing_fields_and_invalid_evidence(tmp_path):
         path.write_text(json.dumps(changed))
         with pytest.raises(ValueError, match="duplicate"):
             annual.read_written_exams(path)
+
+
+def test_disjoint_programmes_in_one_year_resolve_independently_of_rule_order(tmp_path, monkeypatch):
+    groups = tuple(a for a in written_exams() if a.year_roc == 110)
+    assert len(groups) == 2
+    assert sorted(len(a.papers) for a in groups) == [11, 20]
+    assert len({a.source_exam_id for a in groups}) == 1
+    assert len({a.rule_url for a in groups}) == 2
+    assert all(a.written_test_date == "2021-11-13" for a in groups)
+    assert all(a.rule_publication_date == "2021-04-07" for a in groups)
+    assert all(a.rule_revision_date == "2021-06-16" for a in groups)
+    document = json.loads(annual_exams_path(ROOT).read_text())
+    document["events"].reverse()
+    path = tmp_path / "reordered.json"
+    path.write_text(json.dumps(document))
+    monkeypatch.setattr(annual, "written_exams", lambda: annual.read_written_exams(path))
+    for group in groups:
+        for native in group.papers:
+            assert resolve_written_exam(**context(group, native)) == group
+
+
+@pytest.mark.parametrize("altered_bytes", [False, True])
+def test_a_native_paper_slot_cannot_be_assigned_to_two_primary_rules(tmp_path, altered_bytes):
+    document = json.loads(annual_exams_path(ROOT).read_text())
+    groups = [a for a in document["events"] if a["year_roc"] == 110]
+    overlap = deepcopy(groups[0]["papers"][0])
+    if altered_bytes:
+        overlap["checksum"] = "0" * 64
+        overlap["title"] += "改版"
+    groups[1]["papers"].append(overlap)
+    path = tmp_path / "overlap.json"
+    path.write_text(json.dumps(document))
+    with pytest.raises(ValueError, match="Duplicate.*paper rule context"):
+        annual.read_written_exams(path)
+
+
+@pytest.mark.parametrize("corrupt_index", [None, 0, 1])
+@pytest.mark.parametrize("warm", [False, True])
+def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
+    tmp_path, monkeypatch, corrupt_index, warm
+):
+    from app.providers.taisugar_recruit import provider as provider_module
+
+    payloads = [b"%PDF-1.4\nprimary rule one\n%%EOF", b"%PDF-1.4\nprimary rule two\n%%EOF"]
+    groups = tuple(
+        replace(a, rule_checksum=hashlib.sha256(data).hexdigest())
+        for a, data in zip((a for a in written_exams() if a.year_roc == 110), payloads, strict=True)
+    )
+    monkeypatch.setattr(provider_module, "written_exams", lambda: groups)
+    page = SourceExamPage(
+        groups[0].source_exam_id,
+        2021,
+        110,
+        groups[0].exam_name_raw,
+        [],
+        [
+            ParsedPaper(
+                "台糖新進工員甄試",
+                "110",
+                "unreviewed",
+                "new original",
+                {
+                    "source_document": "https://www.taisugar.com.tw/upload/UserFiles/News/10749/new.pdf"
+                },
+            )
+        ],
+        provider_id="taisugar_recruit",
+    )
+    client = Mock()
+    client.fetch_exam_page.side_effect = lambda *_: deepcopy(page)
+    rule_data = {a.rule_url: data for a, data in zip(groups, payloads, strict=True)}
+    client.download_file.side_effect = lambda url: DownloadedFile(
+        rule_data.get(url, b"%PDF-1.4\nnew paper\n%%EOF"), "application/pdf", "original.pdf"
+    )
+    provider = TaisugarRecruitProvider(client)
+    mirror = MirrorStore(tmp_path / "mirror")
+    previous = []
+    if warm:
+        previous, _, failures = sync_exam_pages(
+            provider, [(page.source_exam_id, 2021)], mirror, [], "", download_attachments=False
+        )
+        assert not failures
+    if corrupt_index is not None:
+        rule_data[groups[corrupt_index].rule_url] += b"changed"
+    pages, catalog, failures = sync_exam_pages(
+        provider,
+        [(page.source_exam_id, 2021)],
+        mirror,
+        [],
+        "",
+        previous_pages=previous,
+        download_attachments=False,
+    )
+    assert len(pages[0].attachments) == 2
+    assert {a.download_url_source for a in pages[0].attachments} == set(rule_data)
+    assert len(failures) == (corrupt_index is not None)
+    assert catalog.papers[0].stage_id == "unknown"
+    assert catalog.papers[0].file_type == "source_document"
+    for index, (exam, original) in enumerate(zip(groups, payloads, strict=True)):
+        attachment = next(a for a in pages[0].attachments if a.download_url_source == exam.rule_url)
+        if index == corrupt_index:
+            # A changed response fails closed even when an old file exists.
+            # Its retained bytes survive, but cannot mark this refresh successful.
+            assert not attachment.storage_key and not attachment.checksum
+            if warm:
+                old = next(
+                    a for a in previous[0].attachments if a.download_url_source == exam.rule_url
+                )
+                assert (tmp_path / "mirror" / old.storage_key).read_bytes() == original
+        else:
+            assert attachment.checksum == exam.rule_checksum
+            assert (tmp_path / "mirror" / attachment.storage_key).read_bytes() == original
+    # Already retained rules are never appended a second time.
+    client.fetch_exam_page.side_effect = lambda *_: deepcopy(pages[0])
+    assert len(provider.fetch_exam_page(page.source_exam_id, 2021).attachments) == 2

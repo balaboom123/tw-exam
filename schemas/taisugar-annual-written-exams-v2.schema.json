@@ -17,6 +17,7 @@
     },
     "events": {
       "type": "array",
+      "description": "Primary rule groups with disjoint native paper slots. A retained source event may contain several independently governed programmes in the same year; rule URLs and paper contexts must be unique across groups, enforced by annual.py.",
       "minItems": 1,
       "items": {
         "type": "object",
