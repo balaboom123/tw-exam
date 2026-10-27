@@ -4,7 +4,15 @@ CI validates checked-in behavior; provider workflows refresh retained source sta
 
 ## CI gates
 
-The fast Python job enforces Ruff lint and formatting rules and strict mypy checks for the application, then runs tests that do not load the retained catalog, documentation validation, shell syntax checks, and whitespace checks on every CI run. A path check runs the catalog job for changes to retained data, application code, schemas, scripts, tests, or dependency and CI configuration; manual runs and uncertain comparisons run it as well. Frontend-only and prose-only changes skip that job. The catalog job runs the `repo_data` tests plus strict catalog and history audits, publication validation, JSON Schema validation of site artifacts, provider review ledgers, and current provider paper samples, source-inventory validation, a full generated-index comparison against provider files, and release planning. Both Python jobs install from the tracked `uv.lock` with frozen resolution. The frontend job installs locked dependencies, tests, lints, builds, and enforces a 100 KiB gzip budget for built JavaScript.
+The fast Python job enforces Ruff lint and formatting rules and strict mypy checks for the application, then runs tests outside the `repo_data` suite, documentation validation, shell syntax checks, and whitespace checks on every CI run. A path check runs the catalog job for changes to retained data, application code, schemas, scripts, tests, or dependency and CI configuration; manual runs and uncertain comparisons run it as well. Frontend-only and prose-only changes skip that job. The catalog job runs the `repo_data` tests plus strict catalog and history audits, publication validation, JSON Schema validation of site artifacts, provider review ledgers, and current provider paper samples, source-inventory validation, a full generated-index comparison against provider files, and release planning. Both Python jobs install from the tracked `uv.lock` with frozen resolution. The frontend job installs locked dependencies, tests, lints, builds, and enforces a 100 KiB gzip budget for built JavaScript.
+
+Neither Python job restores gitignored source mirrors. Repository-data checks
+bind native evidence to checked-in source references. Isolated byte-validation
+fixtures verify exact checksums and reject corruption or missing payloads at
+every matched locator; publication tests supply their own coherent bytes.
+These checks do not verify real retained originals. Operator mirror and cold
+recovery checks, together with full archive content audits, provide that evidence
+before publication. CI's history audit explicitly reports metadata-only scope.
 
 The path selector checks out recent history rather than downloading the entire
 repository history. Normal pushes and pull-request merge commits can compare

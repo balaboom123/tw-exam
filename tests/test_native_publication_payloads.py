@@ -216,12 +216,12 @@ def test_invalid_moex_native_question_evidence_is_rejected(tmp_path, mutation):
 
 
 @pytest.mark.repo_data
-def test_native_booklet_and_question_role_anchors_are_byte_verified():
+def test_native_booklet_and_question_role_facts_have_retained_source_anchors():
     from app.providers.moex.file_roles import validate_question_references
     from app.providers.tcte_tve.booklets import validate_shared_booklets
 
-    assert validate_shared_booklets(ROOT, verify_mirror=True) == 2
-    assert validate_question_references(ROOT, verify_mirror=True) == 1
+    assert validate_shared_booklets(ROOT) == 2
+    assert validate_question_references(ROOT) == 1
 
 
 def test_local_publication_generates_repository_urls_without_network_or_subprocesses(
