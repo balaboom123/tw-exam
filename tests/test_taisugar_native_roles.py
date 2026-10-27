@@ -40,9 +40,9 @@ def test_only_exact_reviewed_originals_approve_the_combined_role(fact):
     with pytest.raises(ValueError, match="changed or unreviewed bytes"):
         file_role("source_document", **{**values, "checksum": "0" * 64})
     for field, value in (
-        ("source_exam_id", "taisugar-recruit-108"),
-        ("year_roc", 108),
-        ("category_code", "108"),
+        ("source_exam_id", "taisugar-recruit-999"),
+        ("year_roc", 999),
+        ("category_code", "999"),
         ("subject_code", "taisugar-file-unreviewed"),
         ("title", fact.title + "改版"),
         ("source_url", fact.source_url + "?revision=2"),
@@ -59,7 +59,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 12
+    assert len(originals) == 13
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
@@ -75,7 +75,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 12
+    assert validate_native_roles(ROOT) == 13
 
 
 @pytest.mark.repo_data
@@ -100,8 +100,8 @@ def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_i
         )
         if key in facts:
             selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
-    assert len(selected) == 26
-    assert sum(p.file_type == "question" for p in selected) == 12
+    assert len(selected) == 28
+    assert sum(p.file_type == "question" for p in selected) == 13
     reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
     for original, current in zip(selected, reviewed, strict=True):
         assert current.file_type == "question_answer" and current.stage_id == "stage-1"

@@ -56,6 +56,36 @@
       ]
     },
     {
+      "year_roc": 108,
+      "source_exam_id": "taisugar-recruit-108",
+      "exam_name_raw": "108年新進工員甄試考題",
+      "rule_title": "台灣糖業股份有限公司108年度新進工員甄試簡章（108年7月31日增額修訂版）",
+      "rule_url": "https://www.taisugar.com.tw/upload/UserFiles/News/7922/636995626126574512.pdf",
+      "rule_checksum": "05458daa1feec0a05cd96b0bcc452021c8bbef367d0ce7a4b4df5c705bedb071",
+      "rule_publication_date": "2019-05-22",
+      "rule_revision_date": "2019-07-31",
+      "written_test_date": "2019-07-20",
+      "rule_pdf_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ],
+      "reviewed_at": "2026-10-28",
+      "reason": "The official annual timetable and dedicated first-written schedule both identify 2019-07-20. The native common and eight professional booklets match the annual subject table and all fourteen O7701–O7714 codes, including the disability-restricted business group. The initial announcement, quota revision and later selection dates remain separate. This fact approves only the initial written stage and examination year of the complete compound original; occupational/applicant identity and publication eligibility remain in review.",
+      "papers": [
+        {
+          "subject_code": "taisugar-file-1c8f5a50beb1dbe1",
+          "title": "108年新進工員甄試考題(4Mb)(.PDF)",
+          "source_url": "https://www.taisugar.com.tw/upload/UserFiles/News/8301/637273204380005264.pdf",
+          "checksum": "2f498e43a28f0671b7701b057678d661182c4b78c022c562dcb25aadfaf240ce"
+        }
+      ]
+    },
+    {
       "year_roc": 109,
       "source_exam_id": "taisugar-recruit-109",
       "exam_name_raw": "109新進工員甄試考題",

@@ -104,7 +104,7 @@ def test_fresh_and_retained_normalization_agree_without_guessing_occupation():
             assert reviewed.source_material == exam.material
             assert reviewed.download_url_source == paper.download_url_source
             assert reviewed.storage_key == paper.storage_key and reviewed.checksum == paper.checksum
-    assert validate_written_exams(ROOT) == 12
+    assert validate_written_exams(ROOT) == 13
 
 
 @pytest.mark.parametrize("corrupt_rule", [False, True])
@@ -114,7 +114,10 @@ def test_sync_retains_one_checksum_guarded_rule_for_ten_reviewed_papers(
     from app.providers.taisugar_recruit import provider as provider_module
 
     rule_bytes = b"%PDF-1.4\nreference rule fixture\n%%EOF"
-    exam = replace(written_exams()[2], rule_checksum=hashlib.sha256(rule_bytes).hexdigest())
+    exam = replace(
+        next(a for a in written_exams() if a.year_roc == 109),
+        rule_checksum=hashlib.sha256(rule_bytes).hexdigest(),
+    )
     assert len(exam.papers) == 10
     monkeypatch.setattr(provider_module, "written_exams", lambda: (exam,))
     # A newly observed original in that same year still needs its own review.
@@ -244,7 +247,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             )
         else:
             current_pages.append(page)
-    assert len(targets) == 15  # Twelve originals, three annual rules.
+    assert len(targets) == 17  # Thirteen originals, four annual rules.
     path = annual_exams_path(tmp_path)
     path.parent.mkdir(parents=True)
     path.write_text(
@@ -256,7 +259,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         lambda _: (current_pages, NormalizedCatalog(current_papers, []), []),
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
-    assert validate_written_exams(tmp_path, verify_mirror=True) == 12
+    assert validate_written_exams(tmp_path, verify_mirror=True) == 13
     for path in targets:
         original = path.read_bytes()
         path.write_bytes(original + b"corrupt")
@@ -274,17 +277,27 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         validate_written_exams(tmp_path)
 
 
-def test_publication_revision_and_written_dates_remain_independent(tmp_path):
-    exam = written_exams()[2]
-    assert exam.rule_publication_date == "2020-05-12"
-    assert exam.written_test_date == "2020-09-12"
-    assert exam.rule_revision_date == "2020-09-14"
+@pytest.mark.parametrize(
+    "year,publication,written,revision",
+    [
+        (108, "2019-05-22", "2019-07-20", "2019-07-31"),
+        (109, "2020-05-12", "2020-09-12", "2020-09-14"),
+    ],
+)
+def test_publication_revision_and_written_dates_remain_independent(
+    tmp_path, year, publication, written, revision
+):
+    exam = next(a for a in written_exams() if a.year_roc == year)
+    assert exam.rule_publication_date == publication
+    assert exam.written_test_date == written
+    assert exam.rule_revision_date == revision
     document = json.loads(annual_exams_path(ROOT).read_text())
-    document["events"][2]["rule_revision_date"] = "2021-01-01"
+    event = next(e for e in document["events"] if e["year_roc"] == year)
+    event["rule_revision_date"] = "2021-01-01"
     path = tmp_path / "later-reviewed-edition.json"
     path.write_text(json.dumps(document))
-    revised = annual.read_written_exams(path)[2]
-    assert revised.material.date.year_ad == 2020
+    revised = next(a for a in annual.read_written_exams(path) if a.year_roc == year)
+    assert revised.material.date.year_ad == year + 1911
     assert revised.rule_attachment().source_material.date.year_ad == 2021
 
 

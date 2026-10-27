@@ -27,6 +27,18 @@
       "reason": "Complete original 18-page scanned PDF visually reviewed. It contains 9 separate two-page native booklets, including common and occupation-specific subjects, with the original category-code applicability. Each booklet contains 46 selective questions with inline answer annotations and two open questions without printed model answers. Approve only the combined question/answer role of this complete original; do not infer one occupation, a selection stage, cross-year equivalence or publication eligibility."
     },
     {
+      "source_exam_id": "taisugar-recruit-108",
+      "year_roc": 108,
+      "category_code": "108",
+      "subject_code": "taisugar-file-1c8f5a50beb1dbe1",
+      "title": "108年新進工員甄試考題(4Mb)(.PDF)",
+      "source_url": "https://www.taisugar.com.tw/upload/UserFiles/News/8301/637273204380005264.pdf",
+      "checksum": "2f498e43a28f0671b7701b057678d661182c4b78c022c562dcb25aadfaf240ce",
+      "native_page": 1,
+      "reviewed_at": "2026-10-28",
+      "reason": "Complete original 18-page PDF fully visually reviewed. Nine two-page booklets contain common and eight professional subject sets covering native codes O7701–O7714. The common booklet has 48 choice questions; each professional booklet has 46. All 416 choice questions print inline answers; the 18 open questions have no printed model answers. Approve only the combined question/answer role of the whole original, preserving every booklet and diagram. Do not assign a single occupation, applicant population, cross-year equivalence or publication eligibility."
+    },
+    {
       "source_exam_id": "taisugar-recruit-109",
       "year_roc": 109,
       "category_code": "109",
