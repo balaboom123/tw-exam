@@ -378,6 +378,19 @@ def test_a_native_paper_slot_cannot_be_assigned_to_two_primary_rules(tmp_path, a
         annual.read_written_exams(path)
 
 
+@pytest.mark.parametrize("same_checksum", [False, True])
+def test_one_rule_url_cannot_have_two_disjoint_group_definitions(tmp_path, same_checksum):
+    document = json.loads(annual_exams_path(ROOT).read_text())
+    groups = [a for a in document["events"] if a["year_roc"] == 110]
+    groups[1]["rule_url"] = groups[0]["rule_url"]
+    if same_checksum:
+        groups[1]["rule_checksum"] = groups[0]["rule_checksum"]
+    path = tmp_path / "ambiguous-rule.json"
+    path.write_text(json.dumps(document))
+    with pytest.raises(ValueError, match="duplicate.*annual source context"):
+        annual.read_written_exams(path)
+
+
 @pytest.mark.parametrize("corrupt_index", [None, 0, 1])
 @pytest.mark.parametrize("warm", [False, True])
 def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
