@@ -372,8 +372,14 @@ def validate_native_resources(repo_root: Path, *, verify_mirror: bool = False) -
                 raise ValueError("Taigi original archive contradicts its native resource context")
             attachments += 1
     revisions = load_source_revisions(provider)
+    unverified_references = 0
     for entry in revisions:
-        check(entry["source_record"], entry["blob_storage_key"] or "")
+        if entry["blob_storage_key"] is None:
+            # Preserve metadata-only observations without treating them as
+            # checksum-backed native material or satisfying anchor coverage.
+            unverified_references += 1
+            continue
+        check(entry["source_record"], entry["blob_storage_key"])
     if seen != by_anchor.keys():
         raise ValueError("Taigi native resources lack current or conserved historical coverage")
     return {
@@ -382,5 +388,6 @@ def validate_native_resources(repo_root: Path, *, verify_mirror: bool = False) -
         "paper_projections": len(catalog.papers),
         "original_archive_attachments": attachments,
         "retired_source_references": len(revisions),
+        "unverified_source_references": unverified_references,
         "verified_payload_paths": len(verified_paths),
     }

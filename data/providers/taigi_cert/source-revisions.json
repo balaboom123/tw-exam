@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "provider_id": "taigi_cert",
   "revisions": [
     {
@@ -1541,6 +1541,195 @@
       "blob_storage_key": "providers/taigi_cert/recovery/source-revisions/9db41cefb0c949c97b055f335a7ed6617d76f4dea731d97b9a64db11c5ae7447.zip",
       "retained_at": "2026-10-21T13:12:10.286276+00:00",
       "reason": "source_reference_retired"
+    },
+    {
+      "id": "c102dbb05bae78440ae0731083b21b59e7b7131c0c10a84929f9e9e684053d3a",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "A卷各測驗範例(全)",
+        "file_type": "source_archive",
+        "download_url_source": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_106.zip",
+        "storage_key": "providers/taigi_cert/115/taigi-cert-a-samples/exam/source_archive.zip",
+        "asset_name": "providers__taigi_cert__115__taigi-cert-a-samples__exam__source_archive.zip",
+        "checksum": "d81a6bd534e1048930035b2c77c0b59e804926e69a6dab88d3d938497893a29d",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "sample",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_106.zip",
+          "evidence_label": "A卷各測驗範例(全)",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "taigi_cert",
+        "year_roc": 115,
+        "source_exam_id": "taigi-cert-a-samples",
+        "exam_name_raw": "臺灣台語語言能力認證 A卷範例資源"
+      },
+      "blob_storage_key": "providers/taigi_cert/recovery/source-revisions/d81a6bd534e1048930035b2c77c0b59e804926e69a6dab88d3d938497893a29d.zip",
+      "retained_at": "2026-10-28T11:32:48.339849+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "101b5007fcc56061fd59177c326e57277098231b61479d4b7d177f5c82b2be00",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "B卷各測驗範例(全)",
+        "file_type": "source_archive",
+        "download_url_source": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_107.zip",
+        "storage_key": "providers/taigi_cert/115/taigi-cert-b-samples/exam/source_archive.zip",
+        "asset_name": "providers__taigi_cert__115__taigi-cert-b-samples__exam__source_archive.zip",
+        "checksum": "3fae7ed10e8c4e6fcf563167a589e3466e33042cc0c007297ae90c895d39ce0d",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "sample",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_107.zip",
+          "evidence_label": "B卷各測驗範例(全)",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "taigi_cert",
+        "year_roc": 115,
+        "source_exam_id": "taigi-cert-b-samples",
+        "exam_name_raw": "臺灣台語語言能力認證 B卷範例資源"
+      },
+      "blob_storage_key": "providers/taigi_cert/recovery/source-revisions/3fae7ed10e8c4e6fcf563167a589e3466e33042cc0c007297ae90c895d39ce0d.zip",
+      "retained_at": "2026-10-28T11:32:48.375248+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "9723fc1b623c962f05c68a91e819eba0cd864f94fb864a87521f5018123a20e7",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "C卷各測驗範例(全)",
+        "file_type": "source_archive",
+        "download_url_source": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_108.zip",
+        "storage_key": "providers/taigi_cert/115/taigi-cert-c-samples/exam/source_archive.zip",
+        "asset_name": "providers__taigi_cert__115__taigi-cert-c-samples__exam__source_archive.zip",
+        "checksum": "9db41cefb0c949c97b055f335a7ed6617d76f4dea731d97b9a64db11c5ae7447",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "sample",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_108.zip",
+          "evidence_label": "C卷各測驗範例(全)",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "taigi_cert",
+        "year_roc": 115,
+        "source_exam_id": "taigi-cert-c-samples",
+        "exam_name_raw": "臺灣台語語言能力認證 C卷範例資源"
+      },
+      "blob_storage_key": "providers/taigi_cert/recovery/source-revisions/9db41cefb0c949c97b055f335a7ed6617d76f4dea731d97b9a64db11c5ae7447.zip",
+      "retained_at": "2026-10-28T11:32:48.397149+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "424f7e5f09f5e2f4bb8ca3de0bad9daf608658512dbaa2ef7c262ce7ebd9549e",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "A卷各測驗範例(全)",
+        "file_type": "source_archive",
+        "download_url_source": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_106.zip",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "sample",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_106.zip",
+          "evidence_label": "A卷各測驗範例(全)",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "taigi_cert",
+        "year_roc": 115,
+        "source_exam_id": "taigi-cert-a-samples",
+        "exam_name_raw": "臺灣台語語言能力認證 A卷範例資源"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:26:28.735770+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "c8bdb1eacc425f7d7108621d04c47e78ad247656f64d434d1823f74fc6449929",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "B卷各測驗範例(全)",
+        "file_type": "source_archive",
+        "download_url_source": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_107.zip",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "sample",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_107.zip",
+          "evidence_label": "B卷各測驗範例(全)",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "taigi_cert",
+        "year_roc": 115,
+        "source_exam_id": "taigi-cert-b-samples",
+        "exam_name_raw": "臺灣台語語言能力認證 B卷範例資源"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:26:28.735800+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "8d75c1979a3834e0e4c50f8d80767d7160813d33e74fde09fb79df1816a713e0",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "C卷各測驗範例(全)",
+        "file_type": "source_archive",
+        "download_url_source": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_108.zip",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "sample",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://ttg.moe.edu.tw/tmt/src/upload/file/file_108.zip",
+          "evidence_label": "C卷各測驗範例(全)",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "taigi_cert",
+        "year_roc": 115,
+        "source_exam_id": "taigi-cert-c-samples",
+        "exam_name_raw": "臺灣台語語言能力認證 C卷範例資源"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:26:28.735820+00:00",
+      "reason": "payload_replaced"
     }
   ]
 }

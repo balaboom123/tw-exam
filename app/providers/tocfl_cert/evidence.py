@@ -441,8 +441,14 @@ def validate_native_resources(repo_root: Path, *, verify_mirror: bool = False) -
     if projections != expected or attachments != expected_attachments:
         raise ValueError("TOCFL native current resource/script coverage is incomplete")
     revisions = load_source_revisions(provider)
+    unverified_references = 0
     for entry in revisions:
-        check(entry["source_record"], entry["blob_storage_key"] or "")
+        if entry["blob_storage_key"] is None:
+            # Metadata-only history cannot approve a payload or satisfy native
+            # anchor coverage. Its unresolved status remains explicit.
+            unverified_references += 1
+            continue
+        check(entry["source_record"], entry["blob_storage_key"])
     if seen != by_anchor.keys():
         raise ValueError("TOCFL native anchors lack current or conserved historical coverage")
     return {
@@ -450,5 +456,6 @@ def validate_native_resources(repo_root: Path, *, verify_mirror: bool = False) -
         "paper_projections": len(projections),
         "reference_attachments": len(attachments),
         "retired_source_references": len(revisions),
+        "unverified_source_references": unverified_references,
         "verified_payload_paths": len(verified_paths),
     }

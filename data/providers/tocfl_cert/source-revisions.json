@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "provider_id": "tocfl_cert",
   "revisions": [
     {
@@ -3991,6 +3991,447 @@
       "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/527dfdffa565a4357ae0df299427815f2030d0f556e46c67522447a55c82806d.xlsx",
       "retained_at": "2026-10-21T16:15:12.037166+00:00",
       "reason": "source_reference_retired"
+    },
+    {
+      "id": "d380285a9329a5bc4909247562765e58bb5c8f1fbda4f310b19f126f75e682da",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "準備級 combined 模擬試題說明 [多國語說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20Novice.rar",
+        "storage_key": "providers/tocfl_cert/115/tocfl-cert-novice-question-bank/exam/instructions.rar",
+        "asset_name": "providers__tocfl_cert__115__tocfl-cert-novice-question-bank__exam__instructions.rar",
+        "checksum": "afb0eef0f43553364c2eb22215607b78613dc3b859352cdb82d6286b50f87a4a",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20Novice.rar",
+          "evidence_label": "準備級 combined 模擬試題說明 [多國語說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-novice-question-bank",
+        "exam_name_raw": "華語文能力測驗 準備級題庫"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/afb0eef0f43553364c2eb22215607b78613dc3b859352cdb82d6286b50f87a4a.rar",
+      "retained_at": "2026-10-28T11:44:31.700488+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "8a84be19cf7188b4e776bd867aa6f52c64b2e55f36103ba2d24c81c8ce79d174",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "入門基礎級 combined 模擬試題說明 [多國語說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20A.rar",
+        "storage_key": "providers/tocfl_cert/115/tocfl-cert-a-question-bank/exam/instructions.rar",
+        "asset_name": "providers__tocfl_cert__115__tocfl-cert-a-question-bank__exam__instructions.rar",
+        "checksum": "90adad240dc5d68eb5ad06650f601a4f7f02df4c68ef515aaa26732a9c897d05",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20A.rar",
+          "evidence_label": "入門基礎級 combined 模擬試題說明 [多國語說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-a-question-bank",
+        "exam_name_raw": "華語文能力測驗 入門基礎級題庫"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/90adad240dc5d68eb5ad06650f601a4f7f02df4c68ef515aaa26732a9c897d05.rar",
+      "retained_at": "2026-10-28T11:44:31.709379+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "91fe4ca58120a96adcb6ff6cb81c66d1dbdb0d95d3539ecbaf44c36e8a00f222",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "進階高階級 combined 模擬試題說明 [中文說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20B.rar",
+        "storage_key": "providers/tocfl_cert/115/tocfl-cert-b-question-bank/exam/instructions.rar",
+        "asset_name": "providers__tocfl_cert__115__tocfl-cert-b-question-bank__exam__instructions.rar",
+        "checksum": "51143e08b0ccc7e5b6623d396f358ec8506e4f857feec8243d63e3d1b7bfe8ab",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20B.rar",
+          "evidence_label": "進階高階級 combined 模擬試題說明 [中文說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-b-question-bank",
+        "exam_name_raw": "華語文能力測驗 進階高階級題庫"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/51143e08b0ccc7e5b6623d396f358ec8506e4f857feec8243d63e3d1b7bfe8ab.rar",
+      "retained_at": "2026-10-28T11:44:31.710308+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "2e1b8f66de423cc08baa6bd5fa45b3ead86b96fa27dcddcbfc12459d1656b71a",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "流利精通級 combined 模擬試題說明 [中文說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20C.rar",
+        "storage_key": "providers/tocfl_cert/115/tocfl-cert-c-question-bank/exam/instructions.rar",
+        "asset_name": "providers__tocfl_cert__115__tocfl-cert-c-question-bank__exam__instructions.rar",
+        "checksum": "98460baee96190aa371bb3188101e712e331cd0cf25658c6bf1c51d1f435757c",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20C.rar",
+          "evidence_label": "流利精通級 combined 模擬試題說明 [中文說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-c-question-bank",
+        "exam_name_raw": "華語文能力測驗 流利精通級題庫"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/98460baee96190aa371bb3188101e712e331cd0cf25658c6bf1c51d1f435757c.rar",
+      "retained_at": "2026-10-28T11:44:31.711255+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "6c775059e062ef8ece358d8a7977f37f25f4b1560082b52ea1252bbecd3d20d4",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "華語八千詞表",
+        "file_type": "reference",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000zhuyin_202409.zip",
+        "storage_key": "providers/tocfl_cert/115/tocfl-cert-reference/exam/reference--source-0ea68a48dc7e796e.zip",
+        "asset_name": "providers__tocfl_cert__115__tocfl-cert-reference__exam__reference--source-0ea68a48dc7e796e.zip",
+        "checksum": "080dc5f66714ca1893a71fe21853043b3e7aaad7ceac7092687f6d367d0020ac",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000zhuyin_202409.zip",
+          "evidence_label": "華語八千詞表",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-reference",
+        "exam_name_raw": "華語文能力測驗參考詞表"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/080dc5f66714ca1893a71fe21853043b3e7aaad7ceac7092687f6d367d0020ac.zip",
+      "retained_at": "2026-10-28T11:44:31.716687+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "484403ecd67de6c9e1bf78df4ad8b93895945400ef56abd280882f18ff69656f",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "華語八千詞表調整說明",
+        "file_type": "reference",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000_description_202204.pdf",
+        "storage_key": "providers/tocfl_cert/115/tocfl-cert-reference/exam/reference--source-6925c3dd06a6e9b5.pdf",
+        "asset_name": "providers__tocfl_cert__115__tocfl-cert-reference__exam__reference--source-6925c3dd06a6e9b5.pdf",
+        "checksum": "9d853dfd422dbe818b41d7098d6807c3a526a322ff20e0bbbc2bfc9b0c694182",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "publication_year",
+            "year_ad": 2022
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000_description_202204.pdf",
+          "evidence_label": "華語八千詞表調整說明",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-reference",
+        "exam_name_raw": "華語文能力測驗參考詞表"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/9d853dfd422dbe818b41d7098d6807c3a526a322ff20e0bbbc2bfc9b0c694182.pdf",
+      "retained_at": "2026-10-28T11:44:31.717073+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "c2c15ab03b2e72eab72628a67a3a3efbc677c64a2b44a475bf8657bccf6caf47",
+      "record_type": "attachment",
+      "source_record": {
+        "title": "兒童華語文能力測驗情境詞彙表",
+        "file_type": "reference",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/CCCC_Vocabulary_2022.xls",
+        "storage_key": "providers/tocfl_cert/115/cccc-cert-reference/exam/reference.xls",
+        "asset_name": "providers__tocfl_cert__115__cccc-cert-reference__exam__reference.xls",
+        "checksum": "7f9929b641462ff61e967addc7d7a36c10b0b3c716a1ec7bd8a89aa376a54f5f",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/CCCC_Vocabulary_2022.xls",
+          "evidence_label": "兒童華語文能力測驗情境詞彙表",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "cccc-cert-reference",
+        "exam_name_raw": "兒童華語文能力測驗參考詞表"
+      },
+      "blob_storage_key": "providers/tocfl_cert/recovery/source-revisions/7f9929b641462ff61e967addc7d7a36c10b0b3c716a1ec7bd8a89aa376a54f5f.xls",
+      "retained_at": "2026-10-28T11:44:31.717446+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "f5f90fae54b048d724221241859d51e520c6b697804d37fa308313e24509f6ac",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "準備級 combined 模擬試題說明 [多國語說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20Novice.rar",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20Novice.rar",
+          "evidence_label": "準備級 combined 模擬試題說明 [多國語說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-novice-question-bank",
+        "exam_name_raw": "華語文能力測驗 準備級題庫"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.187979+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "e375494576bbc12098aa8fde8cee5b4b033d76287f1b2f9156068fed44dbec68",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "入門基礎級 combined 模擬試題說明 [多國語說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20A.rar",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20A.rar",
+          "evidence_label": "入門基礎級 combined 模擬試題說明 [多國語說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-a-question-bank",
+        "exam_name_raw": "華語文能力測驗 入門基礎級題庫"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.188010+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "89fb57f5bcaa835282b74e48fa8dab289dbfb12e25f53a6f38c16b292ee670dd",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "進階高階級 combined 模擬試題說明 [中文說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20B.rar",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20B.rar",
+          "evidence_label": "進階高階級 combined 模擬試題說明 [中文說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-b-question-bank",
+        "exam_name_raw": "華語文能力測驗 進階高階級題庫"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.188029+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "19d37b2fcf3e588c4692cbad75fc6d8e5a2b383b981fa01e3b707cf3cdc5e983",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "流利精通級 combined 模擬試題說明 [中文說明頁]",
+        "file_type": "instructions",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20C.rar",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/mock_database/Test%20Instruction_Band%20C.rar",
+          "evidence_label": "流利精通級 combined 模擬試題說明 [中文說明頁]",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-c-question-bank",
+        "exam_name_raw": "華語文能力測驗 流利精通級題庫"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.188046+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "674c57414df97b51b4329408c18bded3cacb0abe5a6555e6415fdb40dd9dd05a",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "華語八千詞表",
+        "file_type": "reference",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000zhuyin_202409.zip",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000zhuyin_202409.zip",
+          "evidence_label": "華語八千詞表",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-reference",
+        "exam_name_raw": "華語文能力測驗參考詞表"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.188063+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "923a9254afb9265d0bbb6dfed45a222b4eab84236febb1aa14d0cd05239ee295",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "華語八千詞表調整說明",
+        "file_type": "reference",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000_description_202204.pdf",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "publication_year",
+            "year_ad": 2022
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/8000_description_202204.pdf",
+          "evidence_label": "華語八千詞表調整說明",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "tocfl-cert-reference",
+        "exam_name_raw": "華語文能力測驗參考詞表"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.188078+00:00",
+      "reason": "payload_replaced"
+    },
+    {
+      "id": "ffc12173a47757d0988b11ebd62301a49482f3cb06d76ed5a4350bf1342a907b",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "兒童華語文能力測驗情境詞彙表",
+        "file_type": "reference",
+        "download_url_source": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/CCCC_Vocabulary_2022.xls",
+        "storage_key": "",
+        "asset_name": "",
+        "checksum": "",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "undated",
+            "year_ad": null
+          },
+          "evidence_url": "https://tocfl.edu.tw/tocfl/assets/files/vocabulary/CCCC_Vocabulary_2022.xls",
+          "evidence_label": "兒童華語文能力測驗情境詞彙表",
+          "review_reason": "",
+          "schema_version": 1
+        },
+        "provider_id": "tocfl_cert",
+        "year_roc": 115,
+        "source_exam_id": "cccc-cert-reference",
+        "exam_name_raw": "兒童華語文能力測驗參考詞表"
+      },
+      "blob_storage_key": null,
+      "retained_at": "2026-10-28T13:30:13.188094+00:00",
+      "reason": "payload_replaced"
     }
   ]
 }

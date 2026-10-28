@@ -63,6 +63,8 @@ EXPECTED_EXTENSIONS = {
     "source_page": (".html", ".htm"),
     "listening_audio": (".mp3", ".zip", ".rar"),
     "speaking_audio": (".mp3", ".zip", ".rar"),
+    "dictation_audio": (".mp3",),
+    "reference": (".pdf", ".xls", ".zip"),
 }
 ZIP_SIGNATURES = (b"PK\x03\x04", b"PK\x05\x06", b"PK\x07\x08")
 ZIP_EXTENSIONS = frozenset({".zip", ".docx", ".xlsx", ".ods"})
@@ -365,7 +367,7 @@ def _request_context(
     return paper.category_raw, paper.subject_name_raw, paper.source_material or page.source_material
 
 
-def _retained_after_network_failure(
+def _verified_retained_file(
     request: _MirrorRequest,
     mirror_store: MirrorStore,
 ) -> StoredFile | None:
@@ -379,7 +381,12 @@ def _retained_after_network_failure(
     if owner[0] == "providers" and key.parts[:2] != owner:
         return None
     path = mirror_store.root / key
+    owner_root = (
+        mirror_store.root.joinpath(*owner) if owner[0] == "providers" else mirror_store.root
+    )
     try:
+        if path.is_symlink() or not path.resolve().is_relative_to(owner_root.resolve()):
+            return None
         with path.open("rb") as source:
             if hashlib.file_digest(source, "sha256").hexdigest() != retained.checksum:
                 return None
@@ -507,15 +514,37 @@ def sync_exam_pages(
             page.provider_id = provider_id
         mirror_metadata: dict[tuple[str, str, str], dict[str, str]] = {}
         requests: list[_MirrorRequest] = []
-        if download_attachments:
-            for attachment in page.attachments:
-                requests.append(
-                    _MirrorRequest(
-                        prefix=_mirror_prefix_for_attachment(page, attachment),
-                        file_type=attachment.file_type,
-                        url=attachment.download_url_source,
-                        paper_code=f"exam-{attachment.file_type}",
-                        attachment=attachment,
+        for attachment in page.attachments:
+            request = _MirrorRequest(
+                prefix=_mirror_prefix_for_attachment(page, attachment),
+                file_type=attachment.file_type,
+                url=attachment.download_url_source,
+                paper_code=f"exam-{attachment.file_type}",
+                attachment=attachment,
+            )
+            if download_attachments:
+                requests.append(request)
+                continue
+            # Skipping acquisition must not erase a verified retained locator.
+            # Discovery supplies source facts; the mirror supplies retained bytes.
+            previous = retained_sources.get((request.prefix, request.url))
+            if previous is None or previous.context != _request_context(request, page):
+                continue
+            stored = _verified_retained_file(replace(request, retained=previous), mirror_store)
+            if stored is not None:
+                _assign_mirrored_file(request, stored, mirror_base_url, mirror_metadata)
+            else:
+                failures.append(
+                    SyncFailure(
+                        stage="download",
+                        source_exam_id=page.source_exam_id,
+                        year_roc=page.year_roc,
+                        paper_code=request.paper_code,
+                        file_type=request.file_type,
+                        url=request.url,
+                        message=(
+                            "Retained attachment could not be verified; acquisition was skipped"
+                        ),
                     )
                 )
 
@@ -617,7 +646,7 @@ def sync_exam_pages(
                         # bytes for an unchanged source context. Keep the failure
                         # visible, and never use this path for invalid new content.
                         if isinstance(exc, (URLError, TimeoutError, ConnectionError)):
-                            retained_file = _retained_after_network_failure(request, mirror_store)
+                            retained_file = _verified_retained_file(request, mirror_store)
                             if retained_file is not None:
                                 _assign_mirrored_file(
                                     request, retained_file, mirror_base_url, mirror_metadata

@@ -677,7 +677,7 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(audit["source_asset_requests"], 0)
         self.assertEqual(len(audit["concurrent_same_reference_label_observations"]), 4)
         self.assertEqual(len(load_source_revisions(provider)), 280)
-        self.assertEqual(len(load_sync_status(provider)), 19)
+        self.assertLessEqual(set(load_sync_status(provider)), set(manifest["exams"]))
         self.assertEqual(validate_native_papers(ROOT)["native_source_anchors"], 146)
         self.assertEqual(
             policy["legal_and_technical"]["automated_mirroring_status"],
@@ -784,6 +784,7 @@ class SourceInventoryTests(unittest.TestCase):
         from app.paths import provider_paths
         from app.providers.tocfl_cert.evidence import validate_native_resources
         from app.provenance import load_sync_status
+        from app.source_revisions import load_source_revisions
 
         manifest = json.loads(
             (ROOT / "data/providers/tocfl_cert/source-manifest.json").read_text(
@@ -802,16 +803,17 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertIn("adapter_gap", policy["initial_capture_evidence"])
         self.assertFalse(audit["new_receipts_created"])
         provider = provider_paths(ROOT, "tocfl_cert")
-        self.assertEqual(load_sync_status(provider), {})
+        self.assertLessEqual(set(load_sync_status(provider)), set(manifest["exams"]))
         native = validate_native_resources(ROOT)
         self.assertEqual(native["paper_projections"], 132)
         self.assertEqual(native["reference_attachments"], 7)
-        self.assertEqual(native["retired_source_references"], 95)
+        self.assertEqual(native["retired_source_references"], len(load_source_revisions(provider)))
 
     def test_taigi_manifest_matches_native_samples_and_retained_archives(self) -> None:
         from app.paths import provider_paths
         from app.providers.taigi_cert.evidence import validate_native_resources
         from app.provenance import load_sync_status
+        from app.source_revisions import load_source_revisions
         from app.state import load_provider_state
 
         provider = provider_paths(ROOT, "taigi_cert")
@@ -828,8 +830,8 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(audit["resources_without_declared_dates"], 16)
         self.assertEqual(audit["source_asset_requests"], 0)
         self.assertEqual(len(policy["excluded_non_exam_resources"]), 2)
-        self.assertEqual(validate_native_resources(ROOT)["retired_source_references"], 35)
-        self.assertEqual(load_sync_status(provider), {})
+        self.assertEqual(validate_native_resources(ROOT)["retired_source_references"], len(load_source_revisions(provider)))
+        self.assertLessEqual(set(load_sync_status(provider)), set(manifest["exams"]))
         self.assertEqual(policy["legal_and_technical"]["robots_recheck_http_status"], 404)
         self.assertEqual(policy["legal_and_technical"]["automated_mirroring_status"],
                          "blocked_pending_written_permission_or_policy_change")

@@ -10,6 +10,12 @@ Providers that implement the probe URL model compare year/event HEAD responses a
 
 Sync downloads into `mirror/providers/<provider_id>/`. Mirror locators preserve year, event, category, subject, and file-role distinctions. Valid files are reused unless explicit refresh or provider policy requires acquisition. Successfully refreshed files replace stale siblings with incorrect extensions. Each retained payload receives a SHA-256 checksum. The sync owner fetches a shared source locator once per event, including during refresh.
 
+Skipping attachment acquisition preserves an earlier attachment locator only
+when its provider, event, year, role, URL, label and material context match and
+the local bytes pass checksum and ownership checks, plus the format checks
+defined for that role. Missing or invalid retained bytes remain a visible
+failure; skipping cannot create a new download or approve a new file role.
+
 `--refresh-files` re-fetches selected source files even when a valid local copy
 exists. Providers whose download slots are mutable declare that policy in their
 adapter. Payload validation precedes replacement. The mirror writer copies old
