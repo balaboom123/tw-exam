@@ -37,6 +37,9 @@ def test_only_exact_reviewed_originals_approve_the_native_role(fact):
     assert file_role("source_document", **values) == fact.native_role
     assert file_role("question", **values) == fact.native_role
     assert file_role("question_answer", **values) == fact.native_role
+    assert file_role("answer", **values) == fact.native_role
+    with pytest.raises(ValueError, match="changed or unreviewed bytes"):
+        file_role("answer", **{**values, "checksum": "0" * 64})
     with pytest.raises(ValueError, match="changed or unreviewed bytes"):
         file_role("source_document", **{**values, "checksum": "0" * 64})
     for field, value in (
@@ -52,6 +55,8 @@ def test_only_exact_reviewed_originals_approve_the_native_role(fact):
         assert file_role("question", **changed) == "question"
         with pytest.raises(ValueError, match="unreviewed source evidence"):
             file_role("question_answer", **changed)
+        with pytest.raises(ValueError, match="unreviewed source evidence"):
+            file_role("answer", **changed)
 
 
 @pytest.mark.repo_data
@@ -59,7 +64,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 74
+    assert len(originals) == 136
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
@@ -77,7 +82,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 74
+    assert validate_native_roles(ROOT) == 136
 
 
 @pytest.mark.repo_data
@@ -102,7 +107,7 @@ def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_i
         )
         if key in facts:
             selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
-    assert len(selected) == 120
+    assert len(selected) == 182
     assert sum(p.file_type == "question" for p in selected) == 44
     reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
     for original, current in zip(selected, reviewed, strict=True):
@@ -187,7 +192,7 @@ def test_explicit_role_owner_rejects_ambiguous_or_implicit_judgments(tmp_path, d
     if defect == "old_version":
         document["schema_version"] = 1
     elif defect == "invalid_role":
-        fact["native_role"] = "answer"
+        fact["native_role"] = "audio"
     else:
         duplicate = dict(fact)
         if defect == "conflicting_digest":
@@ -200,7 +205,7 @@ def test_explicit_role_owner_rejects_ambiguous_or_implicit_judgments(tmp_path, d
 
 
 def test_question_only_review_does_not_inherit_a_combined_container_label():
-    questions = [f for f in native_roles() if f.native_role == "question"]
+    questions = [f for f in native_roles() if f.native_role == "question" and f.year_roc == 111]
     assert len(questions) == 2
     assert all(f.year_roc == 111 for f in questions)
     assert len({f.checksum for f in questions}) == 2
@@ -208,4 +213,21 @@ def test_question_only_review_does_not_inherit_a_combined_container_label():
     for fact in questions:
         assert file_role("source_document", **context(fact)) == "question"
         assert file_role("question_answer", **context(fact)) == "question"
-        assert file_role("answer", **context(fact)) == "answer"
+        assert file_role("answer", **context(fact)) == "question"
+
+
+def test_separate_native_answers_do_not_turn_question_booklets_into_combined_files():
+    facts = [f for f in native_roles() if f.year_roc == 112]
+    assert len(facts) == 62
+    questions = [f for f in facts if f.native_role == "question"]
+    answers = [f for f in facts if f.native_role == "answer"]
+    assert len(questions) == 32 and len(answers) == 30
+    assert len({f.checksum for f in facts}) == 62
+    # Both official containers include independent general and school originals.
+    # The approved native contexts, rather than a container's broad label, own role.
+    assert len({f.source_url.split("#")[0] for f in questions}) == 1
+    assert len({f.source_url.split("#")[0] for f in answers}) == 1
+    assert questions[0].source_url.split("#")[0] != answers[0].source_url.split("#")[0]
+    for fact in answers:
+        assert file_role("question", **context(fact)) == "answer"
+        assert file_role("question_answer", **context(fact)) == "answer"

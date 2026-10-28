@@ -110,7 +110,7 @@ def test_fresh_and_retained_normalization_agree_without_guessing_occupation():
             assert reviewed.source_material == exam.material
             assert reviewed.download_url_source == paper.download_url_source
             assert reviewed.storage_key == paper.storage_key and reviewed.checksum == paper.checksum
-    assert validate_written_exams(ROOT) == 63
+    assert validate_written_exams(ROOT) == 108
 
 
 @pytest.mark.repo_data
@@ -125,6 +125,30 @@ def test_one_programmes_rule_does_not_stage_unreviewed_members_in_the_same_sourc
     assert all(p.stage_id == "unknown" and p.source_material.needs_review for p in school)
     assert sum(p.file_type == "question" for p in school) == 1
     assert sum(p.file_type == "question_answer" for p in school) == 10
+
+
+@pytest.mark.repo_data
+def test_later_sitting_year_keeps_source_partitions_and_separate_school_uncertainty():
+    _, catalog, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
+    exam = next(a for a in written_exams() if a.year_roc == 112)
+    assert exam.written_test_date == "2024-01-27"
+    assert exam.rule_publication_date == "2023-11-10"
+    assert exam.material.date.year_ad == 2024
+    selected = [p for p in catalog.papers if p.year_roc == 112]
+    keys = {(p.subject_code, p.source_url, p.checksum) for p in exam.papers}
+    general = [p for p in selected if (p.subject_code, p.download_url_source, p.checksum) in keys]
+    school = [p for p in selected if p not in general]
+    assert len(general) == 45 and len(school) == 17
+    assert sum(p.file_type == "question" for p in general) == 23
+    assert sum(p.file_type == "answer" for p in general) == 22
+    assert sum(p.file_type == "question" for p in school) == 9
+    assert sum(p.file_type == "answer" for p in school) == 8
+    for paper in general:
+        assert paper.stage_id == "stage-1" and paper.source_material == exam.material
+        assert paper.year_roc == 112 and "/112/taisugar-recruit-112/" in paper.storage_key
+    assert all(p.stage_id == "unknown" and p.source_material.needs_review for p in school)
+    assert len({p.download_url_source.split("#")[0] for p in general}) == 2
+    assert len({p.download_url_source.split("#")[0] for p in school}) == 2
 
 
 @pytest.mark.parametrize("corrupt_rule", [False, True])
@@ -267,7 +291,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             )
         else:
             current_pages.append(page)
-    assert len(targets) == 70  # Sixty-three originals, seven primary rules.
+    assert len(targets) == 116  # 108 native originals and eight primary rules.
     from tests.taisugar_native_fixtures import bind_parent_fixtures
 
     all_papers = current_papers + [
@@ -313,7 +337,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         lambda _: (current_pages, NormalizedCatalog(current_papers, []), []),
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
-    assert validate_written_exams(tmp_path, verify_mirror=True) == 63
+    assert validate_written_exams(tmp_path, verify_mirror=True) == 108
     for path in targets:
         original = path.read_bytes()
         path.write_bytes(original + b"corrupt")

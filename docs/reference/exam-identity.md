@@ -23,7 +23,7 @@ Native anchors may be direct PDFs or version-bound ZIP members. Both role and
 annual evidence use the same source-context validator; byte audits also verify
 every matching retained parent and the member within it. A valid extracted PDF
 cannot hide a changed container or a missing historical parent. Taiwan Sugar
-role evidence records question-only and combined question/answer judgments
+role evidence records question-only, answer-only and combined question/answer judgments
 explicitly, independently of annual-stage approval. Recovery uses evidence
 from the matching runtime version.
 

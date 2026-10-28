@@ -749,9 +749,12 @@ and its exact PDF members remain independently recoverable.
 
 Some scanned originals combine several occupational booklets in one PDF.
 The [native role reviews](../../catalog/mappings/taisugar/native-file-roles-v2.json)
-approve a question-only or combined question/answer role only for an exact
+approve a question-only, answer-only or combined question/answer role only for an exact
 source context and checksum. A shared question/answer ZIP label cannot assign
-the combined role to a writing or translation paper without printed answers. Choice answers printed beside the questions do not establish that open
+the combined role to a writing or translation paper without printed answers.
+A separate answer sheet does not add answers to the question booklet's bytes.
+Distinct programme or applicant covers remain part of each retained original,
+even when their questions or answer keys match. Choice answers printed beside the questions do not establish that open
 questions have published model answers. Preserve each complete original and its
 native booklet boundaries; its first subject header cannot classify the whole
 collection as one occupation. Role approval leaves stage, occupational identity

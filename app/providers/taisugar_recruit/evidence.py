@@ -48,7 +48,7 @@ def read_native_roles(path: Path) -> tuple[NativeRoleReview, ...]:
         fact = NativeRoleReview(**row)
         validate_correction(fact)
         _validate_source(fact)
-        if fact.native_role not in {"question", "question_answer"}:
+        if fact.native_role not in {"question", "answer", "question_answer"}:
             raise ValueError("Invalid Taiwan Sugar native role judgment")
         if fact.source_key[:-1] in slots:
             raise ValueError("Duplicate native correction source slot")
@@ -73,7 +73,7 @@ def file_role(
     source_url: str,
     checksum: str,
 ) -> str:
-    if file_type not in {"source_document", "question", "question_answer"}:
+    if file_type not in {"source_document", "question", "answer", "question_answer"}:
         return file_type
     key = (source_exam_id, year_roc, category_code, subject_code, title, source_url, checksum)
     for fact in native_roles():
@@ -81,7 +81,7 @@ def file_role(
             if checksum != fact.checksum:
                 raise ValueError("Native file-role review has changed or unreviewed bytes")
             return fact.native_role
-    if file_type == "question_answer":
+    if file_type in {"answer", "question_answer"}:
         raise ValueError("Reviewed file role has unreviewed source evidence")
     return file_type
 
@@ -98,5 +98,5 @@ def validate_native_roles(repo_root: Path, *, verify_mirror: bool = False) -> in
         provider_id="taisugar_recruit",
         facts=facts,
         verify_mirror=verify_mirror,
-        allowed_roles=frozenset({"question", "source_document", "question_answer"}),
+        allowed_roles=frozenset({"question", "answer", "source_document", "question_answer"}),
     )
