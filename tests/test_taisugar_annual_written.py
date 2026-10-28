@@ -10,7 +10,13 @@ from unittest.mock import Mock
 import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
-from app.models import NormalizedCatalog, ParsedPaper, SourceExamPage, to_plain_data
+from app.models import (
+    NormalizedCatalog,
+    NormalizedPaper,
+    ParsedPaper,
+    SourceExamPage,
+    to_plain_data,
+)
 from app.normalizer import normalize_papers, renormalize_catalog
 from app.paths import provider_paths
 from app.providers.base import DownloadedFile
@@ -100,11 +106,25 @@ def test_fresh_and_retained_normalization_agree_without_guessing_occupation():
             assert reviewed.stage_id == "stage-1"
             assert reviewed.track_id == "taisugar-worker-unknown"
             assert reviewed.classification_confidence == "review"
-            assert reviewed.file_type == "question_answer"
+            assert reviewed.file_type == paper.file_type
             assert reviewed.source_material == exam.material
             assert reviewed.download_url_source == paper.download_url_source
             assert reviewed.storage_key == paper.storage_key and reviewed.checksum == paper.checksum
-    assert validate_written_exams(ROOT) == 44
+    assert validate_written_exams(ROOT) == 63
+
+
+@pytest.mark.repo_data
+def test_one_programmes_rule_does_not_stage_unreviewed_members_in_the_same_source_event():
+    _, catalog, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
+    selected = [p for p in catalog.papers if p.year_roc == 111]
+    assert len(selected) == 30
+    assert sum(p.stage_id == "stage-1" for p in selected) == 19
+    assert sum(p.stage_id == "unknown" for p in selected) == 11
+    school = [p for p in selected if "638382326767185760.zip#" in p.download_url_source]
+    assert len(school) == 11
+    assert all(p.stage_id == "unknown" and p.source_material.needs_review for p in school)
+    assert sum(p.file_type == "question" for p in school) == 1
+    assert sum(p.file_type == "question_answer" for p in school) == 10
 
 
 @pytest.mark.parametrize("corrupt_rule", [False, True])
@@ -247,7 +267,41 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             )
         else:
             current_pages.append(page)
-    assert len(targets) == 50  # Forty-four originals, six primary rules.
+    assert len(targets) == 70  # Sixty-three originals, seven primary rules.
+    from tests.taisugar_native_fixtures import bind_parent_fixtures
+
+    all_papers = current_papers + [
+        NormalizedPaper(**r["source_record"]) for r in revisions if r["record_type"] == "paper"
+    ]
+    bound, parent_pages, parent_paths = bind_parent_fixtures(tmp_path, all_papers)
+    urls = {
+        a.download_url_source: b.download_url_source for a, b in zip(all_papers, bound, strict=True)
+    }
+    current_papers[:] = bound[: len(current_papers)]
+    for revision in revisions:
+        if revision["record_type"] == "paper":
+            row = revision["source_record"]
+            row["download_url_source"] = urls[row["download_url_source"]]
+    for event in events:
+        for native in event["papers"]:
+            native["source_url"] = urls[native["source_url"]]
+    if history_only:
+        for page in parent_pages:
+            for attachment in page.attachments:
+                revisions.append(
+                    {
+                        "record_type": "attachment",
+                        "source_record": {
+                            **to_plain_data(attachment),
+                            "source_exam_id": page.source_exam_id,
+                            "year_roc": page.year_roc,
+                        },
+                        "blob_storage_key": attachment.storage_key,
+                    }
+                )
+    else:
+        current_pages.extend(parent_pages)
+    targets.extend(parent_paths)
     path = annual_exams_path(tmp_path)
     path.parent.mkdir(parents=True)
     path.write_text(
@@ -259,7 +313,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         lambda _: (current_pages, NormalizedCatalog(current_papers, []), []),
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
-    assert validate_written_exams(tmp_path, verify_mirror=True) == 44
+    assert validate_written_exams(tmp_path, verify_mirror=True) == 63
     for path in targets:
         original = path.read_bytes()
         path.write_bytes(original + b"corrupt")
@@ -270,7 +324,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             validate_written_exams(tmp_path, verify_mirror=True)
         path.write_bytes(original)
     if history_only:
-        revisions[:] = [r for r in revisions if r["record_type"] != "attachment"]
+        revisions[:] = [r for r in revisions if r["source_record"]["file_type"] != "instructions"]
     else:
         current_pages[0].attachments.clear()
     with pytest.raises(ValueError, match="retained original or rule anchor"):

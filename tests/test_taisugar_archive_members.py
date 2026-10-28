@@ -28,6 +28,12 @@ PARENT = "https://www.taisugar.com.tw/upload/UserFiles/News/11543/papers.zip"
 PDF = b"%PDF-1.4\nfixture\n%%EOF"
 
 
+@pytest.fixture(autouse=True)
+def fictional_archive_has_no_reviewed_annual_rule(monkeypatch):
+    # The fixture event contains synthetic ZIPs, not a reviewed sitting.
+    monkeypatch.setattr("app.providers.taisugar_recruit.provider.written_exams", lambda: ())
+
+
 def archive(items):
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w") as z:

@@ -154,7 +154,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (group_identity_path(repo_root), "tcte-group-identity-v1.schema.json"),
         (shared_booklets_path(repo_root), "tcte-shared-booklets-v1.schema.json"),
         (question_references_path(repo_root), "moex-native-question-references-v1.schema.json"),
-        (taisugar_native_roles_path(repo_root), "taisugar-native-file-roles-v1.schema.json"),
+        (taisugar_native_roles_path(repo_root), "taisugar-native-file-roles-v2.schema.json"),
         (taisugar_annual_exams_path(repo_root), "taisugar-annual-written-exams-v2.schema.json"),
         (source_conflicts_path(repo_root), "moea-source-label-conflicts-v1.schema.json"),
         (native_roles_path(repo_root), "moea-native-file-roles-v1.schema.json"),

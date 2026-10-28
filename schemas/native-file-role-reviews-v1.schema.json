@@ -22,62 +22,67 @@
       "minItems": 1,
       "uniqueItems": true,
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "source_exam_id",
-          "year_roc",
-          "category_code",
-          "subject_code",
-          "title",
-          "source_url",
-          "checksum",
-          "native_page",
-          "reviewed_at",
-          "reason"
-        ],
-        "properties": {
-          "source_exam_id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "category_code": {
-            "type": "string",
-            "minLength": 1
-          },
-          "subject_code": {
-            "type": "string",
-            "minLength": 1
-          },
-          "title": {
-            "type": "string",
-            "minLength": 1
-          },
-          "source_url": {
-            "type": "string",
-            "minLength": 1
-          },
-          "checksum": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{64}$"
-          },
-          "native_page": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "reviewed_at": {
-            "type": "string",
-            "format": "date"
-          },
-          "reason": {
-            "type": "string",
-            "minLength": 1
-          },
-          "year_roc": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 999
-          }
+        "$ref": "#/$defs/sourceAnchor",
+        "unevaluatedProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "sourceAnchor": {
+      "type": "object",
+      "required": [
+        "source_exam_id",
+        "year_roc",
+        "category_code",
+        "subject_code",
+        "title",
+        "source_url",
+        "checksum",
+        "native_page",
+        "reviewed_at",
+        "reason"
+      ],
+      "properties": {
+        "source_exam_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category_code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "native_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "year_roc": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999
         }
       }
     }

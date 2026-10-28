@@ -113,7 +113,7 @@
               "properties": {
                 "subject_code": {
                   "type": "string",
-                  "pattern": "^taisugar-file-[0-9a-f]{16}$"
+                  "pattern": "^taisugar-(file|member)-[0-9a-f]{16}$"
                 },
                 "title": {
                   "type": "string",
@@ -122,7 +122,14 @@
                 "source_url": {
                   "type": "string",
                   "format": "uri",
-                  "pattern": "^https://www\\.taisugar\\.com\\.tw/upload/(UserFiles|RelFile)/News/[0-9]+/[^/?#]+\\.pdf$"
+                  "anyOf": [
+                    {
+                      "pattern": "^https://www\\.taisugar\\.com\\.tw/upload/UserFiles/News/[0-9]+/[^/?#]+\\.[pP][dD][fF]$"
+                    },
+                    {
+                      "pattern": "^https://www\\.taisugar\\.com\\.tw/upload/UserFiles/News/[0-9]+/[^/?#]+\\.[zZ][iI][pP]#archive-sha256=[0-9a-f]{64}&member=.+$"
+                    }
+                  ]
                 },
                 "checksum": {
                   "type": "string",

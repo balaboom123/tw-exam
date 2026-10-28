@@ -40,7 +40,7 @@ def native_inputs(provider_id):
 
         path = native_roles_path(ROOT)
         document = json.loads(path.read_text())
-        return path, document, document["facts"], validate_native_roles, 44
+        return path, document, document["facts"], validate_native_roles, 74
     from app.providers.hce_cmu.identity import annual_papers_path, validate_annual_papers
 
     path = annual_papers_path(ROOT)
@@ -67,7 +67,7 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
         selected = [p for p in catalog.papers if p.checksum in payloads]
     assert (
         len(selected)
-        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 44}[provider_id]
+        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 74}[provider_id]
     )
     locators = set()
     papers = []
@@ -83,7 +83,19 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
     for fact in facts:
         fact["checksum"] = hashlib.sha256(payloads[fact["checksum"]]).hexdigest()
     revisions = []
+    pages = []
     if provider_id == "taisugar_recruit":
+        from tests.taisugar_native_fixtures import bind_parent_fixtures
+
+        previous = papers
+        papers, pages, parent_paths = bind_parent_fixtures(tmp_path, papers)
+        urls = {
+            old.download_url_source: new.download_url_source
+            for old, new in zip(previous, papers, strict=True)
+        }
+        for fact in facts:
+            fact["source_url"] = urls.get(fact["source_url"], fact["source_url"])
+        locators.update(parent_paths)
         # A valid current copy must not hide a missing or corrupt reviewed
         # historical copy. The retained question role predates native review.
         for paper in papers:
@@ -105,14 +117,14 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
     target_facts.parent.mkdir(parents=True, exist_ok=True)
     target_facts.write_text(json.dumps(document, ensure_ascii=False))
     monkeypatch.setattr(
-        state, "load_provider_state", lambda _: ([], NormalizedCatalog(papers, []), [])
+        state, "load_provider_state", lambda _: (pages, NormalizedCatalog(papers, []), [])
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
     assert validate(tmp_path, verify_mirror=True) == expected_count
     for locator in locators:
         original = locator.read_bytes()
         locator.write_bytes(original + b"corrupt")
-        with pytest.raises(ValueError, match="checksum"):
+        with pytest.raises(ValueError, match="checksum|mirror bytes"):
             validate(tmp_path, verify_mirror=True)
         locator.unlink()
         with pytest.raises((ValueError, FileNotFoundError)) as missing:
@@ -121,6 +133,8 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
             assert Path(missing.value.filename) == locator
         else:
             message = str(missing.value)
-            assert "checksum" in message or "mirror is missing" in message
+            assert (
+                "checksum" in message or "mirror is missing" in message or "mirror bytes" in message
+            )
         locator.write_bytes(original)
     assert validate(tmp_path, verify_mirror=True) == expected_count

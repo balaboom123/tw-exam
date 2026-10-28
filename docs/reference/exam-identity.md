@@ -19,6 +19,13 @@ rule to a disjoint set of exact native paper slots. Neither the year nor the
 listing event alone selects the applicable rule. The reader rejects repeated
 rule URLs and paper slots across groups so resolution cannot depend on row
 order. Shared questions do not merge applicant populations or occupations.
+Native anchors may be direct PDFs or version-bound ZIP members. Both role and
+annual evidence use the same source-context validator; byte audits also verify
+every matching retained parent and the member within it. A valid extracted PDF
+cannot hide a changed container or a missing historical parent. Taiwan Sugar
+role evidence records question-only and combined question/answer judgments
+explicitly, independently of annual-stage approval. Recovery uses evidence
+from the matching runtime version.
 
 Postal recruitment uses its native employment grades, with occupations and
 indoor/outdoor work settings as tracks. Education eligibility and the numbered

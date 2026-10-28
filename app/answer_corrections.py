@@ -38,6 +38,31 @@ class AnswerCorrection:
         )
 
 
+def validate_correction(fact: AnswerCorrection) -> None:
+    """Validate the shared exact source anchor, independently of its judgment."""
+    for value in (
+        fact.source_exam_id,
+        fact.category_code,
+        fact.subject_code,
+        fact.title,
+        fact.source_url,
+        fact.checksum,
+        fact.reviewed_at,
+        fact.reason,
+    ):
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError("Correction evidence requires nonempty text")
+    date.fromisoformat(fact.reviewed_at)
+    if (
+        type(fact.year_roc) is not int
+        or not 1 <= fact.year_roc <= 999
+        or re.fullmatch(r"[0-9a-f]{64}", fact.checksum) is None
+        or type(fact.native_page) is not int
+        or fact.native_page < 1
+    ):
+        raise ValueError("Invalid correction source key, checksum or native page")
+
+
 def read_corrections(
     path: Path, *, provider_id: str, validate_source: Callable[[AnswerCorrection], None]
 ) -> tuple[AnswerCorrection, ...]:
@@ -55,27 +80,7 @@ def read_corrections(
     keys: set[tuple[str | int, ...]] = set()
     for row in document["facts"]:
         fact = AnswerCorrection(**row)
-        for value in (
-            fact.source_exam_id,
-            fact.category_code,
-            fact.subject_code,
-            fact.title,
-            fact.source_url,
-            fact.checksum,
-            fact.reviewed_at,
-            fact.reason,
-        ):
-            if not isinstance(value, str) or not value.strip():
-                raise ValueError("Correction evidence requires nonempty text")
-        date.fromisoformat(fact.reviewed_at)
-        if (
-            type(fact.year_roc) is not int
-            or not 1 <= fact.year_roc <= 999
-            or re.fullmatch(r"[0-9a-f]{64}", fact.checksum) is None
-            or type(fact.native_page) is not int
-            or fact.native_page < 1
-        ):
-            raise ValueError("Invalid correction source key, checksum or native page")
+        validate_correction(fact)
         validate_source(fact)
         # One review per source slot; conflicting digests need a new review.
         slot = fact.source_key[:-1]

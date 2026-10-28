@@ -1,18 +1,33 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://tw-exam.invalid/schemas/taisugar-native-file-roles-v1.schema.json",
-  "title": "Reviewed Taiwan Sugar whole-original question and answer roles v1",
-  "allOf": [
-    {
-      "$ref": "https://tw-exam.invalid/schemas/native-file-role-reviews-v1.schema.json"
+  "$id": "https://tw-exam.invalid/schemas/taisugar-native-file-roles-v2.schema.json",
+  "title": "Reviewed Taiwan Sugar whole-original file roles v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "provider_id",
+    "facts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2
     },
-    {
-      "properties": {
-        "provider_id": {
-          "const": "taisugar_recruit"
-        },
-        "facts": {
-          "items": {
+    "provider_id": {
+      "const": "taisugar_recruit"
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "allOf": [
+          {
+            "$ref": "https://tw-exam.invalid/schemas/native-file-role-reviews-v1.schema.json#/$defs/sourceAnchor"
+          },
+          {
+            "required": [
+              "native_role"
+            ],
             "properties": {
               "source_exam_id": {
                 "type": "string",
@@ -37,11 +52,19 @@
                     "pattern": "^https://www\\.taisugar\\.com\\.tw/upload/UserFiles/News/[0-9]+/[^/?#]+\\.[zZ][iI][pP]#archive-sha256=[0-9a-f]{64}&member=.+$"
                   }
                 ]
+              },
+              "native_role": {
+                "enum": [
+                  "question",
+                  "question_answer"
+                ]
               }
             }
           }
-        }
+        ],
+        "unevaluatedProperties": false
       }
     }
-  ]
+  },
+  "additionalProperties": false
 }

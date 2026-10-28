@@ -14,7 +14,7 @@ PROVIDERS = [
     ("special-admission-answer-corrections-v1", "special_admission/answer-corrections-v1"),
     ("tcte-answer-corrections-v1", "tcte/answer-corrections-v1"),
     ("moex-native-question-references-v1", "moex/native-question-references-v1"),
-    ("taisugar-native-file-roles-v1", "taisugar/native-file-roles-v1"),
+    ("taisugar-native-file-roles-v2", "taisugar/native-file-roles-v2"),
 ]
 
 
@@ -55,7 +55,7 @@ def test_native_review_shape_and_source_restrictions_survive_shared_schema(schem
         assert not validator.is_valid(broken), field
     for broken in (
         {**original, "provider_id": "unrelated_provider"},
-        {**original, "schema_version": 2},
+        {**original, "schema_version": original["schema_version"] + 1},
         {**original, "facts": []},
         {**original, "unreviewed_dimension": "occupation"},
         {**original, "facts": [{**original["facts"][0], "unreviewed_dimension": "occupation"}]},

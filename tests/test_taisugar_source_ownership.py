@@ -16,6 +16,13 @@ from app.sync import sync_exam_pages
 from tests.test_taisugar_recruit import DETAIL_PAGE_TWO_ZIPS_HTML, LISTING_PAGE_HTML
 
 
+@pytest.fixture(autouse=True)
+def fictional_archive_has_no_reviewed_annual_rule(monkeypatch):
+    # These synthetic members test acquisition ownership. Real annual-rule
+    # injection and checksum enforcement have their own provider fixtures.
+    monkeypatch.setattr("app.providers.taisugar_recruit.provider.written_exams", lambda: ())
+
+
 def client_for(detail):
     client = TaisugarRecruitClient()
     client._fetch_text = lambda url: LISTING_PAGE_HTML if "News_Index" in url else detail

@@ -32,11 +32,11 @@ def context(fact):
 
 
 @pytest.mark.parametrize("fact", native_roles(), ids=lambda f: f.source_exam_id)
-def test_only_exact_reviewed_originals_approve_the_combined_role(fact):
+def test_only_exact_reviewed_originals_approve_the_native_role(fact):
     values = context(fact)
-    assert file_role("source_document", **values) == "question_answer"
-    assert file_role("question", **values) == "question_answer"
-    assert file_role("question_answer", **values) == "question_answer"
+    assert file_role("source_document", **values) == fact.native_role
+    assert file_role("question", **values) == fact.native_role
+    assert file_role("question_answer", **values) == fact.native_role
     with pytest.raises(ValueError, match="changed or unreviewed bytes"):
         file_role("source_document", **{**values, "checksum": "0" * 64})
     for field, value in (
@@ -59,23 +59,25 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 44
+    assert len(originals) == 74
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
     for before, after in zip(originals, reviewed.papers, strict=True):
-        assert after.file_type == "question_answer"
+        assert after.file_type == next(
+            f.native_role for f in native_roles() if f.checksum == after.checksum
+        )
         assert after.checksum == before.checksum
         assert after.storage_key == before.storage_key
         assert after.download_url_source == before.download_url_source
         assert after.subject_code == before.subject_code
         assert after.track_id == "taisugar-worker-unknown"
-        assert after.stage_id == "stage-1"
+        assert after.stage_id == before.stage_id
         assert after.classification_confidence == "review"
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 44
+    assert validate_native_roles(ROOT) == 74
 
 
 @pytest.mark.repo_data
@@ -100,11 +102,18 @@ def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_i
         )
         if key in facts:
             selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
-    assert len(selected) == 90
+    assert len(selected) == 120
     assert sum(p.file_type == "question" for p in selected) == 44
     reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
     for original, current in zip(selected, reviewed, strict=True):
-        assert current.file_type == "question_answer" and current.stage_id == "stage-1"
+        assert current.file_type == next(
+            f.native_role for f in native_roles() if f.checksum == current.checksum
+        )
+        assert current.stage_id == next(
+            p.stage_id
+            for p in load_provider_state(owner)[1].papers
+            if p.checksum == current.checksum
+        )
         assert current.storage_key == original.storage_key
         assert current.checksum == original.checksum
         assert current.download_url_source == original.download_url_source
@@ -133,7 +142,7 @@ def test_native_member_roles_require_the_exact_parent_version_path_and_member_by
     path = tmp_path / "native-role-fixture.json"
     path.write_text(
         json.dumps(
-            {"schema_version": 1, "provider_id": "taisugar_recruit", "facts": [asdict(fact)]},
+            {"schema_version": 2, "provider_id": "taisugar_recruit", "facts": [asdict(fact)]},
             ensure_ascii=False,
         )
     )
@@ -156,7 +165,7 @@ def test_native_member_roles_require_the_exact_parent_version_path_and_member_by
         path.write_text(
             json.dumps(
                 {
-                    "schema_version": 1,
+                    "schema_version": 2,
                     "provider_id": "taisugar_recruit",
                     "facts": [asdict(invalid)],
                 },
@@ -165,3 +174,38 @@ def test_native_member_roles_require_the_exact_parent_version_path_and_member_by
         )
         with pytest.raises(ValueError):
             evidence.read_native_roles(path)
+
+
+@pytest.mark.parametrize(
+    "defect", ["old_version", "invalid_role", "duplicate", "conflicting_digest"]
+)
+def test_explicit_role_owner_rejects_ambiguous_or_implicit_judgments(tmp_path, defect):
+    from app.providers.taisugar_recruit.evidence import read_native_roles
+
+    fact = asdict(next(f for f in native_roles() if f.native_role == "question"))
+    document = {"schema_version": 2, "provider_id": "taisugar_recruit", "facts": [fact]}
+    if defect == "old_version":
+        document["schema_version"] = 1
+    elif defect == "invalid_role":
+        fact["native_role"] = "answer"
+    else:
+        duplicate = dict(fact)
+        if defect == "conflicting_digest":
+            duplicate["checksum"] = "0" * 64
+        document["facts"].append(duplicate)
+    path = tmp_path / "role-review.json"
+    path.write_text(json.dumps(document))
+    with pytest.raises(ValueError):
+        read_native_roles(path)
+
+
+def test_question_only_review_does_not_inherit_a_combined_container_label():
+    questions = [f for f in native_roles() if f.native_role == "question"]
+    assert len(questions) == 2
+    assert all(f.year_roc == 111 for f in questions)
+    assert len({f.checksum for f in questions}) == 2
+    assert len({f.subject_code for f in questions}) == 2
+    for fact in questions:
+        assert file_role("source_document", **context(fact)) == "question"
+        assert file_role("question_answer", **context(fact)) == "question"
+        assert file_role("answer", **context(fact)) == "answer"

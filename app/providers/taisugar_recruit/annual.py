@@ -7,10 +7,15 @@ import re
 from dataclasses import dataclass
 from datetime import date
 from functools import lru_cache
-from pathlib import Path, PurePosixPath
+from pathlib import Path
 from urllib.parse import urlsplit
 
 from app.models import ExamAttachment
+from app.providers.taisugar_recruit.native import (
+    native_pdf_subject_code,
+    validate_member_parents,
+    verify_native_anchor,
+)
 from app.source_material import SourceDate, SourceMaterial
 
 
@@ -91,8 +96,6 @@ def _native_date(value: str) -> None:
 
 
 def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
-    from app.providers.taisugar_recruit.client import source_subject_code
-
     document = json.loads(path.read_text(encoding="utf-8"))
     if (
         set(document) != {"schema_version", "provider_id", "events"}
@@ -115,10 +118,9 @@ def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
             if set(item) != set(NativePaper.__dataclass_fields__):
                 raise ValueError("Invalid Taiwan Sugar native paper evidence fields")
             paper = NativePaper(**item)
-            _official_pdf(paper.source_url)
             _checksum(paper.checksum)
             if (
-                paper.subject_code != source_subject_code(paper.source_url)
+                paper.subject_code != native_pdf_subject_code(paper.source_url)
                 or not isinstance(paper.title, str)
                 or not paper.title.strip()
                 or paper.subject_code in source_slots
@@ -205,35 +207,18 @@ def resolve_written_exam(
     return None
 
 
-def _verify_anchor(repo_root: Path, storage_key: str, checksum: str) -> None:
-    key = PurePosixPath(storage_key)
-    if (
-        key.is_absolute()
-        or ".." in key.parts
-        or "\\" in storage_key
-        or key.parts[:2] != ("providers", "taisugar_recruit")
-    ):
-        raise ValueError("Taiwan Sugar annual evidence has an invalid mirror locator")
-    path = repo_root / "mirror" / storage_key
-    provider_root = repo_root / "mirror/providers/taisugar_recruit"
-    if (
-        not path.resolve().is_relative_to(provider_root.resolve())
-        or path.is_symlink()
-        or not path.is_file()
-    ):
-        raise ValueError("Taiwan Sugar annual evidence has missing or changed mirror bytes")
-    from app.source_revisions import payload_checksum
-
-    if payload_checksum(path) != checksum:
-        raise ValueError("Taiwan Sugar annual evidence has missing or changed mirror bytes")
-
-
 def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> int:
     """Match every exact paper and its retained primary rule, including history."""
     from app.paths import provider_paths
     from app.source_revisions import load_source_revisions
     from app.state import load_provider_state
 
+    exams = read_written_exams(annual_exams_path(repo_root))
+    validate_member_parents(
+        repo_root,
+        ((a.source_exam_id, a.year_roc, p.source_url, p.checksum) for a in exams for p in a.papers),
+        verify_mirror=verify_mirror,
+    )
     provider = provider_paths(repo_root, "taisugar_recruit")
     pages, catalog, _ = load_provider_state(provider)
     papers = [
@@ -294,7 +279,7 @@ def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> i
                 )
             )
     count = 0
-    for annual in read_written_exams(annual_exams_path(repo_root)):
+    for annual in exams:
         expected_rule = (
             annual.source_exam_id,
             annual.year_roc,
@@ -310,7 +295,7 @@ def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> i
             )
         if verify_mirror:
             for rule_row in matching_rules:
-                _verify_anchor(repo_root, rule_row[-1], rule_row[-2])
+                verify_native_anchor(repo_root, rule_row[-1], rule_row[-2])
         for paper in annual.papers:
             expected = (
                 annual.source_exam_id,
@@ -330,6 +315,6 @@ def validate_written_exams(repo_root: Path, *, verify_mirror: bool = False) -> i
                 )
             if verify_mirror:
                 for paper_row in matching_papers:
-                    _verify_anchor(repo_root, paper_row[-1], paper_row[-2])
+                    verify_native_anchor(repo_root, paper_row[-1], paper_row[-2])
             count += 1
     return count
