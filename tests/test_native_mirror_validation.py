@@ -40,7 +40,7 @@ def native_inputs(provider_id):
 
         path = native_roles_path(ROOT)
         document = json.loads(path.read_text())
-        return path, document, document["facts"], validate_native_roles, 136
+        return path, document, document["facts"], validate_native_roles, 157
     from app.providers.hce_cmu.identity import annual_papers_path, validate_annual_papers
 
     path = annual_papers_path(ROOT)
@@ -67,7 +67,7 @@ def test_native_mirror_validation_rejects_corruption_or_missing_bytes_at_every_a
         selected = [p for p in catalog.papers if p.checksum in payloads]
     assert (
         len(selected)
-        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 136}[provider_id]
+        == {"tcte_tve": 6, "moex": 1, "hce_cmu": 44, "taisugar_recruit": 157}[provider_id]
     )
     locators = set()
     papers = []

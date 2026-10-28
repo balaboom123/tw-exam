@@ -64,7 +64,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 136
+    assert len(originals) == 157
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
@@ -82,7 +82,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 136
+    assert validate_native_roles(ROOT) == 157
 
 
 @pytest.mark.repo_data
@@ -107,7 +107,7 @@ def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_i
         )
         if key in facts:
             selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
-    assert len(selected) == 182
+    assert len(selected) == 203
     assert sum(p.file_type == "question" for p in selected) == 44
     reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
     for original, current in zip(selected, reviewed, strict=True):
@@ -231,3 +231,19 @@ def test_separate_native_answers_do_not_turn_question_booklets_into_combined_fil
     for fact in answers:
         assert file_role("question", **context(fact)) == "answer"
         assert file_role("question_answer", **context(fact)) == "answer"
+
+
+def test_answer_watermark_does_not_discard_questions_or_invent_essay_solutions():
+    facts = [f for f in native_roles() if f.year_roc == 114]
+    assert len(facts) == 21
+    combined = [f for f in facts if f.native_role == "question_answer"]
+    questions = [f for f in facts if f.native_role == "question"]
+    assert len(combined) == 19 and len(questions) == 2
+    assert len({f.checksum for f in facts}) == 21
+    # One official ZIP contains both programmes and different native file roles.
+    assert len({f.source_url.split("#")[0] for f in facts}) == 1
+    for fact in combined:
+        assert file_role("answer", **context(fact)) == "question_answer"
+    for fact in questions:
+        assert file_role("question_answer", **context(fact)) == "question"
+        assert file_role("answer", **context(fact)) == "question"

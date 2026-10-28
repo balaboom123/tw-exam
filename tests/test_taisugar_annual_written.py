@@ -110,7 +110,7 @@ def test_fresh_and_retained_normalization_agree_without_guessing_occupation():
             assert reviewed.source_material == exam.material
             assert reviewed.download_url_source == paper.download_url_source
             assert reviewed.storage_key == paper.storage_key and reviewed.checksum == paper.checksum
-    assert validate_written_exams(ROOT) == 108
+    assert validate_written_exams(ROOT) == 124
 
 
 @pytest.mark.repo_data
@@ -291,7 +291,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             )
         else:
             current_pages.append(page)
-    assert len(targets) == 116  # 108 native originals and eight primary rules.
+    assert len(targets) == 133  # 124 native originals and nine primary rules.
     from tests.taisugar_native_fixtures import bind_parent_fixtures
 
     all_papers = current_papers + [
@@ -337,7 +337,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         lambda _: (current_pages, NormalizedCatalog(current_papers, []), []),
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
-    assert validate_written_exams(tmp_path, verify_mirror=True) == 108
+    assert validate_written_exams(tmp_path, verify_mirror=True) == 124
     for path in targets:
         original = path.read_bytes()
         path.write_bytes(original + b"corrupt")
@@ -360,6 +360,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
     [
         (108, "2019-05-22", "2019-07-20", "2019-07-31"),
         (109, "2020-05-12", "2020-09-12", "2020-09-14"),
+        (114, "2025-01-14", "2025-03-29", "2025-04-11"),
     ],
 )
 def test_publication_revision_and_written_dates_remain_independent(
@@ -371,12 +372,13 @@ def test_publication_revision_and_written_dates_remain_independent(
     assert exam.rule_revision_date == revision
     document = json.loads(annual_exams_path(ROOT).read_text())
     event = next(e for e in document["events"] if e["year_roc"] == year)
-    event["rule_revision_date"] = "2021-01-01"
+    later_year = year + 1912
+    event["rule_revision_date"] = f"{later_year}-01-01"
     path = tmp_path / "later-reviewed-edition.json"
     path.write_text(json.dumps(document))
     revised = next(a for a in annual.read_written_exams(path) if a.year_roc == year)
     assert revised.material.date.year_ad == year + 1911
-    assert revised.rule_attachment().source_material.date.year_ad == 2021
+    assert revised.rule_attachment().source_material.date.year_ad == later_year
 
 
 def test_v2_contract_rejects_missing_fields_and_invalid_evidence(tmp_path):
@@ -548,3 +550,22 @@ def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
     # Already retained rules are never appended a second time.
     client.fetch_exam_page.side_effect = lambda *_: deepcopy(pages[0])
     assert len(provider.fetch_exam_page(page.source_exam_id, 2021).attachments) == 2
+
+
+@pytest.mark.repo_data
+def test_general_annual_rule_does_not_approve_school_papers_in_one_combined_zip():
+    _, catalog, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
+    exam = next(a for a in written_exams() if a.year_roc == 114)
+    selected = [p for p in catalog.papers if p.year_roc == 114]
+    keys = {(p.subject_code, p.source_url, p.checksum) for p in exam.papers}
+    general = [p for p in selected if (p.subject_code, p.download_url_source, p.checksum) in keys]
+    school = [p for p in selected if p not in general]
+    assert len(general) == 16 and len(school) == 5
+    assert len({p.download_url_source.split("#")[0] for p in selected}) == 1
+    assert len({p.checksum for p in selected}) == 21
+    assert sum(p.file_type == "question" for p in general) == 1
+    assert sum(p.file_type == "question" for p in school) == 1
+    for paper in general:
+        assert paper.stage_id == "stage-1" and paper.source_material == exam.material
+        assert paper.track_id == "taisugar-worker-unknown"
+    assert all(p.stage_id == "unknown" and p.source_material.needs_review for p in school)

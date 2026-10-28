@@ -738,8 +738,8 @@ Original ZIPs are source containers, retained as `source_archive` attachments.
 A combined question/answer download label does not establish an accessibility
 format, a native subject, or one applicant population. Review the individual
 members before assigning question/answer roles and publication identities; keep
-general-worker and industry-school applicability explicit. A PDF named standard answers may contain full questions
-and visible answer letters, so its filename does not establish an answer-only role.
+general-worker and industry-school applicability explicit. A standard-answer filename or watermark can accompany full questions
+and visible answer letters; neither establishes an answer-only role.
 
 Intake preserves each PDF as a neutral `source_document` until its native role
 and applicability are reviewed. ZIP members have parent-checksum-bound locators;
