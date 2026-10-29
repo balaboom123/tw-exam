@@ -1209,15 +1209,15 @@
       ],
       "provider_id": "taisugar_recruit",
       "restrictions": [
-        "The official ASP.NET archive currently has 38 rows over two postback pages; query-string page values are ignored. Nine accepted worker-paper events expose 50 checksum-verified paper originals totaling 78,044,859 bytes.",
-        "All 50 originals are retained: 44 individual PDFs and six original ZIPs. The ZIPs retain 140 further PDF members projected byte-identically through parent-checksum-bound locators. All 184 PDFs remain retained. Two complete scanned originals and all ten ROC109 originals have checksum-bound combined question/answer role reviews; the other 172 PDFs retain neutral source_document intake roles. All 12 reviewed originals also have annual-rule-backed initial written-stage evidence; the other 172 PDFs retain unknown stages. Native occupation and applicant applicability remain unresolved. Three additional original rule PDFs totaling 2,580,289 bytes are retained as checksum-guarded reference instructions with publication dates.",
+        "The official ASP.NET archive uses postback pagination; query-string page values are ignored. The source manifest records the observed listing and verified original/member coverage.",
+        "Original PDFs, source ZIPs and their exact parent-checksum-bound PDF members remain retained. The provider-owned native-file-role catalog distinguishes reviewed question-only, answer-only and combined originals; unreviewed originals keep neutral source_document roles. The annual-written-exam catalog binds written stages and dates only to reviewed programme-specific source contexts and checksums. A general-route rule cannot approve a school-route paper. Reviewed original rules remain checksum-guarded reference instructions with their own publication dates. Native occupation and applicant applicability remain unresolved.",
         "The company published ROC115 papers on 2026-10-20. A public 8,135,655-byte ZIP is now available from the official announcement. The earlier contractor login redirect remains historical route evidence and is no longer a blocker to acquiring these originals.",
         "Original ZIPs use the source_archive attachment role. Direct PDF keys follow exact source URLs; member keys follow the parent URL and decoded native member path. Archive-version checksums stay in member locators. Legacy Windows CP950 names are decoded before safety checks; originals remain unchanged. Former references and independent bytes remain in immutable provider history.",
         "Two doctoral-paper rows are outside the new-worker source family. MOEA joint staff recruitment is separate. Taiwan Sugar's CC0 declaration retains its intellectual-property, personal-data, specially excluded work, moral-rights, integrity and endorsement caveats."
       ],
       "source_name": "台灣糖業股份有限公司",
       "status": "partial",
-      "status_reason": "Partial: all nine declared worker-paper events and 50 original PDF/ZIP files are retained with verified bytes. All 184 PDFs, including 140 exact archive members, are represented. Two complete scanned originals have reviewed combined question/answer roles; occupational, applicant-group and stage boundaries remain quarantined until independent native and annual-rule evidence replaces the defective legacy mapping."
+      "status_reason": "Partial: the declared worker-paper events, original PDFs/ZIPs and exact archive members are retained with verified bytes. Provider-owned native-role and annual-written-stage evidence records the reviewed subset; remaining roles or stages stay unresolved. Occupational and applicant-group boundaries still require separate evidence, so publication remains quarantined."
     },
     {
       "available_years": {
