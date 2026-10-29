@@ -110,7 +110,7 @@ def test_fresh_and_retained_normalization_agree_without_guessing_occupation():
             assert reviewed.source_material == exam.material
             assert reviewed.download_url_source == paper.download_url_source
             assert reviewed.storage_key == paper.storage_key and reviewed.checksum == paper.checksum
-    assert validate_written_exams(ROOT) == 124
+    assert validate_written_exams(ROOT) == len(CASES)
 
 
 @pytest.mark.repo_data
@@ -125,6 +125,83 @@ def test_one_programmes_rule_does_not_stage_unreviewed_members_in_the_same_sourc
     assert all(p.stage_id == "unknown" and p.source_material.needs_review for p in school)
     assert sum(p.file_type == "question" for p in school) == 1
     assert sum(p.file_type == "question_answer" for p in school) == 10
+
+
+@pytest.mark.repo_data
+def test_two_115_rules_bind_distinct_applicant_originals_in_one_container():
+    _, catalog, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
+    groups = [a for a in written_exams() if a.year_roc == 115]
+    assert len(groups) == 2
+    general = next(a for a in groups if "www.taisugar.com.tw" in a.rule_url)
+    school = next(a for a in groups if "tsc115-sc.twrecruit.com.tw" in a.rule_url)
+    assert len(general.papers) == 22 and len(school.papers) == 5
+    assert general.written_test_date == school.written_test_date == "2026-04-18"
+    assert general.rule_revision_date == "2026-05-20" and school.rule_revision_date is None
+    selected = [p for p in catalog.papers if p.year_roc == 115]
+    assert len(selected) == 27 and len({p.checksum for p in selected}) == 27
+    assert len({p.download_url_source.split("#")[0] for p in selected}) == 1
+    all_slots = {p.subject_code for p in selected}
+    assert {p.subject_code for a in groups for p in a.papers} == all_slots
+    assert not {p.subject_code for p in general.papers} & {p.subject_code for p in school.papers}
+    for group in groups:
+        members = [p for p in selected if p.subject_code in {n.subject_code for n in group.papers}]
+        assert sum(p.file_type == "question" for p in members) == 1
+        assert all(p.file_type in {"question", "question_answer"} for p in members)
+        for paper in members:
+            assert paper.stage_id == "stage-1" and paper.source_material == group.material
+            assert paper.track_id == "taisugar-worker-unknown"
+            assert paper.classification_confidence == "review"
+            assert paper.source_material.needs_review
+            assert paper.year_roc == 115 and "/115/taisugar-recruit-115/" in paper.storage_key
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "http://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc",
+        "https://tsc114-sc.twrecruit.com.tw/news/download.php?id=abc",
+        "https://tsc115-re.twrecruit.com.tw/news/download.php?id=abc",
+        "https://tsc115-sc.twrecruit.com.tw.evil.test/news/download.php?id=abc",
+        "https://user@tsc115-sc.twrecruit.com.tw/news/download.php?id=abc",
+        "https://tsc115-sc.twrecruit.com.tw:443/news/download.php?id=abc",
+        "https://tsc115-sc.twrecruit.com.tw/download.php?id=abc",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc&id=def",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc&next=elsewhere",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc#section",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc%20",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc%ZZ",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc+def",
+        "https://www.taisugar.com.tw/upload/UserFiles/News/14892/rule.pdf?v=2",
+    ],
+)
+def test_delegated_rule_cannot_escape_its_annual_origin_or_exact_route(tmp_path, url):
+    document = json.loads(annual_exams_path(ROOT).read_text())
+    event = next(e for e in document["events"] if "tsc115-sc" in e["rule_url"])
+    event["rule_url"] = url
+    path = tmp_path / "wrong-origin.json"
+    path.write_text(json.dumps(document))
+    with pytest.raises(ValueError, match="exact official rule URL"):
+        annual.read_written_exams(path)
+
+
+def test_annual_url_schema_matches_signed_download_syntax():
+    schema = json.loads((ROOT / "schemas/taisugar-annual-written-exams-v2.schema.json").read_text())
+    url_schema = schema["properties"]["events"]["items"]["properties"]["rule_url"]
+    validator = Draft202012Validator(url_schema, format_checker=Draft202012Validator.FORMAT_CHECKER)
+    for url in (
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc%2Bdef%2Fghi%3D",
+        "https://www.taisugar.com.tw/upload/UserFiles/News/14892/rule.pdf",
+    ):
+        validator.validate(url)
+    for url in (
+        "https://tsc115-re.twrecruit.com.tw/news/download.php?id=abc",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc%40",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc&next=x",
+        "https://tsc115-sc.twrecruit.com.tw/news/download.php?id=abc%ZZ",
+    ):
+        with pytest.raises(ValidationError):
+            validator.validate(url)
 
 
 @pytest.mark.repo_data
@@ -291,7 +368,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
             )
         else:
             current_pages.append(page)
-    assert len(targets) == 133  # 124 native originals and nine primary rules.
+    assert len(targets) == len(CASES) + len(written_exams())
     from tests.taisugar_native_fixtures import bind_parent_fixtures
 
     all_papers = current_papers + [
@@ -337,7 +414,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         lambda _: (current_pages, NormalizedCatalog(current_papers, []), []),
     )
     monkeypatch.setattr(source_revisions, "load_source_revisions", lambda _: revisions)
-    assert validate_written_exams(tmp_path, verify_mirror=True) == 124
+    assert validate_written_exams(tmp_path, verify_mirror=True) == len(CASES)
     for path in targets:
         original = path.read_bytes()
         path.write_bytes(original + b"corrupt")
@@ -361,6 +438,7 @@ def test_every_paper_and_shared_rule_is_verified_in_current_or_history(
         (108, "2019-05-22", "2019-07-20", "2019-07-31"),
         (109, "2020-05-12", "2020-09-12", "2020-09-14"),
         (114, "2025-01-14", "2025-03-29", "2025-04-11"),
+        (115, "2026-01-16", "2026-04-18", "2026-05-20"),
     ],
 )
 def test_publication_revision_and_written_dates_remain_independent(
@@ -473,27 +551,30 @@ def test_one_rule_url_cannot_have_two_disjoint_group_definitions(tmp_path, same_
 
 @pytest.mark.parametrize("corrupt_index", [None, 0, 1])
 @pytest.mark.parametrize("warm", [False, True])
+@pytest.mark.parametrize("year", [110, 115])
 def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
-    tmp_path, monkeypatch, corrupt_index, warm
+    tmp_path, monkeypatch, corrupt_index, warm, year
 ):
     from app.providers.taisugar_recruit import provider as provider_module
 
     payloads = [b"%PDF-1.4\nprimary rule one\n%%EOF", b"%PDF-1.4\nprimary rule two\n%%EOF"]
     groups = tuple(
         replace(a, rule_checksum=hashlib.sha256(data).hexdigest())
-        for a, data in zip((a for a in written_exams() if a.year_roc == 110), payloads, strict=True)
+        for a, data in zip(
+            (a for a in written_exams() if a.year_roc == year), payloads, strict=True
+        )
     )
     monkeypatch.setattr(provider_module, "written_exams", lambda: groups)
     page = SourceExamPage(
         groups[0].source_exam_id,
-        2021,
-        110,
+        year + 1911,
+        year,
         groups[0].exam_name_raw,
         [],
         [
             ParsedPaper(
                 "台糖新進工員甄試",
-                "110",
+                str(year),
                 "unreviewed",
                 "new original",
                 {
@@ -514,14 +595,19 @@ def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
     previous = []
     if warm:
         previous, _, failures = sync_exam_pages(
-            provider, [(page.source_exam_id, 2021)], mirror, [], "", download_attachments=False
+            provider,
+            [(page.source_exam_id, page.year_ad)],
+            mirror,
+            [],
+            "",
+            download_attachments=False,
         )
         assert not failures
     if corrupt_index is not None:
         rule_data[groups[corrupt_index].rule_url] += b"changed"
     pages, catalog, failures = sync_exam_pages(
         provider,
-        [(page.source_exam_id, 2021)],
+        [(page.source_exam_id, page.year_ad)],
         mirror,
         [],
         "",
@@ -549,7 +635,7 @@ def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
             assert (tmp_path / "mirror" / attachment.storage_key).read_bytes() == original
     # Already retained rules are never appended a second time.
     client.fetch_exam_page.side_effect = lambda *_: deepcopy(pages[0])
-    assert len(provider.fetch_exam_page(page.source_exam_id, 2021).attachments) == 2
+    assert len(provider.fetch_exam_page(page.source_exam_id, page.year_ad).attachments) == 2
 
 
 @pytest.mark.repo_data

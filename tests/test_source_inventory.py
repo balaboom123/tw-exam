@@ -434,6 +434,9 @@ class SourceInventoryTests(unittest.TestCase):
         )
 
     def test_taisugar_manifest_records_retained_originals_and_historical_route(self) -> None:
+        from app.providers.taisugar_recruit.annual import written_exams
+
+        reviewed_rules = written_exams()
         manifest = json.loads(
             (ROOT / "data/providers/taisugar_recruit/source-manifest.json").read_text(
                 encoding="utf-8"
@@ -442,7 +445,7 @@ class SourceInventoryTests(unittest.TestCase):
 
         self.assertEqual(len(manifest["years"]), 9)
         self.assertEqual(len(manifest["exams"]), 9)
-        self.assertEqual(len(manifest["files"]), 199)
+        self.assertEqual(len(manifest["files"]), 184 + 6 + len(reviewed_rules))
         self.assertEqual(
             sum(item["bytes"] for item in manifest["files"].values()
                 if "#archive-sha256=" not in item["source_url"]
@@ -460,9 +463,13 @@ class SourceInventoryTests(unittest.TestCase):
         )
         self.assertEqual(policy["retained_local_state"]["source_archives"], 6)
         self.assertEqual(policy["retained_local_state"]["paper_references"], 184)
-        self.assertEqual(policy["retained_local_state"]["reference_documents"], 9)
+        self.assertEqual(policy["retained_local_state"]["reference_documents"], len(reviewed_rules))
         rules = [row for row in manifest["files"].values() if row["file_type"] == "instructions"]
-        self.assertEqual(sum(row["bytes"] for row in rules), 7_869_235)
+        self.assertEqual(
+            {(row["source_url"], row["sha256"]) for row in rules},
+            {(rule.rule_url, rule.rule_checksum) for rule in reviewed_rules},
+        )
+        self.assertTrue(all(row["bytes"] > 0 for row in rules))
         self.assertEqual(policy["retained_local_state"]["archive_member_references"], 140)
         self.assertEqual(policy["native_identity_status"], "review_pending")
 

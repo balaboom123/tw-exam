@@ -26,6 +26,7 @@ from app.providers.twc_recruit.identity import archive_material
 from app.providers.wdasec_skill.papers import native_file_role as wda_file_role
 from app.providers.wdasec_skill.papers import native_paper_for_record as wda_native_record
 from app.providers.wdasec_skill.papers import resolve_native_paper as wda_native_paper
+from app.review_queue import review_key
 from app.source_material import SourceMaterial
 from app.taipower_file_roles import taipower_file_role
 
@@ -310,22 +311,24 @@ def _deduplicate_review_queue(items: list[ReviewItem]) -> list[ReviewItem]:
     migration remains lossless without inflating the human review workload.
     """
 
-    def key(item: ReviewItem) -> tuple[str, str, str]:
-        return (item.provider_id, item.source_exam_id, item.raw_category)
-
-    def score(item: ReviewItem) -> tuple[int, int, int, int]:
+    def score(item: ReviewItem) -> tuple[int, int, int]:
         return (
-            bool(item.classification_signature),
             bool(item.bundle_id),
             bool(item.reason),
             bool(item.raw_exam_name),
         )
 
-    selected: dict[tuple[str, str, str], ReviewItem] = {}
+    reviewed_contexts = {review_key(item)[:3] for item in items if item.classification_signature}
+    selected: dict[tuple[str, str, str, str], ReviewItem] = {}
     for item in items:
-        current = selected.get(key(item))
+        key = review_key(item)
+        # A signature-bearing row replaces a legacy placeholder, but never a
+        # different identity from the same event/category (for example a stage).
+        if not item.classification_signature and key[:3] in reviewed_contexts:
+            continue
+        current = selected.get(key)
         if current is None or score(item) > score(current):
-            selected[key(item)] = item
+            selected[key] = item
     return [selected[item_key] for item_key in sorted(selected)]
 
 

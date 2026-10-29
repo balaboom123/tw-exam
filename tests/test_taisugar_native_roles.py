@@ -64,7 +64,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
     _, retained, _ = load_provider_state(provider_paths(ROOT, "taisugar_recruit"))
     checksums = {fact.checksum for fact in native_roles()}
     originals = [p for p in retained.papers if p.checksum in checksums]
-    assert len(originals) == 157
+    assert len(originals) == len(native_roles())
     reviewed = renormalize_catalog(
         NormalizedCatalog([replace(p, file_type="source_document") for p in originals], []), []
     )
@@ -82,7 +82,7 @@ def test_role_review_keeps_the_whole_original_and_all_identity_uncertainty():
         assert after.source_material.needs_review
     # Repository-data validation binds checked-in metadata; byte validation has
     # independent corruption and missing-file fixtures plus operator evidence.
-    assert validate_native_roles(ROOT) == 157
+    assert validate_native_roles(ROOT) == len(native_roles())
 
 
 @pytest.mark.repo_data
@@ -107,8 +107,7 @@ def test_exact_native_evidence_reclassifies_affected_history_without_rewriting_i
         )
         if key in facts:
             selected.append(NormalizedPaper(**{**row, "storage_key": revision["blob_storage_key"]}))
-    assert len(selected) == 203
-    assert sum(p.file_type == "question" for p in selected) == 44
+    assert {p.checksum for p in selected} == {f.checksum for f in native_roles()}
     reviewed = renormalize_catalog(NormalizedCatalog(selected, []), []).papers
     for original, current in zip(selected, reviewed, strict=True):
         assert current.file_type == next(
@@ -233,13 +232,16 @@ def test_separate_native_answers_do_not_turn_question_booklets_into_combined_fil
         assert file_role("question_answer", **context(fact)) == "answer"
 
 
-def test_answer_watermark_does_not_discard_questions_or_invent_essay_solutions():
-    facts = [f for f in native_roles() if f.year_roc == 114]
-    assert len(facts) == 21
+@pytest.mark.parametrize("year,total,combined_count", [(114, 21, 19), (115, 27, 25)])
+def test_answer_watermark_does_not_discard_questions_or_invent_essay_solutions(
+    year, total, combined_count
+):
+    facts = [f for f in native_roles() if f.year_roc == year]
+    assert len(facts) == total
     combined = [f for f in facts if f.native_role == "question_answer"]
     questions = [f for f in facts if f.native_role == "question"]
-    assert len(combined) == 19 and len(questions) == 2
-    assert len({f.checksum for f in facts}) == 21
+    assert len(combined) == combined_count and len(questions) == 2
+    assert len({f.checksum for f in facts}) == total
     # One official ZIP contains both programmes and different native file roles.
     assert len({f.source_url.split("#")[0] for f in facts}) == 1
     for fact in combined:

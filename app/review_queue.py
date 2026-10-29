@@ -12,6 +12,16 @@ REVIEW_FIELDS = tuple(field.name for field in fields(ReviewItem) if field.name !
 YEAR_COLUMN = REVIEW_FIELDS.index("year_roc")
 
 
+def review_key(item: ReviewItem) -> tuple[str, str, str, str]:
+    """One review concerns one identity within its provider, event and category."""
+    return (
+        item.provider_id,
+        item.source_exam_id,
+        item.raw_category,
+        item.classification_signature,
+    )
+
+
 class CompactReviewQueue(TypedDict):
     schema_version: Literal[2]
     provider_id: str

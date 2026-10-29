@@ -27,6 +27,14 @@ role evidence records question-only, answer-only and combined question/answer ju
 explicitly, independently of annual-stage approval. Recovery uses evidence
 from the matching runtime version.
 
+An employer-appointed exam service may host a reviewed Taiwan Sugar school-route
+rule behind a signed download endpoint. Annual evidence records the employer's
+appointment and native rule endorsement in its review reason. The reader admits
+only the corresponding annual school-service host and its exact download route;
+the complete URL and native SHA-256 remain binding. Appointment in one year does
+not establish another year's authority. A shared written date still does not
+merge independently governed applicant programmes or approve their occupations.
+
 Postal recruitment uses its native employment grades, with occupations and
 indoor/outdoor work settings as tracks. Education eligibility and the numbered
 paper sessions do not define grades or selection stages. The IT-specific
@@ -475,6 +483,12 @@ Resolution is deterministic and provider-aware:
 Stable IDs are curated slugs for known concepts. Unknown text gets a deterministic digest suffix so records cannot collide, but remains review until evidence is approved. Generic name stripping is token extraction only; it is not proof of an official level.
 
 A review result includes provider, raw exam name/category, identity signature, candidate bundle, reason, and source event. Review records are isolated by event/identity candidate. Do not merge a review record into a confident bundle just to make coverage appear complete.
+
+Review-queue de-duplication uses provider, source event, raw category and identity
+signature together. A shared category can contain several identities, including
+reviewed and unknown stages. Keep a review item for each signature; another
+event's item cannot cover a missing one. A richer current item can replace a
+signatureless legacy placeholder without discarding a different identity.
 
 ## Compatibility model
 

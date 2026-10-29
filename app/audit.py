@@ -34,6 +34,7 @@ from app.release_tags import (
     project_release_assets,
     validate_release_capacity,
 )
+from app.review_queue import review_key
 from app.site_registry import get_site_config
 from app.source_material import publication_years, summarize_papers
 from app.state import load_provider_state, load_site_bundles
@@ -49,10 +50,6 @@ def _jsonify_signature(value: dict[str, Any]) -> dict[str, Any]:
         "source_exam_ids": sorted(value["source_exam_ids"]),
         "raw_categories": sorted(value["raw_categories"]),
     }
-
-
-def _review_key(item: Any) -> tuple[str, str, str]:
-    return (item.provider_id, item.source_exam_id, item.raw_category)
 
 
 def build_catalog_audit(
@@ -101,7 +98,7 @@ def build_catalog_audit(
             if any(getattr(paper, field, None) != value for field, value in fields.items()):
                 entry["records_needing_v2_rewrite"] += 1
         alias_rules = load_alias_rules(provider.aliases_path)
-        current_review_keys = {_review_key(item) for item in catalog.review_queue}
+        current_review_keys = {review_key(item) for item in catalog.review_queue}
         if all(
             paper.category_raw and paper.canonical_id and paper.canonical_name
             for paper in catalog.papers
@@ -110,7 +107,12 @@ def build_catalog_audit(
             # status is exactly the identity computed in the first scan, so
             # rebuilding the entire catalog would classify every paper again.
             rebuilt_review_keys = {
-                (paper.provider_id, paper.source_exam_id, paper.category_raw)
+                (
+                    paper.provider_id,
+                    paper.source_exam_id,
+                    paper.category_raw,
+                    identities_by_paper[id(paper)].signature,
+                )
                 for paper in catalog.papers
                 if identities_by_paper[id(paper)].confidence == "review"
             }
@@ -122,7 +124,7 @@ def build_catalog_audit(
                 alias_rules,
                 collect_reviews=True,
             ).review_queue
-            rebuilt_review_keys = {_review_key(item) for item in rebuilt_queue}
+            rebuilt_review_keys = {review_key(item) for item in rebuilt_queue}
         # renormalize_catalog only derives a canonical - and so only raises
         # needs_review - for a paper that has none yet. Every paper here has
         # one, so the rebuild above can only ever reproduce the
@@ -136,7 +138,12 @@ def build_catalog_audit(
         derivable_review_keys = set()
         for paper in catalog.papers:
             raw_category = paper.category_raw or paper.exam_name_raw
-            if (paper.provider_id, paper.source_exam_id, raw_category) not in current_review_keys:
+            context = (paper.provider_id, paper.source_exam_id, raw_category)
+            matching_keys = {
+                (*context, identities_by_paper[id(paper)].signature),
+                (*context, ""),
+            } & current_review_keys
+            if not matching_keys:
                 continue
             *_unused, needs_review = _derive_canonical(
                 paper.source_exam_id,
@@ -146,7 +153,7 @@ def build_catalog_audit(
                 alias_rules,
             )
             if needs_review:
-                derivable_review_keys.add((paper.provider_id, paper.source_exam_id, raw_category))
+                derivable_review_keys.update(matching_keys)
         rebuilt_review_keys |= derivable_review_keys
         all_review_items.extend(catalog.review_queue)
         provider_reports.append(
@@ -321,9 +328,7 @@ def build_catalog_audit(
     records_with_identity = sum(
         1 for identity in identities_by_paper.values() if identity.bundle_id
     )
-    review_queue_signatures = {
-        item.classification_signature for item in all_review_items if item.classification_signature
-    }
+    review_queue_keys = {review_key(item) for item in all_review_items}
     review_records = 0
     approved_review_isolated_records = 0
     unapproved_review_records = 0
@@ -338,7 +343,13 @@ def build_catalog_audit(
             and identity.exam_event_id == paper.source_exam_id
             and bool(event_marker)
             and event_marker in identity.bundle_id
-            and identity.signature in review_queue_signatures
+            and (
+                paper.provider_id,
+                paper.source_exam_id,
+                paper.category_raw or paper.exam_name_raw,
+                identity.signature,
+            )
+            in review_queue_keys
         )
         if isolated:
             approved_review_isolated_records += 1

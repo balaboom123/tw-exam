@@ -72,16 +72,29 @@ def annual_exams_path(repo_root: Path) -> Path:
     return repo_root / "catalog/mappings/taisugar/annual-written-exams-v2.json"
 
 
-def _official_pdf(url: str) -> None:
+def _reviewed_rule_url(url: str, year_roc: int) -> None:
+    """Allow employer PDFs or a year-scoped, employer-appointed school service.
+
+    A URL is only the source boundary. Each fact still needs a reviewed native
+    rule, its SHA-256 and exact paper anchors. Delegation must be established
+    from the employer's own announcement and recorded in the fact's reason.
+    """
     parts = urlsplit(url)
-    if (
-        parts.scheme != "https"
-        or parts.netloc != "www.taisugar.com.tw"
-        or re.fullmatch(r"/upload/(?:UserFiles|RelFile)/News/\d+/[^/]+\.pdf", parts.path) is None
-        or parts.query
-        or parts.fragment
-    ):
-        raise ValueError("Taiwan Sugar annual evidence requires an exact official PDF URL")
+    if parts.scheme != "https" or parts.fragment:
+        raise ValueError("Taiwan Sugar annual evidence requires an exact official rule URL")
+    employer_pdf = (
+        parts.netloc == "www.taisugar.com.tw"
+        and re.fullmatch(r"/upload/(?:UserFiles|RelFile)/News/\d+/[^/]+\.pdf", parts.path)
+        is not None
+        and not parts.query
+    )
+    school_download = (
+        parts.netloc == f"tsc{year_roc}-sc.twrecruit.com.tw"
+        and parts.path == "/news/download.php"
+        and re.fullmatch(r"id=(?:[A-Za-z0-9]|%2[BbFf]|%3[Dd])+", parts.query) is not None
+    )
+    if not employer_pdf and not school_download:
+        raise ValueError("Taiwan Sugar annual evidence requires an exact official rule URL")
 
 
 def _checksum(value: str) -> None:
@@ -131,7 +144,7 @@ def read_written_exams(path: Path) -> tuple[WrittenExam, ...]:
         fact = WrittenExam(
             **{**row, "papers": tuple(papers), "rule_pdf_pages": tuple(row["rule_pdf_pages"])}
         )
-        _official_pdf(fact.rule_url)
+        _reviewed_rule_url(fact.rule_url, fact.year_roc)
         _checksum(fact.rule_checksum)
         for value in (fact.rule_publication_date, fact.written_test_date, fact.reviewed_at):
             _native_date(value)
