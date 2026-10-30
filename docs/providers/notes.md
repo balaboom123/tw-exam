@@ -935,6 +935,20 @@ Use official Kaohsiung teacher-recruitment event pages and linked papers. Keep s
 
 Use official New Taipei teacher-recruitment event pages and linked papers. Notices, schedules, and results without administered papers remain non-paper source context.
 
+Answer-review outcomes are part of the paper history. Retain their native answer
+change tables and explanations alongside the original paper notice; a blank
+objection application is not an answer. Corrections and supplements use stable
+notice-specific source slots within the original annual programme, so listing
+order cannot rename the event or discard an earlier amendment. Distinct files
+with the same role keep separate source slots rather than selecting the first.
+
+A shared school scope or programme tag does not establish the requested notice.
+Verify its title, tag and year before replacing retained state. Missing original
+notices, competing originals or inconsistent programme contexts need source
+review; retain the prior event on failure. A refresh verifies mutable source
+files again. These acquisition checks do not approve the recruitment taxonomy
+or reinterpret a native archive's internal subjects as job categories.
+
 ## `teacher_recruit_tainan`
 
 Use official Tainan teacher-recruitment event pages and linked papers. Preserve the source event and school-level boundary during normalization.

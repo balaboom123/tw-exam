@@ -7,6 +7,8 @@ from app.providers.teacher_recruit_newtaipei.client import NewTaipeiTeacherRecru
 
 class NewTaipeiTeacherRecruitProvider(SourceProvider):
     provider_id = "teacher_recruit_newtaipei"
+    # Answer keys and their review notices can change at a stable official URL.
+    refresh_files_on_sync = True
 
     def __init__(self, client: NewTaipeiTeacherRecruitClient | None = None) -> None:
         self.client = client or NewTaipeiTeacherRecruitClient()
