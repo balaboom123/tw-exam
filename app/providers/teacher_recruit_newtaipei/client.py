@@ -7,6 +7,7 @@ import unicodedata
 from dataclasses import dataclass
 from email.message import Message
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.parse import quote, unquote, unquote_plus, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
@@ -240,6 +241,7 @@ class NewTaipeiTeacherRecruitClient:
         self._notice_cache: list[NewTaipeiNotice] | None = None
         self._exam_notice_cache: dict[str, NewTaipeiEvent] | None = None
         self.http = Http(self.provider_id, max_attempts=1, user_agent=USER_AGENT)
+        self._head_downloads: dict[str, DownloadedFile] = {}
 
     def _fetch_json(self, url: str) -> object:
         raw, _headers, _status = self.http._request(_request_url(url))
@@ -365,7 +367,26 @@ class NewTaipeiTeacherRecruitClient:
 
     def head(self, url: str) -> ResponseMetadata:
         download_url = self._token_download_url(url)
-        metadata = self.http.head(_request_url(download_url))
+        try:
+            metadata = self.http.head(_request_url(download_url))
+        except HTTPError as exc:
+            if exc.code not in {403, 405}:
+                raise
+            # The official token service permits GET but can reject HEAD.
+            # Observe an actual GET response, keeping its bytes for the next
+            # download. Never fabricate successful metadata from the review plan.
+            download_url = self._token_download_url(url)
+            data, headers, status = self.http._request(_request_url(download_url), timeout=120)
+            self._head_downloads[url] = self._downloaded_file(download_url, data, headers)
+            length = headers.get("Content-Length")
+            metadata = ResponseMetadata(
+                url=url,
+                status=status,
+                content_length=int(length) if length else None,
+                content_type=headers.get("Content-Type", ""),
+                content_disposition=headers.get("Content-Disposition", ""),
+                cache_control=headers.get("Cache-Control", ""),
+            )
         return ResponseMetadata(
             url=url,
             status=metadata.status,
@@ -376,8 +397,14 @@ class NewTaipeiTeacherRecruitClient:
         )
 
     def download_file(self, url: str) -> DownloadedFile:
+        if url in self._head_downloads:
+            return self._head_downloads.pop(url)
         download_url = self._token_download_url(url)
         data, headers = self._fetch_bytes(download_url)
+        return self._downloaded_file(download_url, data, headers)
+
+    @staticmethod
+    def _downloaded_file(download_url: str, data: bytes, headers: Message) -> DownloadedFile:
         content_disposition = headers.get("Content-Disposition", "")
         file_name = (
             _filename_from_content_disposition(content_disposition)

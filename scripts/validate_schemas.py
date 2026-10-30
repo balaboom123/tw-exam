@@ -78,6 +78,10 @@ from app.providers.teacher_recruit_taoyuan_elementary.evidence import (
     native_papers_path as taoyuan_native_papers_path,
     validate_native_papers as validate_taoyuan_native_papers,
 )
+from app.providers.teacher_recruit_newtaipei.archive_plan import (
+    native_archives_path as newtaipei_native_archives_path,
+    validate_native_archives as validate_newtaipei_native_archives,
+)
 
 
 def _read_json(path: Path) -> Any:
@@ -141,6 +145,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (wda_evidence_path, f"wdasec-native-paper-facts-v{wda_evidence['schema_version']}.schema.json"),
         (postal_native_papers_path(repo_root), "post-native-papers-v1.schema.json"),
         (taoyuan_native_papers_path(repo_root), "taoyuan-elementary-native-papers-v1.schema.json"),
+        (newtaipei_native_archives_path(repo_root), "newtaipei-native-archives-v1.schema.json"),
         (tcu_annual_papers_path(repo_root), "tcu-annual-papers-v1.schema.json"),
         (site_dir / "release-assets.json", f"release-assets-v{_read_json(site_dir / 'release-assets.json')['schema_version']}.schema.json"),
         (repo_root / "catalog" / "source-inventory.json", "source-inventory.schema.json"),
@@ -183,6 +188,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_tcu_annual_papers(repo_root)
     validate_postal_native_papers(repo_root)
     validate_taoyuan_native_papers(repo_root)
+    validate_newtaipei_native_archives(repo_root)
     validate_annual_papers(repo_root)
     validate_cmu_annual_papers(repo_root)
     for plan_path in sorted((repo_root / "data/providers/hce_nsysu/native-selections").glob("*.json")):

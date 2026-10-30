@@ -17,6 +17,33 @@ exact original identity, tag, locator and checksum, verified against actual
 bytes and source history. Use matching classification code and rerun the complete
 archive, strict catalog/history and publication gates before deploying recovery.
 
+## New Taipei native RAR import
+
+Restore reviewed native PDF mirrors from the matching provider snapshot. If
+only the complete original RAR is available, verify and import it with the
+operator tool:
+
+```bash
+uv run python scripts/import_newtaipei_archive.py --archive .tmp/native.rar --check --report .tmp/newtaipei-preflight.json
+uv run python scripts/import_newtaipei_archive.py --archive .tmp/native.rar --report .tmp/newtaipei-import.json
+uv run python scripts/validate_schemas.py
+```
+
+The [native delivery contract](../../catalog/mappings/teacher-recruit-newtaipei/native-archives-v1.json)
+owns the reviewed original and every native member. System libarchive is needed
+only for this operator import; routine acquisition uses the imported PDF bytes
+and verifies a fresh parent checksum. Restore the exact reviewed generation
+rather than carrying member meanings onto a changed upstream archive.
+
+The importer checks the complete member set, portable unique paths, file types,
+links, encryption, sizes, PDF signatures and checksums before writing mirrors.
+It preserves the original RAR and refuses differing existing member bytes.
+Member paths inside the archive are never extracted to the filesystem. Imports
+use the normal sync path policy and affect only this provider's mirror. A
+successful receipt proves byte conservation, not recruitment classification,
+publication approval or a successful live acquisition. Resume the maintained
+sync operation and run the affected history and publication gates separately.
+
 ## NSYSU combined-document selections
 
 Restore missing generated selection plans from the matching Git provider-state

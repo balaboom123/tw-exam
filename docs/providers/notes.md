@@ -949,6 +949,21 @@ review; retain the prior event on failure. A refresh verifies mutable source
 files again. These acquisition checks do not approve the recruitment taxonomy
 or reinterpret a native archive's internal subjects as job categories.
 
+The [reviewed RAR delivery contract](../../catalog/mappings/teacher-recruit-newtaipei/native-archives-v1.json)
+owns exact parent and member checksums, portable paths and inspected native file
+roles. Its focused page review is recorded explicitly; it does not claim that
+every question page was visually reviewed. The dedicated counseling document
+named as an answer contains only omitted-answer placeholders. Preserve it as
+reference source material rather than advertising an actual answer key. Native
+booklets shared by recruitment categories still require separate applicability
+evidence before publication identities change.
+
+Routine acquisition verifies a fresh reviewed parent and each imported member;
+it needs no RAR decompressor. A missing member requires snapshot restoration or
+the [operator import procedure](../operations/recovery.md#new-taipei-native-rar-import).
+Unknown parent revisions, changed member bytes and unreviewed locators fail
+without substituting a similarly named document.
+
 ## `teacher_recruit_tainan`
 
 Use official Tainan teacher-recruitment event pages and linked papers. Preserve the source event and school-level boundary during normalization.

@@ -2,6 +2,9 @@
 
 import unittest
 from copy import deepcopy
+from email.message import Message
+from unittest.mock import Mock
+from urllib.error import HTTPError
 
 from app.providers.teacher_recruit_newtaipei.client import (
     DETAIL_API_URL,
@@ -146,6 +149,39 @@ class NewTaipeiTeacherRecruitParserTests(unittest.TestCase):
 
 
 class NewTaipeiTeacherRecruitClientTests(unittest.TestCase):
+    def test_head_rejection_uses_actual_get_metadata_and_reuses_payload(self) -> None:
+        client = NewTaipeiTeacherRecruitClient()
+        url = (
+            "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/file-uuid"
+        )
+        client._fetch_json = lambda url: [{"token": "download-token"}]  # type: ignore[method-assign]
+        headers = Message()
+        headers["Content-Type"] = "application/pdf"
+        headers["Content-Length"] = "10"
+        headers["Content-Disposition"] = "inline; filename=native.pdf"
+        client.http.head = Mock(side_effect=HTTPError(url, 403, "HEAD denied", {}, None))
+        client.http._request = Mock(return_value=(b"%PDF-valid", headers, 200))
+        metadata = client.head(url)
+        self.assertEqual((metadata.url, metadata.status, metadata.content_length), (url, 200, 10))
+        downloaded = client.download_file(url)
+        self.assertEqual((downloaded.data, downloaded.file_name), (b"%PDF-valid", "native.pdf"))
+        client.http._request.assert_called_once()
+
+    def test_get_failure_and_unrelated_head_errors_are_not_hidden(self) -> None:
+        client = NewTaipeiTeacherRecruitClient()
+        url = (
+            "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/file-uuid"
+        )
+        client._fetch_json = lambda url: [{"token": "download-token"}]  # type: ignore[method-assign]
+        for head_code, get_code in ((500, 200), (405, 404)):
+            client.http.head = Mock(side_effect=HTTPError(url, head_code, "failed", {}, None))
+            client.http._request = Mock(side_effect=HTTPError(url, get_code, "failed", {}, None))
+            with self.assertRaises(HTTPError):
+                client.head(url)
+            if head_code == 500:
+                client.http._request.assert_not_called()
+            self.assertEqual(client._head_downloads, {})
+
     def review_client(self, *, reverse: bool = False) -> NewTaipeiTeacherRecruitClient:
         rows = [LIST_ROWS[0], *ANSWER_REVIEW_ROWS]
         details = {"notice-uuid": DETAIL_ROW, **{d["uuid"]: d for d in ANSWER_REVIEW_DETAILS}}
