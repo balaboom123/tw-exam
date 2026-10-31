@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/taipei-junior-native-programmes-v1.schema.json",
+  "title": "Taipei junior-high recruitment: annual native jobs, written files and correction evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "teacher_recruit_taipei_junior"
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "year_roc",
+          "source_exam_id",
+          "programme_name",
+          "paper_article_url",
+          "rule_notice_url",
+          "review_notice_url",
+          "written_test_date",
+          "review_publication_date",
+          "reviewed_at",
+          "bilingual_written_language",
+          "education_specialist_weights",
+          "question_counts",
+          "review_notes",
+          "jobs",
+          "files",
+          "documents"
+        ],
+        "properties": {
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "source_exam_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "programme_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "paper_article_url": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^https://www\\.doe\\.gov\\.taipei/News_Content\\.aspx\\?"
+          },
+          "rule_notice_url": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^https://www\\.doe\\.gov\\.taipei/News_Content\\.aspx\\?"
+          },
+          "review_notice_url": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^https://www\\.doe\\.gov\\.taipei/News_Content\\.aspx\\?"
+          },
+          "written_test_date": {
+            "type": "string",
+            "minLength": 1,
+            "format": "date"
+          },
+          "review_publication_date": {
+            "type": "string",
+            "minLength": 1,
+            "format": "date"
+          },
+          "reviewed_at": {
+            "type": "string",
+            "minLength": 1,
+            "format": "date"
+          },
+          "bilingual_written_language": {
+            "enum": [
+              "chinese",
+              "chinese-and-english"
+            ]
+          },
+          "education_specialist_weights": {
+            "const": [
+              30,
+              70
+            ]
+          },
+          "question_counts": {
+            "const": [
+              40,
+              40
+            ]
+          },
+          "review_notes": {
+            "type": "string",
+            "minLength": 1
+          },
+          "jobs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "code",
+                "label",
+                "track_id",
+                "source_subject_code",
+                "source_subject_name",
+                "bilingual",
+                "public_section_labels"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^job-[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "track_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^taipei-junior-[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "source_subject_code": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "source_subject_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "bilingual": {
+                  "type": "boolean"
+                },
+                "public_section_labels": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "maxItems": 2,
+                  "uniqueItems": true
+                }
+              }
+            }
+          },
+          "files": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject_code",
+                "subject_name_raw",
+                "file_type",
+                "source_url",
+                "checksum",
+                "native_header",
+                "page_count",
+                "inspected_pages"
+              ],
+              "properties": {
+                "subject_code": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "subject_name_raw": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "file_type": {
+                  "enum": [
+                    "question",
+                    "answer",
+                    "corrected_answer"
+                  ]
+                },
+                "source_url": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^https://www-ws\\.gov\\.taipei/Download\\.ashx\\?"
+                },
+                "checksum": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "native_header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "inspected_pages": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "uniqueItems": true
+                }
+              }
+            }
+          },
+          "documents": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "document_id",
+                "title",
+                "source_url",
+                "checksum",
+                "publication_date",
+                "page_count",
+                "inspected_pages"
+              ],
+              "properties": {
+                "document_id": {
+                  "enum": [
+                    "rule",
+                    "vacancy"
+                  ]
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_url": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^https://www-ws\\.gov\\.taipei/Download\\.ashx\\?"
+                },
+                "checksum": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "publication_date": {
+                  "type": "string",
+                  "minLength": 1,
+                  "format": "date"
+                },
+                "page_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "inspected_pages": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "uniqueItems": true
+                }
+              }
+            },
+            "maxItems": 2
+          }
+        }
+      }
+    }
+  }
+}

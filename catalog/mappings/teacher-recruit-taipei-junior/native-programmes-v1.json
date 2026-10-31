@@ -1,0 +1,2100 @@
+{
+  "schema_version": 1,
+  "provider_id": "teacher_recruit_taipei_junior",
+  "events": [
+    {
+      "year_roc": 113,
+      "source_exam_id": "teacher-recruit-taipei-junior-113",
+      "programme_name": "臺北市113學年度市立國民中學正式教師聯合甄選",
+      "paper_article_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=01ADD0497C10AC9C",
+      "rule_notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&s=9B67F2D4543F1C93",
+      "review_notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=872392876F9D2899",
+      "written_test_date": "2024-06-01",
+      "review_publication_date": "2024-06-05",
+      "reviewed_at": "2026-10-31",
+      "bilingual_written_language": "chinese-and-english",
+      "education_specialist_weights": [
+        30,
+        70
+      ],
+      "question_counts": [
+        40,
+        40
+      ],
+      "review_notes": "以年度簡章初試規定、各科缺額核定表、各類科原題本與初始答案及完整筆試釋疑答案修訂彙整表為據。教育與學科各40題，配分30%及70%；雙語教學專長是甄選職缺，命題語言依年度規定，語言證照不是考試等級。專任輔導與輔導科、普通與資優類科及雙語職缺分開；答案字母表相同不足以合併職缺。保留初始答案及原始修訂彙整表，不製造完整版修訂答案。已閱讀各題本封面文字、答案表與相關規則條文，並檢視重點頁面圖像；未宣稱逐頁目讀所有題目。",
+      "jobs": [
+        {
+          "code": "job-taiwanese",
+          "label": "本土語文（閩南語）",
+          "track_id": "taipei-junior-taiwanese",
+          "source_subject_code": "ben-tu-yu-min-nan-yu",
+          "source_subject_name": "本土語(閩南語)",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "本土語文（閩南語）科專業科目"
+          ]
+        },
+        {
+          "code": "job-civics",
+          "label": "公民與社會",
+          "track_id": "taipei-junior-civics",
+          "source_subject_code": "gong-min-yu-she-hui",
+          "source_subject_name": "公民與社會",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "公民與社會科專業科目"
+          ]
+        },
+        {
+          "code": "job-chinese",
+          "label": "國文",
+          "track_id": "taipei-junior-chinese",
+          "source_subject_code": "guo-wen",
+          "source_subject_name": "國文",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "國文科專業科目"
+          ]
+        },
+        {
+          "code": "job-health-education",
+          "label": "健康教育",
+          "track_id": "taipei-junior-health-education",
+          "source_subject_code": "jian-kang-jiao-yu",
+          "source_subject_name": "健康教育",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "健康教育科專業科目"
+          ]
+        },
+        {
+          "code": "job-physics-chemistry",
+          "label": "理化",
+          "track_id": "taipei-junior-physics-chemistry",
+          "source_subject_code": "li-hua",
+          "source_subject_name": "理化",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "理化科專業科目"
+          ]
+        },
+        {
+          "code": "job-biology",
+          "label": "生物",
+          "track_id": "taipei-junior-biology",
+          "source_subject_code": "sheng-wu",
+          "source_subject_name": "生物",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "生物科專業科目"
+          ]
+        },
+        {
+          "code": "job-mathematics",
+          "label": "數學",
+          "track_id": "taipei-junior-mathematics",
+          "source_subject_code": "shu-xue",
+          "source_subject_name": "數學",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "數學科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-mathematics",
+          "label": "特殊教育（資優數學）",
+          "track_id": "taipei-junior-gifted-mathematics",
+          "source_subject_code": "subject-02712ed2",
+          "source_subject_name": "特殊教育(資優數學)",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優數學）科專業科目"
+          ]
+        },
+        {
+          "code": "job-living-technology",
+          "label": "生活科技",
+          "track_id": "taipei-junior-living-technology",
+          "source_subject_code": "subject-18cdc196",
+          "source_subject_name": "生活科技",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "生活科技科專業科目"
+          ]
+        },
+        {
+          "code": "job-dedicated-counselor",
+          "label": "專任輔導",
+          "track_id": "taipei-junior-dedicated-counselor",
+          "source_subject_code": "subject-1d2a18ea",
+          "source_subject_name": "專任輔導",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "專任輔導科專業科目"
+          ]
+        },
+        {
+          "code": "job-living-technology-bilingual",
+          "label": "生活科技（雙語教學專長）",
+          "track_id": "taipei-junior-living-technology-bilingual",
+          "source_subject_code": "subject-9ff6b6ec",
+          "source_subject_name": "生活科技(雙語)",
+          "bilingual": true,
+          "public_section_labels": [
+            "教育專業科目",
+            "生活科技（雙語教學專長）科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-physics-chemistry",
+          "label": "特殊教育（資優理化）",
+          "track_id": "taipei-junior-gifted-physics-chemistry",
+          "source_subject_code": "subject-d164e966",
+          "source_subject_name": "特殊教育(資優理化)",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優理化）科專業科目"
+          ]
+        },
+        {
+          "code": "job-special-needs",
+          "label": "特殊教育（身心障礙）",
+          "track_id": "taipei-junior-special-needs",
+          "source_subject_code": "subject-fa96ce10",
+          "source_subject_name": "特殊教育(身心障礙)",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（身心障礙）科專業科目"
+          ]
+        },
+        {
+          "code": "job-english",
+          "label": "英語",
+          "track_id": "taipei-junior-english",
+          "source_subject_code": "ying-wen",
+          "source_subject_name": "英文",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "英語科專業科目"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "ben-tu-yu-min-nan-yu",
+          "subject_name_raw": "本土語(閩南語)",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS80MGExY2M3Ni01MDY4LTRhZDctYmVmNC02NmIwNGEyNmYxOTcucGRm&n=5pys5Zyf6KqeKOmWqeWNl%2biqninnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "b2b6d435e028dd4925b27300268bb135b82d41f8b4ad6e25f13f6f1d3216552a",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選本土語（閩南語）科筆試答案卷 敎育專業科目 1.    2.    3.    4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "ben-tu-yu-min-nan-yu",
+          "subject_name_raw": "本土語(閩南語)",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8zZThkODdlYy04N2YxLTRlNTktYmRkOC1hZWQwZWIwMmJjMjcucGRm&n=5pys5Zyf6KqeKOmWqeWNl%2biqninoqabpoYwucGRm&icon=..pdf",
+          "checksum": "c11cd283d7d5ee698780d1205776b650ed7f73289d8710475bf48ea162aaf596",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 本土語(閩南語)科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 15,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "gong-min-yu-she-hui",
+          "subject_name_raw": "公民與社會",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS82Njc1OTY1OC02ZTVkLTRiYTgtYTM4Ny0xYjI3YjlkYzFhNjkucGRm&n=5YWs5rCR6IiH56S%2b5pyD562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "fedcd7572162ed37f61be12c17e2187cbb9e91b8f18fd5ace75c42b96994da05",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選公民與社會科筆試答案卷 敎育專業科目 1.    2.    3.    4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "gong-min-yu-she-hui",
+          "subject_name_raw": "公民與社會",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8wMjhlNmQ5NS1kMDNmLTQ5MTItOGRiMC0wNGZiNGEyZDcxNDgucGRm&n=5YWs5rCR6IiH56S%2b5pyD6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "ce953ab85453b182e78a2ab17ced5885f622b80bdf19c576e580a2603cb1b445",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 公民與社會科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "guo-wen",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS9lNDVhNDkyOC1lNDk5LTQwYTMtYTdiOS04YTdkYWUzNGU2MzYucGRm&n=5ZyL5paH6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "1d0cb98efbc204d963b7c054b0eae31469dedde90138e9a2b0a9e234e1bd3e7d",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 國文科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "guo-wen",
+          "subject_name_raw": "國文",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS80OWM2YTM4OS1iM2VhLTRhOWUtOGNjMC00NDNiZDk3NTAzZDYucGRm&n=5ZyL5paH562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "885212db1893cd412899610adc3ad35ae70fccb11941924907fc1cd17d4375e5",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選國文科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "jian-kang-jiao-yu",
+          "subject_name_raw": "健康教育",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS9mZTM3MDBhYS1jMDYxLTQyYWUtYjAyMi1mYzU2OGNiY2ZjMjcucGRm&n=5YGl5bq35pWZ6IKy6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "9bc2ec150d3dbe6ee4e68364823dfd819c37a175f241bac2902d510e953c5519",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 健康教育科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "jian-kang-jiao-yu",
+          "subject_name_raw": "健康教育",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS83NWVkMzU2ZS0zYWZiLTQxMjUtYmVkMy1kZjI1ZTA1YzkwNGUucGRm&n=5YGl5bq35pWZ6IKy562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "d02e1725981d0bc5df87f888e2891168933bd16e36ace087f3ccfadc832e9eb2",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選健康教育科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "li-hua",
+          "subject_name_raw": "理化",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS84OTY2Y2I5Zi0zOTc4LTQ3MzctOGNlZi1mYjdkMTQwYTM2OWQucGRm&n=55CG5YyW562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "7478ba26f56d40b723efca5aa741c221ea7bc7a53f54c2747f9837317f4146ad",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選理化科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "li-hua",
+          "subject_name_raw": "理化",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8yZDQ4NjBmYi1hNzQyLTQxNGEtOTVhZC03MjVhYzA0ODY4MzkucGRm&n=55CG5YyW6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "74fac17f5152abadea9d45ea6d6e3914c15485eedaf83d74ca1ff30b33166779",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 理化科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "sheng-wu",
+          "subject_name_raw": "生物",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8wNjVkYmVlYS00MWFlLTQwZmYtODUzZS0yMDM1NmYxYTgyZjIucGRm&n=55Sf54mp562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "81a8fb376ed45a5e68382a1e58f54370ffbad53ecee5dedac89ffa18fa8b3c78",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選生物科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "sheng-wu",
+          "subject_name_raw": "生物",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS81ZjVmZTU4ZC0wOWJkLTQ0MjEtYmFjOS04ZTUzMWZiZDcxMGUucGRm&n=55Sf54mp6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "aa263564f32fa247e26ac85d09bd7df5dfbb88c6cb76d85e77984feb854a468f",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 生物科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 17,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "shu-xue",
+          "subject_name_raw": "數學",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8yODkzYTkxNC1lYTliLTQ1OTItYWU1OC1kOGQ4ZjhjMzdlOTAucGRm&n=5pW45a246Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "cb0b6ef674116000a33ac6a7d0a6ef542aa77dc9569eca8dbcb37fc98713b084",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 數學科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 19,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "shu-xue",
+          "subject_name_raw": "數學",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS80MmVhOGU5NC03ZGQ3LTQ3YjUtYjk2NS0zMTQ1ZDVhOTU3NTkucGRm&n=5pW45a24562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "5e4cc9ee9a61019043f5b3521c3d72622df0ff356f8f02a2cac59e8420ec5ca3",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選數學科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-02712ed2",
+          "subject_name_raw": "特殊教育(資優數學)",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8wMTZiNTFjNy1mOTE4LTQ2ZWMtYmFiZi1kMTgwNGY0MTdmOTUucGRm&n=54m55q6K5pWZ6IKyKOizh%2bWEquaVuOWtuCnoqabpoYwucGRm&icon=..pdf",
+          "checksum": "a53a07ddb8f11649748eae4856cba1405a9ad46fc99936b67813f7fae7c9a469",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 特殊教育（資優數學）科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 19,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-02712ed2",
+          "subject_name_raw": "特殊教育(資優數學)",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8zYjZjZDI4Yi0xZTcyLTQ0MmYtOTA0OC0yYTI1MTRmMjc5ZTMucGRm&n=54m55q6K5pWZ6IKyKOizh%2bWEquaVuOWtuCnnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "d9f15a6626226c87377dc6fb85d8e04ede1bb335a312320d88f621ed2405b582",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選特殊教育(資優數學)科 筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-18cdc196",
+          "subject_name_raw": "生活科技",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS80MzY3N2E1Zi1lOTI2LTQ0OGYtOGY0MC1iOWJjZTMyZDY4OTUucGRm&n=55Sf5rS756eR5oqA6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "f7c0012b237127f46ea964b6b6a9f3b74e4267da5aa0d79305f21468d4760e36",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 生活科技科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-18cdc196",
+          "subject_name_raw": "生活科技",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS80YTliZGI3ZS04NzQ4LTQ1ODItOTljNy0zMmZkMDBjYTEyODUucGRm&n=55Sf5rS756eR5oqA562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "b0589f7efcb3c0c533affa22b489f2893d23e1c8687cb6b9a3446b4764f85a1d",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選生活科技科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1d2a18ea",
+          "subject_name_raw": "專任輔導",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS9jZDQ5OWQ1Ny1mYWRmLTRiYTUtOTFkOC0yNmIzNjY3MDI0MjkucGRm&n=5bCI5Lu76LyU5bCO562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "d827e8925d81ce7c09c19ee937aca0efe11d3e3af201825f6fa3f0f6023b85e2",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選專任輔導科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1d2a18ea",
+          "subject_name_raw": "專任輔導",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS84NTEzODQwOC1mMTdjLTQyNmUtOTc3NC0wYzQ0OWJiMDIxMGMucGRm&n=5bCI5Lu76LyU5bCO6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "133d0d2c900291081aec6cd228356c14c1267fcc24c11f11a1cd6599ef9e5193",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 專任輔導科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-9ff6b6ec",
+          "subject_name_raw": "生活科技(雙語)",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS8zYTVjNDk4Zi00ZTg5LTRhNzAtYWUyNC1iOGNhNzY0MDNlYTMucGRm&n=55Sf5rS756eR5oqAKOmbmeiqninnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "ac477e30c72afe577a8795ffc9370fac3ad8509d830118b1aaca1b62a9a758b3",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選生活科技(雙語)科筆試答案卷 敎育專業科目 1.   2.    3.    4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-9ff6b6ec",
+          "subject_name_raw": "生活科技(雙語)",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS85ZWNmNDJkNC1iZDk5LTQ2YjctOThlMS0yMTI2NzRmNzU0OWIucGRm&n=55Sf5rS756eR5oqAKOmbmeiqninoqabpoYwucGRm&icon=..pdf",
+          "checksum": "08d4abda387836d1ec9696f9561bb66993070dd2a0b42e358e7cf2f6628d25bf",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 生活科技(雙語)科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-d164e966",
+          "subject_name_raw": "特殊教育(資優理化)",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS84ODkwMzFhNi1hZThiLTQ3NDQtOWQyOS03ODUwOTBlNDk1OWQucGRm&n=54m55q6K5pWZ6IKyKOizh%2bWEqueQhuWMlinoqabpoYwucGRm&icon=..pdf",
+          "checksum": "e586df1c8c52661c4d62eac79ae9d543dd92b586197fc4acbc580b731dd1bd77",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 特殊教育(資優理化)科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-d164e966",
+          "subject_name_raw": "特殊教育(資優理化)",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS85MTRlODc2Yi1jYjQwLTRlOTMtYjM2ZS1hMmQ5MzU1MzFmNjMucGRm&n=54m55q6K5pWZ6IKyKOizh%2bWEqueQhuWMlinnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "f1f7151d673cef03a1253d8aac54253f7f99373523139e79e4d62ea6159b3564",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選特殊教育(資優理化)科 筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-fa96ce10",
+          "subject_name_raw": "特殊教育(身心障礙)",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS80NjAwNzg2YS01MmI5LTQ2OTUtOTkxMS03YWQ4MjIyM2ZhMzkucGRm&n=54m55q6K5pWZ6IKyKOi6q%2bW%2fg%2bmanOekmSnoqabpoYwucGRm&icon=..pdf",
+          "checksum": "a05d9dbe39b5f6902b2923a7d2127a8a33c1534f5b8a8e8d052fb18711bb8e3f",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 特殊教育(身心障礙)科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-fa96ce10",
+          "subject_name_raw": "特殊教育(身心障礙)",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS9jMDkzYWY4ZC1mNDk4LTRjZTYtODY0MS0yODI1OGU4Y2MwZDMucGRm&n=54m55q6K5pWZ6IKyKOi6q%2bW%2fg%2bmanOekmSnnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "95eaa2e254244669981d28fe7e6016d6c6cdadaced10c0af015b9ae176be0076",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選特殊教育(身心障礙)科 筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "ying-wen",
+          "subject_name_raw": "英文",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS9jOWU3MzNmYS0xZDc4LTQwMTYtYTUzMy02ODIwYThjMzc0OWMucGRm&n=6Iux5paH6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "bba0e6f5178d3779f00aac6fe0a8e2816e66503bd5452be1ded09c1e493b3bf2",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選 英文科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 21,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "ying-wen",
+          "subject_name_raw": "英文",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4NzUwNS82ODE0ZDY1OC0wYjUyLTQ3YTctOWViOS0wNzhjZDU2ZjcxMWMucGRm&n=6Iux5paH562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "754ff1608592d60eceb9627276005cbacddd3f49f2daf2ab8099b75cc0918467",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選英文科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "answer-review",
+          "subject_name_raw": "筆試釋疑答案修訂彙整表",
+          "file_type": "corrected_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4OTc4MC9iZGZhZTI2OC00ZTYyLTRjMjQtYWRjMS0zN2NkYWEyZGZiZjcucGRm&n=6ZmE5Lu2MV%2foh7rljJfluIIxMTPlrbjlubTluqbluILnq4vlnIvmsJHkuK3lrbjmraPlvI%2fmlZnluKvoga%2flkIjnlITpgbjnrYboqabph4vnlpHnrZTmoYjkv67oqILlvZnmlbTooagucGRm&icon=..pdf",
+          "checksum": "31b9cfd2e2364a7e6ea6e6ab702c9dd350008bad25c89f876d54e8ac64dbfcb0",
+          "native_header": "臺北市 113 學年度市立國民中學正式教師聯合甄選筆試釋疑答案修訂彙整表 序號    疑義科目     題號                    結果建議 1               3        ■增列答案 ★由 C 改成 BCD 皆可 2               9        ■送分",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "document_id": "rule",
+          "title": "臺北市113學年度市立國民中學正式教師聯合甄選簡章",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE0Nzk0NC8zYjRiMTM3OC05NGE5LTRjYmUtYjM1ZC0xM2IwYWMzMjIzODIucGRm&n=6Ie65YyX5biCMTEz5a245bm05bqm5biC56uL5ZyL5rCR5Lit5a245q2j5byP5pWZ5bir6IGv5ZCI55SE6YG457Ch56ugX%2bWFrOWRiueJiC5wZGY%3d&icon=..pdf",
+          "checksum": "d1934aa5f216bd1bf95a98aa6c678bf893c7698f9fc42cb94cacac35e4efc4ce",
+          "publication_date": "2024-03-29",
+          "page_count": 43,
+          "inspected_pages": [
+            4,
+            6
+          ]
+        },
+        {
+          "document_id": "vacancy",
+          "title": "臺北市113學年度市立國民中學正式教師聯合甄選各科缺額核定表",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTE4OTc4MC9mMTkxMjllNy1jZDU4LTRjNjQtYjE3ZS1lYzlkMzFjMDA3Y2MucGRm&n=6ZmE5Lu2M1%2foh7rljJfluIIxMTPlrbjlubTluqbluILnq4vlnIvmsJHkuK3lrbjmraPlvI%2fmlZnluKvoga%2flkIjnlITpgbjlkITnp5HnvLrpoY3moLjlrprooagucGRm&icon=..pdf",
+          "checksum": "d60ed288c2ba68ff0e8b7d0b7931a716ea1a872f63167ac1bdaf56fe332a4034",
+          "publication_date": "2024-06-05",
+          "page_count": 2,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "year_roc": 114,
+      "source_exam_id": "teacher-recruit-taipei-junior-114",
+      "programme_name": "臺北市114學年度市立國民中學正式教師聯合甄選",
+      "paper_article_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=4A85C1A3A3BD7C48",
+      "rule_notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&s=8825B67C6AF704F1",
+      "review_notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=AF194FA7CC6B2A45",
+      "written_test_date": "2025-06-07",
+      "review_publication_date": "2025-06-11",
+      "reviewed_at": "2026-10-31",
+      "bilingual_written_language": "chinese",
+      "education_specialist_weights": [
+        30,
+        70
+      ],
+      "question_counts": [
+        40,
+        40
+      ],
+      "review_notes": "以年度簡章初試規定、各科缺額核定表、各類科原題本與初始答案及完整筆試釋疑答案修訂彙整表為據。教育與學科各40題，配分30%及70%；雙語教學專長是甄選職缺，命題語言依年度規定，語言證照不是考試等級。專任輔導與輔導科、普通與資優類科及雙語職缺分開；答案字母表相同不足以合併職缺。保留初始答案及原始修訂彙整表，不製造完整版修訂答案。已閱讀各題本封面文字、答案表與相關規則條文，並檢視重點頁面圖像；未宣稱逐頁目讀所有題目。",
+      "jobs": [
+        {
+          "code": "job-geography",
+          "label": "地理",
+          "track_id": "taipei-junior-geography",
+          "source_subject_code": "di-li",
+          "source_subject_name": "地理",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "地理科專業科目"
+          ]
+        },
+        {
+          "code": "job-chinese",
+          "label": "國文",
+          "track_id": "taipei-junior-chinese",
+          "source_subject_code": "guo-wen",
+          "source_subject_name": "國文",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "國文科專業科目"
+          ]
+        },
+        {
+          "code": "job-physics-chemistry",
+          "label": "理化",
+          "track_id": "taipei-junior-physics-chemistry",
+          "source_subject_code": "li-hua",
+          "source_subject_name": "理化",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "理化科專業科目"
+          ]
+        },
+        {
+          "code": "job-mathematics",
+          "label": "數學",
+          "track_id": "taipei-junior-mathematics",
+          "source_subject_code": "shu-xue",
+          "source_subject_name": "數學",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "數學科專業科目"
+          ]
+        },
+        {
+          "code": "job-living-technology",
+          "label": "生活科技",
+          "track_id": "taipei-junior-living-technology",
+          "source_subject_code": "subject-18cdc196",
+          "source_subject_name": "生活科技",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "生活科技科專業科目"
+          ]
+        },
+        {
+          "code": "job-dedicated-counselor",
+          "label": "專任輔導",
+          "track_id": "taipei-junior-dedicated-counselor",
+          "source_subject_code": "subject-1d2a18ea",
+          "source_subject_name": "專任輔導",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "專任輔導科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-english",
+          "label": "特殊教育（資優英語）",
+          "track_id": "taipei-junior-gifted-english",
+          "source_subject_code": "subject-38d7195d",
+          "source_subject_name": "特殊教育-資優英語",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優英語）科專業科目"
+          ]
+        },
+        {
+          "code": "job-history",
+          "label": "歷史",
+          "track_id": "taipei-junior-history",
+          "source_subject_code": "subject-41e84cd8",
+          "source_subject_name": "歷史",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "歷史科專業科目"
+          ]
+        },
+        {
+          "code": "job-special-needs",
+          "label": "特殊教育（身心障礙）",
+          "track_id": "taipei-junior-special-needs",
+          "source_subject_code": "subject-42a9ad70",
+          "source_subject_name": "特殊教育-身心障礙",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（身心障礙）科專業科目"
+          ]
+        },
+        {
+          "code": "job-home-economics",
+          "label": "家政",
+          "track_id": "taipei-junior-home-economics",
+          "source_subject_code": "subject-830172c6",
+          "source_subject_name": "家政",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "家政科專業科目"
+          ]
+        },
+        {
+          "code": "job-english",
+          "label": "英語",
+          "track_id": "taipei-junior-english",
+          "source_subject_code": "subject-9e84046c",
+          "source_subject_name": "英語",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "英語科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-physics-chemistry",
+          "label": "特殊教育（資優理化）",
+          "track_id": "taipei-junior-gifted-physics-chemistry",
+          "source_subject_code": "subject-a049528b",
+          "source_subject_name": "特殊教育-資優理化",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優理化）科專業科目"
+          ]
+        },
+        {
+          "code": "job-taiwanese",
+          "label": "本土語文（閩南語）",
+          "track_id": "taipei-junior-taiwanese",
+          "source_subject_code": "subject-b084b55d",
+          "source_subject_name": "本土語-閩南語",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "本土語文（閩南語）科專業科目"
+          ]
+        },
+        {
+          "code": "job-home-economics-bilingual",
+          "label": "家政（雙語教學專長）",
+          "track_id": "taipei-junior-home-economics-bilingual",
+          "source_subject_code": "subject-bc058cad",
+          "source_subject_name": "家政-雙語教學專長",
+          "bilingual": true,
+          "public_section_labels": [
+            "教育專業科目",
+            "家政（雙語教學專長）科專業科目"
+          ]
+        },
+        {
+          "code": "job-information-technology-bilingual",
+          "label": "資訊科技（雙語教學專長）",
+          "track_id": "taipei-junior-information-technology-bilingual",
+          "source_subject_code": "subject-c34f2b4a",
+          "source_subject_name": "資訊科技-雙語教學專長",
+          "bilingual": true,
+          "public_section_labels": [
+            "教育專業科目",
+            "資訊科技（雙語教學專長）科專業科目"
+          ]
+        },
+        {
+          "code": "job-information-technology",
+          "label": "資訊科技",
+          "track_id": "taipei-junior-information-technology",
+          "source_subject_code": "subject-ce4b36ac",
+          "source_subject_name": "資訊科技",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "資訊科技科專業科目"
+          ]
+        },
+        {
+          "code": "job-counseling",
+          "label": "輔導活動",
+          "track_id": "taipei-junior-counseling",
+          "source_subject_code": "subject-dfaab4e2",
+          "source_subject_name": "輔導",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "輔導活動科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-mathematics",
+          "label": "特殊教育（資優數學）",
+          "track_id": "taipei-junior-gifted-mathematics",
+          "source_subject_code": "subject-e8baddce",
+          "source_subject_name": "特殊教育-資優數學",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優數學）科專業科目"
+          ]
+        },
+        {
+          "code": "job-scouting",
+          "label": "童軍教育",
+          "track_id": "taipei-junior-scouting",
+          "source_subject_code": "subject-fd619516",
+          "source_subject_name": "童軍",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "童軍教育科專業科目"
+          ]
+        },
+        {
+          "code": "job-physical-education",
+          "label": "體育",
+          "track_id": "taipei-junior-physical-education",
+          "source_subject_code": "ti-yu",
+          "source_subject_name": "體育",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "體育科專業科目"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "di-li",
+          "subject_name_raw": "地理",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9lY2RjNWU4Ni0zMDAxLTRmN2MtOTc1Mi03ZmI5YjQyNWUwOTcucGRm&n=5Zyw55CG6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "1cb02f9c7830dc62bc796aac328dcbbb6b00c1ac90db0a0ba5a3612a010b1b19",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 地理科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 19,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "di-li",
+          "subject_name_raw": "地理",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8zMTE3ODg1ZS02ZDcxLTQ0MGItOGI2NS00YWE5YmUzMGIwODYucGRm&n=5Zyw55CG562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "c64a28d813cef4ce9ab2aeb8d10863dbb62963ad601dfbed28de3785dca2588d",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選地理科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "guo-wen",
+          "subject_name_raw": "國文",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9kMTFhMTQxNC1iODg3LTQ3ZTItOTQ2NS1mZGRjMzI1Nzk0YjkucGRm&n=5ZyL5paH6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "21879f4bb92c2cb696fb6dc6502a96bccd391e231a617eb0bcde45aa74dae41e",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 國文科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 19,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "guo-wen",
+          "subject_name_raw": "國文",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9lZThkZWRmYy03MThlLTQ4NjAtYTQ5Zi0wYzYzNDAxMzBjZGIucGRm&n=5ZyL5paH562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "b56153d8fc779a167f9ab1f389437db9f1f6f79aa36c94e59f00e4b31daf3bee",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選國文科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "li-hua",
+          "subject_name_raw": "理化",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC83ZDQyZDAyMC01MTYyLTQxNmYtOGI5Yy0wMGQ3MzhlMmZjMzUucGRm&n=55CG5YyW6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "22535dc903d34a2dc0831265810306fa0262ecbfd396f97d591aacb141d3f980",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 理化科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 17,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "li-hua",
+          "subject_name_raw": "理化",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC81MzJlOGM0MC04MDZlLTQ3ZDQtYjNmYS1jYzY4OGNlMmFjMmIucGRm&n=55CG5YyW562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "fc91abcfc0d26944cef3a2bbc3ee91634a057e041501b3e16edce63528e97d7c",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選理化科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "shu-xue",
+          "subject_name_raw": "數學",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC84ZDMxMzU4Ny1kYTg1LTQ0NGYtYWFmZi0wZjA0MjdiZjYzNGIucGRm&n=5pW45a246Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "edee242b694f2868797cdbe5f81751a0be11b1a6210629c39dd0b3e88f0d2ef3",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 數學科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "shu-xue",
+          "subject_name_raw": "數學",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC80Nzg1NjJjNi1kYjc5LTQ5ZDQtYjkwNS0zMWRkNzY0MDcyMmUucGRm&n=5pW45a24562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "7b75e0f48e54f07d47c3598a21b2780cd389ff3cba60bd8fd5168391a2d7d24e",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選數學科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-18cdc196",
+          "subject_name_raw": "生活科技",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8xZDc4NDZiOS0wZDg5LTQ1MjktYTlhMy00NTJjNGJkY2Y2ZjgucGRm&n=55Sf5rS756eR5oqA6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "019b4cd881e3735130703f33bd57abc56b6c87af4b601d9da8ce168ec0423bf2",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 生活科技科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 19,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-18cdc196",
+          "subject_name_raw": "生活科技",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8xMGQzMmY1Yy0yNjUwLTQ0YjEtOGViYS1hNzc0NTYzM2I3YWMucGRm&n=55Sf5rS756eR5oqA562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "a1597342e670384d63fd19350d938d79ed569755722557b65f4b8418ae8dcb45",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選生活科技科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1d2a18ea",
+          "subject_name_raw": "專任輔導",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8yMjdhMDdlZi1iMjBkLTQ2MjgtODIzMi02MWVhZDA5ZmFhNjUucGRm&n=5bCI5Lu76LyU5bCO6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "48c543d6fe7795916fe931cb66cf76b289bd9e623ade3ca3c258a4bde6013ae1",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 專任輔導科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1d2a18ea",
+          "subject_name_raw": "專任輔導",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC83MjVlNmI3Yy04M2NiLTQwZmQtOTIwNC03NWJkNThiMTMxZjcucGRm&n=5bCI5Lu76LyU5bCO562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "d8b3bd8b21afb5d89d73b27aae82368dfbb6ced55f3e3616c14a1cb67e8f0c4d",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選專任輔導科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-38d7195d",
+          "subject_name_raw": "特殊教育-資優英語",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9jMjA1ZmE4ZS1kNWI3LTQ1ODMtOGJjZi04MjZhMDE4YTJjODQucGRm&n=54m55q6K5pWZ6IKyLeizh%2bWEquiLseiqnuippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "a5412a2f0b468fcdcb8e5599ffe81d9cca2b54b3f4e74113908afeb3544bf639",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-資優英語科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-38d7195d",
+          "subject_name_raw": "特殊教育-資優英語",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8wNmQ5MDVmZS0zNTA4LTQ0YzktOTNkOS01YTFmZGM2MDk2NDUucGRm&n=54m55q6K5pWZ6IKyLeizh%2bWEquiLseiqnuetlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "d563e36488e14cefb8907da19e59510ad558b996303acda342946d6836b3cbe5",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-資優英語科筆試答案卷 教育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-41e84cd8",
+          "subject_name_raw": "歷史",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8xZDNlYmE5Ny0zOTI5LTQ5YTgtYmVkZS0wMDEwMDQ3OWQwZDgucGRm&n=5q235Y%2by6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "0d2c3dcbe63ef8aaf15bcf8209ef312ad108182a48ade4eab3ecfa3bde6a18db",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 歷史科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-41e84cd8",
+          "subject_name_raw": "歷史",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC81MWViOTZlYy00OTk4LTQwYWYtYTkwZC02ZDhmMzkwNGFkYmYucGRm&n=5q235Y%2by562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "bfde8877576e5d4a098d32225c4906701426f1205707ba03b9857f429c9f8843",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選歷史科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-42a9ad70",
+          "subject_name_raw": "特殊教育-身心障礙",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9iYjRiYTViOC0wOTU4LTQ5M2YtODZjMy0xOWYzNjRjYTY4NmEucGRm&n=54m55q6K5pWZ6IKyLei6q%2bW%2fg%2bmanOekmeippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "0c621de2bef84f9b333cb0bd4d9abd1d6ec8bc6169bbd4c5c257b436fd2ea1ea",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-身心障礙科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 17,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-42a9ad70",
+          "subject_name_raw": "特殊教育-身心障礙",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8yMmEyMjFmYS03YjdhLTRkZmQtODFhYS00NGVjNWI0MjVkYzQucGRm&n=54m55q6K5pWZ6IKyLei6q%2bW%2fg%2bmanOekmeetlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "271493b7d761700cc84fcd4b393ae131815fc5df1453667cf6f00d2212918e3b",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-身心障礙科筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-830172c6",
+          "subject_name_raw": "家政",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC84MGQ1MDdjNi03YzRlLTQ3YTAtYjQ2Ny00YzJiMzk2MTNjOWYucGRm&n=5a625pS%2f6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "35abffb5ab9dd7a6f0b0af3313b6884b6f187d7eae85fc18149385786fcb0284",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 家政科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-830172c6",
+          "subject_name_raw": "家政",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8xMWIwYmZjMS01ODE2LTRhNDUtYTYxMS02N2RhZjY3N2QwOWUucGRm&n=5a625pS%2f562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "631e46279d8211762b16cfe6d5da95c21ebd82a0526b827c349f37ae506d5ef4",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選家政科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-9e84046c",
+          "subject_name_raw": "英語",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9lZDQ1YTZhMC1hNGJhLTQ1ZmQtOTIyMS03YWY0NDNhNTc3MjUucGRm&n=6Iux6Kqe6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "f5735c7a756f1ffe808b24cc8f4ce2648c2847f2fb342d242b043f7b8333d986",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 英語科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-9e84046c",
+          "subject_name_raw": "英語",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC82NWMxYWJhZS0zN2FjLTQ4NDMtYWQ0ZC1iODhkYmNmODY3YTIucGRm&n=6Iux6Kqe562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "75249e56bbfb60d33388f77b0629bbd725348d510f43a9557454566ace0c472c",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選英語科筆試答案卷 教育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-a049528b",
+          "subject_name_raw": "特殊教育-資優理化",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8yMjg2MzgwNi1lZmVlLTQ4OTctYWZjNi00OGU1NzVhYTI4ZDUucGRm&n=54m55q6K5pWZ6IKyLeizh%2bWEqueQhuWMluippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "9fffe08f1690a9a1ce878b4f9906cef634d5bcdaeb48652181f5166d749afb7a",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-資優理化科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 17,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-a049528b",
+          "subject_name_raw": "特殊教育-資優理化",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC84NTkxZGE0Yi02YTQzLTRjZWItYTNkZS05ZTcxODcyZjFjYmUucGRm&n=54m55q6K5pWZ6IKyLeizh%2bWEqueQhuWMluetlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "dfa0ab41585cb3d86e4890a938660da9598bfcbcc66554718109d51671bdb46b",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-資優理化科筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-b084b55d",
+          "subject_name_raw": "本土語-閩南語",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9hYmU3MWYzZC1jZjFiLTRiNmQtYmU0Mi1hY2FkMmZhM2NjYzcucGRm&n=5pys5Zyf6KqeLemWqeWNl%2biqnuippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "47835c2275e4cdeb09fe35438b8265f224837c3f0d33e269cee078c404943d29",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 本土語-閩南語科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 15,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-b084b55d",
+          "subject_name_raw": "本土語-閩南語",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC82NDEwNTU4MS04OTZhLTQzZmQtOTcyZC1kYjgwYzkyOGViMDAucGRm&n=5pys5Zyf6KqeLemWqeWNl%2biqnuetlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "573e031c0bf180a187dd5a10501086bb50dda0ec4e0fb787ef3589efaeec729d",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選本土語-閩南語科筆試答案卷 敎育專業科目 1.    2.    3.    4.    5.    6.    7.    8.    9.    10. A     A     D     B     C     C     B     D     D     B",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-bc058cad",
+          "subject_name_raw": "家政-雙語教學專長",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC82MTY3OTE2Ny04MDQyLTQzMjktYjAxZS0zMTgwYmFkY2U4YjUucGRm&n=5a625pS%2fLembmeiqnuaVmeWtuOWwiOmVt%2bippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "b5eb7bb48fe15c0a3d720f2fcce2b20f250d1389b2cecdb1b70eee4cb89560c9",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 家政-雙語教學專長科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-bc058cad",
+          "subject_name_raw": "家政-雙語教學專長",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9jMDhlYjg2YS1iMTQ0LTRjYjYtOWZmMi03ZjQzODk2Njc4ODEucGRm&n=5a625pS%2fLembmeiqnuaVmeWtuOWwiOmVt%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "f121cbe504dcecfcd9372f00e28828840018e20c70b17a05cb23953c521dfbe4",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 家政-雙語教學專長科筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-c34f2b4a",
+          "subject_name_raw": "資訊科技-雙語教學專長",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9mZWNhNzJkYi0yYzA0LTQ3NzUtYjAxZS00ZmVkYjY4ZTZjYzAucGRm&n=6LOH6KiK56eR5oqALembmeiqnuaVmeWtuOWwiOmVt%2bippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "e781f96bc31d308ac474220125e4039233869847c95349b1f07f12dfa360b62f",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 資訊科技-雙語教學專長科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-c34f2b4a",
+          "subject_name_raw": "資訊科技-雙語教學專長",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC84OGQ2NjQ2NC0wMDQ3LTQyOTEtODJjMi03MmRjZDdiNjQyMjEucGRm&n=6LOH6KiK56eR5oqALembmeiqnuaVmeWtuOWwiOmVt%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "246abdf7c2afdae531abd9ece3b7483fcfd00a7f4b3ce304380245b6a15853a4",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 資訊科技-雙語教學專長科筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-ce4b36ac",
+          "subject_name_raw": "資訊科技",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9iZWMzZWIzNS03ZjRkLTRiMGItYjdkYi01ODNjNTlmMThlYzEucGRm&n=6LOH6KiK56eR5oqA6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "83a794b31159c55e8b75142db5a0bd5d02f9eb59608811049bca90a929f603f0",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 資訊科技科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-ce4b36ac",
+          "subject_name_raw": "資訊科技",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC8zNzkyYWUyNi01MDE2LTRhNGItYmNkMS1lMGI0Yzk5OGYyMjEucGRm&n=6LOH6KiK56eR5oqA562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "7359292db992a8b0606908092b27cecfd4b31da25263b0b0d880f88a75270cfd",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選資訊科技科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-dfaab4e2",
+          "subject_name_raw": "輔導",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC82MzJkMDQxYy1jNmZmLTQzM2UtYTIyMC00NzgwZDA3NDY1NDkucGRm&n=6LyU5bCO6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "0fbf6d5af678a003ca16d1733210f44512ad5f2552a8b386f4039714e364209a",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 輔導科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-dfaab4e2",
+          "subject_name_raw": "輔導",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9iNTAxMTVlZC02YmEwLTRjNTgtYjY2ZS05MjExNDU3MzgxNDQucGRm&n=6LyU5bCO562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "da35ad43f94d457ef1200f7f26003b97e3618fcb6c3101a3f39746ab1318b435",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選輔導科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-e8baddce",
+          "subject_name_raw": "特殊教育-資優數學",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9lYmM3MjI2My01ZmJmLTRhNjMtYmQ5Zi05ZDBkMzUzYzM3MmMucGRm&n=54m55q6K5pWZ6IKyLeizh%2bWEquaVuOWtuOippumhjC5wZGY%3d&icon=..pdf",
+          "checksum": "2af74324fa1cff60e1e9e584ee5ab315548e4517cc83ca8dfa2563eeeaded9f1",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-資優數學科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-e8baddce",
+          "subject_name_raw": "特殊教育-資優數學",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9iOGE5ZDNjMy1hZGZkLTRjNzYtYjVhOS00YzU4YWRhOGM4MGYucGRm&n=54m55q6K5pWZ6IKyLeizh%2bWEquaVuOWtuOetlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "c17c08c759ab008f3edb208e9c60244523d4c72deb643e5db11e6f8cf7386485",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 特殊教育-資優數學科筆試答案卷 敎育專業科目",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-fd619516",
+          "subject_name_raw": "童軍",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9hZjcxYTk5MS01NjMyLTQwYTItYjY3Yi0zNDM3MjYxNmExNTAucGRm&n=56ul6LuN6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "105c2de230f253891a1e5d927d7983fc05d2f0442c9a27bc397cb535be97a692",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 童軍科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 19,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-fd619516",
+          "subject_name_raw": "童軍",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC9iODNhNDRiZS0xOTQ4LTRmNWEtYTkxZC00N2FhMzQxMTA0MmQucGRm&n=56ul6LuN562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "d929a70b9e5ff4cb3dbb985ec9d0ecd347610ba73fe1e515010c3395f976e5d4",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選童軍科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "ti-yu",
+          "subject_name_raw": "體育",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC83MGI3NzJjZC1kYmM1LTRjNDItODEwNi00NmJkZWVjYmQ0NDcucGRm&n=6auU6IKy6Kmm6aGMLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "2ab8c48e581786595abdf460d8468cf7f737ab314ba4885e13daf5471046c633",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選 體育科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "ti-yu",
+          "subject_name_raw": "體育",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyMjMzOC81NmZlOWJhNi1hNmM3LTQwMzMtYTU4OC0wOWEyMGE1MTMwNjQucGRm&n=6auU6IKy562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "ba252ebb1f09e4d9a10d475056087cbdcd689bec19fc984ae2d4dc5f64301568",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選體育科筆試答案卷 敎育專業科目 1.      2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "answer-review",
+          "subject_name_raw": "筆試釋疑答案修訂彙整表",
+          "file_type": "corrected_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyNDM2Ny9lZTAwNWI3Mi01N2Y4LTQzYTQtYjI0Yy0yNTk2N2FlNDMyYjkucGRm&n=6ZmE5Lu2MV%2foh7rljJfluIIxMTTlrbjlubTluqbluILnq4vlnIvmsJHkuK3lrbjmraPlvI%2fmlZnluKvoga%2flkIjnlITpgbjnrYboqabph4vnlpHnrZTmoYjkv67oqILlvZnmlbTooagucGRm&icon=..pdf",
+          "checksum": "c9fd2cdd59c8364a39f5e8471a67e5c600894051105e2985c0aa107eebf23ef8",
+          "native_header": "臺北市 114 學年度市立國民中學正式教師聯合甄選筆試釋疑答案修訂彙整表 序號    疑義科目     題號                    結果建議 1      教育       2 ■維持原答案為 A 2               14       ■維持原答案為 A",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "document_id": "rule",
+          "title": "臺北市114學年度市立國民中學正式教師聯合甄選簡章",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTM4NTI0OC9kNmQwYzhhYS0zYzJhLTQ3MjMtYTE4Zi0xYzBlN2FiZDhkZDMucGRm&n=6Ie65YyX5biCMTE05a245bm05bqm5biC56uL5ZyL5rCR5Lit5a245q2j5byP5pWZ5bir6IGv5ZCI55SE6YG457Ch56ugX%2bWFrOWRiueJiC5wZGY%3d&icon=..pdf",
+          "checksum": "49fcdca9914cef9d604af4b9f2a546a1e38ab49c5b13993c72997996b1244f80",
+          "publication_date": "2025-04-01",
+          "page_count": 44,
+          "inspected_pages": [
+            4,
+            6
+          ]
+        },
+        {
+          "document_id": "vacancy",
+          "title": "臺北市114學年度市立國民中學正式教師聯合甄選各科缺額核定表",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQyNDM2Ny8yODcwNmI1Yy1mZjc2LTRkYzctODk5MS1kOTIzMmM5ZTUyNTkucGRm&n=6ZmE5Lu2M1%2foh7rljJfluIIxMTTlrbjlubTluqbluILnq4vlnIvmsJHkuK3lrbjmraPlvI%2fmlZnluKvoga%2flkIjnlITpgbjlkITnp5HnvLrpoY3moLjlrprooagucGRm&icon=..pdf",
+          "checksum": "e84dd90426caaaacf8431fb321f48de356813b2448ce33427d792388098e2313",
+          "publication_date": "2025-06-11",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "teacher-recruit-taipei-junior-115",
+      "programme_name": "臺北市115學年度市立國民中學正式教師聯合甄選",
+      "paper_article_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=17E283A5A0FE0DF5",
+      "rule_notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=05F1516CED86679D",
+      "review_notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=E9ECEFB8A8DC37C9",
+      "written_test_date": "2026-06-06",
+      "review_publication_date": "2026-06-10",
+      "reviewed_at": "2026-10-31",
+      "bilingual_written_language": "chinese",
+      "education_specialist_weights": [
+        30,
+        70
+      ],
+      "question_counts": [
+        40,
+        40
+      ],
+      "review_notes": "以年度簡章初試規定、各科缺額核定表、各類科原題本與初始答案及完整筆試釋疑答案修訂彙整表為據。教育與學科各40題，配分30%及70%；雙語教學專長是甄選職缺，命題語言依年度規定，語言證照不是考試等級。專任輔導與輔導科、普通與資優類科及雙語職缺分開；答案字母表相同不足以合併職缺。保留初始答案及原始修訂彙整表，不製造完整版修訂答案。已閱讀各題本封面文字、答案表與相關規則條文，並檢視重點頁面圖像；未宣稱逐頁目讀所有題目。",
+      "jobs": [
+        {
+          "code": "job-physical-education",
+          "label": "體育",
+          "track_id": "taipei-junior-physical-education",
+          "source_subject_code": "subject-15dab569",
+          "source_subject_name": "體育科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "體育科專業科目"
+          ]
+        },
+        {
+          "code": "job-dedicated-counselor",
+          "label": "專任輔導",
+          "track_id": "taipei-junior-dedicated-counselor",
+          "source_subject_code": "subject-1d2a18ea",
+          "source_subject_name": "專任輔導",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "專任輔導科專業科目"
+          ]
+        },
+        {
+          "code": "job-mathematics",
+          "label": "數學",
+          "track_id": "taipei-junior-mathematics",
+          "source_subject_code": "subject-1f6de3c6",
+          "source_subject_name": "數學科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "數學科專業科目"
+          ]
+        },
+        {
+          "code": "job-special-needs",
+          "label": "特殊教育（身心障礙）",
+          "track_id": "taipei-junior-special-needs",
+          "source_subject_code": "subject-39dce379",
+          "source_subject_name": "特殊教育－身心障礙科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（身心障礙）科專業科目"
+          ]
+        },
+        {
+          "code": "job-physics-chemistry",
+          "label": "理化",
+          "track_id": "taipei-junior-physics-chemistry",
+          "source_subject_code": "subject-4bd06bb9",
+          "source_subject_name": "理化科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "理化科專業科目"
+          ]
+        },
+        {
+          "code": "job-earth-science",
+          "label": "地球科學",
+          "track_id": "taipei-junior-earth-science",
+          "source_subject_code": "subject-5ef414d6",
+          "source_subject_name": "地球科學科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "地球科學科專業科目"
+          ]
+        },
+        {
+          "code": "job-scouting",
+          "label": "童軍教育",
+          "track_id": "taipei-junior-scouting",
+          "source_subject_code": "subject-6a2b9a72",
+          "source_subject_name": "童軍教育",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "童軍教育科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-physics-chemistry",
+          "label": "特殊教育（資優理化）",
+          "track_id": "taipei-junior-gifted-physics-chemistry",
+          "source_subject_code": "subject-6b40b2aa",
+          "source_subject_name": "特殊教育－資優理化科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優理化）科專業科目"
+          ]
+        },
+        {
+          "code": "job-physical-education-bilingual",
+          "label": "體育（雙語教學專長）",
+          "track_id": "taipei-junior-physical-education-bilingual",
+          "source_subject_code": "subject-768a0004",
+          "source_subject_name": "體育(雙語)科",
+          "bilingual": true,
+          "public_section_labels": [
+            "教育專業科目",
+            "體育（雙語教學專長）科專業科目"
+          ]
+        },
+        {
+          "code": "job-living-technology",
+          "label": "生活科技",
+          "track_id": "taipei-junior-living-technology",
+          "source_subject_code": "subject-7ae5deb4",
+          "source_subject_name": "生活科技科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "生活科技科專業科目"
+          ]
+        },
+        {
+          "code": "job-english",
+          "label": "英語",
+          "track_id": "taipei-junior-english",
+          "source_subject_code": "subject-8a75f1f1",
+          "source_subject_name": "英語科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "英語科專業科目"
+          ]
+        },
+        {
+          "code": "job-taiwanese",
+          "label": "本土語文（閩南語）",
+          "track_id": "taipei-junior-taiwanese",
+          "source_subject_code": "subject-8df045a0",
+          "source_subject_name": "本土語－閩南語科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "本土語文（閩南語）科專業科目"
+          ]
+        },
+        {
+          "code": "job-chinese",
+          "label": "國文",
+          "track_id": "taipei-junior-chinese",
+          "source_subject_code": "subject-952d92a1",
+          "source_subject_name": "國文科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "國文科專業科目"
+          ]
+        },
+        {
+          "code": "job-home-economics",
+          "label": "家政",
+          "track_id": "taipei-junior-home-economics",
+          "source_subject_code": "subject-a6cc5b37",
+          "source_subject_name": "家政科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "家政科專業科目"
+          ]
+        },
+        {
+          "code": "job-gifted-mathematics",
+          "label": "特殊教育（資優數學）",
+          "track_id": "taipei-junior-gifted-mathematics",
+          "source_subject_code": "subject-c21791d1",
+          "source_subject_name": "特殊教育－資優數學科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "特殊教育（資優數學）科專業科目"
+          ]
+        },
+        {
+          "code": "job-information-technology",
+          "label": "資訊科技",
+          "track_id": "taipei-junior-information-technology",
+          "source_subject_code": "subject-ce4b36ac",
+          "source_subject_name": "資訊科技",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "資訊科技科專業科目"
+          ]
+        },
+        {
+          "code": "job-civics",
+          "label": "公民與社會",
+          "track_id": "taipei-junior-civics",
+          "source_subject_code": "subject-d4172ebd",
+          "source_subject_name": "公民與社會科",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "公民與社會科專業科目"
+          ]
+        },
+        {
+          "code": "job-scouting-bilingual",
+          "label": "童軍教育（雙語教學專長）",
+          "track_id": "taipei-junior-scouting-bilingual",
+          "source_subject_code": "subject-d74f109e",
+          "source_subject_name": "童軍(雙語)",
+          "bilingual": true,
+          "public_section_labels": [
+            "教育專業科目",
+            "童軍教育（雙語教學專長）科專業科目"
+          ]
+        },
+        {
+          "code": "job-counseling",
+          "label": "輔導活動",
+          "track_id": "taipei-junior-counseling",
+          "source_subject_code": "subject-dda8380c",
+          "source_subject_name": "輔導活動",
+          "bilingual": false,
+          "public_section_labels": [
+            "教育專業科目",
+            "輔導活動科專業科目"
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "subject-15dab569",
+          "subject_name_raw": "體育科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9iNjAwMTZiOS05Y2RhLTRhYWMtYjZlYy1lOThhZjY2NmI0M2IucGRm&n=6auU6IKy56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "a5094088d29a096dd6e43bc385b8e5eabe6ce96b79a8ee575b67a373233617aa",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 體育科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 15,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-15dab569",
+          "subject_name_raw": "體育科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC82NGRkY2ZmMS1kNjYzLTRiOGMtYTgzZi03NDY5MTc0MjA1NzkucGRm&n=6auU6IKy56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "e666da7a5bfaa1ac675d1898f4c7d985df37bacb1494442029344819ab4b7b1d",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1d2a18ea",
+          "subject_name_raw": "專任輔導",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8wNDdkODVlNy0wZDE3LTQ5M2YtODUxNy03NjU2Y2NkYjRkNTQucGRm&n=5bCI5Lu76LyU5bCO6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "01ae8b9af742927baf205b7380ec2e6e0da9ae9ff8af40b7c36c41c2f312d904",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 專任輔導題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1d2a18ea",
+          "subject_name_raw": "專任輔導",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hMzQwODMyMi1iYzljLTRkMTctOWM4ZS00YTdiMjk0NGIzMDYucGRm&n=5bCI5Lu76LyU5bCO562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "90b320fee74ad8235ed4d8049f14d3153f32f28747fad4e7a6dcc43215a98a1d",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1f6de3c6",
+          "subject_name_raw": "數學科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC81NWU1OTZjZi0yMTI2LTQ1MDYtYmJkYi02ZjZjZDIyNzVhM2QucGRm&n=5pW45a2456eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "fcf0675bf39447306348ef01d16296b8235374a874639a70021b9223cd6bd67d",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 數學科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-1f6de3c6",
+          "subject_name_raw": "數學科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC81Y2E2NDU0Yi1kYWJiLTRlZWMtODE4My03ZDg5YThlNjYzMjUucGRm&n=5pW45a2456eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "869cada8cf72be02cfab3fdc6c3d02f8c98a0f63efbf6f6cc86a2f873fe2798c",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-39dce379",
+          "subject_name_raw": "特殊教育－身心障礙科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8wMGM0MWQ3Ni1jOTQzLTQ3MzYtYWJiMy03YWQ1OGI2YjQzMzkucGRm&n=54m55q6K5pWZ6IKy77yN6Lqr5b%2bD6Zqc56SZ56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "e933c33a1e5e46fe8f29af27e420f26be949a36d4f79e00012c6506fed49c49b",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 特殊教育－身心障礙科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-39dce379",
+          "subject_name_raw": "特殊教育－身心障礙科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hOGZmOGEzNS1iMTQzLTQ0ZGEtODRiOC1kMGIxY2VkYWJlZjkucGRm&n=54m55q6K5pWZ6IKy77yN6Lqr5b%2bD6Zqc56SZ56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "3cf50319c0517849686e9c9fda35fb66f1b105e9d09e3c9819e851f3bd773977",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.     4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-4bd06bb9",
+          "subject_name_raw": "理化科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8zMjA5NTI0MC04ZWExLTQwMGYtYjMyNC1jZTk3MGRjOTQyNzMucGRm&n=55CG5YyW56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "7b7150713887fba159159b0f198b6adeb22317cacf03243f4d8de51624eff5a2",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 理化科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-4bd06bb9",
+          "subject_name_raw": "理化科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC85MDgwZWM2ZS1lNGVmLTRhNGMtOTY3OS1mYmExY2Y3NzAxNzQucGRm&n=55CG5YyW56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "a25c1524358ced26b18f25fcadbac221d05083ef65b9ec0b6e4eb956995d7228",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-5ef414d6",
+          "subject_name_raw": "地球科學科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC83NGNhYTE1Ni1hMTIxLTQ4MDYtOGVjYS0wNzdmMjU2MGIzYzUucGRm&n=5Zyw55CD56eR5a2456eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "1ebbe2ed6302970c851999eba3f5d00ab8d2b7155d89e2842b872ecb56c67ead",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 地球科學科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-5ef414d6",
+          "subject_name_raw": "地球科學科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC81YTA0YzgwZi1mZTcyLTQwNDgtODcyYy1hZDUzZTI0MjJlNGUucGRm&n=5Zyw55CD56eR5a2456eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "b7fbf688f91d9fe0bf0e252fa9112161af0c6639d07f99395f52129e2a636bcd",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-6a2b9a72",
+          "subject_name_raw": "童軍教育",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8zMWJlYTNmMi01Mjk4LTQxNWQtOTA2Ni1lZThlOTg0MmQzMWEucGRm&n=56ul6LuN5pWZ6IKy6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "b9651aeecb3603fa660716cc80d9651671bd5f2ac880aac220180a1cde834686",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 童軍教育題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 15,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-6a2b9a72",
+          "subject_name_raw": "童軍教育",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9jOWUyN2Y2OS0xNjU0LTRhYjktOTNiYS0yYWRmZjJlOGMwODMucGRm&n=56ul6LuN5pWZ6IKy562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "25a03575c0e3aad3991cc99ba8e6ed46de6d6e37536d5267110974f5c1e782ed",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-6b40b2aa",
+          "subject_name_raw": "特殊教育－資優理化科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hZjdiMmU3MS00YjMwLTQ0ODAtOTAyNi0xYTk1ZGVmYzU5MDEucGRm&n=54m55q6K5pWZ6IKy77yN6LOH5YSq55CG5YyW56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "608e0aaccdc4b783224fdeb3accfaf875a6ab2712cffb5dbf74acadf85a38b96",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 特殊教育－資優理化科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-6b40b2aa",
+          "subject_name_raw": "特殊教育－資優理化科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hNTEwZTJjNC1hNjJlLTQyNDgtYmFiMi0wZGNjYmQ1OGNlYjkucGRm&n=54m55q6K5pWZ6IKy77yN6LOH5YSq55CG5YyW56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "0ff23004e7404b9e451ca1397d59fffaed08397e49d92fcaff7e0f3c2b5dccee",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.     4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-768a0004",
+          "subject_name_raw": "體育(雙語)科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8wOWE3OGM2Mi03YmU4LTQzYjgtOWNlNy1jZWQ3NWY5MTg3NTEucGRm&n=6auU6IKyKOmbmeiqninnp5HoqabpoYzlroznqL8ucGRm&icon=..pdf",
+          "checksum": "cb3bb3d5428aabbe4b056eb47322bf9e2f4c5220275e3cb82a6f6a22f8b22efc",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 體育(雙語)科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 15,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-768a0004",
+          "subject_name_raw": "體育(雙語)科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC83MzM5NGE0OS03NDEzLTQ4MWMtYmY3OS1lN2JiMTc5MWQ0YjMucGRm&n=6auU6IKyKOmbmeiqninnp5HnrZTmoYggLSDlroznqL8ucGRm&icon=..pdf",
+          "checksum": "a51ae1f6557c2c086a8e39ce94ead2bdc596d566f1e99b94f7efed08d8308b4c",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.   6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-7ae5deb4",
+          "subject_name_raw": "生活科技科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC84OTk0NTRlMy05ODY0LTQ2MzItOGUzMC00ODUyOTVmYjA0MmMucGRm&n=55Sf5rS756eR5oqA56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "320a9c942f3e4e741243769e8d0430537a863ccb428416c0904523f0718a9d85",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 生活科技科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-7ae5deb4",
+          "subject_name_raw": "生活科技科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8zZjVmMzRhNi0yNmQ5LTRlMjAtYmE4ZC04YWJiOTFmYzg5OTIucGRm&n=55Sf5rS756eR5oqA56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "c68b3b3a99f5ee198968f23086c1a7d7c394b809f6a7e8cca997de314de04652",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-8a75f1f1",
+          "subject_name_raw": "英語科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hNzIyMTFkNi03MTRkLTQ5ZDYtOTI5Ny1lZTE0ZWRlNzM2NzcucGRm&n=6Iux6Kqe56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "05f3e84e558b8636a3101c7596498f80cdc4e813d66e8eab9e2ab899f09dcff6",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 英語科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 17,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-8a75f1f1",
+          "subject_name_raw": "英語科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hOTMzNDBmMy0xN2ZkLTQxOWEtOTY3ZS0wYjMxMDIzY2EyNWMucGRm&n=6Iux6Kqe56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "24f718e510b90e2625b4ff22cc7dbdd8f292fdbc146239f3730d68da6aa3f89d",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-8df045a0",
+          "subject_name_raw": "本土語－閩南語科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9lMDhkN2VhZi00OGNhLTQxNzEtYTJhYS1mZWQyZTIwODg1OWMucGRm&n=5pys5Zyf6Kqe77yN6Zap5Y2X6Kqe56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "3ed069a9aec08879f2e7397dcd19d0a5e901bf9570f5fc6ff463256c742d9d49",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-8df045a0",
+          "subject_name_raw": "本土語－閩南語科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC80NWRkNmY4Yy1iYjYyLTQ4ZTItODRmYS05NWI2YjM2NTUzMzYucGRm&n=5pys5Zyf6Kqe77yN6Zap5Y2X6Kqe56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "c26c2ca821935a4d323e355fb2f1e3053a662577b4ec79e1012b3f9c03b827c9",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 本土語－閩南語科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 13,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-952d92a1",
+          "subject_name_raw": "國文科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9lZTZiMDBlMi04OTZkLTQyZjUtOGNkNy1lOThlYjZjNDI1ZjMucGRm&n=5ZyL5paH56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "70e1c3da7cd0ccc9ad54c8c16e03364ad01530a9e8bc0ba4fb1615d795b172fe",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 國文科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 22,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-952d92a1",
+          "subject_name_raw": "國文科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8xMTU4NTNjMS1mZmQwLTRlNWQtYjZiNS05M2FiYWYzN2JiYTMucGRm&n=5ZyL5paH56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "ffe7a70710ce0eda26e6f81311f1556142ebb15d91e19667a25c6f39c4c5360c",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-a6cc5b37",
+          "subject_name_raw": "家政科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9jMmJiOTlmMi1lYTI3LTQ3ZjYtODJhYy1kZTA4ZTU4ZjM2MGUucGRm&n=5a625pS%2f56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "d29385cc08d06cfde290f6f7d09cc71b402d2bc9cf859e22b217d8ef66c9420a",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 家政科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 20,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-a6cc5b37",
+          "subject_name_raw": "家政科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9lMDI1OWI5YS1hOWJkLTRkM2QtYmI1MS1lM2ZiMjJhOTAyZDAucGRm&n=5a625pS%2f56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "9972587dc889d223b08f51128fe66ec06f560eff2f799399094d0b90e57e9e74",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-c21791d1",
+          "subject_name_raw": "特殊教育－資優數學科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC82ZDRiMDljYS1lNzE2LTQ3OTgtYmU0Ny1lZGI0OGQwOWE5NDkucGRm&n=54m55q6K5pWZ6IKy77yN6LOH5YSq5pW45a2456eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "73644e950ec82af75cccb00560206d054713c344beb71617fcb513a5d5d33ed1",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 特殊教育－資優數學科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-c21791d1",
+          "subject_name_raw": "特殊教育－資優數學科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8yZGViY2UyNS00ODU5LTRlMDUtOWI3ZS03ZjVhMWI0MDVmMjUucGRm&n=54m55q6K5pWZ6IKy77yN6LOH5YSq5pW45a2456eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "83b65f8b7de3a93d1f43e4bf8da46218de31feb89ed018452b8c4d13c84e67ad",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.     4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-ce4b36ac",
+          "subject_name_raw": "資訊科技",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9iMTliMmFkMi05M2M4LTQ4OTUtYjIwNS0wZWJlNmRjMTBjMWQucGRm&n=6LOH6KiK56eR5oqA6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "a51bea4be1cc99cd4ac66c4d4c9e318f7ee7de2b85620a50c45827a5e85a0b5a",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 資訊科技題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-ce4b36ac",
+          "subject_name_raw": "資訊科技",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9lODBjZGM2NS0yOTcyLTQ4MTgtYjdhNi1mMWY1ODU2ODVmZmQucGRm&n=6LOH6KiK56eR5oqA562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "4fe72e5a26b6ed2deebe34cba986c3ae0214a6ee90d1203bf7b66faf30499b6b",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-d4172ebd",
+          "subject_name_raw": "公民與社會科",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9hOTFkZTkxOC0xNjg5LTRlNTItOTljYS1jNzRhMWMzNGJiZDQucGRm&n=5YWs5rCR6IiH56S%2b5pyD56eR6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "ee39a19be4814a1c1ef77a2d4f700fd9cab2a7215b5fac43c8c8bfc7a77f6ca1",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 公民與社會科題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 18,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-d4172ebd",
+          "subject_name_raw": "公民與社會科",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC82YTM4NGM3OS1iNzM1LTQ3ZmMtYTJiZS1hZDZhOTljNzY4YjYucGRm&n=5YWs5rCR6IiH56S%2b5pyD56eR562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "7255fb90357adc02c09af95db22963d5ddfbcfe99e3fa7feaefdfa0672120414",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.    5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-d74f109e",
+          "subject_name_raw": "童軍(雙語)",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8zZjA1OWMwNi04NDgxLTQyOWUtYjM4Yi04NzNhNzhiZjM1MDYucGRm&n=56ul6LuNKOmbmeiqninoqabpoYzlroznqL8ucGRm&icon=..pdf",
+          "checksum": "b52291c78f7cf6bb00789163d96fb90a6f33c0c05b3abf42be9c969930101728",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 童軍(雙語)題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 15,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-d74f109e",
+          "subject_name_raw": "童軍(雙語)",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC9jMTllNTg4OS04OGYzLTRlOGEtYTc2Ny1kZGQzZDJlNTZkZjgucGRm&n=56ul6LuNKOmbmeiqninnrZTmoYggLSDlroznqL8ucGRm&icon=..pdf",
+          "checksum": "8a54432b6871c0bf82d4dd3b127ff81d52deb0def573198841a494fea8c9d350",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.      5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-dda8380c",
+          "subject_name_raw": "輔導活動",
+          "file_type": "question",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC82MjlmNTc3ZS0xZGEzLTQ3NjctYjllNS01MTU4ZTI5OGE4OTIucGRm&n=6LyU5bCO5rS75YuV6Kmm6aGM5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "f3da211aa3621c88288f8f56c03d1b95d03b452ae20aa1283b3faa3321686ee7",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選 輔導活動題本 請不要翻到次頁！ 讀完本頁的說明，聽從監試委員的指示才開始作答",
+          "page_count": 16,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "subject-dda8380c",
+          "subject_name_raw": "輔導活動",
+          "file_type": "answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1NzI1NC8zMmYzOGU0OC0xN2Y0LTRlMmEtOGE5Yi1iM2M0MGFkZWYzNTkucGRm&n=6LyU5bCO5rS75YuV562U5qGIIC0g5a6M56i%2fLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "2c5136a34462c497f6604a3abd1c0c52410f0848df939263af319aa13dc30044",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選教育學科筆試答案卷 敎育專業科目 1.    2.    3.    4.     5.    6.    7.    8.    9.    10.",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "subject_code": "answer-review",
+          "subject_name_raw": "筆試釋疑答案修訂彙整表",
+          "file_type": "corrected_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1ODcxMi9kODU3ZDNkOC0wMmRkLTQzNDgtODM4Ni0zYTVmZDRjNjRjM2EucGRm&n=6Ie65YyX5biCMTE1IOWtuOW5tOW6puW4gueri%2bWci%2bawkeS4reWtuOato%2bW8j%2baVmeW4q%2biBr%2bWQiOeUhOmBuCDnrYboqabph4vnlpEg562U5qGI5L%2bu6KiC5b2Z5pW06KGoLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "a75fccfece08a235707b1cf9597a0cb4d6f841590665109018ed04e0f89849c1",
+          "native_header": "臺北市 115 學年度市立國民中學正式教師聯合甄選筆試釋疑答案修訂彙整表 序號    疑義科目     題號                    結果建議 1      教育       18 ■維持原答案為 B 2               20       ▓增列答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "document_id": "rule",
+          "title": "臺北市115學年度市立國民中學正式教師聯合甄選簡章",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU1ODczNy82MzhjOWZlZi0xYWU4LTQzODItYWI4Yy1jZGNkYzE4MGUyZDEucGRm&n=6Ie65YyX5biCMTE15a245bm05bqm5biC56uL5ZyL5rCR5Lit5a245q2j5byP5pWZ5bir6IGv5ZCI55SE6YG457Ch56ugLeWFrOWRiueJiC5wZGY%3d&icon=..pdf",
+          "checksum": "60c811d6139681727c32fadc67e95846c9b9b94c443cc5f68f7b8ff7c170d7e6",
+          "publication_date": "2026-04-01",
+          "page_count": 50,
+          "inspected_pages": [
+            5,
+            8
+          ]
+        },
+        {
+          "document_id": "vacancy",
+          "title": "臺北市115學年度市立國民中學正式教師聯合甄選各科缺額核定表",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTY1ODcxMi9mOWI2Mjg4Ny0yNjI0LTRlODUtOTI3NC0yOThkZWVmNjU5YTUucGRm&n=6Ie65YyX5biCMTE15a245bm05bqm5biC56uL5ZyL5rCR5Lit5a245q2j5byP5pWZ5bir6IGv5ZCI55SE6YG4IOWQhOenkee8uumhjeaguOWumuihqC5wZGY%3d&icon=..pdf",
+          "checksum": "1e0e193c2fdd26efe3f9a20b9219335aaa59804f63deb48cfc65eee847448fce",
+          "publication_date": "2026-06-10",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

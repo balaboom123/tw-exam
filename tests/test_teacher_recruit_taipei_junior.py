@@ -143,7 +143,8 @@ class TaipeiJuniorRecruitClientTests(unittest.TestCase):
             article_html_by_year={2025: ARTICLE_HTML, 2024: ARTICLE_HTML}
         )
 
-        self.assertEqual(client.discover_available_years(), [2025, 2024])
+        self.assertEqual(client.discover_available_years(), [2026, 2025, 2024])
+        self.assertEqual(client.discover_exams(2026)[0].code, "teacher-recruit-taipei-junior-115")
         self.assertEqual(client.discover_exams(2025)[0].code, "teacher-recruit-taipei-junior-114")
         self.assertEqual(client.build_discovery_year_url(2024), ARTICLE_URLS_BY_YEAR[2024])
         self.assertEqual(

@@ -1014,6 +1014,33 @@ replacing a question, key or combined booklet according to link order.
 
 Use the official Taipei junior-high teacher-recruitment source for its events and papers. Do not merge elementary or other municipal recruitment series by city name alone.
 
+The native annual programme catalogue owns the reviewed article sources,
+recruitment posts, rules, vacancy context and written-paper applicability.
+Combined booklets contain education and specialist sections; question counts
+and score weights are distinct annual facts. Dedicated counseling has its own
+multiple-choice booklet and actual initial key. Do not import another city's
+essay-paper or answer-placeholder treatment.
+
+Keep ordinary, gifted, counseling-subject, dedicated-counselor and bilingual
+teaching posts separate even when their answer tables agree. Bilingual teaching
+eligibility does not establish written-paper language: the annual rule supplies
+that content variant, while prerequisite certificates do not create an exam
+grade. Native wording differences across years resolve through exact category
+and paper contexts rather than frontend name guessing.
+
+Acquire each complete annual correction summary separately from the original
+keys. Its shared education section makes the complete notice applicable to
+every annual post; do not synthesize replacement keys or invent a narrower
+scope for abbreviated specialist labels. New relevant notice links or changed
+native bytes stop acquisition before retained events are replaced. Result lists
+and venue announcements remain outside the paper population.
+
+The conserving migration retains exact earlier generic claims and independent
+original blobs. Publication requires complete native category and file-role
+coverage and preserves the earlier ZIP with navigation to its reviewed
+successors. The fixed reviewed annual scope does not establish that older or
+future source years are unavailable.
+
 ## `teacher_recruit_taoyuan_elementary`
 
 Use the official Taoyuan elementary teacher-recruitment source and its linked papers. Preserve elementary scope and official event identity.

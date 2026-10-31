@@ -10,19 +10,13 @@ from app.providers.taipei_downloads import PaperDownload as TaipeiJuniorDownload
 from app.providers.taipei_downloads import download_name as _decode_download_name
 from app.providers.taipei_downloads import group_paper_files, official_pdf_downloads
 from app.providers.taipei_downloads import request_url as _request_url
+from app.providers.teacher_recruit_taipei_junior.evidence import (
+    CANONICAL_CATEGORY,
+    annual_exams,
+)
 
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taipei-junior-mirror/1.0)"
-CANONICAL_CATEGORY = "臺北市國中教師甄試"
-ARTICLE_URLS_BY_YEAR = {
-    2025: (
-        "https://www.doe.gov.taipei/News_Content.aspx?n=E831"
-        "CA0A5CD0193D&sms=78D644F2755ACCAA&s=4A85C1A3A3BD7C48"
-    ),
-    2024: (
-        "https://www.doe.gov.taipei/News_Content.aspx?n=E831"
-        "CA0A5CD0193D&sms=78D644F2755ACCAA&s=01ADD0497C10AC9C"
-    ),
-}
+ARTICLE_URLS_BY_YEAR = {exam.year_roc + 1911: exam.paper_article_url for exam in annual_exams()}
 SUBJECT_CODES = {
     "國文": "guo-wen",
     "英文": "ying-wen",
@@ -88,6 +82,9 @@ class TaipeiJuniorRecruitClient:
                 self.article_urls_by_year[year_ad]
             )
         return self.article_html_by_year[year_ad]
+
+    def pdf_downloads(self, page_url: str) -> list[tuple[str, str]]:
+        return list(official_pdf_downloads(self._fetch_text(page_url), page_url=page_url))
 
     def discover_available_years(self) -> list[int]:
         return sorted(self.article_urls_by_year, reverse=True)
