@@ -1,4 +1,4 @@
-import type { BundleSource } from "../types"
+import type { BundleSource } from "../types.ts"
 
 const dateFormatter = new Intl.DateTimeFormat("zh-TW", {
   timeZone: "Asia/Taipei", year: "numeric", month: "2-digit", day: "2-digit",
