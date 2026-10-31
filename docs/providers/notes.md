@@ -986,6 +986,18 @@ native bytes; runtime lookup follows those retained anchors.
 
 Use official Tainan teacher-recruitment event pages and linked papers. Preserve the source event and school-level boundary during normalization.
 
+The rolling site's native programme heading owns the available school year;
+old notice text does not establish historical discovery. Requested event IDs,
+the current heading and the year in each source download must agree before
+acquisition can replace retained state. Repeated exact links share one source
+reference; competing archives for a file role require review. Source links
+remain within the official programme and upload directories.
+
+Question, reference-answer and final-answer packages are distinct source
+publications. Preserve their original revisions even where answer tables
+coincide. PDF subject names alone do not establish recruitment categories or
+shared-paper applicability; those relationships need the annual native rules.
+
 ## `teacher_recruit_taipei_elementary`
 
 Use the official Taipei elementary teacher-recruitment source for elementary events and papers. Other Taipei school levels remain separate source identities.
