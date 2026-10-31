@@ -239,6 +239,13 @@ Publication also checks a reusable local ZIP against its retained published arch
 
 Site state and bundle files remain under `data/sites/<site_id>/` and `bundles/sites/<site_id>/`. Bundle metadata, Release asset inventories, compatibility aliases, multipart records, and shard assignment remain site-owned. Provider syncs may pass affected-bundle plans to publication; those plans do not authorize hand-written tag assignments.
 
+Frozen historical downloads retain a site-owned source snapshot captured from
+their verified original ZIPs. Every source key must continue to match current
+or immutable provider history. Targeted publication uses this provenance to
+regenerate global compatibility navigation without recovering unrelated ZIPs.
+Legacy inventories acquire provenance only after restoring and verifying their
+original archives. Full archive audits retain their physical-byte obligations.
+
 Release tooling ensures assigned Releases exist, uploads expected artifacts, checks coverage, and prunes unexpected ZIPs according to the inventory. Compatibility aliases remain published while listed. Successful upload precedes the matching generated-state commit, so a site feed never promises unavailable changed artifacts.
 
 ## Frontend projection

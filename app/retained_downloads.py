@@ -10,13 +10,53 @@ import hashlib
 import json
 import re
 from collections import defaultdict
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, cast
 
 from app.models import BundleAsset, NormalizedPaper
 from app.paths import SitePaths, provider_paths
+
+
+@dataclass(frozen=True)
+class FrozenPaperSource:
+    year_roc: int
+    source_exam_id: str
+    category_code: str
+    subject_code: str
+    file_type: str
+    download_url_source: str
+    checksum: str
+
+    def validate(self) -> None:
+        if (
+            type(self.year_roc) is not int
+            or self.year_roc < 0
+            or any(not isinstance(v, str) for k, v in vars(self).items() if k != "year_roc")
+            or re.fullmatch(r"[0-9a-f]{64}", self.checksum) is None
+        ):
+            raise ValueError("Invalid frozen archive source context or checksum")
+
+
+@dataclass(frozen=True)
+class FrozenSourceSnapshot:
+    archive_checksum: str
+    canonical_name: str
+    papers: tuple[FrozenPaperSource, ...]
+
+    def validate(self, archive_checksum: str) -> None:
+        if (
+            self.archive_checksum != archive_checksum
+            or not isinstance(self.canonical_name, str)
+            or not self.canonical_name.strip()
+            or not isinstance(self.papers, tuple)
+            or not self.papers
+            or any(not isinstance(paper, FrozenPaperSource) for paper in self.papers)
+        ):
+            raise ValueError("Frozen source snapshot differs from its archive binding")
+        for paper in self.papers:
+            paper.validate()
 
 
 @dataclass(frozen=True)
@@ -28,11 +68,16 @@ class RetainedDownload:
     storage_key: str
     checksum: str
     retained_at: str
+    source_snapshot: FrozenSourceSnapshot | None = None
 
     def validate(self, site_id: str) -> None:
         from app.site_registry import get_site_config
 
-        if any(not isinstance(value, str) for value in asdict(self).values()):
+        if any(
+            not isinstance(value, str)
+            for key, value in vars(self).items()
+            if key != "source_snapshot"
+        ):
             raise ValueError("Retained download fields must be strings")
         if (
             not self.provider_id
@@ -53,6 +98,27 @@ class RetainedDownload:
             raise ValueError(
                 "Retained downloads must stay in their site's current v2 release namespace"
             )
+        if self.source_snapshot is not None:
+            if not isinstance(self.source_snapshot, FrozenSourceSnapshot):
+                raise ValueError("Invalid frozen source snapshot")
+            self.source_snapshot.validate(self.checksum)
+
+
+def retained_release_record(download: RetainedDownload) -> dict[str, Any]:
+    """Keep provenance in site state, independently of the compact release contract."""
+    record = asdict(download)
+    record.pop("source_snapshot")
+    return record
+
+
+def _download_from_plain(row: dict[str, Any]) -> RetainedDownload:
+    fields = dict(row)
+    snapshot = fields.get("source_snapshot")
+    if snapshot is not None:
+        fields["source_snapshot"] = FrozenSourceSnapshot(
+            **{**snapshot, "papers": tuple(FrozenPaperSource(**p) for p in snapshot["papers"])}
+        )
+    return RetainedDownload(**fields)
 
 
 def retained_downloads_path(site: SitePaths) -> Path:
@@ -68,13 +134,25 @@ def load_retained_downloads(site: SitePaths) -> list[RetainedDownload]:
         not isinstance(document, dict)
         or set(document) != {"schema_version", "site_id", "downloads"}
         or type(document["schema_version"]) is not int
-        or document["schema_version"] != 1
+        or document["schema_version"] not in {1, 2}
         or document["site_id"] != site.site_id
         or not isinstance(document["downloads"], list)
         or not document["downloads"]
     ):
         raise ValueError("Unsupported retained download inventory or site ownership")
-    downloads = [RetainedDownload(**row) for row in document["downloads"]]
+    version = document["schema_version"]
+    if any(
+        not isinstance(row, dict)
+        or ("source_snapshot" in row) != (version == 2)
+        or version == 2
+        and not isinstance(row["source_snapshot"], dict)
+        for row in document["downloads"]
+    ):
+        raise ValueError("Frozen source snapshots require retained download inventory v2")
+    try:
+        downloads = [_download_from_plain(row) for row in document["downloads"]]
+    except (KeyError, TypeError) as exc:
+        raise ValueError("Invalid retained download or frozen source snapshot fields") from exc
     names = set()
     for download in downloads:
         download.validate(site.site_id)
@@ -124,11 +202,14 @@ def write_retained_downloads(
         ):
             raise ValueError("Retirement checksum differs from frozen bytes")
         allowed_removals[previous_download.asset_name] = previous_download.checksum
-    if removed != allowed_removals or any(
-        by_name[download.asset_name] != download
+    unchanged = all(
+        by_name[download.asset_name] == download
+        or download.source_snapshot is None
+        and replace(by_name[download.asset_name], source_snapshot=None) == download
         for download in previous
         if download.asset_name in by_name
-    ):
+    )
+    if removed != allowed_removals or not unchanged:
         raise ValueError("Publication cannot remove or rewrite a frozen retained download")
     if not downloads:
         if previous:
@@ -136,13 +217,26 @@ def write_retained_downloads(
         return
     for download in downloads:
         download.validate(site.site_id)
+    previous_by_name = {download.asset_name: download for download in previous}
+    verified = []
+    for download in downloads:
+        earlier = previous_by_name.get(download.asset_name)
+        if earlier is None or earlier.source_snapshot is None:
+            # Adding provenance to legacy metadata is a byte-verified migration,
+            # never permission to rewrite a frozen URL, checksum or source list.
+            captured = capture_frozen_sources(site.data_dir.parents[2], site, download)
+            if download.source_snapshot is not None and captured != download:
+                raise ValueError("Frozen source snapshot differs from the verified native archive")
+            download = captured
+        verified.append(download)
+    validate_retained_source_snapshots(site.data_dir.parents[2], site, verified)
     site.data_dir.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(
             {
-                "schema_version": 1,
+                "schema_version": 2,
                 "site_id": site.site_id,
-                "downloads": [asdict(download) for download in downloads],
+                "downloads": [asdict(download) for download in verified],
             },
             ensure_ascii=False,
             indent=2,
@@ -188,6 +282,65 @@ def _source_anchors(repo_root: Path, provider_id: str) -> set[tuple[Any, ...]]:
     return anchors
 
 
+def _validate_retained_owner(repo_root: Path, site: SitePaths, download: RetainedDownload) -> None:
+    from app.publication_quarantine import quarantined_provider_ids
+    from app.site_registry import get_site_config
+
+    if download.provider_id not in get_site_config(site.site_id).provider_ids:
+        raise ValueError("Retained download has no current site provider owner")
+    if download.provider_id in quarantined_provider_ids(repo_root, site_id=site.site_id):
+        raise ValueError("Retained download belongs to a quarantined provider")
+
+
+def _frozen_sources(manifest: dict[str, Any], archive_checksum: str) -> FrozenSourceSnapshot:
+    from app.bundler import _paper_bundle_key
+
+    snapshot = FrozenSourceSnapshot(
+        archive_checksum,
+        manifest["canonical_name"],
+        tuple(FrozenPaperSource(*_paper_bundle_key(p), p["checksum"]) for p in manifest["papers"]),
+    )
+    snapshot.validate(archive_checksum)
+    return snapshot
+
+
+def capture_frozen_sources(
+    repo_root: Path, site: SitePaths, download: RetainedDownload
+) -> RetainedDownload:
+    """Bind navigation provenance only after checking original archive bytes."""
+    manifest = verify_retained_download(repo_root, site, download, verify_content=True)
+    return replace(download, source_snapshot=_frozen_sources(manifest, download.checksum))
+
+
+def validate_retained_source_snapshots(
+    repo_root: Path,
+    site: SitePaths,
+    downloads: list[RetainedDownload] | None = None,
+) -> int:
+    """Verify frozen metadata and history anchors; this does not audit ZIP bytes."""
+    from app.bundler import _paper_bundle_key
+
+    if downloads is None:
+        downloads = load_retained_downloads(site)
+    owners = {d.provider_id for d in downloads if d.source_snapshot is not None}
+    anchors = {owner: _source_anchors(repo_root, owner) for owner in owners}
+    count = 0
+    for download in downloads:
+        download.validate(site.site_id)
+        _validate_retained_owner(repo_root, site, download)
+        if download.source_snapshot is None:
+            continue  # Legacy provenance still requires its physical archive.
+        for paper in download.source_snapshot.papers:
+            if (*_paper_bundle_key(asdict(paper)), paper.checksum) not in anchors[
+                download.provider_id
+            ]:
+                raise ValueError(
+                    "Frozen source snapshot lacks a current or immutable history anchor"
+                )
+        count += 1
+    return count
+
+
 def verify_retained_download(
     repo_root: Path,
     site: SitePaths,
@@ -197,8 +350,6 @@ def verify_retained_download(
 ) -> dict[str, Any]:
     from app.archive_audit import inspect_archive
     from app.bundler import _paper_bundle_key
-    from app.publication_quarantine import quarantined_provider_ids
-    from app.site_registry import get_site_config
 
     download.validate(site.site_id)
     path = repo_root / download.storage_key
@@ -212,15 +363,15 @@ def verify_retained_download(
             digest = hashlib.file_digest(stream, "sha256").hexdigest()
         if digest != download.checksum:
             raise ValueError("Retained download checksum differs from frozen original bytes")
-    allowed = get_site_config(site.site_id).provider_ids
-    if download.provider_id not in allowed:
-        raise ValueError("Retained download has no current site provider owner")
-    if download.provider_id in quarantined_provider_ids(repo_root, site_id=site.site_id):
-        raise ValueError("Retained download belongs to a quarantined provider")
+    _validate_retained_owner(repo_root, site, download)
     anchors = _source_anchors(repo_root, download.provider_id)
     for paper in manifest["papers"]:
         if (*_paper_bundle_key(paper), paper["checksum"]) not in anchors:
             raise ValueError("Retained archive paper lacks a current or immutable history anchor")
+    if download.source_snapshot is not None and (
+        download.source_snapshot != _frozen_sources(manifest, download.checksum)
+    ):
+        raise ValueError("Frozen source snapshot differs from the verified native archive")
     return manifest
 
 
@@ -267,12 +418,23 @@ def snapshot_existing_downloads(
                 candidate.storage_key,
                 candidate.checksum,
                 previous.retained_at,
+                previous.source_snapshot,
             )
             if candidate != previous:
                 raise ValueError("An existing retained download cannot change its original bytes")
-        verify_retained_download(repo_root, site, candidate, verify_content=True)
-        by_name[candidate.asset_name] = candidate
-    return sorted(by_name.values(), key=lambda download: download.asset_name)
+        by_name[candidate.asset_name] = capture_frozen_sources(repo_root, site, candidate)
+    captured = []
+    for download in by_name.values():
+        if download.source_snapshot is None:
+            try:
+                download = capture_frozen_sources(repo_root, site, download)
+            except FileNotFoundError as exc:
+                raise ValueError(
+                    "Legacy retained download needs its verified ZIP for source provenance: "
+                    + download.asset_name
+                ) from exc
+        captured.append(download)
+    return sorted(captured, key=lambda download: download.asset_name)
 
 
 def _reviewed_source_history(
@@ -367,6 +529,7 @@ def derive_compatibility_pages(
     """
     from app.bundler import _paper_bundle_key
 
+    validate_retained_source_snapshots(repo_root, site, downloads)
     public = {bundle.bundle_id for bundle in bundles}
     owners = {download.provider_id for download in downloads}
     by_source: dict[tuple[Any, ...], list[NormalizedPaper]] = defaultdict(list)
@@ -378,10 +541,16 @@ def derive_compatibility_pages(
             by_source[key].extend(targets)
     pages = []
     for download in downloads:
-        manifest = verify_retained_download(repo_root, site, download, verify_content=False)
+        if download.source_snapshot is None:
+            manifest = verify_retained_download(repo_root, site, download, verify_content=False)
+            canonical_name = manifest["canonical_name"]
+            source_papers = manifest["papers"]
+        else:
+            canonical_name = download.source_snapshot.canonical_name
+            source_papers = [asdict(paper) for paper in download.source_snapshot.papers]
         sources = [
             (download.provider_id, *_paper_bundle_key(paper), paper["checksum"])
-            for paper in manifest["papers"]
+            for paper in source_papers
         ]
         if not sources or any(key not in by_source for key in sources):
             continue
@@ -391,7 +560,7 @@ def derive_compatibility_pages(
             continue
         page: dict[str, Any] = {
             "id": download.bundle_id,
-            "name": manifest["canonical_name"],
+            "name": canonical_name,
             "successorIds": sorted(available),
         }
         if successors - public:

@@ -363,12 +363,20 @@ def test_legacy_navigation_requires_the_exact_generic_source_context(field):
 
 def test_saved_generic_landing_page_follows_all_native_category_successors(tmp_path, monkeypatch):
     from app.paths import site_paths
-    from app.retained_downloads import derive_compatibility_pages
+    from app.retained_downloads import RetainedDownload, derive_compatibility_pages
 
     rows = reviewed_catalog()
     old = legacy_papers(rows)
     original = copy.deepcopy(old)
-    frozen = SimpleNamespace(provider_id=PROVIDER_ID, bundle_id="old-generic-taoyuan")
+    frozen = RetainedDownload(
+        provider_id=PROVIDER_ID,
+        bundle_id="old-generic-taoyuan",
+        release_tag="default-bundles-v2-001",
+        asset_name="old-generic-taoyuan.zip",
+        storage_key="bundles/sites/default/old-generic-taoyuan.zip",
+        checksum="a" * 64,
+        retained_at="2026-10-31T00:00:00+00:00",
+    )
     monkeypatch.setattr(
         "app.source_revisions.load_source_revisions",
         lambda *_: [dict(record_type="paper", source_record=vars(p)) for p in old],

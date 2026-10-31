@@ -270,3 +270,18 @@ Release inventories use v3 when frozen downloads are present; inventories withou
 them retain their existing contract. Critical release readers reject unsupported
 versions and foreign site ownership before upload or cleanup. Release plans list
 retained downloads explicitly and count all declared physical asset names.
+
+The site-owned retained-download inventory v2 also freezes source provenance:
+the original archive checksum, historical title and every native source key and
+paper checksum. The site writer captures this projection only from a fully
+verified ZIP with current or immutable provider-history anchors. Adding
+provenance to a legacy v1 record preserves every original locator, owner,
+checksum and timestamp; existing provenance cannot be rewritten through routine
+publication. Release inventories keep their compact download records rather
+than copying this source projection.
+
+Compatibility navigation can validate those frozen sources against provider
+history without opening unrelated historical ZIPs on a fresh runner. This is a
+metadata operation, not evidence that absent or corrupt ZIP bytes passed an
+audit. Full archive verification, new retention and ownership transfers still
+require the actual native archives and their recorded checksums.

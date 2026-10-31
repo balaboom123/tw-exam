@@ -130,3 +130,15 @@ corrected primaries before committing their metadata; verify that retained URLs
 continue to return the exact original bytes. Routine pruning must retain them.
 The [retention decision](../decisions/ADR-2026-10-23-retained-historical-downloads.md)
 records the distinction from speculative compatibility aliases.
+
+For a legacy retained-download inventory without frozen source provenance,
+`publish-site --download-affected-bundles` also restores missing historical ZIPs
+using their recorded Release assignments. Publication verifies those originals
+before upgrading the site-owned snapshot. Run the full content audit with these
+verified inputs and keep the matching runtime and generated state together for
+rollback.
+
+After that migration, targeted publication can regenerate old navigation from
+the frozen source snapshot without downloading unrelated historical archives.
+This does not replace full archive or hosted-download verification; those checks
+still need the declared physical ZIPs.

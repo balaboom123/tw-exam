@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/retained-downloads-v2.schema.json",
+  "title": "Frozen historical downloads with verified source provenance for cold publication",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "site_id",
+    "downloads"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 2
+    },
+    "site_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "downloads": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/download"
+      }
+    }
+  },
+  "$defs": {
+    "download": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provider_id",
+        "bundle_id",
+        "release_tag",
+        "asset_name",
+        "storage_key",
+        "checksum",
+        "retained_at",
+        "source_snapshot"
+      ],
+      "properties": {
+        "bundle_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release_tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "asset_name": {
+          "type": "string",
+          "pattern": "^[^/\\\\]+\\.zip$"
+        },
+        "storage_key": {
+          "type": "string",
+          "pattern": "^bundles/sites/[^/]+/[^/]+\\.zip$"
+        },
+        "checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "retained_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "provider_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "source_snapshot": {
+          "$ref": "#/$defs/source_snapshot"
+        }
+      }
+    },
+    "source_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "archive_checksum",
+        "canonical_name",
+        "papers"
+      ],
+      "properties": {
+        "archive_checksum": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "canonical_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "papers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "year_roc",
+              "source_exam_id",
+              "category_code",
+              "subject_code",
+              "file_type",
+              "download_url_source",
+              "checksum"
+            ],
+            "properties": {
+              "year_roc": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "source_exam_id": {
+                "type": "string"
+              },
+              "category_code": {
+                "type": "string"
+              },
+              "subject_code": {
+                "type": "string"
+              },
+              "file_type": {
+                "type": "string"
+              },
+              "download_url_source": {
+                "type": "string"
+              },
+              "checksum": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

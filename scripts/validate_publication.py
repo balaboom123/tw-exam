@@ -196,12 +196,15 @@ def validate_publication(repo_root: Path = ROOT) -> tuple[int, int, int]:
     if len(site_asset_names) != len(set(site_asset_names)):
         fail("site publication contains duplicate asset names")
 
-    from dataclasses import asdict
-    from app.retained_downloads import load_retained_downloads, release_download_records
+    from app.retained_downloads import (
+        load_retained_downloads, release_download_records, retained_release_record,
+        validate_retained_source_snapshots,
+    )
     from app.paths import site_paths
 
     retained = load_retained_downloads(site_paths(repo_root, "default"))
-    if release.get("retained_downloads", []) != [asdict(download) for download in retained]:
+    validate_retained_source_snapshots(repo_root, site_paths(repo_root, "default"), retained)
+    if release.get("retained_downloads", []) != [retained_release_record(download) for download in retained]:
         fail("Release retained downloads differ from the frozen site-owned inventory")
     all_downloads = release_download_records(site_dir / "release-assets.json")
     if any(download.asset_name in site_asset_names for download in retained):

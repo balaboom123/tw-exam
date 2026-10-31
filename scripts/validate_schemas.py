@@ -196,7 +196,8 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         _validate(schemas[schema_name], _read_json(path), str(path.relative_to(repo_root)))
     retained_path = retained_downloads_path(site_paths(repo_root, "default"))
     if retained_path.exists():
-        _validate(schemas["retained-downloads-v1.schema.json"], _read_json(retained_path), str(retained_path.relative_to(repo_root)))
+        retained = _read_json(retained_path)
+        _validate(schemas[f"retained-downloads-v{retained['schema_version']}.schema.json"], retained, str(retained_path.relative_to(repo_root)))
         load_retained_downloads(site_paths(repo_root, "default"))
     validate_moex_category_evidence(repo_root)
     validate_tqc_identity_evidence(repo_root)

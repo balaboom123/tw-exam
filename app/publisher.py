@@ -40,6 +40,7 @@ from app.retained_downloads import (
     derive_compatibility_pages,
     load_retained_downloads,
     reserved_asset_names,
+    retained_release_record,
     snapshot_existing_downloads,
     validate_primary_separation,
     write_retained_downloads,
@@ -261,7 +262,7 @@ def write_site_state(
     }
     if retained_downloads:
         release_payload["retained_downloads"] = [
-            cast(dict[str, Any], to_plain_data(download)) for download in retained_downloads
+            retained_release_record(download) for download in retained_downloads
         ]
     if release_version == 2:
         release_payload["catalog_version"] = "exam-identity-v2"

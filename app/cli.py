@@ -46,13 +46,14 @@ from app.models import (
     to_plain_data,
 )
 from app.normalizer import load_alias_rules, renormalize_catalog
-from app.paths import ProviderPaths, provider_paths, site_paths
+from app.paths import ProviderPaths, SitePaths, provider_paths, site_paths
 from app.probe import hash_exam_codes, probe_latest
 from app.provenance import record_successful_sync
 from app.providers.base import SourceProvider
 from app.providers.moex.client import make_result_url, make_year_search_url, year_ad_from_code
 from app.providers.registry import get_provider
 from app.publisher import publish_site, write_data_files, write_provider_state
+from app.retained_downloads import load_retained_downloads
 from app.review_queue import decode_review_queue
 from app.site_registry import get_site_config
 from app.state import (
@@ -498,6 +499,29 @@ def _download_affected_bundles(
         else:
             if last_error is not None:
                 raise last_error
+
+
+def _download_legacy_retained_archives(repo_root: Path, site: SitePaths, repository: str) -> None:
+    """Restore originals only for the one-time frozen-provenance migration."""
+    for download in load_retained_downloads(site):
+        if download.source_snapshot is not None or (repo_root / download.storage_key).exists():
+            continue
+        site.bundle_dir.mkdir(parents=True, exist_ok=True)
+        subprocess.run(
+            [
+                "gh",
+                "release",
+                "download",
+                download.release_tag,
+                "--repo",
+                repository,
+                "--pattern",
+                download.asset_name,
+                "--dir",
+                str(site.bundle_dir),
+            ],
+            check=True,
+        )
 
 
 def _restore_new_public_bundle_files(
@@ -1285,6 +1309,7 @@ def command_publish_site(args: argparse.Namespace) -> int:
                     bundle.bundle_id or bundle.canonical_id for bundle in existing_bundles
                 }
             _download_affected_bundles(site.bundle_dir, existing_bundles, affected_ids, "")
+            _download_legacy_retained_archives(args.repo_root, site, args.repository)
         publish_site(
             args.repo_root,
             site_id=args.site_id,
@@ -1624,8 +1649,8 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         default=False,
         help=(
-            "Download previous affected release ZIPs using "
-            "the current site assignments before publishing."
+            "Download previous affected release ZIPs using current site assignments; "
+            "also restore legacy frozen ZIPs once to capture their source provenance."
         ),
     )
     publish_site_parser.set_defaults(handler=command_publish_site)
