@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/newtaipei-native-programmes-v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "provider_id": {
+      "const": "teacher_recruit_newtaipei"
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_exam_id",
+          "year_roc",
+          "programme_name",
+          "series_id",
+          "series_label",
+          "domain_id",
+          "family_id",
+          "written_test_date",
+          "reviewed_at",
+          "rule_document_id",
+          "category_document_id",
+          "archive_checksum",
+          "review_notes",
+          "notices",
+          "documents",
+          "jobs"
+        ],
+        "properties": {
+          "source_exam_id": {
+            "type": "string",
+            "pattern": "^teacher-recruit-newtaipei-[0-9]{1,3}-(?:junior|preschool)$"
+          },
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "programme_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "series_id": {
+            "enum": [
+              "newtaipei-junior-teacher-recruitment",
+              "newtaipei-preschool-care-recruitment"
+            ]
+          },
+          "series_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "domain_id": {
+            "enum": [
+              "teacher",
+              "employment"
+            ]
+          },
+          "family_id": {
+            "enum": [
+              "teacher-exam",
+              "employment-exam"
+            ]
+          },
+          "written_test_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "rule_document_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "category_document_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "archive_checksum": {
+            "type": "string",
+            "pattern": "^(?:[0-9a-f]{64})?$"
+          },
+          "review_notes": {
+            "type": "string",
+            "minLength": 1
+          },
+          "notices": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "uuid",
+                "title",
+                "answer_review"
+              ],
+              "properties": {
+                "uuid": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{31,32}$"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "answer_review": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "documents": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "document_id",
+                "subject_name",
+                "file_type",
+                "title",
+                "source_url",
+                "checksum",
+                "size",
+                "publication_date",
+                "page_count",
+                "inspected_pages",
+                "native_header",
+                "applies_to_booklets"
+              ],
+              "properties": {
+                "document_id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]*$"
+                },
+                "subject_name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "file_type": {
+                  "enum": [
+                    "question",
+                    "answer",
+                    "corrected_answer",
+                    "answer_clarification",
+                    "instructions",
+                    "source_document"
+                  ]
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_url": {
+                  "type": "string",
+                  "pattern": "^https://career[.]ntpc[.]edu[.]tw/web-elec-bulletin/open/oauth_data/op_api/download/[0-9a-f]{31,32}$"
+                },
+                "checksum": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "size": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 26214400
+                },
+                "publication_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "page_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "inspected_pages": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "native_header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "applies_to_booklets": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          },
+          "jobs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "code",
+                "label",
+                "track_id",
+                "booklets",
+                "registration_groups",
+                "eligibility_note"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "pattern": "^job-[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "track_id": {
+                  "type": "string",
+                  "pattern": "^newtaipei-[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "booklets": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "registration_groups": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "eligibility_note": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

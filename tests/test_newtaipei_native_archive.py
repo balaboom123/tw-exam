@@ -10,6 +10,7 @@ from unittest.mock import Mock
 
 import pytest
 
+from app.models import ExamAttachment, NormalizedCatalog, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.teacher_recruit_newtaipei import archive_plan
 from app.providers.teacher_recruit_newtaipei import provider as provider_module
@@ -86,6 +87,7 @@ def write_plan(root: Path, plan: ReviewedArchive) -> None:
 def install_plan(monkeypatch, plan: ReviewedArchive) -> None:
     monkeypatch.setattr(archive_plan, "native_archives", lambda: (plan,))
     monkeypatch.setattr(provider_module, "native_archives", lambda: (plan,))
+    monkeypatch.setattr(provider_module, "reviewed_document_checksum", lambda url: "")
 
 
 def test_reviewed_complete_container_and_focused_visual_scope() -> None:
@@ -265,3 +267,38 @@ def test_runtime_fails_closed_for_missing_or_changed_evidence(tmp_path, monkeypa
         provider.download_file(locator)
     if fault == "forged-locator":
         client.download_file.assert_not_called()
+
+
+def test_reference_member_survives_pruning_of_its_redundant_import_alias(tmp_path, monkeypatch):
+    initial = fixture_plan()
+    member = replace(initial.files[-1], file_type="source_document")
+    plan = replace(initial, members=(*initial.members[:-1], member))
+    install_plan(monkeypatch, plan)
+    locator = plan.locator(member)
+    key = f"providers/teacher_recruit_newtaipei/115/{plan.source_exam_id}/exam/source_document.pdf"
+    attachment = ExamAttachment(
+        "未提供參考答案", "source_document", locator, storage_key=key, checksum=member.checksum
+    )
+    page = SourceExamPage(
+        plan.source_exam_id,
+        2026,
+        115,
+        plan.programme_name,
+        [attachment],
+        [],
+        "teacher_recruit_newtaipei",
+    )
+    monkeypatch.setattr(
+        "app.state.load_provider_state", lambda paths: ([page], NormalizedCatalog([], []), [])
+    )
+    target = tmp_path / "mirror" / key
+    target.parent.mkdir(parents=True)
+    target.write_bytes(PDFS[-1])
+    assert not (tmp_path / "mirror" / plan.storage_key(member)).exists()
+    client = Mock()
+    client.download_file.return_value = DownloadedFile(PARENT, "application/vnd.rar", "native.rar")
+    provider = NewTaipeiTeacherRecruitProvider(client, repo_root=tmp_path)
+    assert provider.download_file(locator).data == PDFS[-1]
+    attachment.checksum = "0" * 64
+    with pytest.raises(ValueError, match="missing"):
+        NewTaipeiTeacherRecruitProvider(client, repo_root=tmp_path).download_file(locator)

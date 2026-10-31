@@ -84,6 +84,14 @@ checks: the advertised ZIP format or a ZIP signature invokes validation before
 storage. Unrecognized roles remain ineligible for mirror reuse until their
 payload policy is defined.
 
+A reviewed original RAR also uses `source_archive`. Since production has no RAR
+decompressor, its provider must supply `reviewed_source_archive_checksum` from
+independently reviewed native evidence. An observed download checksum alone is
+insufficient. Download and cache validation require the exact reviewed bytes;
+operator intake separately verifies the complete native member structure.
+Normal immutable source-history rules still apply when retaining an earlier
+RAR after a transport failure. A changed payload remains a validation failure.
+
 Native HTML is accepted only for explicit `source_page` attachments or the
 existing `answer_table` role. Questions, audio and source assets still reject
 HTML placeholders. Capturing a source page does not establish that its dynamic

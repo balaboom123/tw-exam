@@ -205,6 +205,36 @@ def _unique(values: Iterable[str], *, limit: int) -> list[str]:
     return result
 
 
+def _newtaipei_registration_groups(paper: Any) -> list[str]:
+    """Expose reviewed shared-paper applicability without inventing variants."""
+    if _field(paper, "provider_id") != "teacher_recruit_newtaipei":
+        return []
+    from app.providers.teacher_recruit_newtaipei.evidence import resolve_identity
+    from app.source_material import source_material
+
+    year = paper.get("year_roc") if isinstance(paper, Mapping) else getattr(paper, "year_roc", None)
+    material = (
+        paper.get("source_material")
+        if isinstance(paper, Mapping)
+        else getattr(paper, "source_material", None)
+    )
+    if type(year) is not int:
+        return []
+    context = resolve_identity(
+        source_exam_id=_field(paper, "source_exam_id"),
+        year_ad=year + 1911,
+        exam_name_raw=_field(paper, "exam_name_raw"),
+        category_code=_field(paper, "category_code"),
+        category_raw=_field(paper, "category_raw"),
+        subject_code=_field(paper, "subject_code"),
+        subject_name_raw=_field(paper, "subject_name_raw"),
+        source_url=_field(paper, "download_url_source"),
+        checksum=_field(paper, "checksum"),
+        source_material=source_material(material),
+    )
+    return list(context[1].registration_groups) if context is not None else []
+
+
 def derive_public_metadata(
     papers: Iterable[Any],
     *,
@@ -219,11 +249,18 @@ def derive_public_metadata(
     for paper in papers:
         provider_id = _field(paper, "provider_id")
         providers.add(provider_id)
+        aliases.extend(_newtaipei_registration_groups(paper))
         raw_subject = publication_paper_subject(paper)
         for chunk in re.split(r"[；;\n]+", raw_subject):
             label = _clean_label(chunk)
             if label and label != canonical_name and not label.isdigit():
-                labels.append(label)
+                # Cross-subject correction notices remain searchable, while
+                # subject previews show the actual administered booklets.
+                if not (
+                    provider_id == "teacher_recruit_newtaipei"
+                    and _field(paper, "file_type") in {"corrected_answer", "answer_clarification"}
+                ):
+                    labels.append(label)
                 aliases.append(label)
 
         for field_name in ("category_raw", "exam_name_raw"):
@@ -243,6 +280,8 @@ def derive_public_metadata(
         MAX_TAIPOWER_SEARCH_ALIASES if providers == {"taipower_recruit"} else MAX_SEARCH_ALIASES
     )
     search_aliases = _unique([*labels, *aliases], limit=alias_limit)
-    if bundle_id.startswith(_GENERIC_SUBJECT_BUNDLE_PREFIXES):
+    if bundle_id.startswith(_GENERIC_SUBJECT_BUNDLE_PREFIXES) or providers == {
+        "teacher_recruit_newtaipei"
+    }:
         return search_aliases, subject_labels
     return search_aliases, []

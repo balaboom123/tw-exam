@@ -1,0 +1,1005 @@
+{
+  "schema_version": 1,
+  "provider_id": "teacher_recruit_newtaipei",
+  "events": [
+    {
+      "source_exam_id": "teacher-recruit-newtaipei-115-junior",
+      "year_roc": 115,
+      "programme_name": "新北市立國民中學115學年度教師聯合甄選",
+      "series_id": "newtaipei-junior-teacher-recruitment",
+      "series_label": "新北市國中教師聯合甄選",
+      "domain_id": "teacher",
+      "family_id": "teacher-exam",
+      "written_test_date": "2026-05-30",
+      "reviewed_at": "2026-10-30",
+      "rule_document_id": "annual-rule",
+      "category_document_id": "initial-allocation",
+      "archive_checksum": "92b51ab85396fe4addc31218ccd46709519daa713fd9443b5899f41bdbe6da58",
+      "review_notes": "The later operational initial allocation table establishes 50 choices, including bilingual, arts, sports and six school-specific experimental posts. Rule p11 requires one registration group/category; p12 places rural-school selection later. Rural allocations sharing initial papers remain explicit applicability context for the four relevant subjects, not invented paper variants. Rule p5 shorthand does not collapse experimental choices. Initial education applies to all non-counselor jobs, so all four exact review summaries/explanations accompany them. Preserve initial keys and 19 native correction decisions without synthesizing corrected keys. Dedicated counselor has an essay paper and an answer-named placeholder retained as reference; no education paper, correction or scoring formula is inferred. Language eligibility, school level and numbered sessions are not exam grades.",
+      "notices": [
+        {
+          "uuid": "32f7f6c59afa4f0f815f8bbe2d30a45d",
+          "title": "【初試試題】新北市立國民中學115學年度教師聯合甄選初試試題及答案",
+          "answer_review": false
+        },
+        {
+          "uuid": "562752375fce40cd911ee05190f5f993",
+          "title": "【初試試題疑義回覆】新北市立國民中學115學年度教師聯合甄選初試試題疑義回覆",
+          "answer_review": true
+        },
+        {
+          "uuid": "b7b72783546340fcb7bb03736a275f2b",
+          "title": "【初試試題疑義回覆】新北市立國民中學115學年度教師聯合甄選初試試題疑義回覆－補充公告",
+          "answer_review": true
+        }
+      ],
+      "documents": [
+        {
+          "document_id": "annual-rule",
+          "subject_name": "教師聯合甄選簡章",
+          "file_type": "instructions",
+          "title": "新北市國民中學115學年度教師聯合甄選簡章(公告).pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/c5899ddd712549e3b2c98da2789bb98f",
+          "checksum": "e72472cba518ccdf851daf93616bde997e1c24b002e4e7e4308908154a99ec3f",
+          "size": 1433998,
+          "publication_date": "2026-04-07",
+          "page_count": 66,
+          "inspected_pages": [
+            1,
+            5,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            47
+          ],
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選簡章｜115.04.07｜一、 初試",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "review-initial-summary",
+          "subject_name": "答案疑義彙整表",
+          "file_type": "corrected_answer",
+          "title": "1-新北市立國民中學115學年度教師聯合甄選筆試試題答案疑義彙整表.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/c6cb4f847c6d41edb012eef4ae59eace",
+          "checksum": "d288a9eabe9d8472c23d20378cf6d78f100d5c49cca7184ef650b74637bed1b9",
+          "size": 251345,
+          "publication_date": "2026-06-01",
+          "page_count": 3,
+          "inspected_pages": [
+            1,
+            2,
+            3
+          ],
+          "native_header": "附件 1｜新北市國民中學 115 學年度教師聯合甄選筆試試題答案疑義彙整表｜教育專業科",
+          "applies_to_booklets": [
+            "教育專業科"
+          ]
+        },
+        {
+          "document_id": "review-initial-explanation",
+          "subject_name": "試題疑義回覆",
+          "file_type": "answer_clarification",
+          "title": "2-新北市立國民中學115學年度教師聯合甄選筆試試題疑義回覆.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/f15090bb2ff24d2fadd94642d5d1cbd3",
+          "checksum": "358bc54a2e604e346b53c2988654ff59d6b50b402630686aa92c72e74244130b",
+          "size": 1484179,
+          "publication_date": "2026-06-01",
+          "page_count": 65,
+          "inspected_pages": [
+            1,
+            65
+          ],
+          "native_header": "附件 2｜新北市立國民中學 115 學年度教師聯合甄選試題疑義回覆｜教育專業科",
+          "applies_to_booklets": [
+            "教育專業科"
+          ]
+        },
+        {
+          "document_id": "review-supplement-summary",
+          "subject_name": "答案疑義彙整表（補充公告）",
+          "file_type": "corrected_answer",
+          "title": "1-新北市立國民中學115學年度教師聯合甄選筆試試題答案疑義彙整表-補充公告.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/5eb164538015414ab578be59b1671043",
+          "checksum": "853c01f83523888ec5acf100c6e86d8c3d80c31896aab88541ef256dc9de66ae",
+          "size": 80053,
+          "publication_date": "2026-06-02",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "附件 1｜新北市國民中學 115 學年度教師聯合甄選筆試試題答案疑義彙整表｜-補充公告-",
+          "applies_to_booklets": [
+            "教育專業科"
+          ]
+        },
+        {
+          "document_id": "review-supplement-explanation",
+          "subject_name": "試題疑義回覆（補充公告）",
+          "file_type": "answer_clarification",
+          "title": "2-新北市立國民中學115學年度教師聯合甄選筆試試題疑義回覆-補充公告.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/938da4d015fa43b49ade335e9e06f5cb",
+          "checksum": "b2a036aa06f8fb28a092f3a4c20dc735c264a45d8e106389ed16c43001bf1b2a",
+          "size": 105229,
+          "publication_date": "2026-06-02",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選試題疑義回覆｜教育專業科｜-補充公告-",
+          "applies_to_booklets": [
+            "教育專業科"
+          ]
+        },
+        {
+          "document_id": "general-vacancies",
+          "subject_name": "一般組缺額一覽表",
+          "file_type": "source_document",
+          "title": "新北市立國民中學115學年度教師聯合甄選【一般組】總缺額一覽表.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/2c9a6ef2276f4e84b2eeb75552531648",
+          "checksum": "bd537de3dc0d82d52f90d4dabfb5d74365f10e2f2471af646eec50fc04338884",
+          "size": 233463,
+          "publication_date": "2026-05-27",
+          "page_count": 2,
+          "inspected_pages": [
+            1,
+            2
+          ],
+          "native_header": "新北市立國民中學115學年度教師聯合甄選【一般組】總缺額一覽表｜視覺藝術｜本土語文 本土語文                     公民與社                          音樂(雙      視覺藝術           表演藝術        童軍(雙             家政(雙      生活科技           健康教育        體育(雙   體育(專      特教資優 特教資優 特教資優 特教資優 特教資優",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "rural-vacancies",
+          "subject_name": "偏鄉組缺額一覽表",
+          "file_type": "source_document",
+          "title": "新北市立國民中學115學年度教師聯合甄選【偏鄉組】總缺額一覽表.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/b1b9b59076a843589b188123ac9ecc1b",
+          "checksum": "e63fea63a760a9ff3eb2ad45d80d21ef79221044c2ae868485fa56da950c5b32",
+          "size": 52136,
+          "publication_date": "2026-05-27",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "新北市立國民中學115學年度教師聯合甄選【偏鄉組】總缺額一覽表｜序號   區別   分組            學校名稱       國文   英語   數學   地理   小計｜1    文山   偏鄉組        新北市立烏來國民中小學   1         1         2",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "experimental-vacancies",
+          "subject_name": "實驗教育組缺額一覽表",
+          "file_type": "source_document",
+          "title": "新北市立國民中學115學年度教師聯合甄選【實驗教育組】總缺額一覽表.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/baecb4944b2c4bdfb509c93bbf7ccee7",
+          "checksum": "a366766680acf048756946c9f1da713c0d49b9e099712bf7dd5c966d49f22795",
+          "size": 53190,
+          "publication_date": "2026-05-27",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "新北市立國民中學115學年度教師聯合甄選【實驗教育組】總缺額一覽表｜序號   區別    分組              學校名稱       地理   生物   視覺藝術   表演藝術   特教身障   小計｜1    文山   實驗教育組        新北市立坪林實驗國民中學        1                   1     2",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "hakka-vacancies",
+          "subject_name": "本土語文（客語）缺額表",
+          "file_type": "source_document",
+          "title": "新北市立國民中學115學年度教師聯合甄選本土語文（客語）缺額表.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/16a832271fa8436e824a9871a2e9d84f",
+          "checksum": "4c14d0d7e058e18b6dff602071132cf15e999163c3be563b1e7c21cc29890bf2",
+          "size": 70291,
+          "publication_date": "2026-04-22",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "新北市立國民中學115學年度教師聯合甄選本土語文（客語）缺額表｜序號   聘任方式   行政區        學校名稱          主聘學校   腔調                       備註｜1    非合聘缺   林口區     新北市立佳林國民中學        -     四縣腔",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "sports-qualifications",
+          "subject_name": "體育專長報考資格",
+          "file_type": "source_document",
+          "title": "新北市115學年度國民中學教師甄選體育專長類科指導參加全國性盃賽一覽表.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/9003bdadec2442af8bac912f76407cf5",
+          "checksum": "cafcae980f6c9b062768894fdff57b66ae9f46ce33685e46b44721a85d58c75c",
+          "size": 131399,
+          "publication_date": "2026-04-22",
+          "page_count": 2,
+          "inspected_pages": [
+            1,
+            2
+          ],
+          "native_header": "新北市 115 學年度國民中學教師甄選體育專長類科指導參加全國性盃賽一覽表｜編號 運動種類             指導參加全國性盃賽                  備註｜以指導參加之「對打」之",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "initial-allocation",
+          "subject_name": "初試類科分配及注意事項",
+          "file_type": "source_document",
+          "title": "新北市立國民中學115學年度教師聯合甄選-初試考場分配表及注意事項.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/9ade780b7d4a42ea9c7785dbb9d7255d",
+          "checksum": "7a2fd52fcecd99ccdaf2dfb58cc8b8d85e6391a19740453e76d3c0a3d21d897e",
+          "size": 141373,
+          "publication_date": "2026-05-19",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選初試考場分配表及注意事項｜一、考場學校資訊｜(一) 新北市立鷺江國民中學（地址：新北市蘆洲區長樂路 235 號，電話：82862517）",
+          "applies_to_booklets": []
+        }
+      ],
+      "jobs": [
+        {
+          "code": "job-chinese",
+          "label": "國文",
+          "track_id": "newtaipei-junior-chinese",
+          "booklets": [
+            "教育專業科",
+            "國文科"
+          ],
+          "registration_groups": [
+            "一般組",
+            "偏鄉組"
+          ],
+          "eligibility_note": "一般與偏鄉組共用初試筆試；偏鄉學校及其後續甄選另依簡章與偏鄉缺額表，不另造未見的初試題本。"
+        },
+        {
+          "code": "job-english",
+          "label": "英語",
+          "track_id": "newtaipei-junior-english",
+          "booklets": [
+            "教育專業科",
+            "英語科"
+          ],
+          "registration_groups": [
+            "一般組",
+            "偏鄉組"
+          ],
+          "eligibility_note": "一般與偏鄉組共用初試筆試；偏鄉學校及其後續甄選另依簡章與偏鄉缺額表，不另造未見的初試題本。"
+        },
+        {
+          "code": "job-taiwanese",
+          "label": "本土語文-閩南語文",
+          "track_id": "newtaipei-junior-taiwanese",
+          "booklets": [
+            "教育專業科",
+            "本土語文-閩南語科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-hakka",
+          "label": "本土語文-客語文",
+          "track_id": "newtaipei-junior-hakka",
+          "booklets": [
+            "教育專業科",
+            "本土語文-客語科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-mathematics",
+          "label": "數學",
+          "track_id": "newtaipei-junior-mathematics",
+          "booklets": [
+            "教育專業科",
+            "數學科"
+          ],
+          "registration_groups": [
+            "一般組",
+            "偏鄉組"
+          ],
+          "eligibility_note": "一般與偏鄉組共用初試筆試；偏鄉學校及其後續甄選另依簡章與偏鄉缺額表，不另造未見的初試題本。"
+        },
+        {
+          "code": "job-earth-science",
+          "label": "地球科學",
+          "track_id": "newtaipei-junior-earth-science",
+          "booklets": [
+            "教育專業科",
+            "地球科學科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-history",
+          "label": "歷史",
+          "track_id": "newtaipei-junior-history",
+          "booklets": [
+            "教育專業科",
+            "歷史科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-geography",
+          "label": "地理",
+          "track_id": "newtaipei-junior-geography",
+          "booklets": [
+            "教育專業科",
+            "地理科"
+          ],
+          "registration_groups": [
+            "一般組",
+            "偏鄉組"
+          ],
+          "eligibility_note": "一般與偏鄉組共用初試筆試；偏鄉學校及其後續甄選另依簡章與偏鄉缺額表，不另造未見的初試題本。"
+        },
+        {
+          "code": "job-civics",
+          "label": "公民與社會",
+          "track_id": "newtaipei-junior-civics",
+          "booklets": [
+            "教育專業科",
+            "公民與社會科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-biology",
+          "label": "生物",
+          "track_id": "newtaipei-junior-biology",
+          "booklets": [
+            "教育專業科",
+            "生物科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-physics-chemistry",
+          "label": "理化",
+          "track_id": "newtaipei-junior-physics-chemistry",
+          "booklets": [
+            "教育專業科",
+            "理化科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-music",
+          "label": "音樂",
+          "track_id": "newtaipei-junior-music",
+          "booklets": [
+            "教育專業科",
+            "音樂科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-visual-arts",
+          "label": "視覺藝術",
+          "track_id": "newtaipei-junior-visual-arts",
+          "booklets": [
+            "教育專業科",
+            "視覺藝術科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-performing-arts",
+          "label": "表演藝術",
+          "track_id": "newtaipei-junior-performing-arts",
+          "booklets": [
+            "教育專業科",
+            "表演藝術科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-scouting",
+          "label": "童軍",
+          "track_id": "newtaipei-junior-scouting",
+          "booklets": [
+            "教育專業科",
+            "童軍科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-home-economics",
+          "label": "家政",
+          "track_id": "newtaipei-junior-home-economics",
+          "booklets": [
+            "教育專業科",
+            "家政科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-living-technology",
+          "label": "生活科技",
+          "track_id": "newtaipei-junior-living-technology",
+          "booklets": [
+            "教育專業科",
+            "生活科技科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-information-technology",
+          "label": "資訊科技",
+          "track_id": "newtaipei-junior-information-technology",
+          "booklets": [
+            "教育專業科",
+            "資訊科技科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-health-education",
+          "label": "健康教育",
+          "track_id": "newtaipei-junior-health-education",
+          "booklets": [
+            "教育專業科",
+            "健康教育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-counseling-activities",
+          "label": "輔導活動",
+          "track_id": "newtaipei-junior-counseling-activities",
+          "booklets": [
+            "教育專業科",
+            "輔導活動科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-physical-education",
+          "label": "體育",
+          "track_id": "newtaipei-junior-physical-education",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-special-needs",
+          "label": "特教身障類科",
+          "track_id": "newtaipei-junior-special-needs",
+          "booklets": [
+            "教育專業科",
+            "特教身障科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-gifted-mathematics",
+          "label": "特教資優類科-數學",
+          "track_id": "newtaipei-junior-gifted-mathematics",
+          "booklets": [
+            "教育專業科",
+            "資優數學科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-gifted-physics-chemistry",
+          "label": "特教資優類科-理化",
+          "track_id": "newtaipei-junior-gifted-physics-chemistry",
+          "booklets": [
+            "教育專業科",
+            "資優理化科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-gifted-biology",
+          "label": "特教資優類科-生物",
+          "track_id": "newtaipei-junior-gifted-biology",
+          "booklets": [
+            "教育專業科",
+            "資優生物科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-gifted-chinese",
+          "label": "特教資優類科-國文",
+          "track_id": "newtaipei-junior-gifted-chinese",
+          "booklets": [
+            "教育專業科",
+            "資優國文科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-gifted-english",
+          "label": "特教資優類科-英語",
+          "track_id": "newtaipei-junior-gifted-english",
+          "booklets": [
+            "教育專業科",
+            "資優英語科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "依簡章、缺額表及初試類科分配報考；學校階段及語文證照資格不是甄選等級。"
+        },
+        {
+          "code": "job-dedicated-counselor",
+          "label": "專任輔導教師",
+          "track_id": "newtaipei-junior-dedicated-counselor",
+          "booklets": [
+            "輔導專業知能科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "簡章第14頁專項試卷表與第47頁准考證一致：只考輔導專業知能申論題，無參考答案；不套用其他類科的教育專業或更正答案。第19頁通用計分文字存在衝突，未核定其計分公式。"
+        },
+        {
+          "code": "job-music-bilingual",
+          "label": "音樂-雙語專長",
+          "track_id": "newtaipei-junior-music-bilingual",
+          "booklets": [
+            "教育專業科",
+            "音樂科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-visual-arts-bilingual",
+          "label": "視覺藝術-雙語專長",
+          "track_id": "newtaipei-junior-visual-arts-bilingual",
+          "booklets": [
+            "教育專業科",
+            "視覺藝術科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-performing-arts-bilingual",
+          "label": "表演藝術-雙語專長",
+          "track_id": "newtaipei-junior-performing-arts-bilingual",
+          "booklets": [
+            "教育專業科",
+            "表演藝術科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-scouting-bilingual",
+          "label": "童軍-雙語專長",
+          "track_id": "newtaipei-junior-scouting-bilingual",
+          "booklets": [
+            "教育專業科",
+            "童軍科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-home-economics-bilingual",
+          "label": "家政-雙語專長",
+          "track_id": "newtaipei-junior-home-economics-bilingual",
+          "booklets": [
+            "教育專業科",
+            "家政科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-living-technology-bilingual",
+          "label": "生活科技-雙語專長",
+          "track_id": "newtaipei-junior-living-technology-bilingual",
+          "booklets": [
+            "教育專業科",
+            "生活科技科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-health-education-bilingual",
+          "label": "健康教育-雙語專長",
+          "track_id": "newtaipei-junior-health-education-bilingual",
+          "booklets": [
+            "教育專業科",
+            "健康教育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-physical-education-bilingual",
+          "label": "體育-雙語專長",
+          "track_id": "newtaipei-junior-physical-education-bilingual",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "雙語專長為獨立招募職缺；初試共用該類科題本，複試須以雙語試教及口試。語文證照是資格，不是本甄選等級。"
+        },
+        {
+          "code": "job-visual-arts-western-painting",
+          "label": "視覺藝術-西畫專長",
+          "track_id": "newtaipei-junior-visual-arts-western-painting",
+          "booklets": [
+            "教育專業科",
+            "視覺藝術科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "藝術專長為原始缺額與初試分配表明列職缺；初試共用視覺藝術及教育專業題本。"
+        },
+        {
+          "code": "job-visual-arts-design",
+          "label": "視覺藝術-設計專長",
+          "track_id": "newtaipei-junior-visual-arts-design",
+          "booklets": [
+            "教育專業科",
+            "視覺藝術科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "藝術專長為原始缺額與初試分配表明列職缺；初試共用視覺藝術及教育專業題本。"
+        },
+        {
+          "code": "job-physical-education-athletics",
+          "label": "體育-田徑專長",
+          "track_id": "newtaipei-junior-physical-education-athletics",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "體育專長依原始專長資格及缺額表報考；各專長獨立招募，初試共用體育及教育專業題本。"
+        },
+        {
+          "code": "job-physical-education-wushu-sanshou",
+          "label": "體育-武術(散手)專長",
+          "track_id": "newtaipei-junior-physical-education-wushu-sanshou",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "體育專長依原始專長資格及缺額表報考；各專長獨立招募，初試共用體育及教育專業題本。"
+        },
+        {
+          "code": "job-physical-education-badminton",
+          "label": "體育-羽球專長",
+          "track_id": "newtaipei-junior-physical-education-badminton",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "體育專長依原始專長資格及缺額表報考；各專長獨立招募，初試共用體育及教育專業題本。"
+        },
+        {
+          "code": "job-physical-education-wrestling",
+          "label": "體育-角力專長",
+          "track_id": "newtaipei-junior-physical-education-wrestling",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "體育專長依原始專長資格及缺額表報考；各專長獨立招募，初試共用體育及教育專業題本。"
+        },
+        {
+          "code": "job-physical-education-taekwondo-sparring",
+          "label": "體育-跆拳道(對打)專長",
+          "track_id": "newtaipei-junior-physical-education-taekwondo-sparring",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "體育專長依原始專長資格及缺額表報考；各專長獨立招募，初試共用體育及教育專業題本。"
+        },
+        {
+          "code": "job-physical-education-judo",
+          "label": "體育-柔道專長",
+          "track_id": "newtaipei-junior-physical-education-judo",
+          "booklets": [
+            "教育專業科",
+            "體育科"
+          ],
+          "registration_groups": [
+            "一般組"
+          ],
+          "eligibility_note": "體育專長依原始專長資格及缺額表報考；各專長獨立招募，初試共用體育及教育專業題本。"
+        },
+        {
+          "code": "job-experimental-pinglin-biology",
+          "label": "坪林實驗國中-生物",
+          "track_id": "newtaipei-junior-experimental-pinglin-biology",
+          "booklets": [
+            "教育專業科",
+            "生物科"
+          ],
+          "registration_groups": [
+            "實驗教育組"
+          ],
+          "eligibility_note": "初試分配表明列學校別及類科；獨立保留實驗教育職缺，初試共用該科及教育專業題本，後續依各校實驗教育規定。"
+        },
+        {
+          "code": "job-experimental-pinglin-special-needs",
+          "label": "坪林實驗國中-特教身障類科",
+          "track_id": "newtaipei-junior-experimental-pinglin-special-needs",
+          "booklets": [
+            "教育專業科",
+            "特教身障科"
+          ],
+          "registration_groups": [
+            "實驗教育組"
+          ],
+          "eligibility_note": "初試分配表明列學校別及類科；獨立保留實驗教育職缺，初試共用該科及教育專業題本，後續依各校實驗教育規定。"
+        },
+        {
+          "code": "job-experimental-gongliao-performing-arts",
+          "label": "貢寮實驗國中-表演藝術",
+          "track_id": "newtaipei-junior-experimental-gongliao-performing-arts",
+          "booklets": [
+            "教育專業科",
+            "表演藝術科"
+          ],
+          "registration_groups": [
+            "實驗教育組"
+          ],
+          "eligibility_note": "初試分配表明列學校別及類科；獨立保留實驗教育職缺，初試共用該科及教育專業題本，後續依各校實驗教育規定。"
+        },
+        {
+          "code": "job-experimental-gongliao-special-needs",
+          "label": "貢寮實驗國中-特教身障類科",
+          "track_id": "newtaipei-junior-experimental-gongliao-special-needs",
+          "booklets": [
+            "教育專業科",
+            "特教身障科"
+          ],
+          "registration_groups": [
+            "實驗教育組"
+          ],
+          "eligibility_note": "初試分配表明列學校別及類科；獨立保留實驗教育職缺，初試共用該科及教育專業題本，後續依各校實驗教育規定。"
+        },
+        {
+          "code": "job-experimental-shimen-geography",
+          "label": "石門實驗國中-地理",
+          "track_id": "newtaipei-junior-experimental-shimen-geography",
+          "booklets": [
+            "教育專業科",
+            "地理科"
+          ],
+          "registration_groups": [
+            "實驗教育組"
+          ],
+          "eligibility_note": "初試分配表明列學校別及類科；獨立保留實驗教育職缺，初試共用該科及教育專業題本，後續依各校實驗教育規定。"
+        },
+        {
+          "code": "job-experimental-shimen-visual-arts",
+          "label": "石門實驗國中-視覺藝術",
+          "track_id": "newtaipei-junior-experimental-shimen-visual-arts",
+          "booklets": [
+            "教育專業科",
+            "視覺藝術科"
+          ],
+          "registration_groups": [
+            "實驗教育組"
+          ],
+          "eligibility_note": "初試分配表明列學校別及類科；獨立保留實驗教育職缺，初試共用該科及教育專業題本，後續依各校實驗教育規定。"
+        }
+      ]
+    },
+    {
+      "source_exam_id": "teacher-recruit-newtaipei-115-preschool",
+      "year_roc": 115,
+      "programme_name": "新北市115學年度公立幼兒園契約進用教保員甄選",
+      "series_id": "newtaipei-preschool-care-recruitment",
+      "series_label": "新北市公立幼兒園契約進用教保員甄選",
+      "domain_id": "employment",
+      "family_id": "employment-exam",
+      "written_test_date": "2026-05-24",
+      "reviewed_at": "2026-10-30",
+      "rule_document_id": "annual-rule",
+      "category_document_id": "annual-rule",
+      "archive_checksum": "",
+      "review_notes": "This programme appoints contracted preschool care workers, not licensed junior-high teachers. Four registration groups share one written subject and exact question/key pair; they are allocation and eligibility contexts, not four paper forms or grades. Group 4 covers current temporary care workers applying for contracted positions at their original preschool. Native-language certification is eligibility for the indigenous group; other language certificates can give bonus points. Neither creates an exam level. The official follow-up reports no objections and maintains the initial key. The rolling original notice expired on 2026-08-31, but its exact detail and retained payloads remain available; explicit retained-event acquisition does not fabricate fresh discovery.",
+      "notices": [
+        {
+          "uuid": "048d7ed73c7b474cb40ac25d143e932c",
+          "title": "【公告】新北市115學年度公立幼兒園契約進用教保員甄選筆試試題及建議答案",
+          "answer_review": false
+        }
+      ],
+      "documents": [
+        {
+          "document_id": "annual-rule",
+          "subject_name": "契約進用教保員甄選簡章",
+          "file_type": "instructions",
+          "title": "公告-新北市115學年度公立幼兒園契約進用教保員甄選簡章及附件.pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/9954aa1c9c0d460ab9d48fce1cd8d4cb",
+          "checksum": "8fbf61ffcf90f979ead203be465629b9977fafc522112cb6efac3a44b9e53dcf",
+          "size": 1178230,
+          "publication_date": "2026-04-02",
+          "page_count": 38,
+          "inspected_pages": [
+            5,
+            6,
+            7,
+            10,
+            11
+          ],
+          "native_header": "新北市115學年度公立幼兒園契約進用教保員甄選簡章｜筆試網路報名時間：115 年 4 月 13 日（星期一）上午 8 時起至｜115 年 4 月 17 日（星期五）中午 12 時止",
+          "applies_to_booklets": []
+        },
+        {
+          "document_id": "written-question",
+          "subject_name": "教保概論與教保活動設計",
+          "file_type": "question",
+          "title": "115教保員甄選筆試試卷(試題).pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/5328a7104c8646399974a18ef0d8ebb7",
+          "checksum": "ee5fdf35aefdc4b3a1cb28e8aa3f6ce877380a25bda4ba7aef0aa87f0ef36460",
+          "size": 397949,
+          "publication_date": "2026-05-24",
+          "page_count": 13,
+          "inspected_pages": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "native_header": "新北市 115 學年度公立幼兒園契約進用教保員甄選筆試｜科目：教保概論與教保活動設計｜請不要翻到次頁！",
+          "applies_to_booklets": [
+            "教保概論與教保活動設計"
+          ]
+        },
+        {
+          "document_id": "written-answer",
+          "subject_name": "教保概論與教保活動設計",
+          "file_type": "answer",
+          "title": "115教保員甄選筆試試卷(答案).pdf",
+          "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/45bb9861a7e446178d8eadffdacca882",
+          "checksum": "68180dfda1f0bd31f9896030ec3afdc52215bbd7e37d90fbb6bbaba5fc02164a",
+          "size": 115764,
+          "publication_date": "2026-05-24",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "115 學年度公立幼兒園契約進用教保員甄選筆試試題答案｜科目：教保概論與教保活動設計｜題號   1      2    3    4    5    6    7    8    9    10",
+          "applies_to_booklets": [
+            "教保概論與教保活動設計"
+          ]
+        }
+      ],
+      "jobs": [
+        {
+          "code": "job-care-worker",
+          "label": "契約進用教保員",
+          "track_id": "newtaipei-preschool-care-worker",
+          "booklets": [
+            "教保概論與教保活動設計"
+          ],
+          "registration_groups": [
+            "第1組（一般組）",
+            "第2組（偏特組）",
+            "第3組（原住民族組）",
+            "第4組（臨時人員組）"
+          ],
+          "eligibility_note": "四組共用同一筆試。原住民族組須族語認證；臨時人員組限現職公立幼兒園臨時教保員報考原園契約職缺。資格、加分證照及園所分發不構成另一份試卷或甄選等級。"
+        }
+      ]
+    }
+  ]
+}

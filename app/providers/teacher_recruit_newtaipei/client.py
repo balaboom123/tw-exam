@@ -318,6 +318,28 @@ class NewTaipeiTeacherRecruitClient:
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         self.build_discovery_exam_url(exam_code, year_ad)
         event = self._exam_notice_map()[exam_code]
+        return self._fetch_event_page(exam_code, year_ad, event)
+
+    def fetch_reviewed_exam_page(
+        self, exam_code: str, year_ad: int, reviewed: NewTaipeiEvent
+    ) -> SourceExamPage:
+        """Revisit an exact retained event even after its rolling notice expires."""
+        original = reviewed.original
+        if (
+            year_ad != original.year_ad
+            or exam_code != f"teacher-recruit-newtaipei-{original.year_roc}-{original.scope_code}"
+        ):
+            raise ValueError("New Taipei reviewed event year or source context differs")
+        current = self._exam_notice_map().get(exam_code)
+        if current is not None and current != reviewed:
+            raise ValueError(
+                "New Taipei active notice history changed; retain event pending review"
+            )
+        return self._fetch_event_page(exam_code, year_ad, reviewed)
+
+    def _fetch_event_page(
+        self, exam_code: str, year_ad: int, event: NewTaipeiEvent
+    ) -> SourceExamPage:
         notice = event.original
         papers = []
         for source_notice in event.notices:

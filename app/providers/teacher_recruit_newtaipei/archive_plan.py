@@ -244,6 +244,40 @@ def verify_member(member: ArchiveMember, data: bytes) -> None:
         raise ValueError("New Taipei native PDF differs from its reviewed archive member")
 
 
+def member_storage_keys(
+    repo_root: Path, archive: ReviewedArchive, member: ArchiveMember
+) -> tuple[str, ...]:
+    """Find a reference PDF after a redundant import-cache alias is pruned.
+
+    Administered papers use the sync paper path. Reference attachments use the
+    attachment path chosen by sync; its retained exact source anchor owns that
+    path, including any collision suffix. Do not duplicate that path policy.
+    """
+    keys = [archive.storage_key(member)]
+    if member.file_type != "source_document":
+        return tuple(keys)
+    from app.paths import provider_paths
+    from app.state import load_provider_state
+
+    pages, _catalog, _failures = load_provider_state(provider_paths(repo_root, PROVIDER_ID))
+    for page in pages:
+        if (page.source_exam_id, page.year_roc) != (archive.source_exam_id, archive.year_roc):
+            continue
+        for attachment in page.attachments:
+            if (attachment.download_url_source, attachment.checksum, attachment.file_type) != (
+                archive.locator(member),
+                member.checksum,
+                member.file_type,
+            ):
+                continue
+            key = attachment.storage_key
+            if not portable_archive_name(key) or not key.startswith(f"providers/{PROVIDER_ID}/"):
+                raise ValueError("New Taipei reference member has an unsafe retained mirror anchor")
+            if key not in keys:
+                keys.append(key)
+    return tuple(keys)
+
+
 def validate_native_archives(repo_root: Path, *, verify_mirror: bool = False) -> int:
     from app.paths import provider_paths
     from app.source_revisions import _source_records, load_source_revisions
@@ -284,7 +318,15 @@ def validate_native_archives(repo_root: Path, *, verify_mirror: bool = False) ->
             for parent in parents:
                 verify_parent(plan, (repo_root / "mirror" / parent["storage_key"]).read_bytes())
             for member in plan.files:
-                verify_member(
-                    member, (repo_root / "mirror" / plan.storage_key(member)).read_bytes()
-                )
+                candidates = [
+                    repo_root / "mirror" / key
+                    for key in member_storage_keys(repo_root, plan, member)
+                ]
+                existing = [p for p in candidates if p.is_file()]
+                if not existing:
+                    raise ValueError(
+                        "New Taipei native member lacks a verified mirror or retained attachment"
+                    )
+                for path in existing:
+                    verify_member(member, path.read_bytes())
     return len(plans)

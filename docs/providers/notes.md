@@ -964,6 +964,24 @@ the [operator import procedure](../operations/recovery.md#new-taipei-native-rar-
 Unknown parent revisions, changed member bytes and unreviewed locators fail
 without substituting a similarly named document.
 
+The [native programme catalogue](../../catalog/mappings/teacher-recruit-newtaipei/native-programmes-v1.json)
+separately owns recruitment purpose and job-to-booklet applicability. Junior-high
+licensed teachers and contracted preschool care workers have different series
+and purposes. Shared initial papers retain distinct recruitment posts; native
+allocation groups remain explicit searchable context. Publication cannot omit
+a reviewed category, an initial key, or an applicable correction supplement.
+The catalogue records the limited page-review scope and the unresolved generic
+counseling scoring prose without converting either into invented facts.
+
+Explicit retained-event acquisition checks the exact original notice and all
+answer-review notices even after a rolling listing expires. Active notice drift
+or changed rule/reference bytes blocks replacement. A transport service that
+rejects `HEAD` can supply actual `GET` metadata, with those same bytes reused
+for the ensuing download. Neither metadata nor discovery timestamps are inferred
+from the reviewed catalogue. Redundant import-cache aliases can be removed only
+when the exact reference attachment and immutable source history retain the
+native bytes; runtime lookup follows those retained anchors.
+
 ## `teacher_recruit_tainan`
 
 Use official Tainan teacher-recruitment event pages and linked papers. Preserve the source event and school-level boundary during normalization.
