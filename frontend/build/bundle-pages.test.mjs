@@ -16,6 +16,18 @@ const bundle = {
   subjectLabels: ["數學甲"],
 }
 
+test("coverage notes appear before download actions and escape source text", () => {
+  const html = buildBundlePage({ ...bundle, coverageNotes: ["114 原公布答案；更正原檔待補 <script>"] }, {
+    repo: "example/tw-exam", root: "https://example.github.io/tw-exam/",
+  })
+  assert.match(html, /<aside aria-label="收錄說明">/)
+  assert.match(html, /更正原檔待補 &lt;script&gt;/)
+  assert.ok(html.indexOf("收錄說明") < html.indexOf('class="actions"'))
+  assert.doesNotMatch(html, /待補 <script>/)
+  const complete = buildBundlePage(bundle, { repo: "example/tw-exam", root: "https://example.github.io/tw-exam/" })
+  assert.doesNotMatch(complete, /收錄說明/)
+})
+
 test("a previous page links exact successor IDs and carries an unlocked return", () => {
   const root = "https://example.github.io/tw-exam/"
   const html = buildCompatibilityPage({ id: "old-combined", name: "舊 <分組>", successorIds: [bundle.id] }, [bundle], root)

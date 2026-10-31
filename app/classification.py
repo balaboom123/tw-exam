@@ -2201,6 +2201,47 @@ def _classify_paper_uncached(
                 "annual answer review; bilingual written language follows the annual rule, "
                 "and school scope or prerequisite certificates do not create exam grades"
             )
+    if provider_id == "teacher_recruit_taipei_elementary":
+        from app.providers.teacher_recruit_taipei_elementary.evidence import (
+            SERIES_ID as TAIPEI_ELEMENTARY_SERIES,
+        )
+        from app.providers.teacher_recruit_taipei_elementary.evidence import (
+            SERIES_LABEL as TAIPEI_ELEMENTARY_LABEL,
+        )
+        from app.providers.teacher_recruit_taipei_elementary.evidence import (
+            resolve_identity as resolve_taipei_elementary_identity,
+        )
+
+        elementary_identity = resolve_taipei_elementary_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            exam_name_raw=exam_name,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+            source_material=source_material,
+        )
+        variant_pairs, variants = (), ()
+        if elementary_identity is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            track_id, track_label = "taipei-elementary-unknown", "甄選類科待確認"
+            stage_id, confidence = "unknown", "review"
+            reason = "Taipei elementary native post, booklet or annual evidence requires review"
+        else:
+            _elementary_exam, elementary_job, _elementary_paper = elementary_identity
+            domain_id, family_id = "teacher", "teacher-exam"
+            series_id, series_label = TAIPEI_ELEMENTARY_SERIES, TAIPEI_ELEMENTARY_LABEL
+            level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+            track_id, track_label = elementary_job.track_id, elementary_job.label
+            stage_id, confidence = "stage-1", "high"
+            reason = (
+                "Reviewed elementary recruitment post and exact common/specialist initial "
+                "booklets; correction applicability follows each native booklet; shared "
+                "papers, school level and prerequisite certificates do not create exam grades"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2464,6 +2505,9 @@ def _classify_paper_uncached(
             bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
             for _variant_id, label in variant_pairs:
                 bundle_name += f"｜{label}"
+        if provider_id == "teacher_recruit_taipei_elementary":
+            bundle_name = f"{series_label}｜{track_label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
             "wdasec_skill",
             "tqc_cert",

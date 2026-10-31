@@ -366,6 +366,14 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
         taipei_junior_reviewed = taipei_junior_views(entries)
         report["reviewed_native_paper_references"] = taipei_junior_reviewed
         report["native_paper_review_unresolved"] = len(entries) - len(taipei_junior_reviewed)
+    if provider.provider_id == "teacher_recruit_taipei_elementary":
+        from app.providers.teacher_recruit_taipei_elementary.evidence import (
+            reviewed_native_revisions as taipei_elementary_views,
+        )
+
+        taipei_elementary_reviewed = taipei_elementary_views(entries)
+        report["reviewed_native_paper_references"] = taipei_elementary_reviewed
+        report["native_paper_review_unresolved"] = len(entries) - len(taipei_elementary_reviewed)
     return report
 
 

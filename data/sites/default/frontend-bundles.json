@@ -169689,47 +169689,61 @@
       ]
     },
     {
-      "id": "teacher-recruit-taipei-elementary-teacher-recruitment-not-applicable-teacher-recruit-taipei-elementary",
-      "name": "臺北市國小教師甄試",
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-counseling-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜輔導科｜初試（筆試）",
       "years": [
+        115,
         114
       ],
-      "fileCount": 12,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/teacher-recruit-taipei-elementary-teacher-recruitment-not-applicable-teacher-recruit-taipei-elementary--72a6bdc33a2e.zip",
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-counseling-stag--c93a688ccef9.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "teacher",
       "examFamilyId": "teacher-exam",
-      "seriesId": "teacher-recruitment",
+      "seriesId": "taipei-elementary-teacher-recruitment",
       "levelId": "not-applicable",
-      "trackId": "teacher-recruit-taipei-elementary",
+      "trackId": "taipei-elementary-counseling",
       "variantIds": [],
-      "stageId": "not-applicable",
+      "stageId": "stage-1",
       "examClass": "教師考試",
-      "examSubclass": "教師甄試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
       "searchAliases": [
         "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業（選擇題含答案）",
+        "輔導專門知能（申論題）",
         "輔導科",
-        "英語科",
-        "普通科",
-        "資訊科技科",
-        "音樂科",
-        "體育科",
-        "自然科",
-        "特教科(身障)",
-        "特教科(資優)",
-        "閩南語",
-        "視覺藝術科",
-        "114學年度臺北市國小教師甄試",
-        "114",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-counseling",
         "basic-category-knowledge",
         "counseling",
-        "english",
-        "general",
-        "information-technology",
-        "music",
-        "physical-education",
-        "science",
-        "special-education-disability",
-        "special-education-gifted"
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業（選擇題含答案）",
+        "輔導專門知能（申論題）"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
       ],
       "sources": [
         {
@@ -169737,7 +169751,857 @@
           "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
         }
       ],
-      "updated": "2026-11-08T05:07:09Z"
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-english-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜英語科｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-english-stage-1--d0394d1e111c.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-english",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "英語專門知能",
+        "英語科",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-english",
+        "basic-category-knowledge",
+        "english",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "英語專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-general-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜普通科｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-general-stage-1--018a119ebcd3.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-general",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "初試試題答案疑義（原公告）",
+        "普通科",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-general",
+        "answer-review",
+        "basic-category-knowledge",
+        "general",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-information-technology-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜資訊科技｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-information-tec--63f10df40f7a.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-information-technology",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "電腦專門知能",
+        "資訊科技",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-information-technology",
+        "basic-category-knowledge",
+        "資訊科技科",
+        "information-technology",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "電腦專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-music-bilingual-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜雙語教育（音樂）｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 3,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-music-bilingual--abad74d10d0a.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-music-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "音樂專門知能",
+        "初試試題答案疑義（原公告）",
+        "雙語教育（音樂）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-music-bilingual",
+        "answer-review",
+        "basic-category-knowledge",
+        "音樂科",
+        "music"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "音樂專門知能"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-music-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜藝術（音樂）｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-music-stage-1--373cfc4c3239.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-music",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "音樂專門知能",
+        "初試試題答案疑義（原公告）",
+        "藝術（音樂）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-music",
+        "answer-review",
+        "basic-category-knowledge",
+        "音樂科",
+        "music",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "音樂專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-physical-education-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜體育科（一般體育）｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-physical-educat--27e41b87b399.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-physical-education",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "體育專門知能",
+        "初試試題答案疑義（原公告）",
+        "體育科（一般體育）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-physical-education",
+        "answer-review",
+        "basic-category-knowledge",
+        "體育科",
+        "physical-education",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "體育專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-physical-education-bilingual-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜雙語教育（一般體育）｜初試（筆試）",
+      "years": [
+        114
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-physical-educat--b42c19bdea50.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-physical-education-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "體育專門知能",
+        "雙語教育（一般體育）",
+        "臺北市114學年度公立國民小學教師聯合甄選",
+        "job-physical-education-bilingual",
+        "basic-category-knowledge",
+        "體育科",
+        "physical-education"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "體育專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-science-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜自然科學｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-science-stage-1--3f60df82de77.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-science",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "自然科學專門知能",
+        "初試試題答案疑義（原公告）",
+        "自然科學",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-science",
+        "answer-review",
+        "basic-category-knowledge",
+        "自然科",
+        "science",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "自然科學專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-special-education-disability-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜特殊教育（身心障礙）｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-special-educati--606d07c1f249.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-special-education-disability",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "特殊教育專門知能（身心障礙）",
+        "初試試題答案疑義（原公告）",
+        "特殊教育（身心障礙）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-special-education-disability",
+        "answer-review",
+        "basic-category-knowledge",
+        "特教科(身障)",
+        "special-education-disability",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "特殊教育專門知能（身心障礙）"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-special-education-gifted-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜特殊教育（資賦優異）｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-special-educati--9be384533ace.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-special-education-gifted",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "特殊教育專門知能（資賦優異）",
+        "特殊教育（資賦優異）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-special-education-gifted",
+        "basic-category-knowledge",
+        "特教科(資優)",
+        "special-education-gifted",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "特殊教育專門知能（資賦優異）"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-taiwanese-minnan-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜本土語言（閩南語）｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 6,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-taiwanese-minna--221442f2b296.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-taiwanese-minnan",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "閩南語教學及文化專門知能",
+        "初試試題答案疑義（原公告）",
+        "本土語言（閩南語）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-taiwanese-minnan",
+        "answer-review",
+        "初試試題答案疑義（閩南語修正公告）",
+        "answer-review-amendment",
+        "basic-category-knowledge",
+        "閩南語科",
+        "taiwanese-minnan",
+        "臺北市114學年度公立國民小學教師聯合甄選",
+        "閩南語"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "閩南語教學及文化專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-visual-arts-bilingual-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜雙語教育（視覺藝術）｜初試（筆試）",
+      "years": [
+        114
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-visual-arts-bil--6f24eaa51e6e.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-visual-arts-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "美術專門知能",
+        "雙語教育（視覺藝術）",
+        "臺北市114學年度公立國民小學教師聯合甄選",
+        "job-visual-arts-bilingual",
+        "basic-category-knowledge",
+        "視覺藝術科",
+        "visual-arts"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "美術專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-visual-arts-stage-1",
+      "name": "臺北市國小正式教師聯合甄選｜藝術（視覺藝術）｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "fileCount": 4,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-visual-arts-sta--9fc15b1c78e0.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "taipei-elementary-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "taipei-elementary-visual-arts",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "臺北市國小正式教師聯合甄選",
+      "searchAliases": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "美術專門知能",
+        "藝術（視覺藝術）",
+        "臺北市115學年度公立國民小學教師聯合甄選",
+        "job-visual-arts",
+        "basic-category-knowledge",
+        "視覺藝術科",
+        "visual-arts",
+        "臺北市114學年度公立國民小學教師聯合甄選"
+      ],
+      "subjectLabels": [
+        "基礎類科知能",
+        "國語文",
+        "數學",
+        "英文",
+        "教育專業",
+        "美術專門知能"
+      ],
+      "coverageNotes": [
+        "114 學年度含原公布答案；答案更正公告原檔尚待補齊。"
+      ],
+      "sources": [
+        {
+          "name": "臺北市國小教師聯合甄選",
+          "url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        }
+      ],
+      "updated": "2026-11-09T02:38:02Z"
     },
     {
       "id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-biology-stage-1",
@@ -205452,6 +206316,25 @@
         "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-stage-1",
         "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-western-painting-stage-1",
         "teacher-recruit-newtaipei-newtaipei-preschool-care-recruitment-not-applicable-newtaipei-preschool-care-worker-stage-1"
+      ]
+    },
+    {
+      "id": "teacher-recruit-taipei-elementary-teacher-recruitment-not-applicable-teacher-recruit-taipei-elementary",
+      "name": "臺北市國小教師甄試",
+      "successorIds": [
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-counseling-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-english-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-general-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-information-technology-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-music-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-physical-education-bilingual-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-physical-education-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-science-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-special-education-disability-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-special-education-gifted-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-taiwanese-minnan-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-visual-arts-bilingual-stage-1",
+        "teacher-recruit-taipei-elementary-taipei-elementary-teacher-recruitment-not-applicable-taipei-elementary-visual-arts-stage-1"
       ]
     },
     {

@@ -22320,6 +22320,120 @@
         }
       ]
     },
+    "teacher-recruit-taipei-elementary-teacher-recruitment-not-applicable-teacher-recruit-taipei-elementary--72a6bdc33a2e.zip": {
+      "canonical_name": "臺北市國小教師甄試",
+      "checksum": "a5ae368d1d2f1151fefd21465ee3a6934644de593ae311a8451c8cda514cfcd8",
+      "papers": [
+        {
+          "category_code": "114",
+          "checksum": "212dfd64b42762e3fcdca7f6dcf600fb59b049cac23ab1c4113235db0834c0ba",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9kNTRmN2M4OS00N2FlLTQ2ZTAtODJmMS0yMDAxODI5Y2Q1ZDIucGRm&n=MeWfuuekjumhnuenkeefpeiDvV%2flkKvnrZTmoYgucGRm&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "basic-category-knowledge",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "89525bbff41f9cd2f98050853c90ad95c6513e5884ceac2783dfbf9a24561d74",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8zNGExOWIxMi1lODZiLTRmNWUtOTBlNy1iMWU4YjkzNjEwM2UucGRm&n=Mi426LyU5bCO56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "counseling",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "a5f4f60aa7d37aa852af78c6f6be401fe264b40681976dc8579fd1927362d460",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8wYTA4YzNmZi0zODczLTRkOTItOGY3NS0yMzk0YzVmZTdjY2UucGRm&n=Mi4y6Iux6Kqe56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "english",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "4f380e262a36d6e6b7dc8575d8f2506a51ef85c6ac69e51e41efd052de58037b",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9jZWRiZTcwZS03ODVjLTQyYzItOGFmNy0wMDVlMWRlNzA1YjkucGRm&n=Mi4x5pmu6YCa56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "general",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "328c0e82be12540f69426a264fcf6c3ab19570a362f5edc16d0b96859c956f27",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My84MWI1Y2VmZC0xMWQ1LTQ1YzQtYjVmYS0zMDQ5Mzc1MzdiMDkucGRm&n=Mi436LOH6KiK56eR5oqA56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "information-technology",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "a3f101dccf651f0a6ee41bf3994e6eccd491fbaa3db8ee82f69bd9de98e6af01",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8zNjg4YTBiZS04NTUyLTRlZWEtOTM5ZC0zMmFjNjY2OTZkM2QucGRm&n=Mi406Z%2bz5qiC56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "music",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "d4aedd353757992b540a53be08b02c548166011410e754b14a0c235394d50fb7",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8wZmNlMWMzMy0zNTVjLTQxMWItOWM4NC1mMjNjNjhjY2U5N2IucGRm&n=Mi4z6auU6IKy56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "physical-education",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "4fef4c9d2e80f940ba76857bbedf85be33d4a60149f585921dae80bf59b2565a",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8wZTFjMTczNi04ZTQxLTRjZDItYTA0NC04MWYwZDkxM2Y2ODUucGRm&n=Mi4xMeiHqueEtuenkV%2flkKvnrZTmoYgucGRm&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "science",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "a5f0af637aef510b4a5e3d1b218c364ad3b6b4496d980f44fbb3d5e2344497f5",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9hYzA3ZDY1NC1iZDUzLTQzYzMtYjBkYy02NDVjZjIzMGMzODUucGRm&n=Mi4554m55pWZ56eRKOi6q%2bmanClf5ZCr562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "special-education-disability",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "5d49f5312fbe69b690e58eba82410eb0d8627e6d551a7fe9c0c1b4d2975b54d1",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9hMGJkMjJiMi0zYTIxLTQ3YzktOTdkYi01OGZlMzZmN2QxMmQucGRm&n=Mi4xMOeJueaVmeenkSjos4flhKopX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "special-education-gifted",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "0d4b9a8989228c529f870b4e8485dcec0f23dab8e8b95aae8cf380cd7d007f8c",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9hOTg3OWFkYy04YmRjLTQ5MzYtYjdhNi0xZDIyNWMzM2QyYWEucGRm&n=Mi446Zap5Y2X6KqeX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "taiwanese-minnan",
+          "year_roc": 114
+        },
+        {
+          "category_code": "114",
+          "checksum": "18b6e460c180b61c6fef9b5993ddb8cdb35db55ccb42ef97927fb4bc696b697d",
+          "download_url_source": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9mMjMyYTQxYS0wMTQzLTQwNTItYjNhNy0wNDIzMGQ0MzViNTEucGRm&n=Mi416KaW6Ka66Jed6KGT56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-taipei-elementary-114",
+          "subject_code": "visual-arts",
+          "year_roc": 114
+        }
+      ]
+    },
     "teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior--4af519860a6d.zip": {
       "canonical_name": "臺北市國中教師甄試",
       "checksum": "d6c02dc9cbfd5a0c213726a5177465a2de7c575b9c7b3cd6a5ce2b1c97a48918",

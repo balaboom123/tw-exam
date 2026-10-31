@@ -1475,10 +1475,10 @@
     },
     {
       "available_years": {
-        "end_ad": 2025,
         "mode": "observed_range",
-        "note": "Reviewed 114 school year / AD 2025",
-        "start_ad": 2025
+        "start_ad": 2025,
+        "end_ad": 2026,
+        "note": "Reviewed annual programme scope; exact sources, shared-booklet applicability and unresolved historical document recovery are owned by native-programmes-v1."
       },
       "discovery_snapshot": {
         "coverage": "complete",
@@ -1486,27 +1486,30 @@
         "status": "present"
       },
       "evidence": [
+        "catalog/mappings/teacher-recruit-taipei-elementary/native-programmes-v1.json",
         "docs/providers/notes.md#teacher_recruit_taipei_elementary"
       ],
       "exam_category": "Taipei elementary teacher joint recruitment",
       "local_state": {
-        "normalized_paper_records": 12,
-        "raw_event_pages": 1,
+        "normalized_paper_records": 58,
+        "raw_event_pages": 2,
         "sync_failures": 0
       },
       "local_years": [
-        2025
+        2025,
+        2026
       ],
       "official_source_urls": [
-        "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2"
+        "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+        "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA"
       ],
       "provider_id": "teacher_recruit_taipei_elementary",
       "restrictions": [
-        "The 2026-07-29 reviewed-article snapshot has one event and 12 matching retained URLs. The city-wide news listing is not treated as an archive."
+        "Fixed reviewed annual article scope does not establish absence of older or future years. Native evidence records all unavailable historical documents separately from verified acquired files."
       ],
       "source_name": "臺北市國小教師聯合甄選",
-      "status": "covered",
-      "status_reason": "Covered, reviewed current-year scope; source availability: Reviewed 114 school year / AD 2025; local coverage: 2025; 1 → 12"
+      "status": "partial",
+      "status_reason": "Native post identities and available initial/correction files are reviewed for ROC114/115. The ROC114 rule, vacancy and correction originals remain unavailable; indexed official text does not establish recovered native bytes."
     },
     {
       "available_years": {

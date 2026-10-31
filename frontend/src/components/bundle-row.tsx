@@ -29,6 +29,7 @@ export function BundleRow({
           <span>{bundle.sourceMaterial ? materialDateLabels(bundle.sourceMaterial).join("；") : `民國 ${formatYearRange(bundle.years)}`}</span>
           <span>{bundle.fileCount.toLocaleString()} {bundle.sourceMaterial ? "份檔案" : "份試題"}</span>
         </p>
+        {bundle.coverageNotes?.map((note) => <p key={note} className="mt-2 text-xs leading-6 text-ink-600">{note}</p>)}
         <details className="bundle-details" onToggle={(event) => setDetailsOpen(event.currentTarget.open)}>
           <summary>科目、來源與收錄年度</summary>
           {detailsOpen && <div className="pb-2 text-xs leading-6 text-ink-600">

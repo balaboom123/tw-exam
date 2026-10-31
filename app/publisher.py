@@ -27,6 +27,7 @@ from app.provider_index import (
     load_provider_index,
     write_provider_index,
 )
+from app.publication_metadata import public_coverage_notes
 from app.publication_quarantine import quarantined_provider_ids
 from app.release_tags import (
     RELEASE_SAFETY_TARGET,
@@ -324,6 +325,10 @@ def apply_bundle_download_urls(
         )
         for paper in normalized.papers
     ]
+    coverage_notes: dict[str, set[str]] = {}
+    for paper in updated_papers:
+        for note in public_coverage_notes(paper):
+            coverage_notes.setdefault(_paper_bundle_key(paper), set()).add(note)
 
     grouped: dict[str, list[BundleAsset]] = {}
     order: list[str] = []
@@ -383,6 +388,8 @@ def apply_bundle_download_urls(
             frontend["searchAliases"] = bundle.search_aliases
         if bundle.subject_labels:
             frontend["subjectLabels"] = bundle.subject_labels
+        if key in coverage_notes:
+            frontend["coverageNotes"] = sorted(coverage_notes[key])
         frontend_bundles.append(frontend)
     return (
         NormalizedCatalog(papers=updated_papers, review_queue=normalized.review_queue),
@@ -458,6 +465,12 @@ def load_site_catalog(
             )
 
             validate_taipei_junior_papers(provider_catalog.papers, complete_history=True)
+        if provider_id == "teacher_recruit_taipei_elementary":
+            from app.providers.teacher_recruit_taipei_elementary.evidence import (
+                validate_public_papers as validate_taipei_elementary_papers,
+            )
+
+            validate_taipei_elementary_papers(provider_catalog.papers, complete_history=True)
         aggregated_papers.extend(withhold_unreviewed_materials(provider_catalog.papers))
         aggregated_review_queue.extend(provider_catalog.review_queue)
         failures.extend(provider_failures)

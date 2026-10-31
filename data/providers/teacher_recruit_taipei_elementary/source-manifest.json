@@ -7,12 +7,20 @@
       "source_exam_id": "teacher-recruit-taipei-elementary-114",
       "year_ad": 2025,
       "year_roc": 114
+    },
+    "teacher-recruit-taipei-elementary-115": {
+      "discovered_at": "2026-10-31T11:52:59.452541+00:00",
+      "exam_label": "115學年度臺北市國小教師甄試",
+      "result_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+      "source_exam_id": "teacher-recruit-taipei-elementary-115",
+      "year_ad": 2026,
+      "year_roc": 115
     }
   },
   "files": {},
   "probe_policy": {
     "discovery_mode": "official-year-exam-listing",
-    "last_discovery_at": "2026-07-29T21:12:54.541022+08:00"
+    "last_discovery_at": "2026-10-31T11:52:59.452541+00:00"
   },
   "provider_id": "teacher_recruit_taipei_elementary",
   "schema_version": 1,
@@ -26,6 +34,16 @@
       "search_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
       "year_ad": 2025,
       "year_roc": 114
+    },
+    "2026": {
+      "discovered_at": "2026-10-31T11:52:59.452541+00:00",
+      "exam_codes": [
+        "teacher-recruit-taipei-elementary-115"
+      ],
+      "exam_codes_hash": "sha256:0975c204a279998bfff3597b0bb77537a0eb5e008a53dc883f2e93ae44cf46ce",
+      "search_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+      "year_ad": 2026,
+      "year_roc": 115
     }
   }
 }

@@ -174,6 +174,10 @@ def publication_paper_subject(paper: Any) -> str:
         sections = _taipei_junior_sections(paper)
         if sections:
             return "；".join(sections)
+    if provider_id == "teacher_recruit_taipei_elementary":
+        sections = _taipei_elementary_sections(paper)
+        if sections:
+            return "；".join(sections)
     return publication_subject_label(title, provider_id=provider_id)
 
 
@@ -256,6 +260,32 @@ def _taipei_junior_sections(paper: Any) -> list[str]:
     return list(context[1].public_section_labels) if context is not None else []
 
 
+def _taipei_elementary_sections(paper: Any) -> list[str]:
+    if _field(paper, "file_type") != "question_answer":
+        return []
+    from app.providers.teacher_recruit_taipei_elementary.evidence import resolve_identity
+
+    fields = _native_identity_context(paper)
+    context = resolve_identity(**fields) if fields is not None else None
+    return list(context[2].public_section_labels) if context is not None else []
+
+
+def public_coverage_notes(paper: Any) -> list[str]:
+    """Describe a known answer-coverage gap only for its exact reviewed source."""
+    if _field(paper, "provider_id") != "teacher_recruit_taipei_elementary":
+        return []
+    from app.providers.teacher_recruit_taipei_elementary.evidence import resolve_identity
+
+    fields = _native_identity_context(paper)
+    context = resolve_identity(**fields) if fields is not None else None
+    if context is None or _field(paper, "file_type") != context[2].file_type:
+        return []
+    exam = context[0]
+    if any(d.document_id == "answer-review" for d in exam.unavailable_documents):
+        return [f"{exam.year_roc} 學年度含原公布答案；答案更正公告原檔尚待補齊。"]
+    return []
+
+
 def derive_public_metadata(
     papers: Iterable[Any],
     *,
@@ -272,7 +302,7 @@ def derive_public_metadata(
         providers.add(provider_id)
         aliases.extend(_newtaipei_registration_groups(paper))
         raw_subject = publication_paper_subject(paper)
-        if provider_id == "teacher_recruit_taipei_junior":
+        if provider_id in {"teacher_recruit_taipei_junior", "teacher_recruit_taipei_elementary"}:
             # Reviewed section labels must not erase historical source wording
             # from search, such as 英文 before the source renamed it 英語.
             aliases.append(_clean_label(_field(paper, "subject_name_raw")))
@@ -282,7 +312,12 @@ def derive_public_metadata(
                 # Cross-subject correction notices remain searchable, while
                 # subject previews show the actual administered booklets.
                 if not (
-                    provider_id in {"teacher_recruit_newtaipei", "teacher_recruit_taipei_junior"}
+                    provider_id
+                    in {
+                        "teacher_recruit_newtaipei",
+                        "teacher_recruit_taipei_junior",
+                        "teacher_recruit_taipei_elementary",
+                    }
                     and _field(paper, "file_type") in {"corrected_answer", "answer_clarification"}
                 ):
                     labels.append(label)
@@ -308,6 +343,7 @@ def derive_public_metadata(
     if bundle_id.startswith(_GENERIC_SUBJECT_BUNDLE_PREFIXES) or providers in (
         {"teacher_recruit_newtaipei"},
         {"teacher_recruit_taipei_junior"},
+        {"teacher_recruit_taipei_elementary"},
     ):
         return search_aliases, subject_labels
     return search_aliases, []

@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/taipei-elementary-native-programmes-v1.schema.json",
+  "title": "Taipei elementary native recruitment posts, booklets, scoped corrections and explicit recovery gaps",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "teacher_recruit_taipei_elementary"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "year_roc",
+          "source_exam_id",
+          "programme_name",
+          "paper_article_url",
+          "written_test_date",
+          "reviewed_at",
+          "review_notes",
+          "jobs",
+          "files",
+          "documents",
+          "unavailable_documents"
+        ],
+        "properties": {
+          "year_roc": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 999
+          },
+          "source_exam_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "programme_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "paper_article_url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "written_test_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "reviewed_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "review_notes": {
+            "type": "string",
+            "minLength": 1
+          },
+          "jobs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "code",
+                "label",
+                "track_id",
+                "source_subject_code",
+                "bilingual",
+                "basic_specialist_weights"
+              ],
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "track_id": {
+                  "type": "string",
+                  "pattern": "^taipei-elementary-[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "source_subject_code": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "bilingual": {
+                  "type": "boolean"
+                },
+                "basic_specialist_weights": {
+                  "enum": [
+                    [
+                      30,
+                      70
+                    ],
+                    [
+                      50,
+                      50
+                    ]
+                  ]
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "subject_code",
+                "subject_name_raw",
+                "file_type",
+                "source_url",
+                "checksum",
+                "notice_url",
+                "native_header",
+                "page_count",
+                "inspected_pages",
+                "applies_to_subjects",
+                "multiple_choice_count",
+                "essay_count",
+                "public_section_labels",
+                "amends_subject_code",
+                "amended_items",
+                "review_notes"
+              ],
+              "properties": {
+                "subject_code": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "subject_name_raw": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "file_type": {
+                  "enum": [
+                    "question_answer",
+                    "corrected_answer"
+                  ]
+                },
+                "source_url": {
+                  "type": "string",
+                  "pattern": "^https://"
+                },
+                "checksum": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "notice_url": {
+                  "type": "string",
+                  "pattern": "^https://"
+                },
+                "native_header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "page_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "inspected_pages": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "applies_to_subjects": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                  }
+                },
+                "multiple_choice_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "essay_count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "public_section_labels": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "amends_subject_code": {
+                  "type": "string"
+                },
+                "amended_items": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "review_notes": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "minItems": 2
+          },
+          "documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "document_id",
+                "title",
+                "source_url",
+                "checksum",
+                "notice_url",
+                "publication_date",
+                "page_count",
+                "inspected_pages"
+              ],
+              "properties": {
+                "document_id": {
+                  "enum": [
+                    "rule",
+                    "vacancy"
+                  ]
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "source_url": {
+                  "type": "string",
+                  "pattern": "^https://"
+                },
+                "checksum": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "notice_url": {
+                  "type": "string",
+                  "pattern": "^https://"
+                },
+                "publication_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "page_count": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "inspected_pages": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                }
+              }
+            },
+            "minItems": 0
+          },
+          "unavailable_documents": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "document_id",
+                "source_url",
+                "publication_date",
+                "checked_at",
+                "evidence_basis",
+                "observation",
+                "review_notes"
+              ],
+              "properties": {
+                "document_id": {
+                  "enum": [
+                    "rule",
+                    "vacancy",
+                    "answer-review"
+                  ]
+                },
+                "source_url": {
+                  "type": "string",
+                  "pattern": "^https://"
+                },
+                "publication_date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "checked_at": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "evidence_basis": {
+                  "const": "indexed-official-text-only"
+                },
+                "observation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "review_notes": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "minItems": 0
+          }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}

@@ -915,6 +915,37 @@ Repeated links to the same native file collapse. Different downloads claiming
 the same subject and role stop acquisition for review instead of silently
 replacing a question, key or combined booklet according to link order.
 
+The [annual native programme evidence](../../catalog/mappings/teacher-recruit-taipei-elementary/native-programmes-v1.json)
+owns actual recruitment posts, the common basic booklet and specialist-booklet
+applicability. Ordinary and bilingual posts remain separate when the native
+header explicitly gives them the same initial booklet. Bilingual eligibility
+does not establish a different written language or examination grade. Original
+source wording remains searchable across annual filename changes.
+
+Answers are printed inline for multiple-choice questions. Counseling combines
+education multiple-choice questions with specialist essays; the combined source
+file does not contain model essay answers. Preserve the mixed original rather
+than fabricating a separate complete key. Ordinary education questions differ
+from the education section shared by specialist booklets, so correction scope
+must follow the named booklet. A limited amendment requires its full original
+notice; it cannot replace changes that remain effective in that notice.
+
+Historical rule, vacancy and correction originals that the rolling portal no
+longer serves have explicit unavailable-evidence dispositions. Indexed official
+text supports interpretation, but is not counted as acquired native bytes or
+complete correction coverage. Preserve the original inline keys as originally
+published and recover the authentic correction PDF before claiming that gap is
+closed. Do not create an attachment or a successful download for cached text.
+Affected public rows and landing pages state that their original answers have
+an outstanding correction-file gap, before a reader selects a download.
+
+Acquisition pins every available native source and checks complete relevant
+notice populations. Changed bytes, extra relevant PDFs or omitted amendments
+stop replacement for review. The conserving migration retains earlier generic
+references and independent originals; old ZIP navigation follows exact source
+contexts into all applicable historical posts. New-year-only posts are not
+invented successors of the earlier archive.
+
 ## `teacher_recruit_taipei_junior`
 
 Use the official Taipei junior-high teacher-recruitment source for its events and papers. Do not merge elementary or other municipal recruitment series by city name alone.

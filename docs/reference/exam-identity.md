@@ -180,6 +180,19 @@ publication. Earlier generic references remain immutable in source history;
 their old public ZIP keeps compatibility navigation through exact reviewed
 successors rather than checksum-only matching.
 
+Taipei elementary recruitment has its own
+[annual post and booklet evidence](../../catalog/mappings/teacher-recruit-taipei-elementary/native-programmes-v1.json).
+Every post uses the common basic booklet plus its applicable specialist
+booklet. Shared initial papers do not merge ordinary and bilingual posts.
+Counseling contains multiple-choice education and specialist essays, with
+inline answers only for the multiple-choice portion. Correction notices follow
+the affected booklet; a limited amendment preserves its original full notice.
+Unavailable historical originals remain explicit recovery gaps, separate from
+checksum-verified source resources and classification judgments supported by
+indexed official text. They do not become fabricated native downloads or final
+answer keys.
+
+
 ## Why this exists
 
 A display name such as 「一般行政」 is a track, not a complete exam identity. The same track can occur in high, ordinary, elementary, local, promotion, disability, indigenous, customs, or other programs. Grouping by a stripped display name therefore creates mixed bundles.
