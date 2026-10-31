@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import re
-from dataclasses import dataclass
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.taipei_downloads import PaperDownload as TaipeiJuniorDownload
 from app.providers.taipei_downloads import download_name as _decode_download_name
-from app.providers.taipei_downloads import official_pdf_downloads
+from app.providers.taipei_downloads import group_paper_files, official_pdf_downloads
 from app.providers.taipei_downloads import request_url as _request_url
 
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taipei-junior-mirror/1.0)"
@@ -37,18 +37,9 @@ SUBJECT_CODES = {
 }
 
 
-@dataclass(frozen=True)
-class TaipeiJuniorDownload:
-    subject_name: str
-    subject_code: str
-    file_type: str
-    url: str
-
-
 def _subject_name(file_name: str) -> str:
     value = re.sub(r"\.pdf$", "", file_name, flags=re.IGNORECASE)
-    value = re.sub(r"[（(]雙語教學加長[）)]", "", value)
-    value = re.sub(r"(試題|答案)$", "", value)
+    value = re.sub(r"(試題|答案)(?:\s*[-－]?\s*完稿)?$", "", value)
     return value.strip()
 
 
@@ -127,11 +118,10 @@ class TaipeiJuniorRecruitClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         year_roc = year_ad - 1911
-        papers_by_subject: dict[tuple[str, str], dict[str, str]] = {}
         page_url = self.build_discovery_exam_url(exam_code, year_ad)
-        for download in parse_downloads(self._article_html(year_ad), page_url=page_url):
-            key = (download.subject_code, download.subject_name)
-            papers_by_subject.setdefault(key, {})[download.file_type] = download.url
+        papers_by_subject = group_paper_files(
+            parse_downloads(self._article_html(year_ad), page_url=page_url)
+        )
         papers = [
             ParsedPaper(
                 category_raw=CANONICAL_CATEGORY,

@@ -4,7 +4,13 @@ import base64
 import unittest
 from urllib.parse import quote
 
-from app.providers.taipei_downloads import download_name, official_pdf_downloads, request_url
+from app.providers.taipei_downloads import (
+    PaperDownload,
+    download_name,
+    group_paper_files,
+    official_pdf_downloads,
+    request_url,
+)
 
 
 def named_url(name: str, *, host: str = "www-ws.gov.taipei", scheme: str = "https") -> str:
@@ -13,6 +19,25 @@ def named_url(name: str, *, host: str = "www-ws.gov.taipei", scheme: str = "http
 
 
 class TaipeiAttachmentTests(unittest.TestCase):
+    def test_repeated_links_collapse_without_discarding_distinct_roles_or_subjects(self) -> None:
+        question = PaperDownload("國文", "chinese", "question", "native-question")
+        answer = PaperDownload("國文", "chinese", "answer", "native-answer")
+        other = PaperDownload("英語", "english", "question_answer", "native-combined")
+        self.assertEqual(
+            group_paper_files([question, answer, question, other, answer]),
+            {
+                ("chinese", "國文"): {"question": "native-question", "answer": "native-answer"},
+                ("english", "英語"): {"question_answer": "native-combined"},
+            },
+        )
+
+    def test_competing_native_urls_never_select_the_first_or_last_link(self) -> None:
+        for role in ["question", "answer", "question_answer", "corrected_answer"]:
+            for urls in [("first", "second"), ("second", "first")]:
+                with self.subTest(role=role, urls=urls):
+                    with self.assertRaisesRegex(ValueError, "Competing Taipei downloads"):
+                        group_paper_files(PaperDownload("國文", "chinese", role, u) for u in urls)
+
     def test_native_name_and_unpadded_names_round_trip(self) -> None:
         for name in ["國文試題.pdf", "1基礎類科知能_含答案.pdf", "家政-雙語教學專長答案.pdf"]:
             url = named_url(name)

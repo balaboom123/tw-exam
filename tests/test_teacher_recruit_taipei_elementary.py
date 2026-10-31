@@ -128,6 +128,19 @@ class TaipeiElementaryRecruitParserTests(unittest.TestCase):
 
 
 class TaipeiElementaryRecruitClientTests(unittest.TestCase):
+    def test_duplicate_article_links_do_not_duplicate_a_native_file(self) -> None:
+        client = TaipeiElementaryRecruitClient(article_html_by_year={2025: ARTICLE_HTML * 2})
+        page = client.fetch_exam_page("teacher-recruit-taipei-elementary-114", 2025)
+        self.assertEqual(len(page.papers), 2)
+        self.assertEqual(sum(len(p.files) for p in page.papers), 2)
+
+    def test_competing_combined_files_stop_acquisition(self) -> None:
+        competing = ARTICLE_DOWNLOAD_URL_1.replace("opaque-basic", "competing-basic")
+        html = ARTICLE_HTML + f'<a href="{competing}">新版</a>'
+        client = TaipeiElementaryRecruitClient(article_html_by_year={2025: html})
+        with self.assertRaisesRegex(ValueError, "Competing Taipei downloads"):
+            client.fetch_exam_page("teacher-recruit-taipei-elementary-114", 2025)
+
     def test_foreign_event_is_rejected_before_fetching_an_article(self) -> None:
         client = TaipeiElementaryRecruitClient()
         client._article_html = lambda year: self.fail("foreign event fetched an article")

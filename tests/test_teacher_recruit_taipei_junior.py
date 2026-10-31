@@ -1,6 +1,8 @@
 """Tests for the teacher_recruit_taipei_junior provider."""
 
+import base64
 import unittest
+from urllib.parse import quote
 
 from app.providers.teacher_recruit_taipei_junior.client import (
     ARTICLE_URLS_BY_YEAR,
@@ -36,6 +38,47 @@ ARTICLE_HTML = f"""
 
 
 class TaipeiJuniorRecruitParserTests(unittest.TestCase):
+    def test_current_native_final_draft_names_keep_complete_question_answer_pairs(self) -> None:
+        # Official ROC115 filenames use both "試題完稿" and "答案 - 完稿".
+        subjects = [
+            "公民與社會科",
+            "生活科技科",
+            "地球科學科",
+            "英語科",
+            "家政科",
+            "特殊教育－身心障礙科",
+            "特殊教育－資優理化科",
+            "特殊教育－資優數學科",
+            "國文科",
+            "專任輔導",
+            "理化科",
+            "童軍(雙語)",
+            "童軍教育",
+            "資訊科技",
+            "輔導活動",
+            "數學科",
+            "體育(雙語)科",
+            "體育科",
+            "本土語－閩南語科",
+        ]
+        anchors = []
+        for index, subject in enumerate(subjects):
+            for suffix in ["試題完稿", "答案 - 完稿"]:
+                name = quote(base64.b64encode(f"{subject}{suffix}.pdf".encode()).decode(), safe="")
+                anchors.append(
+                    f'<a href="https://www-ws.gov.taipei/Download.ashx?u={index}-{suffix}&n={name}">'
+                    "PDF</a>"
+                )
+        client = TaipeiJuniorRecruitClient(
+            article_urls_by_year={2026: "https://www.doe.gov.taipei/native115"},
+            article_html_by_year={2026: "".join(anchors)},
+        )
+        page = client.fetch_exam_page("teacher-recruit-taipei-junior-115", 2026)
+        self.assertEqual(len(page.papers), 19)
+        self.assertEqual({p.subject_name_raw for p in page.papers}, set(subjects))
+        for paper in page.papers:
+            self.assertEqual(set(paper.files), {"question", "answer"})
+
     def test_foreign_download_links_cannot_supply_native_papers(self) -> None:
         html = ARTICLE_HTML.replace("www-ws.gov.taipei", "other.example")
         self.assertEqual(parse_downloads(html, page_url="https://www.doe.gov.taipei/"), [])
@@ -54,6 +97,21 @@ class TaipeiJuniorRecruitParserTests(unittest.TestCase):
 
 
 class TaipeiJuniorRecruitClientTests(unittest.TestCase):
+    def test_duplicate_article_links_do_not_duplicate_native_papers(self) -> None:
+        client = TaipeiJuniorRecruitClient(article_html_by_year={2025: ARTICLE_HTML * 2})
+        page = client.fetch_exam_page("teacher-recruit-taipei-junior-114", 2025)
+        self.assertEqual(len(page.papers), 1)
+        self.assertEqual(set(page.papers[0].files), {"question", "answer"})
+
+    def test_competing_question_or_answer_files_stop_acquisition(self) -> None:
+        for original in [ARTICLE_DOWNLOAD_URL_1, ARTICLE_DOWNLOAD_URL_2]:
+            competing = original.replace("-token", "-competing-token")
+            html = ARTICLE_HTML + f'<a href="{competing}">新版</a>'
+            client = TaipeiJuniorRecruitClient(article_html_by_year={2025: html})
+            with self.subTest(url=original):
+                with self.assertRaisesRegex(ValueError, "Competing Taipei downloads"):
+                    client.fetch_exam_page("teacher-recruit-taipei-junior-114", 2025)
+
     def test_foreign_event_is_rejected_before_fetching_an_article(self) -> None:
         client = TaipeiJuniorRecruitClient()
         client._article_html = lambda year: self.fail("foreign event fetched an article")

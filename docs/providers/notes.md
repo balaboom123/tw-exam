@@ -1006,6 +1006,9 @@ Both Taipei adapters use the shared government attachment reader for encoded
 filenames and official download links. This shared delivery format does not
 merge their programmes or file roles. Requested event IDs must match the
 reviewed annual article before acquisition reads its content.
+Repeated links to the same native file collapse. Different downloads claiming
+the same subject and role stop acquisition for review instead of silently
+replacing a question, key or combined booklet according to link order.
 
 ## `teacher_recruit_taipei_junior`
 

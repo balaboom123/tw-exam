@@ -2,13 +2,13 @@ from __future__ import annotations
 
 import hashlib
 import re
-from dataclasses import dataclass
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.taipei_downloads import PaperDownload as TaipeiElementaryDownload
 from app.providers.taipei_downloads import download_name as _decode_download_name
-from app.providers.taipei_downloads import official_pdf_downloads
+from app.providers.taipei_downloads import group_paper_files, official_pdf_downloads
 from app.providers.taipei_downloads import request_url as _request_url
 
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taipei-elementary-mirror/1.0)"
@@ -33,14 +33,6 @@ SUBJECT_CODES = {
     "特教科(資優)": "special-education-gifted",
     "自然科": "science",
 }
-
-
-@dataclass(frozen=True)
-class TaipeiElementaryDownload:
-    subject_name: str
-    subject_code: str
-    file_type: str
-    url: str
 
 
 def _subject_name(file_name: str) -> str:
@@ -125,11 +117,10 @@ class TaipeiElementaryRecruitClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         year_roc = year_ad - 1911
-        papers_by_subject: dict[tuple[str, str], dict[str, str]] = {}
         page_url = self.build_discovery_exam_url(exam_code, year_ad)
-        for download in parse_downloads(self._article_html(year_ad), page_url=page_url):
-            key = (download.subject_code, download.subject_name)
-            papers_by_subject.setdefault(key, {})[download.file_type] = download.url
+        papers_by_subject = group_paper_files(
+            parse_downloads(self._article_html(year_ad), page_url=page_url)
+        )
         papers = [
             ParsedPaper(
                 category_raw=CANONICAL_CATEGORY,

@@ -6,11 +6,37 @@ Programme, school-level and file-role decisions remain with each source adapter.
 from __future__ import annotations
 
 import base64
-from collections.abc import Iterator
+from collections.abc import Iterable, Iterator
+from dataclasses import dataclass
 from pathlib import PurePosixPath
 from urllib.parse import parse_qs, quote, unquote, urlsplit, urlunsplit
 
 from app.providers.http import links
+
+
+@dataclass(frozen=True)
+class PaperDownload:
+    subject_name: str
+    subject_code: str
+    file_type: str
+    url: str
+
+
+def group_paper_files(
+    downloads: Iterable[PaperDownload],
+) -> dict[tuple[str, str], dict[str, str]]:
+    """Collapse repeated links; competing native files require source review."""
+    grouped: dict[tuple[str, str], dict[str, str]] = {}
+    for download in downloads:
+        key = (download.subject_code, download.subject_name)
+        files = grouped.setdefault(key, {})
+        previous = files.get(download.file_type)
+        if previous is not None and previous != download.url:
+            raise ValueError(
+                f"Competing Taipei downloads for {download.subject_name}: {download.file_type}"
+            )
+        files[download.file_type] = download.url
+    return grouped
 
 
 def request_url(url: str) -> str:
