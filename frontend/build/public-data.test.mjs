@@ -3,6 +3,23 @@ import test from "node:test"
 
 import { buildPublicData } from "./public-data.ts"
 import { formatSyncDate } from "../src/lib/provenance.ts"
+import { expandBundle, parseCompactFeed } from "../src/lib/public-feed.ts"
+
+test("known answer coverage gaps survive projection and browser loading", () => {
+  const bundle = {
+    id: "example", name: "國小甄選", years: [115, 114], fileCount: 4,
+    examClass: "教師考試", examSubclass: "臺北市國小正式教師聯合甄選",
+    url: "https://github.com/example/exams/releases/download/shard-1/example.zip",
+    coverageNotes: ["114 學年度含原公布答案；答案更正公告原檔尚待補齊。"],
+  }
+  const { feed } = buildPublicData({ schema_version: 2, bundles: [bundle] })
+  const parsed = parseCompactFeed(feed)
+  assert.deepEqual(expandBundle(parsed.bundles[0], parsed.repo).coverageNotes, bundle.coverageNotes)
+  for (const coverageNotes of [[], [""], [" "], [12], "incomplete"]) {
+    assert.throws(() => buildPublicData({ schema_version: 2, bundles: [{ ...bundle, coverageNotes }] }), /Invalid coverage/)
+    assert.throws(() => parseCompactFeed({ ...feed, bundles: [{ ...feed.bundles[0], coverageNotes }] }), /schema mismatch/)
+  }
+})
 
 test("compatibility pages use explicit published identities and stay out of search results", () => {
   const source = {

@@ -21,6 +21,7 @@ export interface Bundle {
   examClass: string
   examSubclass: string
   subjectLabels?: string[]
+  coverageNotes?: string[]
   sources?: BundleSource[]
   updated?: string
   sourceMaterial?: MaterialSummary

@@ -169,7 +169,7 @@ class TaipeiElementaryRecruitClientTests(unittest.TestCase):
     def test_discover_years_uses_official_article_map(self) -> None:
         client = TaipeiElementaryRecruitClient(article_html_by_year={2025: ARTICLE_HTML})
 
-        self.assertEqual(client.discover_available_years(), [2025])
+        self.assertEqual(client.discover_available_years(), [2026, 2025])
         self.assertEqual(
             client.discover_exams(2025)[0].code, "teacher-recruit-taipei-elementary-114"
         )

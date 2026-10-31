@@ -1,0 +1,1021 @@
+{
+  "schema_version": 1,
+  "provider_id": "teacher_recruit_taipei_elementary",
+  "events": [
+    {
+      "year_roc": 114,
+      "source_exam_id": "teacher-recruit-taipei-elementary-114",
+      "programme_name": "臺北市114學年度公立國民小學教師聯合甄選",
+      "paper_article_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+      "written_test_date": "2025-05-17",
+      "reviewed_at": "2026-10-31",
+      "review_notes": "Annual native rules and actual vacancy categories govern post identity. Every post takes the common basic booklet and its specialist booklet. Counseling combines fifteen education MCQs with three specialist essays; inline answers cover MCQs only. Ordinary education questions differ from the shared specialist education section, so correction applicability follows the named booklet. Bilingual posts use the explicitly shared specialist booklets and remain distinct posts; eligibility and bonus certificates are not examination grades. Historical rule, vacancy and correction evidence is indexed official text only; native PDF recovery remains unresolved and is not counted as acquired coverage.",
+      "jobs": [
+        {
+          "code": "job-general",
+          "label": "普通科",
+          "track_id": "taipei-elementary-general",
+          "source_subject_code": "general",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-english",
+          "label": "英語科",
+          "track_id": "taipei-elementary-english",
+          "source_subject_code": "english",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-physical-education",
+          "label": "體育科（一般體育）",
+          "track_id": "taipei-elementary-physical-education",
+          "source_subject_code": "physical-education",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-music",
+          "label": "藝術（音樂）",
+          "track_id": "taipei-elementary-music",
+          "source_subject_code": "music",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-visual-arts",
+          "label": "藝術（視覺藝術）",
+          "track_id": "taipei-elementary-visual-arts",
+          "source_subject_code": "visual-arts",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-counseling",
+          "label": "輔導科",
+          "track_id": "taipei-elementary-counseling",
+          "source_subject_code": "counseling",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-information-technology",
+          "label": "資訊科技",
+          "track_id": "taipei-elementary-information-technology",
+          "source_subject_code": "information-technology",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-taiwanese-minnan",
+          "label": "本土語言（閩南語）",
+          "track_id": "taipei-elementary-taiwanese-minnan",
+          "source_subject_code": "taiwanese-minnan",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-special-education-disability",
+          "label": "特殊教育（身心障礙）",
+          "track_id": "taipei-elementary-special-education-disability",
+          "source_subject_code": "special-education-disability",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-special-education-gifted",
+          "label": "特殊教育（資賦優異）",
+          "track_id": "taipei-elementary-special-education-gifted",
+          "source_subject_code": "special-education-gifted",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-science",
+          "label": "自然科學",
+          "track_id": "taipei-elementary-science",
+          "source_subject_code": "science",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-physical-education-bilingual",
+          "label": "雙語教育（一般體育）",
+          "track_id": "taipei-elementary-physical-education-bilingual",
+          "source_subject_code": "physical-education",
+          "bilingual": true,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-visual-arts-bilingual",
+          "label": "雙語教育（視覺藝術）",
+          "track_id": "taipei-elementary-visual-arts-bilingual",
+          "source_subject_code": "visual-arts",
+          "bilingual": true,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "basic-category-knowledge",
+          "subject_name_raw": "基礎類科知能",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9kNTRmN2M4OS00N2FlLTQ2ZTAtODJmMS0yMDAxODI5Y2Q1ZDIucGRm&n=MeWfuuekjumhnuenkeefpeiDvV%2flkKvnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "212dfd64b42762e3fcdca7f6dcf600fb59b049cac23ab1c4113235db0834c0ba",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試基礎類科知能試題",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "basic-category-knowledge"
+          ],
+          "multiple_choice_count": 60,
+          "essay_count": 0,
+          "public_section_labels": [
+            "基礎類科知能",
+            "國語文",
+            "數學",
+            "英文"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "general",
+          "subject_name_raw": "普通科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9jZWRiZTcwZS03ODVjLTQyYzItOGFmNy0wMDVlMWRlNzA1YjkucGRm&n=Mi4x5pmu6YCa56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "4f380e262a36d6e6b7dc8575d8f2506a51ef85c6ac69e51e41efd052de58037b",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–普通科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "general"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英語科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8wYTA4YzNmZi0zODczLTRkOTItOGY3NS0yMzk0YzVmZTdjY2UucGRm&n=Mi4y6Iux6Kqe56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "a5f4f60aa7d37aa852af78c6f6be401fe264b40681976dc8579fd1927362d460",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–英語科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "english"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "英語專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "physical-education",
+          "subject_name_raw": "體育科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8wZmNlMWMzMy0zNTVjLTQxMWItOWM4NC1mMjNjNjhjY2U5N2IucGRm&n=Mi4z6auU6IKy56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "d4aedd353757992b540a53be08b02c548166011410e754b14a0c235394d50fb7",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –體育科(含雙語體育類)",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "physical-education"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "體育專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "music",
+          "subject_name_raw": "音樂科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8zNjg4YTBiZS04NTUyLTRlZWEtOTM5ZC0zMmFjNjY2OTZkM2QucGRm&n=Mi406Z%2bz5qiC56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "a3f101dccf651f0a6ee41bf3994e6eccd491fbaa3db8ee82f69bd9de98e6af01",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–音樂科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "music"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "音樂專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "visual-arts",
+          "subject_name_raw": "視覺藝術科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9mMjMyYTQxYS0wMTQzLTQwNTItYjNhNy0wNDIzMGQ0MzViNTEucGRm&n=Mi416KaW6Ka66Jed6KGT56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "18b6e460c180b61c6fef9b5993ddb8cdb35db55ccb42ef97927fb4bc696b697d",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –視覺藝術科(含雙語視覺藝術類)",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "visual-arts"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "美術專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "counseling",
+          "subject_name_raw": "輔導科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8zNGExOWIxMi1lODZiLTRmNWUtOTBlNy1iMWU4YjkzNjEwM2UucGRm&n=Mi426LyU5bCO56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "89525bbff41f9cd2f98050853c90ad95c6513e5884ceac2783dfbf9a24561d74",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–輔導科",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "counseling"
+          ],
+          "multiple_choice_count": 15,
+          "essay_count": 3,
+          "public_section_labels": [
+            "教育專業（選擇題含答案）",
+            "輔導專門知能（申論題）"
+          ],
+          "review_notes": "Original official booklet with inline answers for its multiple-choice questions. The counseling essay section has three questions and no model answers; retain the mixed native file without inventing an essay key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "information-technology",
+          "subject_name_raw": "資訊科技科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My84MWI1Y2VmZC0xMWQ1LTQ1YzQtYjVmYS0zMDQ5Mzc1MzdiMDkucGRm&n=Mi436LOH6KiK56eR5oqA56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "328c0e82be12540f69426a264fcf6c3ab19570a362f5edc16d0b96859c956f27",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–資訊科技科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "information-technology"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "電腦專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "taiwanese-minnan",
+          "subject_name_raw": "閩南語",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9hOTg3OWFkYy04YmRjLTQ5MzYtYjdhNi0xZDIyNWMzM2QyYWEucGRm&n=Mi446Zap5Y2X6KqeX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "0d4b9a8989228c529f870b4e8485dcec0f23dab8e8b95aae8cf380cd7d007f8c",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–本土語言-閩南語",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "taiwanese-minnan"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "閩南語教學及文化專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "special-education-disability",
+          "subject_name_raw": "特教科(身障)",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9hYzA3ZDY1NC1iZDUzLTQzYzMtYjBkYy02NDVjZjIzMGMzODUucGRm&n=Mi4554m55pWZ56eRKOi6q%2bmanClf5ZCr562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "a5f0af637aef510b4a5e3d1b218c364ad3b6b4496d980f44fbb3d5e2344497f5",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –特殊教育(身心障礙類)",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "special-education-disability"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "特殊教育專門知能（身心障礙）"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "special-education-gifted",
+          "subject_name_raw": "特教科(資優)",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My9hMGJkMjJiMi0zYTIxLTQ3YzktOTdkYi01OGZlMzZmN2QxMmQucGRm&n=Mi4xMOeJueaVmeenkSjos4flhKopX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "5d49f5312fbe69b690e58eba82410eb0d8627e6d551a7fe9c0c1b4d2975b54d1",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –特殊教育(資賦優異類)",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "special-education-gifted"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "特殊教育專門知能（資賦優異）"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "science",
+          "subject_name_raw": "自然科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTQxMTM3My8wZTFjMTczNi04ZTQxLTRjZDItYTA0NC04MWYwZDkxM2Y2ODUucGRm&n=Mi4xMeiHqueEtuenkV%2flkKvnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "4fef4c9d2e80f940ba76857bbedf85be33d4a60149f585921dae80bf59b2565a",
+          "notice_url": "https://www.gov.taipei/News_Content.aspx?n=D0042A87C2F0270A&sms=78D644F2755ACCAA&s=0E5FFDCD602F05C2",
+          "native_header": "臺北市 114 學年度公立國民小學教師聯合甄選初試專門類科知能試題–自然科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "science"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "自然科學專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        }
+      ],
+      "documents": [],
+      "unavailable_documents": [
+        {
+          "document_id": "rule",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?icon=..pdf&n=6Ie65YyX5biCMTE05a245bm05bqm5YWs56uL5ZyL5rCR5bCP5a245pWZ5bir6IGv5ZCI55SE6YG457Ch56ugKOeZvOW4g%2BWFrOWRiueJiCkucGRm&u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTM3MzIwNC80OThlMmUxYi0zMmY5LTQxZTktYjBkZi00YTUyMmYwMDUzNGQucGRm",
+          "publication_date": "2025-03-14",
+          "checked_at": "2026-10-31",
+          "evidence_basis": "indexed-official-text-only",
+          "observation": "Normal TLS download and its decoded static target both returned HTTP 404.",
+          "review_notes": "Indexed official rule text, printed pages 9–11, establishes the May 17 initial written test, common basic booklet, specialist matrix, counseling essays and 30/70 versus 50/50 initial-score weights. This review does not claim recovered native PDF bytes."
+        },
+        {
+          "document_id": "vacancy",
+          "source_url": "https://primary.tp.edu.tw/Home/AnnDownload?file=%E5%85%AC%E5%91%8A%E8%87%BA%E5%8C%97%E5%B8%82114%E5%AD%B8%E5%B9%B4%E5%BA%A6%E5%85%AC%E7%AB%8B%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8%E6%95%99%E5%B8%AB%E8%81%AF%E5%90%88%E7%94%84%E9%81%B8%E9%A1%9E%E7%A7%91%E5%8F%8A%E9%8C%84%E5%8F%96%E5%90%8D%E9%A1%8D.pdf&id=1019",
+          "publication_date": "2025-04-24",
+          "checked_at": "2026-10-31",
+          "evidence_basis": "indexed-official-text-only",
+          "observation": "The old portal download redirects to its HTML error page.",
+          "review_notes": "Indexed official vacancy table confirms all thirteen posts: eleven ordinary/specialist posts plus bilingual physical education and bilingual visual arts. Actual vacancy total 364; do not substitute provisional categories or infer a paper-language variant from eligibility. Native headers independently confirm the shared bilingual booklets."
+        },
+        {
+          "document_id": "answer-review",
+          "source_url": "https://primary.tp.edu.tw/Home/AnnDownload?file=%E5%85%AC%E5%91%8A%E8%87%BA%E5%8C%97%E5%B8%82114%E5%AD%B8%E5%B9%B4%E5%BA%A6%E5%85%AC%E7%AB%8B%E5%9C%8B%E6%B0%91%E5%B0%8F%E5%AD%B8%E6%95%99%E5%B8%AB%E8%81%AF%E5%90%88%E7%94%84%E9%81%B8%E5%88%9D%E8%A9%A6%E8%A9%A6%E9%A1%8C%E7%AD%94%E6%A1%88%E7%96%91%E7%BE%A9%28%E5%85%AC%E5%91%8A%29.pdf&id=1034",
+          "publication_date": "2025-05-20",
+          "checked_at": "2026-10-31",
+          "evidence_basis": "indexed-official-text-only",
+          "observation": "The old portal download redirects to its HTML error page; cached text alone is available.",
+          "review_notes": "UNRESOLVED native-file recovery. Indexed official text records basic-language question 15, ordinary education question 6 and physical-education questions 23/43/50 corrections. The common basic correction affects every post. Retain original inline answers as originally published, never call them final, and recover the authentic PDF before claiming complete historical correction coverage."
+        }
+      ]
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "teacher-recruit-taipei-elementary-115",
+      "programme_name": "臺北市115學年度公立國民小學教師聯合甄選",
+      "paper_article_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+      "written_test_date": "2026-05-16",
+      "reviewed_at": "2026-10-31",
+      "review_notes": "Annual native rules and actual vacancy categories govern post identity. Every post takes the common basic booklet and its specialist booklet. Counseling combines fifteen education MCQs with three specialist essays; inline answers cover MCQs only. Ordinary education questions differ from the shared specialist education section, so correction applicability follows the named booklet. Bilingual posts use the explicitly shared specialist booklets and remain distinct posts; eligibility and bonus certificates are not examination grades. Both authentic May 19 and May 20 notices are retained with their distinct scope. No replacement key is synthesized.",
+      "jobs": [
+        {
+          "code": "job-general",
+          "label": "普通科",
+          "track_id": "taipei-elementary-general",
+          "source_subject_code": "general",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-english",
+          "label": "英語科",
+          "track_id": "taipei-elementary-english",
+          "source_subject_code": "english",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-physical-education",
+          "label": "體育科（一般體育）",
+          "track_id": "taipei-elementary-physical-education",
+          "source_subject_code": "physical-education",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-music",
+          "label": "藝術（音樂）",
+          "track_id": "taipei-elementary-music",
+          "source_subject_code": "music",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-visual-arts",
+          "label": "藝術（視覺藝術）",
+          "track_id": "taipei-elementary-visual-arts",
+          "source_subject_code": "visual-arts",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-counseling",
+          "label": "輔導科",
+          "track_id": "taipei-elementary-counseling",
+          "source_subject_code": "counseling",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-information-technology",
+          "label": "資訊科技",
+          "track_id": "taipei-elementary-information-technology",
+          "source_subject_code": "information-technology",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-taiwanese-minnan",
+          "label": "本土語言（閩南語）",
+          "track_id": "taipei-elementary-taiwanese-minnan",
+          "source_subject_code": "taiwanese-minnan",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-special-education-disability",
+          "label": "特殊教育（身心障礙）",
+          "track_id": "taipei-elementary-special-education-disability",
+          "source_subject_code": "special-education-disability",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-special-education-gifted",
+          "label": "特殊教育（資賦優異）",
+          "track_id": "taipei-elementary-special-education-gifted",
+          "source_subject_code": "special-education-gifted",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        },
+        {
+          "code": "job-science",
+          "label": "自然科學",
+          "track_id": "taipei-elementary-science",
+          "source_subject_code": "science",
+          "bilingual": false,
+          "basic_specialist_weights": [
+            50,
+            50
+          ]
+        },
+        {
+          "code": "job-music-bilingual",
+          "label": "雙語教育（音樂）",
+          "track_id": "taipei-elementary-music-bilingual",
+          "source_subject_code": "music",
+          "bilingual": true,
+          "basic_specialist_weights": [
+            30,
+            70
+          ]
+        }
+      ],
+      "files": [
+        {
+          "subject_code": "basic-category-knowledge",
+          "subject_name_raw": "基礎類科知能",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy82YzgyNzYyYS0xZDNkLTQzMzgtYWUwYi04NzkwYTg0MjYwNmMucGRm&n=MeWfuuekjumhnuenkeefpeiDvV%2flkKvnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "0f8aa86e653678fcdc6b29097b14e0eddf350fcea7fe4eab62d5158bf33cd4a6",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試基礎類科知能試題",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "basic-category-knowledge"
+          ],
+          "multiple_choice_count": 60,
+          "essay_count": 0,
+          "public_section_labels": [
+            "基礎類科知能",
+            "國語文",
+            "數學",
+            "英文"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "general",
+          "subject_name_raw": "普通科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy81YjkzNzcwOS0xOTczLTRlYWYtYWVjMS1jZjFkZDg1YmQ2ZmEucGRm&n=Mi4x5pmu6YCa56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "de09b7c0f0e7c66f04cd5b148ea5ad6a3f6dbc9f874005fb3f366dc978c91980",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–普通科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "general"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "english",
+          "subject_name_raw": "英語科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy85Y2MyMjUyYy01M2I4LTQ5OGUtYWZiNi0yMTNhOTcyNDQ1YzkucGRm&n=Mi4y6Iux6Kqe56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "f2ed026d97cabec2fe70617b7c3798559ee5f659bb13ccf99ff23ba0c3a6d23e",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–英語科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "english"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "英語專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "physical-education",
+          "subject_name_raw": "體育科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy9lMzk5MmE3Yi1jYzE0LTQ4YzktYTkyMi05MThlZTgwNTdmZmQucGRm&n=Mi4z6auU6IKy56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "26113378db00da1929cfcebd7ecf9bcf7edf75e6d56669c49f618ffbcaa62660",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–體育科",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "physical-education"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "體育專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "music",
+          "subject_name_raw": "音樂科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy9hNTQ1MWJmMi1lZTU4LTQ0YzgtOWY3YS0xNDNmZmU2M2FhOTYucGRm&n=Mi406Z%2bz5qiC56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "19f92baf1f8cb918eb3e16e513a29f8f1849290485253cc9775354fa7518e558",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –音樂科（含雙語教育音樂科）",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "music"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "音樂專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "visual-arts",
+          "subject_name_raw": "視覺藝術科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy9iNDdmYWVkMS0zMjk4LTQwYTQtYjk3OS01YzA5Mjc3M2VmMjYucGRm&n=Mi416KaW6Ka66Jed6KGT56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "42dfdc676cf4a522ceaca3d86561eb18fffbced96a461490a12c608e55f643ef",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–視覺藝術科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "visual-arts"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "美術專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "counseling",
+          "subject_name_raw": "輔導科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy82MjlkYmUxYy03ZTQ0LTRmODQtOGUyZi0zNzJkZjk3MGRjYzUucGRm&n=Mi426LyU5bCO56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "8c977b9fc20292a902d3914237431ee43fc12eac7013bababa12693efc49a470",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–輔導科",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "counseling"
+          ],
+          "multiple_choice_count": 15,
+          "essay_count": 3,
+          "public_section_labels": [
+            "教育專業（選擇題含答案）",
+            "輔導專門知能（申論題）"
+          ],
+          "review_notes": "Original official booklet with inline answers for its multiple-choice questions. The counseling essay section has three questions and no model answers; retain the mixed native file without inventing an essay key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "information-technology",
+          "subject_name_raw": "資訊科技科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy9lMjEyNmQ4MS01NTc1LTRlNGQtYWE1ZC0yZGFhMGQzZDIxYWYucGRm&n=Mi436LOH6KiK56eR5oqA56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "442962b81bf2097068fa29ed40707130d36256e7ea066a63b4064e589b0f16e0",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–資訊科技科",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "information-technology"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "電腦專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "taiwanese-minnan",
+          "subject_name_raw": "閩南語科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy9kZjVmMTUxYS0wNGE5LTRkNTYtOWM5ZC1lNDkyMzk4ZjdiMWUucGRm&n=Mi446Zap5Y2X6Kqe56eRX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "794d83fb98fe025dc8c4c4ea0b4ab28b758e867831499f6c786698de17659557",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–閩南語科",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "taiwanese-minnan"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "閩南語教學及文化專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "special-education-disability",
+          "subject_name_raw": "特教科(身障)",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy9hOGIxMTMxZi1kNGY4LTRhOTYtYjQyYi0xMjU3ZTQzMGMyNDMucGRm&n=Mi4554m55pWZ56eRKOi6q%2bmanClf5ZCr562U5qGILnBkZg%3d%3d&icon=..pdf",
+          "checksum": "d83aebdc1f805e689a67ca8de1aa030a06c8b4244aafb515a19ef37320b3167b",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –特殊教育(身心障礙類)",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "special-education-disability"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "特殊教育專門知能（身心障礙）"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "special-education-gifted",
+          "subject_name_raw": "特教科(資優)",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy85MTlkMmQ5OS05N2FmLTQyODgtOGUyMC0xMjA2OTIyY2E0MTkucGRm&n=Mi4xMOeJueaVmeenkSjos4flhKopX%2bWQq%2betlOahiC5wZGY%3d&icon=..pdf",
+          "checksum": "2aab7bea642d763a88f3ea95ed68e93bf1e7edd8d548f569ba08c0384f2c4099",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題 –特殊教育科(資賦優異類)",
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "special-education-gifted"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "特殊教育專門知能（資賦優異）"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "science",
+          "subject_name_raw": "自然科",
+          "file_type": "question_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3NzUyMy8wYWNjYTU1Yi04YTdiLTQ4OGMtYWQ4NC0xMWI2ZTFkNzY3NzEucGRm&n=Mi4xMeiHqueEtuenkV%2flkKvnrZTmoYgucGRm&icon=..pdf",
+          "checksum": "d47743d4eadbe12984e6dab328c3d97ec8a3f4d1073bf307f88fc9bb446befb0",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=1A89FD398BB781D4&sms=78D644F2755ACCAA",
+          "native_header": "臺北市 115 學年度公立國民小學教師聯合甄選初試專門類科知能試題–自然科",
+          "page_count": 3,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "science"
+          ],
+          "multiple_choice_count": 50,
+          "essay_count": 0,
+          "public_section_labels": [
+            "教育專業",
+            "自然科學專門知能"
+          ],
+          "review_notes": "Original administered booklet; answers are printed inline beside questions, not in a separate appended key.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "answer-review",
+          "subject_name_raw": "初試試題答案疑義（原公告）",
+          "file_type": "corrected_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3ODQxNi82YWFjZDI5OS0wNDA1LTRmOGMtODdjYi1hOGM2NzY3YzM0ZDAucGRm&n=44CQ5YWs5ZGK44CR6Ie65YyX5biCMTE15a245bm05bqm5YWs56uL5ZyL5rCR5bCP5a245pWZ5bir6IGv5ZCI55SE6YG45Yid6Kmm6Kmm6aGM562U5qGI55aR576pLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "e610dacf3d17cd4692d71f68512f97c6dbebc86a484efbb1e0f6ddc50377edba",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=DB3D8AD8E9822884",
+          "native_header": "【公告】臺北市115學年度公立國民小學教師聯合甄選初試試題答案疑義.pdf",
+          "page_count": 3,
+          "inspected_pages": [
+            1,
+            2,
+            3
+          ],
+          "applies_to_subjects": [
+            "general",
+            "physical-education",
+            "music",
+            "taiwanese-minnan",
+            "special-education-disability",
+            "science"
+          ],
+          "multiple_choice_count": 0,
+          "essay_count": 0,
+          "public_section_labels": [],
+          "review_notes": "The full May 19 notice changes seven items. Preserve it for the affected booklets and bilingual music post. Its Taiwanese questions 22 and 34 are amended by the separate May 20 notice; the other five items remain effective.",
+          "amends_subject_code": "",
+          "amended_items": []
+        },
+        {
+          "subject_code": "answer-review-amendment",
+          "subject_name_raw": "初試試題答案疑義（閩南語修正公告）",
+          "file_type": "corrected_answer",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU3ODY3OC80YjQzMWQ2Mi05NTAyLTQ2YWItYjEyOS1mZDBmODQwNDcyZDUucGRm&n=44CQ5L%2bu5q2j44CR44CQ5YWs5ZGK44CR6Ie65YyX5biCMTE15a245bm05bqm5YWs56uL5ZyL5rCR5bCP5a245pWZ5bir6IGv5ZCI55SE6YG45Yid6Kmm6Kmm6aGM562U5qGI55aR576pLnBkZg%3d%3d&icon=..pdf",
+          "checksum": "28a8e3e038435f987e923bdbc5e1b6565fa1a4f0db42568880893808fd3dc29b",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=AF8877FBE934AA41",
+          "native_header": "【修正】【公告】臺北市115學年度公立國民小學教師聯合甄選初試試題答案疑義.pdf",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "applies_to_subjects": [
+            "taiwanese-minnan"
+          ],
+          "multiple_choice_count": 0,
+          "essay_count": 0,
+          "public_section_labels": [],
+          "review_notes": "The May 20 notice amends only rows 4 and 5 of the May 19 notice: Taiwanese question 22 accepts B/C/D and question 34 accepts A/D. Preserve both authentic notices; this is not a standalone fully corrected answer key.",
+          "amends_subject_code": "answer-review",
+          "amended_items": [
+            4,
+            5
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "document_id": "rule",
+          "title": "臺北市115學年度公立國民小學教師聯合甄選簡章(更正公告版)_1150317.pdf",
+          "source_url": "https://www-ws.gov.taipei/Download.ashx?u=LzAwMS9VcGxvYWQvMzQyL3JlbGZpbGUvMTAxNzMvOTU1MjU0MS9hYjFjMjVlYi00NjFhLTQ3ZmItODUwNy1jNjk0NTFjNTY2YjUucGRm&n=6Ie65YyX5biCMTE15a245bm05bqm5YWs56uL5ZyL5rCR5bCP5a245pWZ5bir6IGv5ZCI55SE6YG457Ch56ugKOabtOato%2bWFrOWRiueJiClfMTE1MDMxNy5wZGY%3d&icon=..pdf",
+          "checksum": "970ecec601b00d7fb4f7655d3b3dd3fadf05081bb4bb6d7d506ed8c89688f8a8",
+          "notice_url": "https://www.doe.gov.taipei/News_Content.aspx?n=188A8633D469F97E&s=7BE9E42B106E56B2&sms=78D644F2755ACCAA",
+          "publication_date": "2026-03-17",
+          "page_count": 42,
+          "inspected_pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "document_id": "vacancy",
+          "title": "臺北市115學年度公立國民小學教師聯合甄選類科及錄取名額",
+          "source_url": "https://primary.tp.edu.tw/Home/AnnDownload?id=4&file=【公告】臺北市115學年度公立國民小學教師聯合甄選類科及錄取名額.pdf",
+          "checksum": "c03c0f183b5c91fa2b7e74a0264cd19dd8c228fb91fcb8a400b87564c4bbf164",
+          "notice_url": "https://primary.tp.edu.tw/Home/Index_Ann",
+          "publication_date": "2026-04-23",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        }
+      ],
+      "unavailable_documents": []
+    }
+  ]
+}

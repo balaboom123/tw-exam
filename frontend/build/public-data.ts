@@ -94,6 +94,12 @@ export function buildPublicData(source: unknown): { feed: CompactFeed; searchInd
       asset: location.asset,
     }
     if (subjectLabels.length) bundle.subjectLabels = subjectLabels
+    if (item.coverageNotes !== undefined) {
+      if (!isStringArray(item.coverageNotes) || !item.coverageNotes.length || item.coverageNotes.some((note) => !note.trim())) {
+        throw new TypeError(`Invalid coverage notes for bundle ${item.id}`)
+      }
+      bundle.coverageNotes = item.coverageNotes
+    }
     if (item.sourceMaterial !== undefined) {
       if (source.schema_version !== 3 || !isMaterialSummary(item.sourceMaterial) || !materialMatchesYears(item.sourceMaterial, item.years)) {
         throw new TypeError(`Invalid material facts for bundle ${item.id}`)

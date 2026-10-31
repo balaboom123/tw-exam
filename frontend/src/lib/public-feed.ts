@@ -42,6 +42,7 @@ function isValidBundle(value: unknown): value is CompactBundle {
     typeof item.examClass === "string" && item.examClass.length > 0 &&
     typeof item.examSubclass === "string" && item.examSubclass.length > 0 &&
     (item.subjectLabels === undefined || (Array.isArray(item.subjectLabels) && item.subjectLabels.every((label) => typeof label === "string"))) &&
+    (item.coverageNotes === undefined || (Array.isArray(item.coverageNotes) && item.coverageNotes.length > 0 && item.coverageNotes.every((note) => typeof note === "string" && note.trim().length > 0))) &&
     (item.sources === undefined || (Array.isArray(item.sources) && item.sources.length > 0 && item.sources.every(isBundleSource))) &&
     (item.updated === undefined || isSyncTimestamp(item.updated)) &&
     (item.parts === undefined || (Array.isArray(item.parts) && item.parts.length > 0 && item.parts.every(isValidPart))))) return false
@@ -70,6 +71,7 @@ export function expandBundle(raw: CompactBundle, repo: string): Bundle {
     examClass: raw.examClass,
     examSubclass: raw.examSubclass,
     ...(raw.subjectLabels ? { subjectLabels: raw.subjectLabels } : {}),
+    ...(raw.coverageNotes ? { coverageNotes: raw.coverageNotes } : {}),
     ...(raw.sources ? { sources: raw.sources } : {}),
     ...(raw.updated ? { updated: raw.updated } : {}),
     ...(raw.sourceMaterial ? { sourceMaterial: raw.sourceMaterial } : {}),

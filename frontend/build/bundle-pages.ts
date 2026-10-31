@@ -81,6 +81,7 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
     ? materialDateLabels(bundle.sourceMaterial).map((label) => `<li>${escapeHtml(label)}</li>`).join("")
     : bundle.years.map((year) => `<li>民國 ${escapeHtml(year)} 年</li>`).join("")
   const subjectItems = (bundle.subjectLabels ?? []).map((subject) => `<li>${escapeHtml(subject)}</li>`).join("")
+  const coverageNotes = (bundle.coverageNotes ?? []).map((note) => `<p class="meta">${escapeHtml(note)}</p>`).join("")
   const cssUrl = "../assets/bundle-pages.css"
   const sources = (bundle.sources ?? []).map((source) => `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>`).join("、")
   const syncDate = bundle.updated
@@ -98,6 +99,7 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
 ${sources ? `<p class="meta">來源：${sources}</p>` : ""}<p class="meta">${syncDate}</p>
 <h2>${bundle.sourceMaterial ? "收錄年份" : "收錄年度"}</h2><ul>${yearItems}</ul>
 ${subjectItems ? `<h2>科目摘要</h2><ul class="subjects">${subjectItems}</ul>` : ""}
+${coverageNotes ? `<aside aria-label="收錄說明">${coverageNotes}</aside>` : ""}
 <div class="actions">${downloadButtons}
 <a class="button secondary" href="${escapeHtml(categoryUrl)}">瀏覽同類試題</a></div>
 <footer>資料來自官方公開考試來源；試題權利及使用條款依各來源公告。<a href="https://github.com/${escapeHtml(repo)}/blob/main/DATA-LICENSE.md">資料使用說明</a> · <a href="../">返回 tw-exam</a></footer></main>
