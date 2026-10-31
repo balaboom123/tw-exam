@@ -89,7 +89,7 @@ export function buildBundlePage(bundle: CompactBundle, { repo, root }: { repo: s
   return `<!doctype html>
 <html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}">
-<link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="${escapeHtml(cssUrl)}">
+<link rel="canonical" href="${escapeHtml(canonical)}"><link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="stylesheet" href="${escapeHtml(cssUrl)}">
 <meta property="og:type" content="article"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${escapeHtml(canonical)}"><meta property="og:image" content="${escapeHtml(new URL('og-card.png', root).href)}"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">${safeJson(structuredData)}</script></head>
 <body><main><nav aria-label="麵包屑"><a href="../">歷屆試題</a> / ${escapeHtml(bundle.name)}</nav>
@@ -124,7 +124,7 @@ export function buildCompatibilityPage(page: CompatibilityPage, bundles: Compact
   return `<!doctype html>
 <html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${escapeHtml(page.name)} | tw-exam</title><meta name="robots" content="noindex,follow">
-<link rel="canonical" href="${escapeHtml(canonical)}"><link rel="stylesheet" href="../assets/bundle-pages.css"></head>
+<link rel="canonical" href="${escapeHtml(canonical)}"><link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="stylesheet" href="../assets/bundle-pages.css"></head>
 <body><main><nav><a href="../">歷屆試題</a></nav><h1>${escapeHtml(page.name)}</h1>
 <p>${explanation}</p><ul>${successors}</ul>
 <footer><a href="../">返回 tw-exam</a></footer></main>
