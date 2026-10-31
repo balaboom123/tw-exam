@@ -1002,6 +1002,11 @@ shared-paper applicability; those relationships need the annual native rules.
 
 Use the official Taipei elementary teacher-recruitment source for elementary events and papers. Other Taipei school levels remain separate source identities.
 
+Both Taipei adapters use the shared government attachment reader for encoded
+filenames and official download links. This shared delivery format does not
+merge their programmes or file roles. Requested event IDs must match the
+reviewed annual article before acquisition reads its content.
+
 ## `teacher_recruit_taipei_junior`
 
 Use the official Taipei junior-high teacher-recruitment source for its events and papers. Do not merge elementary or other municipal recruitment series by city name alone.
