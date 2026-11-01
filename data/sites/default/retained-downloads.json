@@ -22524,6 +22524,39 @@
       }
     },
     {
+      "provider_id": "teacher_recruit_kaohsiung",
+      "bundle_id": "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
+      "checksum": "38be07ca1bfc6d509c5443c49c6cfffc0dc69d5840923767ccf881f379414ae9",
+      "retained_at": "2026-11-01T01:50:32.760670+00:00",
+      "source_snapshot": {
+        "archive_checksum": "38be07ca1bfc6d509c5443c49c6cfffc0dc69d5840923767ccf881f379414ae9",
+        "canonical_name": "高雄市教師甄試",
+        "papers": [
+          {
+            "year_roc": 115,
+            "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+            "category_code": "special",
+            "subject_code": "subject-088f06f6",
+            "file_type": "corrected_answer",
+            "download_url_source": "https://exam.kh.edu.tw/special/upload/正確答案-身心障礙類.pdf",
+            "checksum": "de04c408b59a1023fe7253c33e3656c2d9c82f2cc1ec5826bcf475a214bc3a0c"
+          },
+          {
+            "year_roc": 115,
+            "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+            "category_code": "special",
+            "subject_code": "subject-e6b0a069",
+            "file_type": "corrected_answer",
+            "download_url_source": "https://exam.kh.edu.tw/special/upload/正確答案-資賦優異類.pdf",
+            "checksum": "68dc00baa2c19594e211beb26ffdbdb062565638447a0a3cc683995e380eaa80"
+          }
+        ]
+      }
+    },
+    {
       "provider_id": "teacher_recruit_newtaipei",
       "bundle_id": "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei",
       "release_tag": "default-bundles-v2-008",

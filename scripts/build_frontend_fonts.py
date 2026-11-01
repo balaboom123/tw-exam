@@ -33,11 +33,12 @@ FONT_SOURCES = (
 def public_characters() -> set[int]:
     feed = json.loads(SITE_FEED.read_text(encoding="utf-8"))
     catalog_texts = []
-    source_texts = set()
+    required_texts = set()
     for item in feed["bundles"]:
         catalog_texts.append(item["name"])
         catalog_texts.extend(item.get("subjectLabels", []))
-        source_texts.update(source["name"] for source in item.get("sources", []))
+        required_texts.update(source["name"] for source in item.get("sources", []))
+        required_texts.update(item.get("coverageNotes", []))
     ui_texts = []
     material = json.loads((ROOT / "schemas/source-material-v1.schema.json").read_text(encoding="utf-8"))
     for definition in ("kind", "date"):
@@ -55,9 +56,9 @@ def public_characters() -> set[int]:
             if "\u3400" <= character <= "\u9fff"
         ).most_common(500)
     }
-    # Every static UI character remains covered; rare future catalog names use
+    # Every static UI and coverage-note character remains covered; rare catalog names use
     # the platform font until the subset is regenerated with updated data.
-    return {ord(character) for character in ui_text + string.printable + "".join(common_cjk) + "".join(source_texts)}
+    return {ord(character) for character in ui_text + string.printable + "".join(common_cjk) + "".join(required_texts)}
 
 
 def set_subset_names(font: TTFont, family: str, style: str) -> None:

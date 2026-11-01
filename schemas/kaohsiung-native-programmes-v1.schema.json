@@ -1,0 +1,499 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/kaohsiung-native-programmes-v1.schema.json",
+  "title": "Kaohsiung native annual recruitment programmes, complete ZIP members and official notice context",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "teacher_recruit_kaohsiung"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "member": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "size",
+        "checksum"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "checksum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "archive_id",
+        "source_url",
+        "size",
+        "checksum",
+        "members"
+      ],
+      "properties": {
+        "archive_id": {
+          "enum": [
+            "initial-questions",
+            "suggested-answers",
+            "final-answers"
+          ]
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^https://bulletin\\.kh\\.edu\\.tw/attachment\\.php\\?b_sn=B[0-9]{9}&a_sn=[0-9]+$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "checksum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/member"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file_id",
+        "subject_code",
+        "subject_name",
+        "file_type",
+        "notice_id",
+        "source",
+        "page_count",
+        "inspected_pages",
+        "native_header",
+        "multiple_choice_count",
+        "essay_count"
+      ],
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "subject_code": {
+          "type": "string"
+        },
+        "subject_name": {
+          "type": "string"
+        },
+        "file_type": {
+          "enum": [
+            "question",
+            "answer",
+            "corrected_answer",
+            "instructions",
+            "source_document"
+          ]
+        },
+        "notice_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^B[0-9]{9}$"
+        },
+        "source": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "url",
+                "size",
+                "checksum"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^https://bulletin\\.kh\\.edu\\.tw/attachment\\.php\\?b_sn=B[0-9]{9}&a_sn=[0-9]+$"
+                },
+                "size": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "checksum": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[0-9a-f]{64}$"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "archive_id",
+                "member_path"
+              ],
+              "properties": {
+                "archive_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "member_path": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "inspected_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "native_header": {
+          "type": "string",
+          "minLength": 1
+        },
+        "multiple_choice_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "essay_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "notice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "notice_id",
+        "title",
+        "publication_date",
+        "attachments",
+        "purpose"
+      ],
+      "properties": {
+        "notice_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^B[0-9]{9}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "publication_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "attachments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "url"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "url": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^https://bulletin\\.kh\\.edu\\.tw/attachment\\.php\\?b_sn=B[0-9]{9}&a_sn=[0-9]+$"
+              }
+            }
+          },
+          "minItems": 0
+        },
+        "purpose": {
+          "enum": [
+            "native-resources",
+            "administration"
+          ]
+        }
+      }
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "label",
+        "track_id",
+        "booklets",
+        "weights",
+        "school_level",
+        "registration_groups"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "track_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^kaohsiung-(elementary|special)-[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "booklets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "minItems": 1
+        },
+        "school_level": {
+          "enum": [
+            "elementary",
+            "junior",
+            "preschool"
+          ]
+        },
+        "registration_groups": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      }
+    },
+    "legacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "native_file_id",
+        "source_record"
+      ],
+      "properties": {
+        "native_file_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "source_record": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provider_id",
+            "source_exam_id",
+            "year_roc",
+            "exam_name_raw",
+            "category_code",
+            "category_raw",
+            "subject_code",
+            "subject_name_raw",
+            "file_type",
+            "download_url_source",
+            "checksum"
+          ],
+          "properties": {
+            "provider_id": {
+              "const": "teacher_recruit_kaohsiung"
+            },
+            "source_exam_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "year_roc": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 999
+            },
+            "exam_name_raw": {
+              "type": "string",
+              "minLength": 1
+            },
+            "category_code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "category_raw": {
+              "type": "string",
+              "minLength": 1
+            },
+            "subject_code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "subject_name_raw": {
+              "type": "string",
+              "minLength": 1
+            },
+            "file_type": {
+              "enum": [
+                "question",
+                "answer",
+                "corrected_answer"
+              ]
+            },
+            "download_url_source": {
+              "type": "string",
+              "minLength": 1
+            },
+            "checksum": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "year_roc",
+        "source_exam_id",
+        "scope",
+        "programme_name",
+        "written_test_date",
+        "reviewed_at",
+        "review_notes",
+        "notices",
+        "jobs",
+        "archives",
+        "files",
+        "legacy_sources"
+      ],
+      "properties": {
+        "year_roc": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999
+        },
+        "source_exam_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^teacher-recruit-kaohsiung-[0-9]+-(elementary|special)$"
+        },
+        "scope": {
+          "enum": [
+            "elementary",
+            "special"
+          ]
+        },
+        "programme_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "written_test_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "review_notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "notices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/notice"
+          },
+          "minItems": 1
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/job"
+          },
+          "minItems": 1
+        },
+        "archives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/archive"
+          },
+          "minItems": 0
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/file"
+          },
+          "minItems": 1
+        },
+        "legacy_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/legacy"
+          },
+          "minItems": 0
+        }
+      }
+    }
+  }
+}

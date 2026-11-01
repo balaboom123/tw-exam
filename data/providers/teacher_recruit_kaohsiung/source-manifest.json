@@ -1,0 +1,40 @@
+{
+  "exams": {
+    "teacher-recruit-kaohsiung-115-elementary": {
+      "discovered_at": "2026-10-31T21:41:02.669783+08:00",
+      "exam_label": "高雄市115年度市立國民小學教師聯合甄選",
+      "result_url": "https://bulletin.kh.edu.tw/view.php?sn=B115002760",
+      "source_exam_id": "teacher-recruit-kaohsiung-115-elementary",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "teacher-recruit-kaohsiung-115-special": {
+      "discovered_at": "2026-10-31T21:41:02.669783+08:00",
+      "exam_label": "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+      "result_url": "https://bulletin.kh.edu.tw/view.php?sn=B115002905",
+      "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+      "year_ad": 2026,
+      "year_roc": 115
+    }
+  },
+  "files": {},
+  "probe_policy": {
+    "discovery_mode": "official-year-exam-listing",
+    "last_discovery_at": "2026-10-31T21:41:02.669783+08:00"
+  },
+  "provider_id": "teacher_recruit_kaohsiung",
+  "schema_version": 1,
+  "years": {
+    "2026": {
+      "discovered_at": "2026-10-31T21:41:02.669783+08:00",
+      "exam_codes": [
+        "teacher-recruit-kaohsiung-115-elementary",
+        "teacher-recruit-kaohsiung-115-special"
+      ],
+      "exam_codes_hash": "sha256:0e0ce5aa7869e7685ed4516190b92b7331aefcd7bc77e2f8a1339a4a8f1ee6b3",
+      "search_url": "https://bulletin.kh.edu.tw/_RSS_ajax.php?Target=B&Y=2026&M=&sort=2&keyword=%E6%95%99%E5%B8%AB%E8%81%AF%E5%90%88%E7%94%84%E9%81%B8&department=P0&page=0",
+      "year_ad": 2026,
+      "year_roc": 115
+    }
+  }
+}

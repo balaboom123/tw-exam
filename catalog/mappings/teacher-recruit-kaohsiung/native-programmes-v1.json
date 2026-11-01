@@ -1,0 +1,1862 @@
+{
+  "schema_version": 1,
+  "provider_id": "teacher_recruit_kaohsiung",
+  "events": [
+    {
+      "year_roc": 115,
+      "source_exam_id": "teacher-recruit-kaohsiung-115-elementary",
+      "scope": "elementary",
+      "programme_name": "高雄市115年度市立國民小學教師聯合甄選",
+      "written_test_date": "2026-06-07",
+      "reviewed_at": "2026-10-31",
+      "review_notes": "Official annual rules and vacancy categories govern recruitment posts. Shared written booklets do not merge posts. Region eligibility and prerequisite certificates do not create exam grades. Source role follows the dated official notice; initial elementary answer PDFs already say 正確答案 in their native headings. Preserve both suggested and final references, including nine identical payload pairs and two changed final booklets.",
+      "notices": [
+        {
+          "notice_id": "B115002324",
+          "title": "公告高雄市115年度市立國民小學教師聯合甄選簡章",
+          "publication_date": "2026-05-08",
+          "attachments": [
+            {
+              "label": "高雄市115年度市立國民小學教師聯合甄選簡章.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002324&a_sn=125840"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002725",
+          "title": "公告本市115年度市立國民小學教師聯合甄選初試試場位置圖及應考人注意事項",
+          "publication_date": "2026-06-04",
+          "attachments": [
+            {
+              "label": "附件1 初試考場(三信家商)試場分配表及位置圖.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002725&a_sn=126424"
+            },
+            {
+              "label": "附件2 初試考場(中正高中)試場分配表及位置圖.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002725&a_sn=126425"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115002743",
+          "title": "公告本市115年度市立國民小學教師聯合甄選初試加分條件審查注意事項",
+          "publication_date": "2026-06-05",
+          "attachments": [],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115002744",
+          "title": "公告本市115年度市立國民小學教師聯合甄選增開缺額",
+          "publication_date": "2026-06-05",
+          "attachments": [
+            {
+              "label": "附件1-高雄市115年度國小教師聯合甄選增開缺額.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002744&a_sn=126601"
+            },
+            {
+              "label": "附件2-高雄市115年度市立國民小學教師聯合甄選缺額總表.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002744&a_sn=126602"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002760",
+          "title": "公告本市115年度市立國民小學教師聯合甄選各類科試題及參考答案",
+          "publication_date": "2026-06-07",
+          "attachments": [
+            {
+              "label": "試題.zip",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002760&a_sn=126646"
+            },
+            {
+              "label": "答案.zip",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002760&a_sn=126647"
+            },
+            {
+              "label": "初試試題釋疑申請表.doc",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002760&a_sn=126648"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002808",
+          "title": "公告本市115年度市立國民小學教師聯合甄選初試試題正確答案",
+          "publication_date": "2026-06-10",
+          "attachments": [
+            {
+              "label": "正確答案.zip",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002808&a_sn=126689"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002906",
+          "title": "公告本市115年度市立國民小學教師聯合甄選複試代理教師年資加分審查注意事項",
+          "publication_date": "2026-06-14",
+          "attachments": [],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115002910",
+          "title": "公告本市115年度市立國民小學教師聯合甄選進入複試名單",
+          "publication_date": "2026-06-15",
+          "attachments": [
+            {
+              "label": "附件1-高雄市115年度國小教師甄試_進入複試名單(一般地區學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002910&a_sn=126904"
+            },
+            {
+              "label": "附件2-高雄市115年度國小教師甄試_進入複試名單(偏遠地區學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002910&a_sn=126914"
+            },
+            {
+              "label": "附件3-高雄市115年度國小教師甄試_進入複試名單(原住民地區及原住民重點學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002910&a_sn=126915"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003005",
+          "title": "公告本市115年度市立國民小學教師聯合甄選複試順序時間表、考場位置圖、各類科試場設備及注意事項",
+          "publication_date": "2026-06-24",
+          "attachments": [
+            {
+              "label": "附件1 複試順序時間表.zip",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003005&a_sn=127073"
+            },
+            {
+              "label": "附件2 1150627資訊實作考場位置圖及座位圖(龍華國小).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003005&a_sn=127121"
+            },
+            {
+              "label": "附件3-1 1150627教甄複試試場分配圖(博愛國小).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003005&a_sn=127122"
+            },
+            {
+              "label": "附件3-2 1150628教甄複試試場分配圖(博愛國小).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003005&a_sn=127123"
+            },
+            {
+              "label": "附件4 高雄市115年度市立國民小學教師聯合甄選複試各類科試場設備及注意事.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003005&a_sn=127139"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003024",
+          "title": "公告高雄市115年度市立國民小學教師聯合甄選，若遇大豪雨侵襲致公告停班，將調整複試日期",
+          "publication_date": "2026-06-26",
+          "attachments": [
+            {
+              "label": "115複試時間安排(0627停班停課版本).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003024&a_sn=127191"
+            },
+            {
+              "label": "115複試時間安排(0627-0628停班停課版本).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003024&a_sn=127192"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003074",
+          "title": "公告高雄市115年度市立國民小學教師聯合甄選複試成績預計開放查詢時間及成績複查事宜",
+          "publication_date": "2026-07-01",
+          "attachments": [],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003131",
+          "title": "公告本市115年度市立國民小學教師聯合甄選錄取名單",
+          "publication_date": "2026-07-03",
+          "attachments": [
+            {
+              "label": "附件1-高雄市115年度國小教師甄試錄取名單(一般地區學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003131&a_sn=127352"
+            },
+            {
+              "label": "附件2-高雄市115年度國小教師甄試錄取名單(偏遠地區學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003131&a_sn=127353"
+            },
+            {
+              "label": "附件3-高雄市115年度國小教師甄試錄取名單(原住民地區及原住民重點學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003131&a_sn=127354"
+            },
+            {
+              "label": "附件4-高雄市115年度市立國民小學教師聯合甄選缺額總表.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003131&a_sn=127355"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003444",
+          "title": "公告本市115年度市立國⺠⼩學教師聯合甄選正式教師分發結果",
+          "publication_date": "2026-07-07",
+          "attachments": [
+            {
+              "label": "附件1-一般地區分發結果.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003444&a_sn=127765"
+            },
+            {
+              "label": "附件2-偏遠地區分發結果.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003444&a_sn=127766"
+            },
+            {
+              "label": "附件3-原民地區分發結果.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003444&a_sn=127767"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003453",
+          "title": "公告本市115年度市立國民小學教師聯合甄選代理教師分發注意事項",
+          "publication_date": "2026-07-08",
+          "attachments": [
+            {
+              "label": "附件1-代理教師分發委託書.docx",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003453&a_sn=127809"
+            },
+            {
+              "label": "附件2-115國小代理教師分發缺額表.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003453&a_sn=127810"
+            },
+            {
+              "label": "附件3-代理教師分發最低列冊成績.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003453&a_sn=127811"
+            },
+            {
+              "label": "附件4-高雄市115年度市立國民小學聯合甄選代理教師分發順序.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003453&a_sn=127812"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003471",
+          "title": "公告本市115年度市立國民小學教師聯合甄選代理教師分發結果",
+          "publication_date": "2026-07-09",
+          "attachments": [
+            {
+              "label": "高雄市115年度國小教師甄試代理分發結果.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003471&a_sn=127893"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003555",
+          "title": "公告高雄市115年度市立國民小學教師聯合甄選正式教師第二次分發作業",
+          "publication_date": "2026-07-15",
+          "attachments": [
+            {
+              "label": "高雄市115年度市立國民小學教師聯合甄選正式教師第二次分發缺額總表.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003555&a_sn=128855"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003858",
+          "title": "公告本市115年度市立國民小學教師聯合甄選正式教師第二次分發結果",
+          "publication_date": "2026-07-17",
+          "attachments": [
+            {
+              "label": "高雄市115年度國小教師甄試_第二次分發結果(一般地區學校).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003858&a_sn=128925"
+            }
+          ],
+          "purpose": "administration"
+        }
+      ],
+      "jobs": [
+        {
+          "code": "job-elementary-general",
+          "label": "一般類科",
+          "track_id": "kaohsiung-elementary-general",
+          "booklets": [
+            "general-common",
+            "education-professional"
+          ],
+          "weights": [
+            60,
+            40
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組",
+            "偏遠地區學校組",
+            "原住民地區及原住民重點學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-dedicated-counselor",
+          "label": "專任輔導教師",
+          "track_id": "kaohsiung-elementary-dedicated-counselor",
+          "booklets": [
+            "counselor-knowledge",
+            "education-professional"
+          ],
+          "weights": [
+            60,
+            40
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-science",
+          "label": "自然科學",
+          "track_id": "kaohsiung-elementary-science",
+          "booklets": [
+            "specialist-common",
+            "science"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組",
+            "原住民地區及原住民重點學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-information-technology",
+          "label": "資訊",
+          "track_id": "kaohsiung-elementary-information-technology",
+          "booklets": [
+            "specialist-common",
+            "information-technology"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組",
+            "偏遠地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-music",
+          "label": "音樂",
+          "track_id": "kaohsiung-elementary-music",
+          "booklets": [
+            "specialist-common",
+            "music"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組",
+            "原住民地區及原住民重點學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-visual-arts",
+          "label": "視覺藝術",
+          "track_id": "kaohsiung-elementary-visual-arts",
+          "booklets": [
+            "specialist-common",
+            "visual-arts"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-english",
+          "label": "英語",
+          "track_id": "kaohsiung-elementary-english",
+          "booklets": [
+            "specialist-common",
+            "english"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組",
+            "原住民地區及原住民重點學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-physical-education",
+          "label": "體育",
+          "track_id": "kaohsiung-elementary-physical-education",
+          "booklets": [
+            "specialist-common",
+            "physical-education"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組",
+            "偏遠地區學校組",
+            "原住民地區及原住民重點學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-taiwanese-minnan",
+          "label": "本土語（閩南語）",
+          "track_id": "kaohsiung-elementary-taiwanese-minnan",
+          "booklets": [
+            "specialist-common",
+            "taiwanese-minnan"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-hakka",
+          "label": "本土語（客語）",
+          "track_id": "kaohsiung-elementary-hakka",
+          "booklets": [
+            "specialist-common",
+            "hakka"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-music-arts-class",
+          "label": "藝術才能班（音樂）",
+          "track_id": "kaohsiung-elementary-music-arts-class",
+          "booklets": [
+            "specialist-common",
+            "music"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-visual-arts-bilingual",
+          "label": "雙語教師組（視覺藝術）",
+          "track_id": "kaohsiung-elementary-visual-arts-bilingual",
+          "booklets": [
+            "specialist-common",
+            "visual-arts"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        },
+        {
+          "code": "job-elementary-physical-education-bilingual",
+          "label": "雙語教師組（體育）",
+          "track_id": "kaohsiung-elementary-physical-education-bilingual",
+          "booklets": [
+            "specialist-common",
+            "physical-education"
+          ],
+          "weights": [
+            40,
+            60
+          ],
+          "school_level": "elementary",
+          "registration_groups": [
+            "一般地區學校組"
+          ]
+        }
+      ],
+      "archives": [
+        {
+          "archive_id": "initial-questions",
+          "source_url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002760&a_sn=126646",
+          "size": 3701142,
+          "checksum": "28fd74a41927838ab0ae2e1447a20bd3bd1ea6c42556fdb66e6159d127b6efd1",
+          "members": [
+            {
+              "path": "115專長類-普通科目試卷(教專國文數學高史).pdf",
+              "size": 456152,
+              "checksum": "a7b53e326bd05d91710dccad337181491848193b50bf0f44c36bf6aa38e5c1c9"
+            },
+            {
+              "path": "115專長類-視覺藝術試卷.pdf",
+              "size": 362537,
+              "checksum": "3176390376e8889a5101b328d520780344a7dc1686bbc2e505fc2c896ff6706a"
+            },
+            {
+              "path": "115專長類-資訊試卷.pdf",
+              "size": 347107,
+              "checksum": "198305e4a55f45dabce8146d4bbdb5b4ad712648073d24d51330c864847ae771"
+            },
+            {
+              "path": "115專長類-體育、雙語教師組（體育）試卷.pdf",
+              "size": 319091,
+              "checksum": "bb3eb1ab76816dbd19ec24b074eb9e25f5f42e27156cdb136e3b97f35e1059ca"
+            },
+            {
+              "path": "115一般及專輔-「教育專業」科目試卷.pdf",
+              "size": 303269,
+              "checksum": "b7df5b35cd95b6ac0769b11e19bc31ef22fd9256b3a2fe95ede33ba336f1e6cb"
+            },
+            {
+              "path": "115一般類-普通科目試卷(國文數學高史).pdf",
+              "size": 532178,
+              "checksum": "9cee5328ee48ef16343d0e42a2e5b94febe0f302f3f157264ac9ae728d8bb0f1"
+            },
+            {
+              "path": "115專任輔導教師-輔導知能.pdf",
+              "size": 136639,
+              "checksum": "6223bef36524974a2cda4047358c4ec0e6e53ac9c5950f6aa3c531d18c3c3daa"
+            },
+            {
+              "path": "115專長類-本土語(客語)試卷.pdf",
+              "size": 262156,
+              "checksum": "6d37bda0a43533a620a4f3f89e61c32fbb798cc1c82dc8ea4f5d8b1562264697"
+            },
+            {
+              "path": "115專長類-本土語(閩南語)試卷.pdf",
+              "size": 295459,
+              "checksum": "089a71c87ff973484d6faf2020cc31b413622674450d605b02403ca279fefcb4"
+            },
+            {
+              "path": "115專長類-自然試卷.pdf",
+              "size": 432834,
+              "checksum": "14ae20bdc757c9f412bf371f0f522f3b726cdee9e2b9dc4330ee65425089ebb3"
+            },
+            {
+              "path": "115專長類-英語試卷.pdf",
+              "size": 309416,
+              "checksum": "7288f7d6ae73f48c44cd44ef0a4084ef2a103979d369fac6e000d8f6d1bc2d26"
+            },
+            {
+              "path": "115專長類-音樂試卷.pdf",
+              "size": 408620,
+              "checksum": "07e8bde2c421a47a8b16b2b57c88f249abf3ab6e272c5000054e21c54a12629a"
+            }
+          ]
+        },
+        {
+          "archive_id": "suggested-answers",
+          "source_url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002760&a_sn=126647",
+          "size": 932352,
+          "checksum": "789938fe54412a577b0e5803a1931812901d199c128fab059dbd7e3492f9e6d6",
+          "members": [
+            {
+              "path": "115專長類-音樂答案.pdf",
+              "size": 94845,
+              "checksum": "b0617c9166054708fdf55120106d06f722dae291de811c26e274bc0ee9664f6b"
+            },
+            {
+              "path": "115專長類-普通科目答案.pdf",
+              "size": 110087,
+              "checksum": "7f237ee7cb9a7e3477fa83c38fe906a895d54dc6a6a3a34421288b7614a2284e"
+            },
+            {
+              "path": "115專長類-視覺藝術答案.pdf",
+              "size": 111339,
+              "checksum": "97a3959635b59fff52bffd5aade63fa0722263930955b0acc613a0cd7145a3f9"
+            },
+            {
+              "path": "115專長類-資訊答案.pdf",
+              "size": 108648,
+              "checksum": "c8cf1997e3b3cce8d3d266d1426c9f046e263d25840ee9cf387e534921453aa8"
+            },
+            {
+              "path": "115專長類-體育、雙語教師組（體育）答案.pdf",
+              "size": 94394,
+              "checksum": "0e46a4946f2b5e3c15351d11fc2cc625ea2990f359b3dbb749e4badd47dee95b"
+            },
+            {
+              "path": "115一般及專輔-「教育專業」答案.pdf",
+              "size": 94728,
+              "checksum": "bc69eb239f505f9e2278c4113480e612c4e4ef3e444cee1ca991317b862998f9"
+            },
+            {
+              "path": "115一般類-普通科目答案.pdf",
+              "size": 106122,
+              "checksum": "06c90e9e219b3a41adf3ea66455e14fc6ccdad92f5813b7ad2f97e1eec10cb52"
+            },
+            {
+              "path": "115專長類-本土語(客語)答案.pdf",
+              "size": 93513,
+              "checksum": "e611b4fe6b06533fc7f3db8748eb967101c847c5ffd477bcb7aee3848530707f"
+            },
+            {
+              "path": "115專長類-本土語(閩南語)答案.pdf",
+              "size": 93947,
+              "checksum": "b8fc0eeb5d4b8f46e88120ed0f8f8ecd72915ded79988504816a2747cbab55e8"
+            },
+            {
+              "path": "115專長類-自然答案.pdf",
+              "size": 93241,
+              "checksum": "dea799dc88fbac4f1e9b88809b85b47dbaaa7fcd8493c698cd37af83e1181097"
+            },
+            {
+              "path": "115專長類-英語答案.pdf",
+              "size": 93231,
+              "checksum": "010b43f827fe6caecfb9595ed2a010fa034787e6c0a7a40a64f25edad844e5ac"
+            }
+          ]
+        },
+        {
+          "archive_id": "final-answers",
+          "source_url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002808&a_sn=126689",
+          "size": 935329,
+          "checksum": "c1d985413f09d32c99a77aaa2961e352f094991781727daf2669302cf42b83d8",
+          "members": [
+            {
+              "path": "115專長類-自然答案.pdf",
+              "size": 93241,
+              "checksum": "dea799dc88fbac4f1e9b88809b85b47dbaaa7fcd8493c698cd37af83e1181097"
+            },
+            {
+              "path": "115專長類-英語答案.pdf",
+              "size": 93231,
+              "checksum": "010b43f827fe6caecfb9595ed2a010fa034787e6c0a7a40a64f25edad844e5ac"
+            },
+            {
+              "path": "115專長類-音樂答案.pdf",
+              "size": 94845,
+              "checksum": "b0617c9166054708fdf55120106d06f722dae291de811c26e274bc0ee9664f6b"
+            },
+            {
+              "path": "115專長類-普通科目答案.pdf",
+              "size": 110087,
+              "checksum": "7f237ee7cb9a7e3477fa83c38fe906a895d54dc6a6a3a34421288b7614a2284e"
+            },
+            {
+              "path": "115專長類-視覺藝術答案.pdf",
+              "size": 114079,
+              "checksum": "675d5ec461dabf174ab0fc82c930f0810e3bf1f2640cca23be0e75a969721d25"
+            },
+            {
+              "path": "115專長類-資訊答案.pdf",
+              "size": 108648,
+              "checksum": "c8cf1997e3b3cce8d3d266d1426c9f046e263d25840ee9cf387e534921453aa8"
+            },
+            {
+              "path": "115專長類-體育、雙語教師組（體育）答案.pdf",
+              "size": 97066,
+              "checksum": "f038346bdfd32c87ababd192b70b89757d734ec37c9fe590d8f4f0f024fc7450"
+            },
+            {
+              "path": "115一般及專輔-「教育專業」答案.pdf",
+              "size": 94728,
+              "checksum": "bc69eb239f505f9e2278c4113480e612c4e4ef3e444cee1ca991317b862998f9"
+            },
+            {
+              "path": "115一般類-普通科目答案.pdf",
+              "size": 106122,
+              "checksum": "06c90e9e219b3a41adf3ea66455e14fc6ccdad92f5813b7ad2f97e1eec10cb52"
+            },
+            {
+              "path": "115專長類-本土語(客語)答案.pdf",
+              "size": 93513,
+              "checksum": "e611b4fe6b06533fc7f3db8748eb967101c847c5ffd477bcb7aee3848530707f"
+            },
+            {
+              "path": "115專長類-本土語(閩南語)答案.pdf",
+              "size": 93947,
+              "checksum": "b8fc0eeb5d4b8f46e88120ed0f8f8ecd72915ded79988504816a2747cbab55e8"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "file_id": "specialist-common-question",
+          "subject_code": "specialist-common",
+          "subject_name": "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-普通科目試卷(教專國文數學高史).pdf"
+          },
+          "page_count": 13,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類科－普通科目試卷\n說明：本試卷含教育專業 40 題，每題 1 分；國語 20 題，每題 1 分；數學 10\n題，每題 2 分；高雄文明史 20 題，每題 1 分。共計 90 題，為四選ㄧ單\n選題，共 100 分。\n1.   四年一班進行英文課堂書寫活動時，大雄與小強持續交談而未專心完成練習。陳老師發\n現後，並未立即責罵，而是走至兩人座位旁持續站立觀察。當兩人開始安靜書寫後，陳\n老師便離開其座位旁。經過數次類似經驗後，大雄與小強逐漸學會以專注書寫來避免教\n師持",
+          "multiple_choice_count": 90,
+          "essay_count": 0
+        },
+        {
+          "file_id": "visual-arts-question",
+          "subject_code": "visual-arts",
+          "subject_name": "視覺藝術、雙語教師組（視覺藝術）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-視覺藝術試卷.pdf"
+          },
+          "page_count": 7,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－視覺藝術、雙語教師組（視覺藝術）試卷\n說明：本試卷共計 50 題，為四選ㄧ單選題（每題 2 分，共 100 分）\n1.   下列何者屬於國小第三學習階段（五、六年級）視覺藝術領域中，學習構面「實踐」的\n學習內容？\n（A）視P-Ⅱ-2 藝術蒐藏、生活實作、環境布置。\n（B）視A-Ⅱ-1 視覺元素、生活之美、視覺聯想。\n（C）視E-Ⅲ-3 設計思考與實作\n（D）視P-Ⅲ-2 生活設計、公共藝術、環境藝術。\n2.   下列哪一項學習表現，屬於國小第二學習階段（三",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "information-technology-question",
+          "subject_code": "information-technology",
+          "subject_name": "資訊",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-資訊試卷.pdf"
+          },
+          "page_count": 7,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－資訊試卷\n說明：本試卷共計 50 題，為四選ㄧ單選題（每題 2 分，共 100 分）\n1.   何者是由高雄市政府教育局建置的數位學習與遠距教學平台？\n(A) 達學堂 (B) 飛番教育雲 (C) 酷課雲 (D) 教育雲\n2.   在 Scratch 中，「當綠旗被點擊」積木主要屬於哪一種概念？\n(A) 條件判斷             (B) 事件觸發        (C) 重複執行        (D) 資料儲存\n3.   JavaScript 中，用來",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "physical-education-question",
+          "subject_code": "physical-education",
+          "subject_name": "體育、雙語教師組（體育）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-體育、雙語教師組（體育）試卷.pdf"
+          },
+          "page_count": 7,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－體育、雙語教師組（體育）試卷\n說明：本試卷共計 50 題，為四選ㄧ單選題（每題 2 分，共 100 分）\n1.   有 16 隊參加桌球賽，在預賽分為四組進行循環賽，每組再各取前二名進入決賽，決賽採\n用單淘汰賽制。只錄取前三名隊伍，請計算場數是多少場？\n（A）30 場    （B）31 場 （C）32 場 （D）33 場\n2.   下列 Mosston 教學光譜理論中，何者最重視間接教學？\n（A）命令式       （B）練習式  （C）引導發現式 （D）",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "education-professional-question",
+          "subject_code": "education-professional",
+          "subject_name": "一般類科及專任輔導教師教育專業",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115一般及專輔-「教育專業」科目試卷.pdf"
+          },
+          "page_count": 9,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：一般類科及專任輔導教師－「教育專業」科目試卷\n說明：本試卷共計 50 題，為四選一單選題（每題 2 分，共 100 分）\n1.   三年級陳老師進行自然科探究活動時發現：當教師直接講解答案時，學生較能快速完成\n學習；但當改由學生自行觀察、討論與推論時，部分學生容易出現混亂與挫折感。陳老\n師認為，學生雖需透過主動探索建構知識，但仍需要適切協助以支持學習歷程。若從建\n構主義與認知發展理論觀點判斷，下列何者最符合其後續教學調整方向？\n（Ａ）探究教學應結合適度鷹架與引導，",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "general-common-question",
+          "subject_code": "general-common",
+          "subject_name": "一般類科普通科目（國語、數學、高雄文明史）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115一般類-普通科目試卷(國文數學高史).pdf"
+          },
+          "page_count": 11,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：一般類－普通科目試卷\n說明：本試卷含國語 40 題，每題 1 分；數學 20 題，每題 2 分；高雄文明史 20\n題，每題 1 分。共計 80 題，為四選ㄧ單選題，共 100 分。\n1.   元好問〈論詩絕句〉：「心畫心聲總失真，文章寧復見爲人？高情千古閒居賦，爭信安\n仁拜路塵。」這段文字所評論的是哪位詩人？\n（Ａ）陸機     （Ｂ）潘岳     （Ｃ）陶淵明    （Ｄ）李白\n2.   「心似已灰之木，身如不繫之舟。問汝平生功業，黃州惠州儋州。」上面引錄蘇軾一",
+          "multiple_choice_count": 80,
+          "essay_count": 0
+        },
+        {
+          "file_id": "counselor-knowledge-question",
+          "subject_code": "counselor-knowledge",
+          "subject_name": "專任輔導教師輔導知能",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專任輔導教師-輔導知能.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專任輔導教師－輔導知能試卷\n說明：本試卷共計 4 題(每題 25 分，共計 100 分，毋須抄題，並請標註題號依\n序作答)\n一、 小明是一個情緒衝動的小孩，動不動就生氣打人，容易跟同學起衝突，人際關係不佳，\n整天沉迷手機與網路，無法專心學習，管理好自己，讓導師和家長很頭痛。如果您是輔\n導教師，面對這樣社會情緒能力與情緒管控不佳的小孩，您會用哪個諮商理論來介入輔\n導，其輔導重點與實際作法?\n二、 某校五年級學生，在校門口等待家長接其返家，疑似聽到旁邊有同學在說他的壞",
+          "multiple_choice_count": 0,
+          "essay_count": 4
+        },
+        {
+          "file_id": "hakka-question",
+          "subject_code": "hakka",
+          "subject_name": "本土語（客語）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-本土語(客語)試卷.pdf"
+          },
+          "page_count": 6,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－本土語(客語)試卷\n說明：本試卷共計 50 題，為四選一單選題(每題 2 分，共 100 分)\n1. 請問下背哪個選項係屬於委婉語个例仔？\n（Ａ）你恁久看起來加盡發福\n（Ｂ）三十暗晡食魚仔係年年有餘（魚）\n（Ｃ）另日有閒歡迎來果園摘柑仔\n（Ｄ）日後拜託你多多來牽成\n2. 「飛」有「四縣 fiˊ/海陸 fuiˋ」同「四縣 biˊ/海陸 buiˋ」兩種讀法，係因為麼个關\n係？\n（Ａ）正讀又讀                       （Ｂ）讀音語音\n（Ｃ）通",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "taiwanese-minnan-question",
+          "subject_code": "taiwanese-minnan",
+          "subject_name": "本土語（閩南語）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-本土語(閩南語)試卷.pdf"
+          },
+          "page_count": 5,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－本土語(閩南語)試卷\n說明：本試卷共計 50 題，為四選一單選題(每題 2 分，共 100 分)\n1. 依據十二年國民基本教育課程綱要語文領域，學生應於哪一學習階段習得「能應用閩南\n語標音符號、羅馬字及漢字，協助聆聽理解」的表現？\n（Ａ）I    （Ｂ）II    （Ｃ）III  （Ｄ）IV\n2. 依據十二年國民基本教育課程綱要語文領域，學生應於哪一學習階段習得「能運用閩南\n語文媒材、工具書或線上字、辭典檢索系統以輔助書寫」的表現？\n（Ａ）I    （Ｂ）",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "science-question",
+          "subject_code": "science",
+          "subject_name": "自然科學",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-自然試卷.pdf"
+          },
+          "page_count": 7,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－自然試卷\n說明：本試卷共計 50 題，為四選ㄧ單選題（每題 2 分，共 100 分）\n1. 老師帶學生閱讀古文時，提到古人生活中也包含許多自然與科學現象，例如燒柴、生火、\n釀酒等活動，也都與物質變化有關。下列古人生活情境中，何者屬於「化學變化」？\n（A）將冬天的雪放在酒水中，雪逐漸融化。\n（B）用布將銅鏡磨亮，布將表面油汙吸附，使銅鏡變得光滑明亮。\n（C）燃燒木柴煮飯，產生灰燼與煙。\n（D）將水倒入陶杯後，水逐漸蒸發變少。\n2. 學生製作電磁鐵時，將漆包線",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "english-question",
+          "subject_code": "english",
+          "subject_name": "英語",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-英語試卷.pdf"
+          },
+          "page_count": 7,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－英語試卷\n說明：本試卷共計 50 題，為四選ㄧ單選題（每題 2 分，共 100 分）\nI. Vocabulary\n1.    The French tourists came in third for ___ in the list of good tourists.\n（A）discretion              （B）doctrine               （C）dispensation         （D）diameter\n2.    ",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "music-question",
+          "subject_code": "music",
+          "subject_name": "音樂、藝術才能班（音樂）",
+          "file_type": "question",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "initial-questions",
+            "member_path": "115專長類-音樂試卷.pdf"
+          },
+          "page_count": 7,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n科目：專長類－音樂、藝術才能班(音樂)試卷\n說明：本試卷共計 50 題，為四選ㄧ單選題(每題 2 分，共 100 分)\n1. 下列關於十二年國教《藝術領域課程綱要》內容之敘述，何者為非？\n（A）藝術領域的課程發展，強調以核心素養來連貫、統整與發展國民小學、國民中學與\n普通型高級中等學校的課程與學習。\n（B）音樂學習重點之關鍵內涵包含歌唱演奏、表演元素、創作展現、審美理解、藝術參\n與、生活應用\n（C）藝術學習領域組織課程的三個學習構面包含表現、鑑賞、實踐\n（D）國民小學階",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "music-answer",
+          "subject_code": "music",
+          "subject_name": "音樂、藝術才能班（音樂）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-音樂答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－音樂、藝術才能班（音樂）答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   B     D    C     B    C    B    A    A    C    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   A     A    B     A    D    B    A  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "specialist-common-answer",
+          "subject_code": "specialist-common",
+          "subject_name": "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-普通科目答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類科－普通科目答案\n題號   1    2    3     4    5    6    7    8    9    10\n答案   B    B    D     B    D    B    C    D    B    A\n題號   11   12   13    14   15   16   17   18   19   20\n答案   D    B    A     D    B    A    B    B    C   ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "visual-arts-answer",
+          "subject_code": "visual-arts",
+          "subject_name": "視覺藝術、雙語教師組（視覺藝術）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-視覺藝術答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－視覺藝術、雙語教師組（視覺藝術）答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   D     D    D     D    C    B    B    A    D    A\n題號   11    12   13    14   15   16   17   18   19   20\n答案   A     C    D     D    D    A   ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "information-technology-answer",
+          "subject_code": "information-technology",
+          "subject_name": "資訊",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-資訊答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長長類－資訊答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    D     B    C    D    A    D    B    C\n題號   11    12   13    14   15   16   17   18   19   20\n答案   B     B    A     C    B    A    B    A    A ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "physical-education-answer",
+          "subject_code": "physical-education",
+          "subject_name": "體育、雙語教師組（體育）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-體育、雙語教師組（體育）答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－體育、雙語教師組（體育）答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   C     C    A     A    A    A    C    C    B    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   D     A    A     A    A    C    D  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "education-professional-answer",
+          "subject_code": "education-professional",
+          "subject_name": "一般類科及專任輔導教師教育專業",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115一般及專輔-「教育專業」答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：一般類科及專任輔導教師－「教育專業」答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    D     A    B    A    B    B    C    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   A     B    A     D    D    B    A",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "general-common-answer",
+          "subject_code": "general-common",
+          "subject_name": "一般類科普通科目（國語、數學、高雄文明史）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115一般類-普通科目答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：一般類科－普通科目答案\n題號   1    2    3     4    5    6    7    8    9    10\n答案   B    D    C     A    B    A    B    B    B    D\n題號   11   12   13    14   15   16   17   18   19   20\n答案   B    A    C     C    B    A    C    D    D   ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "hakka-answer",
+          "subject_code": "hakka",
+          "subject_name": "本土語（客語）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-本土語(客語)答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－本土語(客語)答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    A     B    D    C    B    C    B    B\n題號   11    12   13    14   15   16   17   18   19   20\n答案   D     C    A     D    D    D    C    D  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "taiwanese-minnan-answer",
+          "subject_code": "taiwanese-minnan",
+          "subject_name": "本土語（閩南語）",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-本土語(閩南語)答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－本土語(閩南語)答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   B     C    A     A    A    D    C    D    C    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   C     A    A     C    D    C    C    B ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "science-answer",
+          "subject_code": "science",
+          "subject_name": "自然科學",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-自然答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－自然答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   C     B    B     C    A    A    C    D    A    A\n題號   11    12   13    14   15   16   17   18   19   20\n答案   D     A    D     D    A    B    B    B    D  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "english-answer",
+          "subject_code": "english",
+          "subject_name": "英語",
+          "file_type": "answer",
+          "notice_id": "B115002760",
+          "source": {
+            "archive_id": "suggested-answers",
+            "member_path": "115專長類-英語答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－英語答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    A     A    A    C    A    B    D    A\n題號   11    12   13    14   15   16   17   18   19   20\n答案   C     C    B     B    A    C    D    B    C  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "science-corrected-answer",
+          "subject_code": "science",
+          "subject_name": "自然科學",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-自然答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－自然答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   C     B    B     C    A    A    C    D    A    A\n題號   11    12   13    14   15   16   17   18   19   20\n答案   D     A    D     D    A    B    B    B    D  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "english-corrected-answer",
+          "subject_code": "english",
+          "subject_name": "英語",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-英語答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－英語答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    A     A    A    C    A    B    D    A\n題號   11    12   13    14   15   16   17   18   19   20\n答案   C     C    B     B    A    C    D    B    C  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "music-corrected-answer",
+          "subject_code": "music",
+          "subject_name": "音樂、藝術才能班（音樂）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-音樂答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－音樂、藝術才能班（音樂）答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   B     D    C     B    C    B    A    A    C    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   A     A    B     A    D    B    A  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "specialist-common-corrected-answer",
+          "subject_code": "specialist-common",
+          "subject_name": "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-普通科目答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類科－普通科目答案\n題號   1    2    3     4    5    6    7    8    9    10\n答案   B    B    D     B    D    B    C    D    B    A\n題號   11   12   13    14   15   16   17   18   19   20\n答案   D    B    A     D    B    A    B    B    C   ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "visual-arts-corrected-answer",
+          "subject_code": "visual-arts",
+          "subject_name": "視覺藝術、雙語教師組（視覺藝術）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-視覺藝術答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－視覺藝術、雙語教師組（視覺藝術）答案\n題號   1     2    3     4     5    6    7    8    9    10\n答案   D     D    D     D     C    B    B    A    D    A\n題號   11    12   13    14   15    16   17   18   19   20\n答案   A     C    D     D     D    ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "information-technology-corrected-answer",
+          "subject_code": "information-technology",
+          "subject_name": "資訊",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-資訊答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長長類－資訊答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    D     B    C    D    A    D    B    C\n題號   11    12   13    14   15   16   17   18   19   20\n答案   B     B    A     C    B    A    B    A    A ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "physical-education-corrected-answer",
+          "subject_code": "physical-education",
+          "subject_name": "體育、雙語教師組（體育）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-體育、雙語教師組（體育）答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－體育、雙語教師組（體育）答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   C     C    A     A    A    A    B    C    B    A\n題號   11    12   13    14   15   16   17   18   19   20\n答案   D     A    A     A    A    C    D  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "education-professional-corrected-answer",
+          "subject_code": "education-professional",
+          "subject_name": "一般類科及專任輔導教師教育專業",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115一般及專輔-「教育專業」答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：一般類科及專任輔導教師－「教育專業」答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    D     A    B    A    B    B    C    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   A     B    A     D    D    B    A",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "general-common-corrected-answer",
+          "subject_code": "general-common",
+          "subject_name": "一般類科普通科目（國語、數學、高雄文明史）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115一般類-普通科目答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：一般類科－普通科目答案\n題號   1    2    3     4    5    6    7    8    9    10\n答案   B    D    C     A    B    A    B    B    B    D\n題號   11   12   13    14   15   16   17   18   19   20\n答案   B    A    C     C    B    A    C    D    D   ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "hakka-corrected-answer",
+          "subject_code": "hakka",
+          "subject_name": "本土語（客語）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-本土語(客語)答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－本土語(客語)答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   A     B    A     B    D    C    B    C    B    B\n題號   11    12   13    14   15   16   17   18   19   20\n答案   D     C    A     D    D    D    C    D  ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "taiwanese-minnan-corrected-answer",
+          "subject_code": "taiwanese-minnan",
+          "subject_name": "本土語（閩南語）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002808",
+          "source": {
+            "archive_id": "final-answers",
+            "member_path": "115專長類-本土語(閩南語)答案.pdf"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選\n初試(筆試)正確答案\n科目：專長類－本土語(閩南語)答案\n題號   1     2    3     4    5    6    7    8    9    10\n答案   B     C    A     A    A    D    C    D    C    D\n題號   11    12   13    14   15   16   17   18   19   20\n答案   C     A    A     C    D    C    C    B ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "rule",
+          "subject_code": "",
+          "subject_name": "",
+          "file_type": "instructions",
+          "notice_id": "B115002324",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002324&a_sn=125840",
+            "size": 1794201,
+            "checksum": "7d2c58c71d567b5e80386b11fd80ae8192e76c13aa45c507b091b076bc53c3de"
+          },
+          "page_count": 50,
+          "inspected_pages": [
+            1,
+            4,
+            9
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師聯合甄選簡章\n初試報名\n115 年 5 月 11 日(星期一)上午 8 時起\n至 115 年 5 月 15 日(星期五)中午 12 時止\n初試繳費\n115 年 5 月 11 日(星期一)上午 8 時起\n至 115 年 5 月 15 日(星期五)下午 5 時止\n初試日期\n115 年 6 月 7 日(星期日)\n初試加分審查\n115 年 6 月 7 日(星期日)\n複試報名、繳費\n115 年 6 月 18 日(星期四)下午 2 時起至下午 5 時止\n及\n115 年 6 月 19 日(星期",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "additional-vacancies",
+          "subject_code": "",
+          "subject_name": "",
+          "file_type": "source_document",
+          "notice_id": "B115002744",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002744&a_sn=126601",
+            "size": 273983,
+            "checksum": "b0aa7f317e01a91990e004ddd29f9d32116b07c1288eadffbc00be2f94989d47"
+          },
+          "page_count": 4,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師甄選增開缺額\n偏遠地區學 原住民地區學校組及原\n一般地區學校組\n校組    住民重點學校組\n缺額                                       本\n行政區   校名                              雙                   本   藝                             備註\n土\n合計                       語           雙       土   才\n自    ",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "vacancy-matrix",
+          "subject_code": "",
+          "subject_name": "",
+          "file_type": "source_document",
+          "notice_id": "B115002744",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002744&a_sn=126602",
+            "size": 469031,
+            "checksum": "fd1e5123cb9aaf4211b823a6f02e5e8e500412e80e7a439411a7faa787bf4754"
+          },
+          "page_count": 8,
+          "inspected_pages": [
+            1,
+            7,
+            8
+          ],
+          "native_header": "高雄市 115 年度市立國民小學教師甄選缺額類別總表\n偏遠地區學 原住民地區學校組及原\n一般地區學校組\n校組    住民重點學校組\n缺額                                       本\n行政區   校名                               雙                   本   藝                               備註\n土\n合計                       語           雙       土   才\n",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        }
+      ],
+      "legacy_sources": []
+    },
+    {
+      "year_roc": 115,
+      "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+      "scope": "special",
+      "programme_name": "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+      "written_test_date": "2026-06-14",
+      "reviewed_at": "2026-10-31",
+      "review_notes": "Official annual rules and vacancy categories govern recruitment posts. Shared written booklets do not merge posts. Region eligibility and prerequisite certificates do not create exam grades. Source role follows the dated official notice; initial elementary answer PDFs already say 正確答案 in their native headings. Preserve both suggested and final references, including nine identical payload pairs and two changed final booklets.",
+      "notices": [
+        {
+          "notice_id": "B115002586",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選簡章",
+          "publication_date": "2026-05-27",
+          "attachments": [
+            {
+              "label": "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選簡章.docx",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002586&a_sn=126308"
+            },
+            {
+              "label": "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選簡章.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002586&a_sn=126309"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002834",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選初試考場配置圖及應考特殊服務審查結果",
+          "publication_date": "2026-06-11",
+          "attachments": [
+            {
+              "label": "115初試試場分配-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002834&a_sn=126779"
+            },
+            {
+              "label": "115初試試場配置圖-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002834&a_sn=126780"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115002850",
+          "title": "高雄市115學年度國中小教育階段特殊教育班教師甄選增開缺額",
+          "publication_date": "2026-06-13",
+          "attachments": [
+            {
+              "label": "高雄市115學年度國小教育階段特殊教育班(身心障礙類)教師甄選增開缺額一覽表-公.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002850&a_sn=126844"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002905",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選初試試題及建議答案",
+          "publication_date": "2026-06-14",
+          "attachments": [
+            {
+              "label": "身心障礙類參考答案.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126907"
+            },
+            {
+              "label": "資賦優異類參考答案.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126908"
+            },
+            {
+              "label": "身心障礙類試題.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126909"
+            },
+            {
+              "label": "資賦優異類試題.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126911"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002913",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選初試試題正確答案",
+          "publication_date": "2026-06-15",
+          "attachments": [
+            {
+              "label": "正確答案-身心障礙類.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002913&a_sn=126912"
+            },
+            {
+              "label": "正確答案-資賦優異類.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002913&a_sn=126921"
+            }
+          ],
+          "purpose": "native-resources"
+        },
+        {
+          "notice_id": "B115002949",
+          "title": "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選參加複試人員名單及教學演示試教題目",
+          "publication_date": "2026-06-17",
+          "attachments": [
+            {
+              "label": "附件1-複試人員名單.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=126967"
+            },
+            {
+              "label": "附件2-國中身心障礙類教學演示-試教題目.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=126968"
+            },
+            {
+              "label": "附件3-國小身心障礙類教學演示-試教題目.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=126969"
+            },
+            {
+              "label": "附件4-學前身心障礙類教學演示-試教題目.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=126970"
+            },
+            {
+              "label": "附件5-國小資優類教學演示-試教題目.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=126971"
+            },
+            {
+              "label": "附件6-國中資優類教學演示-試教範圍.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=126972"
+            },
+            {
+              "label": "附件7-身心障礙類暨資賦優異類簡案格式.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002949&a_sn=127005"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115002976",
+          "title": "有關高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選教學演示試教補充說明",
+          "publication_date": "2026-06-22",
+          "attachments": [],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003026",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選複試考場配置圖及應考特殊服務審查結果",
+          "publication_date": "2026-06-26",
+          "attachments": [
+            {
+              "label": "115複試-身心障礙類-國中小組-OK.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003026&a_sn=127206"
+            },
+            {
+              "label": "115複試-身心障礙類-學前組-OK.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003026&a_sn=127207"
+            },
+            {
+              "label": "115複試-國小資優組-OK.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003026&a_sn=127208"
+            },
+            {
+              "label": "115複試-國中資優組-OK.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003026&a_sn=127209"
+            },
+            {
+              "label": "115複試試場配置圖-OK.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003026&a_sn=127210"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003154",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選錄取名單及分發作業",
+          "publication_date": "2026-07-05",
+          "attachments": [
+            {
+              "label": "錄取人員公告(國小身心障礙類)-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003154&a_sn=127410"
+            },
+            {
+              "label": "錄取人員公告(國中身心障礙類)-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003154&a_sn=127440"
+            },
+            {
+              "label": "錄取人員公告(學前身心障礙類)-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003154&a_sn=127441"
+            },
+            {
+              "label": "錄取人員公告(國小一般智能資賦優異類)-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003154&a_sn=127442"
+            },
+            {
+              "label": "錄取人員公告(國中學術性向資賦優異類)-公告.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003154&a_sn=127443"
+            }
+          ],
+          "purpose": "administration"
+        },
+        {
+          "notice_id": "B115003161",
+          "title": "公告高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選代理教師分發作業",
+          "publication_date": "2026-07-05",
+          "attachments": [
+            {
+              "label": "代理人員公告(國小身障)-ok.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003161&a_sn=127415"
+            },
+            {
+              "label": "代理人員公告(國中身障)-ok.pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003161&a_sn=127416"
+            },
+            {
+              "label": "代理教師分發開缺學校名冊(國小).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003161&a_sn=127453"
+            },
+            {
+              "label": "代理教師分發開缺學校名冊(國中).pdf",
+              "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115003161&a_sn=127454"
+            }
+          ],
+          "purpose": "administration"
+        }
+      ],
+      "jobs": [
+        {
+          "code": "job-special-junior-disability",
+          "label": "國中身心障礙類",
+          "track_id": "kaohsiung-special-junior-disability",
+          "booklets": [
+            "disability"
+          ],
+          "weights": [
+            100
+          ],
+          "school_level": "junior",
+          "registration_groups": []
+        },
+        {
+          "code": "job-special-junior-academic-gifted",
+          "label": "國中學術性向資賦優異類",
+          "track_id": "kaohsiung-special-junior-academic-gifted",
+          "booklets": [
+            "gifted"
+          ],
+          "weights": [
+            100
+          ],
+          "school_level": "junior",
+          "registration_groups": []
+        },
+        {
+          "code": "job-special-elementary-disability",
+          "label": "國小身心障礙類",
+          "track_id": "kaohsiung-special-elementary-disability",
+          "booklets": [
+            "disability"
+          ],
+          "weights": [
+            100
+          ],
+          "school_level": "elementary",
+          "registration_groups": []
+        },
+        {
+          "code": "job-special-elementary-intellectual-gifted",
+          "label": "國小一般智能資賦優異類",
+          "track_id": "kaohsiung-special-elementary-intellectual-gifted",
+          "booklets": [
+            "gifted"
+          ],
+          "weights": [
+            100
+          ],
+          "school_level": "elementary",
+          "registration_groups": []
+        },
+        {
+          "code": "job-special-preschool-disability",
+          "label": "學前身心障礙類",
+          "track_id": "kaohsiung-special-preschool-disability",
+          "booklets": [
+            "disability"
+          ],
+          "weights": [
+            100
+          ],
+          "school_level": "preschool",
+          "registration_groups": []
+        }
+      ],
+      "archives": [],
+      "files": [
+        {
+          "file_id": "disability-question",
+          "subject_code": "disability",
+          "subject_name": "身心障礙類教育學科（特殊教育專業知能）",
+          "file_type": "question",
+          "notice_id": "B115002905",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126909",
+            "size": 4665845,
+            "checksum": "9218b110585f88e5466418b44ba50b3acdc43670c8de0c15d2a9dacc1a58f158"
+          },
+          "page_count": 11,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班（身心障礙類）教師甄選初試試題；科目：教育學科（特殊教育專業知能）",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "disability-answer",
+          "subject_code": "disability",
+          "subject_name": "身心障礙類教育學科（特殊教育專業知能）",
+          "file_type": "answer",
+          "notice_id": "B115002905",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126907",
+            "size": 380089,
+            "checksum": "35d681202ee83c862236b65f57545162ff9c00046dad00b0f72593f734dc1845"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班（身心障礙類）教師甄選初試（筆試）參考答案；科目：教育學科（特殊教育專業知能）",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "disability-corrected-answer",
+          "subject_code": "disability",
+          "subject_name": "身心障礙類教育學科（特殊教育專業知能）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002913",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002913&a_sn=126912",
+            "size": 157230,
+            "checksum": "de04c408b59a1023fe7253c33e3656c2d9c82f2cc1ec5826bcf475a214bc3a0c"
+          },
+          "page_count": 2,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班（身心障礙類）教師甄選初試（筆試）正確答案；科目：教育學科（特殊教育專業知能）",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "gifted-question",
+          "subject_code": "gifted",
+          "subject_name": "資賦優異類教育學科（特殊教育專業知能）",
+          "file_type": "question",
+          "notice_id": "B115002905",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126911",
+            "size": 3156601,
+            "checksum": "acfb558b52b1d1fa5ed8a575ad11463a090508643e507045f44586fcc1303c93"
+          },
+          "page_count": 14,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班（資賦優異類）教師甄選初試試題；科目：教育學科（特殊教育專業知能）",
+          "multiple_choice_count": 50,
+          "essay_count": 0
+        },
+        {
+          "file_id": "gifted-answer",
+          "subject_code": "gifted",
+          "subject_name": "資賦優異類教育學科（特殊教育專業知能）",
+          "file_type": "answer",
+          "notice_id": "B115002905",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002905&a_sn=126908",
+            "size": 384853,
+            "checksum": "92053a1549421d3a1e954ed44cae3aa27a3d027e067b559d49610936c8ed6d18"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班（資賦優異類）教師甄選初試（筆試）參考答案；科目：教育學科（特殊教育專業知能）",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "gifted-corrected-answer",
+          "subject_code": "gifted",
+          "subject_name": "資賦優異類教育學科（特殊教育專業知能）",
+          "file_type": "corrected_answer",
+          "notice_id": "B115002913",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002913&a_sn=126921",
+            "size": 155401,
+            "checksum": "68dc00baa2c19594e211beb26ffdbdb062565638447a0a3cc683995e380eaa80"
+          },
+          "page_count": 2,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班（資賦優異類）教師甄選初試（筆試）正確答案；科目：教育學科（特殊教育專業知能）",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "rule",
+          "subject_code": "",
+          "subject_name": "",
+          "file_type": "instructions",
+          "notice_id": "B115002586",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002586&a_sn=126309",
+            "size": 897280,
+            "checksum": "b44afe4acc79688c98e66211e315fd9b7ef8a21df4e0f1a1ed150fa4d14fadfb"
+          },
+          "page_count": 40,
+          "inspected_pages": [
+            1,
+            4,
+            8,
+            15
+          ],
+          "native_header": "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選簡章\n網路報名：\n115年5月31日（星期日）上午8時至\n115年6月8日（星期一）中午12時止\n繳費時間：\n115年5月31日（星期日）上午8時至\n115年6月8日（星期一）下午3時30分止\n初試時間：\n115年6月14日（星期日）上午9時至10時\n現場審查加分條件資格：\n115年6月14日（星期日）上午10時至中午12時止\n現場審查複試資格及繳費：\n115年6月23日（星期二）上午9時至中午12時止\n複試時間：\n115年7月1日（星期三）至115年7月2日",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        },
+        {
+          "file_id": "additional-vacancies",
+          "subject_code": "",
+          "subject_name": "",
+          "file_type": "source_document",
+          "notice_id": "B115002850",
+          "source": {
+            "url": "https://bulletin.kh.edu.tw/attachment.php?b_sn=B115002850&a_sn=126844",
+            "size": 104778,
+            "checksum": "b2eba696147d2f616b54c4381b3f4ecefe7b38040042b9c489e155d52b62f24a"
+          },
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ],
+          "native_header": "高雄市 115 學年度國小教育階段特殊教育班(身心障礙類)教師甄選\n增開缺額一覽表\n國中身心障礙類:\n序號          學校名稱         缺額數\n1      高雄市立三民國民中學 1 名    1\n2      高雄市立小港國民中學 1 名    1\n3      高雄市立林園高級中學 1 名    1\n4      高雄市立大寮國民中學 1 名    1\n合 計             4\n國小身心障礙類:\n序號          學校名稱         缺額數\n1      高雄市苓雅區五權國",
+          "multiple_choice_count": 0,
+          "essay_count": 0
+        }
+      ],
+      "legacy_sources": [
+        {
+          "native_file_id": "gifted-corrected-answer",
+          "source_record": {
+            "provider_id": "teacher_recruit_kaohsiung",
+            "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+            "year_roc": 115,
+            "exam_name_raw": "115學年度高雄市教師甄試",
+            "category_code": "special",
+            "category_raw": "高雄市教師甄試",
+            "subject_code": "subject-e6b0a069",
+            "subject_name_raw": "資賦優異類",
+            "file_type": "corrected_answer",
+            "download_url_source": "https://exam.kh.edu.tw/special/upload/正確答案-資賦優異類.pdf",
+            "checksum": "68dc00baa2c19594e211beb26ffdbdb062565638447a0a3cc683995e380eaa80"
+          }
+        },
+        {
+          "native_file_id": "disability-corrected-answer",
+          "source_record": {
+            "provider_id": "teacher_recruit_kaohsiung",
+            "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+            "year_roc": 115,
+            "exam_name_raw": "115學年度高雄市教師甄試",
+            "category_code": "special",
+            "category_raw": "高雄市教師甄試",
+            "subject_code": "subject-088f06f6",
+            "subject_name_raw": "身心障礙類",
+            "file_type": "corrected_answer",
+            "download_url_source": "https://exam.kh.edu.tw/special/upload/正確答案-身心障礙類.pdf",
+            "checksum": "de04c408b59a1023fe7253c33e3656c2d9c82f2cc1ec5826bcf475a214bc3a0c"
+          }
+        }
+      ]
+    }
+  ]
+}
