@@ -12,7 +12,7 @@
       "reason": "The official subject and final-answer pages are marked 已截止 and expose no paper or answer links.",
       "source_url": "https://qa115-tse-cl.twrecruit.com.tw/Subject/news.php?cate=C",
       "evidence": {
-        "captured_at": "2026-07-29",
+        "captured_at": "2026-11-01",
         "http_status": 200,
         "response_bytes": 6913,
         "response_sha256": "8fb6cb851845dc1d2c2582ce46be50ecdb6476fa1772a21cf32f06c2df2d4d01",
@@ -38,7 +38,7 @@
       "reason": "The official subject and final-answer pages are marked 已截止 and expose no paper or answer links.",
       "source_url": "https://qa115-tse-cl.twrecruit.com.tw/Subject/news.php?cate=A",
       "evidence": {
-        "captured_at": "2026-07-29",
+        "captured_at": "2026-11-01",
         "http_status": 200,
         "response_bytes": 3451,
         "response_sha256": "a8e577a908eb4bbf3c242a7572d6d12c62481cc34be3bcf7245fca9a305bf3cd",
@@ -64,7 +64,7 @@
       "reason": "The official subject and final-answer pages are marked 已截止 and expose no paper or answer links.",
       "source_url": "https://qa115-tse-cl.twrecruit.com.tw/Subject/news.php?cate=B",
       "evidence": {
-        "captured_at": "2026-07-29",
+        "captured_at": "2026-11-01",
         "http_status": 200,
         "response_bytes": 4490,
         "response_sha256": "7802719d7c7a51bddfd07c3a208308b16ea5d14184d75f853cb713c273d27f47",

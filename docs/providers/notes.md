@@ -915,17 +915,21 @@ writer so the newer native records also remain recoverable.
 
 Use the official Central Alliance paper surface for alliance-administered teacher recruitment. Municipal notices may prove provenance but do not become separate paper providers when they delegate papers to the alliance.
 
-The 115-school-year host is expired and returned HTTP 503 for every subject and
-final-answer endpoint on 2026-09-02. Its workflow is manual-only until a new
-official cycle is identified and the adapter is reviewed for that cycle.
+The source inventory and exact coverage exceptions own current availability.
+A closed annual surface remains manual-only until a new official cycle is
+identified and the adapter is reviewed for it. A successful HTTP response does
+not establish that paper downloads have reopened.
 
-```bash
-uv run python -m app discover --provider teacher_recruit_central_alliance
-uv run python -m app sync-incremental --provider teacher_recruit_central_alliance --site-id default
-uv run python -m app publish-site --site-id default --repository <owner>/<repo>
-```
+Validate the requested annual event before reading live or cached source pages.
+Keep repeated identical links as one reference for each subject and role;
+competing URLs, explicit filenames from another year, conflicting role queries
+and unmatched final keys require review rather than silently replacing or
+discarding a reference. Preserve the school-stage category mapping separately
+from examination grades and future recruitment-post applicability.
 
-Run the strict catalog and history audits from [catalog audit](../operations/catalog-audit.md) before publication.
+Use the maintained [runbook](../operations/runbook.md) for discovery and manual
+acquisition, then run the strict [catalog and history audits](../operations/catalog-audit.md)
+before publication.
 
 ## `teacher_recruit_kaohsiung`
 

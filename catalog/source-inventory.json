@@ -1347,7 +1347,7 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "current_scope",
-        "note": "Closed 115 school year / AD 2026; all six subject/final endpoints returned HTTP 503 on 2026-09-02",
+        "note": "Closed 115 school year / AD 2026; the 2026-11-01 recheck returned HTTP 200 for the subject/final pages, with unchanged closed entries and no downloadable paper links.",
         "start_ad": 2026
       },
       "discovery_snapshot": {
@@ -1373,11 +1373,11 @@
       ],
       "provider_id": "teacher_recruit_central_alliance",
       "restrictions": [
-        "The 2026-07-29 snapshot represents all three declared events with corrected category mapping (kindergarten A, elementary B, junior C). All subject/final page pairs returned HTTP 200, `已截止`, and no links; exact fingerprints remain in `catalog/source-coverage/teacher_recruit_central_alliance.json`. All six endpoints returned HTTP 503 when rechecked 2026-09-02, so the expired 2026 workflow is manual-only. Provenance remains official through Taichung, Keelung, and Hsinchu notices."
+        "The 2026-11-01 recheck confirms all three declared events and the official school-stage category mapping (kindergarten A, elementary B, junior C). All subject/final page pairs returned HTTP 200, `已截止`, and no paper links; their bytes match the earlier closed-source snapshot. Exact fingerprints remain in catalog/source-coverage/teacher_recruit_central_alliance.json. The expired annual workflow stays manual-only; HTTP availability does not resolve paper coverage. Provenance remains official through Taichung, Keelung, and Hsinchu notices."
       ],
       "source_name": "中區策略聯盟教師甄選",
       "status": "blocked",
-      "status_reason": "Blocked / source expired; source availability: Closed 115 school year / AD 2026; all six subject/final endpoints returned HTTP 503 on 2026-09-02; local coverage: 2026; 3 → 0"
+      "status_reason": "Official annual subject/final pages are reachable but expose only closed download entries. The declared events remain represented by exact source-coverage exceptions; no native paper payload has been recovered."
     },
     {
       "available_years": {

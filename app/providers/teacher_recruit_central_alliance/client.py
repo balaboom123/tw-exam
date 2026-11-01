@@ -89,21 +89,44 @@ def _subject_code(level_code: str, subject_name: str) -> str:
 
 def _subject_from_filename(file_name: str) -> str:
     value = Path(unquote(file_name)).name
+    source_year = re.match(r"^(\d{3})中策_", value)
+    if source_year is not None and source_year.group(1) != "115":
+        raise ValueError("Central Alliance native filename belongs to another source year")
     value = re.sub(r"\.pdf$", "", value, flags=re.IGNORECASE)
     value = re.sub(r"^115中策_", "", value)
     value = re.sub(r"_試題$", "", value)
     value = re.sub(r"試題$", "", value)
     value = re.sub(r"答案$", "", value)
-    return value.strip(" _-")
+    value = value.strip(" _-")
+    if not value:
+        raise ValueError("Central Alliance native download lacks its subject label")
+    return value
 
 
 def _file_type_from_url(url: str) -> str | None:
-    value = parse_qs(urlparse(url).query).get("type", [""])[0]
-    return {
+    parsed = urlsplit(url)
+    values = parse_qs(parsed.query, keep_blank_values=True).get("type", [])
+    if not values:
+        return None
+    if len(values) != 1:
+        raise ValueError("Competing Central Alliance native download roles")
+    role = {
         "question": "question",
         "referenceanswer": "answer",
         "finalanswer": "corrected_answer",
-    }.get(value)
+    }.get(values[0])
+    if role is not None and (
+        parsed.scheme not in {"http", "https"} or parsed.netloc != urlsplit(BASE_URL).netloc
+    ):
+        raise ValueError("Central Alliance native download has an unreviewed source owner")
+    return role
+
+
+def _record_unique_download(downloads: dict[str, str], key: str, url: str) -> None:
+    previous = downloads.get(key)
+    if previous is not None and previous != url:
+        raise ValueError("Competing Central Alliance source URLs for one native paper")
+    downloads[key] = url
 
 
 def parse_subject_page(
@@ -116,7 +139,7 @@ def parse_subject_page(
         if file_type not in {"question", "answer"}:
             continue
         subject_name = _subject_from_filename(label)
-        by_subject.setdefault(subject_name, {})[file_type] = url
+        _record_unique_download(by_subject.setdefault(subject_name, {}), file_type, url)
     return [
         CentralAlliancePaper(
             level_code=level_code,
@@ -135,7 +158,8 @@ def parse_final_answer_page(page_url: str, html: str) -> dict[str, str]:
         url = urljoin(page_url, href)
         if _file_type_from_url(url) != "corrected_answer":
             continue
-        answers[_subject_from_filename(label)] = url
+        subject_name = _subject_from_filename(label)
+        _record_unique_download(answers, subject_name, url)
     return answers
 
 
@@ -196,7 +220,8 @@ class CentralAllianceRecruitClient:
             raise ValueError(f"Unexpected Central Alliance discovery year: {year_ad}")
         return f"{BASE_URL}/Subject/news.php"
 
-    def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
+    @staticmethod
+    def _level_for_exam(exam_code: str, year_ad: int) -> str:
         expected_prefix = f"teacher-recruit-central-alliance-{year_ad - 1911}-"
         if year_ad != 2026 or not exam_code.startswith(expected_prefix):
             raise ValueError(
@@ -205,11 +230,15 @@ class CentralAllianceRecruitClient:
         level_code = exam_code.removeprefix(expected_prefix)
         if level_code not in LEVELS:
             raise ValueError(f"Unexpected Central Alliance discovery level: {level_code}")
-        return self._subject_url(level_code)
+        return level_code
+
+    def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
+        return self._subject_url(self._level_for_exam(exam_code, year_ad))
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
+        # Validate the complete annual event before reading cached or live HTML.
+        level_code = self._level_for_exam(exam_code, year_ad)
         year_roc = year_ad - 1911
-        level_code = exam_code.rsplit("-", 1)[-1]
         level_name = LEVELS[level_code][0]
         papers = parse_subject_page(
             self._subject_url(level_code), level_code, level_name, self._subject_html(level_code)
@@ -217,6 +246,8 @@ class CentralAllianceRecruitClient:
         final_answers = parse_final_answer_page(
             self._final_url(level_code), self._final_html(level_code)
         )
+        if set(final_answers) - {paper.subject_name for paper in papers}:
+            raise ValueError("Central Alliance final answer lacks its matching native subject")
         parsed = []
         for paper in papers:
             files = dict(paper.downloads)
