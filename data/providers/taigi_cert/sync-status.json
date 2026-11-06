@@ -1,8 +1,8 @@
 {
   "events": {
-    "taigi-cert-a-samples": "2026-10-28T11:32:48Z",
-    "taigi-cert-b-samples": "2026-10-28T11:32:48Z",
-    "taigi-cert-c-samples": "2026-10-28T11:32:48Z"
+    "taigi-cert-a-samples": "2026-11-04T13:12:15Z",
+    "taigi-cert-b-samples": "2026-11-04T13:12:15Z",
+    "taigi-cert-c-samples": "2026-11-04T13:12:15Z"
   },
   "provider_id": "taigi_cert",
   "schema_version": 1
