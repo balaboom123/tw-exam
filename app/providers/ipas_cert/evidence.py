@@ -15,6 +15,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 from urllib.parse import urlsplit
 
+from app.providers.base import UnreviewedSourceFile
 from app.providers.ipas_cert.identity import (
     GRADE_LABELS,
     RESOURCE_STORAGE_YEAR,
@@ -294,8 +295,9 @@ def reviewed_payload(programme_code: str, url: str, checksum: str) -> NativeDocu
     reference = SourceReference(programme_code, url)
     matches = [d for d in native_documents() if d.checksum == checksum and reference in d.sources]
     if len(matches) != 1:
-        raise ValueError(
-            f"iPAS document requires native review: {programme_code} {url} SHA256={checksum}"
+        raise UnreviewedSourceFile(
+            f"iPAS document requires native review: {programme_code} {url} SHA256={checksum}",
+            url=url,
         )
     return matches[0]
 

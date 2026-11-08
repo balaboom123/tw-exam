@@ -6,6 +6,8 @@ import hashlib
 import json
 from unittest.mock import Mock
 
+import re
+
 import pytest
 
 from app.classification import classify_paper
@@ -162,12 +164,16 @@ def test_changed_native_context_requires_review(snapshot,change):
     assert classify_native(older,**overrides).confidence == 'review'
 
 
-def test_unknown_payload_fails_before_exposing_a_partial_provider_snapshot(snapshot):
+def test_unknown_payload_is_held_for_review_while_the_rest_syncs(snapshot):
     client, _, payloads, _, _, _ = snapshot
     url=next(iter(payloads));payloads[url]=DownloadedFile(b'%PDF-1.7 unreviewed replacement','application/pdf','new.pdf')
-    with pytest.raises(ValueError,match='requires native review.*SHA256'):
-        client.discover_available_years()
-    assert client._pages is None
+    assert client.discover_available_years()
+    published={file for page in client._pages.values() for paper in page.papers for file in paper.files.values()}
+    published|={attachment.download_url_source for page in client._pages.values() for attachment in page.attachments}
+    assert url not in published and published
+    [held]=client.held_files
+    assert held.classification_signature=='unreviewed-source-file:'+url
+    assert re.search('requires native review.*SHA256',held.reason)
 
 
 def test_html_download_cannot_become_a_reference_attachment(snapshot):

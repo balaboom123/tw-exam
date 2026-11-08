@@ -99,6 +99,7 @@ The frontend feed also projects reviewed source names/links and successful event
 | Health issue for `verify-archives` | A shard download or archive content check failed | Read the failed job log. For a confirmed ZIP/catalog mismatch, run `scripts/republish.sh`, then rerun the failed shard. Retry a failed download before republishing. |
 | Health issue "quarantine-review" | A quarantine entry passed its `review_by` date | Re-check the entry's evidence; remove the entry or set a new date in `catalog/mappings/publication-quarantine.json`. |
 | Health issue "no successful run within the last N days" | A schedule stopped firing or every run fails | Re-enable the workflow if disabled, then dispatch it by hand. [GitHub disables public-repository schedules after 60 days without activity](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule). |
+| A `review-queue.json` entry whose `classification_signature` starts with `unreviewed-source-file:` | The source added or replaced a file that has no reviewed record. Sync held back only that file; the rest of the provider published | Review the file named in `reason`. Add its record to the provider's mapping, or leave it held back. No sync is blocked meanwhile. |
 | CI fails with "public titles expose internal identifiers" | A new variant or stage has no readable label | Add the wording in `_variants` or `_STAGE_LABELS` in `app/classification.py`, then run `scripts/republish.sh`. |
 
 ## Verify the repository

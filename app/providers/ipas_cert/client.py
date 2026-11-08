@@ -7,8 +7,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote, unquote, urlparse, urlsplit, urlunsplit
 
-from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.models import ExamAttachment, ExamOption, ParsedPaper, ReviewItem, SourceExamPage
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.ipas_cert.evidence import (
     NativeDocument,
@@ -152,6 +152,7 @@ class IpasCertClient:
         self.http = Http(self.provider_id, max_attempts=2, user_agent=USER_AGENT)
         self._payloads: dict[str, DownloadedFile] = {}
         self._pages: dict[str, SourceExamPage] | None = None
+        self.held_files: list[ReviewItem] = []
 
     HOME_URL = CURRENT_BASE_URL
 
@@ -204,6 +205,7 @@ class IpasCertClient:
             if listing[programme.code] != "".join(programme.label.split()):
                 raise ValueError(f"iPAS native programme label changed: {programme.code}")
         pages: dict[str, SourceExamPage] = {}
+        held: list[ReviewItem] = []
         for programme in PROGRAMMES:
             downloads = self._downloads(programme.code)
             if not downloads:
@@ -223,7 +225,18 @@ class IpasCertClient:
             for download in downloads:
                 payload = self.download_file(download.url)
                 checksum = hashlib.sha256(payload.data).hexdigest()
-                document = reviewed_payload(programme.code, download.url, checksum)
+                try:
+                    document = reviewed_payload(programme.code, download.url, checksum)
+                except UnreviewedSourceFile as unreviewed:
+                    held.append(
+                        unreviewed.review_item(
+                            self.provider_id,
+                            event_id=resource_code,
+                            year_roc=RESOURCE_STORAGE_YEAR - 1911,
+                            category=f"iPAS {programme.label}",
+                        )
+                    )
+                    continue
                 material = document.material(programme.code, download.url)
                 if not document.is_paper:
                     token = hashlib.sha256(download.url.encode("utf-8")).hexdigest()[:24]
@@ -256,6 +269,7 @@ class IpasCertClient:
                 pages[resource_code] = resources
         # Publish the client snapshot only after every listing and payload agrees.
         self._pages = pages
+        self.held_files = held
         return pages
 
     def discover_available_years(self) -> list[int]:

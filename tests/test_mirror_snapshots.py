@@ -1198,3 +1198,19 @@ def test_cache_policy_reports_missing_mirror_without_masking_invalid_owner(tmp_p
     assert output.read_text() == 'cacheable=false\n'
     monkeypatch.setattr(sys, 'argv', sys.argv[:-1] + ['not_a_provider'])
     assert mirror.main() == 1
+
+
+def test_retired_locator_outside_the_cache_layout_is_skipped(tmp_path, monkeypatch, capsys):
+    # MOEX revision records keep MOEX's native layout ("84/084140/..."); such a
+    # path cannot be a retired cache file and must not fail hydration.
+    root = tmp_path / "root"
+    _cache_reference_state(root, f"providers/{PROVIDER}/current.pdf", "0" * 64)
+    native_key = "84/084140/013/c131/answer.pdf"
+    monkeypatch.setattr(mirror, "load_source_revisions", lambda _state: [{
+        "source_record": {"storage_key": native_key, "checksum": "1" * 64},
+        "blob_storage_key": f"providers/{PROVIDER}/recovery/source-revisions/blob",
+    }])
+    incoming = tmp_path / "incoming"
+    incoming.mkdir()
+    assert mirror._retired_cache_payloads(root, PROVIDER, incoming) == {}
+    assert native_key in capsys.readouterr().err

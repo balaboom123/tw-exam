@@ -1310,3 +1310,53 @@ def test_distinct_urls_with_reused_codes_have_independent_mirrors(tmp_path):
     assert not client.downloaded_urls
     assert refreshed.papers[0].storage_key == first.storage_key
     assert refreshed.papers[0].checksum == first.checksum
+
+
+class HeldFileClient(FakeClient):
+    """Upstream offers files that have no reviewed record yet."""
+
+    def __init__(self) -> None:
+        self.held_files = []
+
+    def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
+        from app.providers.base import UnreviewedSourceFile
+
+        if exam_code == "115031":
+            raise UnreviewedSourceFile("event listing needs review", url="https://example.test/new-event")
+        page = super().fetch_exam_page(exam_code, year_ad)
+        page.attachments = []
+        skipped = UnreviewedSourceFile("listing file needs review", url="https://example.test/extra.pdf")
+        self.held_files.append(skipped.review_item(self.provider_id, event_id=exam_code))
+        return page
+
+    def download_file(self, url: str) -> DownloadedFile:
+        from app.providers.base import UnreviewedSourceFile
+
+        if url.endswith("answer.pdf"):
+            raise UnreviewedSourceFile("replacement bytes require review", url=url)
+        return DownloadedFile(data=b"%PDF-1.7 demo", content_type="application/pdf", file_name=Path(url).name)
+
+
+class UnreviewedSourceFileTests(unittest.TestCase):
+    def test_unreviewed_files_are_held_for_review_without_failing_sync(self) -> None:
+        client = HeldFileClient()
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            _, catalog, failures = sync_exam_pages(
+                client=client, exam_codes=[("115030", 2026), ("115031", 2026)],
+                mirror_store=MirrorStore(Path(tmp_dir)), alias_rules=[], mirror_base_url="",
+            )
+        self.assertEqual(failures, [])
+        self.assertEqual([paper.file_type for paper in catalog.papers], ["question"])
+        held = {
+            item.classification_signature.removeprefix("unreviewed-source-file:"): item
+            for item in catalog.review_queue
+            if item.classification_signature.startswith("unreviewed-source-file:")
+        }
+        self.assertEqual(set(held), {
+            "https://example.test/new-event",
+            "https://example.test/extra.pdf",
+            "https://example.test/answer.pdf",
+        })
+        self.assertEqual(held["https://example.test/answer.pdf"].source_exam_id, "115030")
+        self.assertEqual(held["https://example.test/answer.pdf"].raw_category, "護理師")
+        self.assertEqual(client.held_files, [])

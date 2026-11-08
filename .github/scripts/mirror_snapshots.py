@@ -717,7 +717,13 @@ def _retired_cache_payloads(root: Path, provider: str, incoming: Path) -> dict[s
     retired: dict[str, set[str]] = {}
 
     def retain_proof(old_key: str, checksum: str, covered_key: str) -> None:
-        old_key = _checked_provider_key(old_key, provider)
+        try:
+            old_key = _checked_provider_key(old_key, provider)
+        except ValueError:
+            # Not a provider cache path (for example MOEX's native layout), so
+            # it cannot be a retired cache file. Keep the bytes; don't fail hydrate.
+            print(f"Skipped unprovable retired locator for {provider}: {old_key}", file=sys.stderr)
+            return
         if old_key in references:
             return  # Earlier state can deliberately restore an old active locator.
         prefix = PurePosixPath("providers") / provider

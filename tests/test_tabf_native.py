@@ -183,21 +183,30 @@ def test_an_unreviewed_phid_is_reported_without_a_synthetic_year_or_asset_reques
     assert not client._pages
 
 
-@pytest.mark.parametrize(
-    "body,expected",
-    [
-        (b"<html>outage</html>", "not a native PDF"),
-        (b"%PDF-1.7 unfamiliar revision", "replacement bytes"),
-    ],
-)
-def test_unreviewed_or_invalid_payloads_cannot_expose_a_partial_event(snapshot, body, expected):
+def test_invalid_payload_cannot_expose_a_partial_event(snapshot):
     client, native, payloads, events = snapshot
     event = events["credit-junior"]
     fact = next(p for p in native.papers if p.phid == event.phid)
-    payloads[fact.source_url] = DownloadedFile(body, "application/pdf", "native.pdf")
-    with pytest.raises(ValueError, match=expected):
+    payloads[fact.source_url] = DownloadedFile(b"<html>outage</html>", "application/pdf", "x.pdf")
+    with pytest.raises(ValueError, match="not a native PDF"):
         client.fetch_exam_page(event.source_exam_id, event.year_ad)
     assert event.source_exam_id not in client._pages and fact.source_url not in client._payloads
+
+
+def test_replacement_bytes_hold_back_only_that_file(snapshot):
+    client, native, payloads, events = snapshot
+    event = events["credit-junior"]
+    facts = [p for p in native.papers if p.phid == event.phid]
+    payloads[facts[0].source_url] = DownloadedFile(
+        b"%PDF-1.7 unfamiliar revision", "application/pdf", "native.pdf"
+    )
+    page = client.fetch_exam_page(event.source_exam_id, event.year_ad)
+    urls = {url for paper in page.papers for url in paper.files.values()}
+    assert facts[0].source_url not in urls and facts[0].source_url not in client._payloads
+    assert len(page.papers) == len(facts) - 1
+    [held] = client.held_files
+    assert held.source_exam_id == event.source_exam_id
+    assert "replacement bytes" in held.reason
 
 
 def test_unknown_source_urls_are_rejected_before_any_asset_request(snapshot):
@@ -208,9 +217,13 @@ def test_unknown_source_urls_are_rejected_before_any_asset_request(snapshot):
         original(url)
         + '<a href="https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/999999-1.pdf">新試題</a>'
     )
-    with pytest.raises(ValueError, match="paper links require review"):
-        client.fetch_exam_page(event.source_exam_id, event.year_ad)
-    client.http.download.assert_not_called()
+    unknown = "https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/999999-1.pdf"
+    page = client.fetch_exam_page(event.source_exam_id, event.year_ad)
+    assert page.papers
+    assert unknown not in {call.args[0] for call in client.http.download.call_args_list}
+    [held] = client.held_files
+    assert held.classification_signature == "unreviewed-source-file:" + unknown
+    client.http.download.reset_mock()
     with pytest.raises(ValueError, match="cannot be acquired automatically"):
         client.download_file("https://service.tabf.org.tw/BEExam/Doc/ExamHistoryEdit/999999-1.pdf")
     client.http.download.assert_not_called()

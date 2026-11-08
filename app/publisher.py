@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any, TypeVar, cast
 from urllib.parse import quote
 
-from app.bundler import build_bundles, validate_public_materials
+from app.bundler import build_bundles, validate_public_materials, withhold_unreviewed_materials
 from app.manifest import SourceManifest, write_source_manifest
 from app.models import (
     AliasRule,
@@ -440,7 +440,7 @@ def load_site_catalog(
             from app.providers.post_recruit.evidence import validate_public_papers
 
             validate_public_papers(provider_catalog.papers, complete_history=True)
-        aggregated_papers.extend(provider_catalog.papers)
+        aggregated_papers.extend(withhold_unreviewed_materials(provider_catalog.papers))
         aggregated_review_queue.extend(provider_catalog.review_queue)
         failures.extend(provider_failures)
 

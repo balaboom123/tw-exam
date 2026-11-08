@@ -21,12 +21,13 @@ from app.models import (
     ExamAttachment,
     NormalizedCatalog,
     ParsedPaper,
+    ReviewItem,
     SourceExamPage,
     StoredFile,
     SyncFailure,
 )
 from app.normalizer import normalize_papers
-from app.providers.base import SourceProvider
+from app.providers.base import SourceProvider, UnreviewedSourceFile
 from app.providers.http import retry_after_seconds
 from app.source_material import SourceMaterial
 from app.storage import MirrorStore
@@ -473,6 +474,18 @@ def restore_catalog_files(
     return failures
 
 
+def _held_review(
+    held: UnreviewedSourceFile, provider_id: str, page: SourceExamPage, request: _MirrorRequest
+) -> ReviewItem:
+    category = request.paper.category_raw if request.paper is not None else ""
+    return held.review_item(
+        page.provider_id or provider_id,
+        event_id=page.source_exam_id,
+        year_roc=page.year_roc,
+        category=category,
+    )
+
+
 def sync_exam_pages(
     client: SourceProvider,
     exam_codes: list[tuple[str, int]],
@@ -492,10 +505,16 @@ def sync_exam_pages(
     review_queue = []
     failures: list[SyncFailure] = []
     retained_sources = _retained_source_files(previous_pages or [])
+    client_provider_id = getattr(client, "provider_id", "")
 
     for exam_code, year_ad in exam_codes:
         try:
             page = retry_network(partial(client.fetch_exam_page, exam_code, year_ad))
+        except UnreviewedSourceFile as held:
+            review_queue.append(
+                held.review_item(client_provider_id, event_id=exam_code, year_roc=year_ad - 1911)
+            )
+            continue
         except Exception as exc:
             failures.append(
                 SyncFailure(
@@ -612,6 +631,8 @@ def sync_exam_pages(
                                 )
                                 pending_by_prefix[request.prefix] = pending
                             batch.append((request, pending))
+                    except UnreviewedSourceFile as held:
+                        review_queue.append(_held_review(held, client_provider_id, page, request))
                     except Exception as exc:
                         failures.append(
                             SyncFailure(
@@ -641,6 +662,8 @@ def sync_exam_pages(
                             mirror_store.delete_matching_except(request.prefix, stored.storage_key)
                             stored_by_prefix[request.prefix] = stored
                         _assign_mirrored_file(request, stored, mirror_base_url, mirror_metadata)
+                    except UnreviewedSourceFile as held:
+                        review_queue.append(_held_review(held, client_provider_id, page, request))
                     except Exception as exc:
                         # A failed refresh does not invalidate the exact earlier
                         # bytes for an unchanged source context. Keep the failure
@@ -696,6 +719,10 @@ def sync_exam_pages(
         normalized_papers.extend(normalized.papers)
         review_queue.extend(normalized.review_queue)
 
+    held_files = getattr(client, "held_files", None)
+    if held_files:
+        review_queue.extend(held_files)
+        held_files.clear()
     mirror_store.flush_dedupe_index()
     return (
         raw_pages,

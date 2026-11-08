@@ -610,6 +610,20 @@ def _required_years_for_hints(
     return required_years
 
 
+def withhold_unreviewed_materials(papers: Iterable[NormalizedPaper]) -> list[NormalizedPaper]:
+    """Drop papers whose material facts await review from a public projection.
+
+    They stay in provider state and on its review queue; other papers of the
+    same bundle still publish.
+    """
+    kept = []
+    for paper in papers:
+        material = source_material(paper.source_material)
+        if material is None or not material.needs_review:
+            kept.append(paper)
+    return kept
+
+
 def public_bundle_ids(
     normalized: NormalizedCatalog,
     *,
@@ -623,7 +637,7 @@ def public_bundle_ids(
     generated inventories without inventing a second eligibility rule.
     """
     grouped: dict[str, list[NormalizedPaper]] = {}
-    for paper in normalized.papers:
+    for paper in withhold_unreviewed_materials(normalized.papers):
         grouped.setdefault(paper.bundle_id or paper.canonical_id, []).append(paper)
 
     public_ids: set[str] = set()

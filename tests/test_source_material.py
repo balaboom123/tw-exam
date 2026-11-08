@@ -9,7 +9,7 @@ from unittest.mock import patch
 import pytest
 from jsonschema import Draft202012Validator, ValidationError
 
-from app.models import ExamAttachment, NormalizedPaper, ParsedPaper, SourceExamPage, to_plain_data
+from app.models import ExamAttachment, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage, to_plain_data
 from app.bundler import build_bundles
 from app.normalizer import normalize_papers, renormalize_catalog
 from app.paths import provider_paths
@@ -224,3 +224,14 @@ def test_retired_attachment_preserves_selected_material_evidence(tmp_path, overr
     assert entry["record_type"] == "attachment"
     assert entry["source_record"]["source_material"] == asdict(attachment_material or page.source_material)
     assert entry["blob_storage_key"] is None
+
+
+def test_unreviewed_material_is_withheld_from_the_public_projection() -> None:
+    from app.bundler import public_bundle_ids, withhold_unreviewed_materials
+
+    reviewed = normalize(workbook_page())
+    unresolved = unresolved_catalog()
+    combined = NormalizedCatalog(reviewed.papers + unresolved.papers, [])
+    assert withhold_unreviewed_materials(combined.papers) == reviewed.papers
+    assert public_bundle_ids(combined) == public_bundle_ids(reviewed)
+    assert public_bundle_ids(unresolved) == set()

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import hashlib
 
-from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.models import ExamOption, ParsedPaper, ReviewItem, SourceExamPage
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.tabf_cert.evidence import NativeEvent, native_evidence, validate_paper_url
 from app.providers.tabf_cert.identity import PROGRAMMES, normalized_label
@@ -27,6 +27,7 @@ class TabfCertClient:
         self._links: tuple[NativeEventLink, ...] | None = None
         self._payloads: dict[str, DownloadedFile] = {}
         self._pages: dict[str, SourceExamPage] = {}
+        self.held_files: list[ReviewItem] = []
 
     def _fetch_text(self, url: str) -> str:
         return self.http.get_text(url, encoding="utf-8")
@@ -108,17 +109,34 @@ class TabfCertClient:
         if not files:
             raise ValueError(f"TABF native paper listing is empty: PHID {event.phid}")
         approved_urls = {p.source_url for p in evidence.papers if p.phid == event.phid}
-        if any(link.url not in approved_urls for link in files):
-            raise ValueError(f"TABF native paper links require review: PHID {event.phid}")
         papers = []
         for link in files:
-            payload = self.download_file(link.url)
-            checksum = hashlib.sha256(payload.data).hexdigest()
-            context = evidence.context(event.phid, link.url, checksum)
-            if context is None or normalized_label(context.paper.source_label) != normalized_label(
-                link.label
-            ):
-                raise ValueError(f"TABF paper role/context requires native review: {link.url}")
+            try:
+                if link.url not in approved_urls:
+                    raise UnreviewedSourceFile(
+                        f"TABF native paper link requires review: PHID {event.phid}", url=link.url
+                    )
+                payload = self.download_file(link.url)
+                checksum = hashlib.sha256(payload.data).hexdigest()
+                context = evidence.context(event.phid, link.url, checksum)
+                if context is None or normalized_label(
+                    context.paper.source_label
+                ) != normalized_label(link.label):
+                    raise UnreviewedSourceFile(
+                        f"TABF paper role/context requires native review: {link.url}",
+                        url=link.url,
+                    )
+            except UnreviewedSourceFile as held:
+                # Hold back only this file; the event's reviewed papers still sync.
+                self.held_files.append(
+                    held.review_item(
+                        self.provider_id,
+                        event_id=event.source_exam_id,
+                        year_roc=year_ad - 1911,
+                        category=event.programme.label,
+                    )
+                )
+                continue
             fact = context.paper
             papers.append(
                 ParsedPaper(
@@ -152,7 +170,9 @@ class TabfCertClient:
         validate_paper_url(url)
         approved = {p.checksum for p in native_evidence().papers if p.source_url == url}
         if not approved:
-            raise ValueError(f"TABF unreviewed native URL cannot be acquired automatically: {url}")
+            raise UnreviewedSourceFile(
+                f"TABF unreviewed native URL cannot be acquired automatically: {url}", url=url
+            )
         if url not in self._payloads:
             payload = self.http.download(
                 url,
@@ -163,8 +183,9 @@ class TabfCertClient:
                 raise ValueError(f"TABF source is not a native PDF: {url}")
             checksum = hashlib.sha256(payload.data).hexdigest()
             if checksum not in approved:
-                raise ValueError(
-                    f"TABF replacement bytes require native review: {url} SHA256={checksum}"
+                raise UnreviewedSourceFile(
+                    f"TABF replacement bytes require native review: {url} SHA256={checksum}",
+                    url=url,
                 )
             self._payloads[url] = payload
         return self._payloads[url]
