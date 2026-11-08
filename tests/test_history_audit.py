@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 from app.history_audit import build_history_coverage_audit, history_audit_exit_code
-from app.models import BundleAsset, ExamAttachment, ExamOption, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage
+from app.models import BundleAsset, ExamAttachment, ExamOption, NormalizedCatalog, NormalizedPaper, ParsedPaper, ReviewItem, SourceExamPage
 from app.paths import provider_paths, site_paths
 from app.publisher import write_provider_state, write_site_state
 from app.source_material import SourceDate, SourceMaterial
@@ -240,7 +240,7 @@ class AnnouncedEventTests(unittest.TestCase):
     blocked every deploy for a day.
     """
 
-    def _audit(self, papers: list) -> dict:
+    def _audit(self, papers: list, review_queue: list | None = None) -> dict:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
             provider = provider_paths(root, "moex")
@@ -257,7 +257,7 @@ class AnnouncedEventTests(unittest.TestCase):
                         papers=papers,
                     )
                 ],
-                normalized=NormalizedCatalog(papers=[], review_queue=[]),
+                normalized=NormalizedCatalog(papers=[], review_queue=review_queue or []),
                 aliases=[],
                 failures=[],
                 manifest=None,
@@ -289,6 +289,30 @@ class AnnouncedEventTests(unittest.TestCase):
 
         self.assertEqual(report["providers"][0]["events"][0]["status"], "normalization_gap")
         self.assertEqual(history_audit_exit_code(report, strict=True), 1)
+
+
+    def test_an_event_whose_files_are_all_held_for_review_is_blocked_not_a_gap(self) -> None:
+        listed = ParsedPaper(
+            category_raw="category",
+            category_code="101",
+            subject_code="0101",
+            subject_name_raw="subject",
+            files={"question": "https://example.test/question.pdf"},
+        )
+        held = ReviewItem(
+            raw_category="",
+            normalized_candidate="",
+            source_exam_id="116010",
+            year_roc=116,
+            provider_id="moex",
+            reason="the source serves this archive corrupt",
+            classification_signature="corrupt-source-payload:" + "a" * 64,
+        )
+
+        report = self._audit([listed], [held])
+
+        self.assertEqual(report["providers"][0]["events"][0]["status"], "blocked")
+        self.assertEqual(history_audit_exit_code(report, strict=True), 0)
 
 
 if __name__ == "__main__":

@@ -38,8 +38,10 @@ from app.provider_index import (
     paper_index_public_year_roc,
     paper_index_withheld,
 )
+from app.providers.base import HELD_SOURCE_FILE_SIGNATURES
 from app.providers.registry import get_provider
 from app.publication_quarantine import quarantined_provider_ids
+from app.review_queue import decode_review_queue
 from app.site_registry import get_site_config
 from app.source_revisions import audit_source_revisions
 from app.state import (
@@ -232,6 +234,16 @@ def build_history_coverage_audit(
                 event.missing_mirror_files.add(
                     row[PAPER_STORAGE_KEY] or f"{row[PAPER_CODE]}:{row[PAPER_FILE_TYPE]}"
                 )
+        held_events = {
+            _event_key(item.source_exam_id, item.year_roc + 1911)
+            for item in decode_review_queue(
+                json.loads(provider.review_queue_path.read_text(encoding="utf-8"))
+                if provider.review_queue_path.exists()
+                else [],
+                provider_id,
+            )
+            if item.classification_signature.startswith(HELD_SOURCE_FILE_SIGNATURES)
+        }
         failures_by_event: dict[tuple[str, int], list[Any]] = defaultdict(list)
         for failure in failures:
             failures_by_event[_event_key(failure.source_exam_id, failure.year_roc + 1911)].append(
@@ -258,7 +270,7 @@ def build_history_coverage_audit(
                         page.attachments
                     )
 
-        event_keys = set(raw_by_event) | set(papers_by_event) | set(failures_by_event)
+        event_keys = set(raw_by_event) | set(papers_by_event) | set(failures_by_event) | held_events
         events: list[dict[str, Any]] = []
         matched_exception_keys: set[tuple[str, str, int, str, str]] = set()
         for source_exam_id, year_ad in sorted(event_keys, key=lambda item: (-item[1], item[0])):
@@ -318,6 +330,9 @@ def build_history_coverage_audit(
                 status = "partially_blocked" if has_current_material else "blocked"
             elif failure_status is not None:
                 status = failure_status
+            elif event_key in held_events and not papers.count:
+                # Every file of the event is held for review in its review queue.
+                status = "blocked"
             elif reference_attachments and not papers.count:
                 status = "reference_document_collection"
             elif not papers.count and event_key in raw_by_event:

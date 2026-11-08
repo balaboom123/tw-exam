@@ -643,9 +643,6 @@ class SourceInventoryTests(unittest.TestCase):
         failures = json.loads(
             (ROOT / "data/providers/twc_recruit/sync-failures.json").read_text(encoding="utf-8")
         )
-        exceptions = json.loads(
-            (ROOT / "catalog/source-coverage/twc_recruit.json").read_text(encoding="utf-8")
-        )["exceptions"]
         # The corrupt official archive is held for review, not a sync failure.
         from app.paths import provider_paths
         from app.state import load_provider_state
@@ -654,11 +651,9 @@ class SourceInventoryTests(unittest.TestCase):
         held = [item for item in catalog.review_queue
                 if item.classification_signature.startswith("corrupt-source-payload:")]
         self.assertEqual(failures, [])
-        self.assertEqual(len(exceptions), 1)
         self.assertEqual([item.source_exam_id for item in held], ["twc-recruit-107"])
         self.assertIn("CRC mismatch", held[0].reason)
         self.assertNotIn(107, {paper.year_roc for paper in catalog.papers})
-        self.assertEqual(exceptions[0]["reason_code"], "official_corrupt_archive")
         receipts = json.loads(
             (ROOT / "data/providers/twc_recruit/sync-status.json").read_text(encoding="utf-8")
         )["events"]
