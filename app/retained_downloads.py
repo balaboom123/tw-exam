@@ -196,9 +196,6 @@ def verify_retained_download(
     verify_content: bool,
 ) -> dict[str, Any]:
     from app.archive_audit import inspect_archive
-    from app.bundler import _paper_bundle_key
-    from app.publication_quarantine import quarantined_provider_ids
-    from app.site_registry import get_site_config
 
     download.validate(site.site_id)
     path = repo_root / download.storage_key
@@ -212,16 +209,103 @@ def verify_retained_download(
             digest = hashlib.file_digest(stream, "sha256").hexdigest()
         if digest != download.checksum:
             raise ValueError("Retained download checksum differs from frozen original bytes")
-    allowed = get_site_config(site.site_id).provider_ids
-    if download.provider_id not in allowed:
+    _check_retained_papers(repo_root, site, download, manifest["papers"])
+    recorded = load_retained_sources(site).get(download.asset_name)
+    if recorded is not None and recorded != _recorded_sources(download, manifest):
+        raise ValueError("Recorded retained sources differ from the frozen archive")
+    return manifest
+
+
+def _check_retained_papers(
+    repo_root: Path,
+    site: SitePaths,
+    download: RetainedDownload,
+    papers: list[dict[str, Any]],
+) -> None:
+    """Metadata checks that need no archive bytes."""
+    from app.bundler import _paper_bundle_key
+    from app.publication_quarantine import quarantined_provider_ids
+    from app.site_registry import get_site_config
+
+    if download.provider_id not in get_site_config(site.site_id).provider_ids:
         raise ValueError("Retained download has no current site provider owner")
     if download.provider_id in quarantined_provider_ids(repo_root, site_id=site.site_id):
         raise ValueError("Retained download belongs to a quarantined provider")
     anchors = _source_anchors(repo_root, download.provider_id)
-    for paper in manifest["papers"]:
+    for paper in papers:
         if (*_paper_bundle_key(paper), paper["checksum"]) not in anchors:
             raise ValueError("Retained archive paper lacks a current or immutable history anchor")
-    return manifest
+
+
+def retained_sources_path(site: SitePaths) -> Path:
+    return site.data_dir / "retained-download-sources.json"
+
+
+def load_retained_sources(site: SitePaths) -> dict[str, dict[str, Any]]:
+    """Name and source papers of each frozen ZIP, keyed by asset name."""
+    path = retained_sources_path(site)
+    if not path.exists():
+        return {}
+    document = json.loads(path.read_text(encoding="utf-8"))
+    if (
+        not isinstance(document, dict)
+        or document.get("schema_version") != 1
+        or document.get("site_id") != site.site_id
+        or not isinstance(document.get("archives"), dict)
+    ):
+        raise ValueError("Unsupported retained download source record or site ownership")
+    return cast(dict[str, dict[str, Any]], document["archives"])
+
+
+def _recorded_sources(download: RetainedDownload, manifest: dict[str, Any]) -> dict[str, Any]:
+    from app.bundler import _paper_bundle_key
+
+    keys = ("year_roc", "source_exam_id", "category_code", "subject_code", "file_type")
+    papers = []
+    for paper in manifest["papers"]:
+        values = _paper_bundle_key(paper)
+        papers.append(
+            {
+                **dict(zip(keys, values[:5], strict=True)),
+                "download_url_source": values[5],
+                "checksum": paper["checksum"],
+            }
+        )
+    return {
+        "checksum": download.checksum,
+        "canonical_name": manifest["canonical_name"],
+        "papers": papers,
+    }
+
+
+def record_retained_sources(
+    repo_root: Path, site: SitePaths, downloads: list[RetainedDownload]
+) -> None:
+    """Record each frozen ZIP's sources once, while its verified bytes are present.
+
+    Publication then derives compatibility pages from this record, so a CI
+    runner never needs the archives of providers it is not publishing.
+    """
+    recorded = load_retained_sources(site)
+    archives = {}
+    for download in downloads:
+        entry = recorded.get(download.asset_name)
+        if entry is None:
+            manifest = verify_retained_download(repo_root, site, download, verify_content=True)
+            entry = _recorded_sources(download, manifest)
+        elif entry.get("checksum") != download.checksum:
+            raise ValueError("Recorded retained sources belong to different archive bytes")
+        archives[download.asset_name] = entry
+    path = retained_sources_path(site)
+    if not archives:
+        path.unlink(missing_ok=True)
+        return
+    site.data_dir.mkdir(parents=True, exist_ok=True)
+    document = {"schema_version": 1, "site_id": site.site_id, "archives": archives}
+    path.write_text(
+        json.dumps(document, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
 
 
 def snapshot_existing_downloads(
@@ -330,6 +414,7 @@ def derive_compatibility_pages(
 ) -> list[dict[str, Any]]:
     """Follow exact conserved sources from a frozen ZIP to current groups.
 
+    Reads only committed metadata; archive bytes are checked by audit-files.
     This is a publication projection, not another identity mapping. More
     complex source transformations retain their separately reviewed pages.
     """
@@ -343,9 +428,14 @@ def derive_compatibility_pages(
             by_source[(paper.provider_id, *_paper_bundle_key(paper), paper.checksum)].append(paper)
     for key, role_targets in _reviewed_role_history(repo_root, owners, by_source).items():
         by_source[key].extend(role_targets)
+    recorded = load_retained_sources(site)
     pages = []
     for download in downloads:
-        manifest = verify_retained_download(repo_root, site, download, verify_content=False)
+        download.validate(site.site_id)
+        manifest = recorded.get(download.asset_name)
+        if manifest is None or manifest.get("checksum") != download.checksum:
+            raise ValueError(f"Retained download has no recorded sources: {download.asset_name}")
+        _check_retained_papers(repo_root, site, download, manifest["papers"])
         sources = [
             (download.provider_id, *_paper_bundle_key(paper), paper["checksum"])
             for paper in manifest["papers"]

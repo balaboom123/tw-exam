@@ -278,3 +278,46 @@ def test_rollback_can_promote_original_and_retain_successors_without_breaking_UR
     assert len(release_download_records(site.release_assets_path)) == 3
     assert (tmp_path / old.storage_key).read_bytes() == old_bytes
     assert all((tmp_path / bundle.storage_key).is_file() for bundle in new)
+
+
+def test_publication_needs_no_local_archives_for_retained_downloads(tmp_path, monkeypatch):
+    # A CI publication leg downloads only its affected bundles; frozen ZIPs of
+    # other providers are absent and must not be opened.
+    import shutil
+
+    from app.retained_downloads import load_retained_sources
+
+    site, old, _ = migration(tmp_path, monkeypatch)
+    publisher.publish_site(
+        tmp_path, site_id="default", repository="example/repo",
+        retain_existing_download_ids={old.bundle_id},
+    )
+    recorded = load_retained_sources(site)
+    assert set(recorded) == {old.asset_name}
+    assert recorded[old.asset_name]["checksum"] == old.checksum
+    assert len(recorded[old.asset_name]["papers"]) == 2
+    pages = json.loads(site.frontend_bundles_path.read_text())["compatibilityPages"]
+
+    shutil.rmtree(site.bundle_dir)
+    site.bundle_dir.mkdir()
+    publisher.publish_site(tmp_path, site_id="default", repository="example/repo")
+
+    assert not (tmp_path / old.storage_key).exists()
+    assert json.loads(site.frontend_bundles_path.read_text())["compatibilityPages"] == pages
+
+
+def test_recorded_sources_must_match_the_frozen_archive(tmp_path, monkeypatch):
+    from app.retained_downloads import retained_sources_path
+
+    site, old, _ = migration(tmp_path, monkeypatch)
+    publisher.publish_site(
+        tmp_path, site_id="default", repository="example/repo",
+        retain_existing_download_ids={old.bundle_id},
+    )
+    path = retained_sources_path(site)
+    document = json.loads(path.read_text())
+    document["archives"][old.asset_name]["papers"].pop()
+    path.write_text(json.dumps(document))
+    held = load_retained_downloads(site)
+    with pytest.raises(ValueError, match="differ from the frozen archive"):
+        verify_retained_download(tmp_path, site, held[0], verify_content=True)

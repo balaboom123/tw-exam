@@ -19,7 +19,12 @@ if str(ROOT) not in sys.path:
 from app.providers.hce_tcu.evidence import annual_papers_path as tcu_annual_papers_path, validate_annual_papers as validate_tcu_annual_papers
 from app.providers.post_recruit.evidence import native_papers_path as postal_native_papers_path, validate_native_papers as validate_postal_native_papers
 from app.providers.wdasec_skill.papers import native_papers_path, validate_native_papers
-from app.retained_downloads import retained_downloads_path, load_retained_downloads
+from app.retained_downloads import (
+    load_retained_downloads,
+    load_retained_sources,
+    retained_downloads_path,
+    retained_sources_path,
+)
 from app.paths import site_paths
 from app.site_registry import get_site_config
 from app.review_queue import decode_review_queue
@@ -172,7 +177,14 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     retained_path = retained_downloads_path(site_paths(repo_root, "default"))
     if retained_path.exists():
         _validate(schemas["retained-downloads-v1.schema.json"], _read_json(retained_path), str(retained_path.relative_to(repo_root)))
-        load_retained_downloads(site_paths(repo_root, "default"))
+        retained = load_retained_downloads(site_paths(repo_root, "default"))
+        sources_path = retained_sources_path(site_paths(repo_root, "default"))
+        _validate(schemas["retained-download-sources-v1.schema.json"], _read_json(sources_path), str(sources_path.relative_to(repo_root)))
+        recorded = load_retained_sources(site_paths(repo_root, "default"))
+        if {download.asset_name: download.checksum for download in retained} != {
+            name: entry["checksum"] for name, entry in recorded.items()
+        }:
+            raise SystemExit(f"{sources_path.relative_to(repo_root)} must record exactly the retained downloads")
     validate_moex_category_evidence(repo_root)
     validate_tqc_identity_evidence(repo_root)
     validate_tcu_annual_papers(repo_root)

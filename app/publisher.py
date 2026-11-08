@@ -38,6 +38,7 @@ from app.retained_downloads import (
     RetainedDownload,
     derive_compatibility_pages,
     load_retained_downloads,
+    record_retained_sources,
     reserved_asset_names,
     snapshot_existing_downloads,
     validate_primary_separation,
@@ -515,6 +516,7 @@ def publish_site(
     retained_downloads = snapshot_existing_downloads(
         repo_root, site, existing_bundles, retained_ids
     )
+    record_retained_sources(repo_root, site, retained_downloads)
     if {download.bundle_id for download in retained_downloads} & {
         paper.bundle_id for paper in normalized.papers
     }:
