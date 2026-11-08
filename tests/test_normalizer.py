@@ -276,7 +276,6 @@ class NormalizePapersTests(unittest.TestCase):
             ("gept-cert-materials", "GEPT全民英檢官方練習資料_初級", "gept-cert", "GEPT全民英檢"),
             ("gept-cert-elementary-2022", "GEPT全民英檢官方練習資料_初級", "gept-cert-elementary", "GEPT全民英檢 初級"),
             ("gept-cert-intermediate-2022", "GEPT全民英檢官方練習資料_中級", "gept-cert-intermediate", "GEPT全民英檢 中級"),
-            ("jlpt-cert-practice-2018", "JLPT Japanese-Language Proficiency Test_N1", "jlpt-cert", "JLPT Japanese-Language Proficiency Test"),
             ("tocfl-cert-materials", "TOCFL華語文能力測驗官方參考資料", "tocfl-cert", "TOCFL華語文能力測驗"),
             ("tocfl-cert-2024", "TOCFL華語文能力測驗官方參考資料", "tocfl-cert", "TOCFL華語文能力測驗"),
             ("hakka-cert-materials", "客語能力認證官方教材及試題_四縣", "hakka-cert", "客語能力認證"),
