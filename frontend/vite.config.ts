@@ -8,7 +8,7 @@ import { resolvePagesBase } from "./build/site-config.ts"
 import { readPublicData } from "./build/public-data.ts"
 import { buildBundlePage, buildCompatibilityPage, buildSitemap, bundlePagesCss, siteRoot } from "./build/bundle-pages.ts"
 
-const repoRoot = path.resolve(__dirname, "..")
+const repoRoot = path.resolve(import.meta.dirname, "..")
 const frontendSourcePath = path.resolve(repoRoot, "data", "sites", "default", "frontend-bundles.json")
 
 type PublicData = Awaited<ReturnType<typeof readPublicData>>
@@ -197,13 +197,13 @@ export default defineConfig(async ({ command }) => {
       reportCompressedSize: false,
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, "index.html"),
-          notFound: path.resolve(__dirname, "404.html"),
-          about: path.resolve(__dirname, "about.html"),
-          contact: path.resolve(__dirname, "contact.html"),
-          faq: path.resolve(__dirname, "faq.html"),
-          join: path.resolve(__dirname, "join.html"),
-          privacy: path.resolve(__dirname, "privacy.html"),
+          main: path.resolve(import.meta.dirname, "index.html"),
+          notFound: path.resolve(import.meta.dirname, "404.html"),
+          about: path.resolve(import.meta.dirname, "about.html"),
+          contact: path.resolve(import.meta.dirname, "contact.html"),
+          faq: path.resolve(import.meta.dirname, "faq.html"),
+          join: path.resolve(import.meta.dirname, "join.html"),
+          privacy: path.resolve(import.meta.dirname, "privacy.html"),
         },
       },
     },
@@ -215,7 +215,7 @@ export default defineConfig(async ({ command }) => {
     ],
     resolve: {
       alias: {
-        "@": path.resolve(__dirname, "./src"),
+        "@": path.resolve(import.meta.dirname, "./src"),
       },
     },
   }
