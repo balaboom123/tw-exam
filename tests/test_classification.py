@@ -742,7 +742,7 @@ class ExamIdentityClassificationTests(unittest.TestCase):
         self.assertNotEqual(port.bundle_id, patent.bundle_id)
 
     def test_missing_level_evidence_is_reviewed_for_level_based_programmes(self) -> None:
-        for provider in ("gept_cert", "jlpt_cert", "wdasec_skill"):
+        for provider in ("gept_cert", "wdasec_skill"):
             with self.subTest(provider=provider):
                 first = classify(
                     "官方試題", "官方測驗", provider=provider,
@@ -756,11 +756,6 @@ class ExamIdentityClassificationTests(unittest.TestCase):
                 self.assertEqual(first.confidence, "review")
                 self.assertIn("missing official level", first.reason)
                 self.assertNotEqual(first.bundle_id, second.bundle_id)
-
-    def test_jlpt_out_of_range_level_is_unresolved(self) -> None:
-        identity = classify("N6", "JLPT", provider="jlpt_cert", canonical="jlpt", subject="N6")
-        self.assertEqual(identity.level_id, "unknown")
-        self.assertEqual(identity.confidence, "review")
 
     def test_public_titles_use_source_labels_not_internal_ids(self) -> None:
         group = classify("一般行政（兩岸組一）", "115年公務人員高等考試三級", source="high-group-1")
@@ -865,13 +860,10 @@ class ExamIdentityClassificationTests(unittest.TestCase):
 
     def test_non_moex_levels_use_provider_specific_hierarchy(self) -> None:
         gept = classify("中高級", "全民英檢", provider="gept_cert", canonical="gept-cert", subject="中高級")
-        jlpt = classify("N2", "日本語能力試驗", provider="jlpt_cert", canonical="jlpt-cert", subject="N2")
         skill = classify("甲級", "技能檢定", provider="wdasec_skill", canonical="skill", subject="甲級")
 
         self.assertEqual(gept.level_id, "high-intermediate")
         self.assertEqual(gept.exam_series_id, "language-gept")
-        self.assertEqual(jlpt.level_id, "n2")
-        self.assertEqual(jlpt.exam_series_id, "language-jlpt")
         self.assertEqual(skill.level_id, "class-a")
         self.assertEqual(skill.exam_series_id, "skill-certification")
 

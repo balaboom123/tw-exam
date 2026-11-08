@@ -28,8 +28,6 @@ class SiteRegistryTests(unittest.TestCase):
                 "rcpet_cap",
                 "wdasec_skill",
                 "sfi_cert",
-                "tabf_cert",
-                "tii_cert",
                 "teacher_qual",
                 "teacher_recruit_newtaipei",
                 "teacher_recruit_taoyuan_elementary",
@@ -39,7 +37,6 @@ class SiteRegistryTests(unittest.TestCase):
                 "teacher_recruit_taipei_elementary",
                 "teacher_recruit_tainan",
                 "gept_cert",
-                "jlpt_cert",
                 "tocfl_cert",
                 "hakka_cert",
                 "taigi_cert",
@@ -57,8 +54,6 @@ class SiteRegistryTests(unittest.TestCase):
             },
             {
                 "sfi-": 1,
-                "tabf-": 1,
-                "tii-": 1,
                 "teacher-qual": 1,
                 "teacher-recruit-newtaipei": 1,
                 "teacher-recruit-taoyuan-elementary": 1,
@@ -68,7 +63,6 @@ class SiteRegistryTests(unittest.TestCase):
                 "teacher-recruit-taipei-elementary": 1,
                 "teacher-recruit-tainan": 1,
                 "gept-cert": 1,
-                "jlpt-cert": 1,
                 "tocfl-cert": 1,
                 "hakka-cert": 1,
                 "taigi-cert": 1,
@@ -93,7 +87,7 @@ class SiteRegistryTests(unittest.TestCase):
 
     def test_default_site_includes_financial_cert_providers(self) -> None:
         config = get_site_config("default")
-        for provider_id in ("sfi_cert", "tabf_cert", "tii_cert"):
+        for provider_id in ("sfi_cert",):
             with self.subTest(provider_id=provider_id):
                 self.assertIn(provider_id, config.provider_ids)
 
@@ -109,7 +103,6 @@ class SiteRegistryTests(unittest.TestCase):
             "teacher_recruit_taipei_elementary",
             "teacher_recruit_tainan",
             "gept_cert",
-            "jlpt_cert",
             "tocfl_cert",
             "hakka_cert",
             "taigi_cert",

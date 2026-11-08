@@ -17,7 +17,6 @@ from app.providers.moea_recruit.evidence import native_file_role as moea_file_ro
 from app.providers.moex.file_roles import file_role as moex_file_role
 from app.providers.sfi_cert.identity import canonical_for_event as sfi_canonical_for_event
 from app.providers.special_admission.evidence import file_role as special_admission_file_role
-from app.providers.tabf_cert.identity import canonical_for_event as tabf_canonical_for_event
 from app.providers.taisugar_recruit.annual import resolve_written_exam as taisugar_written_exam
 from app.providers.taisugar_recruit.evidence import file_role as taisugar_file_role
 from app.providers.tcte_tve.evidence import file_role as tcte_file_role
@@ -94,17 +93,6 @@ _SOE_CANONICAL_MAP = {
     "taisugar-recruit-": (_TAISUGAR_RECRUIT_CANONICAL_ID, _TAISUGAR_RECRUIT_CANONICAL_NAME),
 }
 
-_FINANCIAL_CERT_CANONICAL_MAP = {
-    # TII (保發中心) certifications
-    "tii-cert-life-insurance-": ("tii-life-insurance", "人身保險業務員"),
-    "tii-cert-property-insurance-": ("tii-property-insurance", "財產保險業務員"),
-    "tii-cert-investment-insurance-": ("tii-investment-insurance", "投資型保險商品業務員"),
-    "tii-cert-health-insurance-": ("tii-health-insurance", "傷害保險及健康保險業務員"),
-    "tii-cert-policyholder-service-": ("tii-policyholder-service", "人身保險業務員保戶服務檢定"),
-    "tii-cert-aml-": ("tii-aml", "防制洗錢與打擊資恐專業人員測驗"),
-    "tii-cert-sustainability-": ("tii-sustainability", "永續發展基礎能力測驗"),
-}
-
 _REQUESTED_TOPIC_CANONICAL_MAP = {
     "teacher-qual-": ("teacher-qual", "教師資格考試"),
     "teacher-recruit-newtaipei-": ("teacher-recruit-newtaipei", "新北市教師甄試"),
@@ -129,7 +117,6 @@ _REQUESTED_TOPIC_CANONICAL_MAP = {
     "gept-cert-advanced-": ("gept-cert-advanced", "GEPT全民英檢 高級"),
     "gept-cert-superior-": ("gept-cert-superior", "GEPT全民英檢 優級"),
     "gept-cert-": ("gept-cert", "GEPT全民英檢"),
-    "jlpt-cert-": ("jlpt-cert", "JLPT Japanese-Language Proficiency Test"),
     "tocfl-cert-": ("tocfl-cert", "TOCFL華語文能力測驗"),
     "hakka-cert-basic-elementary-": ("hakka-cert-basic-elementary", "客語能力認證 基礎級暨初級"),
     "hakka-cert-intermediate-high-intermediate-": (
@@ -246,13 +233,6 @@ def _derive_canonical(
     if ipas_canonical is not None:
         canonical_id, canonical_name = ipas_canonical
         return canonical_id, canonical_name, canonical_name, False
-    tabf_canonical = tabf_canonical_for_event(source_exam_id)
-    if tabf_canonical is not None:
-        canonical_id, canonical_name = tabf_canonical
-        return canonical_id, canonical_name, canonical_name, False
-    for prefix, (canonical_id, canonical_name) in _FINANCIAL_CERT_CANONICAL_MAP.items():
-        if source_exam_id.startswith(prefix):
-            return canonical_id, canonical_name, canonical_name, False
     for prefix, (canonical_id, canonical_name) in _REQUESTED_TOPIC_CANONICAL_MAP.items():
         if source_exam_id.startswith(prefix):
             return canonical_id, canonical_name, canonical_name, False

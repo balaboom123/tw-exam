@@ -12,8 +12,6 @@ from app.models import ExamAttachment, NormalizedCatalog, NormalizedPaper, Parse
 from app.paths import provider_paths
 from app.providers.base import DownloadedFile
 from app.providers.sfi_cert.provider import SfiCertProvider
-from app.providers.tabf_cert.provider import TabfCertProvider
-from app.providers.tii_cert.provider import TiiCertProvider
 from app.publisher import write_provider_state
 from app.source_revisions import (
     audit_source_revisions,
@@ -626,8 +624,6 @@ def test_verified_reuse_and_mutable_provider_refresh_policy(tmp_path):
     assert failures == []
     assert catalog.papers[0].checksum == paper(REVISED).checksum
     assert SfiCertProvider.refresh_files_on_sync is True
-    assert TabfCertProvider.refresh_files_on_sync is True
-    assert TiiCertProvider.refresh_files_on_sync is True
 
 
 def test_existing_journal_recovers_from_checksum_verified_older_cache(tmp_path):

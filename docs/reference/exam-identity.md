@@ -242,9 +242,7 @@ variants; occupation words alone do not select a programme.
 
 Missing evidence for a level-based programme is `unknown` with a review
 disposition, rather than `not-applicable`. GEPT uses its own proficiency levels
-([official introduction](https://www.gept.org.tw/Exam_Intro/t01_introduction.asp));
-JLPT uses N1–N5
-([official levels](https://www.jlpt.jp/about/levelsummary.html)); skill
+([official introduction](https://www.gept.org.tw/Exam_Intro/t01_introduction.asp)); skill
 certification distinguishes 甲級、乙級、丙級 and 單一級
 ([official reference announcement](https://www.wdasec.gov.tw/News_Content.aspx?n=25D08F3407C71E8F&s=5A79A08661B15374&sms=1BE761BDBCE7C913)).
 The classifier keeps records with absent or unsupported markers isolated by

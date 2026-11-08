@@ -8,7 +8,6 @@ from urllib.error import HTTPError, URLError
 import pytest
 
 from app.providers.http import Http
-from app.providers.tii_cert.client import TiiCertClient
 from app.providers.wdasec_skill.client import WdasecSkillClient
 from app.storage import MirrorStore
 from app.sync import retry_network, sync_exam_pages
@@ -78,7 +77,7 @@ def test_exhausted_incomplete_body_is_a_contextual_network_error_without_partial
     assert {c.args[0].data for c in opened.call_args_list} == {b"session=private-form"}
 
 
-@pytest.mark.parametrize("client_type", [TiiCertClient, WdasecSkillClient])
+@pytest.mark.parametrize("client_type", [WdasecSkillClient])
 def test_incomplete_read_obeys_single_attempt_adapters_outer_sync_budget(client_type):
     client = client_type()
     responses = [native_response(b"partial", declared_length=100) for _ in range(3)]

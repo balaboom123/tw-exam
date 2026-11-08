@@ -67,27 +67,6 @@
       "available_years": {
         "end_ad": null,
         "mode": "unknown",
-        "note": "Browser practice/current flows; no stable paper range established",
-        "start_ad": null
-      },
-      "evidence": [
-        "docs/providers/rejected-sources.md"
-      ],
-      "exam_category": "Korean-language proficiency exam",
-      "official_source_urls": [
-        "https://www.topik.go.kr/"
-      ],
-      "restrictions": [
-        "Repository source proof found streamed/browser practice but no stable direct downloadable PDF/past-paper archive."
-      ],
-      "source_id": "topik",
-      "status": "blocked",
-      "status_reason": "Blocked; available range: Browser practice/current flows; no stable paper range established; local coverage: None"
-    },
-    {
-      "available_years": {
-        "end_ad": null,
-        "mode": "unknown",
         "note": "Resource years, not exam years",
         "start_ad": null
       },
@@ -104,6 +83,48 @@
       "source_id": "icap",
       "status": "intentionally_out_of_scope",
       "status_reason": "Intentionally out of scope; available range: Resource years, not exam years; local coverage: None"
+    },
+    {
+      "available_years": {
+        "end_ad": 2018,
+        "mode": "observed_range",
+        "note": "Official practice-workbook publication editions, not administered exam years.",
+        "start_ad": 2012
+      },
+      "evidence": [
+        "docs/providers/rejected-sources.md"
+      ],
+      "exam_category": "JLPT official sample workbook and listening materials",
+      "official_source_urls": [
+        "https://www.jlpt.jp/e/samples/sampleindex.html"
+      ],
+      "restrictions": [
+        "JLPT's copyright policy requires authorization for wider use and separately restricts third-party N1/N2 passages and all N1-N5 listening audio. Maintainer decision 2026-11-08: not acquired or published; earlier mirrored files were deleted."
+      ],
+      "source_id": "jlpt",
+      "status": "intentionally_out_of_scope",
+      "status_reason": "Intentionally excluded: the rights holder's terms do not permit republication"
+    },
+    {
+      "available_years": {
+        "end_ad": null,
+        "mode": "unknown",
+        "note": "No paper archive",
+        "start_ad": null
+      },
+      "evidence": [
+        "docs/providers/rejected-sources.md"
+      ],
+      "exam_category": "National teacher openings/announcements",
+      "official_source_urls": [
+        "https://personnel.k12ea.gov.tw/tsn/"
+      ],
+      "restrictions": [
+        "Official portal exposes vacancies/news rather than downloadable past papers."
+      ],
+      "source_id": "k-12-teacher-selection-portal",
+      "status": "intentionally_out_of_scope",
+      "status_reason": "Intentionally excluded; available range: No paper archive; local coverage: None"
     },
     {
       "available_years": {
@@ -134,27 +155,6 @@
       "evidence": [
         "docs/providers/rejected-sources.md"
       ],
-      "exam_category": "National teacher openings/announcements",
-      "official_source_urls": [
-        "https://personnel.k12ea.gov.tw/tsn/"
-      ],
-      "restrictions": [
-        "Official portal exposes vacancies/news rather than downloadable past papers."
-      ],
-      "source_id": "k-12-teacher-selection-portal",
-      "status": "intentionally_out_of_scope",
-      "status_reason": "Intentionally excluded; available range: No paper archive; local coverage: None"
-    },
-    {
-      "available_years": {
-        "end_ad": null,
-        "mode": "unknown",
-        "note": "No paper archive",
-        "start_ad": null
-      },
-      "evidence": [
-        "docs/providers/rejected-sources.md"
-      ],
       "exam_category": "National teacher openings/search",
       "official_source_urls": [
         "https://tjn.moe.edu.tw/EduJin/Opening/Index"
@@ -165,6 +165,48 @@
       "source_id": "moe-teacher-opening-portal",
       "status": "intentionally_out_of_scope",
       "status_reason": "Intentionally excluded; available range: No paper archive; local coverage: None"
+    },
+    {
+      "available_years": {
+        "end_ad": null,
+        "mode": "unknown",
+        "note": "Not an official source",
+        "start_ad": null
+      },
+      "evidence": [
+        "docs/providers/rejected-sources.md"
+      ],
+      "exam_category": "Third-party coverage index",
+      "official_source_urls": [
+        "https://www.shuati.tw/exams"
+      ],
+      "restrictions": [
+        "Used only as a discovery checklist; the pipeline must not mirror third-party files."
+      ],
+      "source_id": "shuati-coverage-reference",
+      "status": "intentionally_out_of_scope",
+      "status_reason": "Intentionally out of scope as a source; available range: Not an official source; local coverage: None"
+    },
+    {
+      "available_years": {
+        "end_ad": 2026,
+        "mode": "observed_range",
+        "note": "Reviewed retained native events span 2020, 2023, 2024, 2025 and 2026; the range is not continuous. Early FIT editions are historical administered papers retained for reference.",
+        "start_ad": 2020
+      },
+      "evidence": [
+        "docs/providers/rejected-sources.md"
+      ],
+      "exam_category": "TABF financial qualifications and FIT employment-assessment historical papers",
+      "official_source_urls": [
+        "https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424"
+      ],
+      "restrictions": [
+        "No TABF exam-PDF redistribution permission is established. Maintainer decision 2026-11-08: not acquired or published; earlier mirrored files were deleted. Chunghwa Post's recruitment papers served from svc.tabf.org.tw are a separate provider (post_recruit)."
+      ],
+      "source_id": "tabf",
+      "status": "intentionally_out_of_scope",
+      "status_reason": "Intentionally excluded: the rights holder's terms do not permit republication"
     },
     {
       "available_years": {
@@ -191,24 +233,50 @@
     },
     {
       "available_years": {
+        "end_ad": 2026,
+        "mode": "observed_range",
+        "note": "Dated current historical-paper listings and official AML history ZIP; complete for the declared listing surface, without asserting every historical TII sitting is available.",
+        "start_ad": 2018
+      },
+      "evidence": [
+        "docs/providers/rejected-sources.md"
+      ],
+      "exam_category": "Taiwan Insurance Institute certification papers and reviewed exam-family boundaries",
+      "official_source_urls": [
+        "https://edu.tii.org.tw/exam/users/apply_exam/0",
+        "https://edu.tii.org.tw/exam/users/exam_message/1",
+        "https://edu.tii.org.tw/exam/users/exam_message/58785",
+        "https://edu.tii.org.tw/exam/users/exam_message/58786",
+        "https://edu.tii.org.tw/home/mpage/downloadfiles",
+        "https://edu.tii.org.tw/exam/users/exam_message/2"
+      ],
+      "restrictions": [
+        "TII displays a copyright notice and grants no exam-paper republication. Maintainer decision 2026-11-08: not acquired or published; earlier mirrored files were deleted."
+      ],
+      "source_id": "tii",
+      "status": "intentionally_out_of_scope",
+      "status_reason": "Intentionally excluded: the rights holder's terms do not permit republication"
+    },
+    {
+      "available_years": {
         "end_ad": null,
         "mode": "unknown",
-        "note": "Not an official source",
+        "note": "Browser practice/current flows; no stable paper range established",
         "start_ad": null
       },
       "evidence": [
         "docs/providers/rejected-sources.md"
       ],
-      "exam_category": "Third-party coverage index",
+      "exam_category": "Korean-language proficiency exam",
       "official_source_urls": [
-        "https://www.shuati.tw/exams"
+        "https://www.topik.go.kr/"
       ],
       "restrictions": [
-        "Used only as a discovery checklist; the pipeline must not mirror third-party files."
+        "Repository source proof found streamed/browser practice but no stable direct downloadable PDF/past-paper archive."
       ],
-      "source_id": "shuati-coverage-reference",
-      "status": "intentionally_out_of_scope",
-      "status_reason": "Intentionally out of scope as a source; available range: Not an official source; local coverage: None"
+      "source_id": "topik",
+      "status": "blocked",
+      "status_reason": "Blocked; available range: Browser practice/current flows; no stable paper range established; local coverage: None"
     }
   ],
   "captured_at": "2026-10-27T16:15:09.756467+00:00",
@@ -741,45 +809,6 @@
     },
     {
       "available_years": {
-        "end_ad": 2018,
-        "mode": "observed_range",
-        "note": "Official practice-workbook publication editions, not administered exam years.",
-        "start_ad": 2012
-      },
-      "discovery_snapshot": {
-        "coverage": "complete",
-        "manifest_path": "data/providers/jlpt_cert/source-manifest.json",
-        "status": "present"
-      },
-      "evidence": [
-        "docs/providers/notes.md#jlpt_cert"
-      ],
-      "exam_category": "JLPT official sample workbook and listening materials",
-      "local_state": {
-        "normalized_paper_records": 116,
-        "raw_event_pages": 2,
-        "sync_failures": 0
-      },
-      "local_years": [
-        2012,
-        2018
-      ],
-      "official_source_urls": [
-        "https://www.jlpt.jp/e/samples/sampleindex.html"
-      ],
-      "provider_id": "jlpt_cert",
-      "restrictions": [
-        "The exact declared workbook scope is 2012 and 2018 only and is not an archive of every JLPT sitting.",
-        "Native review uses retained SHA-verified PDFs/audio and current official HTML membership. It does not establish current remote payload-byte freshness or a complete administered-sitting history.",
-        "The dated robots observation explicitly names restricted agents including GPTBot and ChatGPT-User; existing repository acquisition and durable-backup policies are unchanged.",
-        "The official copyright policy requires authorization for broader use and separately restricts third-party N1/N2 text and all N1–N5 listening audio; no blanket archive-republication grant was established."
-      ],
-      "source_name": "日本語能力試驗官方網站",
-      "status": "partial",
-      "status_reason": "Current official HTML matches all retained workbook references. Native level, edition, role and package boundaries are reviewed with checksum-bound observations; private bundles preserve both editions. Remote byte freshness, broader historical coverage, source-agent policy and redistribution remain unresolved."
-    },
-    {
-      "available_years": {
         "end_ad": 2025,
         "mode": "observed_range",
         "note": "The official year tabs enumerate exactly AD 2002, 2004, 2006–2009, and 2011–2025.",
@@ -1030,48 +1059,6 @@
       "source_name": "身心障礙學生升學大專校院甄試",
       "status": "covered",
       "status_reason": "Declared academic scope rechecked 2026-10-25: 252 official files across 14 published annual events; 36 previously omitted historical mathematics files restored. The additional ROC 116 selector event awaits papers."
-    },
-    {
-      "available_years": {
-        "end_ad": 2026,
-        "mode": "observed_range",
-        "note": "Reviewed retained native events span 2020, 2023, 2024, 2025 and 2026; the range is not continuous. Early FIT editions are historical administered papers retained for reference.",
-        "start_ad": 2020
-      },
-      "discovery_snapshot": {
-        "coverage": "partial",
-        "manifest_path": "data/providers/tabf_cert/source-manifest.json",
-        "status": "present"
-      },
-      "evidence": [
-        "data/providers/tabf_cert/source-manifest.json",
-        "docs/providers/notes.md#tabf_cert"
-      ],
-      "exam_category": "TABF financial qualifications and FIT employment-assessment historical papers",
-      "local_state": {
-        "normalized_paper_records": 146,
-        "raw_event_pages": 58,
-        "sync_failures": 0
-      },
-      "local_years": [
-        2020,
-        2023,
-        2024,
-        2025,
-        2026
-      ],
-      "official_source_urls": [
-        "https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424"
-      ],
-      "provider_id": "tabf_cert",
-      "restrictions": [
-        "The 2026-10-21 rolling listing exposes 19 native categories, 51 PHID events and 129 document links, all now reviewed against native payloads. Seven older retained events are no longer listed; complete historical coverage is not established.",
-        "Reviewed retained history has 58 native events, 146 URL references and 139 unique PDFs in 19 identity groups. All 280 original source references retain their earliest immutable dictionaries in the revision journal; four later display-label-only observations retain their full dictionaries in the source manifest; synthetic capture-year splits and flattened qualification/module identities are corrected.",
-        "The asset host robots policy disallows /BEExam, and no exam-PDF republication license was found; automated mirroring and republication require an approved policy/legal decision."
-      ],
-      "source_name": "台灣金融研訓院",
-      "status": "partial",
-      "status_reason": "Partial historical coverage: all observed current native events and retained earlier history are reviewed and corrected. Existing bytes are verified without a fresh restricted-asset acquisition claim. Publication remains withheld for unresolved source policy and redistribution permission."
     },
     {
       "available_years": {
@@ -1592,58 +1579,6 @@
       "source_name": "桃園市國小教師聯合甄選",
       "status": "covered",
       "status_reason": "Covered, current-year scope; source availability: Current 2026 scope; local coverage: 2026; 1 → 21"
-    },
-    {
-      "available_years": {
-        "end_ad": 2026,
-        "mode": "observed_range",
-        "note": "Dated current historical-paper listings and official AML history ZIP; complete for the declared listing surface, without asserting every historical TII sitting is available.",
-        "start_ad": 2018
-      },
-      "discovery_snapshot": {
-        "coverage": "complete",
-        "manifest_path": "data/providers/tii_cert/source-manifest.json",
-        "status": "present"
-      },
-      "evidence": [
-        "data/providers/tii_cert/source-manifest.json",
-        "docs/providers/notes.md#tii_cert"
-      ],
-      "exam_category": "Taiwan Insurance Institute certification papers and reviewed exam-family boundaries",
-      "local_state": {
-        "normalized_paper_records": 38,
-        "raw_event_pages": 16,
-        "sync_failures": 0
-      },
-      "local_years": [
-        2018,
-        2019,
-        2020,
-        2021,
-        2022,
-        2023,
-        2024,
-        2025,
-        2026
-      ],
-      "official_source_urls": [
-        "https://edu.tii.org.tw/exam/users/apply_exam/0",
-        "https://edu.tii.org.tw/exam/users/exam_message/1",
-        "https://edu.tii.org.tw/exam/users/exam_message/58785",
-        "https://edu.tii.org.tw/exam/users/exam_message/58786",
-        "https://edu.tii.org.tw/home/mpage/downloadfiles",
-        "https://edu.tii.org.tw/exam/users/exam_message/2"
-      ],
-      "provider_id": "tii_cert",
-      "restrictions": [
-        "Completeness covers the declared official listings and historical ZIP, not all TII examinations ever administered; programmes with no established paper denominator remain explicit source-family boundaries.",
-        "The source omits its TLS intermediate; supply the official issuer certificate while preserving full-chain and hostname verification.",
-        "The original AML ZIP is retained unchanged, with dated extracted papers referencing exact native member paths.",
-        "TII displays a copyright notice and no exam-PDF republication grant was found; the existing redistribution hold covers site bundles and public mirror backups."
-      ],
-      "source_name": "保險事業發展中心",
-      "status": "covered",
-      "status_reason": "All 16 dated events and 38 administered-paper files on the declared message-page/history-ZIP surface are retained with verified payloads. Brochure contamination is retired into recoverable source history; sections, sessions and corrected answers remain distinct. Public redistribution remains withheld under the existing review."
     },
     {
       "available_years": {

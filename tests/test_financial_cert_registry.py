@@ -10,16 +10,6 @@ class FinancialCertRegistryTests(unittest.TestCase):
         self.assertIsInstance(provider, SourceProvider)
         self.assertEqual(provider.provider_id, "sfi_cert")
 
-    def test_tabf_cert_registered(self) -> None:
-        provider = get_provider("tabf_cert")
-        self.assertIsInstance(provider, SourceProvider)
-        self.assertEqual(provider.provider_id, "tabf_cert")
-
-    def test_tii_cert_registered(self) -> None:
-        provider = get_provider("tii_cert")
-        self.assertIsInstance(provider, SourceProvider)
-        self.assertEqual(provider.provider_id, "tii_cert")
-
 
 if __name__ == "__main__":
     unittest.main()

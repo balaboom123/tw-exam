@@ -17,7 +17,6 @@ from app.publication_quarantine import (
 )
 from app.publisher import load_site_catalog, load_site_provider_indexes, write_provider_state, write_site_state
 from app.site_registry import get_site_config
-from app.state import load_provider_state
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -406,17 +405,6 @@ class MirrorCheckScopeTests(unittest.TestCase):
 class RepositoryQuarantineTests(unittest.TestCase):
     """The checked-in quarantine must stay consistent with the site registry."""
 
-    @pytest.mark.repo_data
-    def test_jlpt_redistribution_hold_keeps_source_history_outside_publication(self) -> None:
-        entry = load_quarantine(ROOT, site_id="default")["jlpt_cert"]
-        self.assertEqual(entry.status, "redistribution_unresolved")
-        raw, catalog, _failures = load_provider_state(provider_paths(ROOT, "jlpt_cert"))
-        self.assertEqual(len(raw), 2)
-        self.assertEqual(len(catalog.papers), 116)
-        indexes = load_site_provider_indexes(ROOT, site_id="default")
-        self.assertIsNotNone(indexes)
-        self.assertFalse(any(index["provider_id"] == "jlpt_cert" for index in indexes))
-
     def test_every_quarantined_provider_is_still_registered(self) -> None:
         site_config = get_site_config("default")
         entries = load_quarantine(ROOT, site_id="default")
@@ -446,13 +434,10 @@ class RepositoryQuarantineTests(unittest.TestCase):
             "gept_cert": "2026-11-20",
             "hakka_cert": "2026-12-01",
             "ipas_cert": "2026-11-21",
-            "jlpt_cert": "2026-11-01",
             "moea_recruit": "2026-11-01",
             "sfi_cert": "2026-11-21",
-            "tabf_cert": "2026-11-01",
             "taigi_cert": "2026-11-01",
             "taisugar_recruit": "2026-11-03",
-            "tii_cert": "2026-11-01",
             "tocfl_cert": "2026-12-01",
             "tqc_cert": "2026-11-01",
             "twc_recruit": "2026-11-01",

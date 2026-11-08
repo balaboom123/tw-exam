@@ -24,7 +24,6 @@ from app.providers.ipas_cert.evidence import SourceReference as IpasSourceRefere
 from app.providers.ipas_cert.evidence import native_context as ipas_native_context
 from app.providers.ipas_cert.identity import GRADE_LABELS as IPAS_GRADE_LABELS
 from app.providers.sfi_cert.evidence import native_context as sfi_native_context
-from app.providers.tabf_cert.evidence import native_context as tabf_native_context
 from app.providers.taigi_cert.evidence import CAPTURE_PARTITION_YEAR as TAIGI_CAPTURE_PARTITION_YEAR
 from app.providers.taigi_cert.evidence import native_resource as taigi_native_resource
 from app.providers.taisugar_recruit.annual import resolve_written_exam as taisugar_written_exam
@@ -159,7 +158,6 @@ _SERIES_LABELS = {
     "teacher-qualification": "教師資格考試",
     "teacher-recruitment": "教師甄試",
     "language-gept": "GEPT全民英檢",
-    "language-jlpt": "日本語能力試驗",
     "language-tocfl": "華語文能力測驗",
     "language-hakka": "客語能力認證",
     "language-taigi": "臺灣台語語言能力認證",
@@ -172,7 +170,6 @@ _SERIES_LABELS = {
     "employment-recruitment": "就業／國營事業甄試",
     "postal-recruitment": "中華郵政職階人員甄試",
     "financial-certification": "金融證照／能力測驗",
-    "financial-aptitude": "金融人員基礎學科測驗（FIT）",
     "professional-certification": "專業能力證照",
 }
 
@@ -423,8 +420,6 @@ def _track_details(
         return "cap", "國中教育會考"
     if provider_id == "gept_cert":
         return "gept", "GEPT全民英檢"
-    if provider_id == "jlpt_cert":
-        return "jlpt", "JLPT"
     if provider_id == "tocfl_cert":
         return "tocfl", "TOCFL"
     if provider_id == "hakka_cert":
@@ -433,7 +428,7 @@ def _track_details(
         return "taigi", "臺灣台語語言能力認證"
     if provider_id == "ipas_cert":
         return _slug(canonical_id, prefix="ipas"), _display(canonical_name, canonical_id)
-    if provider_id in {"sfi_cert", "tabf_cert", "tii_cert"}:
+    if provider_id == "sfi_cert":
         return _slug(canonical_id, prefix="cert"), _display(canonical_name, canonical_id)
     if provider_id.startswith("teacher_recruit"):
         return _slug(canonical_id, prefix="teacher"), _display(canonical_name, canonical_id)
@@ -1222,35 +1217,6 @@ def _non_moex_level(
         ):
             if marker in text:
                 return level_id, marker, "high", f"GEPT official level marker: {marker}"
-    if provider_id == "jlpt_cert":
-        if category_code and re.fullmatch(r"n[1-5]", category_code, re.IGNORECASE) is None:
-            return (
-                "unknown",
-                _LEVEL_LABELS["unknown"],
-                "review",
-                "JLPT category code has no supported native level",
-            )
-        levels = set(
-            re.findall(
-                r"(?<![A-Za-z0-9])N(\d+)(?![A-Za-z0-9])", f"{text} {category_code}", re.IGNORECASE
-            )
-        )
-        if len(levels) == 1 and levels <= {"1", "2", "3", "4", "5"}:
-            level = next(iter(levels))
-            level_id = f"n{level}"
-            return (
-                level_id,
-                level_id.upper(),
-                "high",
-                f"JLPT official level marker: N{level}",
-            )
-        if len(levels) > 1:
-            reason = "JLPT record contains conflicting official level markers"
-        elif levels:
-            reason = "JLPT record contains an unsupported official level marker"
-        else:
-            reason = "jlpt_cert: missing official level evidence in record"
-        return "unknown", _LEVEL_LABELS["unknown"], "review", reason
     if provider_id == "hakka_cert":
         return (
             "unknown",
@@ -1279,7 +1245,6 @@ def _non_moex_level(
                 return level_id, marker, "high", f"skill certification level marker: {marker}"
     if provider_id in {
         "gept_cert",
-        "jlpt_cert",
         "wdasec_skill",
         "taigi_cert",
         "tqc_cert",
@@ -1600,13 +1565,6 @@ def _provider_series(provider_id: str, canonical_id: str) -> tuple[str, str, str
             "language-gept",
             _SERIES_LABELS["language-gept"],
         )
-    if provider_id == "jlpt_cert":
-        return (
-            "certification",
-            "language-certification",
-            "language-jlpt",
-            _SERIES_LABELS["language-jlpt"],
-        )
     if provider_id == "tocfl_cert":
         return (
             "certification",
@@ -1635,7 +1593,7 @@ def _provider_series(provider_id: str, canonical_id: str) -> tuple[str, str, str
             "skill-certification",
             _SERIES_LABELS["skill-certification"],
         )
-    if provider_id in {"sfi_cert", "tabf_cert", "tii_cert"}:
+    if provider_id == "sfi_cert":
         return (
             "certification",
             "financial-certification",
@@ -1878,40 +1836,6 @@ def _classify_paper_uncached(
             variant_pairs = ((f"script-{script}", script_label),)
             confidence = "high"
             reason = f"reviewed native TOCFL bank band/script/unit/role: {resource.id}"
-    tabf_context = None
-    if provider_id == "tabf_cert":
-        source_url = source_material.evidence_url if source_material is not None else ""
-        tabf_context = tabf_native_context(
-            source_exam_id,
-            year_ad,
-            category_code,
-            source_checksum,
-            source_url,
-        )
-        if tabf_context is not None and (
-            subject_code != tabf_context.paper.subject_code
-            or subject_name_raw != tabf_context.paper.subject_label
-            or source_material != tabf_context.material
-        ):
-            tabf_context = None
-        if tabf_context is None:
-            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
-            track_id, track_label = "tabf-unresolved", "金融研訓院測驗（待確認）"
-            variant_pairs = ()
-            confidence = "review"
-            reason = "TABF programme/grade/event lacks matching native paper evidence"
-        else:
-            programme = tabf_context.event.programme
-            level_id, level_label = programme.level_id, programme.level_label
-            track_id, track_label = programme.track_id, programme.track_label
-            variant_pairs = programme.variants
-            confidence = "high"
-            reason = (
-                f"reviewed native TABF programme, event, role and scope: {tabf_context.paper.id}"
-            )
-            if programme.is_aptitude:
-                domain_id, family_id = "employment", "employment-assessment"
-                series_id, series_label = "financial-aptitude", _SERIES_LABELS["financial-aptitude"]
     ipas_context = None
     if provider_id == "ipas_cert":
         ipas_context = ipas_native_context(source_exam_id, year_ad, category_code, source_checksum)
@@ -2219,8 +2143,6 @@ def _classify_paper_uncached(
                 "Reviewed NSYSU annual written-test stage, group and native PDF pages: "
                 f"{nsysu_annual.rule_urls[0]}"
             )
-    if provider_id == "tabf_cert":
-        stage_id = NOT_APPLICABLE if tabf_context is not None else "unknown"
     if provider_id == "ipas_cert":
         stage_id = NOT_APPLICABLE if ipas_context is not None else "unknown"
     if provider_id == "moea_recruit":
@@ -2371,7 +2293,7 @@ def _classify_paper_uncached(
             bundle_name += f"｜{stage_label}"
     else:
         bundle_name = _display(canonical_name, track_label)
-        if provider_id in {"sfi_cert", "ipas_cert", "tabf_cert"}:
+        if provider_id in {"sfi_cert", "ipas_cert"}:
             bundle_name = track_label
         if provider_id in {"tqc_cert", "hakka_cert", "gept_cert", "post_recruit"}:
             bundle_name = series_label
@@ -2426,7 +2348,6 @@ def _classify_paper_uncached(
             "gept_cert",
             "sfi_cert",
             "ipas_cert",
-            "tabf_cert",
             "tocfl_cert",
         }:
             for _variant_id, label in variant_pairs:
@@ -2585,9 +2506,6 @@ def public_facets(identity: ExamIdentity) -> dict[str, str]:
         exam_subclass = identity.series_label
     elif identity.domain_id == "teacher":
         exam_class = "教師考試"
-        exam_subclass = identity.series_label
-    elif identity.exam_series_id == "financial-aptitude":
-        exam_class = "就業能力測驗"
         exam_subclass = identity.series_label
     elif identity.domain_id == "employment":
         exam_class = "國營／就業甄試"

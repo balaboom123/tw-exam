@@ -28,14 +28,13 @@ runs by manual dispatch, writes no public mirror backup, and stays withheld
 from the site. An existing working cache may still be restored, so a run is
 not guaranteed to fetch every source file again.
 
-JLPT's retained official workbooks include third-party text and listening audio
-that its [workbook notice](https://www.jlpt.jp/samples/sampleindex.html) and
-[site policy](https://www.jlpt.jp/policy.html) restrict separately. Its source
-inventory records a redistribution hold. The adapter therefore prohibits
-public mirror backup creation, and the certification workflow retains
-acquisition without publishing site ZIPs or public backup snapshots. Recovery
-requires the retained working mirror or a verified local snapshot while that
-hold remains unresolved.
+JLPT, the Taiwan Insurance Institute (TII) and the Taiwan Academy of Banking
+and Finance (TABF) are private bodies whose papers the exemption above does
+not cover. JLPT's [site policy](https://www.jlpt.jp/policy.html) and TII's
+copyright notice restrict republication, and no TABF grant was established, so
+this project neither acquires nor publishes their papers (maintainer decision,
+2026-11-08). Chunghwa Post's recruitment papers, which TABF administers for
+the Post, belong to a separate provider and are not affected by this decision.
 
 TOCFL's mirror holds the official listening-audio packages of a provider that
 is withheld from the site. Its adapter likewise prohibits public mirror backup

@@ -160,7 +160,7 @@ class CatalogAuditTests(unittest.TestCase):
 
             report = build_catalog_audit(root)
 
-            self.assertEqual(report["provider_count"], 35)
+            self.assertEqual(report["provider_count"], 32)
             self.assertEqual(report["paper_records_scanned"], 3)
             self.assertEqual(report["records_with_identity"], 3)
             self.assertTrue(report["all_records_covered"])

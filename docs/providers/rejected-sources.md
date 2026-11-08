@@ -18,6 +18,9 @@ These investigated sources are not registered providers. Promotion to a provider
 | `icap` | intentionally_out_of_scope | unknown | Competency standards and resource platform | Intentionally out of scope; available range: Resource years, not exam years; local coverage: None |
 | ↳ official source |  |  |  | [https://icap.wda.gov.tw/](https://icap.wda.gov.tw/) |
 | ↳ restriction |  |  |  | Official resources are not an exam-paper archive. Add only if non-paper competency-resource bundles become an explicit product requirement. |
+| `jlpt` | intentionally_out_of_scope | 2012–2018 | JLPT official sample workbook and listening materials | Intentionally excluded: the rights holder's terms do not permit republication |
+| ↳ official source |  |  |  | [https://www.jlpt.jp/e/samples/sampleindex.html](https://www.jlpt.jp/e/samples/sampleindex.html) |
+| ↳ restriction |  |  |  | JLPT's copyright policy requires authorization for wider use and separately restricts third-party N1/N2 passages and all N1-N5 listening audio. Maintainer decision 2026-11-08: not acquired or published; earlier mirrored files were deleted. |
 | `k-12-teacher-selection-portal` | intentionally_out_of_scope | unknown | National teacher openings/announcements | Intentionally excluded; available range: No paper archive; local coverage: None |
 | ↳ official source |  |  |  | [https://personnel.k12ea.gov.tw/tsn/](https://personnel.k12ea.gov.tw/tsn/) |
 | ↳ restriction |  |  |  | Official portal exposes vacancies/news rather than downloadable past papers. |
@@ -29,9 +32,15 @@ These investigated sources are not registered providers. Promotion to a provider
 | `shuati-coverage-reference` | intentionally_out_of_scope | unknown | Third-party coverage index | Intentionally out of scope as a source; available range: Not an official source; local coverage: None |
 | ↳ official source |  |  |  | [https://www.shuati.tw/exams](https://www.shuati.tw/exams) |
 | ↳ restriction |  |  |  | Used only as a discovery checklist; the pipeline must not mirror third-party files. |
+| `tabf` | intentionally_out_of_scope | 2020–2026 | TABF financial qualifications and FIT employment-assessment historical papers | Intentionally excluded: the rights holder's terms do not permit republication |
+| ↳ official source |  |  |  | [https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424](https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424) |
+| ↳ restriction |  |  |  | No TABF exam-PDF redistribution permission is established. Maintainer decision 2026-11-08: not acquired or published; earlier mirrored files were deleted. Chunghwa Post's recruitment papers served from svc.tabf.org.tw are a separate provider (post_recruit). |
 | `taichung-keelung-hsinchu-teacher-sites` | intentionally_out_of_scope | unknown | Teacher recruitment provenance/watch sources | Intentionally not separate providers; available range: One current year; local coverage: Covered indirectly by Central Alliance provenance |
 | ↳ official source |  |  |  | [https://txg115-ts-e.twrecruit.com.tw/doubt.php](https://txg115-ts-e.twrecruit.com.tw/doubt.php)<br>[https://psexam.kl.edu.tw/Home/Index_Ann](https://psexam.kl.edu.tw/Home/Index_Ann)<br>[https://prsteacher.hcc.edu.tw/Module/Bulletin/Index.php](https://prsteacher.hcc.edu.tw/Module/Bulletin/Index.php) |
 | ↳ restriction |  |  |  | Their official notices point candidates to the Central Alliance paper site; annual vendor domains are not assumed to be historical archives. |
+| `tii` | intentionally_out_of_scope | 2018–2026 | Taiwan Insurance Institute certification papers and reviewed exam-family boundaries | Intentionally excluded: the rights holder's terms do not permit republication |
+| ↳ official source |  |  |  | [https://edu.tii.org.tw/exam/users/apply_exam/0](https://edu.tii.org.tw/exam/users/apply_exam/0)<br>[https://edu.tii.org.tw/exam/users/exam_message/1](https://edu.tii.org.tw/exam/users/exam_message/1)<br>[https://edu.tii.org.tw/exam/users/exam_message/58785](https://edu.tii.org.tw/exam/users/exam_message/58785)<br>[https://edu.tii.org.tw/exam/users/exam_message/58786](https://edu.tii.org.tw/exam/users/exam_message/58786)<br>[https://edu.tii.org.tw/home/mpage/downloadfiles](https://edu.tii.org.tw/home/mpage/downloadfiles)<br>[https://edu.tii.org.tw/exam/users/exam_message/2](https://edu.tii.org.tw/exam/users/exam_message/2) |
+| ↳ restriction |  |  |  | TII displays a copyright notice and grants no exam-paper republication. Maintainer decision 2026-11-08: not acquired or published; earlier mirrored files were deleted. |
 | `topik` | blocked | unknown | Korean-language proficiency exam | Blocked; available range: Browser practice/current flows; no stable paper range established; local coverage: None |
 | ↳ official source |  |  |  | [https://www.topik.go.kr/](https://www.topik.go.kr/) |
 | ↳ restriction |  |  |  | Repository source proof found streamed/browser practice but no stable direct downloadable PDF/past-paper archive. |

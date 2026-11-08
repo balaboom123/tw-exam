@@ -334,49 +334,6 @@ has been established, so the corrected source state remains excluded from site
 ZIP publication. Source capture and the existing backup policy are separate
 from this publication disposition.
 
-## `jlpt_cert`
-
-Use official JLPT sample-question sets as samples, preserving their source role. They must not be presented as a complete year-by-year archive or assigned unsupported event years.
-
-The workbook's 聴解スクリプト files are listening transcripts. They are distinct
-from question papers and listening audio; correcting a retained role preserves
-the earlier source reference and verified payload in the provider revision journal.
-
-The [official workbook page](https://www.jlpt.jp/samples/sampleindex.html)
-identifies the retained years as publication editions assembled from earlier
-test questions. It separately restricts reproduction of attributed N1/N2 text
-and all N1–N5 listening audio. The [official policy](https://www.jlpt.jp/policy.html)
-permits specified uses with attribution but requires separate permission for
-the third-party material. These pages were rechecked on 2026-10-07. The source
-inventory's recorded redistribution hold applies to the site's ZIPs; the
-publication quarantine enforces that hold while preserving source history.
-Restoring publication requires evidence covering the included material and a
-projection that distinguishes workbook editions from administered events.
-
-The adapter records workbook material with `edition_year` facts from the
-listing's edition sections. An audio URL containing another year does not
-override its workbook edition. Discovery and fetching share one listing
-snapshot per client; an absent edition or mismatched event key is rejected.
-
-Each download must agree with its native table row's proficiency level and
-the workbook's edition heading. Supported question parts, blank answer sheets,
-answer keys, transcripts and numbered audio tasks have explicit roles and
-formats. Unknown filenames or missing/duplicated edition headings stop discovery
-for review. A shared URL can apply to both explicitly listed workbook editions;
-deduplicate repeated links within an edition while preserving both edition
-references. Unsupported or conflicting level markers remain unresolved rather
-than selecting the first numeral or treating `N10` as `N1`.
-
-Checksum-bound native observations in the provider manifest corroborate the
-retained corpus. Original sample covers keep their printed timing and page
-instructions; these examples do not establish today's administration format.
-The native review used retained payloads and a current official HTML listing;
-it does not claim fresh remote payload bytes, full answer correctness or a
-semantic listen-through of every recording. The dated robots observation names
-restricted agents, including GPTBot and ChatGPT-User. It does not change the
-repository's existing acquisition or durable-backup policy, and the
-redistribution hold remains in force.
-
 ## `moea_recruit`
 
 A MOEA recruitment provider must be supported by MOEA-owned recruitment identity and source material. Taipower records cannot stand in for MOEA records even when the subject matter or filenames look compatible.
@@ -609,46 +566,6 @@ role as `corrected_answer`. A different payload at a reviewed slot requires a ne
 native review. Preserve previous role records through the source-revision writer;
 the evidence does not reconstruct an unavailable earlier answer version or infer
 scoring rules from the words 無標準答案.
-
-## `tabf_cert`
-
-Use official TABF category and event rows and their linked artifacts. A PHID or other page key is not a cross-year identity unless the official category and event context also agrees.
-
-The [official programme rules](https://www.tabf.org.tw/License.aspx) distinguish
-initial and advanced lending grades, full trust qualification from the
-trust-law-only route, and general-finance from consumer-finance internal
-control. The law-only route requires an existing qualifying securities
-credential. Shared law questions can legitimately serve both qualification
-contexts; identical bytes do not merge their identities. `基本`, `基礎` and
-the senior-client population `高齡` do not establish a common grade ladder.
-Family trust and senior financial planning are divided into test sections
-(`分節不分科`); those sections are neither qualification levels nor successive
-selection stages.
-
-The [FIT FAQ](https://service.tabf.org.tw/fit/QA.aspx) and
-[score explanation](https://service.tabf.org.tw/fit/AboutScore.aspx) describe a
-banking employment assessment with independently selectable modules, no pass
-threshold and no qualification certificate. Its performance bands are score
-interpretation, not separately administered examination grades. Retained early
-FIT editions are actual historical papers with reviewed native years; their
-continued reference availability does not turn them into current-year samples.
-
-The [reviewed native contexts](../../catalog/mappings/tabf/native-papers-v1.json)
-bind each programme, round, URL and full checksum to native headings, subject
-or section scope, file role and answer-objection year. Calendars and handbooks
-corroborate dates where available. The advanced lending round supported only by
-its native answer-period year makes no claim about an exact examination day.
-Capture years, document ordering and upload timestamps do not establish event
-identity. Earlier source dictionaries remain unchanged in the revision journal;
-history audits expose their independently reviewed native contexts.
-
-New events, changed categories, links or bytes require review before acquisition
-or classification. Use the HTML/local-mirror capture procedure in the
-[recovery guide](../operations/recovery.md) to inspect them without automatically
-fetching restricted examination PDFs. The observed current listing has native review coverage;
-the source inventory and discovery manifest retain the partial historical
-coverage disposition and distinguish verified retained bytes from fresh downloads. The asset-host robots restriction and
-unresolved republication permission continue to withhold public publication.
 
 ## `taigi_cert`
 
@@ -950,25 +867,6 @@ Use the official Taipei junior-high teacher-recruitment source for its events an
 ## `teacher_recruit_taoyuan_elementary`
 
 Use the official Taoyuan elementary teacher-recruitment source and its linked papers. Preserve elementary scope and official event identity.
-
-## `tii_cert`
-
-Use official Taiwan Insurance Institute examination pages and administered paper material. Annual reports, product brochures, and other institute publications are not exam questions.
-
-Read dated anchors only from historical-paper rows. Preserve separate sections,
-morning/afternoon papers and corrected answers; a revision date does not change
-the examination date. For the official history ZIP, retain the original package
-and use its exact member paths as provenance for extracted papers. Discovery
-must use those listings, rather than the first download on an introduction page.
-
-The source omits a TLS intermediate. The adapter supplies the issuer's
-[2023 G3 certificate](https://www.twca.com.tw/upload/saveArea/filePage/20240327/9a2b62d266824935ac33759f90cd1e23/9a2b62d266824935ac33759f90cd1e23.pdf)
-while retaining system roots, complete-chain validation and hostname checking.
-Do not bypass certificate verification when the source rotates its certificate.
-
-The reviewed redistribution hold remains separate from acquisition correctness.
-It applies to public mirror releases as well as site bundles. Keep verified local
-mirrors and source revisions for recovery until a republication grant is established.
 
 ## `tocfl_cert`
 

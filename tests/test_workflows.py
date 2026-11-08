@@ -1705,7 +1705,7 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(caller["jobs"]["sync"]["with"]["enabled"],
                          "${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}")
         self.assertIn("schedule", caller["on"])
-        self.assertEqual(len(rows), 10)
+        self.assertEqual(len(rows), 7)
 
     def test_admissions_recovery_selector_leaves_the_scheduled_matrix_intact(self) -> None:
         caller = self.workflows["sync-admissions.yml"]
@@ -1814,7 +1814,7 @@ class HakkaPrivateMirrorTests(unittest.TestCase):
         self.assertIs(cpc['durable_snapshot'], False)
         self.assertIn('schedule', weekly['on'])
 
-    def test_jlpt_keeps_acquisition_without_site_or_public_backup_publication(self) -> None:
+    def test_certifications_keep_acquisition_without_public_backup_where_prohibited(self) -> None:
         from app.providers.registry import get_provider
         weekly = _workflow((REPO_ROOT / '.github/workflows/sync-certifications.yml').read_text())
         job = weekly['jobs']['sync']
@@ -1824,15 +1824,11 @@ class HakkaPrivateMirrorTests(unittest.TestCase):
             with self.subTest(provider=row['provider_id']):
                 allowed = getattr(get_provider(row['provider_id']), 'public_mirror_backup_allowed', True)
                 self.assertIs(row['durable_snapshot'], allowed)
-        jlpt = next(row for row in rows if row['provider_id'] == 'jlpt_cert')
-        self.assertIs(jlpt['publish'], False)
-        self.assertIs(jlpt['durable_snapshot'], False)
         gept = next(row for row in rows if row['provider_id'] == 'gept_cert')
         self.assertIs(gept['publish'], False)
         self.assertIs(gept['durable_snapshot'], False)
-        tii = next(row for row in rows if row['provider_id'] == 'tii_cert')
-        self.assertIs(tii['publish'], False)
-        self.assertIs(tii['durable_snapshot'], False)
+        tocfl = next(row for row in rows if row['provider_id'] == 'tocfl_cert')
+        self.assertIs(tocfl['durable_snapshot'], False)
         self.assertIn('schedule', weekly['on'])
 
     def test_hakka_is_manual_only_and_never_writes_a_public_snapshot(self) -> None:

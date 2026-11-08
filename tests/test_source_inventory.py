@@ -148,9 +148,9 @@ class SourceInventoryTests(unittest.TestCase):
     def test_current_inventory_covers_default_registry_and_matches_local_state(self) -> None:
         report = _checked_in_inventory_report()
 
-        self.assertEqual(report["provider_count"], 35)
-        self.assertEqual(report["candidate_count"], 10)
-        self.assertEqual(report["discovery_manifests_present"], 34)
+        self.assertEqual(report["provider_count"], 32)
+        self.assertEqual(report["candidate_count"], 13)
+        self.assertEqual(report["discovery_manifests_present"], 31)
         self.assertEqual(report["discovery_manifests_missing"], [])
         self.assertEqual(report["discovery_manifests_blocked"], ["teacher_recruit_kaohsiung"])
         self.assertEqual(
@@ -160,7 +160,6 @@ class SourceInventoryTests(unittest.TestCase):
                 "taisugar_recruit",
                 "wdasec_skill",
                 "sfi_cert",
-                "tabf_cert",
                 "gept_cert",
                 "tocfl_cert",
                 "hakka_cert",
@@ -660,76 +659,6 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertNotIn("twc-recruit-107", receipts)
         self.assertIn("twc-recruit-115", receipts)
 
-    def test_tabf_manifest_matches_native_contexts_and_conserved_history(self) -> None:
-        from app.paths import provider_paths
-        from app.provenance import load_sync_status
-        from app.providers.tabf_cert.evidence import validate_native_papers
-        from app.source_revisions import load_source_revisions
-        from app.state import load_provider_state
-
-        provider = provider_paths(ROOT, "tabf_cert")
-        manifest = json.loads(provider.source_manifest_path.read_text())
-        pages, catalog, failures = load_provider_state(provider)
-        self.assertEqual(sorted(map(int, manifest["years"])), [2020, 2023, 2024, 2025, 2026])
-        self.assertEqual((len(pages), len(catalog.papers), len(failures)), (58, 146, 0))
-        self.assertEqual((len(manifest["exams"]), len(manifest["files"])), (58, 146))
-        policy = manifest["probe_policy"]
-        audit = policy["source_audit"]
-        self.assertEqual(audit["coverage"], "partial")
-        self.assertEqual(audit["current_native_categories"], 19)
-        self.assertEqual(audit["current_native_events"], 51)
-        self.assertEqual(audit["current_document_links"], 129)
-        self.assertEqual(len(audit["current_unreviewed_native_events"]), 0)
-        self.assertEqual(sum(len(e["document_links"]) for e in audit["current_unreviewed_native_events"]), 0)
-        self.assertEqual(audit["source_asset_requests"], 0)
-        self.assertEqual(len(audit["concurrent_same_reference_label_observations"]), 4)
-        self.assertEqual(len(load_source_revisions(provider)), 280)
-        self.assertLessEqual(set(load_sync_status(provider)), set(manifest["exams"]))
-        self.assertEqual(validate_native_papers(ROOT)["native_source_anchors"], 146)
-        self.assertEqual(
-            policy["legal_and_technical"]["automated_mirroring_status"],
-            "blocked_pending_robots_policy_decision_or_written_permission",
-        )
-
-    def test_tii_manifest_matches_dated_papers_and_conserved_history(self) -> None:
-        manifest = json.loads(
-            (ROOT / "data/providers/tii_cert/source-manifest.json").read_text(encoding="utf-8")
-        )
-        self.assertEqual(sorted(map(int, manifest["years"])), list(range(2018, 2027)))
-        self.assertEqual(len(manifest["exams"]), 16)
-        self.assertEqual(len(manifest["files"]), 38)
-        policy = manifest["probe_policy"]
-        self.assertEqual(policy["coverage_status"], "complete")
-        self.assertEqual(policy["official_paper_family_count"], 3)
-        self.assertEqual(policy["official_event_count"], 16)
-        self.assertEqual(policy["official_listed_file_count"], 38)
-        self.assertEqual(policy["direct_urls_not_enumerated"], 0)
-        self.assertEqual(policy["historical_archive"]["status"], "verified_and_retained")
-        self.assertEqual(policy["historical_archive"]["paper_count"], 14)
-        self.assertEqual(policy["legal_and_technical"]["tls_status"], "verified_full_chain_to_system_root")
-        retained = policy["retained_local_state"]
-        self.assertEqual(retained["mirrors_present_and_checksum_valid"], 38)
-        self.assertEqual(retained["current_listed_files_under_correct_identity"], 38)
-        self.assertEqual(retained["current_local_files_not_in_paper_listing"], 0)
-        self.assertEqual(retained["official_listed_files_source_only"], 0)
-        self.assertEqual(retained["source_only_events"], [])
-        self.assertEqual(retained["local_only_events"], [])
-        self.assertEqual({item["status"] for item in manifest["files"].values()}, {"retained_under_correct_identity"})
-        self.assertEqual(policy["publication_risk"]["published_non_paper_files_as_question"], 0)
-        self.assertFalse(policy["publication_risk"]["public_mirror_backup_allowed"])
-        papers = [paper for path in (ROOT / "data/providers/tii_cert/papers").glob("*.json")
-                  for paper in json.loads(path.read_text(encoding="utf-8"))]
-        self.assertEqual({(f["source_exam_id"], f["subject_code"], f["file_type"], f["checksum"])
-                          for f in manifest["files"].values()},
-                         {(p["source_exam_id"], p["subject_code"], p["file_type"], p["checksum"])
-                          for p in papers})
-        self.assertNotIn("https://edu.tii.org.tw/exam/users/message_download/665",
-                         {p["download_url_source"] for p in papers})
-        revisions = json.loads((ROOT / "data/providers/tii_cert/source-revisions.json").read_text())
-        self.assertIn("https://edu.tii.org.tw/exam/users/message_download/665",
-                      {r["source_record"]["download_url_source"] for r in revisions["revisions"]})
-
-
     def test_gept_manifest_matches_native_roles_undated_material_and_retained_failures(self) -> None:
         manifest = json.loads(
             (ROOT / "data/providers/gept_cert/source-manifest.json").read_text(encoding="utf-8")
@@ -763,29 +692,6 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(len(load_source_revisions(provider)), 68)
         self.assertEqual({paper.source_material.date.basis for paper in catalog.papers}, {"undated"})
         self.assertEqual(len({paper.bundle_id for paper in catalog.papers}), 10)
-
-    def test_jlpt_manifest_bounds_exact_workbook_scope_and_rights_blocker(self) -> None:
-        manifest = json.loads(
-            (ROOT / "data/providers/jlpt_cert/source-manifest.json").read_text(
-                encoding="utf-8"
-            )
-        )
-        self.assertEqual(sorted(map(int, manifest["years"])), [2012, 2018])
-        self.assertEqual(len(manifest["exams"]), 2)
-        policy = manifest["probe_policy"]
-        self.assertEqual(policy["official_listed_file_count"], 116)
-        self.assertEqual(policy["official_unique_url_count"], 116)
-        historical = policy["initial_capture_retained_state_evidence"]
-        self.assertEqual(historical["captured_at"], policy["captured_at"])
-        self.assertEqual(historical["retained_local_state"]["unreferenced_mirror_files"], 116)
-        self.assertNotIn("retained_local_state", policy)
-        current = policy["retained_state_recheck"]
-        self.assertEqual(current["current_payloads_sha256_verified"], policy["official_unique_url_count"])
-        self.assertIn("practice_collection", current["material_classification"])
-        self.assertEqual(
-            policy["legal_and_technical"]["redistribution_status"],
-            "operator_or_legal_review_required",
-        )
 
     def test_tocfl_manifest_separates_native_bank_scope_from_capture_year(self) -> None:
         from app.paths import provider_paths

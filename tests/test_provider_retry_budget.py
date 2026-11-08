@@ -4,12 +4,11 @@ from urllib.error import URLError
 import pytest
 
 from app.providers.http import Http
-from app.providers.tii_cert.client import TiiCertClient
 from app.providers.wdasec_skill.client import WdasecSkillClient
 from app.sync import retry_network
 
 
-@pytest.mark.parametrize("client_type", [TiiCertClient, WdasecSkillClient])
+@pytest.mark.parametrize("client_type", [WdasecSkillClient])
 def test_sync_retry_budget_is_not_multiplied_by_transport(client_type):
     client = client_type()
     with (

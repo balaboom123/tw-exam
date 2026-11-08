@@ -39,8 +39,7 @@
     {"series": "civil-ordinary", "level": "ordinary", "track": "general-administration", "bundle_id": "moex-civil-ordinary-ordinary-general-administration"},
     {"series": "civil-elementary", "level": "elementary", "track": "general-administration", "bundle_id": "moex-civil-elementary-elementary-general-administration"},
     {"series": "special-local-government", "level": "grade-4", "track": "general-administration", "bundle_id": "moex-special-local-government-grade-4-general-administration"},
-    {"series": "language-gept", "level": "intermediate", "track": "gept", "bundle_id": "gept-cert-language-gept-intermediate-gept"},
-    {"series": "language-jlpt", "level": "n1", "track": "jlpt", "bundle_id": "jlpt-cert-language-jlpt-n1-jlpt"}
+    {"series": "language-gept", "level": "intermediate", "track": "gept", "bundle_id": "gept-cert-language-gept-intermediate-gept"}
   ],
   "change_control": {
     "rule_owner": "app/classification.py plus catalog/mappings",

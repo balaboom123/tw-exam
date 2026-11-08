@@ -15,7 +15,6 @@ from app.providers.http import Http, ad, links, roc
 from app.providers.post_recruit.client import PostRecruitClient
 from app.providers.sfi_cert.client import SfiCertClient
 from app.providers.special_admission.client import SpecialAdmissionClient
-from app.providers.tabf_cert.client import TabfCertClient
 from app.providers.taigi_cert.client import TaigiCertClient
 from app.providers.taisugar_recruit.client import TaisugarRecruitClient
 from app.providers.tcte_tve.client import TcteTveClient
@@ -26,7 +25,6 @@ from app.providers.teacher_recruit_tainan.client import TainanTeacherRecruitClie
 from app.providers.teacher_recruit_taipei_elementary.client import TaipeiElementaryRecruitClient
 from app.providers.teacher_recruit_taipei_junior.client import TaipeiJuniorRecruitClient
 from app.providers.teacher_recruit_taoyuan_elementary.client import TaoyuanElementaryRecruitClient
-from app.providers.tii_cert.client import TiiCertClient
 from app.providers.tocfl_cert.client import TocflCertClient
 from app.providers.tqc_cert.client import TqcCertClient
 from app.providers.twc_recruit.client import TwcRecruitClient
@@ -80,7 +78,7 @@ class ProviderHttpTests(unittest.TestCase):
 
     def test_source_filename_decoding_survives_shared_download(self) -> None:
         url = "https://example.test/files/download"
-        for client_type in (CpcRecruitClient, TiiCertClient):
+        for client_type in (CpcRecruitClient,):
             with self.subTest(client=client_type.__name__):
                 response = Response(b"pdf", headers={
                     "Content-Disposition": 'attachment; filename="paper%20%26amp%3B%20answer.pdf"',
@@ -219,29 +217,6 @@ class ProviderHttpTests(unittest.TestCase):
                 self.assertEqual(payload.data, body)
                 self.assertEqual(payload.file_name, "8000_description_202204.pdf")
                 self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
-
-    def test_tabf_transport_preserves_headers_and_native_filename_with_reviewed_bytes(self) -> None:
-        from app.providers.tabf_cert.evidence import NativeEvidence, native_evidence
-
-        native = native_evidence()
-        paper = native.papers[0]
-        body = b"%PDF-1.7 native transport fixture"
-        reviewed = NativeEvidence(native.events, (replace(paper, checksum=hashlib.sha256(body).hexdigest()),))
-        client = TabfCertClient()
-        with patch("app.providers.http.urlopen", return_value=Response(b"hello")) as open_url:
-            self.assertEqual(client._fetch_text("https://www.tabf.org.tw/LicenseHistoryExam.aspx?PHID=424"), "hello")
-            self.assertEqual(open_url.call_args.args[0].get_method(), "GET")
-            self.assertIn("mirror/1.0", open_url.call_args.args[0].get_header("User-agent"))
-            self.assertEqual(open_url.call_args.kwargs["timeout"], 60)
-        with patch("app.providers.http.urlopen", return_value=Response(b"", headers={"Content-Length": "12"})) as open_url:
-            self.assertEqual(client.head(paper.source_url).content_length, 12)
-            self.assertEqual(open_url.call_args.args[0].get_method(), "HEAD")
-        response = Response(body, headers={"Content-Type": "application/pdf", "Content-Disposition": 'attachment; filename="wrong.pdf"'})
-        with patch("app.providers.tabf_cert.client.native_evidence", return_value=reviewed), patch("app.providers.http.urlopen", return_value=response) as open_url:
-            downloaded = client.download_file(paper.source_url)
-            self.assertEqual(downloaded.data, body)
-            self.assertEqual(downloaded.file_name, paper.source_url.rsplit("/", 1)[-1])
-            self.assertEqual(open_url.call_args.kwargs["timeout"], 120)
 
     def test_twc_transport_keeps_download_url_guard(self) -> None:
         client = TwcRecruitClient()

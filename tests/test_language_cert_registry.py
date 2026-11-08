@@ -15,11 +15,6 @@ class LanguageCertRegistryTests(unittest.TestCase):
         self.assertIsInstance(provider, SourceProvider)
         self.assertEqual(provider.provider_id, "taigi_cert")
 
-    def test_jlpt_cert_registered(self) -> None:
-        provider = get_provider("jlpt_cert")
-        self.assertIsInstance(provider, SourceProvider)
-        self.assertEqual(provider.provider_id, "jlpt_cert")
-
 
 if __name__ == "__main__":
     unittest.main()

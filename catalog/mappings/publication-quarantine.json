@@ -42,15 +42,6 @@
       "review_by": "2026-11-21"
     },
     {
-      "provider_id": "jlpt_cert",
-      "site_id": "default",
-      "status": "redistribution_unresolved",
-      "reason": "The retained 2012/2018 official practice workbooks now carry explicit practice-collection and edition-year facts, with listening transcripts classified separately. The official third-party restriction still covers N1/N2 attributed passages and all N1-N5 listening audio; no permission covering their archive republication has been established.",
-      "evidence_path": "catalog/source-inventory.json",
-      "spec_path": "docs/providers/notes.md#jlpt_cert",
-      "review_by": "2026-11-01"
-    },
-    {
       "provider_id": "moea_recruit",
       "site_id": "default",
       "status": "wrong_identity",
@@ -69,15 +60,6 @@
       "review_by": "2026-11-21"
     },
     {
-      "provider_id": "tabf_cert",
-      "site_id": "default",
-      "status": "redistribution_unresolved",
-      "reason": "Retained native identities, event years, roles, qualification variants and FIT modules are reviewed and corrected, with all earlier source records conserved. Public publication remains withheld because exam-PDF redistribution permission and the /BEExam robots policy remain unresolved.",
-      "evidence_path": "data/providers/tabf_cert/source-manifest.json",
-      "spec_path": "docs/providers/notes.md#tabf_cert",
-      "review_by": "2026-11-01"
-    },
-    {
       "provider_id": "taigi_cert",
       "site_id": "default",
       "status": "redistribution_unresolved",
@@ -94,15 +76,6 @@
       "evidence_path": "data/providers/taisugar_recruit/source-manifest.json",
       "spec_path": "docs/providers/notes.md#taisugar_recruit",
       "review_by": "2026-11-03"
-    },
-    {
-      "provider_id": "tii_cert",
-      "site_id": "default",
-      "status": "redistribution_unresolved",
-      "reason": "The administered-paper adapter now separates dated events, sections, corrected answers and historical ZIP members, and retires the brochure from current papers. TII displays a copyright notice and no exam-PDF republication grant has been established; keep site bundles and public mirror backups withheld until the existing redistribution review is resolved.",
-      "evidence_path": "data/providers/tii_cert/source-manifest.json",
-      "spec_path": "docs/providers/notes.md#tii_cert",
-      "review_by": "2026-11-01"
     },
     {
       "provider_id": "tocfl_cert",

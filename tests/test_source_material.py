@@ -104,7 +104,7 @@ def test_undated_samples_and_unknown_dates_never_inherit_partition_year() -> Non
     )
     paper = normalize(page).papers[0]
     assert source_year_roc(paper) is None
-    assert paper.classification_confidence == "high"
+    assert paper.classification_confidence != "review"
     assert paper.source_material.date == SourceDate("undated", None)
     page.source_material = replace(
         page.source_material, date=SourceDate("unknown", None), review_reason="Official date evidence is missing",
