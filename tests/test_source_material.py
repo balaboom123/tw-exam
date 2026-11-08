@@ -235,3 +235,15 @@ def test_unreviewed_material_is_withheld_from_the_public_projection() -> None:
     assert withhold_unreviewed_materials(combined.papers) == reviewed.papers
     assert public_bundle_ids(combined) == public_bundle_ids(reviewed)
     assert public_bundle_ids(unresolved) == set()
+
+
+def test_index_eligibility_withholds_material_awaiting_review(tmp_path) -> None:
+    from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
+    from app.paths import provider_paths
+    from app.provider_index import build_provider_index
+
+    reviewed = normalize(workbook_page())
+    combined = NormalizedCatalog(reviewed.papers + unresolved_catalog().papers, [])
+    index = build_provider_index(provider_paths(tmp_path, "jlpt_cert"), [], combined.papers)
+    assert public_bundle_ids_from_indexes([index]) == public_bundle_ids(combined)
+    assert public_bundle_ids_from_indexes([index]) == public_bundle_ids(reviewed)
