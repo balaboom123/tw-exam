@@ -359,12 +359,12 @@ def snapshot_existing_downloads(
     return sorted(by_name.values(), key=lambda download: download.asset_name)
 
 
-def _reviewed_role_history(
+def _reviewed_source_history(
     repo_root: Path,
     providers: set[str],
     current: dict[tuple[Any, ...], list[NormalizedPaper]],
 ) -> dict[tuple[Any, ...], list[NormalizedPaper]]:
-    """Use the normalizer's approved role correction on immutable source history."""
+    """Follow exact reviewed role or category changes on immutable source history."""
     from app.bundler import _paper_bundle_key
     from app.models import NormalizedCatalog
     from app.normalizer import load_alias_rules, renormalize_catalog
@@ -380,6 +380,14 @@ def _reviewed_role_history(
             previous = NormalizedPaper(**entry["source_record"])
             old_key = (provider_id, *_paper_bundle_key(previous), previous.checksum)
             if old_key in current:
+                continue
+            if provider_id == "teacher_recruit_taoyuan_elementary":
+                from app.providers.teacher_recruit_taoyuan_elementary.evidence import (
+                    legacy_category_targets,
+                )
+
+                candidates = (paper for rows in current.values() for paper in rows)
+                aliases[old_key].extend(legacy_category_targets(previous, candidates))
                 continue
             normalized = renormalize_catalog(NormalizedCatalog([previous], []), rules).papers[0]
             if (
@@ -426,8 +434,9 @@ def derive_compatibility_pages(
     for paper in papers:
         if paper.provider_id in owners:
             by_source[(paper.provider_id, *_paper_bundle_key(paper), paper.checksum)].append(paper)
-    for key, role_targets in _reviewed_role_history(repo_root, owners, by_source).items():
-        by_source[key].extend(role_targets)
+    for key, targets in _reviewed_source_history(repo_root, owners, by_source).items():
+        if targets:
+            by_source[key].extend(targets)
     recorded = load_retained_sources(site)
     pages = []
     for download in downloads:

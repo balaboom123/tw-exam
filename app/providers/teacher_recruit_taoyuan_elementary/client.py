@@ -11,10 +11,10 @@ from urllib.parse import quote, unquote, unquote_plus, urljoin, urlparse, urlspl
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.teacher_recruit_taoyuan_elementary.evidence import CANONICAL_CATEGORY
 
 ANSWER_URL = "https://elementary.tyc.edu.tw/web/answer.aspx?openExternalBrowser=1"
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taoyuan-elementary-mirror/1.0)"
-CANONICAL_CATEGORY = "桃園市國小教師甄試"
 SKIP_TOKENS = ("疑義", "釋疑", "成績", "錄取", "試場", "分配", "簡章")
 
 
@@ -94,7 +94,11 @@ def parse_answer_page(page_url: str, html: str) -> list[TaoyuanPaper]:
         if file_type is None or "download_file.aspx" not in href:
             continue
         subject_name = _subject_name(label)
-        by_subject.setdefault(subject_name, {}).setdefault(file_type, urljoin(page_url, href))
+        downloads = by_subject.setdefault(subject_name, {})
+        url = urljoin(page_url, href)
+        if file_type in downloads and downloads[file_type] != url:
+            raise ValueError("Conflicting Taoyuan source URLs for one subject and file role")
+        downloads[file_type] = url
     return [
         TaoyuanPaper(
             subject_name=subject_name, subject_code=_subject_code(subject_name), downloads=downloads
@@ -136,7 +140,7 @@ class TaoyuanElementaryRecruitClient:
                 code=f"teacher-recruit-taoyuan-elementary-{year_roc}",
                 year_ad=year_ad,
                 year_roc=year_roc,
-                label=f"{year_roc}學年度{CANONICAL_CATEGORY}",
+                label=f"{year_roc}年度{CANONICAL_CATEGORY}",
             )
         ]
 
@@ -150,6 +154,9 @@ class TaoyuanElementaryRecruitClient:
         return ANSWER_URL
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
+        self.build_discovery_exam_url(exam_code, year_ad)
+        if self.discover_available_years() != [year_ad]:
+            raise ValueError("Taoyuan rolling source year changed; retain the previous event")
         year_roc = year_ad - 1911
         papers = [
             ParsedPaper(
@@ -165,7 +172,7 @@ class TaoyuanElementaryRecruitClient:
             source_exam_id=exam_code,
             year_ad=year_ad,
             year_roc=year_roc,
-            exam_name_raw=f"{year_roc}學年度{CANONICAL_CATEGORY}",
+            exam_name_raw=f"{year_roc}年度{CANONICAL_CATEGORY}",
             attachments=[],
             papers=papers,
             provider_id=self.provider_id,

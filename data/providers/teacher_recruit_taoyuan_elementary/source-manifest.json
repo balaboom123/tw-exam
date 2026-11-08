@@ -1,8 +1,8 @@
 {
   "exams": {
     "teacher-recruit-taoyuan-elementary-115": {
-      "discovered_at": "2026-07-29T21:05:22.525558+08:00",
-      "exam_label": "115學年度桃園市國小教師甄試",
+      "discovered_at": "2026-10-29T13:21:28.302839+00:00",
+      "exam_label": "115年度桃園市國小教師甄試",
       "result_url": "https://elementary.tyc.edu.tw/web/answer.aspx?openExternalBrowser=1",
       "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
       "year_ad": 2026,
@@ -12,13 +12,13 @@
   "files": {},
   "probe_policy": {
     "discovery_mode": "official-year-exam-listing",
-    "last_discovery_at": "2026-07-29T21:05:22.525558+08:00"
+    "last_discovery_at": "2026-10-29T13:21:28.302839+00:00"
   },
   "provider_id": "teacher_recruit_taoyuan_elementary",
   "schema_version": 1,
   "years": {
     "2026": {
-      "discovered_at": "2026-07-29T21:05:22.525558+08:00",
+      "discovered_at": "2026-10-29T13:21:28.302839+00:00",
       "exam_codes": [
         "teacher-recruit-taoyuan-elementary-115"
       ],

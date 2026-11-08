@@ -936,6 +936,11 @@ def validate_public_materials(
     from app.providers.post_recruit.evidence import validate_public_papers as validate_postal_papers
 
     validate_postal_papers(paper for records in grouped.values() for paper in records)
+    from app.providers.teacher_recruit_taoyuan_elementary.evidence import (
+        validate_public_papers as validate_taoyuan_papers,
+    )
+
+    validate_taoyuan_papers(paper for records in grouped.values() for paper in records)
     return {
         key: summary
         for key, records in grouped.items()

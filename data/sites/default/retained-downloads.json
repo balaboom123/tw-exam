@@ -237,6 +237,15 @@
       "retained_at": "2026-10-26T01:51:47.450250+00:00"
     },
     {
+      "provider_id": "teacher_recruit_taoyuan_elementary",
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip",
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip",
+      "checksum": "cad79fa7078a8ee12389bcabe4265210cb5591a9f03739641d1bd41b8ee87ec3",
+      "retained_at": "2026-11-08T13:34:58.230687+00:00"
+    },
+    {
       "provider_id": "wdasec_skill",
       "bundle_id": "wdasec-skill-skill-certification-class-a-skill-9dd0e2a8b616",
       "release_tag": "default-bundles-v2-011",

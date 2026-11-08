@@ -1558,11 +1558,12 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#teacher_recruit_taoyuan_elementary"
+        "docs/providers/notes.md#teacher_recruit_taoyuan_elementary",
+        "catalog/mappings/teacher-recruit-taoyuan-elementary/native-papers-v1.json"
       ],
       "exam_category": "Taoyuan elementary teacher joint recruitment",
       "local_state": {
-        "normalized_paper_records": 21,
+        "normalized_paper_records": 90,
         "raw_event_pages": 1,
         "sync_failures": 0
       },
@@ -1574,11 +1575,11 @@
       ],
       "provider_id": "teacher_recruit_taoyuan_elementary",
       "restrictions": [
-        "The 2026-07-29 official current-year snapshot has one event and 21 matching retained URLs across seven subjects. Direct question/suggested/final answer files are in scope; appeal, score/list, and venue material is skipped."
+        "The rolling answer listing may replace the retained annual event only after its complete native URL/checksum set and annual rule match reviewed evidence. Preserve suggested and final answers separately; keep appeal, score/list and venue material outside paper publication."
       ],
       "source_name": "桃園市國小教師聯合甄選",
       "status": "covered",
-      "status_reason": "Covered, current-year scope; source availability: Current 2026 scope; local coverage: 2026; 1 → 21"
+      "status_reason": "Covered current-year scope; native annual rules and all retained paper roles reviewed. Shared originals project to their distinct recruitment categories."
     },
     {
       "available_years": {

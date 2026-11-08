@@ -440,6 +440,12 @@ def load_site_catalog(
             from app.providers.post_recruit.evidence import validate_public_papers
 
             validate_public_papers(provider_catalog.papers, complete_history=True)
+        if provider_id == "teacher_recruit_taoyuan_elementary":
+            from app.providers.teacher_recruit_taoyuan_elementary.evidence import (
+                validate_public_papers as validate_taoyuan_papers,
+            )
+
+            validate_taoyuan_papers(provider_catalog.papers, complete_history=True)
         aggregated_papers.extend(withhold_unreviewed_materials(provider_catalog.papers))
         aggregated_review_queue.extend(provider_catalog.review_queue)
         failures.extend(provider_failures)

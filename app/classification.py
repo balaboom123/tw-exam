@@ -2088,6 +2088,40 @@ def _classify_paper_uncached(
             reason = (
                 "Reviewed postal native employment grade, job applicability and first written test"
             )
+    if provider_id == "teacher_recruit_taoyuan_elementary":
+        from app.providers.teacher_recruit_taoyuan_elementary.evidence import (
+            resolve_identity as resolve_taoyuan_identity,
+        )
+
+        taoyuan_identity = resolve_taoyuan_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            category_code=category_code,
+            category_raw=category,
+            exam_name_raw=exam_name,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+            source_material=source_material,
+        )
+        level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+        variant_pairs, variants = (), ()
+        if taoyuan_identity is None:
+            track_id, track_label = "taoyuan-elementary-unknown", "甄選類別待確認"
+            stage_id, confidence = "unknown", "review"
+            reason = (
+                "Taoyuan native category, written-paper applicability or annual rule needs review"
+            )
+        else:
+            taoyuan_exam, taoyuan_job, _taoyuan_paper = taoyuan_identity
+            track_id, track_label = taoyuan_job.track_id, taoyuan_job.label
+            stage_id, confidence = "stage-1", "high"
+            reason = (
+                "Reviewed native recruitment category and initial written test: "
+                f"{taoyuan_exam.rule_url}; "
+                "elementary school and language-certificate eligibility are not exam grades"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2340,6 +2374,9 @@ def _classify_paper_uncached(
                     bundle_name += f"｜{form_label}"
         if provider_id == "post_recruit":
             bundle_name += "｜第一試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+        if provider_id == "teacher_recruit_taoyuan_elementary":
+            bundle_name += f"｜{track_label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
             "wdasec_skill",
             "tqc_cert",

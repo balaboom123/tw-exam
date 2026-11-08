@@ -868,6 +868,23 @@ Use the official Taipei junior-high teacher-recruitment source for its events an
 
 Use the official Taoyuan elementary teacher-recruitment source and its linked papers. Preserve elementary scope and official event identity.
 
+The provider's native annual evidence owns recruitment categories, eligibility,
+written-paper applicability and source roles. Shared booklets serve several
+posts without merging those posts or duplicating their mirrored originals.
+Language certificates are eligibility criteria; booklet letters and elementary
+school scope do not define examination grades. Keep suggested and final keys
+as separate source versions even when their selected answers agree.
+
+The rolling answer page must match the reviewed annual listing and payloads
+before it replaces retained state. Acquire the complete annual rule alongside
+the papers, verify its checksum, and preserve earlier generic source references
+in immutable history. A future year or changed native file needs fresh review;
+it must not inherit another year's categories or initial written stage.
+
+Saved generic landing pages follow the reviewed original acquisition context
+to its applicable current categories. This navigation preserves the original
+ZIP URL and bytes; it does not infer successors from a checksum alone.
+
 ## `tocfl_cert`
 
 Keep the rolling TOCFL question bank separate from administered sittings and

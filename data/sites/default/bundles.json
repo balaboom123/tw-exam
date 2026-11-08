@@ -184016,51 +184016,738 @@
     },
     {
       "canonical_id": "teacher-recruit-taoyuan-elementary",
-      "canonical_name": "桃園市國小教師甄試",
+      "canonical_name": "桃園市國小教師甄試｜專任輔導教師（含合聘教師）｜初試（筆試）",
       "years": [
         115
       ],
-      "file_count": 21,
-      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip",
-      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip",
-      "release_tag": "default-bundles-v2-008",
-      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip",
-      "checksum": "cad79fa7078a8ee12389bcabe4265210cb5591a9f03739641d1bd41b8ee87ec3",
-      "schema_version": 2,
-      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary",
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-counseling-stage-1--a398dae26fb5.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-counseling-stage-1--a398dae26fb5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-counseling-stage-1--a398dae26fb5.zip",
+      "checksum": "250b2103aa1acc043dd466b070cfa33fda362eb6e2dc206335c10e018bec1b22",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-counseling-stage-1",
       "catalog_version": "exam-identity-v2",
       "domain_id": "teacher",
       "exam_family_id": "teacher-exam",
       "exam_series_id": "teacher-recruitment",
       "level_id": "not-applicable",
-      "track_id": "teacher-recruit-taoyuan-elementary",
+      "track_id": "taoyuan-elementary-counseling",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2",
-      "classification_confidence": "medium",
-      "classification_reason": "provider policy declares no level dimension",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
       "exam_class": "教師考試",
       "exam_subclass": "教師甄試",
       "search_aliases": [
         "教育B",
         "語文及輔導C",
+        "專任輔導教師（含合聘教師）",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "10",
+        "subject-00c96aed",
+        "subject-410aac8e"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班英語專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-english-stage-1--b3ed551a26d8.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-english-stage-1--b3ed551a26d8.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-english-stage-1--b3ed551a26d8.zip",
+      "checksum": "9085476bfb041e374f414fc6aa4f64e0bb779fccfff056e39fb2a7cd51bb58aa",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-english-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-english",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
         "語文B",
-        "教育D",
+        "教育A",
+        "普通班英語專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "06",
+        "subject-5a303dc9",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班一般教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-general-stage-1--e451eb366613.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-general-stage-1--e451eb366613.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-general-stage-1--e451eb366613.zip",
+      "checksum": "6caa435a17bd65ab1120871b5bfc1ee55e75084c3ab9f5204295c213dffc23c8",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-general-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-general",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
         "語文A",
         "教育A",
-        "教育C",
-        "115學年度桃園市國小教師甄試",
-        "115",
-        "subject-00c96aed",
-        "subject-410aac8e",
-        "subject-5a303dc9",
-        "subject-78a17ced",
+        "普通班一般教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "01",
         "subject-8b438d41",
-        "subject-c8b7921d",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜光華哈嘎灣原住民族實驗小學普通班一般教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-guanghua-hagawan-general-stage---b5bed0d2a8e2.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-guanghua-hagawan-general-stage---b5bed0d2a8e2.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-guanghua-hagawan-general-stage---b5bed0d2a8e2.zip",
+      "checksum": "422b69706ccec1838d6f81c233db79f9ec1003b15cdc8609e481196c9844e670",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-guanghua-hagawan-general-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-guanghua-hagawan-general",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "光華哈嘎灣原住民族實驗小學普通班一般教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "14",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班客語專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-hakka-stage-1--5d6162cb3f54.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-hakka-stage-1--5d6162cb3f54.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-hakka-stage-1--5d6162cb3f54.zip",
+      "checksum": "24d58c5fc10e81ee04d704e92520ecb65434c87d4d11db8d06fb0f0acb801032",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-hakka-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-hakka",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班客語專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "04",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜原住民重點學校普通班一般教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-focus-stage-1--b71725d2ddbb.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-focus-stage-1--b71725d2ddbb.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-focus-stage-1--b71725d2ddbb.zip",
+      "checksum": "9dea35c0d6a929a449f6c766c8ce592b02fe1688ccfed0c26c96085eb8a91209",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-focus-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-indigenous-focus",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "原住民重點學校普通班一般教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "02",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班原住民族語文專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-language-stage-1--6bf02772b3e1.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-language-stage-1--6bf02772b3e1.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-language-stage-1--6bf02772b3e1.zip",
+      "checksum": "39629e9043f402a509e11f53718942c7e68494f7728307843857b47b4dbf4918",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-indigenous-language-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-indigenous-language",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班原住民族語文專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "15",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜羅浮拉號原住民族實驗小學普通班一般教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-luofu-lahao-general-stage-1--8c8ae747f4b7.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-luofu-lahao-general-stage-1--8c8ae747f4b7.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-luofu-lahao-general-stage-1--8c8ae747f4b7.zip",
+      "checksum": "cef41b36ae3e83b3c7952b759604bab002b96e7ce2715a5fb450b504e0095d3b",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-luofu-lahao-general-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-luofu-lahao-general",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "羅浮拉號原住民族實驗小學普通班一般教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "13",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班閩南語專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-minnan-stage-1--a17b935ac8c5.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-minnan-stage-1--a17b935ac8c5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-minnan-stage-1--a17b935ac8c5.zip",
+      "checksum": "be46f0e28d06bb9e6cebed737354b72ce1936bd5f009c062863557466a43d739",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-minnan-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-minnan",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班閩南語專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "03",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班音樂專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-music-stage-1--34a595120107.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-music-stage-1--34a595120107.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-music-stage-1--34a595120107.zip",
+      "checksum": "0a00c85e68de425ae8b8bd240a6077cfc60bee56d1539f8c7645bca8d31dbc38",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-music-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-music",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班音樂專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "07",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班體育專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-physical-education-stage-1--75fedb3675b6.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-physical-education-stage-1--75fedb3675b6.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-physical-education-stage-1--75fedb3675b6.zip",
+      "checksum": "7f0137d6a842fe910c6703e22ecaf35ea3c195eef9950d7551b58da877205cb9",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-physical-education-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-physical-education",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班體育專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "09",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班自然專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-science-stage-1--01e52a808f02.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-science-stage-1--01e52a808f02.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-science-stage-1--01e52a808f02.zip",
+      "checksum": "5671cd8856dde9db61255b2411d1b49ef6d37abedbc9c2887156aef82001450e",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-science-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-science",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班自然專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "05",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜身心障礙班教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-disability-stage-1--89c4244651c4.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-disability-stage-1--89c4244651c4.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-disability-stage-1--89c4244651c4.zip",
+      "checksum": "6dd227a14ef7343c5f8b86ebb031c5526e5513f0183e1629ec6f292f76b07d47",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-disability-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-special-disability",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育C",
+        "身心障礙班教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "11",
+        "subject-8b438d41",
         "subject-f8decb1b"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜資賦優異班教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-gifted-stage-1--4a628de8b01c.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-gifted-stage-1--4a628de8b01c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-gifted-stage-1--4a628de8b01c.zip",
+      "checksum": "a5340ecaf40cb9b527ec1cdc6ed22b0a4bf79b5747cb46751cf6d85d790c6c93",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-special-gifted-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-special-gifted",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "教育D",
+        "語文A",
+        "資賦優異班教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "12",
+        "subject-78a17ced",
+        "subject-8b438d41"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taoyuan-elementary",
+      "canonical_name": "桃園市國小教師甄試｜普通班視覺藝術專長教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-visual-arts-stage-1--061f5ced0d1e.zip",
+      "asset_name": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-visual-arts-stage-1--061f5ced0d1e.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-visual-arts-stage-1--061f5ced0d1e.zip",
+      "checksum": "e7b07f002b4c741435cb529a19e54e82053bcf81026ec965b4c3f8d77fe22bdf",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-taoyuan-elementary-visual-arts-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taoyuan-elementary-visual-arts",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native recruitment category and initial written test: https://elementary.tyc.edu.tw/web/download_file.aspx?ids=11851bbd8fa419b2af6c6dc5257834f1&openExternalBrowser=1; elementary school and language-certificate eligibility are not exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "教師甄試",
+      "search_aliases": [
+        "語文A",
+        "教育A",
+        "普通班視覺藝術專長教師",
+        "桃園市115年度國民小學教師聯合甄選分發",
+        "08",
+        "subject-8b438d41",
+        "subject-c8b7921d"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "tqc-cert",

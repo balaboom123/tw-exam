@@ -24,6 +24,7 @@ from app.classification import (
 from app.models import NormalizedCatalog, NormalizedPaper
 from app.normalizer import normalize_text, renormalize_catalog
 from app.providers.registry import _PROVIDER_FACTORIES
+from app.review_queue import review_key
 
 
 PAPER_CONTRACT = Draft202012Validator(json.loads(
@@ -205,6 +206,7 @@ def test_repeated_catalog_normalization_preserves_papers_and_review_evidence(rec
         if old.canonical_id and old.canonical_name:
             assert new.canonical_id == old.canonical_id
             assert new.canonical_name == old.canonical_name
-    review_keys = [(row.provider_id, row.source_exam_id, row.raw_category) for row in first.review_queue]
+    # Different unresolved identities in one source category need separate reviews.
+    review_keys = [review_key(row) for row in first.review_queue]
     assert len(review_keys) == len(set(review_keys))
     assert all(row.classification_signature and row.bundle_id and row.reason for row in first.review_queue)

@@ -22287,6 +22287,201 @@
         }
       ]
     },
+    "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip": {
+      "canonical_name": "桃園市國小教師甄試",
+      "checksum": "cad79fa7078a8ee12389bcabe4265210cb5591a9f03739641d1bd41b8ee87ec3",
+      "papers": [
+        {
+          "category_code": "115",
+          "checksum": "4ea59940ec655b23d21ba6911375959fc9877598869da7f198906e9e5b653faf",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=29122295e9d52ae0de0cab1080cbf7a3",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-00c96aed",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "2fd323a3a3ec258c3921d8d7189c0054511c0da7290db273893bcf0d277f7b8d",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=e68339ca5806dbdfb00c7df9219069ae",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-00c96aed",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "d6b3dc67cc0397cdc2897b64c9f7bb98109da00b0c314e8f325d8fa76a8be099",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=27ce964abae94d1ec17092ee1be403b5",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-00c96aed",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "f9e621f02cc73a107331c5eef4d6768a29dd911d5bfe93c8551fd07aaf4b76eb",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=d01a65f54f926a874f144d418498fdf5",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-410aac8e",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "25ccc66d1115a307414a6753e5432d69d04d34cde40adb3b0d08f3b05bbe72e8",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=50361caa8f4e084cb23a03de72c0fd71",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-410aac8e",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "d335074149488d2241ab6defe70f4dd22f06a913d69a9faf3b29eba20ac53aca",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=3ff0cbd0ac1844210515e0e2c664f163",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-410aac8e",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "fabd588beea9167ae0a3e6e9fea0f512391ef966d78c7cb0a0de2cea17f997ad",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=fc77fce3f7116727fa68b1c6d83784e2",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-5a303dc9",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "8e0daadcda046cbc7f1c9978803ad47cbd4bebae2b32e8a20d7b3390987dfe93",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=d63e6bcc3d973f0095ff42718fbbda71",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-5a303dc9",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "31d73a71223cc4c4c176b99216e7b3fbbe8292bd64123ce41ec8b75b015cd240",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=fd30dc7beddec5813fa664b935d66b71",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-5a303dc9",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "87fb971aca4bfeaab7217292c29fafe0ecc022c03ad8cb294dd4bc1cb81030d9",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=9697d60aae3d4197801e86586680ccbf",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-78a17ced",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "207880204644c7b56cfa9bcdb09296b096b3e3fb6226d6f4e84b30d87ed2e6f3",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=da8a34c138811cd12046546dd87251e8",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-78a17ced",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "46c9844965aaf19ca9f57cbc404abd7428409ff2bfbc27317f4c56684eb679ac",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=4b65e25bea2ed5b54c9df2fc118820c0",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-78a17ced",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "c9b3b2053de1fba7582c5c2b0d13909f3c69b9451627e56340497580801510b4",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=652899d12060ebd409372b701c619ac6",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-8b438d41",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "2c3c0ca9c88cfbfb53b92ac7480f2b5d9ef143b4627ce1a46a58370f485202c7",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=c94f0b90fe675bd4b1f80eecaca41e83",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-8b438d41",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "8813a5c8c783734fd2d1f33a3fb19c8dc0e0de54c08068bdc466b8c15a0e8082",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=43b961b3f06b41afe424813e1885e336",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-8b438d41",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "20f6a18639d5ff4b86624e00d5954b5210cae30ae5d8fcf3f7d5ca98dc8b3e19",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=840cebac03e07cab90b337faa8ad71ed",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-c8b7921d",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "78472dfa15481b29deddd6a4014d357fcfdad0947bff4f51fc2eedfd178ea901",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=2d41776b22598e6566865c6a2de720d8",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-c8b7921d",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "a32a14591163840c72010e004427ce24656947d646ab189b18862fff3a25016b",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=12e28fee169dc1a0002e81356e85453d",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-c8b7921d",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "d03d11bab7aa089879e225172393dd677e0bdc8c3d530fe40d7b446b56137f29",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=8c3f352ab41017e16c5710b1beeb6e50",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-f8decb1b",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "6e28f1db10120b8fd1db84650731777159ddc377ab80ba4bb36a5a333f12a59c",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=97ed1fcfba5b1832a4d6e969168c331e",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-f8decb1b",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "eefd3a83973dbc7faabfc88d15248ed0138a6757e6d4325d42774d542c598566",
+          "download_url_source": "https://elementary.tyc.edu.tw/web/download_file.aspx?ids=4fb061b971a0576c31922be4f167e247",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-taoyuan-elementary-115",
+          "subject_code": "subject-f8decb1b",
+          "year_roc": 115
+        }
+      ]
+    },
     "wdasec-skill-skill-certification-class-a-skill-9dd0e2a8b616--b1b961855155.zip": {
       "canonical_name": "全國技術士技能檢定｜甲級｜鋼琴調音",
       "checksum": "5fe2001365d84430353c5167fc346ffc088373fdee1da273ad091a86476bfb96",
