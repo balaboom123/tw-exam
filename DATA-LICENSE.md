@@ -36,3 +36,8 @@ public mirror backup creation, and the certification workflow retains
 acquisition without publishing site ZIPs or public backup snapshots. Recovery
 requires the retained working mirror or a verified local snapshot while that
 hold remains unresolved.
+
+TOCFL's mirror holds the official listening-audio packages of a provider that
+is withheld from the site. Its adapter likewise prohibits public mirror backup
+creation (maintainer decision, 2026-11-08); syncs keep acquisition through the
+working cache only.

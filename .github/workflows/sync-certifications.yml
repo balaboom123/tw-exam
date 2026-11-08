@@ -76,7 +76,7 @@ jobs:
             publish: false
             prune_orphaned_mirror: false
           - provider_id: tocfl_cert
-            durable_snapshot: true
+            durable_snapshot: false
             cache_prefix: tocfl-cert
             timeout_minutes: 30
             publish: false

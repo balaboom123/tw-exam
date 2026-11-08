@@ -7,6 +7,9 @@ from app.providers.tocfl_cert.client import TocflCertClient
 
 class TocflCertProvider(SourceProvider):
     provider_id = "tocfl_cert"
+    # Maintainer decision 2026-11-08: the listening-audio packages stay out of
+    # public Release storage, as for Hakka and JLPT.
+    public_mirror_backup_allowed = False
     # Rolling-bank URLs can replace their payloads without changing filenames.
     refresh_files_on_sync = True
 
