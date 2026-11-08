@@ -21,7 +21,7 @@ import tarfile
 import tempfile
 import uuid
 from collections.abc import Callable, Iterable
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -479,6 +479,59 @@ def download(repository: str, provider: str, name: str, directory: Path) -> Path
     return directory / name
 
 
+# A publication job restores the generation its own sync saved. The sync's
+# provider artifact expires after 7 days (`retention-days: 7` in
+# _sync-provider.yml), so no publication retry can need an older generation.
+RECENT_GENERATION_DAYS = 7
+
+
+def _uploaded_at(asset: dict) -> datetime | None:
+    try:
+        return datetime.fromisoformat(str(asset["created_at"]).replace("Z", "+00:00"))
+    except (KeyError, ValueError):
+        return None
+
+
+def prune_generations(
+    repository: str, release_id: int, keep: set[str], *, now: datetime | None = None
+) -> list[str]:
+    """Delete snapshot assets of superseded generations; return their names.
+
+    Keeps the generations in ``keep`` (current and previous) and every
+    generation uploaded within RECENT_GENERATION_DAYS. Runs only after the new
+    pointer is committed. A failed listing or delete is reported and skipped:
+    the new snapshot is already durable, and the next save retries.
+    """
+    keep = {checked_generation(generation) for generation in keep}
+    cutoff = (now or datetime.now(UTC)) - timedelta(days=RECENT_GENERATION_DAYS)
+    try:
+        inventory = assets(repository, release_id)
+    except (subprocess.CalledProcessError, json.JSONDecodeError) as exc:
+        print(f"Could not list snapshot assets for pruning: {exc}", file=sys.stderr)
+        return []
+    generations: dict[str, list[dict]] = {}
+    for asset in inventory:
+        match = re.fullmatch(
+            r"snapshot-([^.]+)\.(?:json|tar\.gz\.part[0-9]{4})", str(asset.get("name", ""))
+        )
+        if match:
+            generations.setdefault(match[1], []).append(asset)
+    removed = []
+    for generation, group in sorted(generations.items()):
+        uploaded = [_uploaded_at(asset) for asset in group]
+        # An asset without a readable upload time counts as recent.
+        if generation in keep or any(time is None or time > cutoff for time in uploaded):
+            continue
+        for asset in group:
+            try:
+                gh("api", "--method", "DELETE", f"repos/{repository}/releases/assets/{asset['id']}")
+            except subprocess.CalledProcessError as exc:
+                print(f"Could not prune {asset['name']}: {exc}", file=sys.stderr)
+                continue
+            removed.append(asset["name"])
+    return removed
+
+
 def restore(
     root: Path,
     repository: str,
@@ -683,8 +736,10 @@ def save(root: Path, repository: str, provider: str, generation: str) -> dict:
             str(request),
         )
         write_origin(root, provider, pointer, manifest)
-        # Publication retries pin earlier generations. Advancing this pointer
-        # does not prove that any older generation has no remaining consumer.
+        keep = {generation} | ({previous["generation"]} if previous else set())
+        removed = prune_generations(repository, remote["id"], keep)
+        if removed:
+            print(f"Pruned {len(removed)} assets of superseded {provider} generations")
     print(
         f"Saved {provider} snapshot {generation}: {manifest['file_count']} files, "
         f"{manifest['unpacked_bytes']} bytes"

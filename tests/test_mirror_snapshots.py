@@ -1214,3 +1214,54 @@ def test_retired_locator_outside_the_cache_layout_is_skipped(tmp_path, monkeypat
     incoming.mkdir()
     assert mirror._retired_cache_payloads(root, PROVIDER, incoming) == {}
     assert native_key in capsys.readouterr().err
+
+
+def _snapshot_assets(generation, *, first_id, created_at):
+    return [
+        {"id": first_id, "name": f"snapshot-{generation}.json", "created_at": created_at},
+        {"id": first_id + 1, "name": f"snapshot-{generation}.tar.gz.part0000", "created_at": created_at},
+    ]
+
+
+def test_prune_keeps_current_previous_and_recent_generations(monkeypatch):
+    from datetime import UTC, datetime
+
+    now = datetime(2026, 11, 8, tzinfo=UTC)
+    listed = [
+        *_snapshot_assets("old-1", first_id=1, created_at="2026-10-01T00:00:00Z"),
+        *_snapshot_assets("prev-1", first_id=3, created_at="2026-10-02T00:00:00Z"),
+        *_snapshot_assets("recent-1", first_id=5, created_at="2026-11-05T00:00:00Z"),
+        *_snapshot_assets("new-1", first_id=7, created_at="2026-11-08T00:00:00Z"),
+        {"id": 9, "name": "snapshot-undated-1.json"},
+        {"id": 10, "name": "README.txt", "created_at": "2026-01-01T00:00:00Z"},
+    ]
+    calls = []
+    monkeypatch.setattr(mirror, "assets", lambda repository, release_id: listed)
+    monkeypatch.setattr(mirror, "gh", lambda *args: calls.append(args) or "")
+
+    removed = mirror.prune_generations("o/r", 9, {"new-1", "prev-1"}, now=now)
+
+    assert removed == ["snapshot-old-1.json", "snapshot-old-1.tar.gz.part0000"]
+    assert [call[-1] for call in calls] == [
+        "repos/o/r/releases/assets/1", "repos/o/r/releases/assets/2",
+    ]
+
+
+@pytest.mark.parametrize("failure", ["listing", "delete"])
+def test_prune_failure_does_not_fail_the_save(monkeypatch, capsys, failure):
+    def refuse(*args):
+        raise subprocess.CalledProcessError(1, ["gh", *args])
+
+    old = _snapshot_assets("old-1", first_id=1, created_at="2026-01-01T00:00:00Z")
+    monkeypatch.setattr(mirror, "assets", refuse if failure == "listing" else (lambda *args: old))
+    monkeypatch.setattr(mirror, "gh", refuse)
+
+    assert mirror.prune_generations("o/r", 9, {"new-1"}) == []
+    assert capsys.readouterr().err
+
+
+def test_save_prunes_only_after_the_pointer_is_committed():
+    import inspect
+
+    source = inspect.getsource(mirror.save)
+    assert source.index('"PATCH"') < source.index("prune_generations(")

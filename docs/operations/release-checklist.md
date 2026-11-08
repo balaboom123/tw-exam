@@ -22,8 +22,8 @@ coverage of those earlier source references. For a provider that permits public
 mirror backup, save and verify the new generation through the
 [durable backup procedure](recovery.md#durable-provider-mirror-backup), then test
 a clean restore against the matching provider state with the strict history
-audit above. Keep the previous generation available for pinned workflow retries
-and rollback. Providers that prohibit public backup retain their verified local
+audit above. The backup helper keeps the previous generation and any generation from the
+last 7 days for pinned workflow retries and rollback. Providers that prohibit public backup retain their verified local
 recovery copies and cache-only policy.
 
 The provider writer can reconstruct a missing revision blob from another
