@@ -134,6 +134,36 @@ explicit review dispositions; an ordinary recruitment date cannot establish an
 unreviewed route's date or stage. The provider's publication quarantine remains
 independent of this classification review.
 
+New Taipei municipal recruitment separates licensed junior-high teacher
+selection from contracted preschool care-worker employment. The provider is an
+acquisition owner, not an examination purpose. Its
+[native programme evidence](../../catalog/mappings/teacher-recruit-newtaipei/native-programmes-v1.json)
+binds each programme's rule, initial written date, recruitment categories and
+applicable native booklets. Bilingual, arts, sports and school-specific
+experimental posts remain distinct even when their initial written papers are
+shared. Rural allocations sharing those initial papers retain explicit native
+registration context rather than invented paper variants. Preschool allocation
+and eligibility groups likewise share the native written subject and key.
+Registration groups are projected into search metadata from this reviewed
+backend context. School level, prerequisite certificates and bonus-point
+qualifications do not create examination grades.
+
+Dedicated counseling uses the specific native essay-paper matrix and operational
+admission card. Its answer-named placeholder remains a reference attachment;
+it is not an actual key or grounds for adding the common education paper. The
+conflicting generic scoring prose does not establish a scoring formula.
+Other teacher categories retain their initial keys plus the complete native
+correction summaries, supplements and explanations applicable to their shared
+education paper. No replacement answer PDF is synthesized.
+
+Publication validates the complete reviewed category/file population. A one-time
+native projection migration retires exact generic references through the
+conserving provider writer, preserving immutable originals and the old ZIP.
+Compatibility navigation follows the complete reviewed container transformation
+or exact direct-PDF context; checksum similarity alone cannot establish a new
+programme or successor. An expired rolling notice can be revisited by its exact
+reviewed retained context without fabricating current discovery evidence.
+
 ## Why this exists
 
 A display name such as 「一般行政」 is a track, not a complete exam identity. The same track can occur in high, ordinary, elementary, local, promotion, disability, indigenous, customs, or other programs. Grouping by a stripped display name therefore creates mixed bundles.

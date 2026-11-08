@@ -2122,6 +2122,42 @@ def _classify_paper_uncached(
                 f"{taoyuan_exam.rule_url}; "
                 "elementary school and language-certificate eligibility are not exam grades"
             )
+    if provider_id == "teacher_recruit_newtaipei":
+        from app.providers.teacher_recruit_newtaipei.evidence import (
+            resolve_identity as resolve_newtaipei_identity,
+        )
+
+        newtaipei_identity = resolve_newtaipei_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            exam_name_raw=exam_name,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+            source_material=source_material,
+        )
+        level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+        variant_pairs, variants = (), ()
+        if newtaipei_identity is None:
+            track_id, track_label = "newtaipei-unknown", "甄選方案與類科待確認"
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            stage_id, confidence = "unknown", "review"
+            reason = (
+                "New Taipei programme purpose, category and exact native written papers need review"
+            )
+        else:
+            newtaipei_exam, newtaipei_job, _newtaipei_paper = newtaipei_identity
+            domain_id, family_id = newtaipei_exam.domain_id, newtaipei_exam.family_id
+            series_id, series_label = newtaipei_exam.series_id, newtaipei_exam.series_label
+            track_id, track_label = newtaipei_job.track_id, newtaipei_job.label
+            stage_id, confidence = "stage-1", "high"
+            reason = (
+                "Reviewed native programme, recruitment category and shared initial papers; "
+                "school level, allocations and language eligibility are not exam grades"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2376,6 +2412,9 @@ def _classify_paper_uncached(
             bundle_name += "｜第一試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id == "teacher_recruit_taoyuan_elementary":
             bundle_name += f"｜{track_label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+        if provider_id == "teacher_recruit_newtaipei":
+            bundle_name = f"{series_label}｜{track_label}"
             bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
             "wdasec_skill",

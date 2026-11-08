@@ -166767,29 +166767,53 @@
       ]
     },
     {
-      "id": "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei",
-      "name": "新北市教師甄試",
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-biology-stage-1",
+      "name": "新北市國中教師聯合甄選｜生物｜初試（筆試）",
       "years": [
         115
       ],
-      "fileCount": 3,
-      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei--b6acc48d8748.zip",
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-biology-stage-1--25f1ac08415f.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
       "domainId": "teacher",
       "examFamilyId": "teacher-exam",
-      "seriesId": "teacher-recruitment",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
       "levelId": "not-applicable",
-      "trackId": "teacher-recruit-newtaipei",
+      "trackId": "newtaipei-junior-biology",
       "variantIds": [],
-      "stageId": "not-applicable",
+      "stageId": "stage-1",
       "examClass": "教師考試",
-      "examSubclass": "教師甄試",
+      "examSubclass": "新北市國中教師聯合甄選",
       "searchAliases": [
+        "教育專業科",
+        "生物科",
+        "一般組",
+        "生物",
         "新北市立國民中學115學年度教師聯合甄選",
-        "新北市115學年度公立幼兒園契約進用教保員甄選",
-        "115學年度新北市教師甄試",
-        "115",
-        "junior",
-        "preschool"
+        "job-biology",
+        "subject-010e0e7a",
+        "subject-76851d24",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "生物科"
       ],
       "sources": [
         {
@@ -166797,7 +166821,2842 @@
           "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
         }
       ],
-      "updated": "2026-11-08T04:59:52Z"
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-chinese-stage-1",
+      "name": "新北市國中教師聯合甄選｜國文｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-chinese-stage-1--d33149a1f130.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-chinese",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "國文科",
+        "一般組",
+        "偏鄉組",
+        "國文",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-chinese",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-952d92a1",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "國文科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-civics-stage-1",
+      "name": "新北市國中教師聯合甄選｜公民與社會｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-civics-stage-1--818d62dfa75f.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-civics",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "公民與社會科",
+        "一般組",
+        "公民與社會",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-civics",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-d4172ebd",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "公民與社會科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-counseling-activities-stage-1",
+      "name": "新北市國中教師聯合甄選｜輔導活動｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-counseling-activities-sta--85332c25de97.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-counseling-activities",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "輔導活動科",
+        "一般組",
+        "輔導活動",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-counseling-activities",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-b18c442a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "輔導活動科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-dedicated-counselor-stage-1",
+      "name": "新北市國中教師聯合甄選｜專任輔導教師｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-dedicated-counselor-stage--d85139add1d1.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-dedicated-counselor",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "輔導專業知能科",
+        "一般組",
+        "專任輔導教師",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-dedicated-counselor",
+        "subject-728ee838"
+      ],
+      "subjectLabels": [
+        "輔導專業知能科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-earth-science-stage-1",
+      "name": "新北市國中教師聯合甄選｜地球科學｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-earth-science-stage-1--7a13c6b83851.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-earth-science",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "地球科學科",
+        "一般組",
+        "地球科學",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-earth-science",
+        "subject-010e0e7a",
+        "subject-5ef414d6",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "地球科學科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-english-stage-1",
+      "name": "新北市國中教師聯合甄選｜英語｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-english-stage-1--fa9b8e922549.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-english",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "英語科",
+        "一般組",
+        "偏鄉組",
+        "英語",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-english",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-8a75f1f1",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "英語科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-gongliao-performing-arts-stage-1",
+      "name": "新北市國中教師聯合甄選｜貢寮實驗國中-表演藝術｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-gongliao-per--117b489ab7ee.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-experimental-gongliao-performing-arts",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "表演藝術科",
+        "實驗教育組",
+        "貢寮實驗國中-表演藝術",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-experimental-gongliao-performing-arts",
+        "subject-010e0e7a",
+        "subject-25badbf4",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "表演藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-gongliao-special-needs-stage-1",
+      "name": "新北市國中教師聯合甄選｜貢寮實驗國中-特教身障類科｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-gongliao-spe--6b40d12b9e49.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-experimental-gongliao-special-needs",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "特教身障科",
+        "實驗教育組",
+        "貢寮實驗國中-特教身障類科",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-experimental-gongliao-special-needs",
+        "subject-010e0e7a",
+        "subject-6308e0c0",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "特教身障科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-pinglin-biology-stage-1",
+      "name": "新北市國中教師聯合甄選｜坪林實驗國中-生物｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-pinglin-biol--a3e6e55ac809.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-experimental-pinglin-biology",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "生物科",
+        "實驗教育組",
+        "坪林實驗國中-生物",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-experimental-pinglin-biology",
+        "subject-010e0e7a",
+        "subject-76851d24",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "生物科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-pinglin-special-needs-stage-1",
+      "name": "新北市國中教師聯合甄選｜坪林實驗國中-特教身障類科｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-pinglin-spec--1a944c46d1ff.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-experimental-pinglin-special-needs",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "特教身障科",
+        "實驗教育組",
+        "坪林實驗國中-特教身障類科",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-experimental-pinglin-special-needs",
+        "subject-010e0e7a",
+        "subject-6308e0c0",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "特教身障科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-shimen-geography-stage-1",
+      "name": "新北市國中教師聯合甄選｜石門實驗國中-地理｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-shimen-geogr--762f96e64db8.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-experimental-shimen-geography",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "地理科",
+        "實驗教育組",
+        "石門實驗國中-地理",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-experimental-shimen-geography",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d",
+        "subject-ed9a2524"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "地理科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-shimen-visual-arts-stage-1",
+      "name": "新北市國中教師聯合甄選｜石門實驗國中-視覺藝術｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-shimen-visua--88540ef4b1ba.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-experimental-shimen-visual-arts",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "視覺藝術科",
+        "實驗教育組",
+        "石門實驗國中-視覺藝術",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-experimental-shimen-visual-arts",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-a31abc61",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "視覺藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-geography-stage-1",
+      "name": "新北市國中教師聯合甄選｜地理｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-geography-stage-1--3cfaab98a927.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-geography",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "地理科",
+        "一般組",
+        "偏鄉組",
+        "地理",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-geography",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d",
+        "subject-ed9a2524"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "地理科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-biology-stage-1",
+      "name": "新北市國中教師聯合甄選｜特教資優類科-生物｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-biology-stage-1--44cff6b76b60.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-gifted-biology",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "資優生物科",
+        "一般組",
+        "特教資優類科-生物",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-gifted-biology",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-a0ff7f00",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "資優生物科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-chinese-stage-1",
+      "name": "新北市國中教師聯合甄選｜特教資優類科-國文｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-chinese-stage-1--2203c9ad70f9.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-gifted-chinese",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "資優國文科",
+        "一般組",
+        "特教資優類科-國文",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-gifted-chinese",
+        "subject-010e0e7a",
+        "subject-25911586",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "資優國文科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-english-stage-1",
+      "name": "新北市國中教師聯合甄選｜特教資優類科-英語｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-english-stage-1--f5ee20022e1f.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-gifted-english",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "資優英語科",
+        "教育專業科",
+        "一般組",
+        "特教資優類科-英語",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-gifted-english",
+        "subject-00409fa7",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "資優英語科",
+        "教育專業科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-mathematics-stage-1",
+      "name": "新北市國中教師聯合甄選｜特教資優類科-數學｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-mathematics-stage---68bb26a13ea6.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-gifted-mathematics",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "資優數學科",
+        "一般組",
+        "特教資優類科-數學",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-gifted-mathematics",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-a833dc19",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "資優數學科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-physics-chemistry-stage-1",
+      "name": "新北市國中教師聯合甄選｜特教資優類科-理化｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-physics-chemistry---18b7873fdbf3.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-gifted-physics-chemistry",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "資優理化科",
+        "一般組",
+        "特教資優類科-理化",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-gifted-physics-chemistry",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-7d5f723b",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "資優理化科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-hakka-stage-1",
+      "name": "新北市國中教師聯合甄選｜本土語文-客語文｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-hakka-stage-1--320a5f29e646.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-hakka",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "本土語文-客語科",
+        "一般組",
+        "本土語文-客語文",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-hakka",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "subject-dea178af",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "本土語文-客語科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-health-education-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜健康教育-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-health-education-bilingua--48e3e9301e75.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-health-education-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "健康教育科",
+        "一般組",
+        "健康教育-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-health-education-bilingual",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-8ab00649",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "健康教育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-health-education-stage-1",
+      "name": "新北市國中教師聯合甄選｜健康教育｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-health-education-stage-1--450f036313c4.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-health-education",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "健康教育科",
+        "一般組",
+        "健康教育",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-health-education",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-8ab00649",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "健康教育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-history-stage-1",
+      "name": "新北市國中教師聯合甄選｜歷史｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-history-stage-1--2c0586729118.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-history",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "歷史科",
+        "一般組",
+        "歷史",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-history",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-94d7ffb4",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "歷史科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-home-economics-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜家政-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-home-economics-bilingual---c592200cf1dd.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-home-economics-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "家政科",
+        "一般組",
+        "家政-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-home-economics-bilingual",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-a6cc5b37",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "家政科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-home-economics-stage-1",
+      "name": "新北市國中教師聯合甄選｜家政｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-home-economics-stage-1--95a397a13878.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-home-economics",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "家政科",
+        "一般組",
+        "家政",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-home-economics",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-a6cc5b37",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "家政科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-information-technology-stage-1",
+      "name": "新北市國中教師聯合甄選｜資訊科技｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-information-technology-st--535698cf0c80.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-information-technology",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "資訊科技科",
+        "一般組",
+        "資訊科技",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-information-technology",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "subject-d96cd37d",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "資訊科技科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-living-technology-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜生活科技-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-living-technology-bilingu--ba4a71e93960.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-living-technology-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "生活科技科",
+        "一般組",
+        "生活科技-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-living-technology-bilingual",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-7ae5deb4",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "生活科技科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-living-technology-stage-1",
+      "name": "新北市國中教師聯合甄選｜生活科技｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-living-technology-stage-1--2c07b5ca98c8.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-living-technology",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "生活科技科",
+        "一般組",
+        "生活科技",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-living-technology",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-7ae5deb4",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "生活科技科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-mathematics-stage-1",
+      "name": "新北市國中教師聯合甄選｜數學｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-mathematics-stage-1--f9f2d49adc6f.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-mathematics",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "數學科",
+        "一般組",
+        "偏鄉組",
+        "數學",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-mathematics",
+        "subject-010e0e7a",
+        "subject-1f6de3c6",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "數學科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-music-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜音樂-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-music-bilingual-stage-1--35bbf8229376.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-music-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "音樂科",
+        "一般組",
+        "音樂-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-music-bilingual",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-cf499434",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "音樂科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-music-stage-1",
+      "name": "新北市國中教師聯合甄選｜音樂｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-music-stage-1--6651c491fb91.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-music",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "音樂科",
+        "一般組",
+        "音樂",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-music",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "subject-cf499434",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "音樂科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-performing-arts-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜表演藝術-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-performing-arts-bilingual--d652df0f6169.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-performing-arts-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "表演藝術科",
+        "一般組",
+        "表演藝術-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-performing-arts-bilingual",
+        "subject-010e0e7a",
+        "subject-25badbf4",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "表演藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-performing-arts-stage-1",
+      "name": "新北市國中教師聯合甄選｜表演藝術｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-performing-arts-stage-1--b720d4125967.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-performing-arts",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "表演藝術科",
+        "一般組",
+        "表演藝術",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-performing-arts",
+        "subject-010e0e7a",
+        "subject-25badbf4",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "表演藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-athletics-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-田徑專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-athlet--bda43ee6fbbb.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-athletics",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-田徑專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-athletics",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-badminton-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-羽球專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-badmin--f3963bc57351.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-badminton",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-羽球專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-badminton",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-biling--501a52d89376.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-bilingual",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-judo-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-柔道專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-judo-s--ee6f916d3d47.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-judo",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-柔道專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-judo",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-stage---b664ea618e28.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-taekwondo-sparring-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-跆拳道(對打)專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-taekwo--13586539125d.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-taekwondo-sparring",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-跆拳道(對打)專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-taekwondo-sparring",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-wrestling-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-角力專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-wrestl--2eb2b210bfac.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-wrestling",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-角力專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-wrestling",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-wushu-sanshou-stage-1",
+      "name": "新北市國中教師聯合甄選｜體育-武術(散手)專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-wushu---635e225628cd.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physical-education-wushu-sanshou",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "體育科",
+        "一般組",
+        "體育-武術(散手)專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physical-education-wushu-sanshou",
+        "subject-010e0e7a",
+        "subject-15dab569",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "體育科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physics-chemistry-stage-1",
+      "name": "新北市國中教師聯合甄選｜理化｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physics-chemistry-stage-1--08a92f6d09c6.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-physics-chemistry",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "理化科",
+        "一般組",
+        "理化",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-physics-chemistry",
+        "subject-010e0e7a",
+        "subject-4bd06bb9",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "理化科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-scouting-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜童軍-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-scouting-bilingual-stage---ce60517475de.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-scouting-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "童軍科",
+        "一般組",
+        "童軍-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-scouting-bilingual",
+        "subject-010e0e7a",
+        "subject-5f42da64",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "童軍科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-scouting-stage-1",
+      "name": "新北市國中教師聯合甄選｜童軍｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-scouting-stage-1--6e75202e1397.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-scouting",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "童軍科",
+        "一般組",
+        "童軍",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-scouting",
+        "subject-010e0e7a",
+        "subject-5f42da64",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "童軍科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-special-needs-stage-1",
+      "name": "新北市國中教師聯合甄選｜特教身障類科｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-special-needs-stage-1--ee2639362bd0.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-special-needs",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "特教身障科",
+        "一般組",
+        "特教身障類科",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-special-needs",
+        "subject-010e0e7a",
+        "subject-6308e0c0",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "特教身障科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-taiwanese-stage-1",
+      "name": "新北市國中教師聯合甄選｜本土語文-閩南語文｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-taiwanese-stage-1--78597029f655.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-taiwanese",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "本土語文-閩南語科",
+        "一般組",
+        "本土語文-閩南語文",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-taiwanese",
+        "subject-010e0e7a",
+        "subject-624db895",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "本土語文-閩南語科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-bilingual-stage-1",
+      "name": "新北市國中教師聯合甄選｜視覺藝術-雙語專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-bilingual-sta--65f55421132e.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-visual-arts-bilingual",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "視覺藝術科",
+        "一般組",
+        "視覺藝術-雙語專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-visual-arts-bilingual",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-a31abc61",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "視覺藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-design-stage-1",
+      "name": "新北市國中教師聯合甄選｜視覺藝術-設計專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-design-stage---dcb2156123e2.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-visual-arts-design",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "視覺藝術科",
+        "一般組",
+        "視覺藝術-設計專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-visual-arts-design",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-a31abc61",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "視覺藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-stage-1",
+      "name": "新北市國中教師聯合甄選｜視覺藝術｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-stage-1--7a7a001d518b.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-visual-arts",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "視覺藝術科",
+        "一般組",
+        "視覺藝術",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-visual-arts",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-a31abc61",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "視覺藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-western-painting-stage-1",
+      "name": "新北市國中教師聯合甄選｜視覺藝術-西畫專長｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 8,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-western-paint--30da519c7e65.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "teacher",
+      "examFamilyId": "teacher-exam",
+      "seriesId": "newtaipei-junior-teacher-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-junior-visual-arts-western-painting",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "教師考試",
+      "examSubclass": "新北市國中教師聯合甄選",
+      "searchAliases": [
+        "教育專業科",
+        "視覺藝術科",
+        "一般組",
+        "視覺藝術-西畫專長",
+        "新北市立國民中學115學年度教師聯合甄選",
+        "job-visual-arts-western-painting",
+        "subject-010e0e7a",
+        "答案疑義彙整表",
+        "subject-783c4d03",
+        "subject-a31abc61",
+        "試題疑義回覆",
+        "subject-a5f2a70a",
+        "試題疑義回覆（補充公告）",
+        "subject-d6353887",
+        "答案疑義彙整表（補充公告）",
+        "subject-e574309d"
+      ],
+      "subjectLabels": [
+        "教育專業科",
+        "視覺藝術科"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-11-08T15:53:39Z"
+    },
+    {
+      "id": "teacher-recruit-newtaipei-newtaipei-preschool-care-recruitment-not-applicable-newtaipei-preschool-care-worker-stage-1",
+      "name": "新北市公立幼兒園契約進用教保員甄選｜契約進用教保員｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "fileCount": 2,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-newtaipei-newtaipei-preschool-care-recruitment-not-applicable-newtaipei-preschool-care-worker-stage-1--85d4f3dcdc22.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "newtaipei-preschool-care-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "newtaipei-preschool-care-worker",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "新北市公立幼兒園契約進用教保員甄選",
+      "searchAliases": [
+        "教保概論與教保活動設計",
+        "第1組（一般組）",
+        "第2組（偏特組）",
+        "第3組（原住民族組）",
+        "第4組（臨時人員組）",
+        "契約進用教保員",
+        "新北市115學年度公立幼兒園契約進用教保員甄選",
+        "job-care-worker",
+        "subject-8e3fd651"
+      ],
+      "subjectLabels": [
+        "教保概論與教保活動設計"
+      ],
+      "sources": [
+        {
+          "name": "新北市教育人員聯合甄選",
+          "url": "https://career.ntpc.edu.tw/module/newtea/module/newtea/ap/out-announce?c=01"
+        }
+      ],
+      "updated": "2026-10-30T16:28:03Z"
     },
     {
       "id": "teacher-recruit-tainan-teacher-recruitment-not-applicable-teacher-recruit-tainan",
@@ -201050,6 +203909,63 @@
       "successorIds": [
         "tcte-tve-admission-tcte-not-applicable-tcte-business-english-japanese",
         "tcte-tve-admission-tcte-not-applicable-tcte-home-beauty"
+      ]
+    },
+    {
+      "id": "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei",
+      "name": "新北市教師甄試",
+      "successorIds": [
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-biology-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-chinese-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-civics-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-counseling-activities-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-dedicated-counselor-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-earth-science-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-english-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-gongliao-performing-arts-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-gongliao-special-needs-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-pinglin-biology-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-pinglin-special-needs-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-shimen-geography-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-experimental-shimen-visual-arts-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-geography-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-biology-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-chinese-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-english-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-mathematics-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-gifted-physics-chemistry-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-hakka-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-health-education-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-health-education-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-history-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-home-economics-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-home-economics-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-information-technology-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-living-technology-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-living-technology-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-mathematics-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-music-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-music-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-performing-arts-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-performing-arts-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-athletics-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-badminton-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-judo-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-taekwondo-sparring-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-wrestling-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physical-education-wushu-sanshou-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-physics-chemistry-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-scouting-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-scouting-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-special-needs-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-taiwanese-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-bilingual-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-design-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-junior-teacher-recruitment-not-applicable-newtaipei-junior-visual-arts-western-painting-stage-1",
+        "teacher-recruit-newtaipei-newtaipei-preschool-care-recruitment-not-applicable-newtaipei-preschool-care-worker-stage-1"
       ]
     },
     {

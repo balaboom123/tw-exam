@@ -237,6 +237,15 @@
       "retained_at": "2026-10-26T01:51:47.450250+00:00"
     },
     {
+      "provider_id": "teacher_recruit_newtaipei",
+      "bundle_id": "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei--b6acc48d8748.zip",
+      "storage_key": "bundles/sites/default/teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei--b6acc48d8748.zip",
+      "checksum": "c9547c92df93495864bcfb6a80f06a964c18491ed24a40ba591f8c75bec038a3",
+      "retained_at": "2026-11-08T15:59:05.940537+00:00"
+    },
+    {
       "provider_id": "teacher_recruit_taoyuan_elementary",
       "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary",
       "release_tag": "default-bundles-v2-008",

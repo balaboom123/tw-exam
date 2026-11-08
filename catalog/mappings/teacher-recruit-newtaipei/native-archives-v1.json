@@ -1,0 +1,1143 @@
+{
+  "schema_version": 1,
+  "provider_id": "teacher_recruit_newtaipei",
+  "archives": [
+    {
+      "source_exam_id": "teacher-recruit-newtaipei-115-junior",
+      "year_roc": 115,
+      "programme_name": "新北市立國民中學115學年度教師聯合甄選",
+      "source_url": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/c28f85b97a6043149fb89de76d97f3aa",
+      "checksum": "92b51ab85396fe4addc31218ccd46709519daa713fd9443b5899f41bdbe6da58",
+      "size": 16645822,
+      "reviewed_at": "2026-10-30",
+      "review_notes": "Complete RAR5 member and payload conservation was verified. Focused visual review covers every question cover and final PDF page, the counseling separator, and all complete one-page answer-named PDFs (88 pages); it does not claim review of all 322 PDF pages. 輔導專業知能科's answer-named document contains only 略 placeholders; preserve it as a reference source_document, not an administered answer key. The native rule's specific paper matrix p14 and operational admission card p47 say dedicated counseling has only an essay paper and no reference answer; generic scoring prose elsewhere conflicts and is not approved here. This delivery contract approves neither recruitment categories nor programme classification. Distinct full PDFs with shared passages or options are retained.",
+      "members": [
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/01教育科目/115國中教甄答案卷_教育專業科(浮水印).pdf",
+          "kind": "file",
+          "size": 186232,
+          "checksum": "3cbcf9fa23381b377d82180d0179de1e948027ba9674442c98d0b623aff2f4a9",
+          "subject_name": "教育專業科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜教育專業科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/01教育科目/115國中教甄試題卷_教育專業科(浮水印).pdf",
+          "kind": "file",
+          "size": 552600,
+          "checksum": "08d5e7c7770748c3f04eba375aeb35779ae54bca930d852ec310cafd8426bbba",
+          "subject_name": "教育專業科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜教育專業科試題",
+          "page_count": 12,
+          "inspected_pages": [
+            1,
+            12
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/02國文/115國中教甄答案卷_國文科(浮水印).pdf",
+          "kind": "file",
+          "size": 174594,
+          "checksum": "04ac45e5ed68765d720ec92e1e489a9ebd469a7acd6bb44aa57cfef2c3ecc51d",
+          "subject_name": "國文科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜國文科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/02國文/115國中教甄試題卷_國文科(浮水印).pdf",
+          "kind": "file",
+          "size": 652123,
+          "checksum": "9d4feb2d07c4a70a13bb24d28a8709c980b884ffa6b6197f3780bf92aae1ba91",
+          "subject_name": "國文科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜國文科試題",
+          "page_count": 15,
+          "inspected_pages": [
+            1,
+            15
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/03英文/115國中教甄答案卷_英語科(浮水印).pdf",
+          "kind": "file",
+          "size": 175580,
+          "checksum": "c7df931e5f0caf55f9271a9ed124df355ea4372f871fe405f1c2bf40156b8c6e",
+          "subject_name": "英語科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜英語科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/03英文/115國中教甄試題卷_英語科(浮水印).pdf",
+          "kind": "file",
+          "size": 349698,
+          "checksum": "736ce645f34dc9fade9884dbdaa9d85594cda140275735c5611379402e463138",
+          "subject_name": "英語科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜英語科試題",
+          "page_count": 12,
+          "inspected_pages": [
+            1,
+            12
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/04數學/115國中教甄答案卷_數學科(浮水印).pdf",
+          "kind": "file",
+          "size": 171390,
+          "checksum": "b201d3bfacd2668d9e041e18d674a7efeaf1683cd89693b93243a2bfdaf963a9",
+          "subject_name": "數學科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜數學科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/04數學/115國中教甄試題卷_數學科(浮水印).pdf",
+          "kind": "file",
+          "size": 447146,
+          "checksum": "1056ed6c3a57f2ec953ec1ad3c5068c65c879b9b878461ebf784a31f97d0c4c8",
+          "subject_name": "數學科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜數學科試題",
+          "page_count": 7,
+          "inspected_pages": [
+            1,
+            7
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/05理化/115國中教甄答案卷_理化科(浮水印).pdf",
+          "kind": "file",
+          "size": 174791,
+          "checksum": "03cf7b7d044864c078b5591e16a0b83d4118d190b0d6f0030f702a2fbb1e3aba",
+          "subject_name": "理化科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜理化科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/05理化/115國中教甄試題卷_理化科(浮水印).pdf",
+          "kind": "file",
+          "size": 490870,
+          "checksum": "45fdfae17e24439bb90259dc7e3635d5bab857da216e89b4ff192b091aff1a95",
+          "subject_name": "理化科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜理化科試題",
+          "page_count": 8,
+          "inspected_pages": [
+            1,
+            8
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/06生物/115國中教甄答案卷_生物科(浮水印).pdf",
+          "kind": "file",
+          "size": 184479,
+          "checksum": "a258837435dbf1f6914d61d567c91e41b13e6f19bf344b901cd92ab8c6f908dc",
+          "subject_name": "生物科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜生物科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/06生物/115國中教甄試題卷_生物科(浮水印).pdf",
+          "kind": "file",
+          "size": 717372,
+          "checksum": "80229adc5d9b70374b7b80e6068be2b8abf43e1372517b85fc52b343d2413d5f",
+          "subject_name": "生物科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜生物科試題",
+          "page_count": 14,
+          "inspected_pages": [
+            1,
+            14
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/07地球科學/115國中教甄答案卷_地球科學科(浮水印).pdf",
+          "kind": "file",
+          "size": 175037,
+          "checksum": "648e4404e593ef74af23a023eefb98c09362d42ca2be0d7e21e93c856c6c4700",
+          "subject_name": "地球科學科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜地球科學科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/07地球科學/115國中教甄試題卷_地球科學科(浮水印).pdf",
+          "kind": "file",
+          "size": 403856,
+          "checksum": "0a12c108346bc53de8e776edbcb82440d3d33a28fb64edfdfbdb397eac0af681",
+          "subject_name": "地球科學科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜地球科學科試題",
+          "page_count": 9,
+          "inspected_pages": [
+            1,
+            9
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/08生活科技/115國中教甄答案卷_生活科技科(浮水印).pdf",
+          "kind": "file",
+          "size": 175523,
+          "checksum": "5dcaffb33f3df670506a2af53f00b5b980e5ccb75701fc057b613407a13863f2",
+          "subject_name": "生活科技科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜生活科技科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/08生活科技/115國中教甄試題卷_生活科技科(浮水印).pdf",
+          "kind": "file",
+          "size": 596245,
+          "checksum": "1e37ba68681bfaded7385e7b7e18f8ac5896ff50da772db4487bbe5d815c12d4",
+          "subject_name": "生活科技科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜生活科技科試題",
+          "page_count": 11,
+          "inspected_pages": [
+            1,
+            11
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/09資訊科技/115國中教甄答案卷_資訊科技科(浮水印).pdf",
+          "kind": "file",
+          "size": 171141,
+          "checksum": "a5e0a64ae06fcff37aa815d0b0dbe066e253145820e5782bb61b74b827c7aedb",
+          "subject_name": "資訊科技科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜資訊科技科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/09資訊科技/115國中教甄試題卷_資訊科技科(浮水印).pdf",
+          "kind": "file",
+          "size": 412084,
+          "checksum": "743a769720ff4ce14b95ba60e1ace034bd7bbb96da47d8be51d51b8e561d24db",
+          "subject_name": "資訊科技科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜資訊科技科試題",
+          "page_count": 8,
+          "inspected_pages": [
+            1,
+            8
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/10歷史/115國中教甄答案卷_歷史科(浮水印).pdf",
+          "kind": "file",
+          "size": 184139,
+          "checksum": "62709d76d904e6dc80df885b236bb2f75ea0a886831549e4e74f6833994d68e3",
+          "subject_name": "歷史科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜歷史科答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/10歷史/115國中教甄試題卷_歷史科(浮水印).pdf",
+          "kind": "file",
+          "size": 655691,
+          "checksum": "9579109f3740203e829c9d60edbe2ddba2eddaf3cc3051c5b3dce3a326849a83",
+          "subject_name": "歷史科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜歷史科試題",
+          "page_count": 14,
+          "inspected_pages": [
+            1,
+            14
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/11地理/115國中教甄答案卷_地理科(浮水印).pdf",
+          "kind": "file",
+          "size": 184131,
+          "checksum": "d49750aad5b75fca485398db9594a5e376bd310bbb5eeb3f93621ce896aa62d7",
+          "subject_name": "地理科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜地理科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/11地理/115國中教甄試題卷_地理科(浮水印).pdf",
+          "kind": "file",
+          "size": 672652,
+          "checksum": "b6d5c41e9ebc9a8ae795ea5be3bcc6388e0b2aadcb1cf96409ea3a1e90500fc4",
+          "subject_name": "地理科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜地理科試題",
+          "page_count": 12,
+          "inspected_pages": [
+            1,
+            12
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/12公民/115國中教甄答案卷_公民與社會科(浮水印).pdf",
+          "kind": "file",
+          "size": 185403,
+          "checksum": "5ae5be7409cb82f1027b550c0d8f1167494bef192b435b655c73e7ca40d4276b",
+          "subject_name": "公民與社會科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜公民與社會科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/12公民/115國中教甄試題卷_公民與社會科(浮水印).pdf",
+          "kind": "file",
+          "size": 785594,
+          "checksum": "b976458bcfebb0dc1b280b51d30a0331e0ff820c8141c33ccb8514092dc451aa",
+          "subject_name": "公民與社會科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜公民與社會科試題",
+          "page_count": 19,
+          "inspected_pages": [
+            1,
+            19
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/13健康教育/115國中教甄答案卷_健康教育科(浮水印).pdf",
+          "kind": "file",
+          "size": 185266,
+          "checksum": "3511dab8f5c83368d010edaddcfb6427a11360c1e5df9cc168c943b11c038654",
+          "subject_name": "健康教育科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜健康教育科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/13健康教育/115國中教甄試題卷_健康教育科(浮水印).pdf",
+          "kind": "file",
+          "size": 480362,
+          "checksum": "631cf4c5c18efb8f1e0ece969bd5e11ced5f70df976de9de5ec10571dcf95d9b",
+          "subject_name": "健康教育科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜健康教育科試題",
+          "page_count": 10,
+          "inspected_pages": [
+            1,
+            10
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/14體育/115國中教甄答案卷_體育科(浮水印).pdf",
+          "kind": "file",
+          "size": 174448,
+          "checksum": "4df60b7764f522e63a1b318f94529edb3a9761e27b5f7abbb2223188b71d6631",
+          "subject_name": "體育科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜體育科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/14體育/115國中教甄試題卷_體育科(浮水印).pdf",
+          "kind": "file",
+          "size": 350349,
+          "checksum": "e576eaa8e6874fec953a6511f7992ef467bc17acbafd84298050a5ed32312fd3",
+          "subject_name": "體育科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜體育科試題",
+          "page_count": 7,
+          "inspected_pages": [
+            1,
+            7
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/15輔導活動/115國中教甄答案卷_輔導活動科(浮水印).pdf",
+          "kind": "file",
+          "size": 176234,
+          "checksum": "a67b6a4c991f75763755d99db1e06287516726cea5f4291c3acb01227398142d",
+          "subject_name": "輔導活動科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜輔導活動科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/15輔導活動/115國中教甄試題卷_輔導活動科(浮水印).pdf",
+          "kind": "file",
+          "size": 401607,
+          "checksum": "43de7748071bc864a74b6958a936137fcc8c38f500f193abea86708c5fd4da06",
+          "subject_name": "輔導活動科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜輔導活動科試題",
+          "page_count": 10,
+          "inspected_pages": [
+            1,
+            10
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/16童軍/115國中教甄答案卷_童軍科(浮水印).pdf",
+          "kind": "file",
+          "size": 175505,
+          "checksum": "3abe1682a4fa463ed5377ebcbdc5a7eaeede03e88fee029fcf9f19903f079c50",
+          "subject_name": "童軍科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜童軍科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/16童軍/115國中教甄試題卷_童軍科(浮水印).pdf",
+          "kind": "file",
+          "size": 516064,
+          "checksum": "f5172ebd1fed46297f5aaa0802c68a0582a51ae2e10bc7f3cb6a59fba16eca4e",
+          "subject_name": "童軍科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜童軍科試題",
+          "page_count": 9,
+          "inspected_pages": [
+            1,
+            9
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/17家政/115國中教甄答案卷_家政科(浮水印).pdf",
+          "kind": "file",
+          "size": 175464,
+          "checksum": "4c3730614d38b9842ad5612f98c2316c965ba88d4a1e91feae215975c7af8e14",
+          "subject_name": "家政科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜家政科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/17家政/115國中教甄試題卷_家政科(浮水印).pdf",
+          "kind": "file",
+          "size": 555632,
+          "checksum": "8549cf85560d43697912b3071bb94975ed1627f642115202ed4540ab2c284f73",
+          "subject_name": "家政科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜家政科試題",
+          "page_count": 9,
+          "inspected_pages": [
+            1,
+            9
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/18視覺藝術/115國中教甄答案卷_視覺藝術科(浮水印).pdf",
+          "kind": "file",
+          "size": 175235,
+          "checksum": "2693672606b41e3c1942fc31e5701b13d18ccd335471804df826da983875e967",
+          "subject_name": "視覺藝術科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜視覺藝術科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/18視覺藝術/115國中教甄試題卷_視覺藝術科(浮水印).pdf",
+          "kind": "file",
+          "size": 530393,
+          "checksum": "1b8330be647cc29d1b685faa21cc4971d1e6371e7d7ddcfa7d86062cb30c7fd9",
+          "subject_name": "視覺藝術科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜視覺藝術科試題",
+          "page_count": 10,
+          "inspected_pages": [
+            1,
+            10
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/19音樂/115國中教甄答案卷_音樂科(浮水印).pdf",
+          "kind": "file",
+          "size": 174954,
+          "checksum": "60056730a338250b02b2dcdbc50a11461d7b2d0ab52cd477b11a571ca95041e8",
+          "subject_name": "音樂科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜音樂科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/19音樂/115國中教甄試題卷_音樂科(浮水印).pdf",
+          "kind": "file",
+          "size": 401998,
+          "checksum": "f25d0817e78c396e46e1e3f73024df98d86611c95fbc678f93dda0b51df7dd55",
+          "subject_name": "音樂科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜音樂科試題",
+          "page_count": 8,
+          "inspected_pages": [
+            1,
+            8
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/20表演藝術/115國中教甄答案卷_表演藝術科(浮水印).pdf",
+          "kind": "file",
+          "size": 175758,
+          "checksum": "059e8e951534c4d0926b3114fbc7dcc5836a51b52ce34f75750c2b6dae300148",
+          "subject_name": "表演藝術科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜表演藝術科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/20表演藝術/115國中教甄試題卷_表演藝術科(浮水印).pdf",
+          "kind": "file",
+          "size": 313760,
+          "checksum": "dfbf1d0bcad2116e0c3a25383816693409527d1b579ef652e1954f8bfb7fa7ef",
+          "subject_name": "表演藝術科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜表演藝術科試題",
+          "page_count": 6,
+          "inspected_pages": [
+            1,
+            6
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/21特殊身障/115國中教甄答案卷_特教身障科(浮水印).pdf",
+          "kind": "file",
+          "size": 185191,
+          "checksum": "45843e81ab374afeed62e0272e839570919fa8e40cce5e4fafbaa3a7561aeb24",
+          "subject_name": "特教身障科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜特教身障科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/21特殊身障/115國中教甄試題卷_特教身障科(浮水印).pdf",
+          "kind": "file",
+          "size": 518160,
+          "checksum": "f83abc8a3f7db8520e519fde77a376bca950ae88a0bc68bf196db141fa208e9f",
+          "subject_name": "特教身障科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜特教身障科試題",
+          "page_count": 13,
+          "inspected_pages": [
+            1,
+            13
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優國文/115國中教甄答案卷_資優國文科(浮水印).pdf",
+          "kind": "file",
+          "size": 175805,
+          "checksum": "2ac7a2a5956acdca2c82555a2de7c27ff3fc2f51f1d07f576460dc477199d3cc",
+          "subject_name": "資優國文科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜資優國文科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優國文/115國中教甄試題卷_資優國文科(浮水印).pdf",
+          "kind": "file",
+          "size": 577517,
+          "checksum": "2634104835a1a5ce71bb82a8f60e95e307cb7e62d99b4faccb9efff106b24876",
+          "subject_name": "資優國文科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜資優國文科試題",
+          "page_count": 13,
+          "inspected_pages": [
+            1,
+            13
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優數學/115國中教甄答案卷_資優數學科(浮水印).pdf",
+          "kind": "file",
+          "size": 174700,
+          "checksum": "f427165c3ab6f084b3b13ea6bc029424b8e7d5fc2f5f6cc36e616579bed1a8e9",
+          "subject_name": "資優數學科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜資優數學科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優數學/115國中教甄試題卷_資優數學科(浮水印).pdf",
+          "kind": "file",
+          "size": 458835,
+          "checksum": "23a731943e82aeb71411f41a073659627384a55c84e8cbb1a5e8d254f24e95c3",
+          "subject_name": "資優數學科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜資優數學科試題",
+          "page_count": 8,
+          "inspected_pages": [
+            1,
+            8
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優理化/115國中教甄答案卷_資優理化科(浮水印).pdf",
+          "kind": "file",
+          "size": 175315,
+          "checksum": "ef79e39a1a7b73722e65febc2093bab4658ca66e456b93c9a2ac9d63a577435c",
+          "subject_name": "資優理化科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜資優理化科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優理化/115國中教甄試題卷_資優理化科(浮水印).pdf",
+          "kind": "file",
+          "size": 585015,
+          "checksum": "3e3d28d60ab1f25afd0d6239220aa4a1d2a07bebbcf737d8d88205b6ef668b7c",
+          "subject_name": "資優理化科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜資優理化科試題",
+          "page_count": 10,
+          "inspected_pages": [
+            1,
+            10
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優生物/115國中教甄答案卷_資優生物科(浮水印).pdf",
+          "kind": "file",
+          "size": 174546,
+          "checksum": "fef4f351f30be96a598c7dad881900c9d8d18a4ad6556889e5013c2844144f40",
+          "subject_name": "資優生物科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜資優生物科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優生物/115國中教甄試題卷_資優生物科(浮水印).pdf",
+          "kind": "file",
+          "size": 442233,
+          "checksum": "4e3144bd38be9e61be658b753a5249226cc17ab5fa6255923818037d2b306e97",
+          "subject_name": "資優生物科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜資優生物科試題",
+          "page_count": 10,
+          "inspected_pages": [
+            1,
+            10
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優英語/115國中教甄答案卷_資優英語科(浮水印).pdf",
+          "kind": "file",
+          "size": 175459,
+          "checksum": "c8568c870fc79b3957852f3d30229e20f67f76694e4264d41a08648429ab67ea",
+          "subject_name": "資優英語科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜資優英語科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優英語/115國中教甄試題卷_資優英語科(浮水印).pdf",
+          "kind": "file",
+          "size": 387976,
+          "checksum": "98a9455221bcd223fb82a9efcf569f0e130ad6c6615a79a68848bbae98c613c6",
+          "subject_name": "資優英語科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜資優英語科試題",
+          "page_count": 11,
+          "inspected_pages": [
+            1,
+            11
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/23輔導專業知能/115國中教甄答案卷_輔導專業知能科(浮水印).pdf",
+          "kind": "file",
+          "size": 137630,
+          "checksum": "48c95c2dac2019ea29b7d0c0939ffb4f47e8fd1f847c0b84a72f3c2e675b7304",
+          "subject_name": "輔導專業知能科",
+          "file_type": "source_document",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜輔導專業知能科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/23輔導專業知能/115國中教甄試題卷_輔導專業知能科(浮水印).pdf",
+          "kind": "file",
+          "size": 153118,
+          "checksum": "c08ab22cec52da1c18fa80d6a87abbfe3df74ac120bb4016724f22e20c907e3c",
+          "subject_name": "輔導專業知能科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜輔導專業知能科試題",
+          "page_count": 3,
+          "inspected_pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/24本土語文-閩南語/115國中教甄答案卷_本土語文-閩南語科(浮水印).pdf",
+          "kind": "file",
+          "size": 176661,
+          "checksum": "54f1dbce217f800730bad2e19c5b9654cb5892c084b769f43ceee9af769ae6cb",
+          "subject_name": "本土語文-閩南語科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜本土語文-閩南語科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/24本土語文-閩南語/115國中教甄試題卷_本土語文-閩南語科(浮水印).pdf",
+          "kind": "file",
+          "size": 319863,
+          "checksum": "e292dddd6e2d67b1e83b7c14ad5c36fd783e828b932d3904dcac987f2585b9d9",
+          "subject_name": "本土語文-閩南語科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜本土語文-閩南語科試題",
+          "page_count": 6,
+          "inspected_pages": [
+            1,
+            6
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/25本土語文-客語/115國中教甄答案卷_本土語文-客語科(浮水印).pdf",
+          "kind": "file",
+          "size": 175317,
+          "checksum": "c1a99ce92a77d5ef2da09385ae4c445b15628f8d228d984a9e1c6eb83a7ba2f6",
+          "subject_name": "本土語文-客語科",
+          "file_type": "answer",
+          "native_header": "新 北 市 立 國 民 中 學 115 學 年 度 教 師 聯 合 甄 選｜本土語文-客語科 答案",
+          "page_count": 1,
+          "inspected_pages": [
+            1
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/25本土語文-客語/115國中教甄試題卷_本土語文-客語科(浮水印).pdf",
+          "kind": "file",
+          "size": 456298,
+          "checksum": "afd220fc5981272803763cdaf4709e29f8ea8bc11e6a9a2a5ba0d40ab1ae2287",
+          "subject_name": "本土語文-客語科",
+          "file_type": "question",
+          "native_header": "新北市立國民中學 115 學年度教師聯合甄選｜本土語文-客語科試題",
+          "page_count": 9,
+          "inspected_pages": [
+            1,
+            9
+          ]
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優國文",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優數學",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優理化",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優生物",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優/資優英語",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/01教育科目",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/02國文",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/03英文",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/04數學",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/05理化",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/06生物",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/07地球科學",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/08生活科技",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/09資訊科技",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/10歷史",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/11地理",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/12公民",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/13健康教育",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/14體育",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/15輔導活動",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/16童軍",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/17家政",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/18視覺藝術",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/19音樂",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/20表演藝術",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/21特殊身障",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/22特教資優",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/23輔導專業知能",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/24本土語文-閩南語",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案/25本土語文-客語",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        },
+        {
+          "path": "新北市國民中學教師聯合甄選試題答案",
+          "kind": "directory",
+          "size": 0,
+          "checksum": "",
+          "subject_name": "",
+          "file_type": "",
+          "native_header": "",
+          "page_count": 0,
+          "inspected_pages": []
+        }
+      ]
+    }
+  ]
+}

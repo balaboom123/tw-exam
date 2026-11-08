@@ -22287,6 +22287,39 @@
         }
       ]
     },
+    "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei--b6acc48d8748.zip": {
+      "canonical_name": "新北市教師甄試",
+      "checksum": "c9547c92df93495864bcfb6a80f06a964c18491ed24a40ba591f8c75bec038a3",
+      "papers": [
+        {
+          "category_code": "115",
+          "checksum": "92b51ab85396fe4addc31218ccd46709519daa713fd9443b5899f41bdbe6da58",
+          "download_url_source": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/c28f85b97a6043149fb89de76d97f3aa",
+          "file_type": "question_answer",
+          "source_exam_id": "teacher-recruit-newtaipei-115-junior",
+          "subject_code": "junior",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "68180dfda1f0bd31f9896030ec3afdc52215bbd7e37d90fbb6bbaba5fc02164a",
+          "download_url_source": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/45bb9861a7e446178d8eadffdacca882",
+          "file_type": "answer",
+          "source_exam_id": "teacher-recruit-newtaipei-115-preschool",
+          "subject_code": "preschool",
+          "year_roc": 115
+        },
+        {
+          "category_code": "115",
+          "checksum": "ee5fdf35aefdc4b3a1cb28e8aa3f6ce877380a25bda4ba7aef0aa87f0ef36460",
+          "download_url_source": "https://career.ntpc.edu.tw/web-elec-bulletin/open/oauth_data/op_api/download/5328a7104c8646399974a18ef0d8ebb7",
+          "file_type": "question",
+          "source_exam_id": "teacher-recruit-newtaipei-115-preschool",
+          "subject_code": "preschool",
+          "year_roc": 115
+        }
+      ]
+    },
     "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary--d9e041f4df9d.zip": {
       "canonical_name": "桃園市國小教師甄試",
       "checksum": "cad79fa7078a8ee12389bcabe4265210cb5591a9f03739641d1bd41b8ee87ec3",

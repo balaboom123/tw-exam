@@ -852,6 +852,53 @@ Use official Kaohsiung teacher-recruitment event pages and linked papers. Keep s
 
 Use official New Taipei teacher-recruitment event pages and linked papers. Notices, schedules, and results without administered papers remain non-paper source context.
 
+Answer-review outcomes are part of the paper history. Retain their native answer
+change tables and explanations alongside the original paper notice; a blank
+objection application is not an answer. Corrections and supplements use stable
+notice-specific source slots within the original annual programme, so listing
+order cannot rename the event or discard an earlier amendment. Distinct files
+with the same role keep separate source slots rather than selecting the first.
+
+A shared school scope or programme tag does not establish the requested notice.
+Verify its title, tag and year before replacing retained state. Missing original
+notices, competing originals or inconsistent programme contexts need source
+review; retain the prior event on failure. A refresh verifies mutable source
+files again. These acquisition checks do not approve the recruitment taxonomy
+or reinterpret a native archive's internal subjects as job categories.
+
+The [reviewed RAR delivery contract](../../catalog/mappings/teacher-recruit-newtaipei/native-archives-v1.json)
+owns exact parent and member checksums, portable paths and inspected native file
+roles. Its focused page review is recorded explicitly; it does not claim that
+every question page was visually reviewed. The dedicated counseling document
+named as an answer contains only omitted-answer placeholders. Preserve it as
+reference source material rather than advertising an actual answer key. Native
+booklets shared by recruitment categories still require separate applicability
+evidence before publication identities change.
+
+Routine acquisition verifies a fresh reviewed parent and each imported member;
+it needs no RAR decompressor. A missing member requires snapshot restoration or
+the [operator import procedure](../operations/recovery.md#new-taipei-native-rar-import).
+Unknown parent revisions, changed member bytes and unreviewed locators fail
+without substituting a similarly named document.
+
+The [native programme catalogue](../../catalog/mappings/teacher-recruit-newtaipei/native-programmes-v1.json)
+separately owns recruitment purpose and job-to-booklet applicability. Junior-high
+licensed teachers and contracted preschool care workers have different series
+and purposes. Shared initial papers retain distinct recruitment posts; native
+allocation groups remain explicit searchable context. Publication cannot omit
+a reviewed category, an initial key, or an applicable correction supplement.
+The catalogue records the limited page-review scope and the unresolved generic
+counseling scoring prose without converting either into invented facts.
+
+Explicit retained-event acquisition checks the exact original notice and all
+answer-review notices even after a rolling listing expires. Active notice drift
+or changed rule/reference bytes blocks replacement. A transport service that
+rejects `HEAD` can supply actual `GET` metadata, with those same bytes reused
+for the ensuing download. Neither metadata nor discovery timestamps are inferred
+from the reviewed catalogue. Redundant import-cache aliases can be removed only
+when the exact reference attachment and immutable source history retain the
+native bytes; runtime lookup follows those retained anchors.
+
 ## `teacher_recruit_tainan`
 
 Use official Tainan teacher-recruitment event pages and linked papers. Preserve the source event and school-level boundary during normalization.

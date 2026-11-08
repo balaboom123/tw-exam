@@ -389,6 +389,14 @@ def _reviewed_source_history(
                 candidates = (paper for rows in current.values() for paper in rows)
                 aliases[old_key].extend(legacy_category_targets(previous, candidates))
                 continue
+            if provider_id == "teacher_recruit_newtaipei":
+                from app.providers.teacher_recruit_newtaipei.evidence import (
+                    legacy_category_targets as newtaipei_targets,
+                )
+
+                candidates = (paper for rows in current.values() for paper in rows)
+                aliases[old_key].extend(newtaipei_targets(previous, candidates))
+                continue
             normalized = renormalize_catalog(NormalizedCatalog([previous], []), rules).papers[0]
             if (
                 normalized.file_type == previous.file_type

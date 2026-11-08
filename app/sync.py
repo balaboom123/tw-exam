@@ -59,7 +59,7 @@ EXPECTED_EXTENSIONS = {
     "all_answers": (".pdf",),
     "answer_table": (".html", ".htm"),
     "accessible_bundle": (".zip",),
-    "source_archive": (".zip",),
+    "source_archive": (".zip", ".rar"),
     "source_document": (".pdf",),
     "source_page": (".html", ".htm"),
     "listening_audio": (".mp3", ".zip", ".rar"),
@@ -162,6 +162,10 @@ class _CorruptZipEntry(RuntimeError):
     """
 
 
+class _UnreviewedRar(RuntimeError):
+    """A RAR payload whose exact checksum has no native archive review."""
+
+
 def _validate_zip_payload(source: bytes | Path) -> None:
     """Check the container and every entry before accepting or reusing its bytes."""
     archive_source = io.BytesIO(source) if isinstance(source, bytes) else source
@@ -199,7 +203,14 @@ def _detected_zip_extension(data: bytes) -> str:
     return ".zip"
 
 
-def _validated_extension(file_type: str, data: bytes, content_type: str, file_name: str) -> str:
+def _validated_extension(
+    file_type: str,
+    data: bytes,
+    content_type: str,
+    file_name: str,
+    *,
+    reviewed_archive_checksum: str = "",
+) -> str:
     expected_extensions = _expected_extensions(file_type)
     resolved_extension = _extension_for(content_type, file_name).lower()
     if _looks_like_html(data) and file_type not in {"answer_table", "source_page"}:
@@ -209,6 +220,15 @@ def _validated_extension(file_type: str, data: bytes, content_type: str, file_na
         raise RuntimeError(
             f"Downloaded HTML placeholder instead of {joined_extensions} for {file_type}"
         )
+    if file_type == "source_archive" and data.startswith(RAR_SIGNATURES):
+        # The standard library cannot inspect RAR members. Only an exact
+        # provider-owned native archive review can admit this original format.
+        if (
+            re.fullmatch(r"[0-9a-f]{64}", reviewed_archive_checksum) is None
+            or hashlib.sha256(data).hexdigest() != reviewed_archive_checksum
+        ):
+            raise _UnreviewedRar("Source RAR requires its independently reviewed native checksum")
+        return ".rar"
     if expected_extensions:
         if _matches_expected_binary(data, ".zip"):
             _validate_zip_payload(data)
@@ -238,7 +258,9 @@ def _validated_extension(file_type: str, data: bytes, content_type: str, file_na
     return resolved_extension
 
 
-def _is_valid_stored_file(path: Path, file_type: str) -> bool:
+def _is_valid_stored_file(
+    path: Path, file_type: str, *, reviewed_archive_checksum: str = ""
+) -> bool:
     expected_extensions = _expected_extensions(file_type)
     actual_extension = path.suffix.lower()
     if not expected_extensions or actual_extension not in expected_extensions:
@@ -246,6 +268,12 @@ def _is_valid_stored_file(path: Path, file_type: str) -> bool:
     with path.open("rb") as stream:
         if not _matches_expected_binary(stream.read(4096), actual_extension):
             return False
+        if file_type == "source_archive" and actual_extension == ".rar":
+            stream.seek(0)
+            return (
+                re.fullmatch(r"[0-9a-f]{64}", reviewed_archive_checksum) is not None
+                and hashlib.file_digest(stream, "sha256").hexdigest() == reviewed_archive_checksum
+            )
     if actual_extension in ZIP_EXTENSIONS:
         try:
             _validate_zip_payload(path)
@@ -280,13 +308,17 @@ def retry_network(operation: Callable[[], Result], attempts: int = 3) -> Result:
     raise AssertionError("network retry loop did not return or raise")
 
 
-def _existing_mirrored(mirror_store: MirrorStore, prefix: str, file_type: str) -> StoredFile | None:
+def _existing_mirrored(
+    mirror_store: MirrorStore, prefix: str, file_type: str, *, reviewed_archive_checksum: str = ""
+) -> StoredFile | None:
     legacy_prefix = prefix
     if prefix.startswith("providers/"):
         _, _, legacy_prefix = prefix.split("/", 2)
     for candidate in dict.fromkeys((prefix, legacy_prefix)):
         stored = mirror_store.find_existing(candidate)
-        if stored is not None and _is_valid_stored_file(stored.path, file_type):
+        if stored is not None and _is_valid_stored_file(
+            stored.path, file_type, reviewed_archive_checksum=reviewed_archive_checksum
+        ):
             break
     else:
         return None
@@ -302,11 +334,20 @@ def _existing_mirrored(mirror_store: MirrorStore, prefix: str, file_type: str) -
     return stored
 
 
+def _reviewed_archive_checksum(client: SourceProvider, url: str) -> str:
+    review = getattr(client, "reviewed_source_archive_checksum", None)
+    return str(review(url)) if callable(review) else ""
+
+
 def _download_validated(client: SourceProvider, file_type: str, url: str) -> tuple[bytes, str]:
     downloaded = retry_network(lambda: client.download_file(url))
     try:
         extension = _validated_extension(
-            file_type, downloaded.data, downloaded.content_type, downloaded.file_name
+            file_type,
+            downloaded.data,
+            downloaded.content_type,
+            downloaded.file_name,
+            reviewed_archive_checksum=_reviewed_archive_checksum(client, url),
         )
     except _CorruptZipEntry as exc:
         # Retrying cannot repair the source's bytes; hold only this file.
@@ -315,6 +356,8 @@ def _download_validated(client: SourceProvider, file_type: str, url: str) -> tup
             url=url,
             checksum=hashlib.sha256(downloaded.data).hexdigest(),
         ) from exc
+    except _UnreviewedRar as exc:
+        raise UnreviewedSourceFile(str(exc), url=url) from exc
     return downloaded.data, extension
 
 
@@ -408,7 +451,7 @@ def _verified_retained_file(
             if hashlib.file_digest(source, "sha256").hexdigest() != retained.checksum:
                 return None
         if _expected_extensions(request.file_type) and not _is_valid_stored_file(
-            path, request.file_type
+            path, request.file_type, reviewed_archive_checksum=retained.checksum
         ):
             return None
         return StoredFile(retained.storage_key, path, retained.checksum, False, path.stat().st_size)
@@ -629,7 +672,12 @@ def sync_exam_pages(
                         expected_checksum = expected_checksums[request.prefix]
                         if stored is None and not refresh_files and expected_checksum:
                             stored = _existing_mirrored(
-                                mirror_store, request.prefix, request.file_type
+                                mirror_store,
+                                request.prefix,
+                                request.file_type,
+                                reviewed_archive_checksum=_reviewed_archive_checksum(
+                                    client, request.url
+                                ),
                             )
                             if stored is not None and stored.checksum != expected_checksum:
                                 stored = None

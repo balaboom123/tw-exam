@@ -941,6 +941,11 @@ def validate_public_materials(
     )
 
     validate_taoyuan_papers(paper for records in grouped.values() for paper in records)
+    from app.providers.teacher_recruit_newtaipei.evidence import (
+        validate_public_papers as validate_newtaipei_papers,
+    )
+
+    validate_newtaipei_papers(paper for records in grouped.values() for paper in records)
     return {
         key: summary
         for key, records in grouped.items()
