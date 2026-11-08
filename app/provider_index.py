@@ -64,6 +64,11 @@ def paper_index_source_year_roc(index: dict[str, Any], row: list[Any]) -> int | 
     return None
 
 
+def paper_index_withheld(index: dict[str, Any], row: list[Any]) -> bool:
+    """A row whose material facts await review stays out of public projections."""
+    return index["schema_version"] == 3 and bool(row[PAPER_MATERIAL_REVIEW])
+
+
 def paper_index_public_year_roc(index: dict[str, Any], row: list[Any]) -> int | None:
     version = index["schema_version"]
     if version == 1:
@@ -89,6 +94,8 @@ def indexed_material_summaries(indexes: Iterable[dict[str, Any]]) -> dict[str, M
         if index["schema_version"] == 2:
             raise ValueError("Rebuild index v2 before projecting public material summaries")
         for row in index["papers"]:
+            if paper_index_withheld(index, row):
+                continue
             key = paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
             kind = row[PAPER_MATERIAL_KIND] if index["schema_version"] == 3 else None
             kinds.setdefault(key, set()).add(kind)

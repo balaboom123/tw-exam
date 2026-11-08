@@ -247,3 +247,8 @@ def test_index_eligibility_withholds_material_awaiting_review(tmp_path) -> None:
     index = build_provider_index(provider_paths(tmp_path, "jlpt_cert"), [], combined.papers)
     assert public_bundle_ids_from_indexes([index]) == public_bundle_ids(combined)
     assert public_bundle_ids_from_indexes([index]) == public_bundle_ids(reviewed)
+    from app.provider_index import indexed_material_summaries
+    from app.source_material import summarize_papers
+
+    bundle = reviewed.papers[0].bundle_id
+    assert indexed_material_summaries([index]) == {bundle: summarize_papers(reviewed.papers)}

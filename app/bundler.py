@@ -26,10 +26,10 @@ from app.normalizer import hashed_fallback_canonical_id, legacy_fallback_canonic
 from app.provider_index import (
     PAPER_LEGACY_CANDIDATE,
     PAPER_MATERIAL_KIND,
-    PAPER_MATERIAL_REVIEW,
     paper_index_bundle_id,
     paper_index_canonical_id,
     paper_index_public_year_roc,
+    paper_index_withheld,
 )
 from app.publication_metadata import (
     derive_public_metadata,
@@ -686,8 +686,8 @@ def public_bundle_ids_from_indexes(
     grouped: dict[str, _IndexedBundleGroup] = {}
     for index in indexes:
         for row in index["papers"]:
-            if index["schema_version"] == 3 and row[PAPER_MATERIAL_REVIEW]:
-                continue  # Withheld, as in withhold_unreviewed_materials.
+            if paper_index_withheld(index, row):
+                continue  # As in withhold_unreviewed_materials.
             canonical_id = paper_index_canonical_id(index, row)
             bundle_id = paper_index_bundle_id(index, row) or canonical_id
             group = grouped.get(bundle_id)

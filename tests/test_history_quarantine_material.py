@@ -63,10 +63,13 @@ def test_withheld_unknown_dates_preserve_coverage_and_still_require_mirrors(unre
     assert history_audit_exit_code(missing, strict=True) == 1
 
 
-def test_unquarantined_unknown_dates_still_fail_public_eligibility(unresolved_retained_archive):
+def test_unquarantined_unknown_dates_are_withheld_not_public(unresolved_retained_archive):
     root, _ = unresolved_retained_archive
-    with pytest.raises(ValueError, match="Unresolved source material cannot be published"):
-        build_history_coverage_audit(root, provider_ids=("twc_recruit",), check_mirror=True)
+    report = build_history_coverage_audit(root, provider_ids=("twc_recruit",), check_mirror=True)
+    event = report["providers"][0]["events"][0]
+    assert report["providers"][0]["normalized_paper_records"] == 1
+    assert event["status"] == "excluded_by_publication_policy"
+    assert event["published_bundle_ids"] == []
 
 
 @pytest.mark.parametrize("kind,source_date,public_years", [

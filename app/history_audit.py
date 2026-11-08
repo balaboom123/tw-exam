@@ -36,6 +36,7 @@ from app.provider_index import (
     paper_index_bundle_id,
     paper_index_canonical_id,
     paper_index_public_year_roc,
+    paper_index_withheld,
 )
 from app.providers.registry import get_provider
 from app.publication_quarantine import quarantined_provider_ids
@@ -218,7 +219,7 @@ def build_history_coverage_audit(
             event.count += 1
             bundle_id = paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
             event.bundle_ids.add(bundle_id)
-            if provider_id not in quarantined:
+            if provider_id not in quarantined and not paper_index_withheld(index, row):
                 public_year = paper_index_public_year_roc(index, row)
                 event.public_years_by_bundle.setdefault(bundle_id, set()).add(public_year)
             if (
