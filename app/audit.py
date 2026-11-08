@@ -24,6 +24,7 @@ from app.normalizer import (
     renormalize_catalog,
 )
 from app.paths import provider_paths, site_paths
+from app.providers.base import HELD_SOURCE_FILE_SIGNATURES
 from app.publication_quarantine import quarantined_provider_ids
 from app.publisher import load_site_catalog
 from app.release_tags import (
@@ -98,7 +99,12 @@ def build_catalog_audit(
             if any(getattr(paper, field, None) != value for field, value in fields.items()):
                 entry["records_needing_v2_rewrite"] += 1
         alias_rules = load_alias_rules(provider.aliases_path)
-        current_review_keys = {review_key(item) for item in catalog.review_queue}
+        # A held source file has no paper to rebuild its review item from.
+        current_review_keys = {
+            review_key(item)
+            for item in catalog.review_queue
+            if not item.classification_signature.startswith(HELD_SOURCE_FILE_SIGNATURES)
+        }
         if all(
             paper.category_raw and paper.canonical_id and paper.canonical_name
             for paper in catalog.papers

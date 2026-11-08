@@ -25,6 +25,8 @@ class ResponseMetadata:
 
 UNREVIEWED_SOURCE_FILE = "unreviewed-source-file:"
 CORRUPT_SOURCE_PAYLOAD = "corrupt-source-payload:"
+# Review items for a held source file, as opposed to a paper's classification.
+HELD_SOURCE_FILE_SIGNATURES = (UNREVIEWED_SOURCE_FILE, CORRUPT_SOURCE_PAYLOAD)
 
 
 class UnreviewedSourceFile(ValueError):

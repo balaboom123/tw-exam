@@ -142,6 +142,39 @@ class CatalogAuditTests(unittest.TestCase):
             self.assertEqual(report["review_queue_missing_entries"], 0)
             self.assertEqual(audit_exit_code(report, strict=True), 1)
 
+    def test_held_source_files_are_not_stale_review_rows(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            current_paper = paper("一般行政", "公務人員高等考試三級", 115, "high-115")
+            held = [
+                ReviewItem(
+                    raw_category="",
+                    normalized_candidate="",
+                    source_exam_id=source_exam_id,
+                    year_roc=115,
+                    provider_id="moex",
+                    reason="held",
+                    classification_signature=signature,
+                )
+                for source_exam_id, signature in (
+                    ("high-115", "unreviewed-source-file:https://example.test/new.pdf"),
+                    ("high-114", "corrupt-source-payload:" + "a" * 64),
+                )
+            ]
+            write_provider_state(
+                provider_paths(root, "moex"),
+                raw_pages=[],
+                normalized=NormalizedCatalog(papers=[current_paper], review_queue=held),
+                aliases=[],
+                failures=[],
+                manifest=None,
+            )
+
+            report = build_catalog_audit(root)
+
+            self.assertEqual(report["review_queue_stale_entries"], 0)
+            self.assertEqual(audit_exit_code(report, strict=True), 0)
+
     def test_audit_scans_all_registered_provider_slots_and_reports_projected_split(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
