@@ -1175,6 +1175,59 @@
       "legacy_canonical_ids": []
     },
     {
+      "canonical_id": "cpc-recruit",
+      "canonical_name": "中油新進博士級人員甄試｜初試（筆試）",
+      "years": [
+        108,
+        102,
+        101,
+        100,
+        98
+      ],
+      "file_count": 5,
+      "storage_key": "bundles/sites/default/cpc-recruit-employment-recruitment-not-applicable-cpc-doctoral-stage-1--c0d67a84f06d.zip",
+      "asset_name": "cpc-recruit-employment-recruitment-not-applicable-cpc-doctoral-stage-1--c0d67a84f06d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/cpc-recruit-employment-recruitment-not-applicable-cpc-doctoral-stage-1--c0d67a84f06d.zip",
+      "checksum": "bee57d94905b3fcf7dac4fee460cd7064b804de9b60ff050f8cf59dbe08d414f",
+      "schema_version": 2,
+      "bundle_id": "cpc-recruit-employment-recruitment-not-applicable-cpc-doctoral-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "cpc-doctoral",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "CPC doctoral recruitment: doctorate is an eligibility requirement, not an exam grade",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "108年新進博士級人員甄試試題.rar",
+        "201443014959_102年博士甄試試題.rar",
+        "201443014312_101年博士甄試試題.rar",
+        "201443013496_100年博士甄試試題.zip",
+        "2014430134514_98年博士甄試試題.rar",
+        "中油新進博士級人員甄試",
+        "108年中油公司新進博士級人員甄試",
+        "108",
+        "phd-01",
+        "102年中油公司新進博士級人員甄試",
+        "102",
+        "101年中油公司新進博士級人員甄試",
+        "101",
+        "100年中油公司新進博士級人員甄試",
+        "100",
+        "98年中油公司新進博士級人員甄試",
+        "98"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": []
+    },
+    {
       "canonical_id": "hce-cmu",
       "canonical_name": "中國醫藥大學學士後中醫學系｜初試（筆試）",
       "years": [
@@ -179380,6 +179433,224 @@
       "legacy_canonical_ids": []
     },
     {
+      "canonical_id": "taigi-cert-a",
+      "canonical_name": "臺灣台語語言能力認證 A卷｜A1 基礎級／A2 初級｜範例試題",
+      "years": [
+        106
+      ],
+      "file_count": 11,
+      "storage_key": "bundles/sites/default/taigi-cert-language-taigi-cefr-a1-a2-taigi-paper-form-a-material-sample--48af2b64d81d.zip",
+      "asset_name": "taigi-cert-language-taigi-cefr-a1-a2-taigi-paper-form-a-material-sample--48af2b64d81d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taigi-cert-language-taigi-cefr-a1-a2-taigi-paper-form-a-material-sample--48af2b64d81d.zip",
+      "checksum": "98a58a1affefaaa420adda1b05efc3cb92a19e817cbdd9761dd193e0f8cf1a28",
+      "schema_version": 3,
+      "bundle_id": "taigi-cert-language-taigi-cefr-a1-a2-taigi-paper-form-a-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "language-certification",
+      "exam_series_id": "language-taigi",
+      "level_id": "cefr-a1-a2",
+      "track_id": "taigi",
+      "variant_ids": [
+        "paper-form-a",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed native Taigi sample form/skill/role/date: taigi-native-0931291b7d55bc180d2c-fd6a7cdf44da2ac7707e",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "臺灣台語語言能力認證",
+      "search_aliases": [
+        "A卷閱讀測驗範例題本",
+        "A卷口語測驗範例題本",
+        "A卷口語測驗範例參考答案",
+        "A卷閱讀測驗範例參考答案",
+        "A卷書寫測驗範例題本",
+        "A卷書寫測驗範例參考答案",
+        "A卷聽力測驗範例題本",
+        "A卷聽力測驗範例參考答案",
+        "A卷聽力測驗範例音檔",
+        "A卷口語測驗範例音檔",
+        "A卷書寫測驗範例音檔",
+        "臺灣台語語言能力認證官方試題範例_A卷",
+        "臺灣台語語言能力認證 A卷範例資源",
+        "a",
+        "0931291b7d55bc180d2c16df",
+        "49e762dfd656c5b95fdb31b1",
+        "69be710c8e8f465942ee9389",
+        "9c7def7b00aa56ae2e04e73c",
+        "c1c2686040e8763ef606c182",
+        "ced8c789d52d8bff0e9426b8",
+        "f2b7d6a7f013e9e1bdcc42d3",
+        "2fb4fdfbb993d03faa4feaaf",
+        "5db0ae19ee7b614a384ad451",
+        "67bc22a494e45ae1eedb82ba"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taigi-cert-b",
+      "canonical_name": "臺灣台語語言能力認證 B卷｜B1 中級／B2 中高級｜範例試題",
+      "years": [
+        106
+      ],
+      "file_count": 11,
+      "storage_key": "bundles/sites/default/taigi-cert-language-taigi-cefr-b1-b2-taigi-paper-form-b-material-sample--226c64daf6e2.zip",
+      "asset_name": "taigi-cert-language-taigi-cefr-b1-b2-taigi-paper-form-b-material-sample--226c64daf6e2.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taigi-cert-language-taigi-cefr-b1-b2-taigi-paper-form-b-material-sample--226c64daf6e2.zip",
+      "checksum": "ce18894780cf637f4cc1ee326aa1db7bad4aaac6fe4d090b2be2f0776011c4a7",
+      "schema_version": 3,
+      "bundle_id": "taigi-cert-language-taigi-cefr-b1-b2-taigi-paper-form-b-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "language-certification",
+      "exam_series_id": "language-taigi",
+      "level_id": "cefr-b1-b2",
+      "track_id": "taigi",
+      "variant_ids": [
+        "paper-form-b",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed native Taigi sample form/skill/role/date: taigi-native-539dbc1cff5fcd38c31c-045bed20523225894b8b",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "臺灣台語語言能力認證",
+      "search_aliases": [
+        "B卷閱讀測驗範例題本",
+        "B卷聽力測驗範例題本",
+        "B卷書寫測驗範例參考答案",
+        "B卷書寫測驗範例題本",
+        "B卷口語測驗範例題本",
+        "B卷口語測驗範例參考答案",
+        "B卷聽力測驗範例參考答案",
+        "B卷書寫測驗範例音檔",
+        "B卷聽力測驗範例音檔",
+        "B卷閱讀測驗範例參考答案",
+        "B卷口語測驗範例音檔",
+        "臺灣台語語言能力認證官方試題範例_B卷",
+        "臺灣台語語言能力認證 B卷範例資源",
+        "b",
+        "539dbc1cff5fcd38c31cf3c2",
+        "55dde7b96f1723cbc6806064",
+        "74a7a7144cf6bb6d05d746fa",
+        "95c27931c4a9f3e69f3fd897",
+        "a27586d0bbc741d7d60cc143",
+        "ad48e54d9154ce4259c8503e",
+        "0d3b881f72c000f5feda6cb0",
+        "5a04adc088b1425b5bfa9660",
+        "8adac13b4e4809061e180880",
+        "979fad91e0fa25d051d3ca75"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taigi-cert-c",
+      "canonical_name": "臺灣台語語言能力認證 C卷｜C1 高級／C2 專業級｜範例試題",
+      "years": [
+        106
+      ],
+      "file_count": 10,
+      "storage_key": "bundles/sites/default/taigi-cert-language-taigi-cefr-c1-c2-taigi-paper-form-c-material-sample--35a350833fb2.zip",
+      "asset_name": "taigi-cert-language-taigi-cefr-c1-c2-taigi-paper-form-c-material-sample--35a350833fb2.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taigi-cert-language-taigi-cefr-c1-c2-taigi-paper-form-c-material-sample--35a350833fb2.zip",
+      "checksum": "3f62d8391a0f82b28c4ae39ae0e1dec8c02dc901c824800f82b23b0f2e11bfff",
+      "schema_version": 3,
+      "bundle_id": "taigi-cert-language-taigi-cefr-c1-c2-taigi-paper-form-c-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "language-certification",
+      "exam_series_id": "language-taigi",
+      "level_id": "cefr-c1-c2",
+      "track_id": "taigi",
+      "variant_ids": [
+        "paper-form-c",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed native Taigi sample form/skill/role/date: taigi-native-65124ab7e1ffef1ac373-9332bfe81e104c4156d8",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "臺灣台語語言能力認證",
+      "search_aliases": [
+        "C卷口語測驗範例題本",
+        "C卷書寫測驗範例參考答案",
+        "C卷口語測驗範例參考答案",
+        "C卷聽力測驗範例題本",
+        "C卷閱讀測驗範例題本",
+        "C卷書寫測驗範例題本",
+        "C卷閱讀測驗範例參考答案",
+        "C卷聽力測驗範例音檔",
+        "C卷聽力測驗範例參考答案",
+        "C卷口語測驗範例音檔",
+        "臺灣台語語言能力認證官方試題範例_C卷",
+        "臺灣台語語言能力認證 C卷範例資源",
+        "c",
+        "65124ab7e1ffef1ac373813a",
+        "78c526f358fa589e8fcabfc6",
+        "88f2c1af9bdabc10b85665fa",
+        "8b25c421d244d8dd430bf01a",
+        "903922471b9903aeeb98c46a",
+        "e0d953e10d1b4af301228a2b",
+        "37e199e5f04395f48d538291",
+        "3e5abc3db76c7aa640462f01",
+        "4bf93f1cf84d013a7c6bbf0a",
+        "fcf2069c1a26a1e5d5ddf956"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
       "canonical_id": "taipower-recruit",
       "canonical_name": "台電新進僱用人員甄試",
       "years": [
@@ -183790,6 +184061,3128 @@
       ],
       "subject_labels": [],
       "legacy_canonical_ids": []
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2016年版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2016-material-sample--3a646f778b3d.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2016-material-sample--3a646f778b3d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2016-material-sample--3a646f778b3d.zip",
+      "checksum": "24e50d477acc91599062cfebbdab2aac41da43f9234fc43282463f1d2f9391a6",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-chinese-input",
+      "variant_ids": [
+        "edition-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-chinese-input-edition-2016; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "中文輸入(2016年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2016"
+      ],
+      "subject_labels": [
+        "中文輸入(2016年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2017年版｜範例試題",
+      "years": [
+        106
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2017-material-sample--839c27ee82f3.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2017-material-sample--839c27ee82f3.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2017-material-sample--839c27ee82f3.zip",
+      "checksum": "25d66a33fe0d3347539c66929bdf7fa80a06b5fb7fe347d1bf2e5364488fcd76",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2017-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-chinese-input",
+      "variant_ids": [
+        "edition-2017",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-chinese-input-edition-2017; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "中文輸入(2017年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2017"
+      ],
+      "subject_labels": [
+        "中文輸入(2017年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2021年版｜範例試題",
+      "years": [
+        110
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2021-material-sample--39cb8f5236ad.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2021-material-sample--39cb8f5236ad.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2021-material-sample--39cb8f5236ad.zip",
+      "checksum": "e64bd62a8965a7464c1408ae8bb9ce22927d15417a5dc58737f018c495614da5",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2021-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-chinese-input",
+      "variant_ids": [
+        "edition-2021",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-chinese-input-edition-2021; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "中文輸入(2021年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2021"
+      ],
+      "subject_labels": [
+        "中文輸入(2021年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2022年版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2022-material-sample--401630fb236c.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2022-material-sample--401630fb236c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2022-material-sample--401630fb236c.zip",
+      "checksum": "97bbc336e24c6e7d4e7f2bbd1b2890259804f1634e4a0c1871610e2d98640241",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2022-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-chinese-input",
+      "variant_ids": [
+        "edition-2022",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-chinese-input-edition-2022; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "中文輸入(2022年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2022"
+      ],
+      "subject_labels": [
+        "中文輸入(2022年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2023年版｜範例試題",
+      "years": [
+        112
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2023-material-sample--050eec38f1b5.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2023-material-sample--050eec38f1b5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2023-material-sample--050eec38f1b5.zip",
+      "checksum": "9574e81e351ff7913f048812ca41a08043aa3b29cbc819ea5361bc77a444a379",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2023-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-chinese-input",
+      "variant_ids": [
+        "edition-2023",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-chinese-input-edition-2023; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "中文輸入(2023年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2023"
+      ],
+      "subject_labels": [
+        "中文輸入(2023年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2016年版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2016-material-sample--e5969f472d5e.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2016-material-sample--e5969f472d5e.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2016-material-sample--e5969f472d5e.zip",
+      "checksum": "416a0d907df636770c76522207581b02354d20529af9e6530b506d1bd976edeb",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-english-input",
+      "variant_ids": [
+        "edition-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-english-input-edition-2016; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "英文輸入(2016年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2016"
+      ],
+      "subject_labels": [
+        "英文輸入(2016年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2021年版｜範例試題",
+      "years": [
+        110
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2021-material-sample--5415a6167866.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2021-material-sample--5415a6167866.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2021-material-sample--5415a6167866.zip",
+      "checksum": "03ded711d448087a34f1f06a687c1b2149a3c4cf9a2f04f94d9c7ec6513e3e26",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2021-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-english-input",
+      "variant_ids": [
+        "edition-2021",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-english-input-edition-2021; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "英文輸入(2021年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2021"
+      ],
+      "subject_labels": [
+        "英文輸入(2021年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2022年版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2022-material-sample--ed216e28ce88.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2022-material-sample--ed216e28ce88.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2022-material-sample--ed216e28ce88.zip",
+      "checksum": "d42d19714bdaa47c7587e682e9eb951f121d6df06ac329ff9f1f09cdb83a22f8",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2022-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-english-input",
+      "variant_ids": [
+        "edition-2022",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-english-input-edition-2022; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "英文輸入(2022年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2022"
+      ],
+      "subject_labels": [
+        "英文輸入(2022年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2023年版｜範例試題",
+      "years": [
+        112
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2023-material-sample--157e8dd60ca0.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2023-material-sample--157e8dd60ca0.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2023-material-sample--157e8dd60ca0.zip",
+      "checksum": "babcd5333217e1234e09b15230475ed1fcfd1e66be5d2d71c0133edd22e32975",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2023-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-english-input",
+      "variant_ids": [
+        "edition-2023",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-english-input-edition-2023; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "英文輸入(2023年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2023"
+      ],
+      "subject_labels": [
+        "英文輸入(2023年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜日文輸入｜第三版｜範例試題",
+      "years": [
+        104
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-japanese-input-edition-3-material-sample--d26ecae90f88.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-japanese-input-edition-3-material-sample--d26ecae90f88.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-japanese-input-edition-3-material-sample--d26ecae90f88.zip",
+      "checksum": "083e8cab8e880dbcfcef1a3f03e3a287d8bb4efa5e5b3044119c1e3e75de42a8",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-japanese-input-edition-3-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-japanese-input",
+      "variant_ids": [
+        "edition-3",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-japanese-input-edition-3; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "日文輸入(第三版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "e697a5e69687e8bcb8e585a5"
+      ],
+      "subject_labels": [
+        "日文輸入(第三版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2016年版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2016-material-sample--6fc68db1702d.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2016-material-sample--6fc68db1702d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2016-material-sample--6fc68db1702d.zip",
+      "checksum": "214d97aae18764081451c5f892f2f1de49f23b5be27d19cb960a3601a06655e2",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-numeric-input",
+      "variant_ids": [
+        "edition-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-numeric-input-edition-2016; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "數字輸入(2016年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2016"
+      ],
+      "subject_labels": [
+        "數字輸入(2016年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2021年版｜範例試題",
+      "years": [
+        110
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2021-material-sample--3078e4a1bec5.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2021-material-sample--3078e4a1bec5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2021-material-sample--3078e4a1bec5.zip",
+      "checksum": "3b5f0470e680b673f14d348f64600f77befd1561ccb9e1679f1e35978fa00363",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2021-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-numeric-input",
+      "variant_ids": [
+        "edition-2021",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-numeric-input-edition-2021; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "數字輸入(2021年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2021"
+      ],
+      "subject_labels": [
+        "數字輸入(2021年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2022年版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2022-material-sample--94c12a5a4432.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2022-material-sample--94c12a5a4432.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2022-material-sample--94c12a5a4432.zip",
+      "checksum": "aedb4541323e948e3cb51dd2f5313b498467ed028e071cad36ba16713d13cd99",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2022-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-numeric-input",
+      "variant_ids": [
+        "edition-2022",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-numeric-input-edition-2022; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "數字輸入(2022年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2022"
+      ],
+      "subject_labels": [
+        "數字輸入(2022年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2023年版｜範例試題",
+      "years": [
+        112
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2023-material-sample--00ea9f077ba8.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2023-material-sample--00ea9f077ba8.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2023-material-sample--00ea9f077ba8.zip",
+      "checksum": "0f8c9a8422e08c71fef069d446986a17e1c02de628e095067978750ed48c80da",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2023-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-input-performance-grades",
+      "track_id": "tqc-numeric-input",
+      "variant_ids": [
+        "edition-2023",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-numeric-input-edition-2023; Native sample contains a typing passage or numeric input groups without a printed grade. The linked official subject rules use the same input format for 實用級, 進階級 and 專業級; the awarded grade depends on measured performance. Retain this shared grade coverage without assigning one grade from an edition or mock-paper code. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "數字輸入(2023年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2023"
+      ],
+      "subject_labels": [
+        "數字輸入(2023年版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜資料庫管理系統 Microsoft Access｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-access-software-version-2016-material-sample--7e0fe316169d.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-access-software-version-2016-material-sample--7e0fe316169d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-access-software-version-2016-material-sample--7e0fe316169d.zip",
+      "checksum": "b604ebc970abc3e062169198ba53c964118f99c531d8c028c4aebac18aab7a7b",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-access-software-version-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-access",
+      "variant_ids": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-access-software-version-2016; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Access 2016",
+        "TQC範例試卷_資料庫應用類",
+        "TQC官方範例試卷",
+        "e8b387e69699e5baabe68789",
+        "access-2016"
+      ],
+      "subject_labels": [
+        "Access 2016"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電腦會計IFRS｜第二版｜範例試題",
+      "years": [
+        109
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-accounting-ifrs-edition-2-material-sample--87f14301fcf8.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-accounting-ifrs-edition-2-material-sample--87f14301fcf8.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-accounting-ifrs-edition-2-material-sample--87f14301fcf8.zip",
+      "checksum": "e27efda2d48a9dd96edf1b32d10240d154a8203b974cf198a43e2e9d493dc6ea",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-accounting-ifrs-edition-2-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-accounting-ifrs",
+      "variant_ids": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-accounting-ifrs-edition-2; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "電腦會計IFRS 第二版",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "ifrs"
+      ],
+      "subject_labels": [
+        "電腦會計IFRS 第二版"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2020
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜AI數據分析Excel｜範例試題",
+      "years": [
+        115
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ai-excel-material-sample--9a2d7f4dbdbf.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ai-excel-material-sample--9a2d7f4dbdbf.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ai-excel-material-sample--9a2d7f4dbdbf.zip",
+      "checksum": "3fe7ef409b0d9d7cf9cb2d0c206b8771f5fe948138680031e6d66b02a200c06d",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ai-excel-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-ai-excel",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-ai-excel-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "AI數據分析Excel",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "ai-excel"
+      ],
+      "subject_labels": [
+        "AI數據分析Excel"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜人工智慧應用與技術｜範例試題",
+      "years": [
+        108
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-artificial-intelligence-material-sample--33237ef967ea.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-artificial-intelligence-material-sample--33237ef967ea.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-artificial-intelligence-material-sample--33237ef967ea.zip",
+      "checksum": "657fbfb04181ec2b6a102b902e66531ba4524da22fafa098a60faeaa4ea32a69",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-artificial-intelligence-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-artificial-intelligence",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-artificial-intelligence-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "人工智慧應用與技術",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e4babae5b7a5e699bae685a7"
+      ],
+      "subject_labels": [
+        "人工智慧應用與技術"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜雲端技術及網路服務｜第二版｜範例試題",
+      "years": [
+        110
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-cloud-services-edition-2-material-sample--da567e5e3d28.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-cloud-services-edition-2-material-sample--da567e5e3d28.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-cloud-services-edition-2-material-sample--da567e5e3d28.zip",
+      "checksum": "dcd702a4e9a82b5bd1093ba29464629d9310c360e31b9661c9f5a575f10437ae",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-cloud-services-edition-2-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-cloud-services",
+      "variant_ids": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-cloud-services-edition-2; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "雲端技術及網路服務 第二版",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "e99bb2e7abafe68a80e8a193"
+      ],
+      "subject_labels": [
+        "雲端技術及網路服務 第二版"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電子商務與AI應用｜範例試題",
+      "years": [
+        115
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-ai-material-sample--08254bfd2cf2.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-ai-material-sample--08254bfd2cf2.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-ai-material-sample--08254bfd2cf2.zip",
+      "checksum": "c6a16b52d77248fc89b039791e06239e20c9e36d760a05736242040f30ef362c",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-ai-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-ecommerce-ai",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-ecommerce-ai-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "電子商務與AI應用",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "ai"
+      ],
+      "subject_labels": [
+        "電子商務與AI應用"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電子商務概論｜第四版｜範例試題",
+      "years": [
+        106
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-edition-4-material-sample--4bebe4eec346.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-edition-4-material-sample--4bebe4eec346.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-edition-4-material-sample--4bebe4eec346.zip",
+      "checksum": "f599e5166f1b9e68e9f7c1bac445aea3913ac89ad8b97a0b86d2b2f916461323",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-edition-4-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-ecommerce",
+      "variant_ids": [
+        "edition-4",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-ecommerce-edition-4; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "電子商務概論(第四版)",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e99bbbe5ad90e59586e58b99"
+      ],
+      "subject_labels": [
+        "電子商務概論(第四版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電子試算表 Microsoft Excel｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2016-material-sample--c222bf4dec13.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2016-material-sample--c222bf4dec13.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2016-material-sample--c222bf4dec13.zip",
+      "checksum": "049abdf9837447a09fad485a3e115d12c47571e00a9cacbfb1586786932a0e6e",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-excel",
+      "variant_ids": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-excel-software-version-2016; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Excel 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "excel-2016"
+      ],
+      "subject_labels": [
+        "Excel 2016"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電子試算表 Microsoft Excel｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2019-material-sample--fba12b2829b5.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2019-material-sample--fba12b2829b5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2019-material-sample--fba12b2829b5.zip",
+      "checksum": "1b5775c785fe204a0cf97bc466c90bf7f399f6ea1c6ca64d58fb1f541aba1e61",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2019-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-excel",
+      "variant_ids": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-excel-software-version-2019; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Excel 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "excel-2019"
+      ],
+      "subject_labels": [
+        "Excel 2019"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電子試算表 Microsoft Excel｜2021版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2021-material-sample--9a16e72d380a.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2021-material-sample--9a16e72d380a.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2021-material-sample--9a16e72d380a.zip",
+      "checksum": "73b88adb028eb29de4e02ca2d9bd3ec3e9a7c24be8821c065abb4a2ec0bed464",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2021-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-excel",
+      "variant_ids": [
+        "software-version-2021",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-excel-software-version-2021; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Excel 2021",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "excel-2021"
+      ],
+      "subject_labels": [
+        "Excel 2021"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜生成式AI應用與技術｜範例試題",
+      "years": [
+        114
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-generative-ai-material-sample--81ff6bb26328.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-generative-ai-material-sample--81ff6bb26328.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-generative-ai-material-sample--81ff6bb26328.zip",
+      "checksum": "307b4c26e905af9031696af13f1ccd10bd102073602569db68c5c3c380f1fca2",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-generative-ai-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-generative-ai",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-generative-ai-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "生成式AI應用與技術",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "ai"
+      ],
+      "subject_labels": [
+        "生成式AI應用與技術"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜物聯網智慧應用及技術｜第二版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-iot-edition-2-material-sample--eebc3147fb4e.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-iot-edition-2-material-sample--eebc3147fb4e.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-iot-edition-2-material-sample--eebc3147fb4e.zip",
+      "checksum": "348aa5ef5eca4aaea8bf1d8da7007318c6780d41d360c15b85be7e906bc22384",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-iot-edition-2-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-iot",
+      "variant_ids": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-iot-edition-2; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "物聯網智慧應用及技術 第二版",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e789a9e881afe7b6b2e699ba"
+      ],
+      "subject_labels": [
+        "物聯網智慧應用及技術 第二版"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜商務軟體應用能力 LibreOffice｜5版｜範例試題",
+      "years": [
+        107
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-libreoffice-software-version-5-material-sample--3e0faabb853b.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-libreoffice-software-version-5-material-sample--3e0faabb853b.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-libreoffice-software-version-5-material-sample--3e0faabb853b.zip",
+      "checksum": "37bd4de1818552d4d33428157840e71f7b8ff8ed959ac203abbb5f52aca79834",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-libreoffice-software-version-5-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-libreoffice",
+      "variant_ids": [
+        "software-version-5",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-libreoffice-software-version-5; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "商務軟體應用能力LibreOffice 5",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "libreoffice-5"
+      ],
+      "subject_labels": [
+        "商務軟體應用能力LibreOffice 5"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜Linux網路管理｜第二版｜範例試題",
+      "years": [
+        104
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-edition-2-material-sample--3e4861c76c78.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-edition-2-material-sample--3e4861c76c78.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-edition-2-material-sample--3e4861c76c78.zip",
+      "checksum": "a5ce1464bd7ee305a99e380f99852d7011bb37e88928f1b0bd88cd0d45f07a99",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-edition-2-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-linux-network",
+      "variant_ids": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-linux-network-edition-2; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Linux網路管理(第二版)",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux"
+      ],
+      "subject_labels": [
+        "Linux網路管理(第二版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜Linux網路管理｜Ubuntu 22.04 LTS｜範例試題",
+      "years": [
+        114
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-software-ubuntu-22-04-lts-material-sample--d1c78c4473c5.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-software-ubuntu-22-04-lts-material-sample--d1c78c4473c5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-software-ubuntu-22-04-lts-material-sample--d1c78c4473c5.zip",
+      "checksum": "5262670b30e347fb473804d70c673993ad7c698119629065aa1f062766c214ff",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-software-ubuntu-22-04-lts-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-linux-network",
+      "variant_ids": [
+        "software-ubuntu-22-04-lts",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-linux-network-software-ubuntu-22-04-lts; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Linux網路管理 Ubuntu 22.04 LTS",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux-ubuntu-22-04-lts"
+      ],
+      "subject_labels": [
+        "Linux網路管理 Ubuntu 22.04 LTS"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜Linux系統管理｜第二版｜範例試題",
+      "years": [
+        104
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-edition-2-material-sample--65e9b4c9aaab.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-edition-2-material-sample--65e9b4c9aaab.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-edition-2-material-sample--65e9b4c9aaab.zip",
+      "checksum": "2e2a5f3996a80dbcb4fad4f053efb570a11f9cfcf08044a7fb10c28da6dbf57a",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-edition-2-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-linux-system",
+      "variant_ids": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-linux-system-edition-2; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Linux系統管理(第二版)",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux"
+      ],
+      "subject_labels": [
+        "Linux系統管理(第二版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜Linux系統管理｜Ubuntu 22.04 LTS｜範例試題",
+      "years": [
+        112
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-software-ubuntu-22-04-lts-material-sample--301140d7df33.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-software-ubuntu-22-04-lts-material-sample--301140d7df33.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-software-ubuntu-22-04-lts-material-sample--301140d7df33.zip",
+      "checksum": "c1bd81891761e31a325628503507eb0c0dd64af7e60e0058e743cb74b8ee21b0",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-software-ubuntu-22-04-lts-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-linux-system",
+      "variant_ids": [
+        "software-ubuntu-22-04-lts",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-linux-system-software-ubuntu-22-04-lts; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Linux系統管理 Ubuntu 22.04 LTS",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux-ubuntu-22-04-lts"
+      ],
+      "subject_labels": [
+        "Linux系統管理 Ubuntu 22.04 LTS"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜商務軟體應用能力 Microsoft Office｜2016版｜範例試題",
+      "years": [
+        108
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2016-material-sample--fbbce19000fa.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2016-material-sample--fbbce19000fa.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2016-material-sample--fbbce19000fa.zip",
+      "checksum": "1e9c1322c5900eecf30cb4ac3750d641363717f9c5467810fda37cfb2ac03e7d",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-microsoft-office",
+      "variant_ids": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-microsoft-office-software-version-2016; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "商務軟體應用能力Microsoft Office 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "microsoft-office-2016"
+      ],
+      "subject_labels": [
+        "商務軟體應用能力Microsoft Office 2016"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜商務軟體應用能力 Microsoft Office｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2019-material-sample--ffb4df15975b.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2019-material-sample--ffb4df15975b.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2019-material-sample--ffb4df15975b.zip",
+      "checksum": "2b46e695c4208a4b92e1678d94f6374bc949cd845996a6a2852ed2cd14e88ba4",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2019-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-microsoft-office",
+      "variant_ids": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-microsoft-office-software-version-2019; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "商務軟體應用能力Microsoft Office 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "microsoft-office-2019"
+      ],
+      "subject_labels": [
+        "商務軟體應用能力Microsoft Office 2019"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜行動裝置應用｜範例試題",
+      "years": [
+        104
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-mobile-devices-material-sample--cab907bb312f.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-mobile-devices-material-sample--cab907bb312f.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-mobile-devices-material-sample--cab907bb312f.zip",
+      "checksum": "5b66e8b7b75867795437985c9b7d6b1c958e169c75252e4d567fb7fa58069e20",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-mobile-devices-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-mobile-devices",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-mobile-devices-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "行動裝置應用",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "e8a18ce58b95e8a39de7bdae"
+      ],
+      "subject_labels": [
+        "行動裝置應用"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜大型資料庫管理系統 MySQL｜5版｜範例試題",
+      "years": [
+        104
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-mysql-software-version-5-material-sample--22d5804af3c0.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-mysql-software-version-5-material-sample--22d5804af3c0.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-mysql-software-version-5-material-sample--22d5804af3c0.zip",
+      "checksum": "e22cd5748f087a3be5617d22f085180647c87b32ad64606b8ab082399931e3d7",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-mysql-software-version-5-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-mysql",
+      "variant_ids": [
+        "software-version-5",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-mysql-software-version-5; The native MySQL 5 written sample omits a grade. The official MySQL subject detail links this exact sample and lists only 專業級 (MY3). Software version 5 is a content version, not the grade. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "MySQL 5",
+        "TQC範例試卷_資料庫應用類",
+        "TQC官方範例試卷",
+        "e8b387e69699e5baabe68789",
+        "mysql-5"
+      ],
+      "subject_labels": [
+        "MySQL 5"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜網路管理實務｜範例試題",
+      "years": [
+        107
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-network-management-material-sample--3d4beedbb242.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-network-management-material-sample--3d4beedbb242.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-network-management-material-sample--3d4beedbb242.zip",
+      "checksum": "e11ca4703ac3824c390069fb9e296543d6d1dc744ecff3c6a0e2e83378e8b5e8",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-network-management-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-network-management",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-network-management-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "網路管理實務",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "e7b6b2e8b7afe7aea1e79086"
+      ],
+      "subject_labels": [
+        "網路管理實務"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電腦簡報 Microsoft PowerPoint｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2016-material-sample--3e6f97774e23.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2016-material-sample--3e6f97774e23.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2016-material-sample--3e6f97774e23.zip",
+      "checksum": "25f74f5fd256b19b0f20aee7354be334928ab63b24ef3672bcd78511345c6758",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-powerpoint",
+      "variant_ids": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-powerpoint-software-version-2016; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "PowerPoint 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "powerpoint-2016"
+      ],
+      "subject_labels": [
+        "PowerPoint 2016"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電腦簡報 Microsoft PowerPoint｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2019-material-sample--2ddb78236e5b.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2019-material-sample--2ddb78236e5b.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2019-material-sample--2ddb78236e5b.zip",
+      "checksum": "38e98183e838c3b651ff9de2017b8db54f26747000efbb63fca5c8f628f6201a",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2019-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-powerpoint",
+      "variant_ids": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-powerpoint-software-version-2019; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "PowerPoint 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "powerpoint-2019"
+      ],
+      "subject_labels": [
+        "PowerPoint 2019"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜電腦簡報 Microsoft PowerPoint｜2021版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2021-material-sample--c2fdaef71fc9.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2021-material-sample--c2fdaef71fc9.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2021-material-sample--c2fdaef71fc9.zip",
+      "checksum": "5255936e4e93d2b96d0fb5ead23ae5647405db651320c653df054333fc92c222",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2021-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-powerpoint",
+      "variant_ids": [
+        "software-version-2021",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-powerpoint-software-version-2021; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "PowerPoint 2021",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "powerpoint-2021"
+      ],
+      "subject_labels": [
+        "PowerPoint 2021"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜專案管理概論｜第三版｜範例試題",
+      "years": [
+        104
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-project-management-edition-3-material-sample--746448b2213a.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-project-management-edition-3-material-sample--746448b2213a.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-project-management-edition-3-material-sample--746448b2213a.zip",
+      "checksum": "426b4ef466868533d14f2549775dc8da3f306c1bcf67414212c63ebe44926b5f",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-project-management-edition-3-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-project-management",
+      "variant_ids": [
+        "edition-3",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-project-management-edition-3; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "專案管理概論(第三版)",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e5b088e6a188e7aea1e79086"
+      ],
+      "subject_labels": [
+        "專案管理概論(第三版)"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜資訊科技 Python｜範例試題",
+      "years": [
+        109
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-python-material-sample--466ba9f7312d.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-python-material-sample--466ba9f7312d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-python-material-sample--466ba9f7312d.zip",
+      "checksum": "bc583f9f1cc814aee530d2289ebb33c065672b345328b7b264d65989d36571ce",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-python-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-python",
+      "variant_ids": [
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-python-sample; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "資訊科技Python",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "python"
+      ],
+      "subject_labels": [
+        "資訊科技Python"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2020
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜文書處理 Microsoft Word｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2016-material-sample--3f7d5bd8c5eb.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2016-material-sample--3f7d5bd8c5eb.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2016-material-sample--3f7d5bd8c5eb.zip",
+      "checksum": "b4afead58ac382cd87292cd09b05216edb984928ca6debb21326b446dabe45eb",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2016-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-word",
+      "variant_ids": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-word-software-version-2016; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Word 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "word-2016"
+      ],
+      "subject_labels": [
+        "Word 2016"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜文書處理 Microsoft Word｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2019-material-sample--95ef1d576030.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2019-material-sample--95ef1d576030.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2019-material-sample--95ef1d576030.zip",
+      "checksum": "66c27b9f8e0d01a309c2f2e82b623524aa464194b5bafde16ca7f765ebd657ff",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2019-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-word",
+      "variant_ids": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-word-software-version-2019; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Word 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "word-2019"
+      ],
+      "subject_labels": [
+        "Word 2019"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "tqc-cert",
+      "canonical_name": "企業人才技能認證（TQC）｜專業級｜文書處理 Microsoft Word｜2021版｜範例試題",
+      "years": [
+        111
+      ],
+      "file_count": 1,
+      "storage_key": "bundles/sites/default/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2021-material-sample--9229cea71874.zip",
+      "asset_name": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2021-material-sample--9229cea71874.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2021-material-sample--9229cea71874.zip",
+      "checksum": "998d5c5cf320abc99fdbd5f829332f4d2e173c962b78bfa9fac920e6c6bde439",
+      "schema_version": 3,
+      "bundle_id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2021-material-sample",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "certification",
+      "exam_family_id": "skill-certification",
+      "exam_series_id": "tqc-skills-certification",
+      "level_id": "tqc-professional",
+      "track_id": "tqc-word",
+      "variant_ids": [
+        "software-version-2021",
+        "material-sample"
+      ],
+      "stage_id": "not-applicable",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: sample; date basis: publication_year; reviewed TQC native sample: tqc-word-software-version-2021; The visually reviewed native first page explicitly identifies 專業級. The official subject page establishes the certification subject; the sample title/header establishes its content version. A software/book or mock-paper numeral is not a grade rule. Keep the named software version or book edition as a content variant, separate from the listing publication date.",
+      "exam_class": "證照／檢定",
+      "exam_subclass": "企業人才技能認證（TQC）",
+      "search_aliases": [
+        "Word 2021",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "word-2021"
+      ],
+      "subject_labels": [
+        "Word 2021"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜營運士行政類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-administration-stage-1--e285f8ed08ed.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-administration-stage-1--e285f8ed08ed.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-administration-stage-1--e285f8ed08ed.zip",
+      "checksum": "efdf3d61d649686164f814cbb21b62c6c164cc1cf3fa79db6bb7957cdd66dec5",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-administration-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-administration",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/administration; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目A-企業管理概要",
+        "應試科目：專業科目B-行政學概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-行政學概要",
+        "應試科目：專業科目一-企業管理概要",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 企業管理概要",
+        "應試科目：專業科目二 行政學概要",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：企業管理概要",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：行政學概要",
+        "營運士行政類",
+        "115年試題(解答).zip(4.3M)",
+        "115-administration",
+        "native-b086e738b2c4abe865e36ecb11a364c349bf46dba1cc51c2ee71c37f39433193",
+        "native-ef4dd713f21bc7c4614872f2e8aca981566d79b8608ba68e7272d476319339cf",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-administration",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-364666ecc86dd5a65bad7b4fff88dd2102141337c76ca26c2fc0e2e09c625004",
+        "native-40479a4611f420985f49a7918cedd9236fcc08f2a13f946fdcf561aa74bd944c",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜營運士業務類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-business-stage-1--1c5f8f41de4f.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-business-stage-1--1c5f8f41de4f.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-business-stage-1--1c5f8f41de4f.zip",
+      "checksum": "9afd8cb2ab3b94b9e8a73d99f7ad9d69a1818810eba1b3a488724bb05ce754d5",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-business-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-business",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/business; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目B-自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目A-企業管理概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目一-企業管理概要",
+        "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目一 企業管理概要",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "應試科目：專業科目二-英文",
+        "專業科目 2：英文",
+        "專業科目 1：企業管理概要",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "營運士業務類",
+        "115年試題(解答).zip(4.3M)",
+        "115-business",
+        "native-90ff5bb55213c25992cf32c9e4a50bd09ff60f3aeb63460f03828f012672d3fc",
+        "native-b086e738b2c4abe865e36ecb11a364c349bf46dba1cc51c2ee71c37f39433193",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-business",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-40479a4611f420985f49a7918cedd9236fcc08f2a13f946fdcf561aa74bd944c",
+        "native-848b4104ebd7e0aa258f64d721c8d475b7d5ccd48952959c113f8f82dd3874b3"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜技術士工程類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-engineering-stage-1--e1f0f7b7610f.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-engineering-stage-1--e1f0f7b7610f.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-engineering-stage-1--e1f0f7b7610f.zip",
+      "checksum": "78dce4983db723f36b3c85bb99500b4f905472feb64265a7e8921382a3cca21c",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-engineering-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-engineering",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/engineering; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目A-高中(職)土木及水管埋設施工",
+        "應試科目：專業科目B-電腦繪圖(AutoCad)",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+        "應試科目：專業科目二-電腦繪圖(AutoCad)",
+        "應試科目：專業科目一 高中(職)土木及水管埋設施工",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 電腦繪圖(AutoCad)",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "應試科目：專業科目二-電腦繪圖（Auto Cad）",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：電腦繪圖(AutoCad)",
+        "專業科目 1：高中(職)土木及水管埋設施工",
+        "技術士工程類",
+        "115年試題(解答).zip(4.3M)",
+        "115-engineering",
+        "native-c3743580ebabe1d07a2286b9c68f2eeb20dca9a8265806022b449b653e93c937",
+        "native-f8946da8cb5e7f758396be85618ea929271ba6f6debf5b4880d790001291bdb3",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-engineering",
+        "native-3296550f06a51cc957e029a5a739afe0f495719bc9c30863d6ef60836e376a3f",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-d7f0cc66a9bd953f28ff562f59889b1cb48b1ef5c76c5e355b71a7f648178e19"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜技術士化驗類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-laboratory-stage-1--b653047e86f6.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-laboratory-stage-1--b653047e86f6.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-laboratory-stage-1--b653047e86f6.zip",
+      "checksum": "6a45615252806fa46c75b01c632d7fc7722f127620aeefa089d32670f0464d6b",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-laboratory-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-laboratory",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/laboratory; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目A-高中(職)物理化學",
+        "應試科目：專業科目B-高中(職)分析化學及水質檢驗操作須知",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+        "應試科目：專業科目一-高中(職)物理化學",
+        "應試科目：專業科目一 高中(職)物理化學",
+        "應試科目：專業科目二 高中(職)分析化學及水質檢驗操作須知",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)物理化學",
+        "專業科目 2：高中(職)分析化學及水質檢驗操作須知",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "技術士化驗類",
+        "115年試題(解答).zip(4.3M)",
+        "115-laboratory",
+        "native-968f7102818b9850088a81607828a5cdb8ae89c256c503a414169e1d24267d6d",
+        "native-c1738431b87abfdca6409cada5d23c9e0a295a8afad8aa8b1d9d86d0d97b1fd8",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-laboratory",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-e6f3ea88f543d2bba0fd002f5bc2f08b5f61a7656b29cc87c2a20fa583972322",
+        "native-e8fcaabe3d8726d3f4fc78f6d7e64f9f8884d1078f5dfcb0cbff05673542ec30",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜營運士行政類-地政人員｜初試（筆試）",
+      "years": [
+        113,
+        110
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-land-administration-stage-1--32f1369bd81d.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-land-administration-stage-1--32f1369bd81d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-land-administration-stage-1--32f1369bd81d.zip",
+      "checksum": "3d290ad654c9b7bd2d0be00690dc3c36b175618d81328d5d02c433f91c14d64d",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-land-administration-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-land-administration",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 112/land-administration; 112年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 民法物權編",
+        "應試科目：專業科目一 土地法規",
+        "專業科目 1：土地法規",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：民法物權編",
+        "營運士行政類-地政人員",
+        "112年試題(解答).zip(5.7M)",
+        "112-land-administration",
+        "native-4a2b2337128b6a3398712016d5c1264266739077908d4cd3f47c444e0b482b24",
+        "native-6f1f7eef2d8d8f365b7d33960001308541b36f5a0bce811b99393eabf98e27bd",
+        "native-ab5029d925a58b21eaf1b3b6211ed02aa32e883fbe67c73ec308c7a045d7d5bf",
+        "native-b9c55ccf93410a48d40522a200e1841970971918f7df87ba0e7413a9c8d39d93",
+        "native-fb41990f34821341a05ad81afbd505dbec106f05f7376a19fa26204d59aa7120",
+        "native-ff7cbfe5503bfadc5f60c21643b888deab65409675595be03c90afdd6a86a609",
+        "110年試題(解答).zip(7.8M)",
+        "110-land-administration",
+        "native-7d4e6f160067ccd6e075326ef84adc267d2d48b27cc2ed7902716f1f7d81c7a5",
+        "native-8e07a66dad800a3ac2c653dd7edd0f5ab909c36b21dd346ae2e796acd67f251a",
+        "native-e2f4b7ca5ee4fadeb8cc876f5ad63c270dfa4fee6f36f3b7ae7fb289a61815a4"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜營運士業務類-抄表人員｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-meter-reading-stage-1--4d42398815f1.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-meter-reading-stage-1--4d42398815f1.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-meter-reading-stage-1--4d42398815f1.zip",
+      "checksum": "8fa95eb8d61abf61051ca0bec04612fe084ffc5118872b86569050c1633272d6",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-meter-reading-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-meter-reading",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/meter-reading; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目B-自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目A-企業管理概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目一-企業管理概要",
+        "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目一 企業管理概要",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：企業管理概要",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：自來水法及台灣自來水公司營業章程",
+        "營運士業務類-抄表人員",
+        "115年試題(解答).zip(4.3M)",
+        "115-meter-reading",
+        "native-90ff5bb55213c25992cf32c9e4a50bd09ff60f3aeb63460f03828f012672d3fc",
+        "native-b086e738b2c4abe865e36ecb11a364c349bf46dba1cc51c2ee71c37f39433193",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-meter-reading",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-40479a4611f420985f49a7918cedd9236fcc08f2a13f946fdcf561aa74bd944c",
+        "native-848b4104ebd7e0aa258f64d721c8d475b7d5ccd48952959c113f8f82dd3874b3",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜技術士操作類-甲(機電)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-operating-a-stage-1--b0976d6a46da.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-operating-a-stage-1--b0976d6a46da.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-operating-a-stage-1--b0976d6a46da.zip",
+      "checksum": "ab5bd82dc125174710ad630e85736196419ca50df2849aebaa62105b7d186697",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-operating-a-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-operating-a",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/operating-a; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目B-基本電學",
+        "應試科目：專業科目A-電機(工)機械",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-基本電學",
+        "應試科目：專業科目一-電機(工)機械",
+        "應試科目：專業科目二 基本電學",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 電機(工)機械",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "應試科目：專業科目一-高中(職)物理化學",
+        "專業科目 1：高中(職)物理化學",
+        "專業科目 2：基本電學",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "技術士操作類-甲(機電)",
+        "115年試題(解答).zip(4.3M)",
+        "115-operating-a",
+        "native-8f80359ffb8f9c40bded4544b562cb3ed2a889b401b09fa133fcd2ac7300a4aa",
+        "native-ba1151b8a8414c9165b53a5c9f35416bb4cf8c64e48ac9c8abe7fdce41b3987c",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-operating-a",
+        "native-11e68c83f635ee3a68e2c5c0e0dbbb2a47770b85174895d70b759d6b21fda3df",
+        "native-3144dcb16b69a2766a83e0a09bc3a79e0e0b8de92ddb57dfd7dbd7f84179ef07",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜技術士操作類-乙(淨水、管線、水源)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-operating-b-stage-1--f31c3c7a39cf.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-operating-b-stage-1--f31c3c7a39cf.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-operating-b-stage-1--f31c3c7a39cf.zip",
+      "checksum": "3671deae0b687e119e0b4d4a4e0dc58fa5877f3bab8758f2e8b114a7dc8e1de6",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-operating-b-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-operating-b",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/operating-b; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目A-高中(職)物理化學",
+        "應試科目：專業科目B_自來水工程概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-自來水工程概要",
+        "應試科目：專業科目一-高中(職)物理化學",
+        "應試科目：專業科目一 高中(職)物理化學",
+        "應試科目：專業科目二 自來水工程概要",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)物理化學",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：自來水工程概要",
+        "技術士操作類-乙(淨水、管線、水源)",
+        "115年試題(解答).zip(4.3M)",
+        "115-operating-b",
+        "native-968f7102818b9850088a81607828a5cdb8ae89c256c503a414169e1d24267d6d",
+        "native-a83a6486de2460033627e75d3528fc4840004155631be6422f4711be1427fdda",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-operating-b",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-63393ac254de19689379bb3f53c02eb0e14cf95f53cfc6d7d482bb894856628e",
+        "native-e8fcaabe3d8726d3f4fc78f6d7e64f9f8884d1078f5dfcb0cbff05673542ec30",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜技術士裝修類-甲(新裝、修漏)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-repair-a-stage-1--11c58f17576d.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-repair-a-stage-1--11c58f17576d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-repair-a-stage-1--11c58f17576d.zip",
+      "checksum": "b7b0a3c2560200b34472f1c1481380304a400c7314d7ab7110d3df16a8f513e8",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-repair-a-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-repair-a",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/repair-a; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目A-高中(職)配管裝修",
+        "應試科目：專業科目B-配管與儀器操作原理",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-配管與儀器操作原理",
+        "應試科目：專業科目一-高中(職)配管裝修",
+        "應試科目：專業科目二 配管與儀器操作原理",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 高中(職)配管裝修",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：配管與儀器操作原理",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)配管裝修",
+        "技術士裝修類-甲(新裝、修漏)",
+        "115年試題(解答).zip(4.3M)",
+        "115-repair-a",
+        "native-1a7cfcf82a359ce221f777927b1ca5dfae73c23d45dda8e38ec9a7d9dc397ed0",
+        "native-1fde1ffba4bea829050c246357d37832b84359ea8c732b3e452295964cca55b8",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-repair-a",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-d58f314b301b42dfc927f1a637e7e6a0d180c490f7a6e408631cf4a370258345",
+        "native-f506c27cdf92b6bdefe0f84aaae9fefe83bac6b1b35cbe6d207de0953e934da7",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "twc-recruit",
+      "canonical_name": "台水評價職位人員甄試｜技術士裝修類-乙(檢漏)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "file_count": 21,
+      "storage_key": "bundles/sites/default/twc-recruit-employment-recruitment-not-applicable-twc-repair-b-stage-1--e4a440fa2c3c.zip",
+      "asset_name": "twc-recruit-employment-recruitment-not-applicable-twc-repair-b-stage-1--e4a440fa2c3c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-repair-b-stage-1--e4a440fa2c3c.zip",
+      "checksum": "d08281f459809fc8013fd7352814be46fa64ec93aaafcd96cefc282f12ec2467",
+      "schema_version": 3,
+      "bundle_id": "twc-recruit-employment-recruitment-not-applicable-twc-repair-b-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "employment-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "twc-repair-b",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; reviewed Taiwan Water native occupational applicability: 115/repair-b; 115年評價職位人員甄試簡章：甄試類別、工作性質及初試筆試科目；相同職類的列示報考組別共用原生筆試內容",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "就業／國營事業甄試",
+      "search_aliases": [
+        "應試科目：專業科目A-高中(職)配管裝修",
+        "應試科目：專業科目B-配管與儀器操作原理",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-配管與儀器操作原理",
+        "應試科目：專業科目一-高中(職)配管裝修",
+        "應試科目：專業科目二 配管與儀器操作原理",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 高中(職)配管裝修",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：配管與儀器操作原理",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)配管裝修",
+        "技術士裝修類-乙(檢漏)",
+        "115年試題(解答).zip(4.3M)",
+        "115-repair-b",
+        "native-1a7cfcf82a359ce221f777927b1ca5dfae73c23d45dda8e38ec9a7d9dc397ed0",
+        "native-1fde1ffba4bea829050c246357d37832b84359ea8c732b3e452295964cca55b8",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-repair-b",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-d58f314b301b42dfc927f1a637e7e6a0d180c490f7a6e408631cf4a370258345",
+        "native-f506c27cdf92b6bdefe0f84aaae9fefe83bac6b1b35cbe6d207de0953e934da7",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "wdasec-skill",

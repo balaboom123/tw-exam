@@ -52,7 +52,7 @@ jobs:
             durable_snapshot: true
             cache_prefix: taigi-cert
             timeout_minutes: 30
-            publish: false
+            publish: true
             prune_orphaned_mirror: false
           - provider_id: tocfl_cert
             durable_snapshot: false
@@ -64,7 +64,7 @@ jobs:
             durable_snapshot: true
             cache_prefix: tqc-cert
             timeout_minutes: 30
-            publish: false
+            publish: true
             prune_orphaned_mirror: false
           - provider_id: wdasec_skill
             durable_snapshot: true

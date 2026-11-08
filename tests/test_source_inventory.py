@@ -646,17 +646,24 @@ class SourceInventoryTests(unittest.TestCase):
         exceptions = json.loads(
             (ROOT / "catalog/source-coverage/twc_recruit.json").read_text(encoding="utf-8")
         )["exceptions"]
-        self.assertEqual(len(failures), 1)
+        # The corrupt official archive is held for review, not a sync failure.
+        from app.paths import provider_paths
+        from app.state import load_provider_state
+
+        _pages, catalog, _failures = load_provider_state(provider_paths(ROOT, "twc_recruit"))
+        held = [item for item in catalog.review_queue
+                if item.classification_signature.startswith("corrupt-source-payload:")]
+        self.assertEqual(failures, [])
         self.assertEqual(len(exceptions), 1)
-        self.assertEqual(failures[0]["stage"], "download")
-        self.assertEqual(failures[0]["source_exam_id"], "twc-recruit-107")
-        self.assertEqual(failures[0]["url"], exceptions[0]["source_url"])
-        self.assertEqual(failures[0]["paper_code"], exceptions[0]["paper_code"])
+        self.assertEqual([item.source_exam_id for item in held], ["twc-recruit-107"])
+        self.assertIn("CRC mismatch", held[0].reason)
+        self.assertNotIn(107, {paper.year_roc for paper in catalog.papers})
         self.assertEqual(exceptions[0]["reason_code"], "official_corrupt_archive")
         receipts = json.loads(
             (ROOT / "data/providers/twc_recruit/sync-status.json").read_text(encoding="utf-8")
         )["events"]
-        self.assertNotIn("twc-recruit-107", receipts)
+        # The ROC 107 event synced; only its corrupt archive is held.
+        self.assertIn("twc-recruit-107", receipts)
         self.assertIn("twc-recruit-115", receipts)
 
     def test_gept_manifest_matches_native_roles_undated_material_and_retained_failures(self) -> None:
@@ -787,9 +794,6 @@ class SourceInventoryTests(unittest.TestCase):
         inventory = load_source_inventory(ROOT)
         entry = next(row for row in inventory["providers"] if row["provider_id"] == "tqc_cert")
         self.assertEqual(entry["status"], "covered")
-        quarantine = json.loads((ROOT / "catalog/mappings/publication-quarantine.json").read_text())
-        hold = next(row for row in quarantine["quarantine"] if row["provider_id"] == "tqc_cert")
-        self.assertEqual(hold["status"], "redistribution_unresolved")
 
     def test_ipas_manifest_covers_native_formats_and_conserved_history(self) -> None:
         manifest = json.loads(

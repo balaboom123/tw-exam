@@ -1810,7 +1810,7 @@ class HakkaPrivateMirrorTests(unittest.TestCase):
                 allowed = getattr(get_provider(row['provider_id']), 'public_mirror_backup_allowed', True)
                 self.assertIs(row['durable_snapshot'], allowed)
         cpc = next(row for row in rows if row['provider_id'] == 'cpc_recruit')
-        self.assertIs(cpc['publish'], False)
+        self.assertIs(cpc['publish'], True)
         self.assertIs(cpc['durable_snapshot'], False)
         self.assertIn('schedule', weekly['on'])
 

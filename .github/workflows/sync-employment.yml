@@ -38,7 +38,7 @@ jobs:
             durable_snapshot: false
             cache_prefix: cpc-recruit
             timeout_minutes: 120
-            publish: false
+            publish: true
             prune_orphaned_mirror: false
           - provider_id: post_recruit
             durable_snapshot: true
@@ -56,7 +56,7 @@ jobs:
             durable_snapshot: true
             cache_prefix: twc-recruit
             timeout_minutes: 120
-            publish: false
+            publish: true
             prune_orphaned_mirror: false
     uses: ./.github/workflows/_sync-provider.yml
     with:

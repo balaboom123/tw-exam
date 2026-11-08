@@ -1103,6 +1103,54 @@
       "updated": "2026-11-08T03:32:44Z"
     },
     {
+      "id": "cpc-recruit-employment-recruitment-not-applicable-cpc-doctoral-stage-1",
+      "name": "中油新進博士級人員甄試｜初試（筆試）",
+      "years": [
+        108,
+        102,
+        101,
+        100,
+        98
+      ],
+      "fileCount": 5,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/cpc-recruit-employment-recruitment-not-applicable-cpc-doctoral-stage-1--c0d67a84f06d.zip",
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "cpc-doctoral",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "108年新進博士級人員甄試試題.rar",
+        "201443014959_102年博士甄試試題.rar",
+        "201443014312_101年博士甄試試題.rar",
+        "201443013496_100年博士甄試試題.zip",
+        "2014430134514_98年博士甄試試題.rar",
+        "中油新進博士級人員甄試",
+        "108年中油公司新進博士級人員甄試",
+        "108",
+        "phd-01",
+        "102年中油公司新進博士級人員甄試",
+        "102",
+        "101年中油公司新進博士級人員甄試",
+        "101",
+        "100年中油公司新進博士級人員甄試",
+        "100",
+        "98年中油公司新進博士級人員甄試",
+        "98"
+      ],
+      "sources": [
+        {
+          "name": "台灣中油股份有限公司",
+          "url": "https://www.cpc.com.tw/News.aspx?n=32&sms=8969"
+        }
+      ],
+      "updated": "2026-11-07T11:49:05Z"
+    },
+    {
       "id": "hce-cmu-post-baccalaureate-medical-not-applicable-hce-cmu-stage-1",
       "name": "中國醫藥大學學士後中醫學系｜初試（筆試）",
       "years": [
@@ -162550,6 +162598,209 @@
       "updated": "2026-11-08T04:51:55Z"
     },
     {
+      "id": "taigi-cert-language-taigi-cefr-a1-a2-taigi-paper-form-a-material-sample",
+      "name": "臺灣台語語言能力認證 A卷｜A1 基礎級／A2 初級｜範例試題",
+      "years": [
+        106
+      ],
+      "fileCount": 11,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taigi-cert-language-taigi-cefr-a1-a2-taigi-paper-form-a-material-sample--48af2b64d81d.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "language-certification",
+      "seriesId": "language-taigi",
+      "levelId": "cefr-a1-a2",
+      "trackId": "taigi",
+      "variantIds": [
+        "paper-form-a",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "臺灣台語語言能力認證",
+      "searchAliases": [
+        "A卷閱讀測驗範例題本",
+        "A卷口語測驗範例題本",
+        "A卷口語測驗範例參考答案",
+        "A卷閱讀測驗範例參考答案",
+        "A卷書寫測驗範例題本",
+        "A卷書寫測驗範例參考答案",
+        "A卷聽力測驗範例題本",
+        "A卷聽力測驗範例參考答案",
+        "A卷聽力測驗範例音檔",
+        "A卷口語測驗範例音檔",
+        "A卷書寫測驗範例音檔",
+        "臺灣台語語言能力認證官方試題範例_A卷",
+        "臺灣台語語言能力認證 A卷範例資源",
+        "a",
+        "0931291b7d55bc180d2c16df",
+        "49e762dfd656c5b95fdb31b1",
+        "69be710c8e8f465942ee9389",
+        "9c7def7b00aa56ae2e04e73c",
+        "c1c2686040e8763ef606c182",
+        "ced8c789d52d8bff0e9426b8",
+        "f2b7d6a7f013e9e1bdcc42d3",
+        "2fb4fdfbb993d03faa4feaaf",
+        "5db0ae19ee7b614a384ad451",
+        "67bc22a494e45ae1eedb82ba"
+      ],
+      "sources": [
+        {
+          "name": "教育部臺灣台語語言能力認證考試",
+          "url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+        }
+      ],
+      "updated": "2026-11-08T05:01:03Z"
+    },
+    {
+      "id": "taigi-cert-language-taigi-cefr-b1-b2-taigi-paper-form-b-material-sample",
+      "name": "臺灣台語語言能力認證 B卷｜B1 中級／B2 中高級｜範例試題",
+      "years": [
+        106
+      ],
+      "fileCount": 11,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taigi-cert-language-taigi-cefr-b1-b2-taigi-paper-form-b-material-sample--226c64daf6e2.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "language-certification",
+      "seriesId": "language-taigi",
+      "levelId": "cefr-b1-b2",
+      "trackId": "taigi",
+      "variantIds": [
+        "paper-form-b",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "臺灣台語語言能力認證",
+      "searchAliases": [
+        "B卷閱讀測驗範例題本",
+        "B卷聽力測驗範例題本",
+        "B卷書寫測驗範例參考答案",
+        "B卷書寫測驗範例題本",
+        "B卷口語測驗範例題本",
+        "B卷口語測驗範例參考答案",
+        "B卷聽力測驗範例參考答案",
+        "B卷書寫測驗範例音檔",
+        "B卷聽力測驗範例音檔",
+        "B卷閱讀測驗範例參考答案",
+        "B卷口語測驗範例音檔",
+        "臺灣台語語言能力認證官方試題範例_B卷",
+        "臺灣台語語言能力認證 B卷範例資源",
+        "b",
+        "539dbc1cff5fcd38c31cf3c2",
+        "55dde7b96f1723cbc6806064",
+        "74a7a7144cf6bb6d05d746fa",
+        "95c27931c4a9f3e69f3fd897",
+        "a27586d0bbc741d7d60cc143",
+        "ad48e54d9154ce4259c8503e",
+        "0d3b881f72c000f5feda6cb0",
+        "5a04adc088b1425b5bfa9660",
+        "8adac13b4e4809061e180880",
+        "979fad91e0fa25d051d3ca75"
+      ],
+      "sources": [
+        {
+          "name": "教育部臺灣台語語言能力認證考試",
+          "url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+        }
+      ],
+      "updated": "2026-11-08T05:01:03Z"
+    },
+    {
+      "id": "taigi-cert-language-taigi-cefr-c1-c2-taigi-paper-form-c-material-sample",
+      "name": "臺灣台語語言能力認證 C卷｜C1 高級／C2 專業級｜範例試題",
+      "years": [
+        106
+      ],
+      "fileCount": 10,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taigi-cert-language-taigi-cefr-c1-c2-taigi-paper-form-c-material-sample--35a350833fb2.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "undated",
+            "year_ad": null
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "language-certification",
+      "seriesId": "language-taigi",
+      "levelId": "cefr-c1-c2",
+      "trackId": "taigi",
+      "variantIds": [
+        "paper-form-c",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "臺灣台語語言能力認證",
+      "searchAliases": [
+        "C卷口語測驗範例題本",
+        "C卷書寫測驗範例參考答案",
+        "C卷口語測驗範例參考答案",
+        "C卷聽力測驗範例題本",
+        "C卷閱讀測驗範例題本",
+        "C卷書寫測驗範例題本",
+        "C卷閱讀測驗範例參考答案",
+        "C卷聽力測驗範例音檔",
+        "C卷聽力測驗範例參考答案",
+        "C卷口語測驗範例音檔",
+        "臺灣台語語言能力認證官方試題範例_C卷",
+        "臺灣台語語言能力認證 C卷範例資源",
+        "c",
+        "65124ab7e1ffef1ac373813a",
+        "78c526f358fa589e8fcabfc6",
+        "88f2c1af9bdabc10b85665fa",
+        "8b25c421d244d8dd430bf01a",
+        "903922471b9903aeeb98c46a",
+        "e0d953e10d1b4af301228a2b",
+        "37e199e5f04395f48d538291",
+        "3e5abc3db76c7aa640462f01",
+        "4bf93f1cf84d013a7c6bbf0a",
+        "fcf2069c1a26a1e5d5ddf956"
+      ],
+      "sources": [
+        {
+          "name": "教育部臺灣台語語言能力認證考試",
+          "url": "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
+        }
+      ],
+      "updated": "2026-11-08T05:01:03Z"
+    },
+    {
       "id": "taipower-recruit-employment-recruitment-not-applicable-taipower-recruit",
       "name": "台電新進僱用人員甄試",
       "years": [
@@ -166723,6 +166974,2902 @@
         }
       ],
       "updated": "2026-11-08T05:14:06Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2016年版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2016-material-sample--3a646f778b3d.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-chinese-input",
+      "variantIds": [
+        "edition-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "中文輸入(2016年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2016"
+      ],
+      "subjectLabels": [
+        "中文輸入(2016年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2017-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2017年版｜範例試題",
+      "years": [
+        106
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2017-material-sample--839c27ee82f3.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-chinese-input",
+      "variantIds": [
+        "edition-2017",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "中文輸入(2017年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2017"
+      ],
+      "subjectLabels": [
+        "中文輸入(2017年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2021-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2021年版｜範例試題",
+      "years": [
+        110
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2021-material-sample--39cb8f5236ad.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-chinese-input",
+      "variantIds": [
+        "edition-2021",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "中文輸入(2021年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2021"
+      ],
+      "subjectLabels": [
+        "中文輸入(2021年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2022-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2022年版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2022-material-sample--401630fb236c.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-chinese-input",
+      "variantIds": [
+        "edition-2022",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "中文輸入(2022年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2022"
+      ],
+      "subjectLabels": [
+        "中文輸入(2022年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2023-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜中文輸入｜2023年版｜範例試題",
+      "years": [
+        112
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-chinese-input-edition-2023-material-sample--050eec38f1b5.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-chinese-input",
+      "variantIds": [
+        "edition-2023",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "中文輸入(2023年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2023"
+      ],
+      "subjectLabels": [
+        "中文輸入(2023年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2016年版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2016-material-sample--e5969f472d5e.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-english-input",
+      "variantIds": [
+        "edition-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "英文輸入(2016年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2016"
+      ],
+      "subjectLabels": [
+        "英文輸入(2016年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2021-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2021年版｜範例試題",
+      "years": [
+        110
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2021-material-sample--5415a6167866.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-english-input",
+      "variantIds": [
+        "edition-2021",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "英文輸入(2021年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2021"
+      ],
+      "subjectLabels": [
+        "英文輸入(2021年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2022-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2022年版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2022-material-sample--ed216e28ce88.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-english-input",
+      "variantIds": [
+        "edition-2022",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "英文輸入(2022年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2022"
+      ],
+      "subjectLabels": [
+        "英文輸入(2022年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2023-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜英文輸入｜2023年版｜範例試題",
+      "years": [
+        112
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-english-input-edition-2023-material-sample--157e8dd60ca0.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-english-input",
+      "variantIds": [
+        "edition-2023",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "英文輸入(2023年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2023"
+      ],
+      "subjectLabels": [
+        "英文輸入(2023年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-japanese-input-edition-3-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜日文輸入｜第三版｜範例試題",
+      "years": [
+        104
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-japanese-input-edition-3-material-sample--d26ecae90f88.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-japanese-input",
+      "variantIds": [
+        "edition-3",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "日文輸入(第三版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "e697a5e69687e8bcb8e585a5"
+      ],
+      "subjectLabels": [
+        "日文輸入(第三版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2016年版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2016-material-sample--6fc68db1702d.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-numeric-input",
+      "variantIds": [
+        "edition-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "數字輸入(2016年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2016"
+      ],
+      "subjectLabels": [
+        "數字輸入(2016年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2021-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2021年版｜範例試題",
+      "years": [
+        110
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2021-material-sample--3078e4a1bec5.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-numeric-input",
+      "variantIds": [
+        "edition-2021",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "數字輸入(2021年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2021"
+      ],
+      "subjectLabels": [
+        "數字輸入(2021年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2022-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2022年版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2022-material-sample--94c12a5a4432.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-numeric-input",
+      "variantIds": [
+        "edition-2022",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "數字輸入(2022年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2022"
+      ],
+      "subjectLabels": [
+        "數字輸入(2022年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2023-material-sample",
+      "name": "企業人才技能認證（TQC）｜實用級／進階級／專業級｜數字輸入｜2023年版｜範例試題",
+      "years": [
+        112
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-input-performance-grades-tqc-numeric-input-edition-2023-material-sample--00ea9f077ba8.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-input-performance-grades",
+      "trackId": "tqc-numeric-input",
+      "variantIds": [
+        "edition-2023",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "數字輸入(2023年版)",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "2023"
+      ],
+      "subjectLabels": [
+        "數字輸入(2023年版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-access-software-version-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜資料庫管理系統 Microsoft Access｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-access-software-version-2016-material-sample--7e0fe316169d.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-access",
+      "variantIds": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Access 2016",
+        "TQC範例試卷_資料庫應用類",
+        "TQC官方範例試卷",
+        "e8b387e69699e5baabe68789",
+        "access-2016"
+      ],
+      "subjectLabels": [
+        "Access 2016"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-accounting-ifrs-edition-2-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電腦會計IFRS｜第二版｜範例試題",
+      "years": [
+        109
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-accounting-ifrs-edition-2-material-sample--87f14301fcf8.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2020
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-accounting-ifrs",
+      "variantIds": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "電腦會計IFRS 第二版",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "ifrs"
+      ],
+      "subjectLabels": [
+        "電腦會計IFRS 第二版"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ai-excel-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜AI數據分析Excel｜範例試題",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ai-excel-material-sample--9a2d7f4dbdbf.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-ai-excel",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "AI數據分析Excel",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "ai-excel"
+      ],
+      "subjectLabels": [
+        "AI數據分析Excel"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-artificial-intelligence-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜人工智慧應用與技術｜範例試題",
+      "years": [
+        108
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-artificial-intelligence-material-sample--33237ef967ea.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-artificial-intelligence",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "人工智慧應用與技術",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e4babae5b7a5e699bae685a7"
+      ],
+      "subjectLabels": [
+        "人工智慧應用與技術"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-cloud-services-edition-2-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜雲端技術及網路服務｜第二版｜範例試題",
+      "years": [
+        110
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-cloud-services-edition-2-material-sample--da567e5e3d28.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-cloud-services",
+      "variantIds": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "雲端技術及網路服務 第二版",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "e99bb2e7abafe68a80e8a193"
+      ],
+      "subjectLabels": [
+        "雲端技術及網路服務 第二版"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-ai-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電子商務與AI應用｜範例試題",
+      "years": [
+        115
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-ai-material-sample--08254bfd2cf2.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-ecommerce-ai",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "電子商務與AI應用",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "ai"
+      ],
+      "subjectLabels": [
+        "電子商務與AI應用"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-edition-4-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電子商務概論｜第四版｜範例試題",
+      "years": [
+        106
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-ecommerce-edition-4-material-sample--4bebe4eec346.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2017
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-ecommerce",
+      "variantIds": [
+        "edition-4",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "電子商務概論(第四版)",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e99bbbe5ad90e59586e58b99"
+      ],
+      "subjectLabels": [
+        "電子商務概論(第四版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電子試算表 Microsoft Excel｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2016-material-sample--c222bf4dec13.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-excel",
+      "variantIds": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Excel 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "excel-2016"
+      ],
+      "subjectLabels": [
+        "Excel 2016"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2019-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電子試算表 Microsoft Excel｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2019-material-sample--fba12b2829b5.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-excel",
+      "variantIds": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Excel 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "excel-2019"
+      ],
+      "subjectLabels": [
+        "Excel 2019"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2021-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電子試算表 Microsoft Excel｜2021版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-excel-software-version-2021-material-sample--9a16e72d380a.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-excel",
+      "variantIds": [
+        "software-version-2021",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Excel 2021",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "excel-2021"
+      ],
+      "subjectLabels": [
+        "Excel 2021"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-generative-ai-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜生成式AI應用與技術｜範例試題",
+      "years": [
+        114
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-generative-ai-material-sample--81ff6bb26328.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-generative-ai",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "生成式AI應用與技術",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "ai"
+      ],
+      "subjectLabels": [
+        "生成式AI應用與技術"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-iot-edition-2-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜物聯網智慧應用及技術｜第二版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-iot-edition-2-material-sample--eebc3147fb4e.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-iot",
+      "variantIds": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "物聯網智慧應用及技術 第二版",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e789a9e881afe7b6b2e699ba"
+      ],
+      "subjectLabels": [
+        "物聯網智慧應用及技術 第二版"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-libreoffice-software-version-5-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜商務軟體應用能力 LibreOffice｜5版｜範例試題",
+      "years": [
+        107
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-libreoffice-software-version-5-material-sample--3e0faabb853b.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-libreoffice",
+      "variantIds": [
+        "software-version-5",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "商務軟體應用能力LibreOffice 5",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "libreoffice-5"
+      ],
+      "subjectLabels": [
+        "商務軟體應用能力LibreOffice 5"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-edition-2-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜Linux網路管理｜第二版｜範例試題",
+      "years": [
+        104
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-edition-2-material-sample--3e4861c76c78.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-linux-network",
+      "variantIds": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Linux網路管理(第二版)",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux"
+      ],
+      "subjectLabels": [
+        "Linux網路管理(第二版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-software-ubuntu-22-04-lts-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜Linux網路管理｜Ubuntu 22.04 LTS｜範例試題",
+      "years": [
+        114
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-network-software-ubuntu-22-04-lts-material-sample--d1c78c4473c5.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-linux-network",
+      "variantIds": [
+        "software-ubuntu-22-04-lts",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Linux網路管理 Ubuntu 22.04 LTS",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux-ubuntu-22-04-lts"
+      ],
+      "subjectLabels": [
+        "Linux網路管理 Ubuntu 22.04 LTS"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-edition-2-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜Linux系統管理｜第二版｜範例試題",
+      "years": [
+        104
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-edition-2-material-sample--65e9b4c9aaab.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-linux-system",
+      "variantIds": [
+        "edition-2",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Linux系統管理(第二版)",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux"
+      ],
+      "subjectLabels": [
+        "Linux系統管理(第二版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-software-ubuntu-22-04-lts-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜Linux系統管理｜Ubuntu 22.04 LTS｜範例試題",
+      "years": [
+        112
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-linux-system-software-ubuntu-22-04-lts-material-sample--301140d7df33.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2023
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-linux-system",
+      "variantIds": [
+        "software-ubuntu-22-04-lts",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Linux系統管理 Ubuntu 22.04 LTS",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "linux-ubuntu-22-04-lts"
+      ],
+      "subjectLabels": [
+        "Linux系統管理 Ubuntu 22.04 LTS"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜商務軟體應用能力 Microsoft Office｜2016版｜範例試題",
+      "years": [
+        108
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2016-material-sample--fbbce19000fa.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-microsoft-office",
+      "variantIds": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "商務軟體應用能力Microsoft Office 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "microsoft-office-2016"
+      ],
+      "subjectLabels": [
+        "商務軟體應用能力Microsoft Office 2016"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2019-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜商務軟體應用能力 Microsoft Office｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-microsoft-office-software-version-2019-material-sample--ffb4df15975b.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-microsoft-office",
+      "variantIds": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "商務軟體應用能力Microsoft Office 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "microsoft-office-2019"
+      ],
+      "subjectLabels": [
+        "商務軟體應用能力Microsoft Office 2019"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-mobile-devices-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜行動裝置應用｜範例試題",
+      "years": [
+        104
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-mobile-devices-material-sample--cab907bb312f.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-mobile-devices",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "行動裝置應用",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "e8a18ce58b95e8a39de7bdae"
+      ],
+      "subjectLabels": [
+        "行動裝置應用"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-mysql-software-version-5-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜大型資料庫管理系統 MySQL｜5版｜範例試題",
+      "years": [
+        104
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-mysql-software-version-5-material-sample--22d5804af3c0.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-mysql",
+      "variantIds": [
+        "software-version-5",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "MySQL 5",
+        "TQC範例試卷_資料庫應用類",
+        "TQC官方範例試卷",
+        "e8b387e69699e5baabe68789",
+        "mysql-5"
+      ],
+      "subjectLabels": [
+        "MySQL 5"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-network-management-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜網路管理實務｜範例試題",
+      "years": [
+        107
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-network-management-material-sample--3d4beedbb242.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-network-management",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "網路管理實務",
+        "TQC範例試卷_作業系統類",
+        "TQC官方範例試卷",
+        "e4bd9ce6a5ade7b3bbe7b5b1",
+        "e7b6b2e8b7afe7aea1e79086"
+      ],
+      "subjectLabels": [
+        "網路管理實務"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電腦簡報 Microsoft PowerPoint｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2016-material-sample--3e6f97774e23.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-powerpoint",
+      "variantIds": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "PowerPoint 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "powerpoint-2016"
+      ],
+      "subjectLabels": [
+        "PowerPoint 2016"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2019-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電腦簡報 Microsoft PowerPoint｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2019-material-sample--2ddb78236e5b.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-powerpoint",
+      "variantIds": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "PowerPoint 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "powerpoint-2019"
+      ],
+      "subjectLabels": [
+        "PowerPoint 2019"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2021-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜電腦簡報 Microsoft PowerPoint｜2021版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-powerpoint-software-version-2021-material-sample--c2fdaef71fc9.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-powerpoint",
+      "variantIds": [
+        "software-version-2021",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "PowerPoint 2021",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "powerpoint-2021"
+      ],
+      "subjectLabels": [
+        "PowerPoint 2021"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-project-management-edition-3-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜專案管理概論｜第三版｜範例試題",
+      "years": [
+        104
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-project-management-edition-3-material-sample--746448b2213a.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-project-management",
+      "variantIds": [
+        "edition-3",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "專案管理概論(第三版)",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "e5b088e6a188e7aea1e79086"
+      ],
+      "subjectLabels": [
+        "專案管理概論(第三版)"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-python-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜資訊科技 Python｜範例試題",
+      "years": [
+        109
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-python-material-sample--466ba9f7312d.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2020
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-python",
+      "variantIds": [
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "資訊科技Python",
+        "TQC範例試卷_專業知識領域類",
+        "TQC官方範例試卷",
+        "e5b088e6a5ade79fa5e8ad98",
+        "python"
+      ],
+      "subjectLabels": [
+        "資訊科技Python"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2016-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜文書處理 Microsoft Word｜2016版｜範例試題",
+      "years": [
+        105
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2016-material-sample--3f7d5bd8c5eb.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-word",
+      "variantIds": [
+        "software-version-2016",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Word 2016",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "word-2016"
+      ],
+      "subjectLabels": [
+        "Word 2016"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2019-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜文書處理 Microsoft Word｜2019版｜範例試題",
+      "years": [
+        108
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2019-material-sample--95ef1d576030.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-word",
+      "variantIds": [
+        "software-version-2019",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Word 2019",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "word-2019"
+      ],
+      "subjectLabels": [
+        "Word 2019"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2021-material-sample",
+      "name": "企業人才技能認證（TQC）｜專業級｜文書處理 Microsoft Word｜2021版｜範例試題",
+      "years": [
+        111
+      ],
+      "fileCount": 1,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/tqc-cert-tqc-skills-certification-tqc-professional-tqc-word-software-version-2021-material-sample--9229cea71874.zip",
+      "sourceMaterial": {
+        "kind": "sample",
+        "dates": [
+          {
+            "basis": "publication_year",
+            "year_ad": 2022
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "certification",
+      "examFamilyId": "skill-certification",
+      "seriesId": "tqc-skills-certification",
+      "levelId": "tqc-professional",
+      "trackId": "tqc-word",
+      "variantIds": [
+        "software-version-2021",
+        "material-sample"
+      ],
+      "stageId": "not-applicable",
+      "examClass": "證照／檢定",
+      "examSubclass": "企業人才技能認證（TQC）",
+      "searchAliases": [
+        "Word 2021",
+        "TQC範例試卷_辦公軟體應用類",
+        "TQC官方範例試卷",
+        "e8bea6e585ace8bb9fe9ab94",
+        "word-2021"
+      ],
+      "subjectLabels": [
+        "Word 2021"
+      ],
+      "sources": [
+        {
+          "name": "中華民國電腦技能基金會",
+          "url": "https://www.tqc.org.tw/TQCNet/ExamPaper.aspx"
+        }
+      ],
+      "updated": "2026-11-08T05:18:00Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-administration-stage-1",
+      "name": "台水評價職位人員甄試｜營運士行政類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-administration-stage-1--e285f8ed08ed.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-administration",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目A-企業管理概要",
+        "應試科目：專業科目B-行政學概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-行政學概要",
+        "應試科目：專業科目一-企業管理概要",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 企業管理概要",
+        "應試科目：專業科目二 行政學概要",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：企業管理概要",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：行政學概要",
+        "營運士行政類",
+        "115年試題(解答).zip(4.3M)",
+        "115-administration",
+        "native-b086e738b2c4abe865e36ecb11a364c349bf46dba1cc51c2ee71c37f39433193",
+        "native-ef4dd713f21bc7c4614872f2e8aca981566d79b8608ba68e7272d476319339cf",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-administration",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-364666ecc86dd5a65bad7b4fff88dd2102141337c76ca26c2fc0e2e09c625004",
+        "native-40479a4611f420985f49a7918cedd9236fcc08f2a13f946fdcf561aa74bd944c",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-business-stage-1",
+      "name": "台水評價職位人員甄試｜營運士業務類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-business-stage-1--1c5f8f41de4f.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-business",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目B-自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目A-企業管理概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目一-企業管理概要",
+        "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目一 企業管理概要",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "應試科目：專業科目二-英文",
+        "專業科目 2：英文",
+        "專業科目 1：企業管理概要",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "營運士業務類",
+        "115年試題(解答).zip(4.3M)",
+        "115-business",
+        "native-90ff5bb55213c25992cf32c9e4a50bd09ff60f3aeb63460f03828f012672d3fc",
+        "native-b086e738b2c4abe865e36ecb11a364c349bf46dba1cc51c2ee71c37f39433193",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-business",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-40479a4611f420985f49a7918cedd9236fcc08f2a13f946fdcf561aa74bd944c",
+        "native-848b4104ebd7e0aa258f64d721c8d475b7d5ccd48952959c113f8f82dd3874b3"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-engineering-stage-1",
+      "name": "台水評價職位人員甄試｜技術士工程類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-engineering-stage-1--e1f0f7b7610f.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-engineering",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目A-高中(職)土木及水管埋設施工",
+        "應試科目：專業科目B-電腦繪圖(AutoCad)",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目一-高中(職)土木及水管埋設施工",
+        "應試科目：專業科目二-電腦繪圖(AutoCad)",
+        "應試科目：專業科目一 高中(職)土木及水管埋設施工",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 電腦繪圖(AutoCad)",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "應試科目：專業科目二-電腦繪圖（Auto Cad）",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：電腦繪圖(AutoCad)",
+        "專業科目 1：高中(職)土木及水管埋設施工",
+        "技術士工程類",
+        "115年試題(解答).zip(4.3M)",
+        "115-engineering",
+        "native-c3743580ebabe1d07a2286b9c68f2eeb20dca9a8265806022b449b653e93c937",
+        "native-f8946da8cb5e7f758396be85618ea929271ba6f6debf5b4880d790001291bdb3",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-engineering",
+        "native-3296550f06a51cc957e029a5a739afe0f495719bc9c30863d6ef60836e376a3f",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-d7f0cc66a9bd953f28ff562f59889b1cb48b1ef5c76c5e355b71a7f648178e19"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-laboratory-stage-1",
+      "name": "台水評價職位人員甄試｜技術士化驗類｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-laboratory-stage-1--b653047e86f6.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-laboratory",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目A-高中(職)物理化學",
+        "應試科目：專業科目B-高中(職)分析化學及水質檢驗操作須知",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-高中(職)分析化學及水質檢驗操作須知",
+        "應試科目：專業科目一-高中(職)物理化學",
+        "應試科目：專業科目一 高中(職)物理化學",
+        "應試科目：專業科目二 高中(職)分析化學及水質檢驗操作須知",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)物理化學",
+        "專業科目 2：高中(職)分析化學及水質檢驗操作須知",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "技術士化驗類",
+        "115年試題(解答).zip(4.3M)",
+        "115-laboratory",
+        "native-968f7102818b9850088a81607828a5cdb8ae89c256c503a414169e1d24267d6d",
+        "native-c1738431b87abfdca6409cada5d23c9e0a295a8afad8aa8b1d9d86d0d97b1fd8",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-laboratory",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-e6f3ea88f543d2bba0fd002f5bc2f08b5f61a7656b29cc87c2a20fa583972322",
+        "native-e8fcaabe3d8726d3f4fc78f6d7e64f9f8884d1078f5dfcb0cbff05673542ec30",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-land-administration-stage-1",
+      "name": "台水評價職位人員甄試｜營運士行政類-地政人員｜初試（筆試）",
+      "years": [
+        113,
+        110
+      ],
+      "fileCount": 9,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-land-administration-stage-1--32f1369bd81d.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-land-administration",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 民法物權編",
+        "應試科目：專業科目一 土地法規",
+        "專業科目 1：土地法規",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：民法物權編",
+        "營運士行政類-地政人員",
+        "112年試題(解答).zip(5.7M)",
+        "112-land-administration",
+        "native-4a2b2337128b6a3398712016d5c1264266739077908d4cd3f47c444e0b482b24",
+        "native-6f1f7eef2d8d8f365b7d33960001308541b36f5a0bce811b99393eabf98e27bd",
+        "native-ab5029d925a58b21eaf1b3b6211ed02aa32e883fbe67c73ec308c7a045d7d5bf",
+        "native-b9c55ccf93410a48d40522a200e1841970971918f7df87ba0e7413a9c8d39d93",
+        "native-fb41990f34821341a05ad81afbd505dbec106f05f7376a19fa26204d59aa7120",
+        "native-ff7cbfe5503bfadc5f60c21643b888deab65409675595be03c90afdd6a86a609",
+        "110年試題(解答).zip(7.8M)",
+        "110-land-administration",
+        "native-7d4e6f160067ccd6e075326ef84adc267d2d48b27cc2ed7902716f1f7d81c7a5",
+        "native-8e07a66dad800a3ac2c653dd7edd0f5ab909c36b21dd346ae2e796acd67f251a",
+        "native-e2f4b7ca5ee4fadeb8cc876f5ad63c270dfa4fee6f36f3b7ae7fb289a61815a4"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-meter-reading-stage-1",
+      "name": "台水評價職位人員甄試｜營運士業務類-抄表人員｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-meter-reading-stage-1--4d42398815f1.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-meter-reading",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目B-自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目A-企業管理概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目一-企業管理概要",
+        "應試科目：專業科目二-自來水法及台灣自來水公司營業章程",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目二 自來水法及台灣自來水公司營業章程",
+        "應試科目：專業科目一 企業管理概要",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：企業管理概要",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：自來水法及台灣自來水公司營業章程",
+        "營運士業務類-抄表人員",
+        "115年試題(解答).zip(4.3M)",
+        "115-meter-reading",
+        "native-90ff5bb55213c25992cf32c9e4a50bd09ff60f3aeb63460f03828f012672d3fc",
+        "native-b086e738b2c4abe865e36ecb11a364c349bf46dba1cc51c2ee71c37f39433193",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-meter-reading",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-40479a4611f420985f49a7918cedd9236fcc08f2a13f946fdcf561aa74bd944c",
+        "native-848b4104ebd7e0aa258f64d721c8d475b7d5ccd48952959c113f8f82dd3874b3",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-operating-a-stage-1",
+      "name": "台水評價職位人員甄試｜技術士操作類-甲(機電)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-operating-a-stage-1--b0976d6a46da.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-operating-a",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目B-基本電學",
+        "應試科目：專業科目A-電機(工)機械",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-基本電學",
+        "應試科目：專業科目一-電機(工)機械",
+        "應試科目：專業科目二 基本電學",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 電機(工)機械",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "應試科目：專業科目一-高中(職)物理化學",
+        "專業科目 1：高中(職)物理化學",
+        "專業科目 2：基本電學",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "技術士操作類-甲(機電)",
+        "115年試題(解答).zip(4.3M)",
+        "115-operating-a",
+        "native-8f80359ffb8f9c40bded4544b562cb3ed2a889b401b09fa133fcd2ac7300a4aa",
+        "native-ba1151b8a8414c9165b53a5c9f35416bb4cf8c64e48ac9c8abe7fdce41b3987c",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-operating-a",
+        "native-11e68c83f635ee3a68e2c5c0e0dbbb2a47770b85174895d70b759d6b21fda3df",
+        "native-3144dcb16b69a2766a83e0a09bc3a79e0e0b8de92ddb57dfd7dbd7f84179ef07",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-operating-b-stage-1",
+      "name": "台水評價職位人員甄試｜技術士操作類-乙(淨水、管線、水源)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-operating-b-stage-1--f31c3c7a39cf.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-operating-b",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目A-高中(職)物理化學",
+        "應試科目：專業科目B_自來水工程概要",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-自來水工程概要",
+        "應試科目：專業科目一-高中(職)物理化學",
+        "應試科目：專業科目一 高中(職)物理化學",
+        "應試科目：專業科目二 自來水工程概要",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)物理化學",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：自來水工程概要",
+        "技術士操作類-乙(淨水、管線、水源)",
+        "115年試題(解答).zip(4.3M)",
+        "115-operating-b",
+        "native-968f7102818b9850088a81607828a5cdb8ae89c256c503a414169e1d24267d6d",
+        "native-a83a6486de2460033627e75d3528fc4840004155631be6422f4711be1427fdda",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-operating-b",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-63393ac254de19689379bb3f53c02eb0e14cf95f53cfc6d7d482bb894856628e",
+        "native-e8fcaabe3d8726d3f4fc78f6d7e64f9f8884d1078f5dfcb0cbff05673542ec30",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-repair-a-stage-1",
+      "name": "台水評價職位人員甄試｜技術士裝修類-甲(新裝、修漏)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-repair-a-stage-1--11c58f17576d.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-repair-a",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目A-高中(職)配管裝修",
+        "應試科目：專業科目B-配管與儀器操作原理",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-配管與儀器操作原理",
+        "應試科目：專業科目一-高中(職)配管裝修",
+        "應試科目：專業科目二 配管與儀器操作原理",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 高中(職)配管裝修",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：配管與儀器操作原理",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)配管裝修",
+        "技術士裝修類-甲(新裝、修漏)",
+        "115年試題(解答).zip(4.3M)",
+        "115-repair-a",
+        "native-1a7cfcf82a359ce221f777927b1ca5dfae73c23d45dda8e38ec9a7d9dc397ed0",
+        "native-1fde1ffba4bea829050c246357d37832b84359ea8c732b3e452295964cca55b8",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-repair-a",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-d58f314b301b42dfc927f1a637e7e6a0d180c490f7a6e408631cf4a370258345",
+        "native-f506c27cdf92b6bdefe0f84aaae9fefe83bac6b1b35cbe6d207de0953e934da7",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
+    },
+    {
+      "id": "twc-recruit-employment-recruitment-not-applicable-twc-repair-b-stage-1",
+      "name": "台水評價職位人員甄試｜技術士裝修類-乙(檢漏)｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        110
+      ],
+      "fileCount": 21,
+      "url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/twc-recruit-employment-recruitment-not-applicable-twc-repair-b-stage-1--e4a440fa2c3c.zip",
+      "sourceMaterial": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      },
+      "domainId": "employment",
+      "examFamilyId": "employment-exam",
+      "seriesId": "employment-recruitment",
+      "levelId": "not-applicable",
+      "trackId": "twc-repair-b",
+      "variantIds": [],
+      "stageId": "stage-1",
+      "examClass": "國營／就業甄試",
+      "examSubclass": "就業／國營事業甄試",
+      "searchAliases": [
+        "應試科目：專業科目A-高中(職)配管裝修",
+        "應試科目：專業科目B-配管與儀器操作原理",
+        "應試科目：共同科目-國文及英文",
+        "應試科目：專業科目二-配管與儀器操作原理",
+        "應試科目：專業科目一-高中(職)配管裝修",
+        "應試科目：專業科目二 配管與儀器操作原理",
+        "應試科目：共同科目-包括國文及英文",
+        "應試科目：專業科目一 高中(職)配管裝修",
+        "應試科目：共同科目-包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 2：配管與儀器操作原理",
+        "共同科目：包括一般法律常識、公民及國文閱讀測驗等",
+        "專業科目 1：高中(職)配管裝修",
+        "技術士裝修類-乙(檢漏)",
+        "115年試題(解答).zip(4.3M)",
+        "115-repair-b",
+        "native-1a7cfcf82a359ce221f777927b1ca5dfae73c23d45dda8e38ec9a7d9dc397ed0",
+        "native-1fde1ffba4bea829050c246357d37832b84359ea8c732b3e452295964cca55b8",
+        "native-ff2daf30ffc424ff1daa483c9e99be45aafdc7ee43b744dc33f4b82bd1c9d2fc",
+        "114年試題(解答).zip(4.8M)",
+        "114-repair-b",
+        "native-343ccbc350375956937f319ce9fabb9b6efb169a360e93371b772ecf89b3bb26",
+        "native-d58f314b301b42dfc927f1a637e7e6a0d180c490f7a6e408631cf4a370258345",
+        "native-f506c27cdf92b6bdefe0f84aaae9fefe83bac6b1b35cbe6d207de0953e934da7",
+        "112年試題(解答).zip(5.7M)"
+      ],
+      "sources": [
+        {
+          "name": "台灣自來水股份有限公司",
+          "url": "https://www.water.gov.tw/ch/Subject/Detail/59619?nodeId=715"
+        }
+      ],
+      "updated": "2026-11-08T04:57:26Z"
     },
     {
       "id": "wdasec-skill-skill-certification-class-a-skill-0058b7bb8611",

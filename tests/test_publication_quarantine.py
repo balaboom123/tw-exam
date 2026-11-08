@@ -430,17 +430,13 @@ class RepositoryQuarantineTests(unittest.TestCase):
     def test_every_committed_quarantine_entry_has_a_review_date(self) -> None:
         entries = load_quarantine(ROOT, site_id="default")
         expected = {
-            "cpc_recruit": "2026-11-01",
             "gept_cert": "2026-11-20",
             "hakka_cert": "2026-12-01",
             "ipas_cert": "2026-11-21",
-            "moea_recruit": "2026-11-01",
+            "moea_recruit": "2027-02-01",
             "sfi_cert": "2026-11-21",
-            "taigi_cert": "2026-11-01",
-            "taisugar_recruit": "2026-11-03",
+            "taisugar_recruit": "2027-02-01",
             "tocfl_cert": "2026-12-01",
-            "tqc_cert": "2026-11-01",
-            "twc_recruit": "2026-11-01",
         }
         self.assertEqual({provider: entry.review_by for provider, entry in entries.items()}, expected)
 

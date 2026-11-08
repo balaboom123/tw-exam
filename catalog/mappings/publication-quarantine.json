@@ -6,15 +6,6 @@
   "recorded_at": "2026-08-02",
   "quarantine": [
     {
-      "provider_id": "cpc_recruit",
-      "site_id": "default",
-      "status": "redistribution_unresolved",
-      "reason": "The 12 hiring brochures have been retired from the current exam catalog into checksum-verified source revision recovery. The five genuine doctoral packages remain intact, but ROC 98 geophysics A explicitly says its fifth question's figure is copyrighted; its next page attributes the image to Genik (1993), AAPG Bulletin. CPC's reuse declaration does not resolve this specific third-party restriction. Resolve permission or a reviewed publication treatment before republishing the packages.",
-      "evidence_path": "data/providers/cpc_recruit/source-manifest.json",
-      "spec_path": "docs/providers/notes.md#cpc_recruit",
-      "review_by": "2026-11-01"
-    },
-    {
       "provider_id": "gept_cert",
       "site_id": "default",
       "status": "redistribution_unresolved",
@@ -45,10 +36,10 @@
       "provider_id": "moea_recruit",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "The native source correction retires all 370 misowned hiring references with verified immutable recovery and acquires the complete 1,486-reference staff listing. Approved historical programme, occupational applicability, stage, subject and cross-year identity are still incomplete. Keep the event-isolated review candidates with unknown dimensions withheld until complete native/historical review and identity migration; acquisition correctness does not approve publication.",
+      "reason": "The native source correction retires all 370 misowned hiring references with verified immutable recovery and acquires the complete 1,486-reference staff listing. Approved historical programme, occupational applicability, stage, subject and cross-year identity are still incomplete. Keep the event-isolated review candidates with unknown dimensions withheld until complete native/historical review and identity migration; acquisition correctness does not approve publication. Maintainer review 2026-11-08: keep withheld; every one of the 1,486 papers still has an unconfirmed programme or subject identity, so public titles could be wrong.",
       "evidence_path": "data/providers/moea_recruit/source-manifest.json",
       "spec_path": "docs/providers/notes.md#moea_recruit",
-      "review_by": "2026-11-01"
+      "review_by": "2027-02-01"
     },
     {
       "provider_id": "sfi_cert",
@@ -60,22 +51,13 @@
       "review_by": "2026-11-21"
     },
     {
-      "provider_id": "taigi_cert",
-      "site_id": "default",
-      "status": "redistribution_unresolved",
-      "reason": "Native sample forms, roles, publication/undated facts and source ZIP coverage are reviewed and corrected; all earlier source records remain unchanged. Publication remains withheld pending acquisition/redistribution policy review. A robots.txt HTTP 404 recheck does not resolve permission or alter the existing durable backup policy.",
-      "evidence_path": "data/providers/taigi_cert/source-manifest.json",
-      "spec_path": "docs/providers/notes.md#taigi_cert",
-      "review_by": "2026-11-01"
-    },
-    {
       "provider_id": "taisugar_recruit",
       "site_id": "default",
       "status": "wrong_identity",
-      "reason": "The former accessibility-labelled ZIP projection is retired, and all current public originals are retained. Their native PDFs distinguish general-worker and industry-school applicants, shared multi-occupation subjects and combined question/answer material. The legacy single worker identity and listing-label roles do not encode those differences. Keep the paper projection withheld until checksum-bound native applicability, roles and archive-member identities replace that defective mapping.",
+      "reason": "The former accessibility-labelled ZIP projection is retired, and all current public originals are retained. Their native PDFs distinguish general-worker and industry-school applicants, shared multi-occupation subjects and combined question/answer material. The legacy single worker identity and listing-label roles do not encode those differences. Keep the paper projection withheld until checksum-bound native applicability, roles and archive-member identities replace that defective mapping. Maintainer review 2026-11-08: keep withheld; all 184 papers await material review, so publishing would show nothing.",
       "evidence_path": "data/providers/taisugar_recruit/source-manifest.json",
       "spec_path": "docs/providers/notes.md#taisugar_recruit",
-      "review_by": "2026-11-03"
+      "review_by": "2027-02-01"
     },
     {
       "provider_id": "tocfl_cert",
@@ -85,24 +67,6 @@
       "evidence_path": "data/providers/tocfl_cert/source-manifest.json",
       "spec_path": "docs/providers/notes.md#tocfl_cert",
       "review_by": "2026-12-01"
-    },
-    {
-      "provider_id": "tqc_cert",
-      "site_id": "default",
-      "status": "redistribution_unresolved",
-      "reason": "All retained sample/date, subject, software/edition and native grade identities are corrected with exact title and native SHA-256 evidence. Fresh normal-source requests match all 44 payloads. The existing review did not establish a sample-paper republication grant; broader CSF restrictions remain recorded. Keep publication withheld until that review is resolved.",
-      "evidence_path": "data/providers/tqc_cert/source-manifest.json",
-      "spec_path": "docs/providers/notes.md#tqc_cert",
-      "review_by": "2026-11-01"
-    },
-    {
-      "provider_id": "twc_recruit",
-      "site_id": "default",
-      "status": "corrupt_payload",
-      "reason": "The published bundle contains a byte-exact copy of the official ROC 107 ZIP whose PDF member is corrupt; outer-ZIP validation treats the nested official archive as an opaque payload and cannot detect it.",
-      "evidence_path": "data/providers/twc_recruit/source-manifest.json",
-      "spec_path": "docs/providers/notes.md#twc_recruit",
-      "review_by": "2026-11-01"
     }
   ]
 }
