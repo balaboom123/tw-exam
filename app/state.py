@@ -16,6 +16,7 @@ from app.models import (
     SyncFailure,
 )
 from app.paths import ProviderPaths, SitePaths
+from app.providers.base import CORRUPT_SOURCE_PAYLOAD
 from app.review_queue import decode_review_queue
 
 
@@ -177,11 +178,19 @@ def _merge_state(
     refreshed_paper_keys = {
         (paper.source_exam_id, _normalized_paper_key(paper)) for paper in refreshed_catalog.papers
     }
+    # Bytes the source now serves corrupt are not worth retaining: the earlier
+    # copy holds the same corruption. They go to source-revision recovery.
+    corrupt_checksums = {
+        item.classification_signature.removeprefix(CORRUPT_SOURCE_PAYLOAD)
+        for item in refreshed_catalog.review_queue
+        if item.classification_signature.startswith(CORRUPT_SOURCE_PAYLOAD)
+    }
     delisted_papers = [
         paper
         for paper in existing_catalog.papers
         if paper.source_exam_id in refreshed_exam_ids
         and (paper.source_exam_id, _normalized_paper_key(paper)) not in refreshed_paper_keys
+        and paper.checksum not in corrupt_checksums
     ]
     merged_papers = (
         [

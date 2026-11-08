@@ -295,16 +295,28 @@ class SourceArchiveSyncTests(unittest.TestCase):
             client.downloaded_urls.clear()
             for corrupt in (b"PK\x03\x04truncated download", corrupt_zip_payload()):
                 client.data = corrupt
-                pages, _, failures = sync_exam_pages(
+                pages, catalog, failures = sync_exam_pages(
                     client, [("event", 2026)], store, [], "",
                     previous_pages=previous, refresh_files=True,
                 )
-                self.assertEqual(len(failures), 1)
-                self.assertEqual(failures[0].stage, "download")
-                self.assertEqual(failures[0].file_type, "source_archive")
-                self.assertEqual(failures[0].paper_code, "exam-source_archive")
-                self.assertEqual(failures[0].url, "https://example.test/original.zip")
-                self.assertIn("Invalid ZIP container", failures[0].message)
+                held = [item for item in catalog.review_queue
+                        if item.classification_signature.startswith("corrupt-source-payload:")]
+                if corrupt.startswith(b"PK\x03\x04truncated"):
+                    # A cut-off transfer may succeed on the next run.
+                    self.assertEqual(len(failures), 1)
+                    self.assertEqual(failures[0].stage, "download")
+                    self.assertEqual(failures[0].file_type, "source_archive")
+                    self.assertEqual(failures[0].paper_code, "exam-source_archive")
+                    self.assertEqual(failures[0].url, "https://example.test/original.zip")
+                    self.assertIn("Invalid ZIP container", failures[0].message)
+                    self.assertEqual(held, [])
+                else:
+                    # The source's own bytes are corrupt: hold the file for review.
+                    self.assertEqual(failures, [])
+                    self.assertEqual(len(held), 1)
+                    self.assertIn("CRC mismatch", held[0].reason)
+                    self.assertEqual(held[0].classification_signature,
+                                     "corrupt-source-payload:" + hashlib.sha256(corrupt).hexdigest())
                 self.assertEqual(pages[0].attachments[0].storage_key, "")
                 self.assertEqual((store.root / key).read_bytes(), original)
 
@@ -1162,7 +1174,7 @@ class SyncExamPagesTests(unittest.TestCase):
         )
         self.assertEqual(failures, [])
 
-    def test_corrupt_zip_download_records_failure_and_preserves_retained_evidence(self) -> None:
+    def test_corrupt_zip_download_is_held_for_review_and_preserves_retained_evidence(self) -> None:
         corrupt = corrupt_zip_payload()
         client = QuestionArchiveClient(
             url="https://example.test/listening.zip", data=corrupt,
@@ -1181,10 +1193,11 @@ class SyncExamPagesTests(unittest.TestCase):
         self.assertEqual(client.downloaded_urls, ["https://example.test/listening.zip"])
         self.assertEqual(pages[0].papers[0].mirror_files, {})
         self.assertEqual(normalized.papers, [])
-        self.assertEqual(len(failures), 1)
-        self.assertEqual(failures[0].stage, "download")
-        self.assertIn("Invalid ZIP container", failures[0].message)
-        self.assertIn("CRC", failures[0].message)
+        self.assertEqual(failures, [])
+        held = [item for item in normalized.review_queue
+                if item.classification_signature.startswith("corrupt-source-payload:")]
+        self.assertEqual(len(held), 1)
+        self.assertIn("CRC mismatch", held[0].reason)
 
     def test_sync_exam_pages_accepts_question_rar_payloads(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

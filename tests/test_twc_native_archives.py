@@ -253,7 +253,7 @@ def test_changed_source_container_returns_to_outer_archive_review(monkeypatch):
     assert requests == [URL]
 
 
-def test_damaged_archive_does_not_project_partial_papers(tmp_path, monkeypatch):
+def test_damaged_archive_is_held_without_projecting_partial_papers(tmp_path, monkeypatch):
     fact, good = make_archive({"good.pdf": PDF, "bad.pdf": PDF + b"Second"})
     offset = good.index(PDF)
     damaged = good[:offset] + b"!" + good[offset + 1 :]
@@ -270,9 +270,11 @@ def test_damaged_archive_does_not_project_partial_papers(tmp_path, monkeypatch):
     assert not pages[0].attachments
     assert not pages[0].papers[0].mirror_files
     assert not catalog.papers
-    assert len(failures) == 1
-    assert failures[0].stage == "download"
-    assert "CRC" in failures[0].message
+    # The source's own bytes are corrupt: hold the archive, don't fail the sync.
+    assert failures == []
+    [item] = [entry for entry in catalog.review_queue
+              if entry.classification_signature == f"corrupt-source-payload:{sha(damaged)}"]
+    assert "CRC" in item.reason
 
 
 def test_changed_member_locator_cannot_inherit_parent_material(monkeypatch):

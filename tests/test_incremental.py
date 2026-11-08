@@ -527,6 +527,26 @@ class DelistedPaperRetentionTests(unittest.TestCase):
         self.assertEqual(catalog.papers, [paper])
         self.assertEqual(catalog.review_queue, [review])
 
+    def test_paper_whose_bytes_the_source_serves_corrupt_is_not_retained(self) -> None:
+        from app.providers.base import CorruptSourcePayload, UnreviewedSourceFile
+
+        paper = replace(self._normalized("archive", "試題"), checksum="a" * 64)
+        url = paper.download_url_source
+        for held, retained in (
+            (CorruptSourcePayload("corrupt", url=url, checksum="a" * 64), []),
+            # Other held bytes (a replacement awaiting review) keep the earlier copy.
+            (CorruptSourcePayload("corrupt", url=url, checksum="b" * 64), [paper]),
+            (UnreviewedSourceFile("replacement needs review", url=url), [paper]),
+        ):
+            with self.subTest(signature=held.signature):
+                _, catalog, _, _, _ = merge_incremental_state(
+                    [self._page([self._parsed("archive", "試題")])],
+                    NormalizedCatalog([paper], []), [],
+                    [self._page([])],
+                    NormalizedCatalog([], [held.review_item(paper.provider_id)]),
+                )
+                self.assertEqual(catalog.papers, retained)
+
     def test_fresh_review_replaces_same_retained_identity_review(self) -> None:
         paper = replace(self._normalized("old", "舊試題"), classification_confidence="review")
         old = ReviewItem(paper.category_raw, "candidate", paper.source_exam_id, paper.year_roc)

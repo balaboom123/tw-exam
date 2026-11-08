@@ -27,7 +27,7 @@ from app.models import (
     SyncFailure,
 )
 from app.normalizer import normalize_papers
-from app.providers.base import SourceProvider, UnreviewedSourceFile
+from app.providers.base import CorruptSourcePayload, SourceProvider, UnreviewedSourceFile
 from app.providers.http import retry_after_seconds
 from app.source_material import SourceMaterial
 from app.storage import MirrorStore
@@ -154,14 +154,20 @@ def _matches_expected_binary(data: bytes, expected_extension: str) -> bool:
     return False
 
 
+class _CorruptZipEntry(RuntimeError):
+    """A complete ZIP whose directory is intact but whose entry bytes are not.
+
+    A cut-off download fails earlier, at the central directory, so this is
+    the source's own payload rather than a transfer error.
+    """
+
+
 def _validate_zip_payload(source: bytes | Path) -> None:
     """Check the container and every entry before accepting or reusing its bytes."""
     archive_source = io.BytesIO(source) if isinstance(source, bytes) else source
     try:
         with zipfile.ZipFile(archive_source) as archive:
             bad_entry = archive.testzip()
-            if bad_entry is not None:
-                raise RuntimeError(f"CRC mismatch in ZIP entry {bad_entry!r}")
     except (
         zipfile.BadZipFile,
         OSError,
@@ -172,6 +178,8 @@ def _validate_zip_payload(source: bytes | Path) -> None:
         zlib.error,
     ) as exc:
         raise RuntimeError(f"Invalid ZIP container: {exc}") from exc
+    if bad_entry is not None:
+        raise _CorruptZipEntry(f"Invalid ZIP container: CRC mismatch in ZIP entry {bad_entry!r}")
 
 
 def _detected_zip_extension(data: bytes) -> str:
@@ -296,9 +304,17 @@ def _existing_mirrored(mirror_store: MirrorStore, prefix: str, file_type: str) -
 
 def _download_validated(client: SourceProvider, file_type: str, url: str) -> tuple[bytes, str]:
     downloaded = retry_network(lambda: client.download_file(url))
-    extension = _validated_extension(
-        file_type, downloaded.data, downloaded.content_type, downloaded.file_name
-    )
+    try:
+        extension = _validated_extension(
+            file_type, downloaded.data, downloaded.content_type, downloaded.file_name
+        )
+    except _CorruptZipEntry as exc:
+        # Retrying cannot repair the source's bytes; hold only this file.
+        raise CorruptSourcePayload(
+            f"Source serves a corrupt archive: {exc}",
+            url=url,
+            checksum=hashlib.sha256(downloaded.data).hexdigest(),
+        ) from exc
     return downloaded.data, extension
 
 
