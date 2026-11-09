@@ -244,10 +244,12 @@ class SourceInventoryTests(unittest.TestCase):
             [
                 2002, 2004, 2006, 2007, 2008, 2009, 2011,
                 2012, 2013, 2014, 2015, 2016, 2017, 2018,
-                2019, 2020, 2021, 2022, 2023, 2024, 2025,
+                2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026,
             ],
         )
-        self.assertEqual(len(manifest["exams"]), 21)
+        # The 2026 event (found 2026-11-09) is held for review, so it adds no
+        # files or subject groups to the reviewed counts below.
+        self.assertEqual(len(manifest["exams"]), 22)
         self.assertEqual(len(manifest["files"]), 1_486)
         self.assertTrue(all(item["bytes"] > 0 for item in manifest["files"].values()))
         self.assertTrue(all(len(item["sha256"]) == 64 for item in manifest["files"].values()))
@@ -255,11 +257,11 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(policy["subject_group_count"], 515)
         self.assertEqual(policy["listed_asset_count"], 1_486)
         self.assertEqual(
-            sum(item["subject_group_count"] for item in manifest["years"].values()),
+            sum(item.get("subject_group_count", 0) for item in manifest["years"].values()),
             515,
         )
         self.assertEqual(
-            sum(item["asset_count"] for item in manifest["years"].values()),
+            sum(item.get("asset_count", 0) for item in manifest["years"].values()),
             1_486,
         )
         self.assertNotIn("retained_local_contamination", policy)

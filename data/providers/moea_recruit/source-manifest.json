@@ -105,7 +105,7 @@
       "year_roc": 112
     },
     "moea-recruit-113": {
-      "discovered_at": "2026-10-13T01:51:39.573957+00:00",
+      "discovered_at": "2026-11-09T23:14:39.119281+08:00",
       "exam_label": "113年度經濟部所屬事業機構新進職員甄試",
       "result_url": "https://www.taipower.com.tw/2289/2544/2554/2556/?Page=1&PageSize=200&q_attribute=4298",
       "source_exam_id": "moea-recruit-113",
@@ -113,12 +113,20 @@
       "year_roc": 113
     },
     "moea-recruit-114": {
-      "discovered_at": "2026-10-13T01:51:39.573957+00:00",
+      "discovered_at": "2026-11-09T23:14:39.119281+08:00",
       "exam_label": "114年度經濟部所屬事業機構新進職員甄試",
       "result_url": "https://www.taipower.com.tw/2289/2544/2554/2556/?Page=1&PageSize=200&q_attribute=4300",
       "source_exam_id": "moea-recruit-114",
       "year_ad": 2025,
       "year_roc": 114
+    },
+    "moea-recruit-115": {
+      "discovered_at": "2026-11-09T23:14:39.119281+08:00",
+      "exam_label": "115年度經濟部所屬事業機構新進職員甄試",
+      "result_url": "https://www.taipower.com.tw/2289/2544/2554/2556/?Page=1&PageSize=200&q_attribute=4302",
+      "source_exam_id": "moea-recruit-115",
+      "year_ad": 2026,
+      "year_roc": 115
     },
     "moea-recruit-91": {
       "discovered_at": "2026-10-13T01:51:39.573957+00:00",
@@ -23999,7 +24007,7 @@
     "asset_reconciliation_status": "Complete native listing reconciled to 1,486 current references and checksum-verified original PDFs; examination meaning and publication remain under review.",
     "discovery_mode": "official-year-exam-listing",
     "html_fingerprint_scope": "capture evidence only; exact year set, per-year subject/file counts, and URL-set hashes are the stable drift keys",
-    "last_discovery_at": "2026-10-13T01:51:39.573957+00:00",
+    "last_discovery_at": "2026-11-09T23:14:39.119281+08:00",
     "last_listing_audit_at": "2026-10-13T01:51:39.573957+00:00",
     "license_status": "Taipower permits broad attributed reuse for material within its copyright, subject to stated exclusions and third-party rights; this does not independently establish ownership of every exam item",
     "license_url": "https://www.taipower.com.tw/26275/26692/26698/normalPost",
@@ -24555,7 +24563,7 @@
       "asset_count": 70,
       "asset_listing_captured_at": "2026-10-13T01:51:39.573957+00:00",
       "asset_urls_hash": "sha256:c66e808612479f32e95de7d10e3a69b6d8809b3890e4813fa02dc4ab6090368a",
-      "discovered_at": "2026-10-13T01:51:39.573957+00:00",
+      "discovered_at": "2026-11-09T23:14:39.119281+08:00",
       "exam_codes": [
         "moea-recruit-113"
       ],
@@ -24575,7 +24583,7 @@
       "asset_count": 68,
       "asset_listing_captured_at": "2026-10-13T01:51:39.573957+00:00",
       "asset_urls_hash": "sha256:93db4fbbd357e6200dbec5bc4603af199d7aecba2b95d9b082ad97f21abd1898",
-      "discovered_at": "2026-10-13T01:51:39.573957+00:00",
+      "discovered_at": "2026-11-09T23:14:39.119281+08:00",
       "exam_codes": [
         "moea-recruit-114"
       ],
@@ -24590,6 +24598,16 @@
       "unique_asset_count": 68,
       "year_ad": 2025,
       "year_roc": 114
+    },
+    "2026": {
+      "discovered_at": "2026-11-09T23:14:39.119281+08:00",
+      "exam_codes": [
+        "moea-recruit-115"
+      ],
+      "exam_codes_hash": "sha256:6dd1ead0ab2543a223aff8161faf5cf3be44db3391b37e25be4c5e58dda43bed",
+      "search_url": "https://www.taipower.com.tw/2289/2544/2554/2556/?Page=1&PageSize=200&q_attribute=4302",
+      "year_ad": 2026,
+      "year_roc": 115
     }
   }
 }

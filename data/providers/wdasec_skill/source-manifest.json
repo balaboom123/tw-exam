@@ -1025,7 +1025,7 @@
       "year_roc": 112
     },
     "202403180001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "113年度全國技術士技能檢定第1梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202403180001",
       "source_exam_id": "202403180001",
@@ -1033,15 +1033,31 @@
       "year_roc": 113
     },
     "202403220001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "113年度全國技術士技能檢定第1梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202403220001",
       "source_exam_id": "202403220001",
       "year_ad": 2024,
       "year_roc": 113
     },
+    "202404150001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "113年度在校生（工業類）丙級專案檢定學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202404150001",
+      "source_exam_id": "202404150001",
+      "year_ad": 2024,
+      "year_roc": 113
+    },
+    "202405270001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "113年度在校生（商業類）丙級專案檢定學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202405270001",
+      "source_exam_id": "202405270001",
+      "year_ad": 2024,
+      "year_roc": 113
+    },
     "202407080001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "113年度全國技術士技能檢定第2梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202407080001",
       "source_exam_id": "202407080001",
@@ -1049,7 +1065,7 @@
       "year_roc": 113
     },
     "202408020001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "113年度全國技術士技能檢定第2梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202408020001",
       "source_exam_id": "202408020001",
@@ -1057,7 +1073,7 @@
       "year_roc": 113
     },
     "202411040001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "113年度全國技術士技能檢定第3梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202411040001",
       "source_exam_id": "202411040001",
@@ -1065,7 +1081,7 @@
       "year_roc": 113
     },
     "202411080001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "113年度全國技術士技能檢定第3梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202411080001",
       "source_exam_id": "202411080001",
@@ -1073,7 +1089,7 @@
       "year_roc": 113
     },
     "202503170001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第1梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202503170001",
       "source_exam_id": "202503170001",
@@ -1081,15 +1097,31 @@
       "year_roc": 114
     },
     "202503310001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第1梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202503310001",
       "source_exam_id": "202503310001",
       "year_ad": 2025,
       "year_roc": 114
     },
+    "202504140001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "114年度在校生（工業類）丙級專案檢定學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202504140001",
+      "source_exam_id": "202504140001",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
+    "202505260001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "114年度在校生（商業類）丙級專案檢定學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202505260001",
+      "source_exam_id": "202505260001",
+      "year_ad": 2025,
+      "year_roc": 114
+    },
     "202507070001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第2梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202507070001",
       "source_exam_id": "202507070001",
@@ -1097,7 +1129,7 @@
       "year_roc": 114
     },
     "202507160001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第2梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202507160001",
       "source_exam_id": "202507160001",
@@ -1105,7 +1137,7 @@
       "year_roc": 114
     },
     "202508250001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第2梯次學科試題暨答案（受丹娜絲颱風影響延期辦理考區）",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202508250001",
       "source_exam_id": "202508250001",
@@ -1113,7 +1145,7 @@
       "year_roc": 114
     },
     "202511030001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第3梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202511030001",
       "source_exam_id": "202511030001",
@@ -1121,7 +1153,7 @@
       "year_roc": 114
     },
     "202511170001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "114年度全國技術士技能檢定第3梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202511170001",
       "source_exam_id": "202511170001",
@@ -1129,7 +1161,7 @@
       "year_roc": 114
     },
     "202603160001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "115年度全國技術士技能檢定第1梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202603160001",
       "source_exam_id": "202603160001",
@@ -1137,15 +1169,31 @@
       "year_roc": 115
     },
     "202603300001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "115年度全國技術士技能檢定第1梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202603300001",
       "source_exam_id": "202603300001",
       "year_ad": 2026,
       "year_roc": 115
     },
+    "202604130001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "115年度在校生（工業類）丙級專案檢定學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202604130001",
+      "source_exam_id": "202604130001",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "202605250001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "115年度在校生（商業類）丙級專案檢定學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202605250001",
+      "source_exam_id": "202605250001",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
     "202607060001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "115年度全國技術士技能檢定第2梯次學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202607060001",
       "source_exam_id": "202607060001",
@@ -1153,10 +1201,18 @@
       "year_roc": 115
     },
     "202607090001": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_label": "115年度全國技術士技能檢定第2梯次按摩職類學科試題暨答案",
       "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202607090001",
       "source_exam_id": "202607090001",
+      "year_ad": 2026,
+      "year_roc": 115
+    },
+    "202611090001": {
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
+      "exam_label": "115年度全國技術士技能檢定第3梯次學科試題暨答案",
+      "result_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx?yserno=202611090001",
+      "source_exam_id": "202611090001",
       "year_ad": 2026,
       "year_roc": 115
     }
@@ -1164,7 +1220,7 @@
   "files": {},
   "probe_policy": {
     "discovery_mode": "official-year-exam-listing",
-    "last_discovery_at": "2026-10-08T09:34:20.669178+08:00"
+    "last_discovery_at": "2026-11-09T23:13:53.584014+08:00"
   },
   "provider_id": "wdasec_skill",
   "schema_version": 1,
@@ -1505,22 +1561,24 @@
       "year_roc": 112
     },
     "2024": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_codes": [
         "202411080001",
         "202411040001",
         "202408020001",
         "202407080001",
         "202403220001",
-        "202403180001"
+        "202403180001",
+        "202405270001",
+        "202404150001"
       ],
-      "exam_codes_hash": "sha256:fa7f0933530979bb78d346eecdcb8c1004f14c57228ebbaa9448cbd730a768cf",
+      "exam_codes_hash": "sha256:8418e1954c4378bcb90319b7eba60020ea5c9eac0faebde5c4cc1485d0252232",
       "search_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx",
       "year_ad": 2024,
       "year_roc": 113
     },
     "2025": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_codes": [
         "202511170001",
         "202511030001",
@@ -1528,22 +1586,27 @@
         "202507160001",
         "202507070001",
         "202503310001",
-        "202503170001"
+        "202503170001",
+        "202505260001",
+        "202504140001"
       ],
-      "exam_codes_hash": "sha256:ce64225532eeda4ae574f4335eb08d36c232352584333519fccba8ff4e4f9836",
+      "exam_codes_hash": "sha256:8950a0edfb9edf3ab1a0166ffa7772064ba5d13decc51a6ce32d13ddca2f7709",
       "search_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx",
       "year_ad": 2025,
       "year_roc": 114
     },
     "2026": {
-      "discovered_at": "2026-10-08T09:34:20.669178+08:00",
+      "discovered_at": "2026-11-09T23:13:53.584014+08:00",
       "exam_codes": [
+        "202611090001",
         "202607090001",
         "202607060001",
         "202603300001",
-        "202603160001"
+        "202603160001",
+        "202605250001",
+        "202604130001"
       ],
-      "exam_codes_hash": "sha256:b87ca3bd206d4d0a40df76d1d1916e0e587c53c98616edea4ba77e62235ad04b",
+      "exam_codes_hash": "sha256:cd51ecacb55c7cdaafaa526cc218e3c2948f0dd606a6792fd5520e202b1ce0d8",
       "search_url": "https://owinform.wdasec.gov.tw/ExamNet/owInform/PastQuestions.aspx",
       "year_ad": 2026,
       "year_roc": 115
