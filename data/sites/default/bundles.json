@@ -81921,12 +81921,12 @@
         101,
         100
       ],
-      "file_count": 412,
+      "file_count": 422,
       "storage_key": "bundles/sites/default/moex-professional-high-professional-high-nurse--3becf79dad64.zip",
       "asset_name": "moex-professional-high-professional-high-nurse--3becf79dad64.zip",
       "release_tag": "default-bundles-v2-004",
       "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-004/moex-professional-high-professional-high-nurse--3becf79dad64.zip",
-      "checksum": "34d195a9189e9db5a5c3c439c327db50e3cda8cf9eaa1d11b244de568fb76a24",
+      "checksum": "fa44285ae43e77206864072a1f4da667c53be9f927533223d43c1cb356e9f0bd",
       "schema_version": 2,
       "bundle_id": "moex-professional-high-professional-high-nurse",
       "catalog_version": "exam-identity-v2",
@@ -81965,8 +81965,8 @@
         "0204",
         "0205",
         "專技高考_護理師",
-        "114年第一次專門職業及技術人員高等考試營養師、護理師、社會工作師考試",
-        "114年第二次專門職業及技術人員高等考試營養師、護理師、社會工作師考試、114年專門職業及技術人員高等考試心理師、法醫師、語言治療師、聽力師、牙體技術師、公共衛生師考試、高等暨普通考試驗光人員考試"
+        "115年第三次專門職業及技術人員高等考試護理師考試",
+        "114年第一次專門職業及技術人員高等考試營養師、護理師、社會工作師考試"
       ],
       "subject_labels": [],
       "legacy_canonical_ids": []
