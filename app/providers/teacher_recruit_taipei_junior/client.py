@@ -1,30 +1,22 @@
 from __future__ import annotations
 
-import base64
 import hashlib
 import re
-from dataclasses import dataclass
-from html import unescape
-from html.parser import HTMLParser
-from pathlib import Path
-from urllib.parse import parse_qs, quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.taipei_downloads import PaperDownload as TaipeiJuniorDownload
+from app.providers.taipei_downloads import download_name as _decode_download_name
+from app.providers.taipei_downloads import group_paper_files, official_pdf_downloads
+from app.providers.taipei_downloads import request_url as _request_url
+from app.providers.teacher_recruit_taipei_junior.evidence import (
+    CANONICAL_CATEGORY,
+    annual_exams,
+)
 
 USER_AGENT = "Mozilla/5.0 (compatible; teacher-recruit-taipei-junior-mirror/1.0)"
-CANONICAL_CATEGORY = "臺北市國中教師甄試"
-ARTICLE_URLS_BY_YEAR = {
-    2025: (
-        "https://www.doe.gov.taipei/News_Content.aspx?n=E831"
-        "CA0A5CD0193D&sms=78D644F2755ACCAA&s=4A85C1A3A3BD7C48"
-    ),
-    2024: (
-        "https://www.doe.gov.taipei/News_Content.aspx?n=E831"
-        "CA0A5CD0193D&sms=78D644F2755ACCAA&s=01ADD0497C10AC9C"
-    ),
-}
+ARTICLE_URLS_BY_YEAR = {exam.year_roc + 1911: exam.paper_article_url for exam in annual_exams()}
 SUBJECT_CODES = {
     "國文": "guo-wen",
     "英文": "ying-wen",
@@ -39,40 +31,9 @@ SUBJECT_CODES = {
 }
 
 
-@dataclass(frozen=True)
-class TaipeiJuniorDownload:
-    subject_name: str
-    subject_code: str
-    file_type: str
-    url: str
-
-
-def _request_url(url: str) -> str:
-    parts = urlsplit(url)
-    return urlunsplit(
-        (
-            parts.scheme,
-            parts.netloc,
-            quote(parts.path),
-            quote(parts.query, safe="=&%"),
-            parts.fragment,
-        )
-    )
-
-
-def _decode_download_name(url: str) -> str:
-    values = parse_qs(urlparse(url).query).get("n", [])
-    if not values:
-        return Path(unquote(urlparse(url).path)).name
-    encoded = values[0]
-    padding = "=" * (-len(encoded) % 4)
-    return base64.b64decode(encoded + padding).decode("utf-8", "replace")
-
-
 def _subject_name(file_name: str) -> str:
     value = re.sub(r"\.pdf$", "", file_name, flags=re.IGNORECASE)
-    value = re.sub(r"[（(]雙語教學加長[）)]", "", value)
-    value = re.sub(r"(試題|答案)$", "", value)
+    value = re.sub(r"(試題|答案)(?:\s*[-－]?\s*完稿)?$", "", value)
     return value.strip()
 
 
@@ -83,38 +44,9 @@ def _subject_code(subject_name: str) -> str:
     return f"subject-{digest}"
 
 
-class _AnchorParser(HTMLParser):
-    def __init__(self) -> None:
-        super().__init__()
-        self.links: list[tuple[str, str]] = []
-        self._href = ""
-        self._parts: list[str] = []
-
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        if tag == "a":
-            self._href = dict(attrs).get("href", "") or ""
-            self._parts = []
-
-    def handle_data(self, data: str) -> None:
-        if self._href:
-            self._parts.append(data)
-
-    def handle_endtag(self, tag: str) -> None:
-        if tag == "a" and self._href:
-            self.links.append((self._href, " ".join(unescape("".join(self._parts)).split())))
-            self._href = ""
-            self._parts = []
-
-
 def parse_downloads(html: str, *, page_url: str) -> list[TaipeiJuniorDownload]:
-    parser = _AnchorParser()
-    parser.feed(html)
     downloads: list[TaipeiJuniorDownload] = []
-    for href, _ in parser.links:
-        url = urljoin(page_url, href)
-        file_name = _decode_download_name(url)
-        if not file_name.lower().endswith(".pdf"):
-            continue
+    for file_name, url in official_pdf_downloads(html, page_url=page_url):
         if "疑義" in file_name or ("試題" not in file_name and "答案" not in file_name):
             continue
         subject_name = _subject_name(file_name)
@@ -151,6 +83,9 @@ class TaipeiJuniorRecruitClient:
             )
         return self.article_html_by_year[year_ad]
 
+    def pdf_downloads(self, page_url: str) -> list[tuple[str, str]]:
+        return list(official_pdf_downloads(self._fetch_text(page_url), page_url=page_url))
+
     def discover_available_years(self) -> list[int]:
         return sorted(self.article_urls_by_year, reverse=True)
 
@@ -180,11 +115,10 @@ class TaipeiJuniorRecruitClient:
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         year_roc = year_ad - 1911
-        papers_by_subject: dict[tuple[str, str], dict[str, str]] = {}
-        page_url = self.article_urls_by_year[year_ad]
-        for download in parse_downloads(self._article_html(year_ad), page_url=page_url):
-            key = (download.subject_code, download.subject_name)
-            papers_by_subject.setdefault(key, {})[download.file_type] = download.url
+        page_url = self.build_discovery_exam_url(exam_code, year_ad)
+        papers_by_subject = group_paper_files(
+            parse_downloads(self._article_html(year_ad), page_url=page_url)
+        )
         papers = [
             ParsedPaper(
                 category_raw=CANONICAL_CATEGORY,

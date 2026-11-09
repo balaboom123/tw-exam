@@ -164,6 +164,22 @@ or exact direct-PDF context; checksum similarity alone cannot establish a new
 programme or successor. An expired rolling notice can be revisited by its exact
 reviewed retained context without fabricating current discovery evidence.
 
+Taipei junior-high formal teacher recruitment uses its own
+[annual native programme evidence](../../catalog/mappings/teacher-recruit-taipei-junior/native-programmes-v1.json).
+Each recruitment post has a combined education/specialist booklet, its initial
+key and the complete authentic annual answer-review summary. A shared section
+or matching answer table does not merge posts. Bilingual teaching posts retain
+the annual rule's written-language variant; teacher eligibility certificates
+and school level do not establish examination grades. Initial multiple-choice
+dedicated-counselor papers remain distinct from counseling-subject posts and
+from other municipalities' dedicated-counselor examination formats.
+
+Exact annual source context, URL, checksum and material facts bind the native
+classification. The complete reviewed population must be present before site
+publication. Earlier generic references remain immutable in source history;
+their old public ZIP keeps compatibility navigation through exact reviewed
+successors rather than checksum-only matching.
+
 ## Why this exists
 
 A display name such as 「一般行政」 is a track, not a complete exam identity. The same track can occur in high, ordinary, elementary, local, promotion, disability, indigenous, customs, or other programs. Grouping by a stripped display name therefore creates mixed bundles.

@@ -2158,6 +2158,49 @@ def _classify_paper_uncached(
                 "Reviewed native programme, recruitment category and shared initial papers; "
                 "school level, allocations and language eligibility are not exam grades"
             )
+    if provider_id == "teacher_recruit_taipei_junior":
+        from app.providers.teacher_recruit_taipei_junior.evidence import (
+            SERIES_ID as TAIPEI_JUNIOR_SERIES,
+        )
+        from app.providers.teacher_recruit_taipei_junior.evidence import (
+            SERIES_LABEL as TAIPEI_JUNIOR_LABEL,
+        )
+        from app.providers.teacher_recruit_taipei_junior.evidence import (
+            resolve_identity as resolve_taipei_junior_identity,
+        )
+
+        taipei_junior_identity = resolve_taipei_junior_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            exam_name_raw=exam_name,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+            source_material=source_material,
+        )
+        variant_pairs, variants = (), ()
+        if taipei_junior_identity is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            track_id, track_label = "taipei-junior-unknown", "甄選類科待確認"
+            stage_id, confidence = "unknown", "review"
+            reason = "Taipei junior native post, initial papers or annual rule requires review"
+        else:
+            taipei_exam, taipei_job, _taipei_paper = taipei_junior_identity
+            domain_id, family_id = "teacher", "teacher-exam"
+            series_id, series_label = TAIPEI_JUNIOR_SERIES, TAIPEI_JUNIOR_LABEL
+            level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+            track_id, track_label = taipei_job.track_id, taipei_job.label
+            variant_pairs = taipei_exam.variants(taipei_job)
+            variants = tuple(v[0] for v in variant_pairs)
+            stage_id, confidence = "stage-1", "high"
+            reason = (
+                "Reviewed Taipei junior recruitment post, combined initial booklet and authentic "
+                "annual answer review; bilingual written language follows the annual rule, "
+                "and school scope or prerequisite certificates do not create exam grades"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2416,6 +2459,11 @@ def _classify_paper_uncached(
         if provider_id == "teacher_recruit_newtaipei":
             bundle_name = f"{series_label}｜{track_label}"
             bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+        if provider_id == "teacher_recruit_taipei_junior":
+            bundle_name = f"{series_label}｜{track_label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+            for _variant_id, label in variant_pairs:
+                bundle_name += f"｜{label}"
         if provider_id in {
             "wdasec_skill",
             "tqc_cert",

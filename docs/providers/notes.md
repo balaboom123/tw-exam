@@ -907,9 +907,44 @@ Use official Tainan teacher-recruitment event pages and linked papers. Preserve 
 
 Use the official Taipei elementary teacher-recruitment source for elementary events and papers. Other Taipei school levels remain separate source identities.
 
+Both Taipei adapters use the shared government attachment reader for encoded
+filenames and official download links. This shared delivery format does not
+merge their programmes or file roles. Requested event IDs must match the
+reviewed annual article before acquisition reads its content.
+Repeated links to the same native file collapse. Different downloads claiming
+the same subject and role stop acquisition for review instead of silently
+replacing a question, key or combined booklet according to link order.
+
 ## `teacher_recruit_taipei_junior`
 
 Use the official Taipei junior-high teacher-recruitment source for its events and papers. Do not merge elementary or other municipal recruitment series by city name alone.
+
+The native annual programme catalogue owns the reviewed article sources,
+recruitment posts, rules, vacancy context and written-paper applicability.
+Combined booklets contain education and specialist sections; question counts
+and score weights are distinct annual facts. Dedicated counseling has its own
+multiple-choice booklet and actual initial key. Do not import another city's
+essay-paper or answer-placeholder treatment.
+
+Keep ordinary, gifted, counseling-subject, dedicated-counselor and bilingual
+teaching posts separate even when their answer tables agree. Bilingual teaching
+eligibility does not establish written-paper language: the annual rule supplies
+that content variant, while prerequisite certificates do not create an exam
+grade. Native wording differences across years resolve through exact category
+and paper contexts rather than frontend name guessing.
+
+Acquire each complete annual correction summary separately from the original
+keys. Its shared education section makes the complete notice applicable to
+every annual post; do not synthesize replacement keys or invent a narrower
+scope for abbreviated specialist labels. New relevant notice links or changed
+native bytes stop acquisition before retained events are replaced. Result lists
+and venue announcements remain outside the paper population.
+
+The conserving migration retains exact earlier generic claims and independent
+original blobs. Publication requires complete native category and file-role
+coverage and preserves the earlier ZIP with navigation to its reviewed
+successors. The fixed reviewed annual scope does not establish that older or
+future source years are unavailable.
 
 ## `teacher_recruit_taoyuan_elementary`
 

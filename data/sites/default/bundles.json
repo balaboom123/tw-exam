@@ -187017,60 +187017,1649 @@
     },
     {
       "canonical_id": "teacher-recruit-taipei-junior",
-      "canonical_name": "臺北市國中教師甄試",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜生物｜初試（筆試）",
       "years": [
-        114,
         113
       ],
-      "file_count": 68,
-      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior--4af519860a6d.zip",
-      "asset_name": "teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior--4af519860a6d.zip",
-      "release_tag": "default-bundles-v2-008",
-      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior--4af519860a6d.zip",
-      "checksum": "d6c02dc9cbfd5a0c213726a5177465a2de7c575b9c7b3cd6a5ce2b1c97a48918",
-      "schema_version": 2,
-      "bundle_id": "teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior",
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-biology-stage-1--ca8a62361489.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-biology-stage-1--ca8a62361489.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-biology-stage-1--ca8a62361489.zip",
+      "checksum": "97768c44305836efeefd40675e1bd9cb6c3fbdfcef1a754a37557bea477d2ea1",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-biology-stage-1",
       "catalog_version": "exam-identity-v2",
       "domain_id": "teacher",
       "exam_family_id": "teacher-exam",
-      "exam_series_id": "teacher-recruitment",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
       "level_id": "not-applicable",
-      "track_id": "teacher-recruit-taipei-junior",
+      "track_id": "taipei-junior-biology",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2",
-      "classification_confidence": "medium",
-      "classification_reason": "provider policy declares no level dimension",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
       "exam_class": "教師考試",
-      "exam_subclass": "教師甄試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
       "search_aliases": [
-        "地理",
-        "國文",
-        "理化",
-        "數學",
-        "生活科技",
-        "專任輔導",
-        "特殊教育-資優英語",
-        "歷史",
-        "特殊教育-身心障礙",
-        "家政",
-        "英語",
-        "特殊教育-資優理化",
-        "本土語-閩南語",
-        "家政-雙語教學專長",
-        "資訊科技-雙語教學專長",
-        "資訊科技",
-        "輔導",
-        "特殊教育-資優數學",
-        "童軍",
-        "體育",
-        "本土語(閩南語)",
-        "公民與社會",
-        "健康教育",
-        "生物"
+        "教育專業科目",
+        "生物科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "生物",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "job-biology",
+        "answer-review",
+        "sheng-wu"
       ],
-      "subject_labels": [],
-      "legacy_canonical_ids": []
+      "subject_labels": [
+        "教育專業科目",
+        "生物科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜國文｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-chinese-stage-1--8285a03e63d6.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-chinese-stage-1--8285a03e63d6.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-chinese-stage-1--8285a03e63d6.zip",
+      "checksum": "3eeef7345b6db08dd5bf1e2472773d9717734ad3169745541d3612d8262e98dd",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-chinese-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-chinese",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "國文科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "國文",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-chinese",
+        "answer-review",
+        "國文科",
+        "subject-952d92a1",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "guo-wen",
+        "臺北市113學年度市立國民中學正式教師聯合甄選"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "國文科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜公民與社會｜初試（筆試）",
+      "years": [
+        115,
+        113
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-civics-stage-1--29e0ed6d6498.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-civics-stage-1--29e0ed6d6498.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-civics-stage-1--29e0ed6d6498.zip",
+      "checksum": "198ebd16fca094eaf395d9d1445573ed321cc40f8e3dc55d72817d1281ab4216",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-civics-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-civics",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "公民與社會科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "公民與社會",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-civics",
+        "answer-review",
+        "公民與社會科",
+        "subject-d4172ebd",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "gong-min-yu-she-hui"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "公民與社會科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜輔導活動｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-counseling-stage-1--cffc2bb92b37.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-counseling-stage-1--cffc2bb92b37.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-counseling-stage-1--cffc2bb92b37.zip",
+      "checksum": "af7a49abc3feeec312ec1626a75d0b1a74701de3647353bb7587e3e3f6927744",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-counseling-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-counseling",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "輔導活動科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "輔導活動",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-counseling",
+        "answer-review",
+        "subject-dda8380c",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "輔導",
+        "subject-dfaab4e2"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "輔導活動科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜專任輔導｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-dedicated-counselor-stage-1--4d13bbdd5627.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-dedicated-counselor-stage-1--4d13bbdd5627.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-dedicated-counselor-stage-1--4d13bbdd5627.zip",
+      "checksum": "a4e984d8d481f2cad097ca710c530734e1ee06290438ec93c4b2111589e568f1",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-dedicated-counselor-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-dedicated-counselor",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "專任輔導科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "專任輔導",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-dedicated-counselor",
+        "answer-review",
+        "subject-1d2a18ea",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "臺北市113學年度市立國民中學正式教師聯合甄選"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "專任輔導科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜地球科學｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-earth-science-stage-1--70cc84687cfc.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-earth-science-stage-1--70cc84687cfc.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-earth-science-stage-1--70cc84687cfc.zip",
+      "checksum": "8d7133945d05985a3017847f3306f997b8b8fd556620fcb08b75aae5cabcf71f",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-earth-science-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-earth-science",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "地球科學科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "地球科學",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-earth-science",
+        "answer-review",
+        "地球科學科",
+        "subject-5ef414d6"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "地球科學科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜英語｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-english-stage-1--a83c6c04de24.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-english-stage-1--a83c6c04de24.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-english-stage-1--a83c6c04de24.zip",
+      "checksum": "13f92a1a7629f5ad2e6dc6f575af777eb092705b831f23643f07c7541dbc99b7",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-english-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-english",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "英語科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "英語",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-english",
+        "answer-review",
+        "英語科",
+        "subject-8a75f1f1",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "subject-9e84046c",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "英文",
+        "ying-wen"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "英語科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜地理｜初試（筆試）",
+      "years": [
+        114
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-geography-stage-1--dd2a05a24fe7.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-geography-stage-1--dd2a05a24fe7.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-geography-stage-1--dd2a05a24fe7.zip",
+      "checksum": "f7f70459ded32b2c6622b6e72074a99e59105b0eec05654b55976d5352bd3a11",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-geography-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-geography",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "地理科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "地理",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "job-geography",
+        "answer-review",
+        "di-li"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "地理科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜特殊教育（資優英語）｜初試（筆試）",
+      "years": [
+        114
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-english-stage-1--c70736914291.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-english-stage-1--c70736914291.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-english-stage-1--c70736914291.zip",
+      "checksum": "53aaf61fda01392316c18bfa2248e36cea525b19d1371f20778f5fbc7b8f5ad9",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-english-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-gifted-english",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "特殊教育（資優英語）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "特殊教育（資優英語）",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "job-gifted-english",
+        "answer-review",
+        "特殊教育-資優英語",
+        "subject-38d7195d"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "特殊教育（資優英語）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜特殊教育（資優數學）｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-mathematics-stage-1--dcca74576310.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-mathematics-stage-1--dcca74576310.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-mathematics-stage-1--dcca74576310.zip",
+      "checksum": "ad1c811894b658ee99840a1b0677dbdd710b4847ffc2af9c0995254b6a65b406",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-mathematics-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-gifted-mathematics",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "特殊教育（資優數學）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "特殊教育（資優數學）",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-gifted-mathematics",
+        "answer-review",
+        "特殊教育－資優數學科",
+        "subject-c21791d1",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "特殊教育-資優數學",
+        "subject-e8baddce",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "特殊教育(資優數學)",
+        "subject-02712ed2"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "特殊教育（資優數學）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜特殊教育（資優理化）｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-physics-chemistry-st--39841ed706df.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-physics-chemistry-st--39841ed706df.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-physics-chemistry-st--39841ed706df.zip",
+      "checksum": "0498e180a1a152c5ab771e1343bd8fbf6747d6b84b6eca64c9cbfc48030decaf",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-gifted-physics-chemistry-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-gifted-physics-chemistry",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "特殊教育（資優理化）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "特殊教育（資優理化）",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-gifted-physics-chemistry",
+        "answer-review",
+        "特殊教育－資優理化科",
+        "subject-6b40b2aa",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "特殊教育-資優理化",
+        "subject-a049528b",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "特殊教育(資優理化)",
+        "subject-d164e966"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "特殊教育（資優理化）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜健康教育｜初試（筆試）",
+      "years": [
+        113
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-health-education-stage-1--6c84cdd4340f.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-health-education-stage-1--6c84cdd4340f.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-health-education-stage-1--6c84cdd4340f.zip",
+      "checksum": "5665bae1d1976da6d463246b725a2a3eacb6c5892fe33cd81bc3c22ee818b99e",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-health-education-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-health-education",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "健康教育科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "健康教育",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "job-health-education",
+        "answer-review",
+        "jian-kang-jiao-yu"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "健康教育科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜歷史｜初試（筆試）",
+      "years": [
+        114
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-history-stage-1--a1ae569c077c.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-history-stage-1--a1ae569c077c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-history-stage-1--a1ae569c077c.zip",
+      "checksum": "149f41ecc6e107c036effdb9209be1a44824ec22a82939889f7196c724368b60",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-history-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-history",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "歷史科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "歷史",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "job-history",
+        "answer-review",
+        "subject-41e84cd8"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "歷史科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜家政（雙語教學專長）｜初試（筆試）｜學科中文命題",
+      "years": [
+        114
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-bilingual-wr--64f6ecf283ca.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-bilingual-wr--64f6ecf283ca.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-bilingual-wr--64f6ecf283ca.zip",
+      "checksum": "ddb7e5f07b77fa1318ccb4bd25f7422230cbb83313f1e2007342f1f42a0527a4",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-bilingual-written-language-chinese-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-home-economics-bilingual",
+      "variant_ids": [
+        "written-language-chinese"
+      ],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "家政（雙語教學專長）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "家政（雙語教學專長）",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "job-home-economics-bilingual",
+        "answer-review",
+        "家政-雙語教學專長",
+        "subject-bc058cad"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "家政（雙語教學專長）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜家政｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-stage-1--16bffbbd9086.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-stage-1--16bffbbd9086.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-stage-1--16bffbbd9086.zip",
+      "checksum": "9e6201c19936866a4e4b112bdfc71e8a2d6faddd5e0cec2132d5313d14a2692f",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-home-economics-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-home-economics",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "家政科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "家政",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-home-economics",
+        "answer-review",
+        "家政科",
+        "subject-a6cc5b37",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "subject-830172c6"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "家政科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜資訊科技（雙語教學專長）｜初試（筆試）｜學科中文命題",
+      "years": [
+        114
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-bili--354bd9e93d51.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-bili--354bd9e93d51.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-bili--354bd9e93d51.zip",
+      "checksum": "e580ce0129d2751c0eb59183c927c5c1310a8152ad33b62a001c7b9318df722b",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-bilingual-written-language-chinese-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-information-technology-bilingual",
+      "variant_ids": [
+        "written-language-chinese"
+      ],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "資訊科技（雙語教學專長）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "資訊科技（雙語教學專長）",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "job-information-technology-bilingual",
+        "answer-review",
+        "資訊科技-雙語教學專長",
+        "subject-c34f2b4a"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "資訊科技（雙語教學專長）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜資訊科技｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-stag--9e2cb0b4d370.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-stag--9e2cb0b4d370.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-stag--9e2cb0b4d370.zip",
+      "checksum": "c1ed3385a89ec8b386b74809e4e2ab0602910fe90848c648fb2b6cfb7f695986",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-information-technology-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-information-technology",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "資訊科技科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "資訊科技",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-information-technology",
+        "answer-review",
+        "subject-ce4b36ac",
+        "臺北市114學年度市立國民中學正式教師聯合甄選"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "資訊科技科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜生活科技（雙語教學專長）｜初試（筆試）｜學科中英命題",
+      "years": [
+        113
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-bilingual--49ceff2114db.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-bilingual--49ceff2114db.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-bilingual--49ceff2114db.zip",
+      "checksum": "9a9782a6aa42c0e42f4b2fe230526c7b1e99e0e52bb81688487c4ea363ab6305",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-bilingual-written-language-chinese-english-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-living-technology-bilingual",
+      "variant_ids": [
+        "written-language-chinese-english"
+      ],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "生活科技（雙語教學專長）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "生活科技（雙語教學專長）",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "job-living-technology-bilingual",
+        "answer-review",
+        "生活科技(雙語)",
+        "subject-9ff6b6ec"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "生活科技（雙語教學專長）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜生活科技｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-stage-1--2c1ddd436dd8.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-stage-1--2c1ddd436dd8.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-stage-1--2c1ddd436dd8.zip",
+      "checksum": "2afd0d4facc4aac48d949d3952921b7cfbf9c5b9ef9ca9c7b912d525a9cdc5e7",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-living-technology-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-living-technology",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "生活科技科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "生活科技",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-living-technology",
+        "answer-review",
+        "生活科技科",
+        "subject-7ae5deb4",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "subject-18cdc196",
+        "臺北市113學年度市立國民中學正式教師聯合甄選"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "生活科技科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜數學｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-mathematics-stage-1--ac4e08a82131.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-mathematics-stage-1--ac4e08a82131.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-mathematics-stage-1--ac4e08a82131.zip",
+      "checksum": "2d73c418c9f4f09ac7120c2bba25c8284d5e0237a1de06895dd9202332ba3145",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-mathematics-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-mathematics",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "數學科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "數學",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-mathematics",
+        "answer-review",
+        "數學科",
+        "subject-1f6de3c6",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "shu-xue",
+        "臺北市113學年度市立國民中學正式教師聯合甄選"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "數學科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜體育（雙語教學專長）｜初試（筆試）｜學科中文命題",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-bilingua--be6df46bf8f6.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-bilingua--be6df46bf8f6.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-bilingua--be6df46bf8f6.zip",
+      "checksum": "ae094052b58125b6b48c7ae7dd3614be1dd1ee90c12c24a8f9b9462a31cf06a4",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-bilingual-written-language-chinese-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-physical-education-bilingual",
+      "variant_ids": [
+        "written-language-chinese"
+      ],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "體育（雙語教學專長）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "體育（雙語教學專長）",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-physical-education-bilingual",
+        "answer-review",
+        "體育(雙語)科",
+        "subject-768a0004"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "體育（雙語教學專長）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜體育｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-stage-1--d1d5a9b76157.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-stage-1--d1d5a9b76157.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-stage-1--d1d5a9b76157.zip",
+      "checksum": "995f29f66a183e4906350f81838669159f45825f08352050990ccdb60314ede5",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physical-education-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-physical-education",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "體育科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "體育",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-physical-education",
+        "answer-review",
+        "體育科",
+        "subject-15dab569",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "ti-yu"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "體育科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜理化｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physics-chemistry-stage-1--8491971a1287.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physics-chemistry-stage-1--8491971a1287.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physics-chemistry-stage-1--8491971a1287.zip",
+      "checksum": "4a9cda00f80d477c7f85db0e30faeb1f9f21fd234751241edde9b5dfb664bd66",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-physics-chemistry-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-physics-chemistry",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "理化科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "理化",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-physics-chemistry",
+        "answer-review",
+        "理化科",
+        "subject-4bd06bb9",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "li-hua",
+        "臺北市113學年度市立國民中學正式教師聯合甄選"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "理化科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜童軍教育（雙語教學專長）｜初試（筆試）｜學科中文命題",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-bilingual-written---2fb44c782ccd.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-bilingual-written---2fb44c782ccd.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-bilingual-written---2fb44c782ccd.zip",
+      "checksum": "bae362cb3653d68fe61e87636cc908aca1f640805265c287d7fb0c96c7de7537",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-bilingual-written-language-chinese-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-scouting-bilingual",
+      "variant_ids": [
+        "written-language-chinese"
+      ],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "童軍教育（雙語教學專長）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "童軍教育（雙語教學專長）",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-scouting-bilingual",
+        "answer-review",
+        "童軍(雙語)",
+        "subject-d74f109e"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "童軍教育（雙語教學專長）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜童軍教育｜初試（筆試）",
+      "years": [
+        115,
+        114
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-stage-1--2dc684bacdaa.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-stage-1--2dc684bacdaa.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-stage-1--2dc684bacdaa.zip",
+      "checksum": "7cbc0ce050cc8db83dd5280401dd57076311980a66c5b398849b1816617a816b",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-scouting-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-scouting",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "童軍教育科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "童軍教育",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-scouting",
+        "answer-review",
+        "subject-6a2b9a72",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "童軍",
+        "subject-fd619516"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "童軍教育科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜特殊教育（身心障礙）｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-special-needs-stage-1--a381d531aa2d.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-special-needs-stage-1--a381d531aa2d.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-special-needs-stage-1--a381d531aa2d.zip",
+      "checksum": "96ad93d175e708d28c79175335910292c44a8cc5fb3edc3ada57fd71166b7cb9",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-special-needs-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-special-needs",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "特殊教育（身心障礙）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "特殊教育（身心障礙）",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-special-needs",
+        "answer-review",
+        "特殊教育－身心障礙科",
+        "subject-39dce379",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "特殊教育-身心障礙",
+        "subject-42a9ad70",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "特殊教育(身心障礙)",
+        "subject-fa96ce10"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "特殊教育（身心障礙）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-taipei-junior",
+      "canonical_name": "臺北市國中正式教師聯合甄選｜本土語文（閩南語）｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113
+      ],
+      "file_count": 9,
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-taiwanese-stage-1--ae14a625f42f.zip",
+      "asset_name": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-taiwanese-stage-1--ae14a625f42f.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-taiwanese-stage-1--ae14a625f42f.zip",
+      "checksum": "aaa41124485e5f349e21909efd9d06fce8ffb9213404d8736d03dccb0f13b3a7",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-taipei-junior-taipei-junior-teacher-recruitment-not-applicable-taipei-junior-taiwanese-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "taipei-junior-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "taipei-junior-taiwanese",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Taipei junior recruitment post, combined initial booklet and authentic annual answer review; bilingual written language follows the annual rule, and school scope or prerequisite certificates do not create exam grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "臺北市國中正式教師聯合甄選",
+      "search_aliases": [
+        "教育專業科目",
+        "本土語文（閩南語）科專業科目",
+        "筆試釋疑答案修訂彙整表",
+        "本土語文（閩南語）",
+        "臺北市115學年度市立國民中學正式教師聯合甄選",
+        "job-taiwanese",
+        "answer-review",
+        "本土語－閩南語科",
+        "subject-8df045a0",
+        "臺北市114學年度市立國民中學正式教師聯合甄選",
+        "本土語-閩南語",
+        "subject-b084b55d",
+        "臺北市113學年度市立國民中學正式教師聯合甄選",
+        "本土語(閩南語)",
+        "ben-tu-yu-min-nan-yu"
+      ],
+      "subject_labels": [
+        "教育專業科目",
+        "本土語文（閩南語）科專業科目"
+      ],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "teacher-recruit-taoyuan-elementary",

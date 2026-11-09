@@ -246,6 +246,15 @@
       "retained_at": "2026-11-08T15:59:05.940537+00:00"
     },
     {
+      "provider_id": "teacher_recruit_taipei_junior",
+      "bundle_id": "teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior--4af519860a6d.zip",
+      "storage_key": "bundles/sites/default/teacher-recruit-taipei-junior-teacher-recruitment-not-applicable-teacher-recruit-taipei-junior--4af519860a6d.zip",
+      "checksum": "d6c02dc9cbfd5a0c213726a5177465a2de7c575b9c7b3cd6a5ce2b1c97a48918",
+      "retained_at": "2026-11-09T02:33:17.798748+00:00"
+    },
+    {
       "provider_id": "teacher_recruit_taoyuan_elementary",
       "bundle_id": "teacher-recruit-taoyuan-elementary-teacher-recruitment-not-applicable-teacher-recruit-taoyuan-elementary",
       "release_tag": "default-bundles-v2-008",

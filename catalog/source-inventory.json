@@ -1510,10 +1510,10 @@
     },
     {
       "available_years": {
-        "end_ad": 2025,
         "mode": "observed_range",
-        "note": "Reviewed 2024–2025",
-        "start_ad": 2024
+        "start_ad": 2024,
+        "end_ad": 2026,
+        "note": "Reviewed native annual programme scope; exact sources and applicability are owned by native-programmes-v1."
       },
       "discovery_snapshot": {
         "coverage": "complete",
@@ -1521,29 +1521,31 @@
         "status": "present"
       },
       "evidence": [
+        "catalog/mappings/teacher-recruit-taipei-junior/native-programmes-v1.json",
         "docs/providers/notes.md#teacher_recruit_taipei_junior"
       ],
       "exam_category": "Taipei junior-high formal teacher recruitment",
       "local_state": {
-        "normalized_paper_records": 68,
-        "raw_event_pages": 2,
+        "raw_event_pages": 3,
+        "normalized_paper_records": 159,
         "sync_failures": 0
       },
       "local_years": [
         2024,
-        2025
+        2025,
+        2026
       ],
       "official_source_urls": [
-        "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=4A85C1A3A3BD7C48",
-        "https://www.doe.gov.taipei/News_Content.aspx?n=E831CA0A5CD0193D&sms=78D644F2755ACCAA&s=01ADD0497C10AC9C"
+        "https://www.doe.gov.taipei/news.aspx?PageSize=20&n=E831CA0A5CD0193D&page=1&sms=78D644F2755ACCAA"
       ],
       "provider_id": "teacher_recruit_taipei_junior",
       "restrictions": [
-        "The 2026-07-29 two-article snapshot has 68 matching retained URLs across two events. The map is reviewed and fixed; no automatic future-year discovery occurs until a stable endpoint exists."
+        "Discovery uses the reviewed annual native catalogue. A new year, category, rule, relevant attachment or payload change requires review before it can replace retained state; unreviewed earlier or future source years are not assumed absent.",
+        "Initial question/key pairs and complete annual answer-review summaries remain separate native roles. Results and venue announcements do not become examination papers."
       ],
       "source_name": "臺北市國中教師聯合甄選",
       "status": "covered",
-      "status_reason": "Covered in reviewed scope; source availability: Reviewed 2024–2025; local coverage: 2024–2025; 2 → 68"
+      "status_reason": "Covered within the reviewed native programme scope: annual rules and category tables bind distinct recruitment posts to complete initial paper/key pairs and authentic correction notices. Earlier generic references remain immutable source history and their published archive remains recoverable."
     },
     {
       "available_years": {
