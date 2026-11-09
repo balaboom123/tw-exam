@@ -86,7 +86,8 @@ def test_new_conflicting_bytes_stop_before_any_mirror_write(tmp_path, fallback_f
             TeacherQualProvider(client), [("teacher-qual-102", 2013)],
             MirrorStore(tmp_path / "mirror"), [], "", refresh_files=True,
         )
-    assert not catalog.papers and failures[0].stage == "fetch"
+    assert not catalog.papers and not failures
+    assert [item.source_exam_id for item in catalog.review_queue if item.classification_signature.startswith("unreviewed-source-file:")] == ["teacher-qual-102"]
     assert not list((tmp_path / "mirror").rglob("*.pdf"))
 
 

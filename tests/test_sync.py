@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.error import HTTPError
 from unittest.mock import patch
 
-from app.providers.base import DownloadedFile
+from app.providers.base import DownloadedFile, UnreviewedSourceFile
 from app.models import AliasRule, ExamAttachment, ParsedPaper, SourceExamPage
 from app.providers.base import SourceProvider
 from app.providers.moex.provider import MoexProvider
@@ -317,7 +317,8 @@ class SourceArchiveSyncTests(unittest.TestCase):
                     self.assertIn("CRC mismatch", held[0].reason)
                     self.assertEqual(held[0].classification_signature,
                                      "corrupt-source-payload:" + hashlib.sha256(corrupt).hexdigest())
-                self.assertEqual(pages[0].attachments[0].storage_key, "")
+                # Only a held revision keeps the verified original in place.
+                self.assertEqual(pages[0].attachments[0].storage_key, key if held else "")
                 self.assertEqual((store.root / key).read_bytes(), original)
 
     def test_corrupt_source_archive_cache_is_replaced_with_verified_bytes(self) -> None:
@@ -1351,6 +1352,32 @@ class HeldFileClient(FakeClient):
 
 
 class UnreviewedSourceFileTests(unittest.TestCase):
+    def test_a_held_revision_keeps_the_reviewed_earlier_paper_published(self) -> None:
+        url = "https://example.test/listening.pdf"
+        client = QuestionArchiveClient(
+            url=url, data=b"%PDF-1.7\nreviewed\n%%EOF", content_type="application/pdf",
+            file_name="listening.pdf",
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            store = MirrorStore(Path(temporary))
+            previous, first, failures = sync_exam_pages(client, [("cap-115", 2026)], store, [], "")
+            self.assertEqual(failures, [])
+
+            def changed(url: str) -> DownloadedFile:
+                raise UnreviewedSourceFile("bytes changed upstream", url=url)
+
+            client.download_file = changed  # type: ignore[method-assign]
+            pages, catalog, failures = sync_exam_pages(
+                client, [("cap-115", 2026)], store, [], "",
+                previous_pages=previous, refresh_files=True,
+            )
+        self.assertEqual(failures, [])
+        self.assertEqual(pages[0].papers[0].mirror_files, previous[0].papers[0].mirror_files)
+        self.assertEqual([paper.canonical_id for paper in catalog.papers],
+                         [paper.canonical_id for paper in first.papers])
+        self.assertEqual([item.classification_signature for item in catalog.review_queue],
+                         [f"unreviewed-source-file:{url}"])
+
     def test_unreviewed_files_are_held_for_review_without_failing_sync(self) -> None:
         client = HeldFileClient()
         with tempfile.TemporaryDirectory() as tmp_dir:

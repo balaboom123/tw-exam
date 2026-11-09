@@ -5,7 +5,12 @@ from pathlib import Path
 
 from app.manifest import SourceManifest
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
+from app.providers.base import (
+    DownloadedFile,
+    ResponseMetadata,
+    SourceProvider,
+    UnreviewedSourceFile,
+)
 from app.providers.taisugar_recruit.annual import written_exams
 from app.providers.taisugar_recruit.client import TaisugarRecruitClient
 from app.providers.taisugar_recruit.manifest import refresh_source_manifest
@@ -57,7 +62,9 @@ class TaisugarRecruitProvider(SourceProvider):
         downloaded = self.client.download_file(url)
         expected = self.reviewed_file_checksum(url)
         if expected and hashlib.sha256(downloaded.data).hexdigest() != expected:
-            raise ValueError("Taiwan Sugar reviewed annual rule checksum changed")
+            raise UnreviewedSourceFile(
+                "Taiwan Sugar reviewed annual rule checksum changed", url=url
+            )
         return downloaded
 
     def refresh_source_manifest(

@@ -20,6 +20,7 @@ from typing import Any
 from urllib.parse import urlsplit
 
 from app.models import NormalizedPaper, SourceExamPage, file_type_label
+from app.providers.base import UnreviewedSourceFile
 from app.providers.post_recruit.client import source_file_code
 from app.source_material import SourceDate, SourceMaterial
 
@@ -205,7 +206,7 @@ def read_annual_exams(path: Path) -> tuple[AnnualExam, ...]:
                 contexts.add(key)
             grades = {by_code[code].grade_scope for code in paper.applies_to}
             if len(grades) != 1:
-                raise ValueError("A postal paper crosses unreviewed native grade scopes")
+                raise UnreviewedSourceFile("A postal paper crosses unreviewed native grade scopes")
             for code in paper.applies_to:
                 if paper.slot not in by_code[code].required_slots:
                     raise ValueError("Postal paper session is not a slot for that employment grade")

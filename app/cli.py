@@ -49,7 +49,7 @@ from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, provider_paths, site_paths
 from app.probe import hash_exam_codes, probe_latest
 from app.provenance import record_successful_sync
-from app.providers.base import SourceProvider
+from app.providers.base import HELD_SOURCE_FILE_SIGNATURES, SourceProvider, UnreviewedSourceFile
 from app.providers.moex.client import make_result_url, make_year_search_url, year_ad_from_code
 from app.providers.registry import get_provider
 from app.publisher import publish_site, write_data_files, write_provider_state
@@ -817,11 +817,17 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             flush=True,
         )
         return 1
+    # A changed upstream listing holds the refresh for review; earlier state is kept.
+    held_discovery: list[ReviewItem] = []
     try:
         if getattr(args, "year_window", None):
             years = retry_network(lambda: _latest_years(provider, args.year_window))
         else:
             years = retry_network(lambda: _discover_years(provider, args.years))
+    except UnreviewedSourceFile as held:
+        print(f"Provider {provider_id} discovery held for review: {held}", flush=True)
+        years = []
+        held_discovery.append(held.review_item(provider_id, event_id=f"{provider_id}-discovery"))
     except Exception as exc:
         existing_provider_raw_pages, existing_provider_catalog, _existing_provider_failures = (
             load_provider_state(provider_state)
@@ -850,7 +856,7 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
     )
     all_raw_pages: list[SourceExamPage] = []
     all_papers: list[NormalizedPaper] = []
-    all_review_queue: list[ReviewItem] = []
+    all_review_queue: list[ReviewItem] = list(held_discovery)
     all_sync_failures: list[SyncFailure] = []
 
     discoveries: list[tuple[int, list[ExamOption]]] = []
@@ -860,6 +866,13 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
             discovered_exams = retry_network(partial(provider.discover_exams, year))
             discoveries.append((year, discovered_exams))
             exam_codes = [(exam.code, exam.year_ad) for exam in discovered_exams]
+        except UnreviewedSourceFile as held:
+            print(f"Year {year}: exam discovery held for review: {held}")
+            event_id = f"{provider_id}-{year}"
+            all_review_queue.append(
+                held.review_item(provider_id, event_id=event_id, year_roc=year - 1911)
+            )
+            continue
         except Exception as exc:
             print(f"Year {year}: failed to discover exams: {exc}")
             all_sync_failures.append(
@@ -984,6 +997,16 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         ]
         provider_failures.extend(sync_failures)
         failures = sync_failures
+    # Discovery that succeeded this run resolves its earlier hold.
+    resolved = {f"{provider_id}-{year}" for year, _ in discoveries}
+    if not held_discovery:
+        resolved.add(f"{provider_id}-discovery")
+    provider_normalized.review_queue = [
+        item
+        for item in provider_normalized.review_queue
+        if item.source_exam_id not in resolved
+        or not item.classification_signature.startswith(HELD_SOURCE_FILE_SIGNATURES)
+    ]
     download_bundles = getattr(args, "download_affected_bundles", False)
     restore_new_files = getattr(args, "restore_new_public_files", False)
     if (download_bundles or restore_new_files) and affected_canonical_ids:

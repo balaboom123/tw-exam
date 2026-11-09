@@ -16,6 +16,8 @@ from html import unescape
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from app.providers.base import UnreviewedSourceFile
+
 
 def normalized_label(value: str) -> str:
     return " ".join(unescape(value).split())
@@ -298,7 +300,7 @@ def _native_file_review(
     )
     if review is not None:
         if checksum != review.checksum:
-            raise ValueError("MOEA native role has changed or unreviewed bytes")
+            raise UnreviewedSourceFile("MOEA native role has changed or unreviewed bytes")
         return review
     for fact in source_conflicts():
         if (
@@ -315,7 +317,7 @@ def _native_file_review(
                 and source_url == file.source_url
             ):
                 if checksum != file.checksum:
-                    raise ValueError(
+                    raise UnreviewedSourceFile(
                         "MOEA source-label conflict has changed or unreviewed native bytes"
                     )
                 return file
@@ -348,9 +350,9 @@ def native_file_role(
         return file_type
     if isinstance(review, NativeRoleReview):
         if file_type not in {review.source_role, review.native_role}:
-            raise ValueError("MOEA native role has changed or unreviewed source role")
+            raise UnreviewedSourceFile("MOEA native role has changed or unreviewed source role")
     elif file_type not in {"question", review.native_role}:
-        raise ValueError("MOEA source-label conflict has an unreviewed file role")
+        raise UnreviewedSourceFile("MOEA source-label conflict has an unreviewed file role")
     return review.native_role
 
 

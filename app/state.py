@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from dataclasses import replace
+from dataclasses import astuple, replace
 from pathlib import Path
 from typing import Any, cast
 
@@ -218,10 +218,16 @@ def _merge_state(
     retained_review_keys.difference_update(
         _review_key(item) for item in refreshed_catalog.review_queue
     )
+    # A hold raised again this run replaces its earlier copy.
+    refreshed_reviews = {astuple(item) for item in refreshed_catalog.review_queue}
     merged_review_queue = [
         item
         for item in existing_catalog.review_queue
-        if item.source_exam_id not in replaced_exam_ids or _review_key(item) in retained_review_keys
+        if astuple(item) not in refreshed_reviews
+        and (
+            item.source_exam_id not in replaced_exam_ids
+            or _review_key(item) in retained_review_keys
+        )
     ] + refreshed_catalog.review_queue
     migrations = _derive_canonical_migrations(
         existing_catalog, refreshed_catalog, replaced_exam_ids

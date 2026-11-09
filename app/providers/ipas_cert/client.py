@@ -196,14 +196,14 @@ class IpasCertClient:
         advertised = set(listing)
         expected = {programme.code for programme in PROGRAMMES}
         if advertised != expected:
-            raise ValueError(
+            raise UnreviewedSourceFile(
                 "iPAS native programme membership changed: "
                 f"missing={sorted(expected - advertised)}, "
                 f"unreviewed={sorted(advertised - expected)}"
             )
         for programme in PROGRAMMES:
             if listing[programme.code] != "".join(programme.label.split()):
-                raise ValueError(f"iPAS native programme label changed: {programme.code}")
+                raise UnreviewedSourceFile(f"iPAS native programme label changed: {programme.code}")
         pages: dict[str, SourceExamPage] = {}
         held: list[ReviewItem] = []
         for programme in PROGRAMMES:

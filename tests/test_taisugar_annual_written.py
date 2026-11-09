@@ -284,7 +284,14 @@ def test_sync_retains_one_checksum_guarded_rule_for_ten_reviewed_papers(
     reference = pages[0].attachments[0]
     assert reference.file_type == "instructions"
     if corrupt_rule:
-        assert len(failures) == 1 and failures[0].file_type == "instructions"
+        assert not failures
+        assert [
+            item.classification_signature
+            for item in normalized.review_queue
+            if item.classification_signature.startswith("unreviewed-source-file:")
+        ] == [
+            f"unreviewed-source-file:{exam.rule_url}"
+        ]
         assert not reference.checksum and not reference.storage_key
     else:
         assert not failures and reference.checksum == exam.rule_checksum
@@ -295,7 +302,7 @@ def test_sync_retains_one_checksum_guarded_rule_for_ten_reviewed_papers(
             "application/pdf",
             "original.pdf",
         )
-        _, _, failed = sync_exam_pages(
+        refreshed, held, failed = sync_exam_pages(
             provider,
             [(exam.source_exam_id, exam.year_roc + 1911)],
             MirrorStore(tmp_path / "mirror"),
@@ -303,7 +310,15 @@ def test_sync_retains_one_checksum_guarded_rule_for_ten_reviewed_papers(
             "",
             previous_pages=pages,
         )
-        assert len(failed) == 1 and failed[0].file_type == "instructions"
+        assert not failed
+        assert [
+            item.classification_signature
+            for item in held.review_queue
+            if item.classification_signature.startswith("unreviewed-source-file:")
+        ] == [
+            f"unreviewed-source-file:{exam.rule_url}"
+        ]
+        assert refreshed[0].attachments[0].storage_key == reference.storage_key
         assert stored.read_bytes() == rule_bytes
 
 
@@ -616,20 +631,19 @@ def test_same_year_rules_are_retained_once_and_checksum_guarded_independently(
     )
     assert len(pages[0].attachments) == 2
     assert {a.download_url_source for a in pages[0].attachments} == set(rule_data)
-    assert len(failures) == (corrupt_index is not None)
+    assert not failures
+    assert len([item for item in catalog.review_queue if item.classification_signature.startswith("unreviewed-source-file:")]) == (corrupt_index is not None)
     assert catalog.papers[0].stage_id == "unknown"
     assert catalog.papers[0].file_type == "source_document"
     for index, (exam, original) in enumerate(zip(groups, payloads, strict=True)):
         attachment = next(a for a in pages[0].attachments if a.download_url_source == exam.rule_url)
         if index == corrupt_index:
-            # A changed response fails closed even when an old file exists.
-            # Its retained bytes survive, but cannot mark this refresh successful.
-            assert not attachment.storage_key and not attachment.checksum
+            # A changed response is held for review; a reviewed earlier copy stays.
             if warm:
-                old = next(
-                    a for a in previous[0].attachments if a.download_url_source == exam.rule_url
-                )
-                assert (tmp_path / "mirror" / old.storage_key).read_bytes() == original
+                assert attachment.checksum == exam.rule_checksum
+                assert (tmp_path / "mirror" / attachment.storage_key).read_bytes() == original
+            else:
+                assert not attachment.storage_key and not attachment.checksum
         else:
             assert attachment.checksum == exam.rule_checksum
             assert (tmp_path / "mirror" / attachment.storage_key).read_bytes() == original

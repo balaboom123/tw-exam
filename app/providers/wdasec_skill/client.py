@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlencode, urljoin, urlsplit
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 
 BASE_URL = "https://owinform.wdasec.gov.tw/ExamNet/owInform/"
@@ -81,7 +81,7 @@ class _CategoryButtonParser(HTMLParser):
         if tag != "input" or fields.get("type") != "submit" or not name.startswith("btnSelect"):
             return
         if name not in ARCHIVE_CATEGORIES:
-            raise ValueError(f"Unreviewed WDA archive category button: {name}")
+            raise UnreviewedSourceFile(f"Unreviewed WDA archive category button: {name}")
         value = fields.get("value") or ""
         if not value.strip() or name in self.buttons:
             raise ValueError(f"Missing or repeated WDA archive button value: {name}")

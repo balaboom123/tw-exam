@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
+from app.providers.base import UnreviewedSourceFile
 from app.providers.sfi_cert.identity import Programme, label_key, programme_for_slug
 from app.source_material import SourceDate, SourceMaterial
 
@@ -32,7 +33,7 @@ def download_context(url: str) -> tuple[str, str]:
         or parsed.fragment
         or match is None
     ):
-        raise ValueError(f"Unreviewed SFI download endpoint: {url}")
+        raise UnreviewedSourceFile(f"Unreviewed SFI download endpoint: {url}", url=url)
     return match.group(1), "answer" if match.group(2) else "question"
 
 

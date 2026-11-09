@@ -15,6 +15,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from app.providers.base import UnreviewedSourceFile
+
 MAX_SELECTION_BYTES = 100 * 1024 * 1024
 MAX_OPERATIONS = 100_000
 
@@ -39,7 +41,9 @@ class CompiledSelection:
 
     def apply(self, original: bytes) -> bytes:
         if hashlib.sha256(original).hexdigest() != self.parent_checksum:
-            raise ValueError("Native NSYSU document changed; review its new bytes before selection")
+            raise UnreviewedSourceFile(
+                "Native NSYSU document changed; review its new bytes before selection"
+            )
         result = bytearray()
         for operation in self.operations:
             if isinstance(operation, CopySpan):

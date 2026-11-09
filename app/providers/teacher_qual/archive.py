@@ -21,6 +21,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 
 from app.archive_paths import portable_archive_name
+from app.providers.base import UnreviewedSourceFile
 
 
 @dataclass(frozen=True)
@@ -168,7 +169,7 @@ def parse_member_locator(url: str) -> tuple[str, NativeArchive, NativeMember]:
         if list(member.path_chain) == chain and member.contexts
     ]
     if len(matches) != 1:
-        raise ValueError("Unreviewed teacher qualification archive member")
+        raise UnreviewedSourceFile("Unreviewed teacher qualification archive member")
     archive, member = matches[0]
     return urlunsplit(parts._replace(fragment="")), archive, member
 
@@ -209,7 +210,7 @@ def native_member_subject(
 
 def extract_native_members(archive: NativeArchive, data: bytes) -> dict[tuple[str, ...], bytes]:
     if hashlib.sha256(data).hexdigest() != archive.checksum:
-        raise ValueError(
+        raise UnreviewedSourceFile(
             "Teacher qualification combined archive changed; native members need review"
         )
     expected = {member.path_chain: member for member in archive.members}
@@ -248,12 +249,16 @@ def extract_native_members(archive: NativeArchive, data: bytes) -> dict[tuple[st
                 payload = source.read(info)
                 if name.lower().endswith(".zip"):
                     if len(chain) >= 4 or not any(key[: len(chain)] == chain for key in expected):
-                        raise ValueError("Unreviewed teacher qualification nested archive")
+                        raise UnreviewedSourceFile(
+                            "Unreviewed teacher qualification nested archive"
+                        )
                     visit(payload, chain)
                     continue
                 member = expected.get(chain)
                 if member is None or hashlib.sha256(payload).hexdigest() != member.checksum:
-                    raise ValueError("Unreviewed or changed teacher qualification native member")
+                    raise UnreviewedSourceFile(
+                        "Unreviewed or changed teacher qualification native member"
+                    )
                 suffix = Path(name).suffix.lower()
                 if member.contexts and (
                     (suffix == ".pdf" and not payload.startswith(b"%PDF-"))

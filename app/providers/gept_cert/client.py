@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.gept_cert.identity import LEVELS, STORAGE_YEAR_AD, event_code
 from app.providers.http import Http, decode_html
 from app.source_material import SourceDate, SourceMaterial
@@ -127,7 +127,7 @@ def parse_intro_downloads(
             elif level_code == "superior" and "試題與作答說明" in label:
                 role, kind = "question", "sample"
             else:
-                raise ValueError(f"Unreviewed GEPT download role: {label} ({url})")
+                raise UnreviewedSourceFile(f"Unreviewed GEPT download role: {label} ({url})")
             downloads.append(GeptDownload(level_code, label, role, url, kind, base_url, attachment))
         elif "geptpractice" in path.lower():
             practice_pages.append(url)
@@ -200,7 +200,7 @@ class GeptCertClient:
         for url, html in pages.items():
             match = re.search(r"/Form/([23])/Listening$", urlsplit(url).path)
             if match is None:
-                raise ValueError("Unreviewed GEPT advanced practice route")
+                raise UnreviewedSourceFile("Unreviewed GEPT advanced practice route")
             form_pages[int(match.group(1))] = url
             parser = _Dependencies(url)
             parser.feed(html)
@@ -210,7 +210,7 @@ class GeptCertClient:
         script_url = scripts.pop()
         javascript = self._fetch_text(script_url)
         if set(re.findall(r'formNo:(\d+),type:"listening"', javascript)) != {"2", "3"}:
-            raise ValueError("Unreviewed GEPT advanced application form data")
+            raise UnreviewedSourceFile("Unreviewed GEPT advanced application form data")
         home_names = set(re.findall(r"HomeView-[A-Za-z0-9_-]+\.js", javascript))
         if len(home_names) != 1:
             raise ValueError("GEPT advanced practice lacks its visible form labels")
@@ -221,7 +221,7 @@ class GeptCertClient:
             raise ValueError("GEPT internal form codes no longer match visible practice-set labels")
         prefix = re.search(r"window\.open\(`([^`$]+)\$\{\w+}`", javascript)
         if prefix is None or not re.search(r"Form_\$\{[^}]+}_L_Transcript\.pdf", javascript):
-            raise ValueError("Unreviewed GEPT advanced transcript endpoint")
+            raise UnreviewedSourceFile("Unreviewed GEPT advanced transcript endpoint")
         resources = []
         for url in sorted(
             set(
@@ -232,7 +232,7 @@ class GeptCertClient:
         ):
             group = urlsplit(url).path.split("/")[-2]
             if group not in {"01", "02"}:
-                raise ValueError("Unreviewed GEPT advanced audio form")
+                raise UnreviewedSourceFile("Unreviewed GEPT advanced audio form")
             practice_set = int(group)
             resources.append(
                 GeptDownload(
@@ -429,7 +429,7 @@ class GeptCertClient:
         if parsed.netloc == "portal.lttc.org.tw" and not parsed.path.startswith(
             "/audio/GEPTAdvanced/"
         ):
-            raise ValueError("Unreviewed GEPT portal resource path")
+            raise UnreviewedSourceFile("Unreviewed GEPT portal resource path", url=url)
         if url not in self._responses:
             self._responses[url] = self.http.download(url, content_disposition_name=False)
         return self._responses[url]

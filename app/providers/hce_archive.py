@@ -13,7 +13,7 @@ from urllib.parse import parse_qs, quote, unquote, urljoin, urlparse, urlsplit, 
 from urllib.request import Request, urlopen
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 
 USER_AGENT = "Mozilla/5.0 (compatible; hce-archive-mirror/1.0)"
 
@@ -457,7 +457,7 @@ class HceArchiveClient:
                     self._fetch_text(source.url), source.url, source_role=source.role
                 )
                 if not parsed:
-                    raise ValueError(
+                    raise UnreviewedSourceFile(
                         "HCE source page has no recognized native papers; source review required"
                     )
                 for paper in parsed:

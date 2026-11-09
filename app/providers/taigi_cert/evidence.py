@@ -15,6 +15,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 from urllib.parse import urlsplit
 
+from app.providers.base import UnreviewedSourceFile
 from app.source_material import SourceDate, SourceMaterial
 
 RESOURCE_URL = "https://ttg.moe.edu.tw/tmt/view.php?page=resource"
@@ -44,7 +45,7 @@ def validate_resource_url(url: str) -> None:
         or parsed.query
         or parsed.fragment
     ):
-        raise ValueError(f"Unreviewed Taigi resource endpoint: {url}")
+        raise UnreviewedSourceFile(f"Unreviewed Taigi resource endpoint: {url}", url=url)
 
 
 @dataclass(frozen=True)
@@ -253,7 +254,9 @@ def validate_native_payload(resource: NativeResource, body: bytes) -> None:
             entries = [member for member in archive.infolist() if not member.is_dir()]
             expected = {m.native_name: m for m in resource.archive_members}
             if len(entries) != len(expected) or {m.filename for m in entries} != expected.keys():
-                raise ValueError("Taigi native archive member coverage changed")
+                raise UnreviewedSourceFile(
+                    "Taigi native archive member coverage changed", url=resource.source_url
+                )
             for entry in entries:
                 fact = expected[entry.filename]
                 data = archive.read(entry)

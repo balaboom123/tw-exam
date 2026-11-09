@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 from urllib.parse import quote, unquote, urljoin, urlsplit, urlunsplit
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.tocfl_cert.evidence import (
     BANK_URL,
@@ -104,7 +104,7 @@ def _request_url(url: str) -> str:
 
 def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[TocflDownload]:
     if base_url not in {DOWNLOAD_URL, MOCK_TEST_URL}:
-        raise ValueError("Unreviewed TOCFL listing endpoint")
+        raise UnreviewedSourceFile("Unreviewed TOCFL listing endpoint")
     parser = _ContextParser()
     parser.feed(html)
     known = {r.source_url: r for r in current_resources()}
@@ -121,7 +121,7 @@ def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[TocflDow
         validate_resource_url(url)
         resource = known.get(url)
         if resource is None or normalized_label(label) != normalized_label(resource.source_label):
-            raise ValueError(f"TOCFL download label/URL requires native review: {url}")
+            raise UnreviewedSourceFile(f"TOCFL download label/URL requires native review: {url}")
         expected_listing = DOWNLOAD_URL if resource.collection == "reference" else MOCK_TEST_URL
         if base_url != expected_listing:
             raise ValueError("TOCFL reference and question-bank source contexts are mixed")
@@ -130,9 +130,9 @@ def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[TocflDow
             or normalized_label(skill) != normalized_label(resource.skill or "")
             or normalized_label(unit) != normalized_label(resource.unit_label or "")
         ):
-            raise ValueError("TOCFL band/skill/unit heading changed")
+            raise UnreviewedSourceFile("TOCFL band/skill/unit heading changed")
         if resource.collection == "bank_instructions" and band != resource.band_code:
-            raise ValueError("TOCFL instruction band changed")
+            raise UnreviewedSourceFile("TOCFL instruction band changed")
         if url in seen:
             raise ValueError("Duplicate TOCFL native download anchor")
         seen.add(url)
@@ -159,7 +159,7 @@ class TocflCertClient:
                 for download in parse_downloads(self._fetch_text(url), base_url=url)
             ]
             if {d.url for d in downloads} != {r.source_url for r in current_resources()}:
-                raise ValueError(
+                raise UnreviewedSourceFile(
                     "TOCFL resource membership changed; review before replacing retained state"
                 )
             self._listing = downloads
@@ -238,7 +238,7 @@ class TocflCertClient:
         validate_resource_url(url)
         resource = next((r for r in current_resources() if r.source_url == url), None)
         if resource is None:
-            raise ValueError("Unreviewed TOCFL resource cannot be requested")
+            raise UnreviewedSourceFile("Unreviewed TOCFL resource cannot be requested", url=url)
         return resource
 
     def head(self, url: str) -> ResponseMetadata:

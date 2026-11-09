@@ -19,7 +19,7 @@ from urllib.parse import (
 )
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.moea_recruit.evidence import (
     normalized_label,
@@ -263,7 +263,7 @@ class MoeaRecruitClient:
             not downloaded.data.startswith(b"%PDF-")
             or hashlib.sha256(downloaded.data).hexdigest() != expected
         ):
-            raise ValueError("MOEA native role has changed or unreviewed bytes")
+            raise UnreviewedSourceFile("MOEA native role has changed or unreviewed bytes", url=url)
         return downloaded
 
     def reviewed_file_checksum(self, url: str) -> str:
@@ -297,13 +297,15 @@ class MoeaRecruitClient:
             for file in fact.native_files:
                 key = (_normalize_text(fact.listing_group), _normalize_text(file.source_label))
                 if file.source_url not in urls_by_label.get(key, set()):
-                    raise ValueError("MOEA source-label conflict native control has changed")
+                    raise UnreviewedSourceFile(
+                        "MOEA source-label conflict native control has changed"
+                    )
                 downloaded = self.http.download(file.source_url, content_disposition_name=False)
                 if (
                     not downloaded.data.startswith(b"%PDF-")
                     or hashlib.sha256(downloaded.data).hexdigest() != file.checksum
                 ):
-                    raise ValueError(
+                    raise UnreviewedSourceFile(
                         "MOEA source-label conflict has changed or unreviewed native bytes"
                     )
                 verified[file.source_url] = downloaded
@@ -443,7 +445,9 @@ class MoeaRecruitClient:
                 )
                 if review is not None:
                     if source_role != review.source_role:
-                        raise ValueError("MOEA native role has an unreviewed listing role")
+                        raise UnreviewedSourceFile(
+                            "MOEA native role has an unreviewed listing role"
+                        )
                     self._reviewed_role_checksums[_quote_url_for_request(url)] = review.checksum
         return SourceExamPage(
             source_exam_id=exam_code,

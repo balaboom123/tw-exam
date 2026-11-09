@@ -9,7 +9,7 @@ from pathlib import PurePosixPath
 from urllib.parse import parse_qs, urljoin, urlsplit
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.twc_recruit.archive import (
     extract_native_members,
@@ -242,7 +242,7 @@ class TwcRecruitClient:
             member.name == name and member.file_role != "source_artifact"
             for member in matches[0].members
         ):
-            raise ValueError("Unreviewed Taiwan Water native paper locator")
+            raise UnreviewedSourceFile("Unreviewed Taiwan Water native paper locator", url=url)
         key = (archive_url, checksum)
         if key not in self._native_payloads:
             self._native_payloads[key] = extract_native_members(

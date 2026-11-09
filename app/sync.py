@@ -533,6 +533,18 @@ def restore_catalog_files(
     return failures
 
 
+def _assign_retained(
+    request: _MirrorRequest,
+    mirror_store: MirrorStore,
+    mirror_base_url: str,
+    mirror_metadata: dict[tuple[str, str, str], dict[str, str]],
+) -> None:
+    """Keep the earlier verified bytes for an unchanged source context."""
+    retained_file = _verified_retained_file(request, mirror_store)
+    if retained_file is not None:
+        _assign_mirrored_file(request, retained_file, mirror_base_url, mirror_metadata)
+
+
 def _held_review(
     held: UnreviewedSourceFile, provider_id: str, page: SourceExamPage, request: _MirrorRequest
 ) -> ReviewItem:
@@ -696,7 +708,9 @@ def sync_exam_pages(
                                 pending_by_prefix[request.prefix] = pending
                             batch.append((request, pending))
                     except UnreviewedSourceFile as held:
+                        # Held bytes wait for review; the reviewed earlier bytes stay published.
                         review_queue.append(_held_review(held, client_provider_id, page, request))
+                        _assign_retained(request, mirror_store, mirror_base_url, mirror_metadata)
                     except Exception as exc:
                         failures.append(
                             SyncFailure(
@@ -727,17 +741,17 @@ def sync_exam_pages(
                             stored_by_prefix[request.prefix] = stored
                         _assign_mirrored_file(request, stored, mirror_base_url, mirror_metadata)
                     except UnreviewedSourceFile as held:
+                        # Held bytes wait for review; the reviewed earlier bytes stay published.
                         review_queue.append(_held_review(held, client_provider_id, page, request))
+                        _assign_retained(request, mirror_store, mirror_base_url, mirror_metadata)
                     except Exception as exc:
                         # A failed refresh does not invalidate the exact earlier
                         # bytes for an unchanged source context. Keep the failure
                         # visible, and never use this path for invalid new content.
                         if isinstance(exc, (URLError, TimeoutError, ConnectionError)):
-                            retained_file = _verified_retained_file(request, mirror_store)
-                            if retained_file is not None:
-                                _assign_mirrored_file(
-                                    request, retained_file, mirror_base_url, mirror_metadata
-                                )
+                            _assign_retained(
+                                request, mirror_store, mirror_base_url, mirror_metadata
+                            )
                         failures.append(
                             SyncFailure(
                                 stage="download",

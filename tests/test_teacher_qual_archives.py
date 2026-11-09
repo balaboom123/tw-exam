@@ -140,7 +140,8 @@ def test_changed_original_stops_before_any_public_paper_is_mirrored(tmp_path, na
             TeacherQualProvider(client), [("teacher-qual-106", 2017)],
             MirrorStore(tmp_path / "mirror"), [], "", refresh_files=True,
         )
-    assert not catalog.papers and failures[0].stage == "fetch"
+    assert not catalog.papers and not failures
+    assert [item.source_exam_id for item in catalog.review_queue if item.classification_signature.startswith("unreviewed-source-file:")] == ["teacher-qual-106"]
     assert not list((tmp_path / "mirror").rglob("*.pdf"))
 
 

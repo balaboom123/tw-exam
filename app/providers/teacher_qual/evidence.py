@@ -14,6 +14,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 
 from app.archive_paths import portable_archive_name
+from app.providers.base import UnreviewedSourceFile
 
 
 @dataclass(frozen=True)
@@ -130,13 +131,15 @@ def parse_member_locator(url: str) -> tuple[str, ArchiveFallback]:
         == (values["archive-sha256"][0], values["zip-entry"][0])
     ]
     if len(matches) != 1:
-        raise ValueError("Unreviewed teacher qualification native member")
+        raise UnreviewedSourceFile("Unreviewed teacher qualification native member")
     return urlunsplit(parts._replace(fragment="")), matches[0]
 
 
 def extract_member(data: bytes, fact: ArchiveFallback) -> bytes:
     if hashlib.sha256(data).hexdigest() != fact.archive_checksum:
-        raise ValueError("Teacher qualification original archive changed; review is required")
+        raise UnreviewedSourceFile(
+            "Teacher qualification original archive changed; review is required"
+        )
     # This exact reviewed archive uses CP950 names. Python still respects the
     # UTF-8 flag when present; no guessed renaming or filesystem extraction occurs.
     with zipfile.ZipFile(io.BytesIO(data), metadata_encoding="cp950") as archive:

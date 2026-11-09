@@ -45,7 +45,7 @@ def validate_source_url(url: str) -> None:
         or parsed.query
         or parsed.fragment
     ):
-        raise ValueError(f"Unreviewed iPAS document endpoint: {url}")
+        raise UnreviewedSourceFile(f"Unreviewed iPAS document endpoint: {url}", url=url)
 
 
 def validated_payload_format(url: str, data: bytes) -> str:
@@ -60,7 +60,7 @@ def validated_payload_format(url: str, data: bytes) -> str:
         ".ods": b"application/vnd.oasis.opendocument.spreadsheet",
     }
     if extension not in mimetypes:
-        raise ValueError(f"Unreviewed iPAS native format: {url}")
+        raise UnreviewedSourceFile(f"Unreviewed iPAS native format: {url}", url=url)
     try:
         with zipfile.ZipFile(io.BytesIO(data)) as archive:
             if (

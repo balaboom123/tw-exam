@@ -178,9 +178,9 @@ def test_changed_role_payload_is_rejected_before_a_mirror_write(tmp_path, role_f
         _, catalog, failures = sync_exam_pages(
             provider, [(fact.source_exam_id, fact.year_roc + 1911)], store, [], ""
         )
-    assert not catalog.papers
-    assert len(failures) == 1 and failures[0].stage == "download"
-    assert "changed or unreviewed bytes" in failures[0].message
+    assert not catalog.papers and not failures
+    held = [item.reason for item in catalog.review_queue if item.classification_signature.startswith("unreviewed-source-file:")]
+    assert len(held) == 1 and "changed or unreviewed bytes" in held[0]
     assert not [p for p in store.root.rglob("*") if p.is_file()]
 
 

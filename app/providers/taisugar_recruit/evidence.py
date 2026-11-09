@@ -8,6 +8,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from app.answer_corrections import AnswerCorrection, validate_correction, validate_corrections
+from app.providers.base import UnreviewedSourceFile
 from app.providers.taisugar_recruit.native import native_pdf_subject_code, validate_member_parents
 
 
@@ -79,10 +80,12 @@ def file_role(
     for fact in native_roles():
         if fact.source_key[:-1] == key[:-1]:
             if checksum != fact.checksum:
-                raise ValueError("Native file-role review has changed or unreviewed bytes")
+                raise UnreviewedSourceFile(
+                    "Native file-role review has changed or unreviewed bytes"
+                )
             return fact.native_role
     if file_type in {"answer", "question_answer"}:
-        raise ValueError("Reviewed file role has unreviewed source evidence")
+        raise UnreviewedSourceFile("Reviewed file role has unreviewed source evidence")
     return file_type
 
 

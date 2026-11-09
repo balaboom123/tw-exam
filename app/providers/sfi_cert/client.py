@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.sfi_cert.evidence import (
     ARCHIVE_URL,
@@ -73,7 +73,7 @@ def parse_sfi_archive(html: str) -> list[ArchiveDownload]:
         label = cells[0][0]
         programme = programme_for_listing(label)
         if programme is None:
-            raise ValueError(f"Unreviewed SFI programme row: {label}")
+            raise UnreviewedSourceFile(f"Unreviewed SFI programme row: {label}")
         pairs: dict[tuple[str, str], dict[str, str]] = {}
         for url in urls:
             code, role = download_context(url)

@@ -94,7 +94,7 @@ class TocflNativeTests(unittest.TestCase):
                     ),
                 ) as download,
             ):
-                _pages, _catalog, failures = sync_exam_pages(
+                refreshed, catalog, failures = sync_exam_pages(
                     TocflCertProvider(second),
                     [(resource.source_exam_id, 2026)],
                     store,
@@ -103,8 +103,11 @@ class TocflNativeTests(unittest.TestCase):
                     previous_pages=pages,
                 )
             download.assert_called_once()
-            self.assertEqual(len(failures), 1)
-            self.assertIn("bytes changed", failures[0].message)
+            self.assertEqual(failures, [])
+            [held] = catalog.review_queue
+            self.assertIn("bytes changed", held.reason)
+            self.assertEqual(held.classification_signature, f"unreviewed-source-file:{resource.source_url}")
+            self.assertEqual(refreshed[0].attachments[0].storage_key, key)
             self.assertEqual((Path(directory) / key).read_bytes(), body)
 
     def test_native_listing_roles_preserve_all_units_and_source_formats(self) -> None:

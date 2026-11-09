@@ -5,6 +5,8 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
+from app.providers.base import UnreviewedSourceFile
+
 
 @dataclass(frozen=True)
 class Programme:
@@ -47,7 +49,7 @@ def programme_for_code(code: str) -> Programme:
     for programme in PROGRAMMES:
         if programme.code == code:
             return programme
-    raise ValueError(f"Unreviewed iPAS programme: {code}")
+    raise UnreviewedSourceFile(f"Unreviewed iPAS programme: {code}")
 
 
 def canonical_for_event(source_exam_id: str) -> tuple[str, str] | None:

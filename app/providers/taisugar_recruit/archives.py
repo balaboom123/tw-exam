@@ -11,6 +11,7 @@ import zipfile
 from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 
 from app.archive_paths import portable_archive_name
+from app.providers.base import UnreviewedSourceFile
 
 MAX_ARCHIVE_BYTES = 200_000_000
 MAX_ARCHIVE_MEMBERS = 1000
@@ -23,7 +24,7 @@ def native_member_name(item: zipfile.ZipInfo) -> str:
     try:
         decoded = item.orig_filename.encode("cp437").decode("cp950")
     except UnicodeError as exc:
-        raise ValueError("Unreviewed Taiwan Sugar archive filename encoding") from exc
+        raise UnreviewedSourceFile("Unreviewed Taiwan Sugar archive filename encoding") from exc
     # zipfile may already have applied the Unicode Path extra field. Preserve
     # its independent agreement with the legacy filename bytes.
     if item.filename != item.orig_filename and decoded != item.filename:
@@ -60,7 +61,7 @@ def read_pdf_members(data: bytes) -> dict[str, bytes]:
                 continue
             payload = source.read(item)
             if not name.lower().endswith(".pdf") or not payload.startswith(b"%PDF-"):
-                raise ValueError(
+                raise UnreviewedSourceFile(
                     "Taiwan Sugar original archive contains an unreviewed member format"
                 )
             members[name] = payload

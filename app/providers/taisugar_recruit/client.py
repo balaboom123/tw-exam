@@ -16,7 +16,7 @@ from urllib.parse import (
 )
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.taisugar_recruit.archives import (
     member_locator,
@@ -409,7 +409,9 @@ class TaisugarRecruitClient:
             source_url, checksum, name = parse_member_locator(url)
             _, observed, members = self._archive(source_url)
             if observed != checksum or name not in members:
-                raise ValueError("Taiwan Sugar native archive version or member changed")
+                raise UnreviewedSourceFile(
+                    "Taiwan Sugar native archive version or member changed", url=url
+                )
             return DownloadedFile(members[name], "application/pdf", Path(name).name)
         if Path(urlsplit(url).path).suffix.lower() == ".zip":
             return self._archive(url)[0]

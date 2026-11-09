@@ -16,7 +16,7 @@ from unittest.mock import patch
 from app import cli
 from app.manifest import SourceManifest, write_source_manifest
 from app.cli import _download_affected_bundles, build_parser, command_discover, command_repair_failures, command_sync, main, run_probe_latest, run_sync_targeted
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.moex.client import make_result_url
 from app.models import AliasRule, BundleAsset, ExamOption, NormalizedCatalog, NormalizedPaper, ParsedPaper, SourceExamPage, SyncFailure
 from app.paths import provider_paths, site_paths
@@ -722,6 +722,51 @@ class CliCommandTests(unittest.TestCase):
         self.assertIn("failed to discover exams", output.getvalue())
         self.assertEqual(failures[0]["stage"], "discover")
         self.assertEqual(failures[0]["source_exam_id"], "wdasec_skill-2026")
+
+    def test_command_sync_holds_a_changed_listing_for_review_until_discovery_recovers(self) -> None:
+        class ListingClient:
+            provider_id = "wdasec_skill"
+            held = "years"
+
+            def discover_available_years(self) -> list[int]:
+                if self.held == "years":
+                    raise UnreviewedSourceFile("listing changed")
+                return [2026]
+
+            def discover_exams(self, year_ad: int) -> list[ExamOption]:
+                if self.held == "exams":
+                    raise UnreviewedSourceFile("year listing changed")
+                return []
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            data_dir = root / "data"
+            data_dir.mkdir()
+            (data_dir / "aliases.json").write_text('{"rules": []}', encoding="utf-8")
+            args = build_parser().parse_args(
+                [
+                    "sync-full", "--provider", "wdasec_skill", "--data-dir", str(data_dir),
+                    "--mirror-dir", str(root / "mirror"), "--aliases", str(data_dir / "aliases.json"),
+                ]
+            )
+            client = ListingClient()
+            state = provider_paths(root, "wdasec_skill")
+
+            def held_events() -> list[str]:
+                _, catalog, failures = load_provider_state(state)
+                self.assertEqual(failures, [])
+                return [item.source_exam_id for item in catalog.review_queue]
+
+            for held, expected in (
+                ("years", ["wdasec_skill-discovery"]),
+                ("years", ["wdasec_skill-discovery"]),
+                ("exams", ["wdasec_skill-2026"]),
+                ("", []),
+            ):
+                client.held = held
+                with redirect_stdout(io.StringIO()):
+                    self.assertEqual(command_sync(args, client=client), 0)
+                self.assertEqual(held_events(), expected, held)
 
     def test_command_sync_incremental_merges_and_writes_provider_scoped_state(self) -> None:
         class SuccessfulIncrementalClient:

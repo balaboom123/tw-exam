@@ -11,6 +11,8 @@ from functools import lru_cache
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from app.providers.base import UnreviewedSourceFile
+
 
 @dataclass(frozen=True)
 class NativeGroup:
@@ -154,7 +156,9 @@ def read_group_catalogue(path: Path) -> GroupCatalogue:
             for year in range(group.from_year_roc, group.through_year_roc + 1):
                 slot = year, group.category_code, group.source_label
                 if year not in events or slot in slots:
-                    raise ValueError("Overlapping or unreviewed TCTE native group context")
+                    raise UnreviewedSourceFile(
+                        "Overlapping or unreviewed TCTE native group context"
+                    )
                 slots.add(slot)
             groups.append(group)
         if not groups:

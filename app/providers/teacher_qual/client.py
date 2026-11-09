@@ -11,7 +11,7 @@ from urllib.parse import parse_qs, unquote, urlencode, urljoin, urlparse
 from urllib.request import HTTPCookieProcessor, Request, build_opener, urlopen
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.teacher_qual import archive as native_archive
 from app.providers.teacher_qual.evidence import (
     extract_member,
@@ -79,7 +79,9 @@ class _PaperCellParser(HTMLParser):
             role_label = "".join(_normalize_text("".join(self._role_parts)).split())
             roles = {"考題": "question", "參考答案": "answer", "範例題": "question_answer"}
             if role_label not in roles:
-                raise ValueError(f"Unreviewed teacher qualification file role: {role_label}")
+                raise UnreviewedSourceFile(
+                    f"Unreviewed teacher qualification file role: {role_label}"
+                )
             subject = _normalize_text("".join(self._subject_parts))
             title = values.get("title") or ""
             format_match = re.fullmatch(r"下載(pdf|docx?)檔案", title, re.IGNORECASE)
@@ -436,7 +438,7 @@ class TeacherQualClient:
                             )
                         )
                     elif checksum != fallback.member_checksum:
-                        raise ValueError(
+                        raise UnreviewedSourceFile(
                             "Teacher qualification conflicting source changed; review required"
                         )
                 key = (download.subject, download.file_format)

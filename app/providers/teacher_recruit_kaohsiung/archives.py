@@ -42,7 +42,7 @@ class NativeZip:
 
     def locator(self, member: NativeZipMember) -> str:
         if member not in self.members:
-            raise ValueError("Unreviewed Kaohsiung native ZIP member")
+            raise UnreviewedSourceFile("Unreviewed Kaohsiung native ZIP member")
         return (
             f"{self.source_url}#archive-sha256={self.checksum}&member={quote(member.path, safe='')}"
         )

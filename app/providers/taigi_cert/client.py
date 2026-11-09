@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 from urllib.parse import quote, unquote, urljoin, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamAttachment, ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.taigi_cert.evidence import (
     CAPTURE_PARTITION_YEAR,
@@ -89,11 +89,11 @@ def parse_downloads(html: str, *, base_url: str = DOWNLOAD_URL) -> list[TaigiDow
         validate_resource_url(url)
         if url in EXCLUDED_LEARNING_RESOURCES:
             if normalized_label(label) != normalized_label(EXCLUDED_LEARNING_RESOURCES[url]):
-                raise ValueError("Taigi excluded learning-resource context changed")
+                raise UnreviewedSourceFile("Taigi excluded learning-resource context changed")
             continue
         resource = known.get(url)
         if resource is None or normalized_label(label) != normalized_label(resource.source_label):
-            raise ValueError(f"Taigi resource label/URL requires native review: {url}")
+            raise UnreviewedSourceFile(f"Taigi resource label/URL requires native review: {url}")
         if url in seen:
             if normalized_label(seen[url]) != normalized_label(label):
                 raise ValueError("Conflicting Taigi resource labels")
@@ -125,7 +125,9 @@ class TaigiCertClient:
         if self._listing is None:
             links = parse_downloads(self._fetch_text(DOWNLOAD_URL), base_url=DOWNLOAD_URL)
             if {link.url for link in links} != {r.source_url for r in current_resources()}:
-                raise ValueError("Taigi current resource membership requires native review")
+                raise UnreviewedSourceFile(
+                    "Taigi current resource membership requires native review"
+                )
             self._listing = links
         return self._listing
 
@@ -201,14 +203,16 @@ class TaigiCertClient:
     def head(self, url: str) -> ResponseMetadata:
         validate_resource_url(url)
         if not any(r.source_url == url for r in current_resources()):
-            raise ValueError("Unreviewed Taigi resource cannot be requested")
+            raise UnreviewedSourceFile("Unreviewed Taigi resource cannot be requested", url=url)
         return self.http.head(_quote_url_for_request(url))
 
     def download_file(self, url: str) -> DownloadedFile:
         validate_resource_url(url)
         resource = next((r for r in current_resources() if r.source_url == url), None)
         if resource is None:
-            raise ValueError("Unreviewed Taigi resource cannot be acquired automatically")
+            raise UnreviewedSourceFile(
+                "Unreviewed Taigi resource cannot be acquired automatically", url=url
+            )
         if url not in self._payloads:
             payload = self.http.download(
                 _quote_url_for_request(url), content_disposition_name=False

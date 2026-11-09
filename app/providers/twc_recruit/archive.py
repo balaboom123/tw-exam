@@ -22,6 +22,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, quote, urlsplit, urlunsplit
 
 from app.archive_paths import portable_archive_name
+from app.providers.base import UnreviewedSourceFile
 from app.source_material import SourceDate, SourceMaterial
 
 
@@ -328,7 +329,7 @@ def decoded_member_name(info: zipfile.ZipInfo) -> str:
 
 def extract_native_members(archive: NativeArchive, data: bytes) -> dict[str, bytes]:
     if hashlib.sha256(data).hexdigest() != archive.checksum:
-        raise ValueError("Taiwan Water source archive changed; native papers need review")
+        raise UnreviewedSourceFile("Taiwan Water source archive changed; native papers need review")
     if not archive.members:
         raise ValueError(f"Taiwan Water source archive is withheld: {archive.review_reason}")
     expected = {member.name: member for member in archive.members}
@@ -350,7 +351,7 @@ def extract_native_members(archive: NativeArchive, data: bytes) -> dict[str, byt
             if info.is_dir():
                 continue
             if name not in expected:
-                raise ValueError(f"Unreviewed Taiwan Water native member: {name}")
+                raise UnreviewedSourceFile(f"Unreviewed Taiwan Water native member: {name}")
             # Verify every member's CRC, including source artifacts.
             payload = source.read(info)
             member = expected[name]

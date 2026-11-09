@@ -37,8 +37,12 @@ An exact native-evidence exception may resolve conflicting source labels only
 after its complete source context and reviewed bytes have been verified. A
 checksum supplied by the adapter's reviewed native evidence takes precedence
 over an earlier retained checksum when deciding mirror reuse. A stale valid file is restored
-from the verified download with its earlier bytes preserved for recovery;
-changed or unreviewed native files fail before source-event replacement.
+from the verified download with its earlier bytes preserved for recovery.
+A changed or unreviewed upstream file, page or listing is held for review
+(`UnreviewedSourceFile`), never a sync failure: the run queues a review item,
+keeps the earlier verified bytes for the same source context, and retains the
+earlier state of a held event or listing. Corrupt local mirror bytes and
+publication validators still fail.
 Such an acquisition exception does not approve classification or publication.
 
 An adapter for an archive without native subject codes must derive stable

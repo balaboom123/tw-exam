@@ -199,9 +199,9 @@ def test_changed_preflight_bytes_stop_before_any_mirror_write(tmp_path, native_f
         pages, catalog, failures = sync_exam_pages(
             provider, [("moea-recruit-102", 2013)], store, [], ""
         )
-    assert not pages and not catalog.papers
-    assert len(failures) == 1 and failures[0].stage == "fetch"
-    assert "changed or unreviewed" in failures[0].message
+    assert not pages and not catalog.papers and not failures
+    held = [item.reason for item in catalog.review_queue if item.classification_signature.startswith("unreviewed-source-file:")]
+    assert len(held) == 1 and "changed or unreviewed" in held[0]
     assert not [path for path in store.root.rglob("*") if path.is_file()]
 
 

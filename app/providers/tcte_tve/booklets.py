@@ -9,6 +9,8 @@ from datetime import date
 from functools import lru_cache
 from pathlib import Path
 
+from app.providers.base import UnreviewedSourceFile
+
 
 @dataclass(frozen=True)
 class BookletMember:
@@ -125,7 +127,7 @@ def read_shared_booklets(path: Path) -> tuple[NativeBooklet, ...]:
                 raise ValueError("TCTE native form page ranges overlap")
             covered.update(pages)
         if covered != set(range(2, fact.page_count + 1)):
-            raise ValueError("TCTE booklet structure has unreviewed pages")
+            raise UnreviewedSourceFile("TCTE booklet structure has unreviewed pages")
         date.fromisoformat(fact.reviewed_at)
         keys.add(key)
         facts.append(fact)

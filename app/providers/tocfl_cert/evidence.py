@@ -15,6 +15,7 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 from urllib.parse import unquote, urlsplit
 
+from app.providers.base import UnreviewedSourceFile
 from app.source_material import SourceDate, SourceMaterial
 
 DOWNLOAD_URL = "https://tocfl.edu.tw/tocfl/index.php/exam/download"
@@ -46,7 +47,7 @@ def validate_resource_url(url: str) -> None:
         is None
         or any(ord(char) < 32 for char in path)
     ):
-        raise ValueError(f"Unreviewed TOCFL resource endpoint: {url}")
+        raise UnreviewedSourceFile(f"Unreviewed TOCFL resource endpoint: {url}", url=url)
 
 
 @dataclass(frozen=True)
@@ -301,8 +302,9 @@ def native_resource(source_url: str, checksum: str) -> NativeResource | None:
 
 def validate_native_payload(resource: NativeResource, body: bytes) -> None:
     if len(body) != resource.bytes or hashlib.sha256(body).hexdigest() != resource.checksum:
-        raise ValueError(
-            "TOCFL native resource bytes changed; review this revision before acquisition"
+        raise UnreviewedSourceFile(
+            "TOCFL native resource bytes changed; review this revision before acquisition",
+            url=resource.source_url,
         )
     signatures = {
         "rar": b"Rar!\x1a\x07",

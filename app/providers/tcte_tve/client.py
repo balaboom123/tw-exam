@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlparse
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 
 LISTING_URL = "https://www.tcte.edu.tw/index.php?mod=TVETest%2Fdown_exam4y"
@@ -305,7 +305,7 @@ def _paper_links(
             and not _math_variant(base_subject)
             and (len(set(question_links)) > 1 or len(set(answer_links)) > 1)
         ):
-            raise ValueError("Unlabeled native mathematics forms require review")
+            raise UnreviewedSourceFile("Unlabeled native mathematics forms require review")
         first_question_url = question_links[0]
         first_answer_url = answer_links[0] if answer_links else None
         return [(base_subject, first_question_url, first_answer_url)]
