@@ -4,9 +4,16 @@ updates:
     directory: /frontend
     schedule:
       interval: weekly
+    ignore:
+      # typescript-eslint 8.72.1 supports TypeScript below 6.1 only (checked
+      # 2026-11-09); remove this once it supports TypeScript 7.
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
     groups:
+      # Majors arrive as separate PRs so one cannot block the group (#37).
       frontend-dependencies:
         patterns: ["*"]
+        update-types: ["minor", "patch"]
 
   - package-ecosystem: uv
     directory: /
