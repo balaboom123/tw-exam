@@ -1253,6 +1253,7 @@ class WorkflowHealthTest(unittest.TestCase):
         with mock.patch.dict(module.os.environ, {"GITHUB_REPOSITORY": "o/r"}), \
                 mock.patch.object(module, "_scheduled_workflows", return_value=[workflow]), \
                 mock.patch.object(module, "_latest_run", return_value=run), \
+                mock.patch.object(module, "_slow_run", return_value=None), \
                 mock.patch.object(module, "_open_health_issue", return_value=existing), \
                 mock.patch.object(module, "_close") as close_mock:
             module.audit_latest()
@@ -1261,25 +1262,43 @@ class WorkflowHealthTest(unittest.TestCase):
 
     def test_slow_run_uses_three_or_more_prior_successful_durations(self) -> None:
         module = _load_health_script()
+        start = datetime(2026, 9, 25, tzinfo=timezone.utc)
+        minutes = {}
 
-        def run(run_id: int, minutes: int) -> dict:
-            start = datetime(2026, 9, 25, tzinfo=timezone.utc)
+        def run(run_id: int, executed: int, waited: int = 0) -> dict:
+            minutes[run_id] = (executed, waited)
+            return {"id": run_id}
+
+        def step(begin: int, end: int) -> dict:
             return {
-                "id": run_id,
-                "run_started_at": start.isoformat(),
-                "updated_at": (start + timedelta(minutes=minutes)).isoformat(),
+                "started_at": (start + timedelta(minutes=begin)).isoformat(),
+                "completed_at": (start + timedelta(minutes=end)).isoformat(),
             }
+
+        def api(path, *args):
+            if path.endswith("/jobs"):
+                executed, waited = minutes[int(path.split("/")[-2])]
+                # A job queued behind the site-publication group has a start
+                # time but no executed steps until it runs.
+                return {"jobs": [
+                    {"started_at": start.isoformat(), "steps": [step(0, 1), step(1, executed - 1)]},
+                    {"started_at": start.isoformat(),
+                     "steps": [step(executed - 1 + waited, executed + waited)]},
+                    {"started_at": start.isoformat(), "steps": []},
+                ]}
+            return history
 
         current = run(5, 31)
         history = {"workflow_runs": [current, run(4, 10), run(3, 11), run(2, 9), run(1, 10)]}
-        with mock.patch.object(module, "_gh_api", return_value=history) as api:
+        with mock.patch.object(module, "_gh_api", side_effect=api) as gh_api:
             self.assertEqual(module._slow_run("o/r", 1, current), (31, 10.0))
-            api.assert_called_once_with(
+            gh_api.assert_any_call(
                 "repos/o/r/actions/workflows/1/runs",
                 "-X", "GET", "-f", "status=success", "-f", "branch=main",
                 "-f", "per_page=100", "-f", "page=1",
             )
             self.assertIsNone(module._slow_run("o/r", 1, run(5, 30)))
+            self.assertIsNone(module._slow_run("o/r", 1, run(5, 12, waited=180)))
             history["workflow_runs"] = [current, run(4, 10), run(3, 11)]
             self.assertIsNone(module._slow_run("o/r", 1, current))
 

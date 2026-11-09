@@ -351,29 +351,44 @@ def _cancelled_past_timeout(run: dict, timeout_minutes: int) -> bool:
     return finish_time - start_time >= timedelta(minutes=timeout_minutes)
 
 
-def _duration_minutes(run: dict) -> float | None:
-    started = run.get("run_started_at") or run.get("created_at")
-    finished = run.get("updated_at")
-    if not started or not finished:
-        return None
-    try:
-        start_time = datetime.fromisoformat(started.replace("Z", "+00:00"))
-        finish_time = datetime.fromisoformat(finished.replace("Z", "+00:00"))
-    except ValueError:
-        return None
-    duration = (finish_time - start_time).total_seconds() / 60
-    return duration if duration > 0 else None
+def _duration_minutes(repository: str, run: dict) -> float | None:
+    """Minutes the run's jobs spent executing.
+
+    A job waiting on the shared site-publication group already has a start
+    time, but none of its steps do. Measuring steps keeps a queued run, such
+    as one behind a long audit, from looking slow.
+    """
+    payload = _gh_api(
+        f"repos/{repository}/actions/runs/{run['id']}/jobs", "-X", "GET", "-f", "per_page=100"
+    )
+    total = 0.0
+    for job in (payload or {}).get("jobs", []):
+        try:
+            times = [
+                (
+                    datetime.fromisoformat(step["started_at"].replace("Z", "+00:00")),
+                    datetime.fromisoformat(step["completed_at"].replace("Z", "+00:00")),
+                )
+                for step in job.get("steps") or []
+                if step.get("started_at") and step.get("completed_at")
+            ]
+        except ValueError:
+            return None
+        if times:
+            first, last = min(start for start, _ in times), max(end for _, end in times)
+            total += (last - first).total_seconds()
+    return total / 60 if total > 0 else None
 
 
 def _slow_run(repository: str, workflow_id: int, run: dict) -> tuple[float, float] | None:
-    duration = _duration_minutes(run)
+    duration = _duration_minutes(repository, run)
     if duration is None:
         return None
     previous = []
     for previous_run in _complete_scope_runs(repository, workflow_id, "success"):
         if previous_run.get("id") == run.get("id"):
             continue
-        if (minutes := _duration_minutes(previous_run)) is not None:
+        if (minutes := _duration_minutes(repository, previous_run)) is not None:
             previous.append(minutes)
         if len(previous) == 10:
             break
@@ -403,7 +418,7 @@ def audit_latest() -> int:
             if slow is not None:
                 duration, baseline = slow
                 body = (
-                    f"`{name}` exceeded 3 times its recent median: "
+                    f"`{name}` exceeded 3 times its recent median: its jobs ran "
                     f"{duration:.1f} minutes versus {baseline:.1f} minutes.\n\n"
                     f"Run: {run.get('html_url', '')}"
                 )

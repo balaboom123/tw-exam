@@ -88,6 +88,8 @@ run changes.
 
 A successful run also raises an issue when its duration exceeds three times
 the median of at least three prior successful runs (up to ten are checked).
+Duration counts the minutes the run's jobs spent executing steps, so time a job
+waits for the shared site-publication lock does not count as slowness.
 The issue points to the latest slow run; the next normal-duration success
 closes it.
 
