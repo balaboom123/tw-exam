@@ -807,10 +807,20 @@ class SourceInventoryTests(unittest.TestCase):
         self.assertEqual(audit["current_family_count"], 16)
         self.assertEqual(audit["current_document_formats"], {"pdf": 194, "odt": 44, "ods": 3})
         self.assertEqual(audit["current_unique_document_URLs"], 241)
-        self.assertEqual(audit["reference_attachment_count"], sum(len(p.attachments) for p in pages))
+        # The source may retire a reviewed attachment; the journal then keeps it.
+        from app.source_revisions import load_source_revisions
+
+        retired = sum(
+            entry["record_type"] == "attachment" and entry["reason"] == "source_reference_retired"
+            for entry in load_source_revisions(provider_paths(ROOT, "ipas_cert"))
+        )
+        self.assertEqual(
+            audit["reference_attachment_count"],
+            sum(len(p.attachments) for p in pages) + retired,
+        )
         self.assertEqual(audit["recovered_original_generic_source_records"], 97)
         self.assertEqual(len(catalog.papers), 70)
-        self.assertEqual(validate_native_documents(ROOT)["retired_source_references"], 164)
+        self.assertEqual(validate_native_documents(ROOT)["retired_source_references"], 164 + retired)
         self.assertTrue(all(p.source_material.kind != "reference" for p in catalog.papers))
 
     @pytest.mark.repo_data
