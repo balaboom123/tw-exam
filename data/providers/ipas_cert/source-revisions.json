@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "provider_id": "ipas_cert",
   "revisions": [
     {
@@ -6888,6 +6888,70 @@
       },
       "blob_storage_key": "providers/ipas_cert/recovery/source-revisions/8633246a6becc8455380a8fc2f26912b6ecb37b07fab133e9d47d111d8c1f058.pdf",
       "retained_at": "2026-10-21T07:56:22.553567+00:00",
+      "reason": "source_reference_retired"
+    },
+    {
+      "id": "2dbfe9df79a44d75451b09b5eb0d6a4db515a05947cfe78cb273d4af32a52a28",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "3D列印概論(111年版)",
+        "file_type": "source_asset_50b57c339e662ef1844640b2",
+        "download_url_source": "https://ipd.nat.gov.tw/ipas/api/proxy/uploads/certification_resource/811c18f088184802bd71dc2da6831aa4/3D%E5%88%97%E5%8D%B0%E6%A6%82%E8%AB%96%28111%E5%B9%B4%E7%89%88%29_20251223102010.pdf",
+        "storage_key": "providers/ipas_cert/115/ipas-cert-3dp-resources/exam/source_asset_50b57c339e662ef1844640b2.pdf",
+        "asset_name": "providers__ipas_cert__115__ipas-cert-3dp-resources__exam__source_asset_50b57c339e662ef1844640b2.pdf",
+        "checksum": "716d30b90ac7e8a8aaba8bc5fc831c65b52a5abe8e980d002ae2291ca0a60727",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "unknown",
+            "year_ad": null
+          },
+          "evidence_url": "https://ipd.nat.gov.tw/ipas/api/proxy/uploads/certification_resource/811c18f088184802bd71dc2da6831aa4/3D%E5%88%97%E5%8D%B0%E6%A6%82%E8%AB%96%28111%E5%B9%B4%E7%89%88%29_20251223102010.pdf",
+          "evidence_label": "3D列印概論(111年版)",
+          "review_reason": "Native reference-document role reviewed; an edition/publication year is not established by this review. Retain its source as an attachment and leave the date unresolved.",
+          "schema_version": 1
+        },
+        "provider_id": "ipas_cert",
+        "year_roc": 115,
+        "source_exam_id": "ipas-cert-3dp-resources",
+        "exam_name_raw": "iPAS 3D列印積層製造工程師｜來源參考文件"
+      },
+      "blob_storage_key": "providers/ipas_cert/recovery/source-revisions/716d30b90ac7e8a8aaba8bc5fc831c65b52a5abe8e980d002ae2291ca0a60727.pdf",
+      "retained_at": "2026-11-09T03:42:56.128671+00:00",
+      "reason": "source_reference_retired"
+    },
+    {
+      "id": "540f13d6eb1438e996a206ad688846375a3a45006fb08552c19e6c8599ead4f6",
+      "identity_version": 2,
+      "record_type": "attachment",
+      "source_record": {
+        "title": "3D列印製程與材料概論(111年版)",
+        "file_type": "source_asset_7c96f6700c145d460abaed46",
+        "download_url_source": "https://ipd.nat.gov.tw/ipas/api/proxy/uploads/certification_resource/811c18f088184802bd71dc2da6831aa4/3D%E5%88%97%E5%8D%B0%E8%A3%BD%E7%A8%8B%E8%88%87%E6%9D%90%E6%96%99%E6%A6%82%E8%AB%96%28111%E5%B9%B4%E7%89%88%29_20251223102116.pdf",
+        "storage_key": "providers/ipas_cert/115/ipas-cert-3dp-resources/exam/source_asset_7c96f6700c145d460abaed46.pdf",
+        "asset_name": "providers__ipas_cert__115__ipas-cert-3dp-resources__exam__source_asset_7c96f6700c145d460abaed46.pdf",
+        "checksum": "5dfbe71046e16025486bc7d2fac15af006c28ed8d0e6999b9a4be59c77ead37c",
+        "download_url_mirror": "",
+        "source_material": {
+          "kind": "reference",
+          "date": {
+            "basis": "unknown",
+            "year_ad": null
+          },
+          "evidence_url": "https://ipd.nat.gov.tw/ipas/api/proxy/uploads/certification_resource/811c18f088184802bd71dc2da6831aa4/3D%E5%88%97%E5%8D%B0%E8%A3%BD%E7%A8%8B%E8%88%87%E6%9D%90%E6%96%99%E6%A6%82%E8%AB%96%28111%E5%B9%B4%E7%89%88%29_20251223102116.pdf",
+          "evidence_label": "3D列印製程與材料概論(111年版)",
+          "review_reason": "Native reference-document role reviewed; an edition/publication year is not established by this review. Retain its source as an attachment and leave the date unresolved.",
+          "schema_version": 1
+        },
+        "provider_id": "ipas_cert",
+        "year_roc": 115,
+        "source_exam_id": "ipas-cert-3dp-resources",
+        "exam_name_raw": "iPAS 3D列印積層製造工程師｜來源參考文件"
+      },
+      "blob_storage_key": "providers/ipas_cert/recovery/source-revisions/5dfbe71046e16025486bc7d2fac15af006c28ed8d0e6999b9a4be59c77ead37c.pdf",
+      "retained_at": "2026-11-09T03:42:56.134557+00:00",
       "reason": "source_reference_retired"
     }
   ]
