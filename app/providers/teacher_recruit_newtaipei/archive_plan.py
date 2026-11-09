@@ -18,6 +18,7 @@ from urllib.parse import quote
 
 from app.archive_paths import portable_archive_name
 from app.models import ParsedPaper, SourceExamPage
+from app.providers.base import UnreviewedSourceFile
 
 PROVIDER_ID = "teacher_recruit_newtaipei"
 _DOWNLOAD = (
@@ -232,7 +233,10 @@ def verify_parent(archive: ReviewedArchive, data: bytes) -> None:
         or not data.startswith(b"Rar!\x1a\x07\x01\x00")
         or hashlib.sha256(data).hexdigest() != archive.checksum
     ):
-        raise ValueError("New Taipei native RAR changed; retain previous state pending review")
+        raise UnreviewedSourceFile(
+            "New Taipei native RAR changed; retain previous state pending review",
+            url=archive.source_url,
+        )
 
 
 def verify_member(member: ArchiveMember, data: bytes) -> None:

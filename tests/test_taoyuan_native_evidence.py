@@ -268,7 +268,7 @@ def test_shared_mirror_slots_and_annual_rule_use_one_fresh_observation_per_comma
     assert Counter(c.args[0] for c in client.download_file.call_args_list) == {
         u: 2 for u in payloads
     }
-    # A changed annual rule fails the whole event before sync can save new facts.
+    # A changed annual rule holds the whole event before sync can save new facts.
     payloads[exam.rule_url] = b"%PDF-1.7 unexpected replacement rule"
     _, catalog, failures = sync_exam_pages(
         TaoyuanElementaryRecruitProvider(client),
@@ -277,8 +277,11 @@ def test_shared_mirror_slots_and_annual_rule_use_one_fresh_observation_per_comma
         [],
         "",
     )
-    assert failures and not catalog.papers
-    assert "annual rule checksum changed" in failures[0].message
+    assert not failures and not catalog.papers
+    assert [item.classification_signature for item in catalog.review_queue] == [
+        f"unreviewed-source-file:{exam.rule_url}"
+    ]
+    assert "annual rule checksum changed" in catalog.review_queue[0].reason
 
 
 @pytest.mark.parametrize(

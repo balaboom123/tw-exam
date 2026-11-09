@@ -5,7 +5,12 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
+from app.providers.base import (
+    DownloadedFile,
+    ResponseMetadata,
+    SourceProvider,
+    UnreviewedSourceFile,
+)
 from app.providers.teacher_recruit_newtaipei.archive_plan import (
     member_storage_keys,
     native_archives,
@@ -51,7 +56,10 @@ class NewTaipeiTeacherRecruitProvider(SourceProvider):
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         exam = next((e for e in annual_exams() if e.source_exam_id == exam_code), None)
         if exam is None:
-            raise ValueError("New Taipei annual programme requires native rule and paper review")
+            raise UnreviewedSourceFile(
+                "New Taipei annual programme requires native rule and paper review",
+                url=f"{self.build_discovery_year_url(year_ad)}#{exam_code}",
+            )
         page = self.client.fetch_reviewed_exam_page(exam_code, year_ad, exam.acquisition_event())
         checksums = {
             url: hashlib.sha256(self.download_file(url).data).hexdigest()
@@ -98,7 +106,9 @@ class NewTaipeiTeacherRecruitProvider(SourceProvider):
                 verify_parent(archive, downloaded.data)
             expected = reviewed_document_checksum(url)
             if expected and hashlib.sha256(downloaded.data).hexdigest() != expected:
-                raise ValueError("New Taipei native rule, paper or answer-review document changed")
+                raise UnreviewedSourceFile(
+                    "New Taipei native rule, paper or answer-review document changed", url=url
+                )
         else:
             context = resolve_member_locator(url)
             if context is None:

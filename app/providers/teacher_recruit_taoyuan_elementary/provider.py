@@ -3,7 +3,12 @@ from __future__ import annotations
 import hashlib
 
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
+from app.providers.base import (
+    DownloadedFile,
+    ResponseMetadata,
+    SourceProvider,
+    UnreviewedSourceFile,
+)
 from app.providers.teacher_recruit_taoyuan_elementary.client import TaoyuanElementaryRecruitClient
 from app.providers.teacher_recruit_taoyuan_elementary.evidence import (
     annual_exams,
@@ -60,7 +65,7 @@ class TaoyuanElementaryRecruitProvider(SourceProvider):
             downloaded = self.client.download_file(url)
             expected = next((e.rule_checksum for e in annual_exams() if e.rule_url == url), "")
             if expected and hashlib.sha256(downloaded.data).hexdigest() != expected:
-                raise ValueError("Taoyuan reviewed annual rule checksum changed")
+                raise UnreviewedSourceFile("Taoyuan reviewed annual rule checksum changed", url=url)
             # The same observation supplies all categories sharing an original.
             self._downloads[url] = downloaded
         return self._downloads[url]

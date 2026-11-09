@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from app.models import ExamAttachment, NormalizedPaper, ParsedPaper, SourceExamPage
+from app.providers.base import UnreviewedSourceFile
 from app.providers.teacher_recruit_newtaipei.archive_plan import (
     PROVIDER_ID,
     ReviewedArchive,
@@ -405,7 +406,9 @@ def project_native_page(page: SourceExamPage, checksums: dict[str, str]) -> Sour
     if exam is None or _text(page.exam_name_raw) != _text(
         f"{exam.year_roc}學年度{CANONICAL_CATEGORY}"
     ):
-        raise ValueError("New Taipei programme requires native annual review before projection")
+        raise UnreviewedSourceFile(
+            "New Taipei programme requires native annual review before projection"
+        )
     observed: list[tuple[str, str, str | None]] = []
     for raw in page.papers:
         if (raw.category_code, raw.category_raw) != (str(exam.year_roc), CANONICAL_CATEGORY):
@@ -419,7 +422,7 @@ def project_native_page(page: SourceExamPage, checksums: dict[str, str]) -> Sour
     if exam.archive is not None:
         expected.append(("question_answer", exam.archive.source_url, exam.archive.checksum))
     if Counter(observed) != Counter(expected):
-        raise ValueError(
+        raise UnreviewedSourceFile(
             "New Taipei listing or payload changed; retain previous event pending review"
         )
     projected = []

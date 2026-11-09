@@ -11,7 +11,7 @@ from urllib.error import HTTPError
 from urllib.parse import quote, unquote, unquote_plus, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 
 LIST_API_URL = (
@@ -332,8 +332,9 @@ class NewTaipeiTeacherRecruitClient:
             raise ValueError("New Taipei reviewed event year or source context differs")
         current = self._exam_notice_map().get(exam_code)
         if current is not None and current != reviewed:
-            raise ValueError(
-                "New Taipei active notice history changed; retain event pending review"
+            raise UnreviewedSourceFile(
+                "New Taipei active notice history changed; retain event pending review",
+                url=f"{LIST_API_URL}#{exam_code}",
             )
         return self._fetch_event_page(exam_code, year_ad, reviewed)
 

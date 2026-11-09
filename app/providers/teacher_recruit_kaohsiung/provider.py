@@ -4,7 +4,12 @@ import hashlib
 from pathlib import PurePosixPath
 
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
+from app.providers.base import (
+    DownloadedFile,
+    ResponseMetadata,
+    SourceProvider,
+    UnreviewedSourceFile,
+)
 from app.providers.teacher_recruit_kaohsiung.archives import verified_zip_members
 from app.providers.teacher_recruit_kaohsiung.client import KaohsiungTeacherRecruitClient
 from app.providers.teacher_recruit_kaohsiung.evidence import annual_exams
@@ -78,9 +83,9 @@ class KaohsiungTeacherRecruitProvider(SourceProvider):
                     or not downloaded.data.startswith(b"%PDF-")
                     or hashlib.sha256(downloaded.data).hexdigest() != file.checksum
                 ):
-                    raise ValueError(
-                        "Kaohsiung native PDF changed; retain previous state for review"
+                    raise UnreviewedSourceFile(
+                        "Kaohsiung native PDF changed; retain previous state for review", url=url
                     )
                 self._downloads[url] = downloaded
                 return downloaded
-        raise ValueError("Unreviewed Kaohsiung native source URL")
+        raise UnreviewedSourceFile("Unreviewed Kaohsiung native source URL", url=url)

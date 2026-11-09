@@ -19,6 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from app.models import ExamAttachment, NormalizedPaper, SourceExamPage, file_type_label
+from app.providers.base import UnreviewedSourceFile
 from app.source_material import SourceDate, SourceMaterial
 
 PROVIDER_ID = "teacher_recruit_taoyuan_elementary"
@@ -300,7 +301,9 @@ def project_native_page(page: SourceExamPage, checksums: dict[str, str]) -> Sour
         None,
     )
     if exam is None:
-        raise ValueError("Taoyuan annual recruitment requires native rule and paper review")
+        raise UnreviewedSourceFile(
+            "Taoyuan annual recruitment requires native rule and paper review"
+        )
     if _text(page.exam_name_raw) not in {
         _text(exam.programme_name),
         _text(f"{exam.year_roc}年度{CANONICAL_CATEGORY}"),
@@ -320,7 +323,9 @@ def project_native_page(page: SourceExamPage, checksums: dict[str, str]) -> Sour
         for p in exam.files
     ]
     if Counter(observed) != Counter(expected):
-        raise ValueError("Taoyuan native listing or payload changed; retain state pending review")
+        raise UnreviewedSourceFile(
+            "Taoyuan native listing or payload changed; retain state pending review"
+        )
     projected = []
     for job in exam.jobs:
         for paper in exam.files:

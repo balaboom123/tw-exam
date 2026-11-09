@@ -20,6 +20,7 @@ from typing import Any
 from urllib.parse import parse_qs, urlsplit
 
 from app.models import ExamAttachment, NormalizedPaper, ParsedPaper, SourceExamPage
+from app.providers.base import UnreviewedSourceFile
 from app.providers.taipei_downloads import download_name
 from app.source_material import SourceDate, SourceMaterial
 
@@ -468,12 +469,14 @@ def project_native_page(page: SourceExamPage, checksums: Mapping[str, str]) -> S
         if f.file_type == "question_answer"
     ]
     if Counter(observed) != Counter(expected):
-        raise ValueError("Elementary native listing or bytes changed; retain state for review")
+        raise UnreviewedSourceFile(
+            "Elementary native listing or bytes changed; retain state for review"
+        )
     projected = []
     for job in exam.jobs:
         for file in exam.papers_for(job):
             if checksums.get(file.source_url) != file.checksum:
-                raise ValueError("Elementary native correction changed; review required")
+                raise UnreviewedSourceFile("Elementary native correction changed; review required")
             raw = raw_by_url.get(file.source_url) or ParsedPaper(
                 CANONICAL_CATEGORY,
                 str(exam.year_roc),

@@ -4,7 +4,12 @@ import hashlib
 import unicodedata
 
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
+from app.providers.base import (
+    DownloadedFile,
+    ResponseMetadata,
+    SourceProvider,
+    UnreviewedSourceFile,
+)
 from app.providers.teacher_recruit_taipei_junior.client import TaipeiJuniorRecruitClient
 from app.providers.teacher_recruit_taipei_junior.evidence import (
     AnnualExam,
@@ -39,7 +44,10 @@ class TaipeiJuniorRecruitProvider(SourceProvider):
         page = self.client.fetch_exam_page(exam_code, year_ad)
         exam = next((e for e in annual_exams() if e.source_exam_id == exam_code), None)
         if exam is None:
-            raise ValueError("Taipei junior annual recruitment requires native programme review")
+            raise UnreviewedSourceFile(
+                "Taipei junior annual recruitment requires native programme review",
+                url=f"{self.build_discovery_year_url(year_ad)}#{exam_code}",
+            )
         self._validate_document_notices(exam)
         checksums = {
             url: hashlib.sha256(self.download_file(url).data).hexdigest()
@@ -71,7 +79,7 @@ class TaipeiJuniorRecruitProvider(SourceProvider):
                     continue
                 observed.add(url)
             if observed != expected:
-                raise ValueError(
+                raise UnreviewedSourceFile(
                     "Taipei junior rule or answer-review notice changed; review required"
                 )
 
@@ -89,11 +97,11 @@ class TaipeiJuniorRecruitProvider(SourceProvider):
                 "",
             )
             if not expected:
-                raise ValueError("Unreviewed Taipei junior native download")
+                raise UnreviewedSourceFile("Unreviewed Taipei junior native download", url=url)
             downloaded = self.client.download_file(url)
             if hashlib.sha256(downloaded.data).hexdigest() != expected:
-                raise ValueError(
-                    "Taipei junior native source checksum changed; retain previous state"
+                raise UnreviewedSourceFile(
+                    "Taipei junior native source checksum changed; retain previous state", url=url
                 )
             self._downloads[url] = downloaded
         return self._downloads[url]

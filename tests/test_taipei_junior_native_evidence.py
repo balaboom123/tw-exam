@@ -298,8 +298,10 @@ def test_changed_notice_or_native_payload_leaves_mirror_untouched(tmp_path, monk
         [],
         "",
     )
-    assert not pages and not catalog.papers
-    assert len(failures) == 1 and failures[0].stage == "fetch"
+    # The changed event is held for review; nothing new is saved or mirrored.
+    assert not pages and not catalog.papers and not failures
+    assert [item.source_exam_id for item in catalog.review_queue] == [exam.source_exam_id]
+    assert "changed" in catalog.review_queue[0].reason
     assert not list((tmp_path / "mirror").rglob("*.pdf"))
 
 

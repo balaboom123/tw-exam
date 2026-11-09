@@ -18,7 +18,7 @@ from urllib.parse import (
 )
 
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http, links
 from app.providers.teacher_recruit_kaohsiung.archives import attachment_notice
 from app.providers.teacher_recruit_kaohsiung.evidence import AnnualExam, NativeNotice, annual_exams
@@ -129,7 +129,7 @@ def validate_notice_html(notice: NativeNotice, html: str) -> None:
         or title != _text(notice.title)
         or date(year + 1911, month, day).isoformat() != notice.publication_date
     ):
-        raise ValueError("Kaohsiung native notice identity, title or date changed")
+        raise UnreviewedSourceFile("Kaohsiung native notice identity, title or date changed")
     observed: dict[str, str] = {}
     for label, url in links(html, notice.url):
         if "attachment.php" not in url:
@@ -143,7 +143,9 @@ def validate_notice_html(notice: NativeNotice, html: str) -> None:
         observed[url] = name
     expected = {a.url: _text(a.label) for a in notice.attachments}
     if observed != expected:
-        raise ValueError("Kaohsiung native notice attachment population changed; review required")
+        raise UnreviewedSourceFile(
+            "Kaohsiung native notice attachment population changed; review required"
+        )
 
 
 class KaohsiungTeacherRecruitClient:
@@ -199,7 +201,7 @@ class KaohsiungTeacherRecruitClient:
             raise ValueError("Kaohsiung official search exceeds its reviewed pagination budget")
         expected = {n.notice_id: _text(n.title) for n in exam.notices}
         if observed != expected:
-            raise ValueError(
+            raise UnreviewedSourceFile(
                 "Kaohsiung annual programme notice population changed; review required"
             )
 
@@ -217,7 +219,7 @@ class KaohsiungTeacherRecruitClient:
     def build_discovery_year_url(self, year_ad: int) -> str:
         exam = next((e for e in annual_exams() if e.year_roc + 1911 == year_ad), None)
         if exam is None:
-            raise ValueError("Unreviewed Kaohsiung annual source scope")
+            raise UnreviewedSourceFile("Unreviewed Kaohsiung annual source scope")
         return search_url(exam)
 
     def build_discovery_exam_url(self, exam_code: str, year_ad: int) -> str:
@@ -236,7 +238,7 @@ class KaohsiungTeacherRecruitClient:
             None,
         )
         if exam is None:
-            raise ValueError("Unreviewed Kaohsiung native event or source year")
+            raise UnreviewedSourceFile("Unreviewed Kaohsiung native event or source year")
         return exam
 
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:

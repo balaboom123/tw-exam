@@ -33,11 +33,12 @@ class UnreviewedSourceFile(ValueError):
     """An upstream file has no reviewed record yet.
 
     Sync holds back only this file and lists it on the provider's review queue;
-    the rest of the provider keeps syncing. An adapter that skips such a file
-    while building pages appends the review item to ``held_files``.
+    the rest of the provider keeps syncing. Without a URL the hold covers the
+    event being fetched. An adapter that skips such a file while building pages
+    appends the review item to ``held_files``.
     """
 
-    def __init__(self, message: str, *, url: str) -> None:
+    def __init__(self, message: str, *, url: str = "") -> None:
         super().__init__(message)
         self.url = url
 

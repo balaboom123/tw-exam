@@ -9,7 +9,7 @@ from pathlib import Path
 from urllib.parse import quote, unquote, unquote_plus, urljoin, urlparse, urlsplit, urlunsplit
 
 from app.models import ExamOption, ParsedPaper, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata
+from app.providers.base import DownloadedFile, ResponseMetadata, UnreviewedSourceFile
 from app.providers.http import Http
 from app.providers.teacher_recruit_taoyuan_elementary.evidence import CANONICAL_CATEGORY
 
@@ -156,7 +156,9 @@ class TaoyuanElementaryRecruitClient:
     def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
         self.build_discovery_exam_url(exam_code, year_ad)
         if self.discover_available_years() != [year_ad]:
-            raise ValueError("Taoyuan rolling source year changed; retain the previous event")
+            raise UnreviewedSourceFile(
+                "Taoyuan rolling source year changed; retain the previous event", url=ANSWER_URL
+            )
         year_roc = year_ad - 1911
         papers = [
             ParsedPaper(

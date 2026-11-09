@@ -3,7 +3,12 @@ from __future__ import annotations
 import hashlib
 
 from app.models import ExamOption, SourceExamPage
-from app.providers.base import DownloadedFile, ResponseMetadata, SourceProvider
+from app.providers.base import (
+    DownloadedFile,
+    ResponseMetadata,
+    SourceProvider,
+    UnreviewedSourceFile,
+)
 from app.providers.teacher_recruit_taipei_elementary.client import TaipeiElementaryRecruitClient
 from app.providers.teacher_recruit_taipei_elementary.evidence import (
     annual_exams,
@@ -37,7 +42,10 @@ class TaipeiElementaryRecruitProvider(SourceProvider):
         page = self.client.fetch_exam_page(exam_code, year_ad)
         exam = next((e for e in annual_exams() if e.source_exam_id == exam_code), None)
         if exam is None:
-            raise ValueError("Elementary recruitment requires annual native programme review")
+            raise UnreviewedSourceFile(
+                "Elementary recruitment requires annual native programme review",
+                url=f"{self.build_discovery_year_url(year_ad)}#{exam_code}",
+            )
         # Compare the whole relevant PDF population, not just links whose names
         # happen to match the current booklet parser. Historical unavailable
         # documents are evidence dispositions and never successful downloads.
@@ -46,7 +54,7 @@ class TaipeiElementaryRecruitProvider(SourceProvider):
             expected = {f.source_url for f in exam.resources if f.notice_url == notice}
             observed = {url for _name, url in self.client.pdf_downloads(notice)}
             if observed != expected:
-                raise ValueError(
+                raise UnreviewedSourceFile(
                     "Elementary native notice changed; retain previous state for review"
                 )
         checksums = {
@@ -76,9 +84,11 @@ class TaipeiElementaryRecruitProvider(SourceProvider):
                 "",
             )
             if not expected:
-                raise ValueError("Unreviewed elementary native download")
+                raise UnreviewedSourceFile("Unreviewed elementary native download", url=url)
             downloaded = self.client.download_file(url)
             if hashlib.sha256(downloaded.data).hexdigest() != expected:
-                raise ValueError("Elementary native checksum changed; retain previous state")
+                raise UnreviewedSourceFile(
+                    "Elementary native checksum changed; retain previous state", url=url
+                )
             self._downloads[url] = downloaded
         return self._downloads[url]
