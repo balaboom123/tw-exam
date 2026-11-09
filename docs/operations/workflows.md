@@ -28,7 +28,8 @@ A cold runner skips journaled originals it cannot hold for these providers; a
 changed original, or a new revision without its previous bytes, still fails.
 
 TOCFL runs by manual dispatch only (`sync-tocfl-cert`): its mirror stays out of
-public storage and exceeds the Actions cache, so a runner always starts cold.
+public storage, and an Actions cache never holds the retained attachments that
+sync does not re-acquire, so no runner can verify them.
 Refresh it from the local mirror with `uv run python -m app sync-full --provider tocfl_cert`
 ([decision](../decisions/ADR-2026-11-09-tocfl-manual-sync.md)).
 

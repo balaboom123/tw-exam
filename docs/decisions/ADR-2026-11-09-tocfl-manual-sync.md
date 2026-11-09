@@ -29,3 +29,13 @@ TOCFL no longer appears in weekly sync health. Its state changes only when the
 maintainer syncs it locally, or dispatches the manual workflow knowing that a
 cold runner cannot verify retained attachments. Lifting the public-backup
 restriction, or a durable private store, would allow scheduling again.
+
+## Correction (2026-11-09)
+
+The Problem section's size claim is wrong. The mirror is about 6.6 GB
+(296 files), and run 42563026674 saved a 4.8 GB Actions cache, both within
+the cache limit. The decision stands for a different reason: 7 of the
+failures were retained reference and instructions attachments whose
+acquisition sync skips by design. With no public backup, an Actions cache
+holds only what a runner itself acquired, so no runner, warm or cold, can
+ever verify them. All 7 exist in the maintainer's local mirror.
