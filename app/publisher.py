@@ -471,6 +471,12 @@ def load_site_catalog(
             )
 
             validate_taipei_elementary_papers(provider_catalog.papers, complete_history=True)
+        if provider_id == "teacher_recruit_kaohsiung":
+            from app.providers.teacher_recruit_kaohsiung.evidence import (
+                validate_public_papers as validate_kaohsiung_papers,
+            )
+
+            validate_kaohsiung_papers(provider_catalog.papers, complete_history=True)
         aggregated_papers.extend(withhold_unreviewed_materials(provider_catalog.papers))
         aggregated_review_queue.extend(provider_catalog.review_queue)
         failures.extend(provider_failures)

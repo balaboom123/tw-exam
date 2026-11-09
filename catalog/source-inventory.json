@@ -1370,21 +1370,21 @@
       "available_years": {
         "end_ad": 2026,
         "mode": "current_scope",
-        "note": "Current 2026 scope; regular and special endpoints rechecked 2026-07-29",
+        "note": "Reviewed native annual elementary and special-education recruitment scope; exact posts, rules, original ZIP members, paper roles and source changes are owned by native-programmes-v1.",
         "start_ad": 2026
       },
       "discovery_snapshot": {
-        "coverage": "unknown",
+        "coverage": "complete",
         "manifest_path": "data/providers/teacher_recruit_kaohsiung/source-manifest.json",
-        "status": "blocked"
+        "status": "present"
       },
       "evidence": [
-        "catalog/source-coverage/teacher_recruit_kaohsiung.json",
+        "catalog/mappings/teacher-recruit-kaohsiung/native-programmes-v1.json",
         "docs/providers/notes.md#teacher_recruit_kaohsiung"
       ],
       "exam_category": "Kaohsiung city elementary and special-education teacher recruitment",
       "local_state": {
-        "normalized_paper_records": 2,
+        "normalized_paper_records": 91,
         "raw_event_pages": 2,
         "sync_failures": 0
       },
@@ -1392,16 +1392,16 @@
         2026
       ],
       "official_source_urls": [
-        "https://exam.kh.edu.tw/teaexam/",
-        "https://exam.kh.edu.tw/special/index.jsp"
+        "https://bulletin.kh.edu.tw/_RSSList.php?T=B"
       ],
       "provider_id": "teacher_recruit_kaohsiung",
       "restrictions": [
-        "Discovery is evidence-blocked without a fabricated manifest: the regular endpoint returned HTTP 404 (993 bytes, SHA-256 25d3409669519deee0adb32c70906510d0d85f8174025bb6b6a0ab1954bb0621) and the special endpoint HTTP 404 (146 bytes, SHA-256 55f7d9e99b8e2d4e0e193b2f0275501e6d9c1ebd29cadbea6a0da48a8587e3e0). The elementary event has an exact coverage-ledger exception; retained special papers remain covered but cannot currently be rediscovered."
+        "Official bureau notices preserve the complete reviewed annual scope even after registration portals expire. Earlier and future cycles are not assumed absent. A changed programme notice population, attachment set, parent ZIP, member population or payload requires native review before replacing retained state.",
+        "Original native ZIPs remain provider provenance; individual PDF members project to their explicitly applicable posts. Suggested and final answer roles remain separate even when their bytes match. Original generic final-key references remain immutable source history."
       ],
       "source_name": "高雄市教師甄選",
-      "status": "partial",
-      "status_reason": "Partial / source endpoint blocker; source availability: Current 2026 scope; regular and special endpoints rechecked 2026-07-29; local coverage: 2026; 2 → 2"
+      "status": "covered",
+      "status_reason": "Both retained annual programme scopes are covered through reviewed official bureau notices, annual rules and vacancy categories. Current native question, suggested-answer and final-answer resources were freshly acquired and checksum verified; the expired-portal coverage exception is resolved."
     },
     {
       "available_years": {

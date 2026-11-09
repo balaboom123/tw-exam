@@ -237,6 +237,15 @@
       "retained_at": "2026-10-26T01:51:47.450250+00:00"
     },
     {
+      "provider_id": "teacher_recruit_kaohsiung",
+      "bundle_id": "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung",
+      "release_tag": "default-bundles-v2-008",
+      "asset_name": "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
+      "checksum": "38be07ca1bfc6d509c5443c49c6cfffc0dc69d5840923767ccf881f379414ae9",
+      "retained_at": "2026-11-09T02:48:11.982379+00:00"
+    },
+    {
       "provider_id": "teacher_recruit_newtaipei",
       "bundle_id": "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei",
       "release_tag": "default-bundles-v2-008",

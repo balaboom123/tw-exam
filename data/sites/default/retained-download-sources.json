@@ -22287,6 +22287,30 @@
         }
       ]
     },
+    "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip": {
+      "canonical_name": "高雄市教師甄試",
+      "checksum": "38be07ca1bfc6d509c5443c49c6cfffc0dc69d5840923767ccf881f379414ae9",
+      "papers": [
+        {
+          "category_code": "special",
+          "checksum": "de04c408b59a1023fe7253c33e3656c2d9c82f2cc1ec5826bcf475a214bc3a0c",
+          "download_url_source": "https://exam.kh.edu.tw/special/upload/正確答案-身心障礙類.pdf",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+          "subject_code": "subject-088f06f6",
+          "year_roc": 115
+        },
+        {
+          "category_code": "special",
+          "checksum": "68dc00baa2c19594e211beb26ffdbdb062565638447a0a3cc683995e380eaa80",
+          "download_url_source": "https://exam.kh.edu.tw/special/upload/正確答案-資賦優異類.pdf",
+          "file_type": "corrected_answer",
+          "source_exam_id": "teacher-recruit-kaohsiung-115-special",
+          "subject_code": "subject-e6b0a069",
+          "year_roc": 115
+        }
+      ]
+    },
     "teacher-recruit-newtaipei-teacher-recruitment-not-applicable-teacher-recruit-newtaipei--b6acc48d8748.zip": {
       "canonical_name": "新北市教師甄試",
       "checksum": "c9547c92df93495864bcfb6a80f06a964c18491ed24a40ba591f8c75bec038a3",

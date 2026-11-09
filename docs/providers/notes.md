@@ -846,7 +846,25 @@ Run the strict catalog and history audits from [catalog audit](../operations/cat
 
 ## `teacher_recruit_kaohsiung`
 
-Use official Kaohsiung teacher-recruitment event pages and linked papers. Keep school level and event identity from the source rather than inferring them from local filenames.
+Use the Education Bureau's persistent official notices when annual registration
+portals expire. The [native programme catalogue](../../catalog/mappings/teacher-recruit-kaohsiung/native-programmes-v1.json)
+binds recruitment posts to annual rules, vacancy categories, dated paper/key
+notices and complete original ZIP member inventories. School levels belong to
+the recruitment post and do not become examination grades.
+
+Written booklet sharing follows the annual rule. Regional eligibility groups
+using the same examinations do not invent paper variants; distinct bilingual
+and arts-class posts retain their identities even when their booklets match.
+The dedicated counselor essay paper has no asserted multiple-choice answer key.
+Keep suggested and final answer references separately, including equivalent
+payloads: their native headings alone do not establish the revision role.
+
+The adapter checks the complete relevant notice and attachment populations,
+parent ZIP digests, portable unique member paths and each native PDF before
+returning acquisition inputs. Changed sources stop for review. Preserve original
+ZIPs as provider provenance and earlier generic references in immutable history;
+the original published ZIP remains a retained download with reviewed successor
+navigation. A normal source refresh does not retire saved public links.
 
 ## `teacher_recruit_newtaipei`
 

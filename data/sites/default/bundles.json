@@ -183791,41 +183791,891 @@
     },
     {
       "canonical_id": "teacher-recruit-kaohsiung",
-      "canonical_name": "高雄市教師甄試",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜專任輔導教師｜初試（筆試）",
       "years": [
         115
       ],
-      "file_count": 2,
-      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
-      "asset_name": "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
-      "release_tag": "default-bundles-v2-008",
-      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung--a30c0a787790.zip",
-      "checksum": "38be07ca1bfc6d509c5443c49c6cfffc0dc69d5840923767ccf881f379414ae9",
-      "schema_version": 2,
-      "bundle_id": "teacher-recruit-kaohsiung-teacher-recruitment-not-applicable-teacher-recruit-kaohsiung",
+      "file_count": 4,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-dedicated-counsel--1503ee0f1a51.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-dedicated-counsel--1503ee0f1a51.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-dedicated-counsel--1503ee0f1a51.zip",
+      "checksum": "6b18ddc795d32963aed3f8aff56533befc50eb95c0a71e83649f69099d4457e9",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-dedicated-counselor-stage-1",
       "catalog_version": "exam-identity-v2",
       "domain_id": "teacher",
       "exam_family_id": "teacher-exam",
-      "exam_series_id": "teacher-recruitment",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
       "level_id": "not-applicable",
-      "track_id": "teacher-recruit-kaohsiung",
+      "track_id": "kaohsiung-elementary-dedicated-counselor",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2",
-      "classification_confidence": "medium",
-      "classification_reason": "provider policy declares no level dimension",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
       "exam_class": "教師考試",
-      "exam_subclass": "教師甄試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
       "search_aliases": [
-        "身心障礙類",
-        "資賦優異類",
-        "115學年度高雄市教師甄試",
-        "special",
-        "subject-088f06f6",
-        "subject-e6b0a069"
+        "專任輔導教師輔導知能",
+        "一般類科及專任輔導教師教育專業",
+        "一般地區學校組",
+        "專任輔導教師",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-dedicated-counselor",
+        "counselor-knowledge",
+        "education-professional"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜英語｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-english-stage-1--3dfe9c77f4ed.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-english-stage-1--3dfe9c77f4ed.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-english-stage-1--3dfe9c77f4ed.zip",
+      "checksum": "bc700cd20ab16d5c53caa1b26f0645738eca1594de623c2ef93e72fea08f8112",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-english-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-english",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "英語",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "原住民地區及原住民重點學校組",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-english",
+        "english",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜一般類科｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-general-stage-1--909abaff6f93.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-general-stage-1--909abaff6f93.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-general-stage-1--909abaff6f93.zip",
+      "checksum": "18654af92ce0007861b07b2ca27ca9e2d64f0e6e4a8169412a808f4fcf9b26a9",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-general-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-general",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "一般類科及專任輔導教師教育專業",
+        "一般類科普通科目（國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "偏遠地區學校組",
+        "原住民地區及原住民重點學校組",
+        "一般類科",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-general",
+        "education-professional",
+        "general-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜本土語（客語）｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-hakka-stage-1--b9587759cdbe.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-hakka-stage-1--b9587759cdbe.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-hakka-stage-1--b9587759cdbe.zip",
+      "checksum": "e0ed27b476a41f3486dadede811364e683c0f0d5d4b86087db201928f99803fb",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-hakka-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-hakka",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "本土語（客語）",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-hakka",
+        "hakka",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜資訊｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-information-techn--cda4ae638291.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-information-techn--cda4ae638291.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-information-techn--cda4ae638291.zip",
+      "checksum": "7c0de95d250ddec615ef299506c77cdcef5b146bb5c1e9f7e036ff65de51278e",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-information-technology-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-information-technology",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "資訊",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "偏遠地區學校組",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-information-technology",
+        "information-technology",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜藝術才能班（音樂）｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-arts-class---679ca31cfe16.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-arts-class---679ca31cfe16.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-arts-class---679ca31cfe16.zip",
+      "checksum": "ff0643ba97edeaaeca61491010529a2e5d78cc7e8b0c33dcf2984dd2f3bf45a7",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-arts-class-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-music-arts-class",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "音樂、藝術才能班（音樂）",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "藝術才能班（音樂）",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-music-arts-class",
+        "music",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜音樂｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-stage-1--215ed51af3f4.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-stage-1--215ed51af3f4.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-stage-1--215ed51af3f4.zip",
+      "checksum": "b2cad0fef244ebe89a8963497e426a9cd8ac73b4abbf033bebadde1c8af066a5",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-music-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-music",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "音樂、藝術才能班（音樂）",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "原住民地區及原住民重點學校組",
+        "音樂",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-music",
+        "music",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜體育｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-educatio--2723f9e6f536.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-educatio--2723f9e6f536.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-educatio--2723f9e6f536.zip",
+      "checksum": "00f2e793f4ac4b020c2e5eb1ca9dac12c7067b128dfef5bf1e8945bd9eda1e8e",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-education-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-physical-education",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "體育、雙語教師組（體育）",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "偏遠地區學校組",
+        "原住民地區及原住民重點學校組",
+        "體育",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-physical-education",
+        "physical-education",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜雙語教師組（體育）｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-educatio--cbeeec042bff.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-educatio--cbeeec042bff.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-educatio--cbeeec042bff.zip",
+      "checksum": "aa75f61516448ea4d5011f9efa0282cd83b1e7f4f97d42abe2cb0351c1778395",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-physical-education-bilingual-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-physical-education-bilingual",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "體育、雙語教師組（體育）",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "雙語教師組（體育）",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-physical-education-bilingual",
+        "physical-education",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜自然科學｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-science-stage-1--243f5123eac4.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-science-stage-1--243f5123eac4.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-science-stage-1--243f5123eac4.zip",
+      "checksum": "1f537156e0a9d45231cecf12a2a376fd50672cd62d64bde17d60c8420a7da34b",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-science-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-science",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "自然科學",
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "一般地區學校組",
+        "原住民地區及原住民重點學校組",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-science",
+        "science",
+        "specialist-common"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜本土語（閩南語）｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-taiwanese-minnan---d23e4e9f9bbf.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-taiwanese-minnan---d23e4e9f9bbf.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-taiwanese-minnan---d23e4e9f9bbf.zip",
+      "checksum": "32a6ed08dad782b73de67b8a07a1354e7548818501677e99d781be5db5fe11fc",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-taiwanese-minnan-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-taiwanese-minnan",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "本土語（閩南語）",
+        "一般地區學校組",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-taiwanese-minnan",
+        "specialist-common",
+        "taiwanese-minnan"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜雙語教師組（視覺藝術）｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-bilin--fb6684a754c5.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-bilin--fb6684a754c5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-bilin--fb6684a754c5.zip",
+      "checksum": "ecf360e220e42aac5b9a4dc0fec8691ef7fe08943006d1901e1a82fd82c59e89",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-bilingual-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-visual-arts-bilingual",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "視覺藝術、雙語教師組（視覺藝術）",
+        "一般地區學校組",
+        "雙語教師組（視覺藝術）",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-visual-arts-bilingual",
+        "specialist-common",
+        "visual-arts"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國小正式教師聯合甄選｜視覺藝術｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-stage--e6f125488583.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-stage--e6f125488583.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-stage--e6f125488583.zip",
+      "checksum": "b39c98ed22ce25a3070344181cc8fef2b6e744803a60392bb97bcfa7ade164be",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-elementary-teacher-recruitment-not-applicable-kaohsiung-elementary-visual-arts-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-elementary-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-elementary-visual-arts",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國小正式教師聯合甄選",
+      "search_aliases": [
+        "專長類科普通科目（教育專業、國語、數學、高雄文明史）",
+        "視覺藝術、雙語教師組（視覺藝術）",
+        "一般地區學校組",
+        "視覺藝術",
+        "高雄市115年度市立國民小學教師聯合甄選",
+        "job-elementary-visual-arts",
+        "specialist-common",
+        "visual-arts"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國中小暨學前特殊教育班教師甄選｜國小身心障礙類｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-disability-s--9d33b29dec2b.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-disability-s--9d33b29dec2b.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-disability-s--9d33b29dec2b.zip",
+      "checksum": "77fe947f63f61f6d4e723600b0864413a26dcdefd36a181b4d506f6666a2f4ce",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-disability-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-special-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-special-elementary-disability",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國中小暨學前特殊教育班教師甄選",
+      "search_aliases": [
+        "身心障礙類教育學科（特殊教育專業知能）",
+        "國小身心障礙類",
+        "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+        "job-special-elementary-disability",
+        "disability"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國中小暨學前特殊教育班教師甄選｜國小一般智能資賦優異類｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-intellectual--7769ae55542e.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-intellectual--7769ae55542e.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-intellectual--7769ae55542e.zip",
+      "checksum": "b719c2a863dd36f38ed0ba36196946694c54da5074957842159d93f16e30f022",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-elementary-intellectual-gifted-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-special-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-special-elementary-intellectual-gifted",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國中小暨學前特殊教育班教師甄選",
+      "search_aliases": [
+        "資賦優異類教育學科（特殊教育專業知能）",
+        "國小一般智能資賦優異類",
+        "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+        "job-special-elementary-intellectual-gifted",
+        "gifted"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國中小暨學前特殊教育班教師甄選｜國中學術性向資賦優異類｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-academic-gifted---6e62f0549011.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-academic-gifted---6e62f0549011.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-academic-gifted---6e62f0549011.zip",
+      "checksum": "2c03c1ac3b7709e2e0a5e2e1c40093c5113d439c991a3050bcb13692c63c2bdd",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-academic-gifted-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-special-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-special-junior-academic-gifted",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國中小暨學前特殊教育班教師甄選",
+      "search_aliases": [
+        "資賦優異類教育學科（特殊教育專業知能）",
+        "國中學術性向資賦優異類",
+        "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+        "job-special-junior-academic-gifted",
+        "gifted"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國中小暨學前特殊教育班教師甄選｜國中身心障礙類｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-disability-stage--3a07f30b3fa1.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-disability-stage--3a07f30b3fa1.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-disability-stage--3a07f30b3fa1.zip",
+      "checksum": "ab079d1b8b000717801179621c405abe2955e8f4d434edd3e04691d58521ce65",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-junior-disability-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-special-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-special-junior-disability",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國中小暨學前特殊教育班教師甄選",
+      "search_aliases": [
+        "身心障礙類教育學科（特殊教育專業知能）",
+        "國中身心障礙類",
+        "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+        "job-special-junior-disability",
+        "disability"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "teacher-recruit-kaohsiung",
+      "canonical_name": "高雄市國中小暨學前特殊教育班教師甄選｜學前身心障礙類｜初試（筆試）",
+      "years": [
+        115
+      ],
+      "file_count": 3,
+      "storage_key": "bundles/sites/default/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-preschool-disability-st--c34ebc53ed7c.zip",
+      "asset_name": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-preschool-disability-st--c34ebc53ed7c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-preschool-disability-st--c34ebc53ed7c.zip",
+      "checksum": "ecf135c90b132c8820265440b647623dbf682a5095fe0798cb63017c5b50a206",
+      "schema_version": 3,
+      "bundle_id": "teacher-recruit-kaohsiung-kaohsiung-special-teacher-recruitment-not-applicable-kaohsiung-special-preschool-disability-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "teacher",
+      "exam_family_id": "teacher-exam",
+      "exam_series_id": "kaohsiung-special-teacher-recruitment",
+      "level_id": "not-applicable",
+      "track_id": "kaohsiung-special-preschool-disability",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed Kaohsiung annual recruitment programme and post, exact native booklets and dated suggested/final answer roles; shared papers do not merge posts, while school levels and eligibility groups are not examination grades",
+      "exam_class": "教師考試",
+      "exam_subclass": "高雄市國中小暨學前特殊教育班教師甄選",
+      "search_aliases": [
+        "身心障礙類教育學科（特殊教育專業知能）",
+        "學前身心障礙類",
+        "高雄市115學年度國中小暨學前教育階段特殊教育班教師甄選",
+        "job-special-preschool-disability",
+        "disability"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "teacher-recruit-newtaipei",

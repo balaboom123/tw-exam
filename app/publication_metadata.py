@@ -239,15 +239,27 @@ def _native_identity_context(paper: Any) -> dict[str, Any] | None:
     }
 
 
-def _newtaipei_registration_groups(paper: Any) -> list[str]:
+def _recruitment_registration_groups(paper: Any) -> list[str]:
     """Expose reviewed shared-paper applicability without inventing variants."""
-    if _field(paper, "provider_id") != "teacher_recruit_newtaipei":
+    provider = _field(paper, "provider_id")
+    if provider not in {"teacher_recruit_newtaipei", "teacher_recruit_kaohsiung"}:
         return []
-    from app.providers.teacher_recruit_newtaipei.evidence import resolve_identity
-
     fields = _native_identity_context(paper)
-    context = resolve_identity(**fields) if fields is not None else None
-    return list(context[1].registration_groups) if context is not None else []
+    if fields is None:
+        return []
+    if provider == "teacher_recruit_newtaipei":
+        from app.providers.teacher_recruit_newtaipei.evidence import resolve_identity
+
+        context = resolve_identity(**fields)
+        return list(context[1].registration_groups) if context is not None else []
+    from app.providers.teacher_recruit_kaohsiung.evidence import (
+        resolve_identity as resolve_kaohsiung_identity,
+    )
+
+    kaohsiung = resolve_kaohsiung_identity(**fields)
+    if kaohsiung is None or _field(paper, "file_type") != kaohsiung[2].file_type:
+        return []
+    return list(kaohsiung[1].registration_groups)
 
 
 def _taipei_junior_sections(paper: Any) -> list[str]:
@@ -271,7 +283,23 @@ def _taipei_elementary_sections(paper: Any) -> list[str]:
 
 
 def public_coverage_notes(paper: Any) -> list[str]:
-    """Describe a known answer-coverage gap only for its exact reviewed source."""
+    """Describe source-backed limits of answer coverage."""
+    if _field(paper, "provider_id") == "teacher_recruit_kaohsiung":
+        from app.providers.teacher_recruit_kaohsiung.evidence import (
+            resolve_identity as resolve_kaohsiung_identity,
+        )
+
+        fields = _native_identity_context(paper)
+        kaohsiung = resolve_kaohsiung_identity(**fields) if fields is not None else None
+        if kaohsiung is not None:
+            file = kaohsiung[2]
+            if (
+                _field(paper, "file_type") == file.file_type
+                and file.essay_count
+                and not file.multiple_choice_count
+            ):
+                return [f"「{file.subject_name}」為申論題，官方未提供參考解答。"]
+        return []
     if _field(paper, "provider_id") != "teacher_recruit_taipei_elementary":
         return []
     from app.providers.teacher_recruit_taipei_elementary.evidence import resolve_identity
@@ -300,7 +328,7 @@ def derive_public_metadata(
     for paper in papers:
         provider_id = _field(paper, "provider_id")
         providers.add(provider_id)
-        aliases.extend(_newtaipei_registration_groups(paper))
+        aliases.extend(_recruitment_registration_groups(paper))
         raw_subject = publication_paper_subject(paper)
         if provider_id in {"teacher_recruit_taipei_junior", "teacher_recruit_taipei_elementary"}:
             # Reviewed section labels must not erase historical source wording

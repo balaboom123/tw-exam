@@ -150,9 +150,9 @@ class SourceInventoryTests(unittest.TestCase):
 
         self.assertEqual(report["provider_count"], 32)
         self.assertEqual(report["candidate_count"], 13)
-        self.assertEqual(report["discovery_manifests_present"], 31)
+        self.assertEqual(report["discovery_manifests_present"], 32)
         self.assertEqual(report["discovery_manifests_missing"], [])
-        self.assertEqual(report["discovery_manifests_blocked"], ["teacher_recruit_kaohsiung"])
+        self.assertEqual(report["discovery_manifests_blocked"], [])
         self.assertEqual(
             report["discovery_manifests_incomplete"],
             [
@@ -873,7 +873,11 @@ class SourceInventoryTests(unittest.TestCase):
             item for item in payload["providers"]
             if item["provider_id"] == "teacher_recruit_kaohsiung"
         )
-        entry["evidence"].remove("catalog/source-coverage/teacher_recruit_kaohsiung.json")
+        # Exercise the blocked-source policy independently of this provider's
+        # now recovered current official-bureau acquisition.
+        entry["discovery_snapshot"]["status"] = "blocked"
+        entry["discovery_snapshot"]["coverage"] = "unknown"
+        entry["status"] = "partial"
 
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

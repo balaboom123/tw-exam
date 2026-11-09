@@ -2242,6 +2242,41 @@ def _classify_paper_uncached(
                 "booklets; correction applicability follows each native booklet; shared "
                 "papers, school level and prerequisite certificates do not create exam grades"
             )
+    if provider_id == "teacher_recruit_kaohsiung":
+        from app.providers.teacher_recruit_kaohsiung.evidence import (
+            resolve_identity as resolve_kaohsiung_identity,
+        )
+
+        kaohsiung_identity = resolve_kaohsiung_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            exam_name_raw=exam_name,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+            source_material=source_material,
+        )
+        variant_pairs, variants = (), ()
+        if kaohsiung_identity is None:
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            track_id, track_label = "kaohsiung-unknown", "甄選方案與類科待確認"
+            stage_id, confidence = "unknown", "review"
+            reason = "Kaohsiung native programme, post, booklet or annual source requires review"
+        else:
+            kaohsiung_exam, kaohsiung_job, _kaohsiung_file = kaohsiung_identity
+            domain_id, family_id = "teacher", "teacher-exam"
+            series_id, series_label = kaohsiung_exam.series_id, kaohsiung_exam.series_label
+            level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+            track_id, track_label = kaohsiung_job.track_id, kaohsiung_job.label
+            stage_id, confidence = "stage-1", "high"
+            reason = (
+                "Reviewed Kaohsiung annual recruitment programme and post, exact native "
+                "booklets and dated suggested/final answer roles; shared papers do not merge "
+                "posts, while school levels and eligibility groups are not examination grades"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2506,6 +2541,9 @@ def _classify_paper_uncached(
             for _variant_id, label in variant_pairs:
                 bundle_name += f"｜{label}"
         if provider_id == "teacher_recruit_taipei_elementary":
+            bundle_name = f"{series_label}｜{track_label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+        if provider_id == "teacher_recruit_kaohsiung":
             bundle_name = f"{series_label}｜{track_label}"
             bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
