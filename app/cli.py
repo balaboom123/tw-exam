@@ -452,6 +452,39 @@ _RELEASE_TAG_FALLBACK_HELP = (
 )
 
 
+def _download_release_asset(release_tag: str, asset_names: list[str], bundle_dir: Path) -> None:
+    """Download the first of ``asset_names`` that the release serves.
+
+    GitHub's asset API answers an occasional HTTP 500 (two audit-recent runs
+    on 2026-11-09), so the names get three rounds before the error stands.
+    """
+    last_error: subprocess.CalledProcessError | None = None
+    for attempt in range(3):
+        if attempt:
+            time.sleep(10 * attempt)
+        for asset_name in asset_names:
+            try:
+                subprocess.run(
+                    [
+                        "gh",
+                        "release",
+                        "download",
+                        release_tag,
+                        "--pattern",
+                        asset_name,
+                        "--dir",
+                        str(bundle_dir),
+                        "--clobber",
+                    ],
+                    check=True,
+                )
+                return
+            except subprocess.CalledProcessError as exc:
+                last_error = exc
+    if last_error is not None:
+        raise last_error
+
+
 def _download_affected_bundles(
     bundle_dir: Path,
     existing_bundles: list[BundleAsset],
@@ -475,29 +508,7 @@ def _download_affected_bundles(
             continue
         if any((bundle_dir / asset_name).exists() for asset_name in candidate_names):
             continue
-        last_error: subprocess.CalledProcessError | None = None
-        for asset_name in candidate_names:
-            try:
-                subprocess.run(
-                    [
-                        "gh",
-                        "release",
-                        "download",
-                        resolved_release_tag,
-                        "--pattern",
-                        asset_name,
-                        "--dir",
-                        str(bundle_dir),
-                    ],
-                    check=True,
-                )
-            except subprocess.CalledProcessError as exc:
-                last_error = exc
-                continue
-            break
-        else:
-            if last_error is not None:
-                raise last_error
+        _download_release_asset(resolved_release_tag, candidate_names, bundle_dir)
 
 
 def _restore_new_public_bundle_files(

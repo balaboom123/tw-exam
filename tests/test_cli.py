@@ -1563,6 +1563,34 @@ class CliCommandTests(unittest.TestCase):
 
         self.assertEqual([call.args[0][5] for call in run.call_args_list], ["nurse.zip", "nurse-display.zip"])
 
+    @patch("app.cli.time.sleep")
+    @patch("app.cli.subprocess.run")
+    def test_download_affected_bundles_retries_a_transient_release_error(self, run, sleep) -> None:
+        failure = subprocess.CalledProcessError(1, ["gh", "release", "download"])
+        bundle = BundleAsset(
+            canonical_id="nurse",
+            canonical_name="Nurse",
+            years=[115],
+            file_count=1,
+            storage_key="bundles/sites/default/nurse.zip",
+            asset_name="nurse.zip",
+            legacy_asset_names=["nurse-display.zip"],
+        )
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            run.side_effect = [failure, failure, None]
+            _download_affected_bundles(Path(tmp_dir), [bundle], {"nurse"}, "default-bundles-001")
+            self.assertEqual(
+                [call.args[0][5] for call in run.call_args_list],
+                ["nurse.zip", "nurse-display.zip", "nurse.zip"],
+            )
+            self.assertEqual(sleep.call_count, 1)
+
+            run.reset_mock()
+            run.side_effect = failure
+            with self.assertRaises(subprocess.CalledProcessError):
+                _download_affected_bundles(Path(tmp_dir), [bundle], {"nurse"}, "default-bundles-001")
+            self.assertEqual(run.call_count, 6)
+
     @patch("app.cli.subprocess.run")
     def test_download_affected_bundles_uses_bundle_specific_release_tags_when_present(self, run) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
@@ -1596,8 +1624,8 @@ class CliCommandTests(unittest.TestCase):
         self.assertEqual(
             [call.args[0] for call in run.call_args_list],
             [
-                ["gh", "release", "download", "default-bundles-001", "--pattern", "nurse.zip", "--dir", str(bundle_dir)],
-                ["gh", "release", "download", "default-bundles-002", "--pattern", "doctor.zip", "--dir", str(bundle_dir)],
+                ["gh", "release", "download", "default-bundles-001", "--pattern", "nurse.zip", "--dir", str(bundle_dir), "--clobber"],
+                ["gh", "release", "download", "default-bundles-002", "--pattern", "doctor.zip", "--dir", str(bundle_dir), "--clobber"],
             ],
         )
 
