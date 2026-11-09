@@ -13,7 +13,6 @@ on:
           - ipas_cert
           - sfi_cert
           - taigi_cert
-          - tocfl_cert
           - tqc_cert
           - wdasec_skill
   schedule:
@@ -53,12 +52,6 @@ jobs:
             cache_prefix: taigi-cert
             timeout_minutes: 30
             publish: true
-            prune_orphaned_mirror: false
-          - provider_id: tocfl_cert
-            durable_snapshot: false
-            cache_prefix: tocfl-cert
-            timeout_minutes: 30
-            publish: false
             prune_orphaned_mirror: false
           - provider_id: tqc_cert
             durable_snapshot: true

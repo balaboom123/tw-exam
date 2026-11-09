@@ -30,6 +30,7 @@ on:
       - sync-incremental
       - sync-taisugar-recruit
       - sync-teacher-recruit-central-alliance
+      - sync-tocfl-cert
   # Backstop: rebuilds main when the triggers above miss a data-writing run.
   schedule:
     - cron: "20 3 * * *"

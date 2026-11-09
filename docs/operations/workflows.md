@@ -20,10 +20,17 @@ Publication jobs and the MOEX writers share a queued concurrency group. Each wri
 
 Artifact and cache names are carried as sync outputs so a publication-only retry uses the original inputs. Public `mirror-<provider_id>` prereleases provide durable provider recovery where the adapter permits them; Actions cache remains a warm layer. A cache miss during sync restores the latest verified snapshot; an absent Release permits source bootstrap. An exact cache miss during publication restores only the generation and manifest checksum saved by that sync. Missing or corrupt durable inputs stop publication. Attempted syncs save their mirror even when source acquisition fails. After committing a new pointer, the backup helper keeps the current and previous generations plus any generation uploaded in the last 7 days, which a pinned publication retry may still restore, and deletes older assets ([decision](../decisions/ADR-2026-11-08-mirror-snapshot-retention.md)). Sync jobs have write permission for permitted backup uploads. Pages reacts to caller completion, with its existing concurrency control and daily backstop.
 
-GEPT continues scheduled acquisition with cache-only recovery while its adapter
-prohibits public mirror snapshots. Its publication hold remains independent of
-sync. Keep a verified local mirror and revision journal because an Actions
-cache can expire; see the [recovery procedure](recovery.md#durable-provider-mirror-backup).
+GEPT and CPC continue scheduled acquisition with cache-only recovery while their
+adapters prohibit public mirror snapshots. Their publication holds remain
+independent of sync. Keep a verified local mirror and revision journal because an
+Actions cache can expire; see the [recovery procedure](recovery.md#durable-provider-mirror-backup).
+A cold runner skips journaled originals it cannot hold for these providers; a
+changed original, or a new revision without its previous bytes, still fails.
+
+TOCFL runs by manual dispatch only (`sync-tocfl-cert`): its mirror stays out of
+public storage and exceeds the Actions cache, so a runner always starts cold.
+Refresh it from the local mirror with `uv run python -m app sync-full --provider tocfl_cert`
+([decision](../decisions/ADR-2026-11-09-tocfl-manual-sync.md)).
 
 Hakka runs by manual dispatch only (`sync-hakka-cert`) and writes no public
 snapshot or new warm-cache entry. The mirror backup operation rejects public

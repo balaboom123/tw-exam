@@ -1625,7 +1625,8 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
                         self.assertEqual(row["timeout_minutes"], 360)
         self.assertEqual(scheduled_slots, 4)
         self.assertEqual(
-            manual_providers, {"hakka_cert", "taisugar_recruit", "teacher_recruit_central_alliance"}
+            manual_providers,
+            {"hakka_cert", "taisugar_recruit", "teacher_recruit_central_alliance", "tocfl_cert"},
         )
         self.assertEqual(len(providers), len(set(providers)), "A provider has multiple sync owners")
         self.assertEqual(set(providers), set(_PROVIDER_FACTORIES))
@@ -1705,7 +1706,7 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(caller["jobs"]["sync"]["with"]["enabled"],
                          "${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}")
         self.assertIn("schedule", caller["on"])
-        self.assertEqual(len(rows), 7)
+        self.assertEqual(len(rows), 6)
 
     def test_admissions_recovery_selector_leaves_the_scheduled_matrix_intact(self) -> None:
         caller = self.workflows["sync-admissions.yml"]
@@ -1827,22 +1828,23 @@ class HakkaPrivateMirrorTests(unittest.TestCase):
         gept = next(row for row in rows if row['provider_id'] == 'gept_cert')
         self.assertIs(gept['publish'], False)
         self.assertIs(gept['durable_snapshot'], False)
-        tocfl = next(row for row in rows if row['provider_id'] == 'tocfl_cert')
-        self.assertIs(tocfl['durable_snapshot'], False)
+        self.assertNotIn('tocfl_cert', {row['provider_id'] for row in rows})
         self.assertIn('schedule', weekly['on'])
 
-    def test_hakka_is_manual_only_and_never_writes_a_public_snapshot(self) -> None:
+    def test_hakka_and_tocfl_are_manual_only_and_never_write_a_public_snapshot(self) -> None:
         workflows = REPO_ROOT / ".github" / "workflows"
-        manual = _workflow((workflows / "sync-hakka-cert.yml").read_text(encoding="utf-8"))
-        self.assertEqual(set(manual["on"]), {"workflow_dispatch"})
-        inputs = manual["jobs"]["sync"]["with"]
-        self.assertEqual(inputs["provider_id"], "hakka_cert")
-        self.assertIs(inputs["publish"], False)
-        self.assertIs(inputs["durable_snapshot"], False)
-
         weekly = _workflow((workflows / "sync-certifications.yml").read_text(encoding="utf-8"))
         rows = weekly["jobs"]["sync"]["strategy"]["matrix"]["include"]
-        self.assertNotIn("hakka_cert", {row["provider_id"] for row in rows})
+        for provider in ("hakka_cert", "tocfl_cert"):
+            with self.subTest(provider=provider):
+                name = f"sync-{provider.replace('_', '-')}.yml"
+                manual = _workflow((workflows / name).read_text(encoding="utf-8"))
+                self.assertEqual(set(manual["on"]), {"workflow_dispatch"})
+                inputs = manual["jobs"]["sync"]["with"]
+                self.assertEqual(inputs["provider_id"], provider)
+                self.assertIs(inputs["publish"], False)
+                self.assertIs(inputs["durable_snapshot"], False)
+                self.assertNotIn(provider, {row["provider_id"] for row in rows})
 
         reusable = _workflow((workflows / "_sync-provider.yml").read_text(encoding="utf-8"))
         declared = reusable["on"]["workflow_call"]["inputs"]["durable_snapshot"]
