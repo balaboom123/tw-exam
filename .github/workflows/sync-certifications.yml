@@ -11,10 +11,8 @@ on:
           - all
           - gept_cert
           - ipas_cert
-          - sfi_cert
           - taigi_cert
           - tqc_cert
-          - wdasec_skill
   schedule:
     - cron: "20 5 * * 3"
 
@@ -41,12 +39,6 @@ jobs:
             timeout_minutes: 30
             publish: false
             prune_orphaned_mirror: false
-          - provider_id: sfi_cert
-            durable_snapshot: true
-            cache_prefix: sfi-cert
-            timeout_minutes: 30
-            publish: false
-            prune_orphaned_mirror: false
           - provider_id: taigi_cert
             durable_snapshot: true
             cache_prefix: taigi-cert
@@ -57,12 +49,6 @@ jobs:
             durable_snapshot: true
             cache_prefix: tqc-cert
             timeout_minutes: 30
-            publish: true
-            prune_orphaned_mirror: false
-          - provider_id: wdasec_skill
-            durable_snapshot: true
-            cache_prefix: wdasec-skill
-            timeout_minutes: 120
             publish: true
             prune_orphaned_mirror: false
     uses: ./.github/workflows/_sync-provider.yml

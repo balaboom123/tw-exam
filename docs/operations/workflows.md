@@ -33,6 +33,12 @@ sync does not re-acquire, so no runner can verify them.
 Refresh it from the local mirror with `uv run python -m app sync-full --provider tocfl_cert`
 ([decision](../decisions/ADR-2026-11-09-tocfl-manual-sync.md)).
 
+MOEA, Taipower, Kaohsiung, SFI and WDASEC have no sync workflow. Their sources
+block GitHub-hosted runners but serve Taiwan, so each adapter sets
+`hosted_runner_reachable = False`, and the maintainer refreshes and publishes
+them locally with the [runbook](runbook.md#refresh-one-provider)
+([decision](../decisions/ADR-2026-11-09-local-sync-for-blocked-sources.md)).
+
 Hakka runs by manual dispatch only (`sync-hakka-cert`) and writes no public
 snapshot or new warm-cache entry. The mirror backup operation rejects public
 Hakka saves before packing files, writing cache outputs, or calling GitHub;

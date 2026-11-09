@@ -13,7 +13,7 @@ from unittest import mock
 import yaml
 
 from app.cli import build_parser
-from app.providers.registry import _PROVIDER_FACTORIES
+from app.providers.registry import _PROVIDER_FACTORIES, get_provider
 from app.publication_quarantine import quarantined_provider_ids
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -1629,7 +1629,17 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
             {"hakka_cert", "taisugar_recruit", "teacher_recruit_central_alliance", "tocfl_cert"},
         )
         self.assertEqual(len(providers), len(set(providers)), "A provider has multiple sync owners")
-        self.assertEqual(set(providers), set(_PROVIDER_FACTORIES))
+        # A source that blocks hosted runners syncs from the maintainer's machine only.
+        local_only = {
+            provider_id
+            for provider_id in _PROVIDER_FACTORIES
+            if not getattr(get_provider(provider_id), "hosted_runner_reachable", True)
+        }
+        self.assertEqual(
+            local_only,
+            {"moea_recruit", "sfi_cert", "taipower_recruit", "teacher_recruit_kaohsiung", "wdasec_skill"},
+        )
+        self.assertEqual(set(providers), set(_PROVIDER_FACTORIES) - local_only)
 
     def test_sync_persists_downloads_and_failure_evidence_before_failing(self) -> None:
         job = self.reusable["jobs"]["sync"]
@@ -1706,7 +1716,7 @@ class ProviderMatrixWorkflowTests(unittest.TestCase):
         self.assertEqual(caller["jobs"]["sync"]["with"]["enabled"],
                          "${{ !inputs.provider_id || inputs.provider_id == 'all' || matrix.provider_id == inputs.provider_id }}")
         self.assertIn("schedule", caller["on"])
-        self.assertEqual(len(rows), 6)
+        self.assertEqual(len(rows), 4)
 
     def test_admissions_recovery_selector_leaves_the_scheduled_matrix_intact(self) -> None:
         caller = self.workflows["sync-admissions.yml"]

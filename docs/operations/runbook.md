@@ -31,7 +31,7 @@ data/providers/<provider_id>/sync-status.json
 
 The [generated index](../providers/README.md) projects reviewed source facts; [source judgment](../providers/notes.md) records provider-specific boundaries and operational exceptions.
 
-Hosted provider runs use the matrix caller that owns the provider in `.github/workflows/`. Inspect the provider job's sync summary and artifact when diagnosing a failure. Publication queues behind other site writers and checks current `main` before applying the sync snapshot; a stale provider baseline requires a fresh caller run. Quarantined providers continue collecting state through provider-only commits.
+Hosted provider runs use the matrix caller that owns the provider in `.github/workflows/`. An adapter with `hosted_runner_reachable = False` has no caller: refresh it as above and publish it as in [Publish the default site](#publish-the-default-site). Inspect the provider job's sync summary and artifact when diagnosing a failure. Publication queues behind other site writers and checks current `main` before applying the sync snapshot; a stale provider baseline requires a fresh caller run. Quarantined providers continue collecting state through provider-only commits.
 
 ## Inspect normalization reviews
 

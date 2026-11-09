@@ -9,10 +9,8 @@ on:
         default: all
         options:
           - all
-          - moea_recruit
           - cpc_recruit
           - post_recruit
-          - taipower_recruit
           - twc_recruit
   schedule:
     - cron: "20 5 * * 6"
@@ -28,12 +26,6 @@ jobs:
       max-parallel: 3
       matrix:
         include:
-          - provider_id: moea_recruit
-            durable_snapshot: true
-            cache_prefix: moea-recruit
-            timeout_minutes: 120
-            publish: false
-            prune_orphaned_mirror: false
           - provider_id: cpc_recruit
             durable_snapshot: false
             cache_prefix: cpc-recruit
@@ -43,12 +35,6 @@ jobs:
           - provider_id: post_recruit
             durable_snapshot: true
             cache_prefix: post-recruit
-            timeout_minutes: 120
-            publish: true
-            prune_orphaned_mirror: false
-          - provider_id: taipower_recruit
-            durable_snapshot: true
-            cache_prefix: taipower-recruit
             timeout_minutes: 120
             publish: true
             prune_orphaned_mirror: false

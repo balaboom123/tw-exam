@@ -7,6 +7,9 @@ from app.providers.wdasec_skill.client import WdasecSkillClient
 
 class WdasecSkillProvider(SourceProvider):
     provider_id = "wdasec_skill"
+    # The source times out from GitHub-hosted runners but serves Taiwan (2026-11-09),
+    # so it syncs from the maintainer's machine instead of a schedule.
+    hosted_runner_reachable = False
     max_concurrency = 1
 
     def __init__(self, client: WdasecSkillClient | None = None) -> None:

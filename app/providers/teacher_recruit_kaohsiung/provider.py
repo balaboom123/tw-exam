@@ -17,6 +17,9 @@ from app.providers.teacher_recruit_kaohsiung.evidence import annual_exams
 
 class KaohsiungTeacherRecruitProvider(SourceProvider):
     provider_id = "teacher_recruit_kaohsiung"
+    # The source is unreachable from GitHub-hosted runners but serves Taiwan (2026-11-09),
+    # so it syncs from the maintainer's machine instead of a schedule.
+    hosted_runner_reachable = False
     refresh_files_on_sync = True
     download_attachments_on_sync = True
     max_concurrency = 1

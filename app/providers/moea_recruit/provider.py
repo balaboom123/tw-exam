@@ -7,6 +7,9 @@ from app.providers.moea_recruit.client import MoeaRecruitClient
 
 class MoeaRecruitProvider(SourceProvider):
     provider_id = "moea_recruit"
+    # The source answers GitHub-hosted runners with HTTP 403 but serves Taiwan (2026-11-09),
+    # so it syncs from the maintainer's machine instead of a schedule.
+    hosted_runner_reachable = False
 
     def __init__(self, client: MoeaRecruitClient | None = None) -> None:
         self.client = client or MoeaRecruitClient()

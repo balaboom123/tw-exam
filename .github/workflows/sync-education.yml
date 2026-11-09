@@ -66,11 +66,6 @@ jobs:
             timeout_minutes: 30
             publish: true
             prune_orphaned_mirror: false
-          - provider_id: teacher_recruit_kaohsiung
-            cache_prefix: teacher-recruit-kaohsiung
-            timeout_minutes: 30
-            publish: true
-            prune_orphaned_mirror: false
     uses: ./.github/workflows/_sync-provider.yml
     with:
       provider_id: ${{ matrix.provider_id }}

@@ -43,6 +43,7 @@ uv run python scripts/validate_docs.py --check
 | [`decisions/ADR-2026-10-26-partial-compatibility-navigation.md`](decisions/ADR-2026-10-26-partial-compatibility-navigation.md) | ADR-2026-10-26: preserve navigation when some corrected groups are withheld |
 | [`decisions/ADR-2026-11-08-mirror-snapshot-retention.md`](decisions/ADR-2026-11-08-mirror-snapshot-retention.md) | ADR-2026-11-08: keep current, previous and recent mirror snapshot generations |
 | [`decisions/ADR-2026-11-08-overdue-quarantine-dispositions.md`](decisions/ADR-2026-11-08-overdue-quarantine-dispositions.md) | ADR-2026-11-08: dispositions for the overdue publication quarantines |
+| [`decisions/ADR-2026-11-09-local-sync-for-blocked-sources.md`](decisions/ADR-2026-11-09-local-sync-for-blocked-sources.md) | ADR-2026-11-09: sync sources that block hosted runners from the maintainer's machine |
 | [`decisions/ADR-2026-11-09-tocfl-manual-sync.md`](decisions/ADR-2026-11-09-tocfl-manual-sync.md) | ADR-2026-11-09: sync TOCFL manually from the local mirror |
 | [`operations/catalog-audit.md`](operations/catalog-audit.md) | Catalog audit |
 | [`operations/ci-cd-and-release.md`](operations/ci-cd-and-release.md) | CI/CD and release |

@@ -7,6 +7,9 @@ from app.providers.taipower_recruit.client import TaipowerRecruitClient
 
 class TaipowerRecruitProvider(SourceProvider):
     provider_id = "taipower_recruit"
+    # The source answers GitHub-hosted runners with HTTP 403 but serves Taiwan (2026-11-09),
+    # so it syncs from the maintainer's machine instead of a schedule.
+    hosted_runner_reachable = False
     # A valid retained checksum does not prove that it matches today's source:
     # earlier common-paper copies contained the separate MOEA programme.
     refresh_files_on_sync = True

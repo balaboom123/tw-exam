@@ -7,6 +7,9 @@ from app.providers.sfi_cert.client import SfiCertClient
 
 class SfiCertProvider(SourceProvider):
     provider_id = "sfi_cert"
+    # The source times out from GitHub-hosted runners but serves Taiwan (2026-11-09),
+    # so it syncs from the maintainer's machine instead of a schedule.
+    hosted_runner_reachable = False
     # Seasonal slots can serve another examination without changing URLs.
     refresh_files_on_sync = True
     max_concurrency = 1
