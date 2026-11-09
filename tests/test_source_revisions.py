@@ -143,6 +143,27 @@ def test_extension_cleanup_preserves_old_revision_before_unlink(tmp_path):
     assert (store.root / entry["blob_storage_key"]).read_bytes() == ORIGINAL
 
 
+@pytest.mark.parametrize("local_only", [False, True])
+def test_cold_runner_without_journaled_bytes_fails_only_with_a_public_backup(
+    tmp_path, monkeypatch, local_only
+):
+    store = MirrorStore(tmp_path / "mirror")
+    store.write_bytes(KEY, ORIGINAL)
+    provider = provider_paths(tmp_path, "moex")
+    retain_superseded_sources(provider, [], [paper()], [], [])
+    # A cold runner restores no mirror: neither the paper nor its journaled original.
+    for path in (tmp_path / "mirror").rglob("*"):
+        if path.is_file():
+            path.unlink()
+    if local_only:
+        backup = type("Provider", (), {"public_mirror_backup_allowed": False})()
+        monkeypatch.setattr("app.providers.registry.get_provider", lambda _id: backup)
+        assert retain_superseded_sources(provider, [], [], [], []) == 0
+    else:
+        with pytest.raises(ValueError, match="Cannot retain previous source bytes"):
+            retain_superseded_sources(provider, [], [], [], [])
+
+
 @pytest.mark.parametrize("scoped", [True, False])
 def test_retirement_copies_existing_provider_payload_without_hard_link(tmp_path, scoped):
     old = paper(storage_key=KEY if scoped else KEY.removeprefix("providers/moex/"))

@@ -385,7 +385,9 @@ def audit_source_revisions(provider: ProviderPaths, *, verify_mirror: bool) -> d
     return report
 
 
-def _retain_source_payload(provider: ProviderPaths, record: dict[str, Any]) -> str | None:
+def _retain_source_payload(
+    provider: ProviderPaths, record: dict[str, Any], *, allow_missing: bool = False
+) -> str | None:
     checksum = record.get("checksum", "")
     if not checksum:
         return None
@@ -393,6 +395,8 @@ def _retain_source_payload(provider: ProviderPaths, record: dict[str, Any]) -> s
     blob_key = revision_blob_key(provider.provider_id, checksum, Path(storage_key).suffix)
     mirror_root = provider.mirror_dir.parents[1]
     blob = mirror_root / blob_key
+    if not blob.is_file() and allow_missing:
+        return None
     if not blob.is_file():
         raise ValueError(
             f"Cannot retain previous source bytes for {record['source_exam_id']}; "
@@ -503,8 +507,16 @@ def retain_superseded_sources(
     candidates.extend(entry["source_record"] for entry in entries)
     candidates.extend(recovery_records)
     _restore_missing_verified_payloads(provider, recovery_records, candidates)
+    from app.providers.registry import get_provider
+
+    # Without a public backup, journaled originals live only in the maintainer's
+    # mirror, so a cold runner cannot hold them; they were verified when journaled.
+    try:
+        backup = getattr(get_provider(provider.provider_id), "public_mirror_backup_allowed", True)
+    except ValueError:  # an unregistered provider keeps the strict check
+        backup = True
     for entry in entries:
-        _retain_source_payload(provider, entry["source_record"])
+        _retain_source_payload(provider, entry["source_record"], allow_missing=not backup)
     known = {_revision_id(entry["record_type"], entry["source_record"], 2) for entry in entries}
     retained = 0
     for kind, record in previous_records:
