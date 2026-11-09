@@ -166,6 +166,10 @@ class _UnreviewedRar(RuntimeError):
     """A RAR payload whose exact checksum has no native archive review."""
 
 
+class _HtmlPlaceholder(RuntimeError):
+    """The source answered with an HTML page instead of the listed file."""
+
+
 def _validate_zip_payload(source: bytes | Path) -> None:
     """Check the container and every entry before accepting or reusing its bytes."""
     archive_source = io.BytesIO(source) if isinstance(source, bytes) else source
@@ -217,7 +221,7 @@ def _validated_extension(
         joined_extensions = (
             " or ".join(expected_extensions) if expected_extensions else resolved_extension
         )
-        raise RuntimeError(
+        raise _HtmlPlaceholder(
             f"Downloaded HTML placeholder instead of {joined_extensions} for {file_type}"
         )
     if file_type == "source_archive" and data.startswith(RAR_SIGNATURES):
@@ -745,6 +749,19 @@ def sync_exam_pages(
                         review_queue.append(_held_review(held, client_provider_id, page, request))
                         _assign_retained(request, mirror_store, mirror_base_url, mirror_metadata)
                     except Exception as exc:
+                        if (
+                            isinstance(exc, _HtmlPlaceholder)
+                            and request.retained is None
+                            and mirror_store.find_existing(request.prefix) is None
+                        ):
+                            # A file the source lists but does not serve yet, such
+                            # as one in an exam still being posted, is new upstream
+                            # content: hold it until a later sync downloads it.
+                            unserved = UnreviewedSourceFile(str(exc), url=request.url)
+                            review_queue.append(
+                                _held_review(unserved, client_provider_id, page, request)
+                            )
+                            continue
                         # A failed refresh does not invalidate the exact earlier
                         # bytes for an unchanged source context. Keep the failure
                         # visible, and never use this path for invalid new content.

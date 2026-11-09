@@ -954,7 +954,8 @@ class SyncExamPagesTests(unittest.TestCase):
         self.assertEqual(sorted(paper.file_type for paper in normalized.papers), ["answer", "question"])
         self.assertEqual(failures, [])
 
-    def test_sync_exam_pages_rejects_html_placeholder_downloads(self) -> None:
+    def test_sync_exam_pages_holds_a_listed_file_served_as_an_html_placeholder(self) -> None:
+        aliases = [AliasRule(match_type="exact", raw_pattern="nurse raw", canonical_id="nurse", canonical_name="Nurse")]
         with tempfile.TemporaryDirectory() as tmp_dir:
             mirror_root = Path(tmp_dir)
             client = HtmlPlaceholderClient()
@@ -963,17 +964,41 @@ class SyncExamPagesTests(unittest.TestCase):
                 client=client,
                 exam_codes=[("115030", 2026)],
                 mirror_store=MirrorStore(mirror_root),
-                alias_rules=[AliasRule(match_type="exact", raw_pattern="nurse raw", canonical_id="nurse", canonical_name="Nurse")],
+                alias_rules=aliases,
                 mirror_base_url="",
             )
 
             self.assertFalse(any(mirror_root.rglob("question.*")))
 
+        # A file never downloaded before may still be on its way upstream.
         self.assertEqual(client.downloaded_urls, ["https://example.test/question.ashx"])
         self.assertEqual(len(raw_pages), 1)
         self.assertEqual(normalized.papers, [])
+        self.assertEqual(failures, [])
+        self.assertEqual(
+            [item.classification_signature for item in normalized.review_queue],
+            ["unreviewed-source-file:https://example.test/question.ashx"],
+        )
+        self.assertIn("HTML placeholder", normalized.review_queue[0].reason)
+
+        # A placeholder where verified bytes used to be is a regression.
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            store = MirrorStore(Path(tmp_dir))
+            pdf = HtmlPlaceholderClient()
+            pdf.download_file = lambda url: DownloadedFile(  # type: ignore[method-assign]
+                data=b"%PDF-1.7 question", content_type="application/pdf", file_name="q.pdf"
+            )
+            previous, _, failures = sync_exam_pages(pdf, [("115030", 2026)], store, aliases, "")
+            self.assertEqual(failures, [])
+
+            _, normalized, failures = sync_exam_pages(
+                client, [("115030", 2026)], store, aliases, "",
+                previous_pages=previous, refresh_files=True,
+            )
+
         self.assertEqual(len(failures), 1)
         self.assertIn("HTML placeholder", failures[0].message)
+        self.assertEqual(normalized.review_queue, [])
 
     def test_sync_exam_pages_accepts_tcte_question_images_and_intentional_answer_html(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
