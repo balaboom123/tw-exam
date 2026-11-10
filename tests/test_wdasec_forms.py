@@ -125,21 +125,29 @@ def test_native_form_migration_conserves_previously_public_paper_coverage():
 
     config = get_site_config("default")
     papers = []
-    split_families = {
-        form.family for form in native_papers() if form.form == "foreign-assistance-master"
+    assisted = [form for form in native_papers() if form.form == "foreign-assistance-master"]
+    split_families = {form.family for form in assisted}
+    # The ROC 115 third session first split these families. Their assisted
+    # papers were never public, so they wait for a second year like any other.
+    first_split = split_families - {
+        form.family for form in assisted if form.source_exam_id != "202611090001"
     }
+    assert len(first_split) == 5
     for form in native_papers():
         if form.family not in split_families:
             continue
         paper = normalized(form)
         paper.bundle_id = classify_normalized_paper(paper).bundle_id
-        papers.append(paper)
+        papers.append((form, paper))
     public = public_bundle_ids(
-        NormalizedCatalog(papers, []),
+        NormalizedCatalog([paper for _, paper in papers], []),
         min_years=config.public_min_years,
         min_years_by_canonical_prefix=config.public_min_years_by_canonical_prefix,
     )
-    assert all(paper.bundle_id in public for paper in papers)
+    for form, paper in papers:
+        waiting = form.form != "ordinary" and form.family in first_split
+        assert (paper.bundle_id in public) is not waiting
+    papers = [paper for _, paper in papers]
     held = replace(papers[0], checksum="0" * 64)
     held.bundle_id = classify_normalized_paper(held).bundle_id
     assert not public_bundle_ids(

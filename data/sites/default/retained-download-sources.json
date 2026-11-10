@@ -24804,6 +24804,354 @@
         }
       ]
     },
+    "wdasec-skill-skill-certification-class-b-skill-d8c2eb748488--5557c879d8f0.zip": {
+      "canonical_name": "全國技術士技能檢定｜乙級｜測量─工程測量",
+      "checksum": "d5490a01fa282bc75e165d3edb394a768f9ea21c97a17cebcd4c1e895c236c2a",
+      "papers": [
+        {
+          "category_code": "04202",
+          "checksum": "d8f268ccc1fddff291b10762355cf9c4057a08d5c100016898068d9dccad0c79",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202511030001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "04202",
+          "checksum": "7f4dbfd094306ebd8e733195adf42f193cd5312a6b804265890f10443428a5e0",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202411040001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "04202",
+          "checksum": "b4582d6bf058dd6d5ea8a7136fd3e36e675810688e1123e2fdd85cbb69e563c7",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202311060001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "04202",
+          "checksum": "a14d2a55a059b61b0372767760b05a768fecf03f445e62032a6c04ca8ceeae65",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202211070001/06/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202211070001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "04202",
+          "checksum": "a586550f6fe5372ea0b0020f97f8f763267c7cf52f786aae7638e7f981de4788",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202112200001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "04202",
+          "checksum": "635fe66072422b46dcccdcc61ba9e834d09558590c72ecc8823b646a54294a19",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202011020001/01/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202011020001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 109
+        },
+        {
+          "category_code": "04202",
+          "checksum": "74e1d2707b507e5215c8cde7e1f91a2c678c91e3e8b437606766af62f5f4db95",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201911040001/03/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201911040001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 108
+        },
+        {
+          "category_code": "04202",
+          "checksum": "76ab0190eef0daf07af70d3f1e374bf5fdf2ffbfc3a99647f0a8d35c9bec6a99",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201803190001/18/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201803190001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 107
+        },
+        {
+          "category_code": "04202",
+          "checksum": "bff2a21bb4d8a656066579a2cd525a8f4145c3b2045c1f1073d407e6e1a7d35b",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201807160001/15/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201807160001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 107
+        },
+        {
+          "category_code": "04202",
+          "checksum": "ae674c9d33dd6e927f4d5cc72b2cbd9d57d5d160330217128985b2d08d308dc3",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201811050001/04/042022-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201811050001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 107
+        },
+        {
+          "category_code": "04202",
+          "checksum": "8c1f597d8a5815c9cd505a1df62b86fceae016ef5b9c57d878f6a79301013009",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1061A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201703200001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 106
+        },
+        {
+          "category_code": "04202",
+          "checksum": "345272199021826dda1c602da6966fe46c2ce661196a6cddbb5cb8c6b14f8626",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1062A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201707170001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 106
+        },
+        {
+          "category_code": "04202",
+          "checksum": "fdc78912e97810ea523688ab6da3edbac72d58f82efb1423eb7ee73833815efe",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1063A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201711060001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 106
+        },
+        {
+          "category_code": "04202",
+          "checksum": "f543d706e8b8b4ff1f3c222682d771254a16f8d3999e14709b9ec183dcdaf77c",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1051A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201603210001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 105
+        },
+        {
+          "category_code": "04202",
+          "checksum": "dba899ff982e9f54bbc9d92a818968f1f2ce970f329f0df140c3e7a15ab4e9d0",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1052A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201607180001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 105
+        },
+        {
+          "category_code": "04202",
+          "checksum": "6fd074eeee3dceb7455e334c29e51454c84c38e8a06e7643d7ce25ab251af9f1",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1053A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201611070002",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 105
+        },
+        {
+          "category_code": "04202",
+          "checksum": "302375c17d727ab11ac680f38275bcd5862cdb2cb59d0dfb5f0828babddeff4a",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1041A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201503230001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 104
+        },
+        {
+          "category_code": "04202",
+          "checksum": "be92b1a488514888e519dd09c49b32d6aa73194ab44e2f6989558c160846c625",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1042A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201507200001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 104
+        },
+        {
+          "category_code": "04202",
+          "checksum": "22dab85838192bd95e4e9da41a2c2038bc0d08d1e84629f0ddb9fdb428c45a05",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1043A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201511090001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 104
+        },
+        {
+          "category_code": "04202",
+          "checksum": "f8004c473a363067ebf08107f415f88c8c540dc8f2a747d1f65c8b3596737fd0",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1031A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201407090001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 103
+        },
+        {
+          "category_code": "04202",
+          "checksum": "5aa001ea70da9a06736669f8cd357501b79dccc179fd05d081c61e9d1230dd04",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1032A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201407210001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 103
+        },
+        {
+          "category_code": "04202",
+          "checksum": "52e84212a94c9a5e826d5ccbbc0b642ef83e8ebcc430552bde5da525eb32fd59",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1033A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201411100001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 103
+        },
+        {
+          "category_code": "04202",
+          "checksum": "92cb21bfa9e48605ee60d4a8de4747ec13228d2ec2b69bd01aa4c70f841f6b04",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1021A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201303250001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 102
+        },
+        {
+          "category_code": "04202",
+          "checksum": "14a4aa148d7af4dd3f283f3f081597e2a6b3edd97b85cfab8c72d0cc8380cc12",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1022A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201307220001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 102
+        },
+        {
+          "category_code": "04202",
+          "checksum": "ceb6c5989bb47cff7ac90e11200d7e2d9028a8bdaf7f6998eedb6c49d8d5034e",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1023A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201311110001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 102
+        },
+        {
+          "category_code": "04202",
+          "checksum": "241361cce2565282928476aae539bb6175a99d2a66d6b0b3c43c789ef0e8833c",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1014/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201208270001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 101
+        },
+        {
+          "category_code": "04202",
+          "checksum": "8ca7fd36f8aa1d9bd25c2516e46d8fbbd956a0b277e434b23ae650499bae94a2",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1013A/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201211120001",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 101
+        },
+        {
+          "category_code": "04202",
+          "checksum": "934c5ce6193721314cbeebd21148f8859520157491c6d64499eb2b120f2c294e",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201204091441311.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201060022",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 100
+        },
+        {
+          "category_code": "04202",
+          "checksum": "03a482d5899f832b83e458c32b72f149b90719f978213eb830408e0b86301fdb",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099004/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290005",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 99
+        },
+        {
+          "category_code": "04202",
+          "checksum": "bbc7b3fca6034687a5fde676a453fca7b77d74092075544e996356c6296b82a2",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/098004/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290009",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 98
+        },
+        {
+          "category_code": "04202",
+          "checksum": "fa64fd4aa6c1930ec992e0d6f0367ebcee5ef41e998d409769afc76db9ac4c58",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/097003/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201030003",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 97
+        },
+        {
+          "category_code": "04202",
+          "checksum": "d3d910ab09cd10b7a4853819817d8cf7ebdaefcca8dae3c01308a1a414329f7c",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096002/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201050015",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 96
+        },
+        {
+          "category_code": "04202",
+          "checksum": "3a975834f229d5d0afa1b8036e06f982d555530c15d3e9a2ec9015abbb739eb5",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096004/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201050018",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 96
+        },
+        {
+          "category_code": "04202",
+          "checksum": "f3d36e9d7be4855f0d5c27a5465f0bb1e73eb83081f2aa46c197bb454d07e827",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/095003/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290003",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 95
+        },
+        {
+          "category_code": "04202",
+          "checksum": "d497a2727419b5897c4834254902b0301dfc3423af4983df9950381323fabf97",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201309161551581.pdf",
+          "file_type": "question",
+          "source_exam_id": "201201050011",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 94
+        },
+        {
+          "category_code": "04202",
+          "checksum": "4a0a4bd0b66d622bf38fe9c23b53b8014160014f237593ad571855f944baf0b9",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/042022.pdf",
+          "file_type": "question",
+          "source_exam_id": "201201050008",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 93
+        },
+        {
+          "category_code": "04202",
+          "checksum": "20d2ec3109373b2322a9e3696240f3d613f8a045d7b3761da04bd5714a26a82d",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092003/042022.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201050005",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 92
+        },
+        {
+          "category_code": "04202",
+          "checksum": "28d0a3f59008fd6a18ff3d6234de60e7ca71771ad9a1a919d043c4e8c111a717",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/091003/042022.pdf",
+          "file_type": "question",
+          "source_exam_id": "201201050021",
+          "subject_code": "04202-class_b-question",
+          "year_roc": 91
+        }
+      ]
+    },
     "wdasec-skill-skill-certification-class-c-skill-06eb81317ad1--ef7fca8b4643.zip": {
       "canonical_name": "全國技術士技能檢定｜丙級｜園藝",
       "checksum": "62942fe71513fa035a50a0fa6ce27e4a3c2543879d8cde56464053fd7d7d04dd",
@@ -25671,6 +26019,111 @@
         }
       ]
     },
+    "wdasec-skill-skill-certification-class-c-skill-090b73ffcf0f--258863e5970c.zip": {
+      "canonical_name": "全國技術士技能檢定｜丙級｜烘焙食品─麵包",
+      "checksum": "2bbd862efcf44874b901bc37c9c2f9f41ecd0d90b626edd3e959fa7cef111268",
+      "papers": [
+        {
+          "category_code": "07721",
+          "checksum": "b2de88a93c14b740fb5807416459c2f25aec1c3290c1bc9243024b0f36ebc5ea",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202511030001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "07721",
+          "checksum": "6597720d9a4dbe4d15097ca1b20406cc86e9351e93fc5832ff542e8f8d6bdff5",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202411040001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "07721",
+          "checksum": "9ac43f2ba637d971d605f72f0473a99dcfcf630be64dab732636fe44b1087d13",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202311060001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "07721",
+          "checksum": "3274f1525d94f98f63ced4ce28cf8b4a56d7a3c81e795f0892cd642f381a43a3",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202211070001/06/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202211070001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "07721",
+          "checksum": "e1de78e5f68f4f4d89827a79b5b247e56e6a1c9d8510d9075a9edf7b19707ef7",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202112200001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "07721",
+          "checksum": "f0f4ebd962e3daebccda9027dd06ed27295a81b1bb20c966672759f966461eee",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202011020001/01/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202011020001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 109
+        },
+        {
+          "category_code": "07721",
+          "checksum": "8df7e03daaedab375c3f41c8605d59ec5f60c15abadfd9dc7be60b0c7f6e492c",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201911040001/03/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201911040001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 108
+        },
+        {
+          "category_code": "07721",
+          "checksum": "2aeac88ce74e32972e66eb9f6325711b0f287999f6afbb3195a008fa1f691fe2",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201811050001/04/077213-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201811050001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 107
+        },
+        {
+          "category_code": "07721",
+          "checksum": "be2ed4a59fb7645e66d7e533e188f6fca9c25b85f61d4d3f98e119eee651029f",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1063A/077213.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201711060001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 106
+        },
+        {
+          "category_code": "07721",
+          "checksum": "f7cc21e90ce8da2a8a7c155acbbe74e01f0d1c510a6b4528950a9c1e1e6b9b91",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1053A/077213.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201611070002",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 105
+        },
+        {
+          "category_code": "07721",
+          "checksum": "c8b0a322b821e9fdf9eaa303b695bd72c16a3508b6d2a7e046a8924faa03ad6a",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1043A/077213.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201511090001",
+          "subject_code": "07721-class_c-question",
+          "year_roc": 104
+        }
+      ]
+    },
     "wdasec-skill-skill-certification-class-c-skill-0ac8669c5cba--9e9201552722.zip": {
       "canonical_name": "全國技術士技能檢定｜丙級｜中餐烹調",
       "checksum": "28b58b5b92b1a06d7b01b3c23eedb8928bf39fb0cd69f5beb94a4e66d3734dd4",
@@ -26088,6 +26541,111 @@
           "source_exam_id": "201201050005",
           "subject_code": "07600-class_c-question",
           "year_roc": 92
+        }
+      ]
+    },
+    "wdasec-skill-skill-certification-class-c-skill-1ea97f8e29e2--5b562b45261e.zip": {
+      "canonical_name": "全國技術士技能檢定｜丙級｜烘焙食品─西點蛋糕",
+      "checksum": "d55ccaefea2777a2fa16082d89dcaf8a85be8a25f6b98703b909848d0c403687",
+      "papers": [
+        {
+          "category_code": "07705",
+          "checksum": "e96301e7ea8d7284e8125010c354c2f274473e2d77b71739e53cef847e35a109",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202511030001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "07705",
+          "checksum": "b2c07f65b5ab96a6d5a7da9667eac4d84a6203084d9045dd379c06a1e8464ea3",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202411040001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "07705",
+          "checksum": "4caf6a21214a2e9f8b87d6f58fcb61564c0052a6b95a19295a97e3489c86017e",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202311060001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "07705",
+          "checksum": "96dad22934f6120212522e65e2dc32bb6aa2d15e5cb64c3101bb4b1c405d5907",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202211070001/06/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202211070001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "07705",
+          "checksum": "f877cc0943a0bace9551af879cc99353ada06eee20765fc1a78e6210816728b0",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202112200001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "07705",
+          "checksum": "58bceb0f6b9a72bb293668043473f515cec682f865ee6c9782a1adb9468353bd",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202011020001/01/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202011020001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 109
+        },
+        {
+          "category_code": "07705",
+          "checksum": "0fd70e4082579adee4c7cf30248196968e9c5ce6382bd5d04df5d9791558804d",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201911040001/03/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201911040001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 108
+        },
+        {
+          "category_code": "07705",
+          "checksum": "df5467e54b6343cbfac61338694f0f2cc45a85c92c470e63c23bc10a90f026a1",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201811050001/04/077053-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201811050001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 107
+        },
+        {
+          "category_code": "07705",
+          "checksum": "0dd52929397e015d4708132e0da24a3a77a5621ce8eb2b33b5329951675fd5f4",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1063A/077053.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201711060001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 106
+        },
+        {
+          "category_code": "07705",
+          "checksum": "9cbdd493c22d5fbcccf9e3b90dc261fd632b279050e0fa0fc306c0b4804f797d",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1053A/077053.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201611070002",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 105
+        },
+        {
+          "category_code": "07705",
+          "checksum": "289c0643ca7d55e17e119c98e65082028b511065a688969e2d807601b1e8f83b",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1043A/077053.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201511090001",
+          "subject_code": "07705-class_c-question",
+          "year_roc": 104
         }
       ]
     },
@@ -28497,6 +29055,417 @@
           "source_exam_id": "201511090001",
           "subject_code": "07602-class_c-question",
           "year_roc": 104
+        }
+      ]
+    },
+    "wdasec-skill-skill-certification-class-c-skill-c46fdc4b2e34--06cdc8354739.zip": {
+      "canonical_name": "全國技術士技能檢定｜丙級｜模板",
+      "checksum": "8826814f551169cc6db709e96eb7a86305c93ac0169d23291a049a8f35d644d2",
+      "papers": [
+        {
+          "category_code": "01900",
+          "checksum": "d45a8033400fa0cd0101e4b24fdabb8007a7296622400da415f91691e322475c",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202603160001/15/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202603160001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 115
+        },
+        {
+          "category_code": "01900",
+          "checksum": "cff15199ecc3c9d06077b0eaee4223b8c2ac97f29f6d38ff1eaffb0d1d68dcf5",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202607060001/05/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202607060001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 115
+        },
+        {
+          "category_code": "01900",
+          "checksum": "25b49a2584d1e75baef8d358e71db5ef120e4993206d788cd105fe4ce4257325",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202503170001/16/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202503170001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "01900",
+          "checksum": "3a1857c032507cfff6cb9ece9cba2d08b9615bc5daebd98bc8def3262ec55a8d",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202507070001/06/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202507070001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "01900",
+          "checksum": "3c93807d72fd12e98374f3713b7b2dd3681ddeef444ee72b6dc21cf1dd5f9e5c",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202508250001/24/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202508250001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "01900",
+          "checksum": "ebc532b8c73571292572809830be7a5e13d3c78be063043ca2b8368444d1db24",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202511030001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "01900",
+          "checksum": "5b80ce49f9610612b349a2b0fcc539973f11369f1d079b033f6362c1e96bc406",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202403180001/17/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202403180001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "01900",
+          "checksum": "edea2765238006bd7f013dbad1b1c5fe634010756a9c0335ee56bb37f82aa24a",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202407080001/07/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202407080001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "01900",
+          "checksum": "37e6ce4db293443b437eacdeac9aaf551b88090183038372ef9ee84e042ec4da",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202411040001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "01900",
+          "checksum": "879abb36111306a553d2c5dbe16198a1977fb47da0ed89f79fa3f1ff691b96cf",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202303200001/19/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202303200001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "01900",
+          "checksum": "cde90324e98325658d6d41c5d0c58f96d9caaa4e942c89f3332b2942a6f89f6f",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202307100001/09/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202307100001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "01900",
+          "checksum": "3e40adcd1a9f2c2d845aca96d4b561234eaf31056000b9e36ea7e35585d9d50b",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202311060001/05/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202311060001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "01900",
+          "checksum": "c803d661c736adf0b1c02d1dcc8a11301116f02cc4423a12a8fd62f57024f011",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202203210001/20/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202203210001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "01900",
+          "checksum": "c5479772cbcb1dabc8ad175ddf8ce2d6075639a389fee06a23e68a01473c8258",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202207110001/10/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202207110001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "01900",
+          "checksum": "8b3ac6bb3a23b33e40efc8aef9731df8c5d4e845a9b2e45dde85d1bb17e2ab94",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202211070001/06/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202211070001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "01900",
+          "checksum": "5b3a42c5c5900d98107c9e55c3ff8b740438f90494a7ea78ff77c73e8e0d3af4",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202103220001/21/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202103220001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "01900",
+          "checksum": "af9b17757cfeec9ac04977792415501114af3bf8c515418d47f4788e8a3f6d96",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202109270001/07/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202109270001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "01900",
+          "checksum": "4144f8019abb4732bab19e9c0b66ef980214e7b2daeb82730324a680028fe5ea",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202112200001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "01900",
+          "checksum": "cb792159e6b511e7e0ba0ec5b64308bd5fc0d48608b4ef9a320a1dc46f2de18f",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202011020001/01/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202011020001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 109
+        },
+        {
+          "category_code": "01900",
+          "checksum": "7e80e4352e892a6f18ec71b5df5cbec808066b9abb550cf4913e509f6db81d25",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201911040001/03/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201911040001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 108
+        },
+        {
+          "category_code": "01900",
+          "checksum": "6d55354b354e235b66efd1cb965e9364205d4bd36a7a522a89e69acffd37fd22",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/201811050001/04/019003-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201811050001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 107
+        },
+        {
+          "category_code": "01900",
+          "checksum": "487ee516b91861a41f4277932c2c122518b7639beebe908dfa526ea4bc02794d",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1063A/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201711060001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 106
+        },
+        {
+          "category_code": "01900",
+          "checksum": "8921d88eb14c34fa082dd87fa8f46747855b1e30d9aeed0e7f3422498b747a71",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1053A/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201611070002",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 105
+        },
+        {
+          "category_code": "01900",
+          "checksum": "94cc6677bbe7ac76e1021083bdd1b6b71d706b488cae0595d4e31f2465db2081",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1043A/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201511090001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 104
+        },
+        {
+          "category_code": "01900",
+          "checksum": "f617133665c50a0a1be4a73601ba4d35b1ad1064ceca5a99a225b9ca426884f5",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1033A/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201411100001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 103
+        },
+        {
+          "category_code": "01900",
+          "checksum": "4d961d7c595efdf155851f6c41ce6360dc9bb49f514d70b5d8abdcaedcb1e1c9",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1023A/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201311110001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 102
+        },
+        {
+          "category_code": "01900",
+          "checksum": "eaeb7cccf144db1ef9aeb6c17c4dbb63e221e318dabb441a7690f72c283223fb",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/1013A/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201211120001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 101
+        },
+        {
+          "category_code": "01900",
+          "checksum": "39c92fcaa47c268f1609f34f83773a5d8b6c6cbedf4f364cebb507778d57a7c5",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/100008/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201060022",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 100
+        },
+        {
+          "category_code": "01900",
+          "checksum": "c6201de0bedd8caf28e8d1543bdd39b8d6b8e4ff9ce9a83aecaa6b9873474dd7",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/100012/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201060025",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 100
+        },
+        {
+          "category_code": "01900",
+          "checksum": "d536aa7a90006b48fec8735b28ce1fd157fb03966ee46800a8c1a91fb1009a94",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/100010/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290006",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 100
+        },
+        {
+          "category_code": "01900",
+          "checksum": "5daaf6f4ae4e3fc67bced698cd1d850e1d7e716b0283dccaed7fc74d336919ff",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099004/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290005",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 99
+        },
+        {
+          "category_code": "01900",
+          "checksum": "b75a9607f0ad286b12d7e1995e6d66eec9759b6eabdcc0d81e5074d2ad29a998",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099006/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290007",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 99
+        },
+        {
+          "category_code": "01900",
+          "checksum": "c491d6c939210a4718ee27b521935e0c35225e8b025befe96fd22c2a6a8e09e6",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/099009/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290008",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 99
+        },
+        {
+          "category_code": "01900",
+          "checksum": "3dc56e26382f19581b57de1f3d6109f95376f948babe94212a3ff90419ed2ee9",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/098004/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290009",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 98
+        },
+        {
+          "category_code": "01900",
+          "checksum": "9022163abbe14532ddfb9ad3a83a1ac2275c6d3f45c0e96b75238194f99a501b",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/097003/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201030003",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 97
+        },
+        {
+          "category_code": "01900",
+          "checksum": "96e98c572d8fd5b09f40c6bb12765f2c1a989d16b6bc777780db4282dac6927e",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/097005/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290012",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 97
+        },
+        {
+          "category_code": "01900",
+          "checksum": "ce6d4c641d954ef98025b67040c4d0f2e8ed8219bbc7eff48c7490ca39ab7672",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/097007/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201203010001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 97
+        },
+        {
+          "category_code": "01900",
+          "checksum": "bb912dc64c5b335a65c0721c29e0f6c5d5d2865f606b5660e7be8871b9bf5e90",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096002/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201050015",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 96
+        },
+        {
+          "category_code": "01900",
+          "checksum": "983b4208e966e4cb80b15cbcb73f5903a7569441d7bab7989251097141f04db8",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/096004/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201050018",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 96
+        },
+        {
+          "category_code": "01900",
+          "checksum": "235b80e5737089b073bfb5600cb661071618102364af40d7f99706fb9247f143",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/095003/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201202290003",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 95
+        },
+        {
+          "category_code": "01900",
+          "checksum": "6df83ed01793f03d76c0580f78cd7fc4fcf6bb8fa5083c44e65d066d0209a30a",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/094003/019003.pdf",
+          "file_type": "question",
+          "source_exam_id": "201201050011",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 94
+        },
+        {
+          "category_code": "01900",
+          "checksum": "898e65860083bb26b58760652a0a96b1c76f80f6d65033e628dee924915f6598",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/093003/019003.pdf",
+          "file_type": "question",
+          "source_exam_id": "201201050008",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 93
+        },
+        {
+          "category_code": "01900",
+          "checksum": "bcc25e72a508ccde2bb111b6aeded51bae16bfdaeb46dfbc9c21b0eeee63c8ec",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/092003/019003.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "201201050005",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 92
+        },
+        {
+          "category_code": "01900",
+          "checksum": "4b7416c40a09b23b0da2714293fc6b3e7d5f21775ce3d35701aeb7389e289221",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/091001/019003.pdf",
+          "file_type": "question",
+          "source_exam_id": "201201050019",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 91
+        },
+        {
+          "category_code": "01900",
+          "checksum": "8f93468a4b5b04fd30bd8696037d19f4926b0e821aa903398de80e1b81540009",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/090001/019003.doc",
+          "file_type": "question",
+          "source_exam_id": "201201100001",
+          "subject_code": "01900-class_c-question",
+          "year_roc": 90
         }
       ]
     },
@@ -32310,6 +33279,120 @@
           "source_exam_id": "201202290006",
           "subject_code": "07004-single-question",
           "year_roc": 100
+        }
+      ]
+    },
+    "wdasec-skill-skill-certification-single-skill-ad5425432828--c983e684c94d.zip": {
+      "canonical_name": "全國技術士技能檢定｜單一級｜重機械操作─挖掘機(擬真系統)",
+      "checksum": "b761a3db26d381c6216fb7429b55c13982092ce1142280914cd548c9c58baa5b",
+      "papers": [
+        {
+          "category_code": "07006",
+          "checksum": "a5fb6bf15f09806c03224720453dd19131d94adc38c643ed514155e4cb26eb87",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202603160001/15/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202603160001",
+          "subject_code": "07006-single-question",
+          "year_roc": 115
+        },
+        {
+          "category_code": "07006",
+          "checksum": "2ad2d424e9ae0fc245c9dae74c0b7a79c8444f05dc0aab6db7ceecc5c556b323",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202607060001/05/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202607060001",
+          "subject_code": "07006-single-question",
+          "year_roc": 115
+        },
+        {
+          "category_code": "07006",
+          "checksum": "a19f5c20329ff50b413d950820019a9ee36299d78a5990815c0ef19797316957",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202503170001/16/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202503170001",
+          "subject_code": "07006-single-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "07006",
+          "checksum": "9573b9d842ea3e87447ff9cc363c85980aee5c89a037ef0a7071a2fbb7aa03ec",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202507070001/06/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202507070001",
+          "subject_code": "07006-single-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "07006",
+          "checksum": "39de7a3d429fe118aae7c70e5738730633302ccdba72b1a5b98c18f874207470",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202511030001/02/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202511030001",
+          "subject_code": "07006-single-question",
+          "year_roc": 114
+        },
+        {
+          "category_code": "07006",
+          "checksum": "874f929a2d1a2a95e3b5921ee6f61442542d7511d6e3a386a7ca83c2ae9da9b7",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202403180001/17/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202403180001",
+          "subject_code": "07006-single-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "07006",
+          "checksum": "bbc97a106a1c734181b81f018f603b7b6f0d65e703d0dd3088825bd0484d41f9",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202407080001/07/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202407080001",
+          "subject_code": "07006-single-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "07006",
+          "checksum": "1dc96fc366d8a05ab747dbe20e40a9a41af2b033592d91f08b74fb9a3cee1b9b",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202411040001/03/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202411040001",
+          "subject_code": "07006-single-question",
+          "year_roc": 113
+        },
+        {
+          "category_code": "07006",
+          "checksum": "e1b4ac357888b2f4b89bac808bc96bfe7b6359cde86ddadfc927d45b24ad8b32",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202307100001/09/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202307100001",
+          "subject_code": "07006-single-question",
+          "year_roc": 112
+        },
+        {
+          "category_code": "07006",
+          "checksum": "1cfebf05ba44ed15db90ddf216cbc22fd88c3f2739a98293d1070138be8f2c62",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202207110001/10/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202207110001",
+          "subject_code": "07006-single-question",
+          "year_roc": 111
+        },
+        {
+          "category_code": "07006",
+          "checksum": "9dcac0a95a6e6b80101ee53f964a8f27aaf72f40c64cb563b62f61a0c9a39a46",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202109270001/07/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202109270001",
+          "subject_code": "07006-single-question",
+          "year_roc": 110
+        },
+        {
+          "category_code": "07006",
+          "checksum": "90b82a154fde18dcc2d34a948ccfdba1ab49b2167a38e1b4a5e0ddbe4becefc3",
+          "download_url_source": "https://owinform.wdasec.gov.tw/ExamNet/owInform/DLowFileQ/202112200001/19/070064-1.pdf",
+          "file_type": "question_answer",
+          "source_exam_id": "202112200001",
+          "subject_code": "07006-single-question",
+          "year_roc": 110
         }
       ]
     },

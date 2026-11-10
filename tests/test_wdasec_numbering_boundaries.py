@@ -11,22 +11,23 @@ from tests.test_wdasec_forms import normalized
 
 
 @pytest.mark.parametrize(
-    ("checksum", "actual_count"),
+    ("checksum", "actual_count", "missing"),
     [
-        ("267a52f8da9d575b55ab004580325d5766bf40198ed0bed4855a7096de09b194", 100),
-        ("efb451d2a0c9e7eb83eadb4c392e178136de950cd00c9d4176ba983b87c555f3", 79),
-        ("12e5ec0a934c11bc207d87d76d16106451d6046c4dac795f37f89c2452fb8544", 100),
-        ("579b99318dc73b363b9da2dd681d7327efec46f57b4f8ec97bc891c34ec5cd0e", 100),
+        ("267a52f8da9d575b55ab004580325d5766bf40198ed0bed4855a7096de09b194", 100, None),
+        ("efb451d2a0c9e7eb83eadb4c392e178136de950cd00c9d4176ba983b87c555f3", 79, 45),
+        ("125f652b3d0e50d40afe6b9219fe96471bb184a6ae7ec54951de8dafc1e38ae5", 79, 64),
+        ("12e5ec0a934c11bc207d87d76d16106451d6046c4dac795f37f89c2452fb8544", 100, None),
+        ("579b99318dc73b363b9da2dd681d7327efec46f57b4f8ec97bc891c34ec5cd0e", 100, None),
     ],
 )
 def test_exact_native_role_uses_reviewed_present_questions_and_preserves_other_facts(
-    monkeypatch, checksum, actual_count
+    monkeypatch, checksum, actual_count, missing
 ):
     native = next(p for p in owner.native_papers() if p.checksum == checksum)
     assert native.reviewed_role is not None
     assert native.reviewed_role.question_count == actual_count
-    if actual_count == 79:
-        assert "question 45" in native.reviewed_role.evidence
+    if missing is not None:
+        assert f"question {missing}" in native.reviewed_role.evidence
         assert "unresolved" in native.reviewed_role.evidence
     source = normalized(native)
     monkeypatch.setattr(owner, "_index", lambda: {native.key: replace(native, reviewed_role=None)})

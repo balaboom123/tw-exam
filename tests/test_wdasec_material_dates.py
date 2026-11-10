@@ -23,8 +23,8 @@ CROSS_LISTED = [p for p in BEVERAGE if p.year_roc != p.reviewed_material.date.ye
 
 
 def test_reviewed_material_covers_both_complete_retained_beverage_histories():
-    assert len(BEVERAGE) == 45
-    assert len({p.checksum for p in BEVERAGE}) == 41
+    assert len(BEVERAGE) == 49
+    assert len({p.checksum for p in BEVERAGE}) == 45
     assert len(CROSS_LISTED) == 4
     assert {p.category_code for p in BEVERAGE} == {"20600"}
     assert all(p.reviewed_material.kind == "administered" for p in BEVERAGE)
