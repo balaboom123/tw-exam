@@ -959,6 +959,101 @@ class CliCommandTests(unittest.TestCase):
             _pages, _catalog, provider_failures = load_provider_state(provider)
             self.assertEqual([failure.source_exam_id for failure in provider_failures], ["085210"])
 
+    def test_sync_is_not_failed_by_a_download_failure_with_an_exact_reviewed_exception(self) -> None:
+        # GEPT still lists two superior PDFs that have answered HTTP 404 since
+        # 2026-10-20. Their reviewed exceptions satisfied publication and history
+        # audits, but the sync exit code ignored them and every run went red.
+        class MissingAnswerClient:
+            def discover_available_years(self) -> list[int]:
+                return [2026]
+
+            def discover_exams(self, year_ad: int) -> list[ExamOption]:
+                return [ExamOption(code="115030", year_ad=2026, year_roc=115, label="Exam")]
+
+            def fetch_exam_page(self, exam_code: str, year_ad: int) -> SourceExamPage:
+                return SourceExamPage(
+                    source_exam_id="115030",
+                    year_ad=2026,
+                    year_roc=115,
+                    exam_name_raw="115年護理師考試",
+                    attachments=[],
+                    papers=[
+                        ParsedPaper(
+                            category_raw="護理師",
+                            category_code="101",
+                            subject_code="0101",
+                            subject_name_raw="基礎醫學",
+                            files={
+                                "question": "https://example.test/question.pdf",
+                                "answer": "https://example.test/answer.pdf",
+                            },
+                        )
+                    ],
+                )
+
+            def download_file(self, url: str) -> DownloadedFile:
+                if url.endswith("answer.pdf"):
+                    raise RuntimeError("HTTP Error 404: Not Found")
+                return DownloadedFile(data=b"%PDF-1.7 demo", content_type="application/pdf", file_name=Path(url).name)
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            data_dir = root / "data"
+            data_dir.mkdir()
+            alias_rule = AliasRule(match_type="exact", raw_pattern="護理師", canonical_id="nurse", canonical_name="護理師")
+            (data_dir / "aliases.json").write_text(
+                json.dumps({"rules": [alias_rule.__dict__]}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            args = build_parser().parse_args(
+                [
+                    "sync-full", "--years", "2026", "--provider", "moex",
+                    "--data-dir", str(data_dir),
+                    "--mirror-dir", str(root / "mirror"),
+                    "--aliases", str(data_dir / "aliases.json"),
+                ]
+            )
+            provider = provider_paths(root, "moex")
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(command_sync(args, client=MissingAnswerClient()), 1)
+            [failure] = load_provider_state(provider)[2]
+            exception = {
+                "scope": "file",
+                "provider_id": "moex",
+                "source_exam_id": failure.source_exam_id,
+                "year_ad": failure.year_roc + 1911,
+                "status": "blocked",
+                "reason_code": "official_listed_pdf_http_404",
+                "reason": "The listed answer is unavailable upstream.",
+                "paper_code": failure.paper_code,
+                "file_type": failure.file_type,
+                "evidence": {
+                    "captured_at": "2026-11-13",
+                    "http_status": 404,
+                    "response_bytes": 0,
+                    "response_sha256": "0" * 64,
+                    "observation": "The source still lists the answer, which returns HTTP 404.",
+                },
+            }
+            ledger = root / "catalog" / "source-coverage" / "moex.json"
+            ledger.parent.mkdir(parents=True)
+            # Only the exact failure is reviewed; a moved URL is a new failure.
+            for source_url, expected in ((failure.url, 0), ("https://example.test/moved.pdf", 1)):
+                with self.subTest(source_url=source_url):
+                    ledger.write_text(
+                        json.dumps(
+                            {
+                                "schema_version": 1,
+                                "provider_id": "moex",
+                                "exceptions": [{**exception, "source_url": source_url}],
+                            }
+                        ),
+                        encoding="utf-8",
+                    )
+                    with redirect_stdout(io.StringIO()):
+                        self.assertEqual(command_sync(args, client=MissingAnswerClient()), expected)
+                    self.assertEqual(load_provider_state(provider)[2], [failure])
+
     @patch("app.cli.write_data_files")
     @patch("app.cli.build_bundles")
     @patch("app.cli.sync_exam_pages")

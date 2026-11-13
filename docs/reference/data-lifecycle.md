@@ -193,13 +193,13 @@ Successful full, incremental, targeted, and repair syncs record a UTC receipt fo
 Failure behavior is owned by [the CLI](../../app/cli.py) and [state merging](../../app/state.py):
 
 - Targeted sync aborts generated-state writes on failure by default. Explicit partial mode may retain the valid subset and failure rows, returns nonzero, and requires follow-up audit/publication.
-- Incremental sync preserves previous records for failed events and returns nonzero while failures remain.
+- Incremental and full syncs return nonzero for a failure from the current run unless an exact reviewed file exception matches it; matched failures stay in the failure ledger. Incremental sync preserves previous records for failed events.
 - Full sync and local bundle construction may produce failure reports and local outputs, but failures remain visible and block an undeployable generated-state commit.
 - [The commit guard](../operations/workflows.md) checks retained-state floors and global publication invariants before generated changes can reach main.
 
 ## Reviewed exceptions and quarantine
 
-Source-coverage evidence belongs in `catalog/source-coverage/`. Event exceptions must match the current raw event; file exceptions must match the exact provider, event, year, paper, role, URL, and download failure stage. An event exception conflicts with acquired papers, attachments, normalized records, or failures. Unmatched entries are orphans. Conflicts and orphans fail strict history audit; publication validation ignores only exact reviewed file exceptions. Re-probe or remove evidence when the official source changes or becomes available.
+Source-coverage evidence belongs in `catalog/source-coverage/`. Event exceptions must match the current raw event; file exceptions must match the exact provider, event, year, paper, role, URL, and download failure stage. An event exception conflicts with acquired papers, attachments, normalized records, or failures. Unmatched entries are orphans. Conflicts and orphans fail strict history audit; publication validation and the sync exit status ignore only failures with exact reviewed file exceptions. Re-probe or remove evidence when the official source changes or becomes available.
 
 Quarantine belongs in `catalog/mappings/publication-quarantine.json` and withholds a defective site projection. It does not change source acquisition denominators: registered providers continue discovery, sync, mirroring, normalization, and audits. Source-coverage exceptions explain acquisition blockers; quarantine explains withheld publication.
 

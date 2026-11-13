@@ -323,6 +323,7 @@ uv run python -m app history-audit --repo-root . --site-id default --strict --ou
 uv run python scripts/validate_publication.py
 ```
 
+An exact file exception also keeps the provider's sync from failing on that recorded download failure.
 Do not delete raw pages, retained failures, or source evidence merely to satisfy a gate. Remove an exception when the official source becomes available; strict audits intentionally reject orphaned exceptions.
 
 For redundant mirror paths, preview cleanup before adding `--apply`:

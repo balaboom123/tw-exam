@@ -23,6 +23,7 @@ from app.audit import (
     write_release_plan,
 )
 from app.bundler import build_bundles, public_bundle_ids
+from app.coverage_exceptions import failure_exception_for, load_coverage_exceptions
 from app.history_audit import (
     build_history_coverage_audit,
     history_audit_exit_code,
@@ -1008,6 +1009,22 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         ]
         provider_failures.extend(sync_failures)
         failures = sync_failures
+    # A failure matching an exact reviewed coverage exception stays in the ledger
+    # but no longer fails the run, as publication validation and the history
+    # audit already treat it. GEPT still lists two superior PDFs it has answered
+    # with HTTP 404 since 2026-10-20, so every certification sync went red.
+    exceptions = load_coverage_exceptions(_repo_root_from_data_dir(args.data_dir), provider_id)
+    failures = [
+        failure
+        for failure in failures
+        if failure_exception_for(provider_id, failure, exceptions) is None
+    ]
+    if len(failures) < len(sync_failures):
+        print(
+            f"{len(sync_failures) - len(failures)} failure(s) match reviewed coverage "
+            "exceptions and stay recorded.",
+            flush=True,
+        )
     # Discovery that succeeded this run resolves its earlier hold.
     resolved = {f"{provider_id}-{year}" for year, _ in discoveries}
     if not held_discovery:
