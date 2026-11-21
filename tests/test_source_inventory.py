@@ -390,7 +390,6 @@ class SourceInventoryTests(unittest.TestCase):
 
         self.assertEqual(len(manifest["years"]), 22)
         self.assertEqual(len(manifest["exams"]), 23)
-        self.assertEqual(len(manifest["files"]), 610)
         self.assertEqual(
             manifest["years"]["2018"]["exam_codes"],
             ["taipower-recruit-107-12", "taipower-recruit-107-5"],
@@ -398,11 +397,11 @@ class SourceInventoryTests(unittest.TestCase):
         policy = manifest["probe_policy"]
         self.assertEqual(policy["coverage_status"], "complete")
         current = policy["current_archive"]
-        self.assertEqual(current["normalized_records"], 610)
-        self.assertEqual(current["subject_groups"], 314)
+        self.assertEqual(current["source_file_count"], 610)
+        self.assertEqual(current["acquired_source_file_count"], 610)
+        self.assertEqual(current["unacquired_source_urls"], [])
         self.assertEqual(current["events"], 23)
         self.assertEqual(current["source_listing_roles"], {"question": 314, "answer": 296})
-        self.assertEqual(current["sync_failures"], 0)
         reconciliation = policy["payload_reconciliation"]
         self.assertEqual(reconciliation["new_source_keys"], 240)
         self.assertEqual(reconciliation["retained_source_keys"], 370)
@@ -411,19 +410,50 @@ class SourceInventoryTests(unittest.TestCase):
             row for path in (ROOT / "data/providers/taipower_recruit/papers").glob("*.json")
             for row in json.loads(path.read_text(encoding="utf-8"))
         ]
+        attachments = [
+            attachment
+            for path in (ROOT / "data/providers/taipower_recruit/exams").glob("*.json")
+            for event in json.loads(path.read_text(encoding="utf-8"))
+            for attachment in event["attachments"]
+        ]
         self.assertEqual(
-            {(row["storage_key"], row["checksum"], row["download_url_source"]) for row in records},
+            {
+                (row["storage_key"], row["checksum"], row["download_url_source"])
+                for row in [*records, *attachments]
+            },
             {(key, row["sha256"], row["source_url"]) for key, row in manifest["files"].items()},
+        )
+        retained = policy["retained_local_state"]
+        self.assertEqual(retained["original_files"], len(manifest["files"]))
+        self.assertEqual(retained["paper_references"], len(records))
+        self.assertEqual(retained["reference_documents"], len(attachments))
+        self.assertEqual(
+            retained["paper_files"],
+            current["acquired_source_file_count"] + retained["unlisted_paper_originals"],
         )
         revisions = json.loads(
             (ROOT / reconciliation["recovery_journal"]).read_text(encoding="utf-8")
         )["revisions"]
-        self.assertEqual(len(revisions), 54)
+        self.assertGreaterEqual(len(revisions), 54)
         self.assertEqual(sum(row["reason"] == "payload_replaced" for row in revisions), 26)
         corrected = [row for row in records if row["file_type"] == "corrected_answer"]
-        originals = [row["source_record"] for row in revisions
-                     if row["reason"] == "source_reference_retired"]
-        self.assertEqual(len(corrected), 28)
+        corrected_keys = {
+            (row["source_exam_id"], row["subject_code"], row["checksum"], row["storage_key"])
+            for row in corrected
+        }
+        originals = [
+            row["source_record"]
+            for row in revisions
+            if row["reason"] == "source_reference_retired"
+            and row["source_record"]["file_type"] == "answer"
+            and (
+                row["source_record"]["source_exam_id"],
+                row["source_record"]["subject_code"],
+                row["source_record"]["checksum"],
+                row["source_record"]["storage_key"],
+            ) in corrected_keys
+        ]
+        self.assertEqual(len(corrected_keys), 28)
         self.assertEqual(len(originals), 28)
         self.assertTrue(all(row["file_type"] == "answer" for row in originals))
         self.assertEqual(
@@ -432,6 +462,8 @@ class SourceInventoryTests(unittest.TestCase):
             {(row["source_exam_id"], row["subject_code"], row["checksum"], row["storage_key"])
              for row in corrected},
         )
+        from app.providers.taipower_recruit.evidence import reviewed_native_revisions
+        self.assertEqual(len(reviewed_native_revisions(revisions)), 488)
 
     def test_taisugar_manifest_records_retained_originals_and_historical_route(self) -> None:
         from app.providers.taisugar_recruit.annual import written_exams

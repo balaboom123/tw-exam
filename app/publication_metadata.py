@@ -8,6 +8,12 @@ from typing import Any
 
 from app.classification import TRACK_TITLED_PROVIDERS
 from app.providers.moea_recruit.evidence import native_file_subject
+from app.providers.taipower_recruit.evidence import (
+    NativePaperContext,
+)
+from app.providers.taipower_recruit.evidence import (
+    resolve_identity as resolve_taipower_identity,
+)
 from app.providers.tcte_tve.booklets import NativeBooklet, resolve_booklet
 from app.providers.teacher_qual.archive import native_member_subject
 from app.providers.wdasec_skill.papers import NativePaper, resolve_native_paper
@@ -125,6 +131,10 @@ def publication_paper_subject(paper: Any) -> str:
     """Use exact native evidence without changing retained source wording."""
     provider_id = _field(paper, "provider_id")
     title = _field(paper, "subject_name_raw")
+    if provider_id == "taipower_recruit":
+        context = _taipower_native_context(paper)
+        if context is not None:
+            return context.booklet.public_subject_label
     booklet = _tcte_native_booklet(paper)
     if booklet is not None:
         return booklet.publication_title
@@ -239,9 +249,22 @@ def _native_identity_context(paper: Any) -> dict[str, Any] | None:
     }
 
 
+def _taipower_native_context(paper: Any) -> NativePaperContext | None:
+    if _field(paper, "provider_id") != "taipower_recruit":
+        return None
+    fields = _native_identity_context(paper)
+    context = resolve_taipower_identity(**fields) if fields is not None else None
+    if context is None or _field(paper, "file_type") != context.event.file_role(context.file):
+        return None
+    return context
+
+
 def _recruitment_registration_groups(paper: Any) -> list[str]:
     """Expose reviewed shared-paper applicability without inventing variants."""
     provider = _field(paper, "provider_id")
+    if provider == "taipower_recruit":
+        taipower = _taipower_native_context(paper)
+        return [taipower.job.native_label] if taipower is not None else []
     if provider not in {"teacher_recruit_newtaipei", "teacher_recruit_kaohsiung"}:
         return []
     fields = _native_identity_context(paper)
@@ -284,6 +307,19 @@ def _taipei_elementary_sections(paper: Any) -> list[str]:
 
 def public_coverage_notes(paper: Any) -> list[str]:
     """Describe source-backed limits of answer coverage."""
+    if _field(paper, "provider_id") == "taipower_recruit":
+        taipower = _taipower_native_context(paper)
+        if taipower is None:
+            return []
+        notes = []
+        if (
+            taipower.booklet.written_period == "common"
+            or taipower.booklet.answer_source_code is None
+        ):
+            notes.append(taipower.booklet.answer_coverage_note)
+        if taipower.job.population == "disability":
+            notes.append("包含使用相同筆試試卷的身心障礙限定報考組別；資格與缺額以各年度簡章為準。")
+        return notes
     if _field(paper, "provider_id") == "teacher_recruit_kaohsiung":
         from app.providers.teacher_recruit_kaohsiung.evidence import (
             resolve_identity as resolve_kaohsiung_identity,

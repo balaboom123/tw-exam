@@ -704,17 +704,43 @@ roles, mirror locators and bytes. A correction word inside a question, a generic
 footnote without an actual marked change, or different bytes is insufficient.
 New bytes at a reviewed correction source stop normalization for native review;
 previously corrected records with changed context also stop re-normalization.
-This evidence does not resolve occupational or selection-stage identity.
+Correction evidence alone does not resolve occupational or selection-stage identity.
+
+The [annual native programme evidence](../../catalog/mappings/taipower/native-programmes-v1.json)
+separately binds complete rulebooks, occupational duties and category tables to
+original question and answer checksums. Reviewed hiring and training categories
+use occupational tracks and the initial written stage. Applicant school
+qualifications are not examination grades. A shared booklet does not merge
+different occupations. Disability-restricted categories using the same booklets
+and weights retain their native eligibility labels within the occupation's
+download, rather than creating duplicate ZIPs. A changed relationship requires
+fresh paper-form review. Reviewed historical name correspondences require native duties, rather
+than similar spelling alone. Earlier events lacking complete occupational rules
+remain retained under review and outside primary publication.
 
 Archive filenames and search labels omit the known Taipower file-label prefix;
 the original labels remain in provider state. In particular, the historical
 `科目A` filename boilerplate does not establish a professional A/B period.
 The [official rule books](https://www.taipower.com.tw/2289/2544/2554/2555/)
 separate recruitment categories from their shared written subjects. Preserve
-year-specific subject wording and retain one original paper rather than copying
-it into each applicable category. The two ROC 107 sessions use separate month
+year-specific subject wording. Applicable job references share one original
+mirror file; their separate publication identities do not create mirror copies.
+Known original URLs retain their source codes when listing order changes, and
+new URLs receive stable URL-derived codes. A changed reviewed annual population
+or payload requires fresh review. The two ROC 107 sessions use separate month
 folders, derived from their structured source event IDs. Neither this layout
 nor a shared subject establishes occupational equivalence or a selection stage.
+Public labels expose the reviewed common/A/B periods. Answer coverage notes
+retain the source's limits, including creative papers without published keys
+and common keys without a Chinese-composition model answer.
+
+The source manifest verifies unique retained originals, including rulebook
+attachments, separately from currently listed paper URLs. Shared occupational
+references do not increase its physical file inventory. A delisted URL or a
+replacement PDF does not erase the earlier source record or bytes. New references
+in unresolved historical programmes remain under review. Full, targeted and
+repair acquisition reconcile the same provider-owned manifest before writing
+state; a stale probe must not overwrite that verified projection.
 
 Refresh payloads during sync: a locally valid PDF and checksum do not establish
 that it matches the current official URL. Earlier common-paper copies contained

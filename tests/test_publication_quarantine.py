@@ -168,21 +168,23 @@ class SiteProjectionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)
             self._seed_required(root)
-            paper_115 = _paper("sfi_cert", "dropped-sfi")
+            # Use a classified admission fixture so this tests the independent
+            # provider quarantine, rather than an SFI native-evidence hold.
+            paper_115 = _paper("ceec_ast", "dropped-admission")
             paper_114 = replace(paper_115, year_roc=114, source_exam_id="114010", paper_code="301-0608-114-question")
             write_provider_state(
-                provider_paths(root, "sfi_cert"), raw_pages=[],
+                provider_paths(root, "ceec_ast"), raw_pages=[],
                 normalized=NormalizedCatalog(papers=[paper_115, paper_114], review_queue=[]),
                 aliases=[], failures=[], manifest=None,
             )
-            _write(root, [_entry("sfi_cert")])
+            _write(root, [_entry("ceec_ast")])
 
             withheld = build_publication_backlog(root)
             _write(root, [])
             visible = build_publication_backlog(root)
 
             self.assertEqual(withheld["unpublished_bundle_count"], 0)
-            self.assertEqual(visible["provider_ids"], ["sfi_cert"])
+            self.assertEqual(visible["provider_ids"], ["ceec_ast"])
 
     def test_projection_keeps_the_provider_without_a_quarantine_entry(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

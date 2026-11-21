@@ -26,6 +26,7 @@ from app.coverage_exceptions import (
 from app.models import ExamAttachment
 from app.paths import ProviderPaths, provider_paths, site_paths
 from app.provider_index import (
+    INDEX_SCHEMA_VERSION,
     PAPER_CODE,
     PAPER_FILE_TYPE,
     PAPER_SOURCE_EXAM_ID,
@@ -202,7 +203,7 @@ def build_history_coverage_audit(
         if revision_audit["errors"]:
             status_counts["source_revision_download_gap"] += len(revision_audit["errors"])
         index = load_provider_index(provider)
-        if index is None:
+        if index is None or index["schema_version"] != INDEX_SCHEMA_VERSION:
             raw_pages, catalog, failures = load_provider_state(provider)
             index = build_provider_index(provider, raw_pages, catalog.papers)
         else:

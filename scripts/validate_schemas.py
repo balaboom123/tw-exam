@@ -115,6 +115,11 @@ def _validate(validator: Draft202012Validator, payload: Any, label: str) -> None
 
 
 def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
+    from app.providers.taipower_recruit.evidence import (
+        native_programmes_path as taipower_native_programmes_path,
+        validate_native_programmes as validate_taipower_native_programmes,
+    )
+
     schema_dir = repo_root / "schemas"
     documents: dict[str, dict[str, Any]] = {}
     for path in sorted(schema_dir.glob("*.json")):
@@ -179,6 +184,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
         (hakka_conflicts_path(repo_root), "hakka-native-conflicts-v1.schema.json"),
         (hakka_historical_grades_path(repo_root), "hakka-historical-grades-v1.schema.json"),
         (taipower_corrections_path(repo_root), "taipower-answer-corrections-v1.schema.json"),
+        (taipower_native_programmes_path(repo_root), "taipower-native-programmes-v1.schema.json"),
         (special_admission_corrections_path(repo_root), "special-admission-answer-corrections-v1.schema.json"),
         (tcte_corrections_path(repo_root), "tcte-answer-corrections-v1.schema.json"),
         (group_identity_path(repo_root), "tcte-group-identity-v1.schema.json"),
@@ -224,6 +230,7 @@ def validate_schemas(repo_root: Path = ROOT) -> tuple[int, int, list[str]]:
     validate_hakka_conflicts(repo_root)
     validate_hakka_historical_grades(repo_root)
     validate_taipower_corrections(repo_root)
+    validate_taipower_native_programmes(repo_root)
     validate_special_admission_corrections(repo_root)
     validate_tcte_corrections(repo_root)
     validate_shared_booklets(repo_root)

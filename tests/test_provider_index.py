@@ -7,6 +7,8 @@ from dataclasses import replace
 from pathlib import Path
 
 from jsonschema import Draft202012Validator
+from referencing import Registry, Resource
+from referencing.jsonschema import DRAFT202012
 
 from app.bundler import public_bundle_ids, public_bundle_ids_from_indexes
 from app.models import NormalizedCatalog, NormalizedPaper, SourceExamPage
@@ -80,8 +82,13 @@ class ProviderIndexTests(unittest.TestCase):
             self.assertEqual(index["bundle_ids"], ["example-bundle"])
             self.assertEqual(index["canonical_ids"], ["example"])
             self.assertEqual(index["papers"][0][4:7], [114, 0, 0])
-            schema = json.loads((ROOT / "schemas/provider-index-v1.schema.json").read_text())
-            Draft202012Validator(schema).validate(index)
+            schema = json.loads((ROOT / "schemas/provider-index-v4.schema.json").read_text())
+            material = json.loads((ROOT / "schemas/source-material-v1.schema.json").read_text())
+            registry = Registry().with_resource(
+                "https://tw-exam.invalid/schemas/source-material-v1.schema.json",
+                Resource.from_contents(material, default_specification=DRAFT202012),
+            )
+            Draft202012Validator(schema, registry=registry).validate(index)
 
             year_path = provider.papers_dir / "2026.json"
             records = json.loads(year_path.read_text(encoding="utf-8"))

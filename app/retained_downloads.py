@@ -499,6 +499,14 @@ def _reviewed_source_history(
                 candidates = (paper for rows in current.values() for paper in rows)
                 aliases[old_key].extend(kaohsiung_targets(previous, candidates))
                 continue
+            if provider_id == "taipower_recruit":
+                from app.providers.taipower_recruit.evidence import (
+                    legacy_category_targets as taipower_targets,
+                )
+
+                candidates = (paper for rows in current.values() for paper in rows)
+                aliases[old_key].extend(taipower_targets(previous, candidates))
+                continue
             normalized = renormalize_catalog(NormalizedCatalog([previous], []), rules).papers[0]
             if (
                 normalized.file_type == previous.file_type

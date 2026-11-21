@@ -553,10 +553,24 @@ def _restore_new_public_bundle_files(
     )
 
 
-def _write_probe_manifest_if_present(probe: dict[str, Any], manifest_path: Path) -> None:
-    updated_manifest = probe.get("updated_manifest")
-    if isinstance(updated_manifest, dict):
-        write_source_manifest(manifest_path, source_manifest_from_data(updated_manifest))
+def _refresh_acquired_manifest(
+    provider: SourceProvider,
+    state: ProviderPaths,
+    pages: list[SourceExamPage],
+    mirror_root: Path,
+    manifest: SourceManifest | None,
+) -> SourceManifest | None:
+    """Let the source owner reconcile successful acquisition before its writer commits."""
+    refresh = getattr(provider, "refresh_source_manifest", None)
+    if not callable(refresh):
+        return manifest
+    current = manifest or load_source_manifest(
+        state.source_manifest_path, provider_id=state.provider_id
+    )
+    return cast(
+        SourceManifest,
+        refresh(current, pages, mirror_root, datetime.now().astimezone().isoformat()),
+    )
 
 
 def _repo_root_from_data_dir(data_dir: Path) -> Path:
@@ -715,16 +729,23 @@ def run_sync_targeted(args: argparse.Namespace, client: SourceProvider | None = 
         if failure.source_exam_id not in replaced_exam_ids
     ]
     provider_failures.extend(sync_failures)
+    manifest = _provider_manifest_from_probe(probe)
+    if not sync_failures:
+        manifest = _refresh_acquired_manifest(
+            sync_client, provider_state, provider_raw_pages, args.mirror_dir, manifest
+        )
     write_provider_state(
         provider_state,
         raw_pages=provider_raw_pages,
         normalized=provider_normalized,
         aliases=aliases,
         failures=provider_failures,
-        manifest=_provider_manifest_from_probe(probe),
+        manifest=manifest,
     )
     record_successful_sync(provider_state, refreshed_raw_pages, sync_failures)
-    _write_probe_manifest_if_present(probe, _resolve_sync_manifest_path(args, provider_id))
+    manifest_output = _resolve_sync_manifest_path(args, provider_id)
+    if manifest is not None and manifest_output != provider_state.source_manifest_path:
+        write_source_manifest(manifest_output, manifest)
     if sync_failures:
         _print_failures(sync_failures)
         if allow_partial:
@@ -799,13 +820,18 @@ def command_repair_failures(args: argparse.Namespace, client: SourceProvider | N
         failure for failure in existing_failures if failure.source_exam_id not in safe_exam_ids
     ]
     provider_failures.extend(sync_failures)
+    manifest = None
+    if not sync_failures:
+        manifest = _refresh_acquired_manifest(
+            repair_client, provider_state, merged_raw_pages, args.mirror_dir, manifest
+        )
     write_provider_state(
         provider_state,
         raw_pages=merged_raw_pages,
         normalized=merged_catalog,
         aliases=aliases,
         failures=provider_failures,
-        manifest=None,
+        manifest=manifest,
     )
     record_successful_sync(provider_state, refreshed_raw_pages, sync_failures)
     selected_keys = {(failure.source_exam_id, failure.year_roc) for failure in selected_failures}
@@ -1054,16 +1080,9 @@ def command_sync(args: argparse.Namespace, client: SourceProvider | None = None)
         # persisted, in the same commit, so a newly announced exam year cannot
         # block the deploy gate. write_provider_state does the writing.
         provider_manifest = _refresh_manifest_from_sync(args, provider, provider_id, discoveries)
-    refresh_source_manifest = getattr(provider, "refresh_source_manifest", None)
-    if not failures and callable(refresh_source_manifest):
-        current_manifest = provider_manifest or load_source_manifest(
-            provider_state.source_manifest_path, provider_id=provider_id
-        )
-        provider_manifest = refresh_source_manifest(
-            current_manifest,
-            provider_raw_pages,
-            args.mirror_dir,
-            datetime.now().astimezone().isoformat(),
+    if not failures:
+        provider_manifest = _refresh_acquired_manifest(
+            provider, provider_state, provider_raw_pages, args.mirror_dir, provider_manifest
         )
     write_provider_state(
         provider_state,

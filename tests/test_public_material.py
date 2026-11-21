@@ -86,8 +86,8 @@ def test_index_and_full_record_eligibility_do_not_count_acquisition_years(tmp_pa
     index = build_provider_index(provider, [], papers)
     write_provider_index(provider, index)
     assert load_provider_index(provider) == index
-    assert index["schema_version"] == 3
-    validator("provider-index-v3.schema.json").validate(index)
+    assert index["schema_version"] == 4
+    validator("provider-index-v4.schema.json").validate(index)
     assert [paper_index_public_year_roc(index, row) for row in index["papers"]] == ([None, None] if undated else [101, 101])
     assert public_bundle_ids(catalog, min_years=2) == set()
     assert public_bundle_ids_from_indexes([index], min_years=2) == set()

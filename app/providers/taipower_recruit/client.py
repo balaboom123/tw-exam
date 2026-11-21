@@ -20,6 +20,7 @@ from urllib.parse import (
 from app.models import ExamOption, ParsedPaper, SourceExamPage
 from app.providers.base import DownloadedFile, ResponseMetadata
 from app.providers.http import Http
+from app.providers.taipower_recruit.evidence import stable_subject_code
 
 BASE_URL = "https://www.taipower.com.tw/"
 DOWNLOAD_URL = "https://www.taipower.com.tw/2289/2544/2554/2557/"
@@ -314,6 +315,10 @@ class TaipowerRecruitClient:
         self._cached_entries = entries
         return entries
 
+    def listed_source_urls(self) -> set[str]:
+        """Return current official links, independently of retained local papers."""
+        return {download.url for entry in self._iter_entries() for download in entry.downloads}
+
     def build_discovery_year_url(self, year_ad: int) -> str:
         self._iter_entries()
         if not any(event_year == year_ad for _, event_year in self._event_urls):
@@ -362,18 +367,21 @@ class TaipowerRecruitClient:
             raise ValueError(f"No entries found for {exam_code} year {year_ad}")
         first = matching[0]
         papers: list[ParsedPaper] = []
-        for file_index, download in enumerate(
-            (dl for entry in matching for dl in entry.downloads), start=1
-        ):
+        source_codes: dict[str, str] = {}
+        for download in (dl for entry in matching for dl in entry.downloads):
             if "答案" in download.label or "解答" in download.label:
                 file_type = "answer"
             else:
                 file_type = "question"
+            subject_code = stable_subject_code(exam_code, download.url)
+            if subject_code in source_codes:
+                raise ValueError("Taipower archive repeats or collides on an original source key")
+            source_codes[subject_code] = download.url
             papers.append(
                 ParsedPaper(
                     category_raw=CANONICAL_CATEGORY,
                     category_code=str(first.year_roc),
-                    subject_code=f"hiring-{file_index:02d}",
+                    subject_code=subject_code,
                     subject_name_raw=download.label,
                     files={file_type: download.url},
                 )

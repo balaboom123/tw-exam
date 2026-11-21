@@ -2353,6 +2353,54 @@ def _classify_paper_uncached(
                 "booklets and dated suggested/final answer roles; shared papers do not merge "
                 "posts, while school levels and eligibility groups are not examination grades"
             )
+    if provider_id == "taipower_recruit":
+        from app.providers.taipower_recruit.evidence import (
+            SERIES_ID as TAIPOWER_SERIES,
+        )
+        from app.providers.taipower_recruit.evidence import (
+            SERIES_LABEL as TAIPOWER_LABEL,
+        )
+        from app.providers.taipower_recruit.evidence import (
+            native_catalogue as taipower_catalogue,
+        )
+        from app.providers.taipower_recruit.evidence import (
+            resolve_identity as resolve_taipower_identity,
+        )
+
+        taipower = resolve_taipower_identity(
+            source_exam_id=source_exam_id,
+            year_ad=year_ad,
+            exam_name_raw=exam_name,
+            category_code=category_code,
+            category_raw=category,
+            subject_code=subject_code,
+            subject_name_raw=subject_name_raw,
+            source_url=source_url,
+            checksum=source_checksum,
+            source_material=source_material,
+        )
+        domain_id, family_id = "employment", "employment-exam"
+        series_id, series_label = TAIPOWER_SERIES, TAIPOWER_LABEL
+        variant_pairs, variants = (), ()
+        if taipower is None:
+            event = taipower_catalogue().events_by_id.get(source_exam_id)
+            level_id, level_label = "unknown", _LEVEL_LABELS["unknown"]
+            track_id, track_label = "taipower-unknown", "甄試類科待確認"
+            stage_id = event.selection_stage if event is not None else "unknown"
+            confidence = "review"
+            reason = (
+                "Taipower occupation, annual applicability or exact native source requires review"
+            )
+        else:
+            level_id, level_label = NOT_APPLICABLE, _LEVEL_LABELS[NOT_APPLICABLE]
+            track_id, track_label = taipower.occupation.track_id, taipower.occupation.label
+            stage_id, confidence = "stage-1", "high"
+            reason = (
+                "Reviewed native annual recruitment category, shared common/A/B booklets, "
+                "initial written selection and exact original source bytes; eligibility "
+                "education and pay grades are not examination levels; written periods "
+                "are not separate selection stages"
+            )
     nthu_identity = None
     if provider_id == "hce_nthu":
         from app.providers.hce_nthu.identity import resolve_identity as resolve_nthu_identity
@@ -2623,6 +2671,11 @@ def _classify_paper_uncached(
             bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id == "teacher_recruit_kaohsiung":
             bundle_name = f"{series_label}｜{track_label}"
+            bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
+        if provider_id == "taipower_recruit":
+            bundle_name = f"{series_label}｜{track_label}"
+            for _variant_id, label in variant_pairs:
+                bundle_name += f"｜{label}"
             bundle_name += "｜初試（筆試）" if stage_id == "stage-1" else "｜階段待確認"
         if provider_id in {
             "wdasec_skill",

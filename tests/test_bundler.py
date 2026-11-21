@@ -6,6 +6,7 @@ import unittest
 import zipfile
 from dataclasses import asdict
 from pathlib import Path
+from unittest.mock import patch
 
 from jsonschema import Draft202012Validator
 
@@ -51,6 +52,9 @@ def make_paper(
 
 
 class BundlerTests(unittest.TestCase):
+    # These layout tests use synthetic bytes. Exact Taipower source eligibility
+    # and full native populations are exercised in test_taipower_native_programmes.
+    @patch("app.providers.taipower_recruit.evidence.validate_public_papers", new=lambda *_: None)
     def test_identical_payloads_do_not_remove_distinct_sitting_folders(self) -> None:
         for provider, events, folders in (
             ("teacher_qual", ("teacher-qual-108-1", "teacher-qual-108-2"),
@@ -86,6 +90,7 @@ class BundlerTests(unittest.TestCase):
                     for record in records:
                         self.assertEqual(archive.read(record["bundle_entry"]), payload)
 
+    @patch("app.providers.taipower_recruit.evidence.validate_public_papers", new=lambda *_: None)
     def test_taipower_subject_filenames_and_session_folders_preserve_originals(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             root = Path(tmp_dir)

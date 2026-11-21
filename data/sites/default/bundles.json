@@ -179565,7 +179565,268 @@
     },
     {
       "canonical_id": "taipower-recruit",
-      "canonical_name": "台電新進僱用人員甄試",
+      "canonical_name": "台電新進僱用人員甄試｜會計｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107
+      ],
+      "file_count": 60,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-accounting-stage-1--09e0ba059a19.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-accounting-stage-1--09e0ba059a19.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-accounting-stage-1--09e0ba059a19.zip",
+      "checksum": "fd151997e134ee5507d01bc6562014e55c5d79d05bdd0a13d5d89f6b632db7ab",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-accounting-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-accounting",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（會計審計法規、採購法概要）",
+        "專業科目B（會計學概要）",
+        "會計類",
+        "115年度台電新進僱用人員甄試",
+        "job-accounting",
+        "hiring-01",
+        "hiring-02",
+        "hiring-15",
+        "hiring-16",
+        "hiring-25",
+        "hiring-26",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "hiring-27",
+        "hiring-28",
+        "112年度台電新進僱用人員甄試",
+        "hiring-29",
+        "hiring-30",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-17",
+        "hiring-18",
+        "hiring-33",
+        "hiring-34",
+        "109年度台電新進僱用人員甄試",
+        "hiring-31",
+        "hiring-32",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜廣告設計｜初試（筆試）",
+      "years": [
+        104
+      ],
+      "file_count": 5,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-advertising-design-stage-1--132aba5b1891.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-advertising-design-stage-1--132aba5b1891.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-advertising-design-stage-1--132aba5b1891.zip",
+      "checksum": "4199bf2fc4c7ee4b6da02cf06d18380d6d15ce2caf5492fee407d3c8708c2460",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-advertising-design-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-advertising-design",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目B（圖文創作、資料視覺化設計）",
+        "專業科目A（視覺傳達設計基礎理論）",
+        "廣告設計類",
+        "104年度台電新進僱用人員甄試",
+        "job-advertising-design",
+        "hiring-01",
+        "hiring-02",
+        "hiring-25",
+        "hiring-26",
+        "hiring-27"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜化學｜初試（筆試）",
+      "years": [
+        110,
+        108,
+        107,
+        106,
+        105,
+        103,
+        101
+      ],
+      "file_count": 48,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-chemistry-stage-1--a6c58652f090.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-chemistry-stage-1--a6c58652f090.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-chemistry-stage-1--a6c58652f090.zip",
+      "checksum": "e5e2c5fca5c645303ac7ed0647c066a6f89ddf9572829ce36cdeb51f6ac861e7",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-chemistry-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-chemistry",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（環境科學概論）",
+        "專業科目B（化學）",
+        "化學類",
+        "110年度台電新進僱用人員甄試",
+        "job-chemistry",
+        "hiring-01",
+        "hiring-02",
+        "hiring-11",
+        "hiring-12",
+        "hiring-27",
+        "hiring-28",
+        "108年度台電新進僱用人員甄試",
+        "hiring-25",
+        "hiring-26",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "化學工程類",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "103年度台電新進僱用人員甄試",
+        "化學工程養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜土木工程｜初試（筆試）",
       "years": [
         115,
         114,
@@ -179581,104 +179842,2471 @@
         104,
         103,
         102,
-        101,
-        99,
-        97,
-        96,
-        95,
-        94,
-        92,
-        90
+        101
       ],
-      "file_count": 610,
-      "storage_key": "bundles/sites/default/taipower-recruit-employment-recruitment-not-applicable-taipower-recruit--5cbf513a6b24.zip",
-      "asset_name": "taipower-recruit-employment-recruitment-not-applicable-taipower-recruit--5cbf513a6b24.zip",
-      "release_tag": "default-bundles-v2-008",
-      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-008/taipower-recruit-employment-recruitment-not-applicable-taipower-recruit--5cbf513a6b24.zip",
-      "checksum": "ab2b5f1006689a15689ea0a1eb82465e2a527b752355936cd45469ce61ee4b21",
-      "schema_version": 2,
-      "bundle_id": "taipower-recruit-employment-recruitment-not-applicable-taipower-recruit",
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-civil-engineering-stage-1--5dd6a73cef67.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-civil-engineering-stage-1--5dd6a73cef67.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-civil-engineering-stage-1--5dd6a73cef67.zip",
+      "checksum": "b62d524828bac4e54b1f23a7bb1cdf70cdae8426313ad0e0a1e43096f0d7b7ba",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-civil-engineering-stage-1",
       "catalog_version": "exam-identity-v2",
       "domain_id": "employment",
       "exam_family_id": "employment-exam",
-      "exam_series_id": "employment-recruitment",
+      "exam_series_id": "taipower-hiring-training",
       "level_id": "not-applicable",
-      "track_id": "taipower-recruit",
+      "track_id": "taipower-civil-engineering",
       "variant_ids": [],
-      "stage_id": "not-applicable",
+      "stage_id": "stage-1",
       "bundle_policy_id": "default-bundle-policy-v2",
-      "classification_confidence": "medium",
-      "classification_reason": "provider policy declares no level dimension",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
       "exam_class": "國營／就業甄試",
-      "exam_subclass": "就業／國營事業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
       "search_aliases": [
-        "國文及英文",
-        "物理",
-        "輸配電學",
-        "電工機械",
-        "電子學",
-        "工程力學概要",
-        "行政學概要、法律常識",
-        "會計審計法規、採購法概要",
-        "基本電學",
-        "機械原理",
-        "測量、土木、建築工程概要",
-        "企業管理概論",
-        "會計學概要",
-        "汽車學概論及機械常識",
-        "材料管理概論",
-        "機械及起重常識",
-        "環境科學概論",
-        "機械及電銲常識",
-        "化學",
-        "機件原理、金屬材料",
-        "機械工作法、工程圖識圖",
-        "色彩原理、設計概論",
-        "分鏡腳本設計",
-        "輪機概論",
-        "行政學概要",
-        "企業管理概論、法律常識",
-        "圖文創作、資料視覺化設計",
-        "視覺傳達設計基礎理論",
-        "共同(國文、英文)",
-        "經濟學概要、法律常識",
-        "經濟學概要",
-        "計算機概論",
-        "數位邏輯",
-        "物理及機械常識",
-        "機械及車床常識",
-        "測量、土木、工程概要",
-        "電腦網路概論",
-        "數位邏輯設計",
-        "機械製造及起重常識",
-        "機械製造及車床常識",
-        "機械製造及電銲常識",
-        "土木、建築工程概要",
-        "國文",
-        "英文",
-        "物理及基本電學",
-        "物理、電子學及計算機概論",
-        "物理及機械原理",
-        "土木、建築及測量",
-        "管理概論",
-        "物理及電工原理",
-        "物理及電子學",
-        "數學",
-        "測量及鋼筋混凝土",
-        "物理及普通化學",
+        "共同科目（國文及英文）",
+        "專業科目A（工程力學概要）",
+        "專業科目B（測量、土木、建築工程概要）",
+        "土木工程類",
         "115年度台電新進僱用人員甄試",
-        "115",
+        "job-civil-engineering",
+        "hiring-01",
+        "hiring-02",
+        "hiring-11",
+        "hiring-12",
+        "hiring-21",
+        "hiring-22",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "hiring-23",
+        "hiring-24",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-13",
+        "hiring-14",
+        "hiring-29",
+        "hiring-30",
+        "109年度台電新進僱用人員甄試",
+        "hiring-25",
+        "hiring-26",
+        "108年度台電新進僱用人員甄試",
+        "hiring-27",
+        "hiring-28",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "土木工程養成班",
+        "101年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜配電線路施工技術｜初試（筆試）",
+      "years": [
+        101
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-construction-stage-1--5e4a4ab641b2.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-construction-stage-1--5e4a4ab641b2.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-construction-stage-1--5e4a4ab641b2.zip",
+      "checksum": "0397a392d6a3dfbadfa19f07e569249d2ffdf2bf6d12c7d6166499cee855ac2e",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-construction-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-distribution-line-construction",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（基本電學）",
+        "配電線路施工技術養成班",
+        "101年度台電新進僱用人員甄試",
+        "job-distribution-line-construction",
         "hiring-01",
         "hiring-02",
         "hiring-03",
         "hiring-04",
-        "hiring-05",
-        "hiring-06",
-        "hiring-07",
-        "hiring-08"
+        "hiring-17",
+        "hiring-18"
       ],
       "subject_labels": [],
-      "legacy_canonical_ids": []
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜配電線路維護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-maintenance-stage-1--0ecd512c11d1.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-maintenance-stage-1--0ecd512c11d1.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-maintenance-stage-1--0ecd512c11d1.zip",
+      "checksum": "528eb916f5963dd3623c125831f965175d4a6a6edcd238bf469f50f7f9be5ce1",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-distribution-line-maintenance-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-distribution-line-maintenance",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（基本電學）",
+        "配電線路維護類",
+        "115年度台電新進僱用人員甄試",
+        "job-distribution-line-maintenance",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "配電線路維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜電機運轉維護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-operation-maintenance-stage-1--5aa18bc64997.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-operation-maintenance-stage-1--5aa18bc64997.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-operation-maintenance-stage-1--5aa18bc64997.zip",
+      "checksum": "bf7bf83896a8d851b8bd3aa920136abe0da808618da1ac2453c2ce5b7f3a4a76",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-operation-maintenance-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-electrical-operation-maintenance",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（電工機械）",
+        "專業科目B（基本電學）",
+        "電機運轉維護類",
+        "115年度台電新進僱用人員甄試",
+        "job-electrical-operation-maintenance",
+        "hiring-01",
+        "hiring-02",
+        "hiring-07",
+        "hiring-08",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "電機運轉維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜電機修護｜初試（筆試）",
+      "years": [
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 84,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-repair-stage-1--a612a4fae7a2.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-repair-stage-1--a612a4fae7a2.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-repair-stage-1--a612a4fae7a2.zip",
+      "checksum": "310076e55de0cae8caca198d31599985aa3fe8487c0ce3fd380905c72a746bce",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-electrical-repair-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-electrical-repair",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（電工機械）",
+        "專業科目B（基本電學）",
+        "電機修護類",
+        "113年度台電新進僱用人員甄試",
+        "job-electrical-repair",
+        "hiring-01",
+        "hiring-02",
+        "hiring-07",
+        "hiring-08",
+        "hiring-17",
+        "hiring-18",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "電機維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜綜合行政｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-general-administration-stage-1--7dce5236d279.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-general-administration-stage-1--7dce5236d279.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-general-administration-stage-1--7dce5236d279.zip",
+      "checksum": "9d02c94a52954062968108c194ebe43c5f4e46196243a7e870521fe16a2e7da0",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-general-administration-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-general-administration",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（行政學概要、法律常識）",
+        "專業科目B（企業管理概論）",
+        "專業科目B（行政學概要）",
+        "專業科目A（企業管理概論、法律常識）",
+        "專業科目A（經濟學概要、法律常識）",
+        "綜合行政類",
+        "115年度台電新進僱用人員甄試",
+        "job-general-administration",
+        "hiring-01",
+        "hiring-02",
+        "hiring-13",
+        "hiring-14",
+        "hiring-23",
+        "hiring-24",
+        "綜合行政類(限身心障礙人員報考)",
+        "job-general-administration-disability",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "hiring-25",
+        "hiring-26",
+        "112年度台電新進僱用人員甄試",
+        "hiring-27",
+        "hiring-28",
+        "綜合行政人員",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "hiring-31",
+        "hiring-32",
+        "109年度台電新進僱用人員甄試",
+        "hiring-29",
+        "hiring-30",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "hiring-21",
+        "hiring-22",
+        "綜合業務養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜保健物理｜初試（筆試）",
+      "years": [
+        110,
+        109,
+        103
+      ],
+      "file_count": 18,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-health-physics-stage-1--ccd0b43c4eba.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-health-physics-stage-1--ccd0b43c4eba.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-health-physics-stage-1--ccd0b43c4eba.zip",
+      "checksum": "62604676d09d1e879ec4db5df9beac9988224d1386820f0cffa3ddfe5f92b53f",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-health-physics-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-health-physics",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（化學）",
+        "保健物理類",
+        "110年度台電新進僱用人員甄試",
+        "job-health-physics",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-27",
+        "hiring-28",
+        "109年度台電新進僱用人員甄試",
+        "hiring-23",
+        "hiring-24",
+        "103年度台電新進僱用人員甄試",
+        "hiring-25",
+        "hiring-26"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜重車駕駛及機械操作｜初試（筆試）",
+      "years": [
+        113,
+        112,
+        109,
+        108
+      ],
+      "file_count": 24,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-heavy-vehicle-machinery-operation-stage-1--eff9a0e45c8f.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-heavy-vehicle-machinery-operation-stage-1--eff9a0e45c8f.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-heavy-vehicle-machinery-operation-stage-1--eff9a0e45c8f.zip",
+      "checksum": "3f15894138c1b23b5f8f2e000837cd0ab64eae3bea303844baa3483e60930007",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-heavy-vehicle-machinery-operation-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-heavy-vehicle-machinery-operation",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（汽車學概論及機械常識）",
+        "重車駕駛及機械操作類",
+        "113年度台電新進僱用人員甄試",
+        "job-heavy-vehicle-machinery-operation",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-23",
+        "hiring-24",
+        "112年度台電新進僱用人員甄試",
+        "hiring-25",
+        "hiring-26",
+        "109年度台電新進僱用人員甄試",
+        "hiring-27",
+        "hiring-28",
+        "108年度台電新進僱用人員甄試",
+        "hiring-29",
+        "hiring-30"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜起重技術｜初試（筆試）",
+      "years": [
+        112,
+        111,
+        110,
+        109,
+        107,
+        106,
+        105,
+        104,
+        103,
+        101
+      ],
+      "file_count": 66,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-hoisting-stage-1--82cffff8f9e4.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-hoisting-stage-1--82cffff8f9e4.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-hoisting-stage-1--82cffff8f9e4.zip",
+      "checksum": "4a06e85cae9e15fb997fa5dd26c1592704686f942890ba038687ffb9f46e0981",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-hoisting-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-hoisting",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（機械及起重常識）",
+        "起重技術類",
+        "112年度台電新進僱用人員甄試",
+        "job-hoisting",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-21",
+        "hiring-22",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-23",
+        "hiring-24",
+        "109年度台電新進僱用人員甄試",
+        "hiring-37",
+        "hiring-38",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "103年度台電新進僱用人員甄試",
+        "起重技術養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜儀電運轉維護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-instrumentation-electrical-operation-maintenance-stage--69bd566e1da0.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-instrumentation-electrical-operation-maintenance-stage--69bd566e1da0.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-instrumentation-electrical-operation-maintenance-stage--69bd566e1da0.zip",
+      "checksum": "9f0a0216677da82a1418597ae29dde76415957cbfaf2d120b6f33872695082d7",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-instrumentation-electrical-operation-maintenance-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-instrumentation-electrical-operation-maintenance",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（電子學）",
+        "專業科目B（基本電學）",
+        "儀電運轉維護類",
+        "115年度台電新進僱用人員甄試",
+        "job-instrumentation-electrical-operation-maintenance",
+        "hiring-01",
+        "hiring-02",
+        "hiring-09",
+        "hiring-10",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "儀電運轉維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜車床｜初試（筆試）",
+      "years": [
+        109
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-lathe-stage-1--0ba89fa563d9.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-lathe-stage-1--0ba89fa563d9.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-lathe-stage-1--0ba89fa563d9.zip",
+      "checksum": "10cb01d2641dc4e92b1e4dff5d724132ba7d8b6705a8ef3edbafbc417b23f76a",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-lathe-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-lathe",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（機件原理、金屬材料）",
+        "專業科目B（機械工作法、工程圖識圖）",
+        "車床類",
+        "109年度台電新進僱用人員甄試",
+        "job-lathe",
+        "hiring-01",
+        "hiring-02",
+        "hiring-33",
+        "hiring-34",
+        "hiring-35",
+        "hiring-36"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜海事工程｜初試（筆試）",
+      "years": [
+        105
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-marine-engineering-stage-1--3e299dd22e36.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-marine-engineering-stage-1--3e299dd22e36.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-marine-engineering-stage-1--3e299dd22e36.zip",
+      "checksum": "4e747ee0e026886d9685396d5f3fc41ab802c6a4872f113cba99af59c2bbbeee",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-marine-engineering-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-marine-engineering",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目B（基本電學）",
+        "專業科目A（輪機概論）",
+        "海事工程類",
+        "105年度台電新進僱用人員甄試",
+        "job-marine-engineering",
+        "hiring-01",
+        "hiring-02",
+        "hiring-17",
+        "hiring-18",
+        "hiring-29",
+        "hiring-30"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜材料管理｜初試（筆試）",
+      "years": [
+        113
+      ],
+      "file_count": 6,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-materials-management-stage-1--33a5645f87b3.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-materials-management-stage-1--33a5645f87b3.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-materials-management-stage-1--33a5645f87b3.zip",
+      "checksum": "ddaaac324ab50dacc94234c03929e171e5372acaa36bc54814aeae2ade9ef0de",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-materials-management-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-materials-management",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（行政學概要、法律常識）",
+        "專業科目B（材料管理概論）",
+        "材料管理類",
+        "113年度台電新進僱用人員甄試",
+        "job-materials-management",
+        "hiring-01",
+        "hiring-02",
+        "hiring-13",
+        "hiring-14",
+        "hiring-29",
+        "hiring-30"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜機械運轉維護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-operation-maintenance-stage-1--4ab0e6146b97.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-operation-maintenance-stage-1--4ab0e6146b97.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-operation-maintenance-stage-1--4ab0e6146b97.zip",
+      "checksum": "86a614e2aff1049ba69c29d248e989d19db98e9ef80e12a2710d32d9bbbeb0c2",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-operation-maintenance-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-mechanical-operation-maintenance",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（機械原理）",
+        "機械運轉維護類",
+        "115年度台電新進僱用人員甄試",
+        "job-mechanical-operation-maintenance",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-19",
+        "hiring-20",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-21",
+        "hiring-22",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-17",
+        "hiring-18",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "機械運轉維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜機械修護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-repair-stage-1--4052d711bbc5.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-repair-stage-1--4052d711bbc5.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-repair-stage-1--4052d711bbc5.zip",
+      "checksum": "0aa46d0ec67bb0044dd23caf50c2a2af2dc42c97d4fa5a00b1256fa637f44c77",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-mechanical-repair-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-mechanical-repair",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（機械原理）",
+        "機械修護類",
+        "115年度台電新進僱用人員甄試",
+        "job-mechanical-repair",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-19",
+        "hiring-20",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-21",
+        "hiring-22",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-17",
+        "hiring-18",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "機械維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜變電工程｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107
+      ],
+      "file_count": 54,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-engineering-stage-1--d5042a3b622b.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-engineering-stage-1--d5042a3b622b.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-engineering-stage-1--d5042a3b622b.zip",
+      "checksum": "6fc1cd2ea95467fb95679d2c2f618568a70b037276e53082605597156041c1ed",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-engineering-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-substation-engineering",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（輸配電學）",
+        "專業科目B（基本電學）",
+        "變電工程類",
+        "115年度台電新進僱用人員甄試",
+        "job-substation-engineering",
+        "hiring-01",
+        "hiring-02",
+        "hiring-05",
+        "hiring-06",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜變電設備維護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-equipment-maintenance-stage-1--da226ea0b75c.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-equipment-maintenance-stage-1--da226ea0b75c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-equipment-maintenance-stage-1--da226ea0b75c.zip",
+      "checksum": "6a66fd5926ab0ff617341ca48724b34efe9d3d4356d5b3a97066f6763f497112",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-substation-equipment-maintenance-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-substation-equipment-maintenance",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（輸配電學）",
+        "專業科目B（基本電學）",
+        "變電設備維護類",
+        "115年度台電新進僱用人員甄試",
+        "job-substation-equipment-maintenance",
+        "hiring-01",
+        "hiring-02",
+        "hiring-05",
+        "hiring-06",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "變電設備維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜輸電土建工程｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109
+      ],
+      "file_count": 42,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-engineering-stage-1--7683a0744a33.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-engineering-stage-1--7683a0744a33.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-engineering-stage-1--7683a0744a33.zip",
+      "checksum": "81766b5614ccb3dabf32ba0c0bc380788ab06315d2aa209b1fa12b2a2f547da3",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-engineering-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-transmission-civil-engineering",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（工程力學概要）",
+        "專業科目B（測量、土木、建築工程概要）",
+        "輸電土建工程類",
+        "115年度台電新進僱用人員甄試",
+        "job-transmission-civil-engineering",
+        "hiring-01",
+        "hiring-02",
+        "hiring-11",
+        "hiring-12",
+        "hiring-21",
+        "hiring-22",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "hiring-23",
+        "hiring-24",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-13",
+        "hiring-14",
+        "hiring-29",
+        "hiring-30",
+        "109年度台電新進僱用人員甄試",
+        "hiring-25",
+        "hiring-26"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜輸電土建勘測｜初試（筆試）",
+      "years": [
+        114,
+        113,
+        112,
+        111,
+        110
+      ],
+      "file_count": 30,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-surveying-stage-1--e70dc7936f9a.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-surveying-stage-1--e70dc7936f9a.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-surveying-stage-1--e70dc7936f9a.zip",
+      "checksum": "c015cbb3120012760c4a84823ffc2e326d1f670ea7c2160f717003d537661a2b",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-civil-surveying-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-transmission-civil-surveying",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（工程力學概要）",
+        "專業科目B（測量、土木、建築工程概要）",
+        "輸電土建勘測類",
+        "114年度台電新進僱用人員甄試",
+        "job-transmission-civil-surveying",
+        "hiring-01",
+        "hiring-02",
+        "hiring-11",
+        "hiring-12",
+        "hiring-21",
+        "hiring-22",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "hiring-23",
+        "hiring-24",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-13",
+        "hiring-14",
+        "hiring-29",
+        "hiring-30"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜輸電線路工程｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106
+      ],
+      "file_count": 66,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-engineering-stage-1--3c8b5a6f07ca.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-engineering-stage-1--3c8b5a6f07ca.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-engineering-stage-1--3c8b5a6f07ca.zip",
+      "checksum": "f31928419ec0f482a810ff571530cd5a477f5dddab3f2274300a977329b2577d",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-engineering-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-transmission-line-engineering",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（輸配電學）",
+        "專業科目B（基本電學）",
+        "輸電線路工程類",
+        "115年度台電新進僱用人員甄試",
+        "job-transmission-line-engineering",
+        "hiring-01",
+        "hiring-02",
+        "hiring-05",
+        "hiring-06",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜輸電線路維護｜初試（筆試）",
+      "years": [
+        115,
+        114,
+        113,
+        112,
+        111,
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        104,
+        103,
+        102,
+        101
+      ],
+      "file_count": 96,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-maintenance-stage-1--845c62c06ce9.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-maintenance-stage-1--845c62c06ce9.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-maintenance-stage-1--845c62c06ce9.zip",
+      "checksum": "ccd07b8f24be7332b4afa099ca82a1f256330cdd1e6431bbe11b2dc7de940954",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-transmission-line-maintenance-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-transmission-line-maintenance",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（輸配電學）",
+        "專業科目B（基本電學）",
+        "輸電線路維護類",
+        "115年度台電新進僱用人員甄試",
+        "job-transmission-line-maintenance",
+        "hiring-01",
+        "hiring-02",
+        "hiring-05",
+        "hiring-06",
+        "hiring-17",
+        "hiring-18",
+        "114年度台電新進僱用人員甄試",
+        "113年度台電新進僱用人員甄試",
+        "112年度台電新進僱用人員甄試",
+        "111年度台電新進僱用人員甄試",
+        "110年度台電新進僱用人員甄試",
+        "hiring-19",
+        "hiring-20",
+        "109年度台電新進僱用人員甄試",
+        "108年度台電新進僱用人員甄試",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "104年度台電新進僱用人員甄試",
+        "hiring-15",
+        "hiring-16",
+        "103年度台電新進僱用人員甄試",
+        "102年度台電新進僱用人員甄試",
+        "輸電線路維護養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2026
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2025
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2024
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2023
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2022
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2015
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2013
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜影音後製動畫特效｜初試（筆試）",
+      "years": [
+        107
+      ],
+      "file_count": 5,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-video-postproduction-animation-stage-1--71c2455f5c6c.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-video-postproduction-animation-stage-1--71c2455f5c6c.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-video-postproduction-animation-stage-1--71c2455f5c6c.zip",
+      "checksum": "840c7273e39bde5065c0d545bb0d4b018726369c8d2d4cde3a96e4a828bcace5",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-video-postproduction-animation-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-video-postproduction-animation",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（色彩原理、設計概論）",
+        "專業科目B（分鏡腳本設計）",
+        "影音後製動畫特效",
+        "107年12月台電新進僱用人員甄試",
+        "job-video-postproduction-animation",
+        "hiring-01",
+        "hiring-02",
+        "hiring-35",
+        "hiring-36",
+        "hiring-37"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    {
+      "canonical_id": "taipower-recruit",
+      "canonical_name": "台電新進僱用人員甄試｜電銲技術｜初試（筆試）",
+      "years": [
+        110,
+        109,
+        108,
+        107,
+        106,
+        105,
+        103,
+        101
+      ],
+      "file_count": 54,
+      "storage_key": "bundles/sites/default/taipower-recruit-taipower-hiring-training-not-applicable-taipower-welding-stage-1--334314533dec.zip",
+      "asset_name": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-welding-stage-1--334314533dec.zip",
+      "release_tag": "default-bundles-v2-002",
+      "download_url": "https://github.com/balaboom123/tw-exam/releases/download/default-bundles-v2-002/taipower-recruit-taipower-hiring-training-not-applicable-taipower-welding-stage-1--334314533dec.zip",
+      "checksum": "c479ee85124ff90e930a9a3d100466e37bf0c0fa62f7030a5c7688da1ac3abcb",
+      "schema_version": 3,
+      "bundle_id": "taipower-recruit-taipower-hiring-training-not-applicable-taipower-welding-stage-1",
+      "catalog_version": "exam-identity-v2",
+      "domain_id": "employment",
+      "exam_family_id": "employment-exam",
+      "exam_series_id": "taipower-hiring-training",
+      "level_id": "not-applicable",
+      "track_id": "taipower-welding",
+      "variant_ids": [],
+      "stage_id": "stage-1",
+      "bundle_policy_id": "default-bundle-policy-v2",
+      "classification_confidence": "high",
+      "classification_reason": "source material: administered; date basis: exam_year; Reviewed native annual recruitment category, shared common/A/B booklets, initial written selection and exact original source bytes; eligibility education and pay grades are not examination levels; written periods are not separate selection stages",
+      "exam_class": "國營／就業甄試",
+      "exam_subclass": "台電新進僱用人員甄試",
+      "search_aliases": [
+        "共同科目（國文及英文）",
+        "專業科目A（物理）",
+        "專業科目B（機械及電銲常識）",
+        "電銲技術類",
+        "110年度台電新進僱用人員甄試",
+        "job-welding",
+        "hiring-01",
+        "hiring-02",
+        "hiring-03",
+        "hiring-04",
+        "hiring-25",
+        "hiring-26",
+        "109年度台電新進僱用人員甄試",
+        "hiring-21",
+        "hiring-22",
+        "108年度台電新進僱用人員甄試",
+        "hiring-23",
+        "hiring-24",
+        "107年12月台電新進僱用人員甄試",
+        "107年5月台電新進僱用人員甄試",
+        "106年度台電新進僱用人員甄試",
+        "105年度台電新進僱用人員甄試",
+        "103年度台電新進僱用人員甄試",
+        "電銲技術養成班",
+        "101年度台電新進僱用人員甄試"
+      ],
+      "subject_labels": [],
+      "legacy_canonical_ids": [],
+      "source_material": {
+        "kind": "administered",
+        "dates": [
+          {
+            "basis": "exam_year",
+            "year_ad": 2021
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2020
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2019
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2018
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2017
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2016
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2014
+          },
+          {
+            "basis": "exam_year",
+            "year_ad": 2012
+          }
+        ],
+        "schema_version": 1
+      }
     },
     {
       "canonical_id": "tcte-tve",

@@ -112,7 +112,7 @@ format unsupported by that role fails validation.
 
 ## Normalize and retain history
 
-Normalization applies reviewed provider aliases and shared identity rules to raw events; unresolved cases enter the provider review queue. Full provider writes also regenerate a compact index. Index readers fall back to source files when an index is missing or its source snapshot is stale; the catalog audit still reclassifies full records. The index must remain rebuildable, and [its check](../../scripts/build_provider_indexes.py) compares complete contents against source files.
+Normalization applies reviewed provider aliases and shared identity rules to raw events; unresolved cases enter the provider review queue. Full provider writes also regenerate a compact index. Publication readers fall back to source files when an index is missing, its source snapshot is stale, or it predates classification-confidence projection; the catalog audit still reclassifies full records. The index must remain rebuildable, and [its check](../../scripts/build_provider_indexes.py) compares complete contents against source files.
 
 A parsed subject can carry several file roles. The shared normalizer evaluates
 each file with its own source URL and mirror metadata before assigning its
@@ -230,6 +230,12 @@ migration does not change unrelated publication. Acquisition does not lift
 a source hold.
 
 The [site configuration](../../app/site_registry.py) selects eligible providers and bundles. The [bundler](../../app/bundler.py) reads normalized papers and validated mirror files, reuses matching unchanged single-part archives, and verifies ZIP CRC for entries whose mirror files are absent before reuse. Deterministic entry timestamps and permissions stabilize rebuilt bytes; completed archive checksums are streamed from files.
+
+Classification review records stay in provider and site source state but cannot
+establish a public bundle or contribute a publication year. Full and indexed
+readers share this decision. A lower year threshold cannot release unresolved
+occupations or stages. Provider-specific completeness and source-material
+evidence gates remain independent of classification withholding.
 
 New archive manifests retain year- and source-URL-aware paper keys, checksums,
 and entry names. Earlier full-record and compact manifests remain readable for

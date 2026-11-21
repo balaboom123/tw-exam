@@ -82,6 +82,9 @@ _SITES = {
             "hce-nsysu": 1,
             "hce-nthu": 1,
             "post-recruit": 1,
+            # Native job identities preserve the complete reviewed occupation
+            # history, including one-year posts formerly inside a generic ZIP.
+            "taipower-recruit": 1,
             # Preserve single-year papers already public before the native
             # assisted-form split. Other WDA identities retain the default.
             (

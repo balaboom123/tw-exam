@@ -26,6 +26,7 @@ from app.normalizer import hashed_fallback_canonical_id, legacy_fallback_canonic
 from app.provider_index import (
     PAPER_LEGACY_CANDIDATE,
     PAPER_MATERIAL_KIND,
+    paper_index_allows_publication,
     paper_index_bundle_id,
     paper_index_canonical_id,
     paper_index_public_year_roc,
@@ -37,6 +38,7 @@ from app.publication_metadata import (
     publication_paper_subject,
     publication_paper_subject_code,
 )
+from app.publication_policy import classification_allows_publication
 from app.source_material import (
     MaterialSummary,
     material_summary,
@@ -171,7 +173,13 @@ def _bundle_arcname(paper: NormalizedPaper) -> str:
         if paper.source_material is not None
         else str(paper.year_roc)
     )
-    if paper.provider_id == "taipower_recruit" and paper.source_material is None:
+    if paper.provider_id == "taipower_recruit" and (
+        paper.source_material is None
+        or (
+            paper.source_material.kind == "administered"
+            and paper.source_material.date.basis == "exam_year"
+        )
+    ):
         session = re.fullmatch(
             rf"taipower-recruit-{paper.year_roc}-(0?[1-9]|1[0-2])", paper.source_exam_id
         )
@@ -624,6 +632,8 @@ def public_bundle_ids(
     """
     grouped: dict[str, list[NormalizedPaper]] = {}
     for paper in normalized.papers:
+        if not classification_allows_publication(paper.classification_confidence):
+            continue
         grouped.setdefault(paper.bundle_id or paper.canonical_id, []).append(paper)
 
     public_ids: set[str] = set()
@@ -671,6 +681,8 @@ def public_bundle_ids_from_indexes(
     grouped: dict[str, _IndexedBundleGroup] = {}
     for index in indexes:
         for row in index["papers"]:
+            if not paper_index_allows_publication(index, row):
+                continue
             canonical_id = paper_index_canonical_id(index, row)
             bundle_id = paper_index_bundle_id(index, row) or canonical_id
             group = grouped.get(bundle_id)
@@ -685,11 +697,9 @@ def public_bundle_ids_from_indexes(
                 group.undated = True
             else:
                 group.years.add(year)
-            has_material = index["schema_version"] == 2 or (
-                index["schema_version"] == 3 and row[PAPER_MATERIAL_KIND] is not None
-            )
+            has_material = row[PAPER_MATERIAL_KIND] is not None
             group.material_modes.add(has_material)
-            if index["schema_version"] == 3 and has_material:
+            if has_material:
                 group.material_kinds.add(row[PAPER_MATERIAL_KIND])
             group.canonical_ids.add(canonical_id)
 
@@ -939,11 +949,31 @@ def validate_public_materials(
     )
 
     validate_taipei_elementary_papers(paper for records in grouped.values() for paper in records)
-    return {
-        key: summary
-        for key, records in grouped.items()
-        if (summary := summarize_papers(records)) is not None
-    }
+    from app.providers.teacher_recruit_kaohsiung.evidence import (
+        validate_public_papers as validate_kaohsiung_papers,
+    )
+
+    validate_kaohsiung_papers(paper for records in grouped.values() for paper in records)
+    from app.providers.taipower_recruit.evidence import (
+        validate_public_papers as validate_taipower_papers,
+    )
+
+    validate_taipower_papers(paper for records in grouped.values() for paper in records)
+    summaries: dict[str, MaterialSummary] = {}
+    for key, records in grouped.items():
+        # Classification withholding cannot bypass a provider's exact native
+        # population gate or excuse unresolved material evidence in its input.
+        for paper in records:
+            if paper.source_material is not None and paper.source_material.needs_review:
+                summarize_papers([paper])
+        candidates = [
+            paper
+            for paper in records
+            if classification_allows_publication(paper.classification_confidence)
+        ]
+        if candidates and (summary := summarize_papers(candidates)) is not None:
+            summaries[key] = summary
+    return summaries
 
 
 def build_bundles(
@@ -968,6 +998,8 @@ def build_bundles(
     )
     grouped: dict[str, list[NormalizedPaper]] = {}
     for paper in normalized.papers:
+        if not classification_allows_publication(paper.classification_confidence):
+            continue
         # v2 records carry a complete identity-derived bundle_id. Legacy test
         # and migration records safely fall back to canonical_id.
         grouped.setdefault(paper.bundle_id or paper.canonical_id, []).append(paper)

@@ -12,9 +12,10 @@ from collections.abc import Iterable
 from typing import Any, cast
 
 from app.paths import ProviderPaths
+from app.publication_policy import classification_allows_publication
 from app.source_material import MaterialSummary, SourceDate, material_label, source_material
 
-INDEX_SCHEMA_VERSION = 1
+INDEX_SCHEMA_VERSION = 4
 PAPER_FIELDS = (
     "source_exam_id",
     "category_code",
@@ -39,6 +40,7 @@ PAPER_SOURCE_YEAR_ROC = len(PAPER_FIELDS) + 1
 PAPER_MATERIAL_KIND = len(PAPER_FIELDS) + 2
 PAPER_DATE_BASIS = len(PAPER_FIELDS) + 3
 PAPER_MATERIAL_REVIEW = len(PAPER_FIELDS) + 4
+PAPER_CLASSIFICATION_CONFIDENCE = len(PAPER_FIELDS) + 5
 _PAPER_DEFAULTS: dict[str, Any] = {
     "source_exam_id": "",
     "category_code": "",
@@ -59,7 +61,7 @@ def paper_index_canonical_id(index: dict[str, Any], row: list[Any]) -> str:
 
 
 def paper_index_source_year_roc(index: dict[str, Any], row: list[Any]) -> int | None:
-    if index["schema_version"] in {2, 3}:
+    if index["schema_version"] in {2, 3, 4}:
         return cast(int | None, row[PAPER_SOURCE_YEAR_ROC])
     return None
 
@@ -82,15 +84,25 @@ def paper_index_public_year_roc(index: dict[str, Any], row: list[Any]) -> int | 
     return paper_index_source_year_roc(index, row)
 
 
+def paper_index_allows_publication(index: dict[str, Any], row: list[Any]) -> bool:
+    if index["schema_version"] != INDEX_SCHEMA_VERSION:
+        raise ValueError("Rebuild provider index before publishing classification review decisions")
+    return classification_allows_publication(row[PAPER_CLASSIFICATION_CONFIDENCE])
+
+
 def indexed_material_summaries(indexes: Iterable[dict[str, Any]]) -> dict[str, MaterialSummary]:
     kinds: dict[str, set[str | None]] = {}
     dates: dict[str, set[SourceDate]] = {}
     for index in indexes:
-        if index["schema_version"] == 2:
-            raise ValueError("Rebuild index v2 before projecting public material summaries")
         for row in index["papers"]:
+            # An unresolved material date or kind remains an invalid publication
+            # input even if classification also needs review.
+            if index["schema_version"] >= 3 and row[PAPER_MATERIAL_REVIEW]:
+                paper_index_public_year_roc(index, row)
+            if not paper_index_allows_publication(index, row):
+                continue
             key = paper_index_bundle_id(index, row) or paper_index_canonical_id(index, row)
-            kind = row[PAPER_MATERIAL_KIND] if index["schema_version"] == 3 else None
+            kind = row[PAPER_MATERIAL_KIND]
             kinds.setdefault(key, set()).add(kind)
             if kind is not None:
                 year = paper_index_public_year_roc(index, row)
@@ -153,10 +165,6 @@ def _append_papers(index: dict[str, Any], records: Iterable[Any]) -> None:
     canonical_ids = {value: position for position, value in enumerate(index["canonical_ids"])}
     for paper in records:
         material = source_material(_field(paper, "source_material", None))
-        if material is not None and index["schema_version"] == 1:
-            index["schema_version"] = 3
-            for previous in index["papers"]:
-                previous.extend([None, None, None, False])
         row = [_field(paper, name, _PAPER_DEFAULTS.get(name, _MISSING)) for name in PAPER_FIELDS]
         for position, table_name, positions in (
             (PAPER_BUNDLE_ID, "bundle_ids", bundle_ids),
@@ -168,12 +176,12 @@ def _append_papers(index: dict[str, Any], records: Iterable[Any]) -> None:
                 index[table_name].append(value)
             row[position] = positions[value]
         row.append(_legacy_candidate(paper))
-        if index["schema_version"] == 3:
-            row.extend(
-                [material.date.year_roc, material.kind, material.date.basis, material.needs_review]
-                if material is not None
-                else [None, None, None, False]
-            )
+        row.extend(
+            [material.date.year_roc, material.kind, material.date.basis, material.needs_review]
+            if material is not None
+            else [None, None, None, False]
+        )
+        row.append(_field(paper, "classification_confidence", ""))
         index["papers"].append(row)
 
 
@@ -238,7 +246,7 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
     if (
         not isinstance(index, dict)
         or type(index.get("schema_version")) is not int
-        or index["schema_version"] not in {1, 2, 3}
+        or index["schema_version"] not in {1, 2, 3, 4}
     ):
         raise ValueError(f"unsupported provider index schema: {provider.index_path}")
     if index.get("provider_id") != provider.provider_id:
@@ -263,7 +271,7 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
         raise ValueError(f"provider index raw event row is invalid: {provider.index_path}")
     if any(
         not isinstance(row, list)
-        or len(row) != {1: 11, 2: 12, 3: 15}[index["schema_version"]]
+        or len(row) != {1: 11, 2: 12, 3: 15, 4: 16}[index["schema_version"]]
         or any(not isinstance(row[position], str) for position in (0, 1, 2, 3, 7, 8, 9))
         or isinstance(row[PAPER_YEAR_ROC], bool)
         or not isinstance(row[PAPER_YEAR_ROC], int)
@@ -278,14 +286,20 @@ def load_provider_index(provider: ProviderPaths) -> dict[str, Any] | None:
         )
         or not isinstance(row[PAPER_LEGACY_CANDIDATE], bool)
         or (
-            index["schema_version"] in {2, 3}
+            index["schema_version"] in {2, 3, 4}
             and row[PAPER_SOURCE_YEAR_ROC] is not None
             and type(row[PAPER_SOURCE_YEAR_ROC]) is not int
         )
         for row in index["papers"]
     ):
         raise ValueError(f"provider index paper row is invalid: {provider.index_path}")
-    if index["schema_version"] == 3:
+    if index["schema_version"] == 4:
+        for row in index["papers"]:
+            if row[PAPER_CLASSIFICATION_CONFIDENCE] not in ("", "high", "medium", "review"):
+                raise ValueError(
+                    f"provider index classification confidence is invalid: {provider.index_path}"
+                )
+    if index["schema_version"] in {3, 4}:
         for row in index["papers"]:
             kind, basis, review = (
                 row[PAPER_MATERIAL_KIND],

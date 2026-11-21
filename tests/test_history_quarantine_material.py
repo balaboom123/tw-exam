@@ -78,14 +78,15 @@ def test_history_reconciles_reviewed_dates_and_undated_material_instead_of_sourc
 ):
     material = SourceMaterial(kind, source_date, "https://tqa.rcpet.edu.tw/", "Reviewed native fixture")
     source = SourceExamPage(
-        "teacher-qual-2026", 2026, 115, "115年教師資格考試", [],
-        [ParsedPaper("教師資格考試", "elementary", "education", "教育原理與制度",
+        "teacher-qual-115", 2026, 115, "教師資格考試", [],
+        [ParsedPaper("教師資格考試", "115", "education", "教育原理與制度",
                      {"question": "https://tqa.rcpet.edu.tw/native.pdf"}, source_material=material)],
         provider_id="teacher_qual",
     )
     catalog = normalize_papers(source.source_exam_id, source.year_ad, source.exam_name_raw,
                                source.papers, [], "", {}, provider_id="teacher_qual")
     paper = catalog.papers[0]
+    assert paper.classification_confidence != "review"
     key = "providers/teacher_qual/115/native.pdf"
     paper.storage_key = key
     mirror = tmp_path / "mirror" / key

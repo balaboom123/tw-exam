@@ -30,11 +30,12 @@ Executable fields, types, versions, and vocabularies live in the owners below. T
 | Reviewed TQC sample identities | [Evidence schema](../../schemas/tqc-sample-identity-v1.schema.json), [checksum resolver and evidence gate](../../app/tqc_identity_evidence.py) | `catalog/mappings/tqc/sample-identity-v1.json` |
 | Reviewed WDA native paper forms and independent grade/component/role/material/date corrections | [Evidence schema](../../schemas/wdasec-native-paper-facts-v4.schema.json), [native resolver and evidence gate](../../app/providers/wdasec_skill/papers.py) | `catalog/mappings/wdasec/native-paper-facts-v4.json` |
 | Reviewed native Taipower answer corrections | [Evidence schema](../../schemas/taipower-answer-corrections-v1.schema.json), [role resolver and evidence gate](../../app/taipower_file_roles.py) | `catalog/mappings/taipower/answer-corrections-v1.json` |
+| Reviewed Taipower annual recruitment programmes | [Native programme schema](../../schemas/taipower-native-programmes-v1.schema.json), [source bindings and eligibility](../../app/providers/taipower_recruit/evidence.py) | `catalog/mappings/taipower/native-programmes-v1.json` |
 | Reviewed Taiwan Water native papers and occupational applicability | [Evidence schema](../../schemas/twc-archive-papers-v1.schema.json), [member/category resolver and conservation gate](../../app/providers/twc_recruit/archive.py) | `catalog/mappings/twc/archive-papers-v1.json` |
 | Reviewed NSYSU native documents, page selections and admission applicability | [Evidence schema](../../schemas/nsysu-native-selections-v1.schema.json), [identity and conservation owner](../../app/providers/hce_nsysu/evidence.py) | `catalog/mappings/nsysu/native-selections-v1.json` |
 | Generated NSYSU PDF reconstruction plans | [Plan schema](../../schemas/compiled-pdf-selection-v1.schema.json), [bounded applicator](../../app/providers/hce_nsysu/selection_plan.py) | `data/providers/hce_nsysu/native-selections/` |
 | Normalized papers | [V3 facts contract](../../schemas/normalized-paper-v3.schema.json), [V2 compatibility contract](../../schemas/normalized-paper-v2.schema.json) | `data/providers/<provider_id>/papers/` |
-| Derived provider index | [V3 material/date index](../../schemas/provider-index-v3.schema.json), [V2 compatibility index](../../schemas/provider-index-v2.schema.json), [V1 compatibility index](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
+| Derived provider index | [V4 classification/material index](../../schemas/provider-index-v4.schema.json), [V3 material/date compatibility index](../../schemas/provider-index-v3.schema.json), [V2 compatibility index](../../schemas/provider-index-v2.schema.json), [V1 compatibility index](../../schemas/provider-index-v1.schema.json), [index builder](../../app/provider_index.py) | `data/providers/<provider_id>/index.json` |
 | Reviewed source scope and evidence | [Inventory schema](../../schemas/source-inventory.schema.json), [inventory validator](../../app/source_inventory.py) | `catalog/source-inventory.json` |
 | Coverage exceptions | [Exception schema](../../schemas/source-coverage-exceptions.schema.json), [matcher](../../app/coverage_exceptions.py) | `catalog/source-coverage/` |
 | Publication quarantine | [Quarantine loader](../../app/publication_quarantine.py) | `catalog/mappings/publication-quarantine.json` |
@@ -107,10 +108,13 @@ unresolved facts, mixed material kinds, and partially migrated logical bundle
 history fail before any archive mutation. Provider acquisition and source holds
 remain independent; correct dates alone do not authorize publication.
 
-V3 indexes distinguish legacy rows, reviewed dates, explicitly undated material,
-and review holds. V2 indexes remain readable for recovery, but publication falls
-back to full records until they are rebuilt because a nullable date alone cannot
-establish material kind or date basis. Older application versions cannot read
+V4 indexes preserve classification confidence as well as legacy rows, reviewed
+dates, explicitly undated material, and material review holds. Earlier indexes
+remain readable for history and recovery. Publication falls back to full records
+until they are rebuilt because an older index cannot establish classification
+eligibility. Classification review withholds a record even when a site's year
+threshold is met; exact provider-population and material-evidence validation
+still runs before archive mutation. Older application versions cannot read
 normalized v3 records; rollback requires the matching provider-state baseline
 and index, preserving revision journals and recovery bytes.
 

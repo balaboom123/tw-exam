@@ -92,7 +92,7 @@ def test_edition_facts_survive_normalization_and_state_round_trip() -> None:
         persisted = json.loads((provider.papers_dir / "2026.json").read_text())
         VALIDATOR.validate(persisted[0]["source_material"])
         index = load_provider_index(provider)
-        assert index["schema_version"] == 3
+        assert index["schema_version"] == 4
         assert index["papers"][0][PAPER_YEAR_ROC] == 115
         assert paper_index_source_year_roc(index, index["papers"][0]) == 101
 
@@ -179,7 +179,7 @@ def test_mixed_index_does_not_infer_dates_for_legacy_records() -> None:
     with TemporaryDirectory() as temporary:
         provider = provider_paths(Path(temporary), "jlpt_cert")
         index = build_provider_index(provider, [], [legacy, reviewed, legacy])
-        assert index["schema_version"] == 3
+        assert index["schema_version"] == 4
         assert [paper_index_source_year_roc(index, row) for row in index["papers"]] == [None, 101, None]
         assert [row[PAPER_YEAR_ROC] for row in index["papers"]] == [115, 115, 115]
 

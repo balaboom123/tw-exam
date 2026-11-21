@@ -102,6 +102,20 @@ def taipower_file_role(
 ) -> str:
     if file_type not in {"answer", "corrected_answer"}:
         return file_type
+    if category_code != str(year_roc):
+        from app.providers.taipower_recruit.evidence import original_category_code
+
+        category_code = (
+            original_category_code(
+                source_exam_id=source_exam_id,
+                year_roc=year_roc,
+                category_code=category_code,
+                subject_code=subject_code,
+                title=title,
+                source_url=source_url,
+            )
+            or category_code
+        )
     key = (source_exam_id, category_code, subject_code, title, source_url, checksum)
     for fact in taipower_corrections():
         if fact.source_key[:-1] == key[:-1] and year_roc == int(fact.category_code):

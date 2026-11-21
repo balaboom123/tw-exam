@@ -438,7 +438,15 @@ class TaipowerRecruitParserTests(unittest.TestCase):
         urls = {url for paper in page.papers for url in paper.files.values()}
         self.assertEqual(len(urls), 4)
         codes = [paper.subject_code for paper in page.papers]
-        self.assertEqual(codes, ["hiring-01", "hiring-02", "hiring-03", "hiring-04"])
+        self.assertEqual(
+            codes,
+            [
+                "src-963e44e31067584f1bec",
+                "src-f58f94c172541877ede3",
+                "src-d3e67a9f6df51e72d2be",
+                "src-b96f298845a3db4b21fa",
+            ],
+        )
         file_types = [ft for paper in page.papers for ft in paper.files]
         self.assertEqual(file_types, ["question", "answer", "question", "answer"])
 
@@ -594,17 +602,20 @@ class TaipowerRecruitParserTests(unittest.TestCase):
         from app.storage import MirrorStore
         from app.sync import sync_exam_pages
 
-        url = "https://www.taipower.com.tw/media/common.pdf?mediaDL=true"
+        # An unreviewed future event still refreshes its source payloads. The
+        # reviewed historical events additionally require their complete
+        # native population and approved bytes.
+        url = "https://www.taipower.com.tw/media/future/common.pdf?mediaDL=true"
         page = SourceExamPage(
-            source_exam_id="taipower-recruit-113",
-            year_ad=2024,
-            year_roc=113,
-            exam_name_raw="113年度台電新進僱用人員甄試",
+            source_exam_id="taipower-recruit-116",
+            year_ad=2027,
+            year_roc=116,
+            exam_name_raw="116年度台電新進僱用人員甄試",
             attachments=[],
             papers=[
                 ParsedPaper(
                     category_raw="台電新進僱用人員甄試",
-                    category_code="113",
+                    category_code="116",
                     subject_code="hiring-01",
                     subject_name_raw="國文及英文",
                     files={"question": url},
@@ -614,7 +625,7 @@ class TaipowerRecruitParserTests(unittest.TestCase):
         )
         old = b"%PDF-1.7 retained MOEA common paper"
         fresh = b"%PDF-1.7 current Taipower hiring paper"
-        key = "providers/taipower_recruit/113/taipower-recruit-113/113/hiring-01/question.pdf"
+        key = "providers/taipower_recruit/116/taipower-recruit-116/116/hiring-01/question.pdf"
         with tempfile.TemporaryDirectory() as temporary:
             store = MirrorStore(Path(temporary))
             store.write_bytes(key, old)
@@ -630,7 +641,7 @@ class TaipowerRecruitParserTests(unittest.TestCase):
             ):
                 _, catalog, failures = sync_exam_pages(
                     client=TaipowerRecruitProvider(),
-                    exam_codes=[("taipower-recruit-113", 2024)],
+                    exam_codes=[("taipower-recruit-116", 2027)],
                     mirror_store=store,
                     alias_rules=[],
                     mirror_base_url="",

@@ -997,8 +997,8 @@
       ],
       "exam_category": "University/common academic papers of the entrance examination for students with disabilities, preserving historical mathematics subjects separately from the new curriculum.",
       "local_state": {
-        "raw_event_pages": 15,
         "normalized_paper_records": 252,
+        "raw_event_pages": 15,
         "sync_failures": 0
       },
       "local_years": [
@@ -1075,10 +1075,10 @@
     },
     {
       "available_years": {
-        "mode": "observed_range",
-        "start_ad": 2017,
         "end_ad": 2017,
-        "note": "Nineteen sample PDFs explicitly print initial publication in 2017; native modification dates (mostly 2023) are separate facts. Sixteen audio, archive and companion resources have no declared date. These are material publication dates, not examination-event years."
+        "mode": "observed_range",
+        "note": "Nineteen sample PDFs explicitly print initial publication in 2017; native modification dates (mostly 2023) are separate facts. Sixteen audio, archive and companion resources have no declared date. These are material publication dates, not examination-event years.",
+        "start_ad": 2017
       },
       "discovery_snapshot": {
         "coverage": "partial",
@@ -1124,11 +1124,12 @@
         "status": "present"
       },
       "evidence": [
-        "docs/providers/notes.md#taipower_recruit"
+        "docs/providers/notes.md#taipower_recruit",
+        "catalog/mappings/taipower/native-programmes-v1.json"
       ],
       "exam_category": "Taipower recruitment written papers and answer keys",
       "local_state": {
-        "normalized_paper_records": 610,
+        "normalized_paper_records": 1591,
         "raw_event_pages": 23,
         "sync_failures": 0
       },
@@ -1166,11 +1167,11 @@
         "Taipower hiring and historical training-class papers are distinct from MOEA staff selection. All 1,486 native staff references are now the current MOEA source, while all 370 earlier misowned hiring references retain their exact original metadata and independent recovery in the MOEA revision journal. Complete staff historical/programme identity and visible-body/role review remains pending, so its site projection stays quarantined. Source acquisition correction does not approve publication.",
         "Eight unreferenced stale PDFs totaling 3,570,035 bytes were isolated from the active mirror after independent checksum-verified recovery copies were saved.",
         "Hosted discovery returned HTTP 403 on 2026-10-09 before acquisition. The workflow preserved all provider state and skipped publication; complete local acquisition remains verified, without inferring a geographic or permanent restriction.",
-        "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. Full historical occupational and selection-stage mapping still needs primary-rule review."
+        "Taipower permits attributed reuse within its owned rights with exclusions; the declaration does not independently prove ownership of every exam item. Exact native rulebooks, duties, category tables and original paper bytes establish the reviewed annual job/booklet relationships. Seven earlier events lack complete occupational rules; their 123 retained references remain retained under review. The initial written stage is supported for 20 events; three earlier stages remain unknown. No complete historical body review is claimed."
       ],
       "source_name": "台灣電力股份有限公司",
       "status": "covered",
-      "status_reason": "Covered for the currently linked archive: direct 2026-10-09 acquisition covers all 23 events, 314 subject groups and 610 verified PDFs, including both ROC 107 sessions. All 370 earlier source keys survive; 26 replaced originals have verified revision recovery. Broader historical occupational and stage semantics remain under review."
+      "status_reason": "Normal full acquisition on 2026-11-02 verified all 23 events and the 610 original paper resources. A complete official listing recheck on 2026-11-07 found one changed ROC 97 electronics URL and payload; normal scoped sync retained both versions. All 627 retained originals, including 16 rulebooks, are SHA-256 verified locally; 610 paper URLs remain listed officially. Reviewed native relationships still cover 245 annual job contexts and 1,468 references; 123 earlier references remain under review. The conserving writer preserves all 488 superseded generic references and 54 earlier revisions in independent recovery. Historical occupational gaps remain explicit; the URL replacement does not approve publication."
     },
     {
       "available_years": {
@@ -1488,10 +1489,10 @@
     },
     {
       "available_years": {
-        "mode": "observed_range",
-        "start_ad": 2025,
         "end_ad": 2026,
-        "note": "Reviewed annual programme scope; exact sources, shared-booklet applicability and unresolved historical document recovery are owned by native-programmes-v1."
+        "mode": "observed_range",
+        "note": "Reviewed annual programme scope; exact sources, shared-booklet applicability and unresolved historical document recovery are owned by native-programmes-v1.",
+        "start_ad": 2025
       },
       "discovery_snapshot": {
         "coverage": "complete",
@@ -1526,10 +1527,10 @@
     },
     {
       "available_years": {
-        "mode": "observed_range",
-        "start_ad": 2024,
         "end_ad": 2026,
-        "note": "Reviewed native annual programme scope; exact sources and applicability are owned by native-programmes-v1."
+        "mode": "observed_range",
+        "note": "Reviewed native annual programme scope; exact sources and applicability are owned by native-programmes-v1.",
+        "start_ad": 2024
       },
       "discovery_snapshot": {
         "coverage": "complete",
@@ -1542,8 +1543,8 @@
       ],
       "exam_category": "Taipei junior-high formal teacher recruitment",
       "local_state": {
-        "raw_event_pages": 3,
         "normalized_paper_records": 159,
+        "raw_event_pages": 3,
         "sync_failures": 0
       },
       "local_years": [
@@ -1653,10 +1654,10 @@
     },
     {
       "available_years": {
-        "mode": "observed_range",
-        "start_ad": 2022,
         "end_ad": 2022,
-        "note": "Only the adjustment PDF explicitly prints a 2022 publication date. Rolling-bank materials, instruction originals and vocabulary workbooks/ZIP remain undated; the September 2026 bank update is not an examination or per-file publication date."
+        "mode": "observed_range",
+        "note": "Only the adjustment PDF explicitly prints a 2022 publication date. Rolling-bank materials, instruction originals and vocabulary workbooks/ZIP remain undated; the September 2026 bank update is not an examination or per-file publication date.",
+        "start_ad": 2022
       },
       "discovery_snapshot": {
         "coverage": "partial",

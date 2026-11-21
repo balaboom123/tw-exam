@@ -23,6 +23,7 @@ from app.normalizer import load_alias_rules, renormalize_catalog
 from app.paths import ProviderPaths, SitePaths, provider_paths, site_paths
 from app.provenance import add_frontend_provenance
 from app.provider_index import (
+    INDEX_SCHEMA_VERSION,
     build_provider_index,
     load_provider_index,
     write_provider_index,
@@ -477,6 +478,12 @@ def load_site_catalog(
             )
 
             validate_kaohsiung_papers(provider_catalog.papers, complete_history=True)
+        if provider_id == "taipower_recruit":
+            from app.providers.taipower_recruit.evidence import (
+                validate_public_papers as validate_taipower_papers,
+            )
+
+            validate_taipower_papers(provider_catalog.papers, complete_history=True)
         aggregated_papers.extend(provider_catalog.papers)
         aggregated_review_queue.extend(provider_catalog.review_queue)
         failures.extend(provider_failures)
@@ -511,8 +518,8 @@ def load_site_provider_indexes(repo_root: Path, *, site_id: str) -> list[dict[st
         index = load_provider_index(provider)
         if index is None:
             return None
-        if index["schema_version"] == 2:
-            return None  # V2 has no material kind/date basis for a public projection.
+        if index["schema_version"] != INDEX_SCHEMA_VERSION:
+            return None  # Older caches omit classification review decisions.
         indexes.append(index)
     return indexes
 

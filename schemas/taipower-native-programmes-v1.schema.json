@@ -1,0 +1,471 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tw-exam.invalid/schemas/taipower-native-programmes-v1.schema.json",
+  "title": "Taipower stable original source references and native annual recruitment categories",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "provider_id",
+    "reviewed_at",
+    "occupations",
+    "source_events",
+    "annual_exams"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "provider_id": {
+      "const": "taipower_recruit"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "minLength": 1,
+      "format": "date"
+    },
+    "occupations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/occupation"
+      }
+    },
+    "source_events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source_event"
+      }
+    },
+    "annual_exams": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/annual_exam"
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_url",
+        "checksum",
+        "physical_page"
+      ],
+      "properties": {
+        "source_url": {
+          "type": "string",
+          "minLength": 1,
+          "format": "uri"
+        },
+        "checksum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "physical_page": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "occupation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "occupation_id",
+        "label",
+        "native_labels",
+        "correspondence_reason",
+        "correspondence_evidence"
+      ],
+      "properties": {
+        "occupation_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "native_labels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "correspondence_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "correspondence_evidence": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        }
+      }
+    },
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_code",
+        "label",
+        "source_file_type",
+        "source_url",
+        "checksum",
+        "size"
+      ],
+      "properties": {
+        "subject_code": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_file_type": {
+          "enum": [
+            "question",
+            "answer"
+          ]
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^https://www\\.taipower\\.com\\.tw/media/[^/?#]+/[^?#]+\\.pdf(?:\\?mediaDL=true)?$"
+        },
+        "checksum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "source_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_exam_id",
+        "year_roc",
+        "exam_name_raw",
+        "source_category_code",
+        "legacy_category_raw",
+        "files",
+        "selection_stage",
+        "source_evidence",
+        "unresolved_occupation_reason"
+      ],
+      "properties": {
+        "source_exam_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^taipower-recruit-[0-9]{2,3}(?:-[0-9]{1,2})?$"
+        },
+        "year_roc": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200
+        },
+        "exam_name_raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_category_code": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9]{2,3}$"
+        },
+        "legacy_category_raw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/file"
+          }
+        },
+        "selection_stage": {
+          "enum": [
+            "stage-1",
+            "unknown"
+          ]
+        },
+        "source_evidence": {
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "unresolved_occupation_reason": {
+          "type": "string"
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "source_url",
+        "checksum",
+        "size",
+        "page_count",
+        "eligibility_page",
+        "initial_written_page",
+        "reexamination_page"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_url": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^https://www\\.taipower\\.com\\.tw/media/[^/?#]+/[^?#]+\\.pdf(?:\\?mediaDL=true)?$"
+        },
+        "checksum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "eligibility_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "initial_written_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "reexamination_page": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "booklet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "booklet_id",
+        "subject_name",
+        "written_period",
+        "timetable_period",
+        "duration_minutes",
+        "question_source_code",
+        "answer_source_code",
+        "native_question_page",
+        "native_answer_page",
+        "answer_coverage_note"
+      ],
+      "properties": {
+        "booklet_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "subject_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "written_period": {
+          "enum": [
+            "common",
+            "A",
+            "B"
+          ]
+        },
+        "timetable_period": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "question_source_code": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "answer_source_code": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "native_question_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "native_answer_page": {
+          "oneOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "answer_coverage_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "job": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category_code",
+        "occupation_id",
+        "native_label",
+        "population",
+        "native_table_order",
+        "native_rule_page",
+        "booklets",
+        "weights"
+      ],
+      "properties": {
+        "category_code": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "occupation_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "native_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "population": {
+          "enum": [
+            "general",
+            "disability"
+          ]
+        },
+        "native_table_order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "native_rule_page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "booklets": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "maxItems": 3,
+          "uniqueItems": true
+        },
+        "weights": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          }
+        }
+      }
+    },
+    "annual_exam": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_exam_id",
+        "reviewed_at",
+        "rule",
+        "review_notes",
+        "booklets",
+        "jobs"
+      ],
+      "properties": {
+        "source_exam_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_at": {
+          "type": "string",
+          "minLength": 1,
+          "format": "date"
+        },
+        "rule": {
+          "$ref": "#/$defs/rule"
+        },
+        "review_notes": {
+          "type": "string",
+          "minLength": 1
+        },
+        "booklets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/booklet"
+          }
+        },
+        "jobs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/job"
+          }
+        }
+      }
+    }
+  }
+}

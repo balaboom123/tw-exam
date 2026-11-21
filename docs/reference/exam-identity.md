@@ -46,6 +46,22 @@ occupation. Regional or disability allocations using identical papers do not
 create additional content variants. The postal evidence catalog is the owner
 of these decisions; source-page order and frontend title parsing are not.
 
+Taipower hiring and historical training recruitment uses its separate
+[annual programme evidence](../../catalog/mappings/taipower/native-programmes-v1.json).
+The native category tables and occupational duties establish cross-year tracks;
+the common, A and B booklets describe written periods rather than selection
+stages or examination grades. Reviewed categories use the initial written stage
+and no numerical grade. Shared paper content does not merge occupations.
+Disability-restricted categories using the same booklets and weights retain
+their source categories and searchable eligibility labels inside the same
+occupation bundle, with shared payload entries. They do not establish another
+paper form. Annual original URLs, source codes, labels, checksums and full booklet
+coverage bind each job relationship. Generic source references move into
+immutable history only when their complete native successors are verified.
+Earlier occupational gaps remain under review without losing the original
+download. The old generic ZIP remains a frozen download with navigation to the
+reviewed successors; source bytes and source keys do not change with job labels.
+
 WDA's Chinese masters for foreign-assisted written tests are content-changing
 paper forms. Their native headers, original source contexts and checksums own
 this distinction; a foreign language cannot be assigned from a Chinese master.
